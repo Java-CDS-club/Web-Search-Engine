@@ -1,0 +1,29 @@
+C++ String insert() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ String insert()This function is used to insert a new character, before the character indicated by the position pos.SyntaxConsider two strings str1 and str2, pos is the positon. Syntax would be :str1.insert(pos,str2);Parametersstr : String object to be inserted in another string object.pos : It defines the position at which new content is inserted just before the specified position.subpos : It defines the position of first character in string str which is to be inserted in another string object.sublen : It defines the number of characters of string str to be inserted in another string object.n : It determines the number of characters to be inserted.c : Character value to insert.Example 1Let's see the simple example.     #include<iostream>
+     using namespace std;
+     int main()
+    {
+     string str1= "javat tutorial";
+     cout<<"String contains :" <<str1<<'\n';
+     cout<<"After insertion, String value is :"<<str1.insert(5,"point");
+     return 0;
+     } Output:String contains : javat tutorial
+After insertion, String value is javatpoint tutorialExample 2Let's the simple example of insertion when subpos and sublen are given.#include<iostream>
+using namespace std;
+int main()
+{
+string str1 = "C++  is a language";
+string str2 = "programming";
+cout<<"String contains :" <<str1<<'\n';
+cout<<"After insertion, String is :"<< str1.insert(9,str2,0,11);
+return 0;
+} Output:String contains C++ is a language
+After insertion, String is C++ is a programming languageExample 3Let's see the simple example of insertion when number of characters to be inserted are given.#include<iostream>
+using namespace std;
+int main()
+{
+string str = "Maths is favorite subject" ;
+cout<<"String contains :"<<str<<'\n';
+cout<<"After insertion, String contains :<<str.insert(9,"my",2);
+return 0;
+} Output:String contains : Maths is favorite subject
+         After insertion, String contains : Maths is my favorite subjectNext TopicC++ Strings? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

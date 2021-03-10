@@ -1,0 +1,52 @@
+ASP.Net Web Form CompareValidator - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevASP.NET ValidationIn this chapter, we will discuss about the data validation in the Web Forms. To perform validation, ASP.NET provides controls that automatically check user input and require no code. We can also create custom validation for our application.ASP.NET validation controlsFollowing are the validation controlsValidatorDescriptionCompareValidatorIt is used to compare the value of an input control against a value of another input control.RangeValidatorIt evaluates the value of an input control to check the specified range.RegularExpressionValidatorIt evaluates the value of an input control to determine whether it matches a pattern defined by a regular expression.RequiredFieldValidatorIt is used to make a control required.ValidationSummaryIt displays a list of all validation errors on the Web page.ASP.NET CompareValidator ControlThis validator evaluates the value of an input control against another input control on the basis of specified operator.We can use comparison operators like: less than, equal to, greater than etc.Note: If the input filed is empty, no validation will be performed.CompareValidator PropertiesPropertyDescriptionAccessKeyIt is used to set keyboard shortcut for the control.TabIndexThe tab order of the control.BackColorIt is used to set background color of the control.BorderColorIt is used to set border color of the control.BorderWidthIt is used to set width of border of the control.FontIt is used to set font for the control text.ForeColorIt is used to set color of the control text.TextIt is used to set text to be shown for the control.ToolTipIt displays the text when mouse is over the control.VisibleTo set visibility of control on the form.HeightIt is used to set height of the control.WidthIt is used to set width of the control.ControlToCompareIt takes ID of control to compare with.ControlToValidateIt takes ID of control to validate.ErrorMessageIt is used to display error message when validation failed.OperatorIt is used set comparison operator.ExampleHere, in the following example, we are validating user input by using CompareValidator controller. Source code of the example is given below.// compare_validator_demo.aspx<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="compare_validator_demo.aspx.cs" 
+Inherits="asp.netexample.compare_validator_demo" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title></title>
+<style type="text/css">
+.auto-style1 {
+width: 100%;
+        }
+.auto-style2 {
+height: 26px;
+        }
+.auto-style3 {
+height: 26px;
+width: 93px;
+        }
+.auto-style4 {
+width: 93px;
+        }
+</style>
+</head>
+<body>
+<form id="form1" runat="server">
+<table class="auto-style1">
+<tr>
+<td class="auto-style3">
+                        First value</td>
+<td class="auto-style2">
+<asp:TextBox ID="firstval" runat="server" required="true"></asp:TextBox>
+</td>
+</tr>
+<tr>
+<td class="auto-style4">
+      Second value</td>
+<td>
+<asp:TextBox ID="secondval" runat="server"></asp:TextBox>
+       It should be greater than first value</td>
+</tr>
+<tr>
+<td class="auto-style4"></td>
+<td>
+<asp:Button ID="Button1" runat="server" Text="save"/>
+</td>
+</tr>
+</table>
+< asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="secondval" 
+ControlToValidate="firstval" Display="Dynamic" ErrorMessage="Enter valid value" ForeColor="Red" 
+Operator="LessThan" Type="Integer"></asp:CompareValidator>
+</form>
+</body>
+</html>Output:Next TopicASP.NET RangeValidator? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

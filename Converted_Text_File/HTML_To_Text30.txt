@@ -1,0 +1,202 @@
+Add JavaScript to HTML - javatpoint?HomeCJavaPHPHTMLXHTMLCSSBootstrapJavaScriptjQueryjQuery UIXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingWeb Designing TrainingHTML TutorialIntroduction to HTML What is HTML HTML Text Editors HTML Building Blocks HTML tags HTML Attributes HTML Elements HTML Formatting HTML Heading HTML Paragraph HTML Phrase Tags HTML Anchor HTML Image HTML Table HTML Lists HTML Ordered List HTML Unordered List HTML Description List HTML Form HTML Form Input HTML Form Attribute HTML with CSS HTML Classes HTML Id HTML Iframes HTML JavaScript HTML Comments HTML File Path HTML Head HTML Layout HTML Layout Techniques HTML Responsive HTML Computercode HTML Entities HTML Symbols HTML Charset HTML URL EncodeHTML AttributesHTML Global Attributes HTML Event AttributesHTML Tags ListHTML Tags List HTML 5 Tags HTML <!DOCTYPE> Tag HTML <a> Tag HTML <abbr> Tag HTML <acronym> Tag HTML <address> Tag HTML <applet> Tag HTML <area> Tag HTML <article> Tag HTML <aside> Tag HTML <audio> Tag HTML <b> Tag HTML <base> Tag HTML <basefont> Tag HTML <bdi> Tag HTML <bdo> Tag HTML <big> Tag HTML <blockquote> Tag HTML <body> Tag HTML <br> Tag HTML <button> Tag HTML <canvas> Tag HTML <caption> Tag HTML <center> Tag HTML <cite> Tag HTML <code> Tag HTML <col> Tag HTML <colgroup> Tag HTML <data> Tag HTML <datalist> Tag HTML <dd> Tag HTML <del> Tag HTML <details> Tag HTML <dfn> Tag HTML <dialog> Tag HTML <dir> Tag HTML <div> Tag HTML <dl> Tag HTML <dt> Tag HTML <em> Tag HTML <embed> Tag HTML <fieldset> Tag HTML <figcaption> Tag HTML <figure> Tag HTML <font> Tag HTML <footer> Tag HTML <form> Tag HTML <frame> Tag HTML <frameset> Tag HTML <h1> to <h6> Tag HTML <head> Tag HTML <header> Tag HTML <hr> Tag HTML <html> Tag HTML <i> Tag HTML <iframe> Tag HTML <img> Tag HTML <input> Tag HTML <ins> Tag HTML <isindex> Tag HTML <kbd> Tag HTML <label> Tag HTML <legend> Tag HTML <li> Tag HTML <link> Tag HTML <main> Tag HTML <map> Tag HTML <mark> Tag HTML <marquee> Tag HTML <menu> Tag HTML <meta> Tag HTML <meter> Tag HTML <nav> Tag HTML <noframes> Tag HTML <noscript> Tag HTML <object> Tag HTML <ol> Tag HTML <optgroup> Tag HTML <option> Tag HTML <output> Tag HTML <p> Tag HTML <param> Tag HTML <picture> Tag HTML <pre> Tag HTML <progress> Tag HTML <q> Tag HTML <rp> Tag HTML <rt> Tag HTML <ruby> Tag HTML <s> Tag HTML <samp> Tag HTML <script> Tag HTML <section> Tag HTML <select> Tag HTML <small> Tag HTML <source> Tag HTML <span> Tag HTML <strike> Tag HTML <strong> Tag HTML <style> Tag HTML <sub> Tag HTML <summary> Tag HTML <sup> Tag HTML <svg> Tag HTML <table> Tag HTML <tbody> Tag HTML <td> Tag HTML <template> Tag HTML <textarea> Tag HTML <tfoot> Tag HTML <th> Tag HTML <thead> Tag HTML <time> Tag HTML <title> Tag HTML <tr> Tag HTML <track> Tag HTML <tt> Tag HTML <u> Tag HTML <ul> Tag HTML <var> Tag HTML <video> Tag HTML <wbr> TagHTML5 AdvanceHTML5 tutorial HTML5 User Manual HTML 5 Tags HTML5 New Elements HTML Event Attributes HTML Google Maps HTML5 Semantics HTML5 Migration HTML Audio HTML Video HTML SVG HTML CanvasHTML APIHTML Drag & Drop HTML Geolocation HTML Web Storage HTML Web Workers HTML SS EventHTML Color NamesHTML Color NamesHTML MiscHTML Button onClick HTML Checkbox Tag HTML code Tag HTML favicon HTML Login Form HTML Radio Tag HTML Registration Form HTML Required Attribute HTML Space Code HTML Text Tag HTML Background-color HTML Date HTML Form Action HTML Id Attribute HTML List Box Add JavaScript to HTML HTML Background Image HTML Button Type HTML Hide Element HTML Reset Button HTML Search Box HTML Selected Attribute Simple HTML Pages Create HTML Page HTML Button Disabled HTML Font Color HTML Font Size HTML Image Button HTML Nested TableInterview QuestionsHTML Interview Questionsnext ? ? prevAdd JavaScript to HTMLThere are following three ways through which we can add the JavaScript code into the HTML document:Include the JavaScript code in <head>…</head> tag.Include the JavaScript code between the <Body> …</Body> tag and after the closing of the body tag.Link the separate file of JavaScript in HTMLInclude the JavaScript Code in <head> tag.In this section, you will learn to include the JavaScript code between the <head> and </head> tag.Syntax<html>
+<head>
+<script>
+JavaScript Code
+Statement 1
+Statement 2
+......
+Statement N
+</script>
+</head>
+<body>
+</body>
+</html>In the above syntax, the JavaScript code written between the <script>……. </script> tag is put between the <head> and </head> tag in HTML file.Example<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+Include JavaScript in head tag 
+</title>
+
+<script>
+function check()
+{
+/* The following statement is used to display a Confirm dialog box on a webpage with the statement which is enclosed in the brackets. */
+confirm("Your JavaScript Code Run"); 
+}
+</script>
+<style>
+/* The following tag selector button use the different properties for the Button. */
+button {
+  background-color: red;
+padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  color: white;
+  width: 100%;
+  opacity: 0.9;
+}
+/* The following tag selector hover use the opacity property for the Button which select button when you mouse over it. */
+button:hover {
+opacity: 1;
+}
+</style>
+</head>
+<body>
+<form>
+<!-- The following statement use the Button type which is used to call a function of JavaScript when this button is clicked. -->
+<button type="button" onclick="check()"> Click Me for running a JavaScript Code </button>
+
+</form>
+</body>
+</html>Test it NowOutput:2. i) Include the JavaScript code in the <body> tag.In this section, you will learn about how to include the JavaScript code in-between the <body> and </body> tag.Syntax<html>
+<head>
+</head>
+<body>
+
+<script>
+JavaScript Code
+Statement 1
+Statement 2
+......
+Statement N
+</script>
+</body>
+</html>In the above syntax, the JavaScript code written between the <script>……. </script> tag is put in-between of the <body> and </body> tag in HTML file.Example<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+Include JavaScript in body tag 
+</title>
+<style>
+/* The following tag selector button use the different properties for the Button. */
+button {
+  background-color: red;
+   padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+ color: white;
+  width: 100%;
+  opacity: 0.9;
+}
+/* The following tag selector hover use the opacity property for the Button which select button when you mouse over it. */
+button:hover {
+opacity: 1;
+}
+</style>
+</head>
+<body>
+<form>
+<script>
+function bdy_JS ()
+{
+/* The following statement is used to display a Confirm dialog box on a webpage with the statement which is enclosed in the brackets. */
+confirm("Your JavaScript Code Run which is used in the Body tag");
+}
+</script>
+
+<!-- The following statement use the Button type which is used to call a function of JavaScript when this button is clicked. -->
+<button type="button" onclick="bdy_JS()"> Click Me for running a JavaScript Code </button>
+</form>
+</body>
+</html>Test it NowOutput:ii) Include the JavaScript code after the <body> tag.In this section, you will learn to include the JavaScript code after the <body> tag.Syntax<html>
+<head>
+</head>
+<body>
+</body>
+<script>
+JavaScript Code
+Statement 1
+Statement 2
+......
+Statement N
+</script>
+
+</html>In the above syntax, the JavaScript code written between the <script>……. </script> tag is put after the <body>…</body> tag in HTML file.Example<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+Include JavaScript code after the body tag 
+</title>
+<style>
+/* The following tag selector button use the different properties for the Button. */
+button {
+  background-color: red;
+  color: white;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 16px 20px;
+  opacity: 0.9;
+}
+/* The following tag selector hover use the opacity property for the Button which select button when you mouse over it. */
+button:hover {
+opacity: 1;
+}
+</style>
+</head>
+<body>
+<form>
+<!-- The following statement use the Button type which is used to call a function of JavaScript when this button is clicked. -->
+<button type="button" onclick="bdy_JS()"> Click Me for running a JavaScript Code </button>
+
+</form>
+</body>
+<script>
+function bdy_JS ()
+{
+/* The following statement is used to display a Confirm dialog box on a webpage with the statement which is enclosed in the brackets. */
+confirm("Your JavaScript Code Run which is used after the Body tag");
+}
+</script>
+</html>Test it NowOutput:Link the Separate file of JavaScript in HTMLIn this section, you will learn to include the file of JavaScript code in the HTML file.Syntax<html>
+<head>
+<script src="Name_of_JavaScript_file>
+</script>
+</head>
+<body>
+</body>
+</html>In the above syntax, the src is an attribute of <script> tag used for specifying the name of the JavaScript file.ExampleThe following code is written in JavaScript (inc), which is saved by .js extension.function funcjs ()
+{
+/* The following statement displays a Confirm dialog box on a webpage with the statement which is enclosed in the brackets. */
+confirm("Your JavaScript Code Run which is used after the Body tag");
+}The following code is written in an HTML file which uses the src attribute in the <script> tag to specify the above JavaScript file.<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+Include JavaScript file in head tag of HTML file 
+</title>
+<script src="inc.js">
+</script>
+<style>
+/* The following tag selector button use the different properties for the Button. */
+button {
+  background-color: red;
+  color: white;
+margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 16px 20px;
+  opacity: 0.9;
+}
+/* The following tag selector hover use the opacity property for the Button which select button when you mouse over it. */
+button:hover {
+opacity: 1;
+}
+</style>
+</head>
+<body>
+<form>
+<!-- The following statement use the Button type which is used to call a function of JavaScript when this button is clicked. -->
+
+<button type="button" onclick="funcjs()"> Click Me for running a JavaScript Code </button>
+</form>
+</body>
+</html>Test it NowOutput:Next TopicHTML Background Image? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,135 @@
+CodeIgniter Database Login Form - javatpoint?HomeCJavaPHPMySQLWordPressCodeIgniterHTMLCSSBootstrapJavaScriptjQueryjQuery UIXMLAjaxSQLQuizProjectsInterview QCommentForumTrainingCodeIgniter TutorialCodeIgniter Tutorial What is CodeIgniter CodeIgniter License CodeIgniter versions CodeIgniter Feature CodeIgniter Installation CodeIgniter File System CodeIgniter Architecture CodeIgniter MVC Models Views ControllerCodeIgniter ExampleCodeIgniter First Example CodeIgniter URL CodeIgniter Create a site CodeIgniter Methods CodeIgniter Helper CodeIgniter Library CodeIgniter URL Routing CodeIgniter Hooks CI Passing Parameters CodeIgniter DriverCodeIgniter DatabaseCodeIgniter Database CI Database Insert CI Database select CI Login Form CI Database Login FormCodeIgniter SecurityCI Security Class CI CSRFCodeIgniter InterviewCI Interview Questionsnext ? ? prevLogin page (with database)In earlier example, we learnt a simple login page with one single username and session.Now we'll make it with more than one users using database. A sign in and login page will be there for users.Following pages are made in this example.In application/controllersMain.phpIn application/viewslogin_view.phpinvalid.phpdata.phpsignin.phpIn application/modelslogin_model.phpIn the first page, you'll have the option for Login and Sign In.On Login, if user has entered correct credentials matching to database then he will be directed to data.php page. But if he has entered wrong information then incorrect username/password message will appear.We have named our CodeIgniter folder as login_db. And our table name is signup.We need to do some basic settings in our login_db CodeIgniter folder.Go to autoload.php file, and do the following settings.In the above snpashot, we have loaded the libraries and helper.In database.php file, fill your username and database name. Our database name is codeigniter.Now, we?ll start the example.We have made file Main.php in application/controllers folder,?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Main extends CI_Controller {
+
+	public function index()
+	{
+		$this->login();
+	}
+
+	public function login()
+	{
+		$this->load->view('login_view');
+	}
+
+	public function signin()
+	{
+		$this->load->view('signin');
+	}
+
+	public function data()
+	{
+		if ($this->session->userdata('currently_logged_in')) 
+		{
+			$this->load->view('data');
+		} else {
+			redirect('Main/invalid');
+		}
+	}
+
+	public function invalid()
+	{
+		$this->load->view('invalid');
+	}
+
+	public function login_action()
+	{
+		$this->load->helper('security');
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('username', 'Username:', 'required|trim|xss_clean|callback_validation');
+		$this->form_validation->set_rules('password', 'Password:', 'required|trim');
+
+		if ($this->form_validation->run()) 
+		{
+			$data = array(
+				'username' => $this->input->post('username'),
+				'currently_logged_in' => 1
+				);	
+					$this->session->set_userdata($data);
+				redirect('Main/data');
+		} 
+		else {
+			$this->load->view('login_view');
+		}
+	}
+
+	public function signin_validation()
+	{
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('username', 'Username', 'trim|xss_clean|is_unique[signup.username]');
+
+		$this->form_validation->set_rules('password', 'Password', 'required|trim');
+
+		$this->form_validation->set_rules('cpassword', 'Confirm Password', 'required|trim|matches[password]');
+
+		$this->form_validation->set_message('is_unique', 'username already exists');
+
+	if ($this->form_validation->run())
+		{
+			echo "Welcome, you are logged in.";
+		 } 
+			else {
+			
+			$this->load->view('signin');
+		}
+	}
+
+	public function validation()
+	{
+		$this->load->model('login_model');
+
+		if ($this->login_model->log_in_correctly())
+		{
+
+			return true;
+		} else {
+			$this->form_validation->set_message('validation', 'Incorrect username/password.');
+			return false;
+		}
+	}
+
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('Main/login');
+	}
+
+}
+?>
+
+In application/views folder, login_view.php file is made.
+	
+	Login PageLogin?php echo form_open('Main/login_action'); echo validation_errors(); echo "Username: "; echo form_input('username', $this->input->post('username')); echo ""; echo "Password: "; echo form_password('password'); echo ""; echo ""; echo form_submit('login_submit', 'Login'); echo ""; echo form_close(); ?> Sign InIn application/views folder, data.php file is made.
+	Welcome, You are successfully logged in. ?php echo "";
+	echo print_r($this->session->all_userdata());
+	echo ""; ?> LogoutIn application/views folder, signin.php file is made.
+
+	Sign Up PageSign In?php echo form_open('Main/signin_validation'); echo validation_errors(); echo "Username:"; echo form_input('email'); echo ""; echo "Password:"; echo form_password('password'); echo ""; echo "Confirm Password:"; echo form_password('cpassword'); echo ""; echo ""; echo form_submit('signin_submit', 'Sign In'); echo ""; echo form_close(); ?>In application/views folder, invalid.php file is made.
+
+	Invalid PageSorry, You don't have access to this page.Login AgainIn application/models folder, login_model.php file is made.?php
+
+class Login_model extends CI_Model {
+
+	public function log_in_correctly() {
+
+		$this->db->where('username', $this->input->post('username'));
+		$this->db->where('password', $this->input->post('password'));
+		$query = $this->db->get('signup');
+
+		if ($query->num_rows() == 1)
+		{
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	
+}
+?>
+
+On entering the URL, http://localhost/login_db/index.php/Main/Following page will appear.Enter the information to Login.After entering information, click on Login button. We have entered the wrong information and hence it will show the error message as shown below.On entering the information from database, we' ll be directed to data.php page.Click on Login button.Clicking on Logout button, you'll be directed to the Main page.On clicking Sign In, following page will appear.download this exampleNext TopicCodeIgniter Security Class? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

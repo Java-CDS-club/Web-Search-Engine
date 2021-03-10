@@ -1,0 +1,37 @@
+C++ algorithm move_backward() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm Functions move backward ()The function is used for moving of elements in the backward order, it accepts three arguments and then moves the elements belonging to the range [first,last). The moving of elements begins in the reverse order with termination point at 'result'.Syntaxtemplate<class BidirectionalIterator1, class BidirectionalIterator2>
+BidirectionalIterator2 move_backward(BidirectionalIterator1 first, BidirectionalIterator1 last, BidirectionalIterator2 result);Parameterfirst: It is a bidirectional iterator to the first element of the range, where the element itself is included in the range.last: It is a bidirectional iterator to the last element of the range, where the element itself is not included in the range.result: It is a bidirectional iterator to the final position of moved elements.Return valueThe function returns an iterator the first element to the sequence of moved ones.Example 1#include <iostream>     
+#include <algorithm>   
+#include <string>       
+int main () 
+{
+  std::string elem[10] = {"kunal","suraj","shweta","chhavi"};
+  std::move_backward (elem,elem+4,elem+5);
+  elem[0]="keto";
+  std::cout << "elem contains:";
+  for (int j=0; j<10; ++j)
+    std::cout << " [" << elem[j] << "]";
+  std::cout << '\n';
+  return 0;
+}Output:elem contains: [keto] [kunal] [suraj] [shweta] [chhavi] [] [] [] [] []Example 2#include<bits/stdc++.h>
+int main()
+{
+	std :: vector <int> u1 {5,9,14,8,18};
+	std :: vector <int> u2 {5,5,5,5};
+	std :: cout << "u1 contains :";
+	for(int j = 0; j < u1.size(); j++)
+	std :: cout << " " << u1[j];
+	std :: cout << "\n";
+	std :: cout << "u2 contains :";
+	for(unsigned int j = 0; j < u2.size(); j++)
+	std :: cout << " " << u2[j];
+	std :: cout << "\n\n";
+	std :: move_backward (u2.begin(), u2.begin() + 3, u1.begin() + 3);
+	std :: cout << "u1 after applying move_backward function contains:";
+	for(unsigned int j = 0; j < u1.size(); j++)
+	std :: cout << " " << u1[j];
+	std :: cout << "\n";
+            return 0;
+}Output:u1 contains : 5 9 14 8 18
+u2 contains : 5 5 5 5
+
+u1 after applying move_backward function contains: 5 5 5 8 18ComplexityThe complexity of the function is linear starting from the first element to the last one.Data racesSome or all of the container objects are accessed.ExceptionsThe function throws an exception if any of the container elements throws one.Next TopicC++ Algorithm none_of Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

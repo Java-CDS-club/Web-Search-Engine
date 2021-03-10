@@ -1,0 +1,138 @@
+Bitonic Sort - javatpoint?HomeData StructureCC++C#JavaSQLHTMLCSSJavaScriptAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumDS TutorialDS Tutorial DS Introduction DS Algorithm Asymptotic Analysis DS Pointer DS StructureDS ArrayDS Array 2D ArrayDS Linked ListLinked List Doubly Linked List Circular Linked List Circular Doubly ListDS StackDS Stack Array Implementation Linked List ImplementationDS QueueDS Queue Array Representation Linked List Representation Circular QueueDS TreeDS Tree Binary Tree Binary Search Tree AVL Tree B Tree B+ TreeDS GraphDS Graph Graph Implementation BFS Algorithm DFS Algorithm Spanning TreeDS SearchingLinear Search Binary SearchDS SortingBubble Sort Bucket Sort Comb Sort Counting Sort Heap Sort Insertion Sort Merge Sort Quick Sort Radix Sort Selection Sort Shell Sort Bitonic Sort Cocktail Sort Cycle Sort Tim Sortnext ? ? prevBitonic SortBitonic sort is a parallel sorting algorithm which performs O(n2 log n) comparisons. Although, the number of comparisons are more than that in any other popular sorting algorithm, It performs better for the parallel implementation because elements are compared in predefined sequence which must not be depended upon the data being sorted. The predefined sequence is called Bitonic sequence.What is Bitonic Sequence ?In order to understand Bitonic sort, we must understand Bitonic sequence. Bitonic sequence is the one in which, the elements first comes in increasing order then start decreasing after some particular index. An array A[0... i ... n-1] is called Bitonic if there exist an index i such that,A[0]  A[1]  A[2] .... A[i-1]  A[i] > A[i+1] > A[i+2] > A[i+3] > ... >A[n-1]where, 0 = i = n-1. A rotation of Bitonic sort is also Bitonic.How to convert Random sequence to Bitonic sequence ?Consider a sequence A[ 0 ... n-1] of n elements. First start constructing Bitonic sequence by using 4 elements of the sequence. Sort the first 2 elements in ascending order and the last 2 elements in descending order, concatenate this pair to form a Bitonic sequence of 4 elements. Repeat this process for the remaining pairs of element until we find a Bitonic sequence.After this step, we get the Bitonic sequence for the given sequence as 2, 10, 20, 30, 5, 5, 4, 3.Bitonic Sorting :Bitonic sorting mainly involves the following basic steps.Form a Bitonic sequence from the given random sequence which we have formed in the above step. We can consider it as the first step in our procedure. After this step, we get a sequence whose first half is sorted in ascending order while second step is sorted in descending order.Compare first element of first half with the first element of the second half, then second element of the first half with the second element of the second half and so on. Swap the elements if any element in the second half is found to be smaller.After the above step, we got all the elements in the first half smaller than all the elements in the second half. The compare and swap results into the two sequences of n/2 length each. Repeat the process performed in the second step recursively onto every sequence until we get single sorted sequence of length n.The whole procedure involved in Bitonic sort is described in the following image.ComplexityComplexityBest CaseAverage CaseWorst CaseTime ComplexityO(log 2 n)O(log 2 n)O(log 2 n)Space ComplexityO(n log 2 n)C Program//this program works when size of input is power of 2. 
+#include<stdio.h>
+void exchange(int arr[], int i, int j, int d)
+{
+    int temp;
+    if (d==(arr[i]>arr[j]))
+    {
+            temp = arr[i];
+	    arr[i] = arr[j];
+	    arr[j] = temp;
+    }
+}
+void merge(int arr[], int l, int c, int d)
+{
+    int k,i;
+    if (c>1)
+    {
+        k = c/2;
+        for (i=l; i<l+k; i++)
+            exchange(arr, i, i+k, d);
+        merge(arr, l, k, d);
+        merge(arr, l+k, k, d);
+    }
+}
+void bitonicSort(int arr[],int l, int c, int d)
+{
+    int k;
+    if (c>1)
+    {
+        k = c/2;
+        bitonicSort(arr, l, k, 1);
+        bitonicSort(arr, l+k, k, 0);
+        merge(arr,l, c, d);
+    }
+}
+ 
+void sort(int arr[], int n, int order)
+{
+    bitonicSort(arr,0, n, order);
+}
+int main()
+{
+    int arr[]= {1, 10, 2, 3, 1, 23, 45, 21};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int i;
+    int order = 1;   
+    sort(arr, n, order);
+ 
+    printf("Sorted array: \n");
+    for (i=0; i<n; i++)
+        printf("%d ", arr[i]);
+}Output:Sorted array: 
+1 1 2 3 10 21 23 45Java//this program works when size of input is power of 2. 
+public class BitonicSort
+{
+static void exchange(int arr[], int i, int j, boolean d)
+{
+    int temp;
+    if (d==(arr[i]>arr[j]))
+    {
+            temp = arr[i];
+	    arr[i] = arr[j];
+	    arr[j] = temp;
+    }
+}
+static void merge(int arr[], int l, int c, boolean d)
+{
+    int k,i;
+    if (c>1)
+    {
+        k = c/2;
+        for (i=l; i1)
+    {
+        k = c/2;
+        bitonicSort(arr, l, k, true);
+        bitonicSort(arr, l+k, k, false);
+        merge(arr,l, c, d);
+    }
+}
+ 
+static void sort(int arr[], int n, boolean order)
+{
+    bitonicSort(arr,0, n, order);
+}
+public static void main(String[] args)
+{
+    int arr[]= {1, 10, 2, 3, 1, 23, 45, 21};
+    int n = arr.length;
+    int i;
+    boolean order = true;   
+    sort(arr, n, order);
+ 
+    System.out.println("Sorted array: \n");
+    for (i=0; iOutput:Sorted array: 
+
+1	1	2	3	10	21	23	45	C# //this program works when size of input is power of 2. 
+using System;
+public class BitonicSort
+{
+static void exchange(int[] arr, int i, int j, bool d)
+{
+    int temp;
+    if (d==(arr[i]>arr[j]))
+    {
+            temp = arr[i];
+	    arr[i] = arr[j];
+	    arr[j] = temp;
+    }
+}
+static void merge(int[] arr, int l, int c, bool d)
+{
+    int k,i;
+    if (c>1)
+    {
+        k = c/2;
+        for (i=l; i1)
+    {
+        k = c/2;
+        bitonicSort(arr, l, k, true);
+        bitonicSort(arr, l+k, k, false);
+        merge(arr,l, c, d);
+    }
+}
+ 
+static void sort(int[] arr, int n, bool order)
+{
+    bitonicSort(arr,0, n, order);
+}
+public void Main()
+{
+    int[] arr= {1, 10, 2, 3, 1, 23, 45, 21};
+    int n = arr.Length;
+    int i;
+    bool order = true;   
+    sort(arr, n, order);
+ 
+    Console.WriteLine("Sorted array: \n");
+    for (i=0; iNext TopicCocktail Sort? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

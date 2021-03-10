@@ -1,0 +1,42 @@
+Microservice to Eureka Naming Server - javatpoint?HomeMicroservicesCore JavaServletJSPStruts2HibernateSpringAndroidDesign PatternQuizProjectsInterview QCommentForumMicroservices TutorialMicroservices Tutorial Advantages and Disadvantages of Microservices Challenges of Microservices Architecture Difference between MSA and SOA Microservices Monitoring and Virtualization Tool Microservices Components and Standardizing Port and URL Creating a Simple Microservice Setting up Spring Cloud Config Server Connect Spring Cloud Config Server to Local Git Repository Introduction to Currency Conversion and Currency Exchange Service Configure JPA and Initialized Data Creating a JPA Repository Setting up Currency Conversion Microservice Invoking Currency Exchange Microservice from Currency Conversion Microservice Using Feign REST Client for Service Invocation Client Side Load Balancing with Ribbon Eureka Naming Server Connecting Microservice to Eureka Distributing Calls Using Eureka and Ribbon Introduction to API Gateway Zuul API Gateway Implementing Zuul Logging Filter Executing a Request through Zuul API Gateway Introduction to Distributed Tracing Installing RabbitMQ Server Distributed Tracing with Zipkin Connecting Microservices to Zipkin Understanding the need for Spring Cloud Bus Implementing Spring Cloud Bus Fault Tolerance with Hystrixnext ? ? prevConnecting Microservices to Eureka naming serverIn this section, we will connect the currency-conversion-service and currency-exchange-service to the Eureka naming server.First, we will connect the currency-conversion-service.Step 1: Select the currency-conversion-service project.Step 2: Open the pom.xml file and add the eureka-client dependency. <dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>Step 3: Open CurrencyConversionServiceApplication.java file and enable discovery client by using the annotation @EnableDiscoveryClient.CurrencyConversionServiceApplication.javapackage com.javatpoint.microservices.currencyconversionservice;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+@SpringBootApplication
+@EnableFeignClients("com.javatpoint.microservices.currencyconversionservice")
+@EnableDiscoveryClient
+public class CurrencyConversionServiceApplication 
+{
+public static void main(String[] args) 
+{
+SpringApplication.run(CurrencyConversionServiceApplication.class, args);
+}
+}After enabling the discovery client, configure the URL for the Eureka naming server.Step 4: Open the application.properties file and configure the URL for the Eureka naming server.application.propertiesspring.application.name=currency-conversion-service
+server.port=8100
+eureka.client.service-url.default-zone=http://localhost:8761/eureka
+currency-exchange-service.ribbon.listOfServers=http://localhost:8000, http://localhost:8001If we look at the Eureka UI, we see that there is no instance registered with the Eureka server.Step 5: Run the CurrencyConversionServiceApplication.java file.Step 6: Open the browser and refresh the Eureka server page. It shows the instances of registered microservices.We see that an instance of currency-conversion-service is registered with the Eureka naming server, and running on port 8100.Let's connect currency-exchange-service with Eureka naming server.Step 1: Select the currency-exchange-service project.Step 2: Open the pom.xml file and add the eureka-client dependency. <dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>Step 3: Open CurrencyExchangeServiceApplication.java file and enable the discovery client by using the annotation @EnableDiscoveryClient.CurrencyExchangeServiceApplication.javapackage com.javatpoint.microservices.currencyexchangeservice;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+@SpringBootApplication
+@EnableDiscoveryClient
+public class CurrencyExchangeServiceApplication 
+{
+public static void main(String[] args) 
+{
+SpringApplication.run(CurrencyExchangeServiceApplication.class, args);
+}
+}Step 4: Open the application.properties file and configure the URL for Eureka naming server.application.propertiesspring.application.name=currency-exchange-service
+server.port=8000
+spring.jpa.show-sql=true
+spring.h2.console.enabled=true
+spring.datasource.platform=h2
+spring.datasource.url=jdbc:h2:mem:javatpoint
+eureka.client.service-url.default-zone=http://localhost:8761/eurekaStep 5: Run the two instances of CurrencyExchangeServiceApplication.java. First instance on port 8000 and the second instance on port 8001.Step 6: Open the browser and refresh the Eureka server. It shows the registered microservice.We see that the two instances of currency-exchange-service are registered with the Eureka naming server. The two instances are running on port 8001 and 8000.In the following image, we can see that both the microservices has registered with the Eureka naming server.Click here to download currency-conversion-serviceClick here to download currency-exchange-serviceNext TopicDistributing Calls Using Eureka and Ribbon? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

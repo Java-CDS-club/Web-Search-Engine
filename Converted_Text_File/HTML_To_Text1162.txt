@@ -1,0 +1,22 @@
+C Program to convert Decimal to Binary - javatpoint?HomeCC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumC Tutorial C Control Statements C Functions C Array C Pointers Dynamic Memory Allocation C Strings C Structure Union C File Handling C Preprocessor Command Line ArgumentsC ProgramsTop 10+ C Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Print "Hello" without ; Assembly code in C C program without main Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleC InterviewC Interview Questionsnext ? ? prevC Program to convert Decimal to BinaryDecimal to binary in C: We can convert any decimal number (base-10 (0 to 9)) into binary number(base-2 (0 or 1)) by c program.Decimal NumberDecimal number is a base 10 number because it ranges from 0 to 9, there are total 10 digits between 0 to 9. Any combination of digits is decimal number such as 23, 445, 132, 0, 2 etc.Binary NumberBinary number is a base 2 number because it is either 0 or 1. Any combination of 0 and 1 is binary number such as 1001, 101, 11111, 101010 etc.Let's see the some binary numbers for the decimal number.DecimalBinary1121031141005101611071118100091001101010Decimal to Binary Conversion AlgorithmStep 1: Divide the number by 2 through % (modulus operator) and store the remainder in arrayStep 2: Divide the number by 2 through / (division operator)Step 3: Repeat the step 2 until number is greater than 0Let's see the c example to convert decimal to binary.#include  
+#include
+int main(){
+int a[10],n,i;  
+system ("cls");
+printf("Enter the number to convert: ");  
+scanf("%d",&n);  
+for(i=0;n>0;i++)  
+{  
+a[i]=n%2;  
+n=n/2;  
+}  
+printf("\nBinary of Given Number is=");  
+for(i=i-1;i>=0;i--)  
+{  
+printf("%d",a[i]);  
+}  
+return 0;
+}
+
+Output:Enter the number to convert: 5
+Binary of Given Number is=101 Next TopicC Program to convert Number in Characters? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

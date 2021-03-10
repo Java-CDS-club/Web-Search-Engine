@@ -1,0 +1,68 @@
+C++ Stack emplace() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ StackC++ Stack emplace() empty() pop() push() size() top()next ? ? prevC++ Stack emplace() FunctionC++ Stack emplace() function adds a new element at the top of the stack above the current top element. Now, we have a stack with already existing elements, and we wish to insert or push a new element in the stack, for doing that we use this function.Syntaxtemplate <class... Args> void emplace (Args&&... args);Parametersargs:The parameter forwards the argument for the construction of new element. That is the element specified by args is inserted in the stack over the current top element. The newly inserted element now becomes the top element and all the push and pop operations are performed on it.Return valueThe function is used only for the addition of new elements and does not return any value. Hence the return type of the function is void.Example 1//The program illustrates the use of emplace function by adding two simple strings at the top of the stack and printing them.#include<iostream>
+#include<stack>
+#include<string>
+int main()
+{
+	std: : stack<std: : string> newstack;
+	newstack.emplace (?I am the first line?);
+	newstack.emplace (?I am the second one?);
+	std: :cout << ?Contents of newstack: \n?;
+	while (!newstack.empty () )
+	{
+		std: :cout << newstack.top () << ?\n?;
+		newstack.pop ();
+	}
+	return 0;
+}Output:Contents of newstack:
+I am the second one
+I am the first lineExample 2//The program illustrates the use of emplace function by inserting the table of 11 on the and then respectively printing it.#include<iostream>
+#include<stack>
+#include<string>
+int main()
+{
+	std: : stack<std: : string> newstack;
+	newstack.emplace (?11?);
+	newstack.emplace (?22?);
+	newstack.emplace (?33?);
+	newstack.emplace (?44?);
+	newstack.emplace (?55?);
+	newstack.emplace (?66?);
+	newstack.emplace (?77?);
+	newstack.emplace (?88?);
+	newstack.emplace (?99?);
+	newstack.emplace (?121?);
+	std: :cout << ?Contents of newstack: \n?;
+	 std: :cout <<?Table of 11?;
+
+	while (!newstack.empty () )
+	{
+		std: :cout << newstack.top () << ?\n?;
+		newstack.pop ();
+	}
+	return 0;
+}Output:Contents of newstack: 
+Table of 11121
+99
+88
+77
+66
+55
+44
+33
+22
+11Example 3//The program illustrates the use of emplace function by adding two simple strings at the top of the stack and printing them.#include<iostream>
+#include<stack>
+#include<string>
+int main()
+{
+	std::stack<std::string> newstack;
+	newstack.emplace ("We are here to see the application use of emplace function in stacks");
+	newstack.emplace ("The function adds new elements are the top of the stack");
+	while (!newstack.empty () )
+	{
+		std::cout << newstack.top () << "\n";
+		newstack.pop ();
+	}
+	return 0;
+}Output:The function adds new elements are the top of the stack         
+We are here to see the application use of emplace function in stacks ComplexityOne call is made to the emplace_back. The function is used for inserting a new element which is done by making a single call.Data racesAll the elements present in the stack are modified. Since the element is added to the top hence respective positions of all the other elements are also changed.Exception SafetyGuarantee as equivalent to the operations that are performed on the underlying container object is provided.Next TopicC++ Stack? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

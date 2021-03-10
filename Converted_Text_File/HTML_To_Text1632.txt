@@ -1,0 +1,40 @@
+C++ algorithm equal() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm Function equal()C++ Algorithm equal()function compares the elements in both the containers and returns a true value if all the elements in both the containers are found to be matching. The first range is from [first1,last1) and the second starts from first2.Syntaxtemplate<class InputIterator1, class InputIterator2> bool equal(InputIterator1 first1, InputIterator1 last1,InputIterator2 first2);
+template<class InputIterator1, class InputIterator2, class BinaryPredicate> bool equal(InputIterator1 first1, InputIterator1 last1, InputIterator2 first1, BinaryPredicate pred);Parameterfirst1: It is an input iterator to the first element of the [first1, last1).last1: It is an input iterator to the last element of the [first1, last1).first2: It is an input iterator to the first element of the [first2, last2).pred: It is a binary function that accepts two elements as arguments and performs the task designed by the function.Return valueThe function returns the value true if all the elements in both the containers match, otherwise it returns false.Example 1#include<iostream>
+#include<algorithm>
+#include<vector>
+using namespace std;
+bool newpredicate(int m, int n)
+{
+	return(m==n);
+}
+int main()
+{
+	int newints[]={20,40,60,80,100};
+	std::vector<int> newvector(newints, newints+5);
+	if(std::equal(newvector.begin(),newvector.end(),newints))
+	std::cout<<"Both the containers have matching elements.\n";
+	else
+	std::cout<<"Both the containers have difference elements.\n";
+	newvector[3]=81;
+	if(std::equal(newvector.begin(),newvector.end(),newints,newpredicate))
+	std::cout<<"Both the containers have equal containers.\n";
+	else
+	std::cout<<"Both the containers do not have equal elements. \n";
+	return 0;
+}Output:Both the containers have matching elements.
+Both the containers do not have equal elements.Example 2#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int u1[]={10,20,30,40,50};
+	std::vector<int> vec_1(u1,u1+sizeof(u1)/sizeof(int));
+	std::cout<<"The vector consists of:";
+	for(unsigned int k=0; k<vec_1.size(); k++)
+	std::cout<<" "<<vec_1[k];
+	std::cout<<"\n";
+	if(std::equal(vec_1.begin(),vec_1.end(),u1))
+	std::cout<<"Both the containers have equal elements.\n";
+	else
+	cout<<"Both containers have different elements.";
+}Output:The vector consists of: 10, 20,30,40,50
+Both the containers have equal elements.ComplexityThe function has linear complexity from the first1 element to the last1 element.Data racesObjects in both ranges are accessed.ExceptionsThe function throws an exception if any of the argument throws one.Next TopicC++ Algorithm find Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

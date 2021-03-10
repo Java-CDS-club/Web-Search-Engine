@@ -1,0 +1,40 @@
+ASP.Net Label - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevASP.NET Web Forms LabelThis control is used to display textual information on the web forms. It is mainly used to create caption for the other controls like: textbox.To create label either we can write code or use the drag and drop facility of visual studio 2017.This is server side control, asp provides own tag to create label. The example is given below.< asp:LabelID="Label1" runat="server" Text="Label" ></asp:Label>This control has its own properties that are tabled below.PropertyDescriptionAccessKeyIt is used to set keyboard shortcut for the label.TabIndexThe tab order of the control.BackColorIt is used to set background color of the label.BorderColorIt is used to set border color of the label.BorderWidthIt is used to set width of border of the label.FontIt is used to set font for the label text.ForeColorIt is used to set color of the label text.TextIt is used to set text to be shown for the label.ToolTipIt displays the text when mouse is over the label.VisibleTo set visibility of control on the form.HeightIt is used to set height of the control.WidthIt is used to set width of the control.Example// WebControls.aspx<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebControls.aspx.cs" 
+Inherits="WebFormsControlls.WebControls" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            margin-left: 0px;
+        }
+        .auto-style3 {
+            width: 121px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+           <h4>Provide the Following Details:</h4>
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style3">
+                        <asp:Label ID="Label1" runat="server" Text="User Name"></asp:Label></td>
+                    <td>
+                        <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style2"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                        <asp:Label ID="Label2" runat="server" Text="Upload a File"></asp:Label></td>
+                    <td>
+                        <asp:FileUpload ID="FileUpload1" runat="server" /></td>
+                </tr>
+            </table>        
+        </div>
+    </form>
+</body>
+</html>This is a property window of label control.Output:Here, we have used label control with two different controls. It produces the following output.Next TopicASP.NET TextBox? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

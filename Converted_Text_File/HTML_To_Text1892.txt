@@ -1,0 +1,120 @@
+C++ set swap() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set swap()C++ swap() function is used to swap (or exchange) the content of two sets but both the sets must be of same type although sizes may differ.Syntaxvoid swap (set& x);Parameterx: set container to exchange the contents with.Return valueNoneComplexityConstant.Iterator validityAll references, iterators and pointers referring to elements in both set containers remain valid, but now are referring to elements in the other set container, and iterate in it.Data RacesBoth the container and x are modified.Exception SafetyNo effect on container if exception is thrown.Example 1Let's see the simple example to swap the element of one set to another:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   set<int> m1 = {1,2,3,4,5};
+
+
+   set<int> m2;
+
+   m2.swap(m1);
+
+   cout << "Set contains following elements" << endl;
+
+   for (auto it = m2.begin(); it != m2.end(); ++it)
+      cout << *it<< endl;
+
+   return 0;
+}Output:Set contains following elements
+1
+2
+3
+4
+5In the above example, set m1 has five elements and m2 is empty. When you swap m1 to m2 then all the elements of m1 is swapped to m2.Example 2Let's see a simple example to exchange the content of two sets:#include <iostream>
+#include <set>
+
+using namespace std;
+
+ int main () {
+   int myints[] = {10,20,30,40,50,60};
+   set<int> first (myints,myints+3);
+   set<int> second (myints+3,myints+6);  
+
+   first.swap(second);
+
+   cout << "first set contains:";
+   for (set<int>::iterator it = first.begin(); it!=first.end(); ++it)
+      cout << ' ' << *it;
+   cout << '\n';
+
+   cout << "second set contains:";
+   for (set<int>::iterator it = second.begin(); it!=second.end(); ++it)
+      cout << ' ' << *it;
+   cout << '\n';
+
+   return 0;
+}Output:first set contains: 40 50 60
+second set contains: 10 20 30Example 3Let's see a simple example to swap the contents of two sets:#include<iostream>
+#include<set>
+using namespace std;
+ 
+int main()
+{
+    // Take any two sets
+    set<char> set1, set2;
+    
+    set1 = {'a','b','c','d'}; 
+    set2 = {'x','y','z'};
+ 
+    // Swap elements of sets
+    swap(set1, set2);
+ 
+    // Print the elements of sets
+    cout << "set1:\n";
+    for (auto it = set1.begin(); it != set1.end(); it++)
+        cout << "\t" << *it<< '\n';
+ 
+    cout << "set2:\n";
+    for (auto it = set2.begin(); it != set2.end(); it++)
+        cout << "\t" << *it<< '\n';
+ 
+    return 0;
+}Output:set1:
+	x
+	y
+	z
+set2:
+	a
+	b
+	c
+	dIn the above example, another form of swap() function is used to swap the contents of two sets.Example 4Let's see a simple example:#include <set>  
+#include <iostream>  
+  
+int main( )  
+{  
+   using namespace std;  
+   set <int> s1, s2, s3;  
+   set <int>::iterator s1_Iter;  
+  
+   s1.insert( 10 );  
+   s1.insert( 20 );  
+   s1.insert( 30 );  
+   s2.insert( 100 );  
+   s2.insert( 200 );  
+   s3.insert( 300 );  
+  
+   cout << "The original set s1 is:";  
+   for ( s1_Iter = s1.begin( ); s1_Iter != s1.end( ); s1_Iter++ )  
+      cout << " " << *s1_Iter;  
+   cout   << "." << endl;  
+  
+   // This is the member function version of swap  
+   s1.swap( s2 );  
+  
+   cout << "After swapping with s2, list s1 is:";  
+   for ( s1_Iter = s1.begin( ); s1_Iter != s1.end( ); s1_Iter++ )  
+      cout << " " << *s1_Iter;  
+   cout  << "." << endl;  
+  
+   // This is the specialized template version of swap  
+   swap( s1, s3 );  
+  
+   cout << "After swapping with s3, list s1 is:";  
+   for ( s1_Iter = s1.begin( ); s1_Iter != s1.end( ); s1_Iter++ )  
+      cout << " " << *s1_Iter;  
+   cout   << "." << endl;  
+}  Output:The original set s1 is: 10 20 30.
+After swapping with s2, list s1 is: 100 200.
+After swapping with s3, list s1 is: 300.Next TopicSet clear() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

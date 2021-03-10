@@ -1,0 +1,106 @@
+C++ algorithm is_sorted_until() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm is_sorted_until()C++ Algorithm is_sorted_until() function is used to find first unsorted element in the range. It means it returns an iterator to the first element in the range [first, last) which does not follow an ascending order.The elements are compared using operator for the first version, and comp for the second version.Syntaxdefault (1)	template <class ForwardIterator>
+                      ForwardIterator is_sorted_until (ForwardIterator first, ForwardIterator last);
+
+custom (2)	template <class ForwardIterator, class Compare>
+                       ForwardIterator is_sorted_until (ForwardIterator first, ForwardIterator last,
+                                   Compare comp);Parameterfirst: An forward iterator pointing to the first element in the range to be checked.last: An random access iterator pointing to the past last element in the range to be checked.comp: A user-defined binary predicate function that accepts two arguments and returns true if the two arguments are in order and false otherwise. It follows the strict weak ordering to order the elements.Return valueIt returns an iterator to the first element if the range is unsorted and returns last if the entire range is sorted.ComplexityThe Complexity is linear between first and last: calls comp for each element until a mismatch is found.Data racesThe object in the range [first, last) are accessed.ExceptionsThis function throws an exception if either comp, or an operation on iterator throws an exception.Please note that invalid parameters cause an undefined behavior.Example 1Let's see the simple example to demonstrate the use of is_sorted_until():#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+  vector<int> v = {3, 1, 4, 2, 5};
+
+  cout << boolalpha;
+  cout << "Before: is it sorted? "
+            << (is_sorted_until(v.begin(), v.end()) == v.end()) << endl;
+
+  sort(v.begin(), v.end());
+
+  cout << "After: is it sorted? "
+            << (is_sorted_until(v.begin(), v.end()) == v.end()) << endl;
+            
+  return 0;
+}Output:Before: is it sorted? false
+After: is it sorted? trueExample 2Let's see another simple example:#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool ignore_case(char a, char b) {
+   return (tolower(a) == tolower(b));
+}
+
+int main(void) {
+   vector<char> v = {'A', 'b', 'C', 'd', 'E'};
+
+   auto it = is_sorted_until(v.begin(), v.end());
+
+   cout << "First unsorted element = " << *it << endl;
+
+   it = is_sorted_until(v.begin(), v.end(), ignore_case);
+
+   if (it == end(v))
+      cout << "Entire vector is sorted." << endl;
+
+   return 0;
+}Output:First unsorted element = C
+Entire vector is sorted.Example 3Let's see another simple example:#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main(void) {
+   vector<int> v = {1, 2, 5, 3, 4};
+   auto it = is_sorted_until(v.begin(), v.end());
+
+   cout << "First unsorted element = " << *it << endl;
+
+   v[3] = 4;
+
+   it = is_sorted_until(v.begin(), v.end());
+
+   if (it == end(v))
+      cout << "Entire vector is sorted." << endl;
+
+   return 0;
+}Output:First unsorted element = 3Example 4Let's see another simple example:#include <iostream>     // std::cout
+#include <algorithm>    // std::is_sorted_until, std::prev_permutation
+#include <array>        // std::array
+
+using namespace std;
+
+int main () {
+  array<int,4> foo {2,4,1,3};
+  array<int,4>::iterator it;
+
+  do {
+    // try a new permutation:
+    prev_permutation(foo.begin(),foo.end());
+
+    // print range:
+    cout << "foo:";
+    for (int& x:foo) cout << ' ' << x;
+    it=is_sorted_until(foo.begin(),foo.end());
+    cout << " (" << (it-foo.begin()) << " elements sorted)\n";
+
+  } while (it!=foo.end());
+
+  cout << "the range is sorted!\n";
+
+  return 0;
+}Output:foo: 2 3 4 1 (3 elements sorted)
+foo: 2 3 1 4 (2 elements sorted)
+foo: 2 1 4 3 (1 elements sorted)
+foo: 2 1 3 4 (1 elements sorted)
+foo: 1 4 3 2 (2 elements sorted)
+foo: 1 4 2 3 (2 elements sorted)
+foo: 1 3 4 2 (3 elements sorted)
+foo: 1 3 2 4 (2 elements sorted)
+foo: 1 2 4 3 (3 elements sorted)
+foo: 1 2 3 4 (4 elements sorted)
+the range is sorted!Next TopicC++ Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

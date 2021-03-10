@@ -1,0 +1,33 @@
+Ansible File - javatpoint?HomeJavaAnsibleTableauVBAJenkinsSoftware TestingSeleniumControl SystemHTMLCSSJavaScriptjQueryQuizProjectsInterview QAnsible TutorialAnsible Tutorial Ansible Workflow Ansible Architecture Installation in Linux ad-hoc Commands Ansible Playbooks Ansible Tower Ansible Roles Ansible Variables Ansible Tags Ansible Galaxy Commands Cheat Sheets Ansible Modules Ansible Shell Ansible Templates Ansible YAML Ansible Inventory Ansible Debug Ansible Apt Ansible Lineinfile Ansible Copy Ansible Command Ansible File Ansible Vault Ansible Windows Ansible Yum Ansible AWX Ansible Unarchive Ansible Pip Ansible vs Chef Ansible vs PuppetInterview QuestionsAnsible Interviewnext ? ? prevAnsible FileAnsible file module is used to creating and deleting the file or multiple files in the remote server. You can also create and delete the directories and change the permissions of the data.You can also create and delete the soft links (symlinks) as well as hard links. With the help of the Ansible file module, you can set the permission of the files.Creating a File in Remote ServerIn the Ansible file module, we have different parameters. We are using path and state parameters that are must in every file module. In the file parameter, we will mention the path of the file in the remote server. On this path, only the file will be created.At path: It mentions the path of the file in the remote server.At state: It mentions touch, and touch will create file exact like Linux command.Then, it will create a new empty file with the name devops.txt. So mention filename in the path. So in the state: we will mention touch to create the file.- name: create the file in a remote server
+  file:
+   path: /path/to/file/in/remote/server/devops.txt
+   state: touchDeleting a File in Remote ServerIf you want to delete any command in the remote server. So at path parameter, mention the path of the file which you want to delete.At path: Mention the path of the file in the remote server.At state: Mention absent to delete the file.So in the state: we will use touch to create the file, absent to delete the e file.- name:  delete the file in a remote server
+  file:
+   path: /etc/abcd.conf
+   state: absentCreating a File with PermissionsWe can also create the file with permission by using the file module.At the mode parameter: we have 4 digits. Always mention zero at the starting, and remaining digits will be your file permissions.At owner parameter: mention the owner of the file.tasks:  
+  - name: Ansible file module to create a new file with permissions.     
+    file:      
+    path: /path/to/cretae/file/devops.txt    
+    state: touch      
+    mode: 0421      
+    owner: devopsThis permission will be set to that newly created file.file:    
+ path: /path/to/cretae/file/devops.txt   
+ state: touch    
+ mode: "u=rw,g=w,o=e"    
+ owner: devopsBoth the codes work the same, but in the other code, we are using the symbolic mode, which is equivalent to 0421.Creating Multiple FilesA path parameter: we can create a loop to create multiple files by using "{{item}}".At with_items parameter: mention file names which you want to create.By using "{{item}}" and with_items parameter, we can create loop or multiple files.tasks:  
+- name: Ansible file module to create multiple files    
+  file:       
+   path: "{{ item }}"      
+   state: touch     
+   mode: 0421    
+  with_items:    
+  - devops1.txt    
+  - devops2.txt    
+  - devops3.txtDeleting Multiple FilesThe code will be the same to create multiple files and to delete files but a small change in the state parameter.State parameter: Touch the create files and absent to delete files.- name: Ansible file module to delete multiple files 
+  file:                  
+   path: "{{ item }}"    
+   state: absent  
+  with_items:    
+  - devops1.txt    
+  - devops2.txt    
+  - devops3.txtNext TopicAnsible Vault? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

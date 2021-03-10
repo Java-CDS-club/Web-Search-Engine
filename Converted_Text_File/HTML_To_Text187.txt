@@ -1,0 +1,266 @@
+Integrating Google Sign-In in Android App - javatpoint?HomeAndroidCore JavaServletJSPStruts2Mail APIHibernateSpringDesign PatternQuizProjectsInterview QCommentForumAndroid TrainingAndroid TutorialAndroid Introduction What is Android History and Version Android Architecture Core Building Blocks Android Emulator Install Android Setup Eclipse Hello Android example Internal Details Dalvik VM AndroidManifest.xml R.java Hide Title Bar Screen OrientationAndroid WidgetsUI Widgets Working with Button Toast Custom Toast ToggleButton CheckBox Custom CheckBox RadioButton Dynamic RadioButton Custom RadioButton AlertDialog Spinner AutoCompleteTextView ListView Custom ListView RatingBar WebView SeekBar DatePicker TimePicker Analog and Digital ProgressBar Vertical ScrollView Horizontal ScrollView ImageSwitcher ImageSlider ViewStub TabLayout TabLayout with FrameLayout SearchView SearchView on Toolbar EditText with TextWatcherActivity and IntentsActivity LifeCycle Implicit Intent Explicit Intent StartActivityForResult Share App DataAndroid FragmentsAndroid FragmentsAndroid MenuOption Menu Context Menu Popup MenuAndroid ServiceAndroid ServiceAndroid AlarmManagerAndroid AlarmManagerAndroid StorageAndroid Preferences Internal Storage External StorageAndroid SQLiteSQLite Tutorial SQLite SpinnerXML and JSONXML Parsing SAX XML Parsing DOM XMLPullParser JSON ParsingAndroid MultimediaMediaPlayer: Audio VideoView: Video Recording MediaAndroid SpeechTextToSpeech1 TextToSpeech2Android TelephonyTelephonyManager Get Call State Get Call State 2 Simple Caller Talker Phone Call Send SMS Send EmailAndroid DeviceBluetooth Tutorial List Paired Devices WIFICamera TutorialCamera TutorialSensor TutorialSensor TutorialAndroid GraphicsAndroid GraphicsAndroid AnimationAndroid AnimationAndroid Web ServiceAndroid Web ServiceGoogle MapAndroid Google Map Current Location Search LocationAdding AdsAndroid Google Admob 1) Banner Ads 2) Interstitial AdsAndroid ExamplesQR/Bar Code Scanner RSS Feed Reader Volley Fetch JSON Android Linkify Intro Slider RecyclerView List Swipe Del RecyclerView Swipe Refresh Activity Volley Library Registration Log-in Log-out Network Connectivity Services Firebase Authentication - Google Login Android Notification Using Google reCAPTCHAAndroid SocialIntegrating Google Sign-In Integrating LinkedIn Integrating TwitterAndroid MiscAndroid Device Manager Android Studio Android Auto Android File Transfer Android Messages Android Oreo Android TV Android Screenshot Android Versions Android Watch Android Pay Android Phones Android Tablets Android Find My Phone Android Marshmallow Android Nougat Android Pie Android One Android Antivirus Android Data Recovery Android Lollipop Android vs iPhone Android Wear OS Android x86 Emulator for PC Android 10 Android ad blocker Clear cache Android Root Android DeviceAndroid InterviewInterview QuestionsAndroid QuizAndroid Quiznext ? ? prevIntegrating Google Sign-In in Android AppIn this tutorial, we will integrate the Google Sign-In functionality in our Android application using Google API. Combining Google API in Android app helps users to login using Google account.To integrate the Google Sign-In API in our app, we need to configure our app to Google developer account and download the 'google-service.json' file for the Android application.Steps to configure Android App on Google Developer Account1. Create a Google developer account at https://developers.google.com/identity/sign-in/android/start-integrating and click on 'GET A CONFIGURATION FILE'.2. Fill all the application detail and select your country/region and click 'Choose and configure services'.3. After successful creation of the Google app support configuration, it will redirect to next windows for selecting Google services. We will select Google Sign-In service.4. Now, we need to provide signing certification SHA-1 key of our application.5. There are two different ways of generating certification SHA-1 key.By using the command prompt.Windows:keytool -exportcert -list -v \
+-alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystoreMac/Linuxkeytool -exportcert -list -v \
+-alias androiddebugkey -keystore ~/.android/debug.keystoreBy Android Studio itself.Open Android project.Open the Gradle tab from a right side panel.Double click on 'signingReport'.We will found our app SHA-1 key on 'Gradle Console'.6. Paste the generated SHA-1 key to Google Sign-In service and click on 'ENABLE GOOGLE SIGN-IN' and 'Generate certification files'.7. Now download the 'google-services.json' file to integrate it into the Android application.Example of Integrate Google Sign-In in Android appIn this example, we will integrate the Google Sign-In in the Android app. Once the user successfully login through Google Sign-In, we will redirect to next activity (ProfileActivity) and retrieve user detail.We need to paste the downloaded 'google-services.json' file in our Android project app directory.Required PermissionAdd the Internet permission in AndroidMenifest.xml file.<uses-permission android:name="android.permission.INTERNET" />build.gradle (Project)Add the following dependency in build.gradle file.dependencies{
+classpath 'com.google.gms:google-services:3.1.0'
+}build.gradle(Module)dependencies {
+    implementation 'com.google.android.gms:play-services-auth:11.6.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+}
+apply plugin: 'com.google.gms.google-services'activity_main.xmlAdd the TextView and Google SignInButton in activity_main.xml file.<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="gloginexample.example.com.MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="20dp"
+        android:text="This is main activity, sign in to move next activity." />
+
+    <com.google.android.gms.common.SignInButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sign_in_button"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp">
+
+    </com.google.android.gms.common.SignInButton>
+
+</RelativeLayout>MainActivity.javaIn the MainActivity.java class, we call the Auth.GoogleSignInApi.getSignInIntent() method to login through Google Sign-In API. The GoogleApiClient.OnConnectionFailedListener interface of Google API overrides its unimplemented method onConnectionFailed(ConnectionResult) which returns the connection failure result. The GoogleApiClient class is used to manage the connection between an Android application and Google Sign-In API.package gloginexample.example.com;
+
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
+
+public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+    SignInButton signInButton;
+    private GoogleApiClient googleApiClient;
+    TextView textView;
+    private static final int RC_SIGN_IN = 1;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        GoogleSignInOptions gso =  new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        googleApiClient=new GoogleApiClient.Builder(this)
+                .enableAutoManage(this,this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
+                .build();
+
+
+
+        signInButton=(SignInButton)findViewById(R.id.sign_in_button);
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
+                startActivityForResult(intent,RC_SIGN_IN);
+            }
+        });
+
+
+    }
+
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==RC_SIGN_IN){
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            handleSignInResult(result);
+        }
+    }
+    private void handleSignInResult(GoogleSignInResult result){
+        if(result.isSuccess()){
+            gotoProfile();
+        }else{
+            Toast.makeText(getApplicationContext(),"Sign in cancel",Toast.LENGTH_LONG).show();
+        }
+    }
+    private void gotoProfile(){
+        Intent intent=new Intent(MainActivity.this,ProfileActivity.class);
+        startActivity(intent);
+    }
+}activity_profile.xmlAdd the following component in activity_profile.xml file.<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="gloginexample.example.com.ProfileActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/profileImage"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            android:text="name"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"/>
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:textSize="20dp"
+        android:text="email"
+        android:layout_marginTop="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/userId"
+            android:textSize="20dp"
+            android:text="id"
+            android:layout_marginTop="20dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/logoutBtn"
+            android:text="Logout"
+            android:layout_marginTop="30dp"/>
+    </LinearLayout>
+
+</RelativeLayout>Create a ProfileActivity.java class in which we will display the user detail after the successful login.ProfileActivity.javaIn this class, we will retrieve the user detail if the user successfully login. The GoogleSignInResult class implements the Result interface which represents the final result of invoking an API method of Google Play Services.The GoogleSignInAccount class holds the basic information of user.package gloginexample.example.com;
+
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.OptionalPendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+
+public class ProfileActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+    Button logoutBtn;
+    TextView userName,userEmail,userId;
+    ImageView profileImage;
+    private GoogleApiClient googleApiClient;
+    private GoogleSignInOptions gso;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_profile);
+
+        logoutBtn=(Button)findViewById(R.id.logoutBtn);
+        userName=(TextView)findViewById(R.id.name);
+        userEmail=(TextView)findViewById(R.id.email);
+        userId=(TextView)findViewById(R.id.userId);
+        profileImage=(ImageView)findViewById(R.id.profileImage);
+
+        gso =  new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        googleApiClient=new GoogleApiClient.Builder(this)
+                .enableAutoManage(this,this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
+                .build();
+
+
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(
+                        new ResultCallback<Status>() {
+                            @Override
+                            public void onResult(Status status) {
+                                if (status.isSuccess()){
+                                    gotoMainActivity();
+                                }else{
+                                    Toast.makeText(getApplicationContext(),"Session not close",Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        OptionalPendingResult<GoogleSignInResult> opr= Auth.GoogleSignInApi.silentSignIn(googleApiClient);
+        if(opr.isDone()){
+            GoogleSignInResult result=opr.get();
+            handleSignInResult(result);
+        }else{
+            opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
+                @Override
+                public void onResult(@NonNull GoogleSignInResult googleSignInResult) {
+                    handleSignInResult(googleSignInResult);
+                }
+            });
+        }
+    }
+    private void handleSignInResult(GoogleSignInResult result){
+        if(result.isSuccess()){
+            GoogleSignInAccount account=result.getSignInAccount();
+            userName.setText(account.getDisplayName());
+            userEmail.setText(account.getEmail());
+            userId.setText(account.getId());
+            try{
+                Glide.with(this).load(account.getPhotoUrl()).into(profileImage);
+            }catch (NullPointerException e){
+                  Toast.makeText(getApplicationContext(),"image not found",Toast.LENGTH_LONG).show();
+            }
+
+        }else{
+            gotoMainActivity();
+        }
+    }
+    private void gotoMainActivity(){
+        Intent intent=new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+}Output:Next Topic#? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,161 @@
+Android RecyclerView List Example - javatpoint?HomeAndroidCore JavaServletJSPStruts2Mail APIHibernateSpringDesign PatternQuizProjectsInterview QCommentForumAndroid TrainingAndroid TutorialAndroid Introduction What is Android History and Version Android Architecture Core Building Blocks Android Emulator Install Android Setup Eclipse Hello Android example Internal Details Dalvik VM AndroidManifest.xml R.java Hide Title Bar Screen OrientationAndroid WidgetsUI Widgets Working with Button Toast Custom Toast ToggleButton CheckBox Custom CheckBox RadioButton Dynamic RadioButton Custom RadioButton AlertDialog Spinner AutoCompleteTextView ListView Custom ListView RatingBar WebView SeekBar DatePicker TimePicker Analog and Digital ProgressBar Vertical ScrollView Horizontal ScrollView ImageSwitcher ImageSlider ViewStub TabLayout TabLayout with FrameLayout SearchView SearchView on Toolbar EditText with TextWatcherActivity and IntentsActivity LifeCycle Implicit Intent Explicit Intent StartActivityForResult Share App DataAndroid FragmentsAndroid FragmentsAndroid MenuOption Menu Context Menu Popup MenuAndroid ServiceAndroid ServiceAndroid AlarmManagerAndroid AlarmManagerAndroid StorageAndroid Preferences Internal Storage External StorageAndroid SQLiteSQLite Tutorial SQLite SpinnerXML and JSONXML Parsing SAX XML Parsing DOM XMLPullParser JSON ParsingAndroid MultimediaMediaPlayer: Audio VideoView: Video Recording MediaAndroid SpeechTextToSpeech1 TextToSpeech2Android TelephonyTelephonyManager Get Call State Get Call State 2 Simple Caller Talker Phone Call Send SMS Send EmailAndroid DeviceBluetooth Tutorial List Paired Devices WIFICamera TutorialCamera TutorialSensor TutorialSensor TutorialAndroid GraphicsAndroid GraphicsAndroid AnimationAndroid AnimationAndroid Web ServiceAndroid Web ServiceGoogle MapAndroid Google Map Current Location Search LocationAdding AdsAndroid Google Admob 1) Banner Ads 2) Interstitial AdsAndroid ExamplesQR/Bar Code Scanner RSS Feed Reader Volley Fetch JSON Android Linkify Intro Slider RecyclerView List Swipe Del RecyclerView Swipe Refresh Activity Volley Library Registration Log-in Log-out Network Connectivity Services Firebase Authentication - Google Login Android Notification Using Google reCAPTCHAAndroid SocialIntegrating Google Sign-In Integrating LinkedIn Integrating TwitterAndroid MiscAndroid Device Manager Android Studio Android Auto Android File Transfer Android Messages Android Oreo Android TV Android Screenshot Android Versions Android Watch Android Pay Android Phones Android Tablets Android Find My Phone Android Marshmallow Android Nougat Android Pie Android One Android Antivirus Android Data Recovery Android Lollipop Android vs iPhone Android Wear OS Android x86 Emulator for PC Android 10 Android ad blocker Clear cache Android Root Android DeviceAndroid InterviewInterview QuestionsAndroid QuizAndroid Quiznext ? ? prevAndroid RecyclerView List ExampleThe RecyclerView class extends the ViewGroup class and implements ScrollingView interface. It is introduced in Marshmallow. It is an advanced version of the ListView with improved performance and other benefits. RecyclerView is mostly used to design the user interface with the fine-grain control over the lists and grids of android application.In this tutorial, we will create a list of items with ImageView (for the icon) and TextView (for description) using RecyclerView and performs click listener on the item of its list.Android RecyclerView with List ExampleCreate an Android project, and add the RecyclerView support library com.android.support:recyclerview-v7:23.1.0 or above this version in build.gradle file.In the activity_main.xml file in layout directory, add the RecyclerView widget.activity_main.xml<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.RecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:id="@+id/recyclerView"
+        tools:context="example.javatpoint.com.recyclerviewlist.MainActivity">
+
+</android.support.v7.widget.RecyclerView>Create a dimens.xml file in values directory, and add the following code.dimens.xml<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="ic_clear_margin">56dp</dimen>
+</resources>Create a custom layout list_item.xml file with following code.list_item.xml<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeightLarge"
+    android:background="@drawable/border">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:contentDescription="Icon" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/imageView"
+        android:layout_toRightOf="@id/imageView"
+        android:gravity="center_vertical"
+        android:textSize="16sp"/>
+
+</RelativeLayout>Create a border.xml file in the drawable directory which is used to decorate the border of RecyclerView items.border.xml<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#FFFFFF" />
+    <stroke
+        android:width="1dp"
+        android:color="#CCCCCC" />
+</shape>Create a MyListData.java class with the following code. This class is used as (POJO) class which sets the properties of the items.MyListData.javapackage example.javatpoint.com.recyclerviewlist;
+public class MyListData{
+    private String description;
+    private int imgId;
+    public MyListData(String description, int imgId) {
+        this.description = description;
+        this.imgId = imgId;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public int getImgId() {
+        return imgId;
+    }
+    public void setImgId(int imgId) {
+        this.imgId = imgId;
+    }
+}Create a MyListAdapter.java class and add the following code. This class extends RecyclerView.Adapter class and override its unimplemented methods. The onCreateViewHolder() methods inflates the list_item.xml. In the onBindViewHolder() method each data items are set to each row.MyListAdapter.javapackage example.javatpoint.com.recyclerviewlist;
+
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+public class MyListAdapter extends RecyclerView.Adapter{
+    private MyListData[] listdata;
+
+   // RecyclerView recyclerView;
+    public MyListAdapter(MyListData[] listdata) {
+        this.listdata = listdata;
+    }
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View listItem= layoutInflater.inflate(R.layout.list_item, parent, false);
+        ViewHolder viewHolder = new ViewHolder(listItem);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        final MyListData myListData = listdata[position];
+        holder.textView.setText(listdata[position].getDescription());
+        holder.imageView.setImageResource(listdata[position].getImgId());
+        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(),"click on item: "+myListData.getDescription(),Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+
+    @Override
+    public int getItemCount() {
+        return listdata.length;
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public ImageView imageView;
+        public TextView textView;
+        public RelativeLayout relativeLayout;
+        public ViewHolder(View itemView) {
+            super(itemView);
+            this.imageView = (ImageView) itemView.findViewById(R.id.imageView);
+            this.textView = (TextView) itemView.findViewById(R.id.textView);
+            relativeLayout = (RelativeLayout)itemView.findViewById(R.id.relativeLayout);
+        }
+    }
+}Finally, in the MainActivity.java class, add the following code. This class creates the array of items for MyListData class and set the adapter class to RecyclerView.MainActivity.javapackage example.javatpoint.com.recyclerviewlist;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        MyListData[] myListData = new MyListData[] {
+                new MyListData("Email", android.R.drawable.ic_dialog_email),
+                new MyListData("Info", android.R.drawable.ic_dialog_info),
+                new MyListData("Delete", android.R.drawable.ic_delete),
+                new MyListData("Dialer", android.R.drawable.ic_dialog_dialer),
+                new MyListData("Alert", android.R.drawable.ic_dialog_alert),
+                new MyListData("Map", android.R.drawable.ic_dialog_map),
+                new MyListData("Email", android.R.drawable.ic_dialog_email),
+                new MyListData("Info", android.R.drawable.ic_dialog_info),
+                new MyListData("Delete", android.R.drawable.ic_delete),
+                new MyListData("Dialer", android.R.drawable.ic_dialog_dialer),
+                new MyListData("Alert", android.R.drawable.ic_dialog_alert),
+                new MyListData("Map", android.R.drawable.ic_dialog_map),
+        };
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        MyListAdapter adapter = new MyListAdapter(myListData);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+    }
+}Output:Next Topic#? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

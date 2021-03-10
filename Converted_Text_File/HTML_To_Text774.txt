@@ -1,0 +1,39 @@
+Automata Eliminating null Transitions - Javatpoint?HomeCompilerAutomataAWSIoTComputer FundamentalsControl SystemJavaHTMLCSSAptitudeSeleniumKotlinJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingAutomata TutorialAutomata Tutorial Theory of Automata Finite Automata Transition Diagram Transition Table DFA Examples of DFA NFA Examples of NFA Eliminating ? Transitions Conversion from NFA to DFA Conversion from NFA with ? to DFA Minimization of DFARegular ExpressionRegular Expression Examples of Regular Expression Conversion of RE to FA Arden's Theorem Moore Machine Mealy Machine Conversion from Mealy machine to Moore machine Conversion from Moore machine to Mealy machineCFGContext-free Grammar Derivation Derivation Tree Ambiguity in Grammar Unambiguous Grammar Simplification of CFG Chomsky's Normal Form (CNF) Greibach Normal Form (GNF)PDAPushdown Automata PDA Acceptance Non-deterministic Pushdown Automata CFG to PDA ConversionTuring MachineAutomata Turing Machine Basic Model of Turing machine Language accepted by Turing machine Example of TM Introduction to Undecidability Undecidable Problem about TM Post Correspondence Problem Chomsky Hierarchynext ? ? prevEliminating ? TransitionsNFA with ? can be converted to NFA without ?, and this NFA without ? can be converted to DFA. To do this, we will use a method, which can remove all the ? transition from given NFA. The method will be:Find out all the ? transitions from each state from Q. That will be called as ?-closure{q1} where qi ? Q.Then ?' transitions can be obtained. The ?' transitions mean a ?-closure on ? moves.Repeat Step-2 for each input symbol and each state of given NFA.Using the resultant states, the transition table for equivalent NFA without ? can be built.Example:Convert the following NFA with ? to NFA without ?.Solutions: We will first obtain ?-closures of q0, q1 and q2 as follows:?-closure(q0) = {q0}
+?-closure(q1) = {q1, q2}
+?-closure(q2) = {q2}Now the ?' transition on each input symbol is obtained as:?'(q0, a) = ?-closure(?(?^(q0, ?),a))
+              = ?-closure(?(?-closure(q0),a))
+              = ?-closure(?(q0, a))
+              = ?-closure(q1)
+              = {q1, q2}
+
+?'(q0, b) = ?-closure(?(?^(q0, ?),b))
+              = ?-closure(?(?-closure(q0),b))
+              = ?-closure(?(q0, b))
+              = ?Now the ?' transition on q1 is obtained as:?'(q1, a) = ?-closure(?(?^(q1, ?),a))
+              = ?-closure(?(?-closure(q1),a))
+              = ?-closure(?(q1, q2), a)
+              = ?-closure(?(q1, a) ? ?(q2, a))
+              = ?-closure(? ? ?)
+              = ?
+
+?'(q1, b) = ?-closure(?(?^(q1, ?),b))
+              = ?-closure(?(?-closure(q1),b))
+              = ?-closure(?(q1, q2), b)
+              = ?-closure(?(q1, b) ? ?(q2, b))
+              = ?-closure(? ? q2)
+              = {q2}The ?' transition on q2 is obtained as:?'(q2, a) = ?-closure(?(?^(q2, ?),a))
+              = ?-closure(?(?-closure(q2),a))
+              = ?-closure(?(q2, a))
+              = ?-closure(?)
+              = ?
+
+?'(q2, b) = ?-closure(?(?^(q2, ?),b))
+              = ?-closure(?(?-closure(q2),b))
+              = ?-closure(?(q2, b))
+              = ?-closure(q2)
+              = {q2}Now we will summarize all the computed ?' transitions:?'(q0, a) = {q0, q1}
+?'(q0, b) = ?
+?'(q1, a) = ?
+?'(q1, b) = {q2}
+?'(q2, a) = ?
+?'(q2, b) = {q2}The transition table can be:Statesab?q0{q1, q2}?*q1?{q2}*q2?{q2}State q1 and q2 become the final state as ?-closure of q1 and q2 contain the final state q2. The NFA can be shown by the following transition diagram:Next TopicConversion from NFA to DFA? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

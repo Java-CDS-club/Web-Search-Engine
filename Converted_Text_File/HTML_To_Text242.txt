@@ -1,0 +1,450 @@
+Android Swipe to Delete RecyclerView items with UNDU - javatpoint?HomeAndroidCore JavaServletJSPStruts2Mail APIHibernateSpringDesign PatternQuizProjectsInterview QCommentForumAndroid TrainingAndroid TutorialAndroid Introduction What is Android History and Version Android Architecture Core Building Blocks Android Emulator Install Android Setup Eclipse Hello Android example Internal Details Dalvik VM AndroidManifest.xml R.java Hide Title Bar Screen OrientationAndroid WidgetsUI Widgets Working with Button Toast Custom Toast ToggleButton CheckBox Custom CheckBox RadioButton Dynamic RadioButton Custom RadioButton AlertDialog Spinner AutoCompleteTextView ListView Custom ListView RatingBar WebView SeekBar DatePicker TimePicker Analog and Digital ProgressBar Vertical ScrollView Horizontal ScrollView ImageSwitcher ImageSlider ViewStub TabLayout TabLayout with FrameLayout SearchView SearchView on Toolbar EditText with TextWatcherActivity and IntentsActivity LifeCycle Implicit Intent Explicit Intent StartActivityForResult Share App DataAndroid FragmentsAndroid FragmentsAndroid MenuOption Menu Context Menu Popup MenuAndroid ServiceAndroid ServiceAndroid AlarmManagerAndroid AlarmManagerAndroid StorageAndroid Preferences Internal Storage External StorageAndroid SQLiteSQLite Tutorial SQLite SpinnerXML and JSONXML Parsing SAX XML Parsing DOM XMLPullParser JSON ParsingAndroid MultimediaMediaPlayer: Audio VideoView: Video Recording MediaAndroid SpeechTextToSpeech1 TextToSpeech2Android TelephonyTelephonyManager Get Call State Get Call State 2 Simple Caller Talker Phone Call Send SMS Send EmailAndroid DeviceBluetooth Tutorial List Paired Devices WIFICamera TutorialCamera TutorialSensor TutorialSensor TutorialAndroid GraphicsAndroid GraphicsAndroid AnimationAndroid AnimationAndroid Web ServiceAndroid Web ServiceGoogle MapAndroid Google Map Current Location Search LocationAdding AdsAndroid Google Admob 1) Banner Ads 2) Interstitial AdsAndroid ExamplesQR/Bar Code Scanner RSS Feed Reader Volley Fetch JSON Android Linkify Intro Slider RecyclerView List Swipe Del RecyclerView Swipe Refresh Activity Volley Library Registration Log-in Log-out Network Connectivity Services Firebase Authentication - Google Login Android Notification Using Google reCAPTCHAAndroid SocialIntegrating Google Sign-In Integrating LinkedIn Integrating TwitterAndroid MiscAndroid Device Manager Android Studio Android Auto Android File Transfer Android Messages Android Oreo Android TV Android Screenshot Android Versions Android Watch Android Pay Android Phones Android Tablets Android Find My Phone Android Marshmallow Android Nougat Android Pie Android One Android Antivirus Android Data Recovery Android Lollipop Android vs iPhone Android Wear OS Android x86 Emulator for PC Android 10 Android ad blocker Clear cache Android Root Android DeviceAndroid InterviewInterview QuestionsAndroid QuizAndroid Quiznext ? ? prevAndroid Swipe to Delete RecyclerView items with UNDUIn this tutorial, we will create the example to delete an item of RecyclerView by swiping the item with undo functionality. For this purpose, we will use ItemTouchHelper class which is added in Android Support Library V7. This class is used to create a swipe to delete the items of RecyclerView. It has a SimpleCallback class that configures the events which are performed to swipe or move the item of the RecyclerView.ItemTouchHelper classIt is a utility class which provides the facility to add swipe to dismiss and drag & drops the items of RecyclerView. It overrides the callback methods onMove() or onSwipe() depending upon the functionality we implement.Android Swipe to Delete RecyclerView items ExampleCreate a MainActivity.java class with the following code.activity_main.xmlass with the following code.
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="example.javatpoint.com.recyclerviewswipedeleteundo.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_main" />
+
+
+</android.support.design.widget.CoordinatorLayout>content_main.xml<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment"
+    android:name="example.javatpoint.com.recyclerviewswipedeleteundo.MainActivityFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:layout="@layout/fragment_main" />MainActivity.javapackage example.javatpoint.com.recyclerviewswipedeleteundo;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+    }
+}Create a layout regular_item.xml which appears at normal mode.regular_item.xml<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/regularLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:id="@+id/list_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Regular Layout"
+        android:textSize="28sp" />
+</LinearLayout>Create a layout swipe_item.xml which appears at the period of swipe item.swipe_item.xml<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/swipebackground"
+    android:orientation="horizontal"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:visibility="visible"
+    android:weightSum="3">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/archived_label"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
+
+
+    <TextView
+        android:id="@+id/undo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="end"
+        android:paddingBottom="5dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="5dp"
+        android:text="@string/undo_label"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+</LinearLayout>customlayout.xml<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <!-- Swipe Layout-->
+    <include layout="@layout/swipe_item" />
+    <!-- Regular Layout-->
+    <include layout="@layout/regular_item" />
+</FrameLayout>Create a utility class SwipeUtil.java which extends the ItemTouchHelper.SimpleCallback class and overrides its onMove(), onSwiped(), onChildDraw() methods. The onSwiped() method is called when we perform swipe operation on an item, and the onChildDraw() methods contain the implementation logic of drawing canvas while swiping the items of RecyclerView.SwipeUtil.javapackage example.javatpoint.com.recyclerviewswipedeleteundo;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.View;
+
+public abstract class SwipeUtil extends ItemTouchHelper.SimpleCallback {
+
+    private Drawable background;
+    private Drawable deleteIcon;
+    private int xMarkMargin;
+    private boolean initiated;
+    private Context context;
+    private int leftcolorCode;
+    private String leftSwipeLable;
+
+    public SwipeUtil(int dragDirs, int swipeDirs, Context context) {
+        super(dragDirs, swipeDirs);
+        this.context = context;
+    }
+
+    private void init() {
+        background = new ColorDrawable();
+        xMarkMargin = (int) context.getResources().getDimension(R.dimen.ic_clear_margin);
+        deleteIcon = ContextCompat.getDrawable(context, android.R.drawable.ic_menu_delete);
+        deleteIcon.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+        initiated = true;
+    }
+
+    @Override
+    public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+        return false;
+    }
+
+    @Override
+    public abstract void onSwiped(RecyclerView.ViewHolder viewHolder, int direction);
+
+    @Override
+    public int getSwipeDirs(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+
+        return super.getSwipeDirs(recyclerView, viewHolder);
+    }
+
+    @Override
+    public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
+                            float dX, float dY, int actionState, boolean isCurrentlyActive) {
+
+        View itemView = viewHolder.itemView;
+        if (!initiated) {
+            init();
+        }
+
+        int itemHeight = itemView.getBottom() - itemView.getTop();
+        //Setting Swipe Background
+        ((ColorDrawable) background).setColor(getLeftcolorCode());
+        background.setBounds(itemView.getRight() + (int) dX, itemView.getTop(), itemView.getRight(), itemView.getBottom());
+        background.draw(c);
+
+        int intrinsicWidth = deleteIcon.getIntrinsicWidth();
+        int intrinsicHeight = deleteIcon.getIntrinsicWidth();
+
+        int xMarkLeft = itemView.getRight() - xMarkMargin - intrinsicWidth;
+        int xMarkRight = itemView.getRight() - xMarkMargin;
+        int xMarkTop = itemView.getTop() + (itemHeight - intrinsicHeight) / 2;
+        int xMarkBottom = xMarkTop + intrinsicHeight;
+
+        //Setting Swipe Icon
+        deleteIcon.setBounds(xMarkLeft, xMarkTop + 16, xMarkRight, xMarkBottom);
+        deleteIcon.draw(c);
+
+        //Setting Swipe Text
+        Paint paint = new Paint();
+        paint.setColor(Color.WHITE);
+        paint.setTextSize(48);
+        paint.setTextAlign(Paint.Align.CENTER);
+        c.drawText(getLeftSwipeLable(), xMarkLeft + 40, xMarkTop + 10, paint);
+
+        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+    }
+
+    public String getLeftSwipeLable() {
+        return leftSwipeLable;
+    }
+
+    public void setLeftSwipeLable(String leftSwipeLable) {
+        this.leftSwipeLable = leftSwipeLable;
+    }
+
+    public int getLeftcolorCode() {
+        return leftcolorCode;
+    }
+
+    public void setLeftcolorCode(int leftcolorCode) {
+        this.leftcolorCode = leftcolorCode;
+    }
+}Create an ItemViewHolder.java class and extends RecyclerView.ViewHolder.ItemViewHolder.javapackage example.javatpoint.com.recyclerviewswipedeleteundo;
+
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class ItemViewHolder extends RecyclerView.ViewHolder {
+
+    public LinearLayout regularLayout;
+    public LinearLayout swipeLayout;
+    public TextView listItem;
+    public TextView undo;
+
+    public ItemViewHolder(View view) {
+        super(view);
+
+        regularLayout = view.findViewById(R.id.regularLayout);
+        listItem =  view.findViewById(R.id.list_item);
+        swipeLayout = view.findViewById(R.id.swipeLayout);
+        undo =  view.findViewById(R.id.undo);
+    }
+}Create an adapter class MyAdapter.java which extends the RecyclerView.Adapter class and overrides its onCreateViewHolder(), onBindViewHolder() methods.MyAdapter.javapackage example.javatpoint.com.recyclerviewswipedeleteundo;
+
+import android.os.Handler;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+public class MyAdapter extends RecyclerView.Adapter {
+
+    private List dataList;
+    private List itemsPendingRemoval;
+
+    private static final int PENDING_REMOVAL_TIMEOUT = 3000; // 3sec
+    private Handler handler = new Handler(); // hanlder for running delayed runnables
+    HashMap pendingRunnables = new HashMap(); // map of items to pending runnable, to cancel the removal
+
+
+    public MyAdapter(List dataList) {
+        this.dataList = dataList;
+        itemsPendingRemoval = new ArrayList();
+    }
+
+    @Override
+    public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.customlayout, parent, false);
+        return new ItemViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(ItemViewHolder itemViewHolder, int position) {
+
+        final String data = dataList.get(position);
+
+        if (itemsPendingRemoval.contains(data)) {
+            /** show swipe layout and hide regular layout */
+            itemViewHolder.regularLayout.setVisibility(View.GONE);
+            itemViewHolder.swipeLayout.setVisibility(View.VISIBLE);
+            itemViewHolder.undo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    undoOpt(data);
+                }
+            });
+        } else {
+            /** show regular layout and hide swipe layout*/
+            itemViewHolder.regularLayout.setVisibility(View.VISIBLE);
+            itemViewHolder.swipeLayout.setVisibility(View.GONE);
+            itemViewHolder.listItem.setText(data);
+        }
+    }
+
+    private void undoOpt(String customer) {
+        Runnable pendingRemovalRunnable = pendingRunnables.get(customer);
+        pendingRunnables.remove(customer);
+        if (pendingRemovalRunnable != null)
+            handler.removeCallbacks(pendingRemovalRunnable);
+        itemsPendingRemoval.remove(customer);
+        // this will rebind the row in "normal" state
+        notifyItemChanged(dataList.indexOf(customer));
+    }
+
+    @Override
+    public int getItemCount() {
+        return dataList.size();
+    }
+
+    public void pendingRemoval(int position) {
+
+        final String data = dataList.get(position);
+        if (!itemsPendingRemoval.contains(data)) {
+            itemsPendingRemoval.add(data);
+            // this will redraw row in "undo" state
+            notifyItemChanged(position);
+            //create, store and post a runnable to remove the data
+            Runnable pendingRemovalRunnable = new Runnable() {
+                @Override
+                public void run() {
+                    remove(dataList.indexOf(data));
+                }
+            };
+            handler.postDelayed(pendingRemovalRunnable, PENDING_REMOVAL_TIMEOUT);
+            pendingRunnables.put(data, pendingRemovalRunnable);
+        }
+    }
+
+    public void remove(int position) {
+        String data = dataList.get(position);
+        if (itemsPendingRemoval.contains(data)) {
+            itemsPendingRemoval.remove(data);
+        }
+        if (dataList.contains(data)) {
+            dataList.remove(position);
+            notifyItemRemoved(position);
+        }
+    }
+
+    public boolean isPendingRemoval(int position) {
+        String data = dataList.get(position);
+        return itemsPendingRemoval.contains(data);
+    }
+}Create a MainActivityFragment.java class and extends the Fragment class. In this class, set the adapter MyAdapter.java class and utility SwipeUtil.java class.fragment_main.xml<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="example.javatpoint.com.recyclerviewswipedeleteundo.MainActivityFragment"
+    tools:showIn="@layout/activity_main">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</RelativeLayout>MainActivityFragment.javapackage example.javatpoint.com.recyclerviewswipedeleteundo;
+
+import android.support.v4.app.Fragment;
+import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivityFragment extends Fragment {
+
+    private RecyclerView mRecyclerView;
+    private MyAdapter myAdapter;
+    String[] listValue = {"C Tutorial","C++ Tutorial","Data Structure","Java Tutorial","Android Example","Kotlin Programing","Python language","Ruby Tutorial",".Net Tutorial","MySQL Database"};
+    public MainActivityFragment() {
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View mView = inflater.inflate(R.layout.fragment_main, container, false);
+        mRecyclerView = mView.findViewById(R.id.recyclerView);
+        return mView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+        myAdapter = new MyAdapter(getData());
+        mRecyclerView.setAdapter(myAdapter);
+
+        setSwipeForRecyclerView();
+    }
+
+    private List getData() {
+        List modelList = new ArrayList();
+        for (int i = 0; i  listValue.length; i++) {
+            modelList.add(listValue[i]);
+        }
+        return modelList;
+    }
+
+    private void setSwipeForRecyclerView() {
+
+        SwipeUtil swipeHelper = new SwipeUtil(0, ItemTouchHelper.LEFT, getActivity()) {
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                int swipedPosition = viewHolder.getAdapterPosition();
+                myAdapter = (MyAdapter)mRecyclerView.getAdapter();
+                myAdapter.pendingRemoval(swipedPosition);
+            }
+
+            @Override
+            public int getSwipeDirs(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+                int position = viewHolder.getAdapterPosition();
+                myAdapter = (MyAdapter) mRecyclerView.getAdapter();
+               if (myAdapter.isPendingRemoval(position)) {
+                     return 0;
+                }
+                return super.getSwipeDirs(recyclerView, viewHolder);
+            }
+        };
+
+        ItemTouchHelper mItemTouchHelper = new ItemTouchHelper(swipeHelper);
+        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
+        //set swipe label
+        swipeHelper.setLeftSwipeLable("Archive");
+        //set swipe background-Color
+        swipeHelper.setLeftcolorCode(ContextCompat.getColor(getActivity(), R.color.swipebackground));
+    }
+}strings.xml<resources>
+    <string name="app_name">RecyclerView SwipeDeleteUndo</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="undo_label"><u>Undo</u></string>
+    <string name="archived_label">Archive</string>
+</resources>dimens.xml<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="ic_clear_margin">56dp</dimen>
+    <dimen name="text_size_medium">20sp</dimen>
+</resources>colors.xml<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="swipebackground">#cf0b4e</color>
+</resources>Output:Next Topic#? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

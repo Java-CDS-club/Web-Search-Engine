@@ -1,0 +1,53 @@
+C++ Math log2() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ Math log2()The function computes the base 2 logarithm of a given number.Suppose a number is 'x':log2(x) = log2x;Syntaxfloat log2(float x);
+double log2(double x);
+long double log2(long double x);
+double log2(integral x);Note: The return_type can be float, double or long double.Parameterx: The value whose logarithm is to be calculated.Return valueParameterReturn valuex>1Positivex=1Zero1>x> 0Negativex= 0-infinityx<0Not a Number(nan)Example 1Let's see the simple example when the value of x is greater than one.#include <iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+     int x=2;
+     std::cout << "Value of x is : " <<x <<std::endl;
+     cout<<"log2(x) = "<<log2(x);
+     return 0;}Output:Value of x is : 2
+log2(x) = 1In this example, log2() function computes the logarithm value of base 2 when the value of x is greater than oneExample 2Let's see the simple example when the value of x is equal to 1.#include <iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+     int x=1;
+     std::cout << "Value of x is : " <<x <<std::endl;
+     cout<<"log2(x) = "<<log2(x);
+     return 0;
+}.Output:Value of x is : 1
+log2(x) = 0In this example, log2() function computes the logarithm value of base 2 when the value of x is equal to one.Example 3Let's see the simple example when the value of x lies between 0 and 1.#include <iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+     float x=0.2;
+     std::cout << "Value of x is : " <<x <<std::endl;
+     cout<<"log2(x) = "<<log2(x);
+     return 0;
+}Output:Value of x is : 0.2
+log2(x) = -2.32193In this example, log2() function computes the logarithm value of base 2 when the value of x is equal to 0.2.Example 4Let's see the simple example when the value of x is equal to zero.#include <iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+     int x=0;
+     std::cout << "Value of x is : " <<x <<std::endl;
+     cout<<"log2(x) = "<<log2(x);
+     return 0;
+}Output:Value of x is : 0
+log2(x) = -infIn this example, log2() function computes the logarithm value of base 2 when the value of x is equal to 0.Example 5Let's see the simple example when the value of x is less than zero.#include <iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+     float x= -1.50;
+     std::cout << "Value of x is : " <<x <<std::endl;
+     cout<<"log2(x) = "<<log2(x);
+     return 0;
+}Output:Value of x is : -1.5
+log2(x) = nanIn this example, log2() function computes the logarithm value of base 2 when the value of x is less than zero.Next TopicC++ Math Functions? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

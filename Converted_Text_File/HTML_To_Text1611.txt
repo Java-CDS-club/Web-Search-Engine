@@ -1,0 +1,69 @@
+Count the number of digits in C - javatpoint?HomeCC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumC/C++ TrainingC TutorialWhat is C Language History of C Features of C How to install C First C Program Compilation Process in C printf scanf Variables in C Data Types in c Keywords in c C Identifiers C Operators C Comments C Format Specifier C Escape Sequence ASCII value in C Constants in C Literals in C Tokens in C C Boolean Static in C Programming Errors in C Conditional Operator in C Bitwise Operator in C 2s complement in C C Fundamental TestC Control StatementsC if-else C switch if-else vs switch C Loops C do-while loop C while loop C for loop Nested Loops in C Infinite Loop in C C break C continue C goto Type Casting C Control Statement TestC FunctionsWhat is function Call: Value & Reference Recursion in c Storage Classes C Functions TestC Array1-D Array 2-D Array Return an Array in C Array to Function C Array TestC PointersC Pointers C Pointer to Pointer C Pointer Arithmetic Dangling Pointers in C sizeof() operator in C const Pointer in C void pointer in C C Dereference Pointer Null Pointer in C C Function Pointer C Pointers TestC Dynamic MemoryDynamic memoryC StringsString in C C gets() & puts() C String Functions C strlen() C strcpy() C strcat() C strcmp() C strrev() C strlwr() C strupr() C strstr() C String TestC MathC Math FunctionsC Structure UnionC Structure typedef in C C Array of Structures C Nested Structure C Union C Structure TestC File HandlingC File Handling C fprintf() fscanf() C fputc() fgetc() C fputs() fgets() C fseek() C rewind() C ftell()C PreprocessorC Preprocessor C Macros C #include C #define C #undef C #ifdef C #ifndef C #if C #else C #error C #pragma C Preprocessor TestC Command LineCommand Line ArgumentsC MiscC Expressions Data Segments Flow of C Program Classification of Programming LanguagesC Programming TestC Programming TestC ProgramsTop 10+ C Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Count the number of digits in C Reverse Number Swap Number Print "Hello" without ; Assembly code in C C program without main Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci Triangle Hexadecimal to Binary Hexadecimal to Decimal Strong number in C Star Program in CMathPrime Numbers List Composite Numbers List Square Numbers List Binary Numbers List Fibonacci Numbers List Ounces in a Cup Ounces in a Pound Ounces in a Gallon Ounces in a Liter Ounces in a Pint Ounces in a Quart Ounces in a TablespoonC InterviewC Interview Questionsnext ? ? prevCount the number of digits in CNow, we will look at how to count the number of digits in an integer. This integer is nothing but the number entered by the user.First, we will calculate count the number of digits using for or while loop.ApproachFirstly, the number will be entered by the user. Suppose we declare the variable 'n' and stores the integer value in the 'n' variable.We will create a while loop that iterates until the value of 'n' is not equal to zero.Suppose the value of 'n' is 123.When the first iteration executes, the value of 'n' will be 123, and the value of count will be incremented to 1.When the second iteration executes, the value of 'n' will be 12, and the value of count will be incremented to 2.When the third iteration executes, the value of 'n' will be 1, and the value of count will be incremented to 3.After the completion of the third iteration, the value of 'n' becomes 0, and loop is terminated as it does not satisfy the condition (n!=0).Let's create a program which will implement the above approach.#include <stdio.h>
+int main()
+{
+   int n;  // variable declaration
+   int count=0;   // variable declaration
+   printf("Enter a number");
+   scanf("%d",&n);
+   while(n!=0)
+   {
+       n=n/10;
+       count++;
+   }
+   
+   printf("\nThe number of digits in an integer is : %d",count);
+    return 0;
+}OutputNow, we will see how to count the number of digits without using a loop.We can also count the number of digits with the help of the logarithmic function. The number of digits can be calculated by using log10(num)+1, where log10() is the predefined function in math.h header file.Let's see a simple example.#include <stdio.h>
+#include<math.h>
+int main()
+{
+    int num;  // variable declaration
+    int count=0;  // variable declaration
+    printf("Enter a number");
+    scanf("%d",&num);
+   count=(num==0)?1:log10(num)+1;
+   printf("Number of digits in an integer is : %d",count);
+   return 0;
+}OutputWe will create a C program to count the number of digits using functions.#include <stdio.h>
+int main()
+{
+    int num;  // variable declaration
+    int count=0;  // variable declaration
+    printf("Enter a number");
+    scanf("%d",&num);
+   count=func(num);
+   printf("Number of digits is : %d", count);
+   
+    return 0;
+}
+int func(int n)
+{
+    int counter=0; // variable declaration
+    while(n!=0)
+    {
+        n=n/10;
+        counter++;
+    }
+    return counter;
+}OutputNow, we will see how to count the number of digits using recursion.#include <stdio.h>
+int main()
+{
+    int num;  // variable declaration
+    int count=0;  // variable declaration
+    printf("Enter a number");
+    scanf("%d",&num);
+   count=func(num);
+   printf("Number of digits is : %d", count);
+   return 0;
+}
+int func(int n)
+{
+    static int counter=0; // variable declaration
+  if(n>0)
+  {
+      counter=counter+1;
+      return func(n/10);
+  }
+    else
+    return counter;
+}In the above program, we are calculating the number of digits in an integer. The func() function is called. In func(), we declare a static variable, i.e., counter, which will be initialized only once. The func(n/10) will be called recursive1y until the condition (n>0) is true. When the condition is false, then the value of the counter is returned.OutputNext TopicC Program to reverse number? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

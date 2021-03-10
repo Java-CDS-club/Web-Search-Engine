@@ -1,0 +1,97 @@
+ADO.Net MVC Example - javatpoint?HomeC#ADO.NETASP.NETJavaPHPHTMLCSSJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingADO.NET TutorialADO.NET Tutorial ADO.NET Introduction ADO.NET Data Providers ADO.NET SQL Server ADO.NET Connection ADO.NET Command ADO.NET DataReader ADO.NET DataSet ADO.NET DataAdapter ADO.NET DataTables ADO.NET WF Example ADO.NET MVC ExampleInterview QuestionsADO.NET InterviewC# TutorialC# Tutorial (100+)ASP.NET TutorialASP.NET Tutorial (50+)next ? ? prevADO.NET MVC ExampleMVC (Model View Controller) is a web application design pattern that is widely used in application development. Here, we are creating an MVC application that connects to the SQL Server with the help of ADO.NET framework.This application contains a Model, a View and a Controller file. Following are the source codes of the application.Model// Student.csusing System;
+using System.ComponentModel.DataAnnotations;
+namespace Ado.NetMvcApplication.Models
+{
+    public class Student
+    {
+        public int ID { get; set; }
+        // -- Validating Student Name
+        [Required(ErrorMessage = "Name is required")]
+        [MaxLength(12)]
+        public string Name { get; set; }
+        // -- Validating Email Address
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string Email { get; set; }
+        // -- Validating Contact Number
+        [Required(ErrorMessage = "Contact is required")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
+        public string Contact { get; set; }
+    }
+}View// Index.cshtml@model Ado.NetMvcApplication.Models.Student
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+@using (Html.BeginForm("Save", "Students"))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Student</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Contact, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Contact, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}Controller// StudentsController.csusing System.Web.Mvc;
+using Ado.NetMvcApplication.Models;
+using System.Data.SqlClient;
+namespace Ado.NetMvcApplication.Controllers
+{
+    public class StudentsController : Controller
+    {
+        // GET: Students
+        public ActionResult Index()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ContentResult Save(Student student)
+        {
+            string status = "";
+            // Creating Connection
+            using (SqlConnection con = new SqlConnection("data source=.; database=student; integrated security=SSPI"))
+            {
+                // Insert query
+                string query = "INSERT INTO student(name,email,contact) VALUES(@name, @email, @contact)";
+                using (SqlCommand cmd = new SqlCommand(query))
+                {
+                    cmd.Connection = con;
+                    // opening connection
+                    con.Open();
+                    // Passing parameter values
+                    cmd.Parameters.AddWithValue("@name", student.Name);
+                    cmd.Parameters.AddWithValue("@email", student.Email);
+                    cmd.Parameters.AddWithValue("@contact", student.Contact);
+                    // Executing insert query
+                    status = (cmd.ExecuteNonQuery() >= 1) ?  "Record is saved Successfully!" : "Record is not saved";
+                    status += ""; } // Executing select command using (SqlCommand cmd = new SqlCommand("select * from student")) { cmd.Connection = con; // Retrieving Record from datasource SqlDataReader sdr = cmd.ExecuteReader(); // Reading and Iterating Records while (sdr.Read()) { status += "name: "+sdr["name"]+"Email: "+sdr["email"]+"Contact: "+sdr["contact"]; } } return Content(status); } } } }Output:After submitting, it stores and fetches data from the SQL Server database and produce the following result to the browser.Next Topic#? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

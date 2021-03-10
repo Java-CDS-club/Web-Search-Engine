@@ -1,0 +1,353 @@
+Bootstrap Table - JavaTpoint?HomeCJavaPHPHTMLCSSBootstrapJavaScriptjQueryjQuery UIXMLJSONAjaxQuizProjectsInterview QCommentForumTrainingBootstrap TrainingBootstrap TutorialBootstrap Introduction What is Bootstrap Bootstrap Example Bootstrap ContainerBootstrap ExamplesBootstrap Jumbotron Bootstrap Button Bootstrap Grid Bootstrap Table Bootstrap Form Bootstrap Alert Bootstrap Wells Bootstrap Badge & Label Bootstrap Panels Bootstrap Pagination Bootstrap Pager Bootstrap Image Bootstrap Glyphicon Bootstrap Carousel Bootstrap Progress Bar Bootstrap List Group Bootstrap Dropdown Bootstrap CollapseBootstrap AdvanceBootstrap Tabs/Pills Bootstrap Navbar Bootstrap Input Types Bootstrap Modals Bootstrap Popover Bootstrap ScrollspyBootstrap UtilitiesBootstrap Border Bootstrap Clearfix Bootstrap Close Icons Bootstrap Colors Bootstrap Flexbox Display property Image Replacement Invisible Content Bootstrap Position Responsive helpers Screen readers Bootstrap Sizing Bootstrap Spacing Bootstrap TypographyInterview QuestionsHTML Interview CSS Interview jQuery Interview JavaScript Interview AJAX Interviewnext ? ? prevBootstrap TablesWe can create different types of Bootstrap tables by using different classes to style them.Bootstrap Basic Table:The basic Bootstrap table has a light padding and only horizontal dividers. The .table class is used to add basic styling to a table.Example:
+       JobBasic Table Example IdNameAge101Rahul23102Umesh22103Max29104Ajeet21Test it NowBootstrap Striped Rows Table:The .table-striped class is used to add zebra-stripes to a table:
+       JobStriped Table Example IdNameAge101Rahul23102Umesh22103Max29104Ajeet21Test it NowBootstrap Bordered table:The .table-bordered class is used to add borders on all sides of the table and cells:
+       JobBordered Table Example IdNameAge101Rahul23102Umesh22103Max29104Ajeet21Test it NowBootstrap Hover rows Table:The .table-hover class is used to enable a hover state on table rows:
+       JobHower rows Table Example IdNameAge101Rahul23102Umesh22103Max29104Ajeet21Test it NowBootstrap Condensed table:The .table-condensed class is used to make a table more compact by cutting cell padding in half:
+       JobCondensed Table Example IdNameAge101Rahul23102Umesh22103Max29104Ajeet21Test it NowBootstrap Contextual classes:.Contextual classes are used to color table rows (<tr>) or table cells (<td>):Following are the different contextual classes:ClassDescription.activeIt is used to apply the hover color to the table row or table cell.successIt indicates a successful or positive action.infoIt indicates a neutral informative change or action.warning It specifies a warning that might need attention.dangerIt indicates a dangerous or potentially negative actionExample:
+       JobContextual classes IdNameAge101Rahul23102Umesh22103Max29104Ajeet21Test it NowResponsive tables:The .table-responsive class is used to create a responsive table. You can open the responsible table even on small devices (under 768px). Then the table will be scrolled horizontally. Displays larger than 768px wide, there is no difference.See this example:
+       JobContextual classesIdNameAge101Rahul23102Umesh22103Max29104Ajeet21Test it NowSome newly added tables in Bootstrap 4:Black/Dark TableThe .table-dark class is used to add a black background to the table:Example<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Black/Dark Table</h2>
+  <p>The .table-dark class is used to add a black background to the table:</p>            
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ajeet</td>
+        <td>Kumar</td>
+        <td>ajeet@jtp.com</td>
+      </tr>
+      <tr>
+        <td>Mahesh</td>
+        <td>Sharma</td>
+        <td>mahesh@jtp.com</td>
+      </tr>
+      <tr>
+        <td>Sonoo</td>
+        <td>Jaiswal</td>
+        <td>sonoo@jtp.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>Test it NowDark Striped TableCombine the .table-dark class and .table-striped class to create a dark, striped table:Example<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Dark Striped Table</h2>
+  <p>Combine the .table-dark class and .table-striped class to create a dark, striped table: </p>            
+  <table class="table table-dark table-striped">
+        <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ajeet</td>
+        <td>Kumar</td>
+        <td>ajeet@jtp.com</td>
+      </tr>
+      <tr>
+        <td>Mahesh</td>
+        <td>Sharma</td>
+        <td>mahesh@jtp.com</td>
+      </tr>
+      <tr>
+        <td>Sonoo</td>
+        <td>Jaiswal</td>
+        <td>sonoo@jtp.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>Test it NowHoverable Dark TableThe .table-hover class is used to add a hover effect (grey background color) on table rows:Example<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Hoverable Dark Table</h2>
+  <p>The .table-hover class is used to add a hover effect (grey background color) on table rows:</p>            
+  <table class="table table-dark table-hover">
+  <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ajeet</td>
+        <td>Kumar</td>
+        <td>ajeet@jtp.com</td>
+      </tr>
+      <tr>
+        <td>Mahesh</td>
+        <td>Sharma</td>
+        <td>mahesh@jtp.com</td>
+      </tr>
+      <tr>
+        <td>Sonoo</td>
+        <td>Jaiswal</td>
+        <td>sonoo@jtp.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>Test it NowBootstrap 4 Contextual TableContextual classes can be used to color the whole table (<table>), the table rows (<tr>) or table cells (<td>).The classes that can be used are:.table-primary, .table-success, .table-info, .table-warning, .table-danger, .table-active, .table-secondary, .table-light and .table-dark:Let's take an example to see the usage of all contextual classes in a Bootstrap 4 table.Example<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Contextual Classes Example</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>A</td>
+        <td>a@jtp.com</td>
+      </tr>      
+      <tr class="table-primary">
+        <td>Primary</td>
+        <td>B</td>
+        <td>b@jtp.com</td>
+      </tr>
+      <tr class="table-success">
+        <td>Success</td>
+        <td>C</td>
+        <td>c@jtp.com</td>
+      </tr>
+      <tr class="table-danger">
+        <td>Danger</td>
+        <td>D</td>
+        <td>d@jtp.com</td>
+      </tr>
+      <tr class="table-info">
+        <td>Info</td>
+        <td>E</td>
+        <td>e@jtp.com</td>
+      </tr>
+      <tr class="table-warning">
+        <td>Warning</td>
+        <td>F</td>
+        <td>f@jtp.com</td>
+      </tr>
+      <tr class="table-active">
+        <td>Active</td>
+        <td>G</td>
+        <td>g@jtp.com</td>
+      </tr>
+      <tr class="table-secondary">
+        <td>Secondary</td>
+        <td>H</td>
+        <td>h@jtp.com</td>
+      </tr>
+      <tr class="table-light">
+        <td>Light</td>
+        <td>I</td>
+        <td>j@jtp.com</td>
+      </tr>
+      <tr class="table-dark text-dark">
+        <td>Dark</td>
+        <td>K</td>
+        <td>k@jtp.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>Test it NowTable Head ColorsYou can change the background color of the table header by using .thead-dark class to add a black background to table headers, and the .thead-light class to add a grey background to table headers.Example:<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Table Head Colors</h2>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+            <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ajeet</td>
+        <td>Kumar</td>
+        <td>ajeet@jtp.com</td>
+      </tr>
+      <tr>
+        <td>Mahesh</td>
+        <td>Sharma</td>
+        <td>mahesh@jtp.com</td>
+      </tr>
+      <tr>
+        <td>Sonoo</td>
+        <td>Jaiswal</td>
+        <td>sonoo@jtp.com</td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+           <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ajeet</td>
+        <td>Kumar</td>
+        <td>ajeet@jtp.com</td>
+      </tr>
+      <tr>
+        <td>Mahesh</td>
+        <td>Sharma</td>
+        <td>mahesh@jtp.com</td>
+      </tr>
+      <tr>
+        <td>Sonoo</td>
+        <td>Jaiswal</td>
+        <td>sonoo@jtp.com</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>Test it NowSmall TableThe .table-sm class is used to make the table smaller by cutting cell padding in half.Example:<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Small Table Example</h2>
+  <p>The .table-sm class is used to make the table smaller by cutting cell padding in half.</p>
+  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ajeet</td>
+        <td>Kumar</td>
+        <td>ajeet@jtp.com</td>
+      </tr>
+      <tr>
+        <td>Mahesh</td>
+        <td>Sharma</td>
+        <td>mahesh@jtp.com</td>
+      </tr>
+      <tr>
+        <td>Sonoo</td>
+        <td>Jaiswal</td>
+        <td>sonoo@jtp.com</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>Test it NowNext TopicBootstrap Form? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

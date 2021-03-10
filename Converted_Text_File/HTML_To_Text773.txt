@@ -1,0 +1,49 @@
+Automata Derivation - Javatpoint?HomeCompilerAutomataAWSIoTComputer FundamentalsControl SystemJavaHTMLCSSAptitudeSeleniumKotlinJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingAutomata TutorialAutomata Tutorial Theory of Automata Finite Automata Transition Diagram Transition Table DFA Examples of DFA NFA Examples of NFA Eliminating ? Transitions Conversion from NFA to DFA Conversion from NFA with ? to DFA Minimization of DFARegular ExpressionRegular Expression Examples of Regular Expression Conversion of RE to FA Arden's Theorem Moore Machine Mealy Machine Conversion from Mealy machine to Moore machine Conversion from Moore machine to Mealy machineCFGContext-free Grammar Derivation Derivation Tree Ambiguity in Grammar Unambiguous Grammar Simplification of CFG Chomsky's Normal Form (CNF) Greibach Normal Form (GNF)PDAPushdown Automata PDA Acceptance Non-deterministic Pushdown Automata CFG to PDA ConversionTuring MachineAutomata Turing Machine Basic Model of Turing machine Language accepted by Turing machine Example of TM Introduction to Undecidability Undecidable Problem about TM Post Correspondence Problem Chomsky Hierarchynext ? ? prevDerivationDerivation is a sequence of production rules. It is used to get the input string through these production rules. During parsing, we have to take two decisions. These are as follows:We have to decide the non-terminal which is to be replaced.We have to decide the production rule by which the non-terminal will be replaced.We have two options to decide which non-terminal to be placed with production rule.1. Leftmost Derivation:In the leftmost derivation, the input is scanned and replaced with the production rule from left to right. So in leftmost derivation, we read the input string from left to right.Example:Production rules:E = E + E
+E = E - E
+E = a | bInputa - b + aThe leftmost derivation is:E = E + E
+E = E - E + E
+E = a - E + E
+E = a - b + E
+E = a - b + a2. Rightmost Derivation:In rightmost derivation, the input is scanned and replaced with the production rule from right to left. So in rightmost derivation, we read the input string from right to left.ExampleProduction rules:E = E + E
+E = E - E
+E = a | bInputa - b + aThe rightmost derivation is:E = E - E
+E = E - E + E
+E = E - E + a
+E = E - b + a
+E = a - b + aWhen we use the leftmost derivation or rightmost derivation, we may get the same string. This type of derivation does not affect on getting of a string.Examples of Derivation:Example 1:Derive the string "abb" for leftmost derivation and rightmost derivation using a CFG given by,S ? AB | ?
+A ? aB
+B ? SbSolution:Leftmost derivation:Rightmost derivation:Example 2:Derive the string "aabbabba" for leftmost derivation and rightmost derivation using a CFG given by,S ? aB | bA
+ S ? a | aS | bAA
+S ? b | aS | aBBSolution:Leftmost derivation:S
+aB            S ? aB	
+aaBB          B ? aBB
+aabB          B ? b
+aabbS         B ? bS
+aabbaB        S ? aB
+aabbabS       B ? bS
+aabbabbA      S ? bA
+aabbabba      A ? aRightmost derivation:S
+aB            S ? aB	
+aaBB          B ? aBB
+aaBbS         B ? bS
+aaBbbA        S ? bA
+aaBbba        A ? a
+aabSbba       B ? bS
+aabbAbba      S ? bA
+aabbabba      A ? aExample 3:Derive the string "00101" for leftmost derivation and rightmost derivation using a CFG given by,S ? A1B
+A ? 0A | ?
+B ? 0B | 1B | ?Solution:Leftmost derivation:S
+A1B
+0A1B
+00A1B
+001B
+0010B
+00101B
+00101Rightmost derivation:S
+A1B
+A10B
+A101B
+A101
+0A101
+00A101
+00101Next TopicDerivation Tree? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

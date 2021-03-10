@@ -1,0 +1,124 @@
+C++ set lower_bound() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set lower_bound()C++ set lower_bound() function is used to return an iterator pointing to the key in the set container which is equivalent to val passed in the parameter.If val is not present in the set container, it returns an iterator pointing to the immediate next element which is just greater than val.Syntaxiterator lower_bound (const value_type& val);                        //until C++ 11
+
+iterator lower_bound (const value_type& val);                        //since C++ 11
+const_iterator lower_bound (const value_type& val) const;      //since C++ 11    Parameterval: Value to be searched in the set container.Return valueIt returns an iterator pointing to the value in the set container which is equivalent to val passed in the parameter. If there is no such element return end().ComplexityLogarithmic in size.Iterator validityNo changes.Data RacesThe container is accessed (neither the const nor the non-const versions modify the container).Concurrently accessing the elements of a set is safe.Exception SafetyIf an exception is thrown, there are no changes in the container.Example 1Let's see the simple example to get the lower bound of given key:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   set<char> m = {'a','b','c','d','e'};
+          
+   auto it = m.lower_bound('c');
+
+   cout << "Lower bound is(=) " << *it;
+   return 0;
+}Output:Lower bound is(=) cIn the above example, lower bound of c is c.Example 2Let's see a simple example to erase the element of set from lower bound to upper bound:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<int> myset;
+  set<int>::iterator itlow,itup;
+
+  for (int i=1; i<10; i++) myset.insert(i*10); // 10 20 30 40 50 60 70 80 90
+
+  itlow=myset.lower_bound (30);                //       ^
+  itup=myset.upper_bound (60);                 //       ^
+
+  myset.erase(itlow,itup);                     // 10 20 70 80 90
+
+  std::cout << "myset contains:";
+  for (set<int>::iterator it=myset.begin(); it!=myset.end(); ++it)
+    cout << ' ' << *it;
+  cout << '\n';
+
+  return 0;
+}Output:myset contains: 10 20 70 80 90In the above example, erase() function erased the element of set from lower bound(=) to upper bound(>) and print the remaining content.Example 3Let's see a simple example:#include <set>  
+#include <iostream>  
+
+using namespace std;
+  
+int main( )  
+{  
+   using namespace std;  
+   set <int> s1;  
+   set <int> :: const_iterator s1_AcIter, s1_RcIter;  
+  
+   s1.insert( 10 );  
+   s1.insert( 20 );  
+   s1.insert( 30 );  
+  
+   s1_RcIter = s1.lower_bound( 20 );  
+   cout << "The element of set s1 with a key of 20 is: "  
+        << *s1_RcIter << "." << endl;  
+  
+   s1_RcIter = s1.lower_bound( 40 );  
+  
+   // If no match is found for the key, end( ) is returned  
+   if ( s1_RcIter == s1.end( ) )  
+      cout << "The set s1 doesn't have an element "  
+           << "with a key of 40." << endl;  
+   else  
+      cout << "The element of set s1 with a key of 40 is: "  
+           << *s1_RcIter << "." << endl;  
+  
+   // The element at a specific location in the set can be found   
+   // by using a dereferenced iterator that addresses the location  
+   s1_AcIter = s1.end( );  
+   s1_AcIter--;  
+   s1_RcIter = s1.lower_bound( *s1_AcIter );  
+   cout << "The element of s1 with a key matching "  
+        << "that of the last element is: "  
+        << *s1_RcIter << "." << endl;  
+        
+        return 0;
+}  Output:The element of set s1 with a key of 20 is: 20.
+The set s1 doesn't have an element with a key of 40.
+The element of s1 with a key matching that of the last element is: 30.Example 4Let's see a simple example:#include<set>
+#include<iostream>
+
+using namespace std;
+ 
+int main()
+{
+ 
+    set<int> mp; 
+    // insert elements in random order
+    mp.insert( 2 );
+    mp.insert( 1 );
+    mp.insert( 5 );
+    mp.insert( 4 );
+    
+    cout<<"Elements are: \n";
+    for (auto it = mp.begin(); it != mp.end(); it++) {
+        cout << (*it)<< endl;
+    }
+ 
+    // when 2 is present
+    auto it = mp.lower_bound(2);
+    cout << "The lower bound of key 2 is ";
+    cout << (*it)<< endl;
+ 
+    // when 3 is not present
+    // points to next greater after 3
+    it = mp.lower_bound(3);
+    cout << "The lower bound of key 3 is ";
+    cout << (*it)<< endl;
+ 
+    // when 6 exceeds
+    it = mp.lower_bound(6);
+    cout << "The lower bound of key 6 is ";
+    cout << (*it);
+    
+    return 0;
+}Output:Elements are: 
+1
+2
+4
+5
+The lower bound of key 2 is 2
+The lower bound of key 3 is 4
+The lower bound of key 6 is 4In the above example, when we try to find the lower bound of a value which exceeds the container or we can say that which is not present in the set container then it will return to the end .Next TopicSet upper_bound() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

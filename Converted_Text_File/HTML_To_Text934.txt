@@ -1,0 +1,111 @@
+Bash Arithmetic Operators - Javatpoint?HomeJavaCBashJavaScriptXMLAjaxSQLC++C#HTMLAndroidCloudDesign PatternQuizProjectsInterview QCommentForumBash TutorialBash Tutorial What is Bash History of Bash Features of Bash Bash Scripting Filesystem & File Permission Hello World! Bash Script Relative vs Absolute path Bash Comments Bash Quotes Bash Variables Read User Input Bash Date Format Bash SleepBash OperatorsBash Arithmetic OperatorsConditional StatementsBash If Statement Bash If Else Bash Else If Bash CaseBash LoopsBash For Loop Bash While Loop Bash Until LoopBash StringBash String Bash Find String Bash Split String Bash Substring Bash Concatenate StringBash FunctionBash FunctionsBash ArrayBash ArraysMiscellaneousBash Read File Bash Write File Check if file Exists Check if Variable is Set Bash Alias Git Bash Zsh vs Bash Bash Hash Commandnext ? ? prevBash Arithmetic OperatorsIn this topic, we will understand how to use arithmetic operators in Bash.Depending on what type of result we want through our scripts, we may need to apply arithmetic operators at some point. Like variables, they are reasonably easy to apply. In the bash script, we can perform arithmetic operations on numeric values to get the desired result.There are 11 arithmetic operators which are supported by Bash Shell.Look at the following table demonstrating the syntax, description and examples for each of the arithmetic operators:OperatorDescriptionExamples+Addition, measures addition of numbers (operands)$(( 10 + 3 )), result=13-Substraction, measures subtraction of second operand from first$(( 10 - 3 )), result=7*Multiplication, measures the multiplication of operands.$(( 10 * 3 )), result=30/Division, measures the division of first operand by second operand and and return quotient.$(( 10 / 3 )), result=3**Exponentiation, measures the result of second operand raised to the power of first operand.$((  10 ** 3 )), result=1000%Modulo, measures remainder when the first operand is divided by second operand.$(( 10 % 3 )), result=1+=Increment Variable by Constant- used to increment the value of first operand by the constant provided.x=10
+let "x += 3"
+echo $x
+result=13-=Decrement Variable by Constant- used to decrement the value of first operand by the constant provided.x=10
+let "x -= 3"
+echo $x
+result=7*=Multiply Variable by Constant- used to multiply the value of the first operand by the constant provided.x=10
+let "x *= 3"
+echo $x
+result=30/=Divide Variable by Constant- used to calculate the value of (variable / constant) and store the result back to variable.x=10
+let "10 /= 3"
+echo $x
+result=3%=Remainder of Dividing Variable by Constant- used to calculate the value of (variable % constant) and store the result back to variable.x=10
+let "10 %= 3"
+echo $x
+result=1Performing Arithmetic Operations in BashThere are many options to perform arithmetic operations on the bash shell. Some of the options are given below that we can adopt to perform arithmetic operations:Double ParenthesesDouble parentheses is the easiest mechanism to perform basic arithmetic operations in the Bash shell. We can use this method by using double brackets with or without a leading $.Syntax((expression))We can apply four different ways to achieve the required objectives. Look at the methods given below to understand how the double parentheses mechanism can be used (Assuming that we want to add the numbers 10 and 3) :Method 1Sum=$((10+3))
+echo "Sum = $Sum"Method 2((Sum=10+3))
+echo "Sum = $Sum"Method 3Num1=10
+Num2=3
+((Sum=Num1+Num2))
+echo "Sum = $Sum"Method 4Num1=10
+Num2=3
+Sum=$((Num1+Num2))
+echo "Sum = $Sum"All of these methods will provide the same output as:Sum = 13Following is an example demonstrating the use of double parentheses for arithmetic operations in a Bash shell script:Bash Script#!/bin/bash
+
+x=8
+y=2
+echo "x=8, y=2"
+echo "Addition of x & y"
+echo $(( $x + $y ))
+echo "Subtraction of x & y"
+echo $(( $x - $y ))
+echo "Multiplication of x & y"
+echo $(( $x * $y ))
+echo "Division of x by y"
+echo $(( $x / $y ))
+echo "Exponentiation of x,y"
+echo $(( $x ** $y ))
+echo "Modular Division of x,y"
+echo $(( $x % $y ))
+echo "Incrementing x by 5, then x= "
+(( x += 5 )) 
+echo $x
+echo "Decrementing x by 5, then x= "
+(( x -= 5 ))
+echo $x
+echo "Multiply of x by 5, then x="
+(( x *= 5 ))
+echo $x
+echo "Dividing x by 5, x= "
+(( x /= 5 ))
+echo $x
+echo "Remainder of Dividing x by 5, x="
+(( x %= 5 ))
+echo $xOutputLet ConstructionLet is a built-in command of Bash that allows us to perform arithmetic operations. It follows the basic format:Syntaxlet <arithmetic expression>An example is given below explaining how to use let command in a Bash script:Bash script#!/bin/bash
+
+x=10
+y=6
+z=0
+echo "Addition"
+let "z = $(( x + y ))"
+echo "z= $z"
+
+echo "Substraction"
+let "z = $((x - y ))"
+echo "z= $z"
+
+echo "Multiplication"
+let "z = $(( x * y ))"
+echo "z = $z"
+
+echo "Division"
+let "z = $(( x / y ))"
+echo "z = $z"
+
+echo "Exponentiation"
+let "z = $(( x ** y ))"
+echo "z = $z"
+
+echo "Modular Division"
+let "z = $(( x % y ))"
+echo "z = $z"
+
+let "x += 5"
+echo "Incrementing x by 5, then x= "
+echo $x
+
+let "x -= 5"
+echo "Decrementing x by 5, then x= "
+echo $x
+
+let "x *=5"
+echo "Multiply of x by 5, then x="
+echo $x
+
+let "x /= 5"
+echo "Dividing x by 5, x= "
+echo $x
+
+let "x %= 5"
+echo "Remainder of Dividing x by 5, x="
+echo $xOutputBackticksIn bash scripting, an arithmetic expansion can also be performed using backticks and expr (known as all-purpose expression evaluator). The `expr` is similar to 'let,' but it does not save the result to a variable. It directly prints the result. Unlike let, we don't need to enclose the expression within the quotes. We are required to use spaces between the items of the expression. It is important to note that we should use 'expr` within command substitution to save the output to a variable.We can also use `expr` without 'backticks'.Syntax`expr item1 operator item2`
+or
+expr item1 operator item2An example is given below explaining how to use backticks and expr in a Bash script:Bash Script Program#!/bin/bash
+#Basic arithmetic using expr
+
+echo "a=10, b=3"
+echo "c is the value of addition c=a+b"
+a=10
+b=3
+echo "c= `expr $a + $b`"OutputConclusionIn this topic, we discussed how to use arithmetic operators to perform arithmetic operations.Next TopicBash If Statement? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

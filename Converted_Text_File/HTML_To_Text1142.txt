@@ -1,0 +1,54 @@
+C goto statement - javatpoint?HomeCC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumC/C++ TrainingC TutorialWhat is C Language History of C Features of C How to install C First C Program Compilation Process in C printf scanf Variables in C Data Types in c Keywords in c C Identifiers C Operators C Comments C Format Specifier C Escape Sequence ASCII value in C Constants in C Literals in C Tokens in C C Boolean Static in C Programming Errors in C Conditional Operator in C Bitwise Operator in C 2s complement in C C Fundamental TestC Control StatementsC if-else C switch if-else vs switch C Loops C do-while loop C while loop C for loop Nested Loops in C Infinite Loop in C C break C continue C goto Type Casting C Control Statement TestC FunctionsWhat is function Call: Value & Reference Recursion in c Storage Classes C Functions TestC Array1-D Array 2-D Array Return an Array in C Array to Function C Array TestC PointersC Pointers C Pointer to Pointer C Pointer Arithmetic Dangling Pointers in C sizeof() operator in C const Pointer in C void pointer in C C Dereference Pointer Null Pointer in C C Function Pointer C Pointers TestC Dynamic MemoryDynamic memoryC StringsString in C C gets() & puts() C String Functions C strlen() C strcpy() C strcat() C strcmp() C strrev() C strlwr() C strupr() C strstr() C String TestC MathC Math FunctionsC Structure UnionC Structure typedef in C C Array of Structures C Nested Structure C Union C Structure TestC File HandlingC File Handling C fprintf() fscanf() C fputc() fgetc() C fputs() fgets() C fseek() C rewind() C ftell()C PreprocessorC Preprocessor C Macros C #include C #define C #undef C #ifdef C #ifndef C #if C #else C #error C #pragma C Preprocessor TestC Command LineCommand Line ArgumentsC MiscC Expressions Data Segments Flow of C Program Classification of Programming LanguagesC Programming TestC Programming TestC ProgramsTop 10+ C Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Count the number of digits in C Reverse Number Swap Number Print "Hello" without ; Assembly code in C C program without main Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci Triangle Hexadecimal to Binary Hexadecimal to Decimal Strong number in C Star Program in CMathPrime Numbers List Composite Numbers List Square Numbers List Binary Numbers List Fibonacci Numbers List Ounces in a Cup Ounces in a Pound Ounces in a Gallon Ounces in a Liter Ounces in a Pint Ounces in a Quart Ounces in a TablespoonC InterviewC Interview Questionsnext ? ? prevC goto statementThe goto statement is known as jump statement in C. As the name suggests, goto is used to transfer the program control to a predefined label. The goto statment can be used to repeat some part of the code for a particular condition. It can also be used to break the multiple loops which can't be done by using a single break statement. However, using goto is avoided these days since it makes the program less readable and complecated.Syntax:label: 
+//some part of the code; 
+goto label;goto exampleLet's see a simple example to use goto statement in C language.#include <stdio.h>
+int main() 
+{
+  int num,i=1; 
+  printf("Enter the number whose table you want to print?"); 
+  scanf("%d",&num);
+  table: 
+  printf("%d x %d = %d\n",num,i,num*i);
+  i++;
+  if(i<=10)
+  goto table;  
+}Output:Enter the number whose table you want to print?10
+10 x 1 = 10
+10 x 2 = 20
+10 x 3 = 30
+10 x 4 = 40
+10 x 5 = 50
+10 x 6 = 60
+10 x 7 = 70
+10 x 8 = 80
+10 x 9 = 90
+10 x 10 = 100When should we use goto?The only condition in which using goto is preferable is when we need to break the multiple loops using a single statement at the same time. Consider the following example.#include <stdio.h>
+int main() 
+{
+  int i, j, k;  
+  for(i=0;i<10;i++)
+  {
+    for(j=0;j<5;j++)
+    {
+      for(k=0;k<3;k++)
+      {
+        printf("%d %d %d\n",i,j,k);
+        if(j == 3)
+        {
+          goto out; 
+        }
+      }
+    }
+  }
+  out: 
+  printf("came out of the loop"); 
+}0 0 0
+0 0 1
+0 0 2
+0 1 0
+0 1 1
+0 1 2
+0 2 0
+0 2 1
+0 2 2
+0 3 0
+came out of the loopNext TopicType Casting in C? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

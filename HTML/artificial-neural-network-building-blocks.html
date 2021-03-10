@@ -1,0 +1,576 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/artificial-neural-network-building-blocks by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:28:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Artificial Neural Network Building Blocks - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png"/>
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css"/><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50"/><meta property="og:title" content="Artificial Neural Network Building Blocks - Javatpoint" /><meta property="og:description" content="Artificial Neural Network Building Blocks with Introduction, History of Artificial Neural Network, What is ANN, Adaptive Resonance Theory, Building Blocks, Genetic Algorithm etc." />
+<meta name="keywords" content="artificial neural network, ann, tutorial, introduction, history of artificial neural network, what is artificial neural network, adaptive resonance theory, building blocks, genetic algorithm"/><meta name="description" content="Artificial Neural Network Building Blocks with Introduction, History of Artificial Neural Network, What is ANN, Adaptive Resonance Theory, Building Blocks, Genetic Algorithm etc."/><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="https://www.javatpoint.com/artificial-neural-network-building-blocks" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Artificial Neural Network Building Blocks - Javatpoint" /><meta name="twitter:description" property="og:description" content="Artificial Neural Network Building Blocks with Introduction, History of Artificial Neural Network, What is ANN, Adaptive Resonance Theory, Building Blocks, Genetic Algorithm etc." /><meta property="og:url" content="https://www.javatpoint.com/artificial-neural-network-building-blocks" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@pagejavatpoint"/><meta name="twitter:domain" content="www.javatpoint.com"/><meta name="twitter:creator" content="@pagejavatpoint"/>
+
+
+<link href="https://www.javatpoint.com/manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://cdn.adpushup.com/37780/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+</head> 
+<body onload="highlightlink()"> 
+ 
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#8679;</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px">
+    <tr>
+        <td>
+            <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px">
+                <a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a>
+            </div>
+            <div style="float:left;width:60%;">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+                
+            </div>
+            
+        </td>
+    </tr>
+        <!--<tr>
+        <td>
+            <div id="headerlink" style="padding:0px;margin:0px"><span style="margin-right:20px;width:45px"></span><span style="float:right;margin-right:5px;width:45%"> </span>
+                
+            </div>
+        </td>
+    </tr>-->
+
+</table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="https://www.javatpoint.com/images/menuhome64.png" alt="Go To Top" onclick="showmenu()"/></span>
+<span style="float:left"><a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+<!--<form class="navbar-search-m" method="get" action="https://www.google.com/search" target="_blank"> <input type="text" name="q" class="search-query span2-m" placeholder="Search on javatpoint..." title="Search on Javatpoint"/><input type="hidden" name="sitesearch" value="www.javatpoint.com"/></form>-->
+
+</div>
+</div>
+<div id="link" style="clear:both"> <div  class="ddsmoothmenu">
+<ul>
+<li><a href="https://www.javatpoint.com/">Home</a></li>
+<li><a href="https://www.javatpoint.com/java-tutorial">Java</a></li>
+<li><a href="https://www.javatpoint.com/artificial-neural-network" class="selected">ANN</a></li>
+<li><a href="https://www.javatpoint.com/artificial-intelligence-tutorial">AI</a></li>
+<li><a href="https://www.javatpoint.com/html-tutorial">HTML</a></li>
+<li><a href="https://www.javatpoint.com/css-tutorial">CSS</a></li>
+<li><a href="https://www.javatpoint.com/javascript-tutorial">JavaScript</a></li>
+<li><a href="https://www.javatpoint.com/selenium-tutorial">Selenium</a></li>
+<li><a href="https://www.javatpoint.com/data-structure-tutorial">DS</a></li>
+<li><a href="https://www.javatpoint.com/dbms-tutorial">DBMS</a></li>
+<li><a href="https://www.javatpoint.com/selenium-tutorial">Selenium</a></li>
+<li><a href="https://www.javatpoint.com/free-java-projects">Projects</a></li>
+<li><a href="https://www.javatpoint.com/corejava-interview-questions">Interview Q</a></li>
+<li><a href="https://www.javatpoint.com/comment.jsp">Comment</a></li>
+<li><a href="https://www.javatpoint.com/forum">Forum</a></li>
+<li><a href="https://www.javatpoint.com/training">Training</a></li>
+</ul>
+<br style="clear: left"/>
+</div></div>
+<div class="mobilemenu" style="clear:both"> 
+<!-- Cm_300x250_Mob_14/9 -->
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">ANN Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/artificial-neural-network">ANN Tutorial</a>
+<a href="https://www.javatpoint.com/artificial-neural-network-adaptive-resonance-theory">Adaptive Resonance Theory</a>
+<a href="https://www.javatpoint.com/artificial-neural-network-building-blocks">Building Blocks</a>
+<a href="https://www.javatpoint.com/artificial-neural-network-genetic-algorithm">Genetic Algorithm</a>
+<a href="https://www.javatpoint.com/history-of-artificial-neural-network">ANN History</a>
+<a href="https://www.javatpoint.com/artificial-neural-network-learning-and-adaption">Learning &amp; Adaption</a>
+<a href="https://www.javatpoint.com/artificial-neural-network-hopfield-network">Hopfield Network</a>
+<a href="https://www.javatpoint.com/artificial-neural-network-kohonen-self-rganizing-feature-map">Kohonen Self Organizing Map</a>
+<a href="https://www.javatpoint.com/unsupervised-artificial-neural-networks">Unsupervised ANNs</a>
+<a href="https://www.javatpoint.com/unsupervised-anns-algorithms-and-techniques">Unsupervised ANNs Algorithms &amp; Techniques</a>
+
+<a href="https://www.javatpoint.com/brain-state-in-a-box-network">Brain-State-in- a Box Network</a>
+<a href="https://www.javatpoint.com/associate-memory-network">Associate Memory Network</a>
+<a href="https://www.javatpoint.com/boltzmann-machines">Boltzmann Machines</a>
+</div>
+<img src="https://www.javatpoint.com/wh.JPG" alt="JavaTpoint"/>
+<br/>
+<div id="leftad" style="margin-left:20px">
+<!-- javatpointleft -->
+<ins class="adPushupAds" data-adpControl="g8drp" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBqYXZhdHBvaW50bGVmdCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lLWJsb2NrO3dpZHRoOjE2MHB4O2hlaWdodDo2MDBweCIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI0NDc2NDAxMjIyIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+</div>
+<div class="onlycontent">
+<div class="onlycontentad">
+<!-- CM_JTP_Leaderbaord -->
+<ins class="adPushupAds" data-adpControl="nuoc1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDTV9KVFBfTGVhZGVyYmFvcmQgLS0+CjxpbnMgY2xhc3M9ImFkc2J5Z29vZ2xlIgogICAgIHN0eWxlPSJkaXNwbGF5OmJsb2NrIgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjkyMDE5MDE5MTUiCiAgICAgZGF0YS1hZC1mb3JtYXQ9ImF1dG8iCiAgICAgZGF0YS1mdWxsLXdpZHRoLXJlc3BvbnNpdmU9InRydWUiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+
+<div id="bottomnextup">
+<a class="next" href="https://www.javatpoint.com/artificial-neural-network-genetic-algorithm">next &rarr;</a>
+<a class="next" href="https://www.javatpoint.com/artificial-neural-network-adaptive-resonance-theory">&larr; prev</a>
+</div>
+
+<h1 class="h1">Building Blocks</h1>
+<p>Neural networks are made of shorter modules or building blocks, same as atoms in matter and logic gates in electronic circuits. Once we know what the blocks are, we can combine them to solve a variety of problems.</p>
+<p>Processing of Artificial neural network depends upon the given three building blocks:</p>
+<ul class="points">
+<li>Network Topology</li>
+<li>Adjustments of weights or learning</li>
+<li>Activation functions</li>
+</ul>
+<p>In this tutorial, we will discuss these three building blocks of ANN in detail.</p>
+<h2 class="h3">Network Topology:</h2>
+<p>The topology of a neural network refers to the way how Neurons are associated, and it is a significant factor in network functioning and learning. A common topology in unsupervised learning is a direct mapping of inputs to a group of units that represents categories, for example, self-organizing maps. The most widely recognized topology in supervised learning is completely associated, three-layer, feedforward network (Backpropagation, Radial Basis Function Networks). All input values are associated with all neurons in the hidden layer (hidden because they are not noticeable in the input or the output), the output of the hidden neurons are associated to all neurons in the output layer, and the activation functions of the output neurons establish the output of the entire network. Such networks are well-known partly because hypothetically, they are known to be universal function approximators, for example, a sigmoid or Gaussian.</p>
+<h3 class="h3">Feedforward network:</h3>
+<p>The advancement of layered feed-forward networks initiated in the late <strong>1950s</strong>, given by <strong>Rosenblatt's </strong>perceptron and <strong>Widrow's</strong> Adaptive linear Element (ADLINE).The perceptron and ADLINE can be defined as a single layer networks and are usually referred to as single-layer perceptron's. Single-layer perceptron's can only solve linearly separable problems. The limitations of the single-layer network have prompted the advancement of multi-layer feed-forward networks with at least one hidden layer, called multi-layer perceptron (MLP) networks. MLP networks overcome various limitations of single-layer perceptron's and can be prepared to utilize the backpropagation algorithm. The backpropagation method was invented autonomously several times.</p>
+<p>In 1974, Werbos created a backpropagation training algorithm. However, Werbos work remained unknown in the scientific community, and in 1985, parker rediscovers the technique. Soon after Parker published his discoveries, Rumelhart, Hinton, and Williams also rediscovered the method. It is the endeavors of Rumelhart and the other individual if the Parallel Distributed Processing (PDP) group, that makes the backpropagation method a pillar of neurocomputing.</p>
+<h3 class="h3">Single-layer feedforward network:</h3>
+<p>Rosenblatt first constructed the single-layer feedforward network in the late 1950s and early 1990s. The concept of feedforward artificial neural network having just one weighted layer. In other words, we can say that the input layer is completely associated with the outer layer.</p>
+<img src="https://static.javatpoint.com/tutorial/artificial-neural-network/images/artificial-neural-network-building-blocks.png" alt="Building Blocks"/>
+<h3 class="h3">Multilayer feedforward network:</h3>
+<p>A multilayer feedforward neural network is a linkage of perceptrons in which information and calculations flow are uni-directional, from the input data to the outputs. The total number of layers in a neural network is the same as the total number of layers of perceptrons. The easiest neural network is one with a single input layer and an output layer of perceptrons. The concept of feedforward artificial neural network having more than one weighted layer. As the system has at least one layer between the input and the output layer, it is called the hidden layer.</p>
+<h3 class="h3">Feedback network:</h3>
+<p>A feedback based prediction refers to an approximation of an outcome in an iterative way where each iteration's operation depends on the present outcome. Feedback is a common way of making predictions in different fields, ranging from control hypothesis to psychology. Using feedback associations is also additionally exercised by biological organisms, and the brain is proposing a vital role for it in complex cognition.</p>
+<p>In other words, we can say that a feedback network has feedback paths, which implies the signal can flow in both directions using loops. It makes a non-linear dynamic system, which changes continuously until it reaches the equilibrium state. It may be divided into the following types:</p>
+<h3 class="h3">Recurrent network:</h3>
+<p>The human brain is a recurrent neural network that refers to a network of neurons with feedback connections. It can learn numerous behaviors, sequence, processing tasks algorithms, and programs that are not learnable by conventional learning techniques. It explains the rapidly growing interest in artificial recurrent networks for technical applications. For example, general computers that can learn algorithms to map input arrangements to output arrangements, with or without an instructor. They are computationally more dominant and biologically more conceivable than other adaptive methodologies. For example, Hidden Markov models (no continuous internal states), feedforward networks, and supportive vector machines (no internal states).</p>
+<img src="https://static.javatpoint.com/tutorial/artificial-neural-network/images/artificial-neural-network-building-blocks2.png" alt="Building Blocks"/>
+<h3 class="h3">Fully recurrent network:</h3>
+<p>The most straightforward form of a fully recurrent neural network is a Multi-Layer Perceptron (MLP) with the previous set of hidden unit activations, feeding back along with the inputs. In other words, it is the easiest neural network design because all nodes are associated with all other nodes with every single node work as both input and output.</p>
+<img src="https://static.javatpoint.com/tutorial/artificial-neural-network/images/artificial-neural-network-building-blocks3.png" alt="Building Blocks"/>
+<p>Note that the time '<strong>t</strong>' has to be discretized, with the activations updated at each time interval. The time scale may compare to the activity of real neurons, or for artificial systems whenever step size fitting for the given problem can be used. A delay unit should be introduced to hold activations until they are prepared at the next time interval.</p>
+<h3 class="h3">Jordan network:</h3>
+<p>The Jordan network refers to a simple neural structure in which only one value of the process input signal (from the previous sampling) and only one value of the delayed output signal of the model (from the previous sampling) are utilized as the inputs of the network. In order to get a computationally basic MPC (Model Predictive Control) algorithm, the nonlinear Jordan neural model is repeatedly linearized on line around an operating point, which prompts a quadratic optimization issue. Adequacy of the described MPC algorithm is compared with that of the nonlinear MPC scheme with on-line nonlinear optimization performed at each sampling instant.</p>
+<img src="https://static.javatpoint.com/tutorial/artificial-neural-network/images/artificial-neural-network-building-blocks4.png" alt="Building Blocks"/>
+<h2 class="h3">Adjustments of Weights or Learning:</h2>
+<p>Learning in ANN is the technique for changing the weights of associations between the neurons of a specified network. Learning in artificial neural networks can be characterized into three different categories, namely supervised learning, unsupervised learning, and reinforcement learning.</p>
+<h3 class="h3">Supervised learning:</h3>
+<p>Supervised learning consists of two words supervised and learning. Supervise intends to guide. We have supervisors whose duty is to guide and show the way. We can see a similar case in the case of learning. Here the machine or program is learning with the help of the existing data set. We have a data set, and we assume the results of new data relying upon the behavior of the existing data sets. It implies the existing data sets acts as a supervisor or boss to find the new data. A basic example being electronic gadgets price prediction. The price of electronic gadgets is predicted depending on what is observed with the prices of other digital gadgets.</p>
+<p>During the training of artificial neural networks under supervised learning, the input vector is given to the network, which offers an output vector. Afterward, the output vector is compared with the desired output vector. An error signal is produced if there is a difference between the actual output and the desired output vector. Based on this error signal, the weight is adjusted until the actual output is matched with the desired output.</p>
+<img src="https://static.javatpoint.com/tutorial/artificial-neural-network/images/artificial-neural-network-building-blocks5.png" alt="Building Blocks"/>
+<h3 class="h3">Unsupervised learning:</h3>
+<p>As the name suggests, unsupervised learning refers to predict something without any supervision or help from existing data. In this learning, the program learns by dividing the data with similar characteristics into similar groups. In supervised learning, the data are grouped, relying upon similar characteristics. In this situation, there are no existing data to look for direction. In other words, there is no supervisor. During the training of the artificial neural network under unsupervised learning, the input vectors of a comparative type are joined to form clusters. At the point when a new input pattern is implemented, then the neural network gives an output response showing the class to which the input pattern belongs. There is no feedback from the environment about what should be the ideal output and if it is either correct or incorrect. Consequently, in this type of learning, the network itself must find the patterns and features from the input data and the connection for the input data over the output.</p>
+<img src="https://static.javatpoint.com/tutorial/artificial-neural-network/images/artificial-neural-network-building-blocks6.png" alt="Building Blocks"/>
+<h3 class="h3">Reinforcement learning:</h3>
+<p>Reinforcement Learning (RL) is a technique that helps to solve control optimization issues. By using control optimization, we can recognize the best action in each state visited by the system in order to optimize some objective function. Typically, reinforcement learning comes into existence when the system has a huge number of states and has a complex stochastic structure, which is not responsible to closed-form analysis. If issues have a relatively small number of states, then the random structure is relatively simple, so that one can utilize dynamic programming.</p>
+<img src="https://static.javatpoint.com/tutorial/artificial-neural-network/images/artificial-neural-network-building-blocks7.png" alt="Building Blocks"/>
+<p>As the name suggests, this kind of learning is used to strengthen the network over some analyst data. This learning procedure is like supervised learning. However, we may have very little information. In reinforcement learning, during the training of the network, the network gets some feedback from the system. This makes it fairly like supervised learning. The feedback acquired here is evaluative, not instructive, which implies there is no instructor as in supervised learning. After getting the feedback, the networks perform modifications of the weights to get better Analyst data in the future.</p>
+<h2 class="h3">Activation Function:</h2>
+<p>Activation functions refer to the functions used in neural networks to compute the weighted sum of input and biases, which is used to choose the neuron that can be fire or not. It controls the presented information through some gradient processing, normally gradient descent. It produces an output for the neural network that includes the parameters in the data.</p>
+<p>Activation function can either be linear or non-linear, relying on the function it shows. It is used to control the output of outer neural networks across various areas, such as speech recognition, segmentation, fingerprint detection, cancer detection system, etc.</p>
+<p>In the artificial neural network, we can use activation functions over the input to get the precise output. These are some activation functions that are used in ANN.</p>
+<h3 class="h3">Linear Activation Function:</h3>
+<p>The equation of the linear activation function is the same as the equation of a straight line i.e.</p>
+<p><strong>Y= MX+ C</strong></p>
+<p>If we have many layers and all the layers are linear in nature, then the final activation function of the last layer is the same as the linear function of the first layer. The range of a linear function is &ndash;infinitive to + infinitive.</p>
+<p>Linear activation function can be used at only one place that is the output layer.</p>
+<h3 class="h3">Sigmoid function:</h3>
+<p>Sigmoid function refers to a function that is projected as S - shaped graph.</p>
+<p><strong>A = 1/(1+e<sup>-x</sup>)</strong></p>
+<p>This function is non-linear, and the values of x lie between -2 to +2. So that the value of X is directly proportional to the values of Y. It means a slight change in the value of x would also bring about changes in the value of y.</p>
+<h3 class="h3">Tanh Function:</h3>
+The activation function, which is more efficient than the sigmoid function is Tanh function. Tanh function is also known as Tangent Hyperbolic Function. It is a mathematical updated version of the sigmoid function. Sigmoid and Tanh function are similar to each other and can be derived from each other.</p>
+<p><strong>F(x)= tanh(x) = 2/(1+e<sup>-2X</sup>) - 1</strong></p>
+<p>OR</p>
+<p><strong>Tanh (x) = 2 * sigmoid(2x) - 1</strong></p>
+This function is non-linear, and the value range lies between -1 to +1</p>
+
+<hr/>
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="https://www.javatpoint.com/artificial-neural-network-genetic-algorithm">Genetic Algorithm</a></span>
+</div>
+<!-- link -->
+<br/><br/>
+
+<div id="bottomnext">
+<a style="float:left" class="next" href="https://www.javatpoint.com/artificial-neural-network-adaptive-resonance-theory">&larr; prev</a>
+<a style="float:right" class="next" href="https://www.javatpoint.com/artificial-neural-network-genetic-algorithm">next &rarr;</a>
+</div>
+
+<br/><br/>
+</td></tr>
+</table>
+</div>
+
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/artificial-neural-network-building-blocks"><img src="https://www.javatpoint.com/images/facebook32.png" alt="facebook"/></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/artificial-neural-network-building-blocks"><img src="https://www.javatpoint.com/images/twitter32.png" alt="twitter"/></a>
+<!--<a rel="nofollow" title="Google+" target="_blank" href="https://plusone.google.com/_/+1/confirm?hl=en&url=https://www.javatpoint.com/artificial-neural-network-building-blocks"><img src="https://www.javatpoint.com/images/google-plus32.png" alt="google plus"/></a>-->
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/artificial-neural-network-building-blocks"><img src="https://www.javatpoint.com/images/pinterest32.png" alt="pinterest"/></a>
+<!--<a rel="nofollow" title="Tumblr" target="_blank" href="https://www.tumblr.com/share/link?url=https://www.javatpoint.com/artificial-neural-network-building-blocks"><img src="https://www.javatpoint.com/images/tumblr32.png" alt="tumbler"/></a>-->
+<!-- contribute start-->
+
+<!-- contribute end-->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- AP_37780_300x250(0) -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4699858549023382"
+     data-ad-slot="5022809933"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+<!-- latest tutorials start --> 
+<h2 class="h2">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+
+                          <a href="https://www.javatpoint.com/python-openpyxl">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/openpyxl/images/openpyxl-home.png" alt="Openpyxl Tutorial" />
+                                <p>Openpyxl</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/tally">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/tally/images/tally-home.png" alt="Tally Tutorial" />
+                                <p>Tally</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/godot">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/godot/images/godot-home.png" alt="Godot Tutorial" />
+                                <p>Godot</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/spring-boot-tutorial"> 
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/springboot/images/spring-boot-home.jpg" alt="Spring Boot Tutorial" />
+                                <p>Spring Boot</p>  
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/gradle">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/gradle/images/gradle-home.png" alt="Gradle Tutorial" />
+                                <p>Gradle</p> 
+                            </div>    
+                        </a> 
+                           <a href="https://www.javatpoint.com/uml">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/uml/images/uml-home.png" alt="UML Tutorial" />
+                                <p>UML</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/artificial-neural-network">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/artificial-neural-network/images/ann-home.png" alt="Artificial Neural Network Tutorial" />
+                                <p>ANN</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/es6">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/es6/images/es6-home.png" alt="ES6 Tutorial" />
+                                <p>ES6</p> 
+                            </div>    
+                        </a> 
+                        <a href="https://www.javatpoint.com/flutter">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/flutter/images/flutter-home.png" alt="Flutter Tutorial" />
+                                <p>Flutter</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/selenium-python">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/selenium-python/images/selenium-python-home.png" alt="Selenium Python" />
+                                <p>Selenium Py</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/firebase">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/firebase/images/firebase-home.png" alt="Firebase Tutorial" />
+                                <p>Firebase</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/cobol">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/cobol/images/cobol-home.png" alt="Cobol Tutorial" />
+                                <p>Cobol</p>
+                            </div> 
+                        </a>  
+</div>
+<hr/>
+<!-- preparation start -->  
+<h2 class="h2">Preparation</h2>
+<div class="firsthomecontent"> 
+
+                        <a href="https://www.javatpoint.com/aptitude/quantitative">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+                                <p>Aptitude</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/reasoning">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+                                <p>Reasoning</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/verbal-ability">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+                                <p>Verbal A.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/interview-questions-and-answers">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+                                <p>Interview</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/company-interview-questions-and-recruitment-process">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+                                <p>Company</p>
+                            </div> 
+                        </a> 
+
+</div>
+<hr/>
+<!-- trending start -->  
+<h2 class="h2">Trending Technologies</h2>
+<div class="firsthomecontent">
+
+                        <a href="https://www.javatpoint.com/artificial-intelligence-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/ai/images/ai-home.png" alt="Artificial Intelligence Tutorial" />
+                                <p>AI</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/aws-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/aws/images/aws-home.png" alt="AWS Tutorial" />
+                                <p>AWS</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/selenium-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/selenium/images/selenium-home.jpg" alt="Selenium tutorial" />
+                                <p>Selenium</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/cloud-computing-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/cloudhome.png" alt="Cloud tutorial" />
+                                <p>Cloud</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/hadoop-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/hadoop.jpg" alt="Hadoop tutorial" />
+                                <p>Hadoop</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/reactjs-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/reactjs/images/reactjs-home.png" alt="ReactJS Tutorial" />
+                                <p>ReactJS</p>
+                            </div> 
+                        </a>  
+                        <a href="https://www.javatpoint.com/data-science">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/data-science/images/data-science-home.png" alt="Data Science Tutorial" />
+                                <p>D. Science</p>
+                            </div> 
+                        </a>  
+                        <a href="https://www.javatpoint.com/angular-7-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/angular7/images/angular-7-home.png" alt="Angular 7 Tutorial" />
+                                <p>Angular 7</p>
+                            </div> 
+                        </a>  
+                        <a href="https://www.javatpoint.com/blockchain-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/blockchain/images/blockchain-home.png" alt="Blockchain Tutorial" />
+                                <p>Blockchain</p>
+                            </div>  
+                        </a> 
+                        <a href="https://www.javatpoint.com/git">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/git/images/git-home.png" alt="Git Tutorial" />
+                                <p>Git</p>
+                            </div> 
+                        </a> 
+                          <a href="https://www.javatpoint.com/machine-learning">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/machine-learning/images/machine-learning-home.png" alt="Machine Learning Tutorial" />
+                                <p>ML</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/devops">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/devops/images/devops-home.png" alt="DevOps Tutorial" />
+                                <p>DevOps</p> 
+                            </div>    
+                        </a> 
+
+</div>
+ 
+<hr/>
+<!-- B.Tech / MCA -->
+                    <h2 class="h2">B.Tech / MCA</h2>
+                    <div class="firsthomecontent">
+                        <a href="https://www.javatpoint.com/dbms-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/dbms/images/dbms-home.jpg" alt="DBMS tutorial" />
+                                <p>DBMS</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/data-structure-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/ds/images/ds-home.png" alt="Data Structures tutorial" />
+                                <p>DS</p>
+                            </div>
+                        </a> 
+                        <a href="https://www.javatpoint.com/daa-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/daa/images/daa-home.png" alt="DAA tutorial" />
+                                <p>DAA</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/os-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/operating-system/images/operating-system-home.png" alt="Operating System tutorial" />
+                                <p>OS</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/computer-network-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/computer-network/images/computer-network-home.png" alt="Computer Network tutorial" />
+                                <p>C. Network</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/compiler-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/compiler/images/compiler-design-home.png" alt="Compiler Design tutorial" />
+                                <p>Compiler D.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/computer-organization-and-architecture-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/coa/images/coa-home.png" alt="Computer Organization and Architecture" />
+                                <p>COA</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/discrete-mathematics-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/dms/images/discrete-mathematics-home.png" alt="Discrete Mathematics Tutorial" />
+                                <p>D. Math.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/ethical-hacking-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/ethical-hacking/images/ethical-hacking-home.png" alt="Ethical Hacking Tutorial" />
+                                <p>E. Hacking</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/computer-graphics-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/computer-graphics/images/computer-graphics-home.png" alt="Computer Graphics Tutorial" />
+                                <p>C. Graphics</p>
+                            </div> 
+                        </a>
+                        <a href="https://www.javatpoint.com/software-engineering-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/software-engineering/images/software-engineering-home.png" alt="Software Engineering Tutorial" />
+                                <p>Software E.</p>
+                            </div> 
+                        </a> 
+
+                        <a href="https://www.javatpoint.com/html-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/html-tutorial.png" alt="html tutorial" />
+                                <p>Web Tech.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/cyber-security-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/cybersecurity/images/cyber-security-home.png" alt="Cyber Security tutorial" />
+                                <p>Cyber Sec.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/automata-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/automata/images/automata-home.jpg" alt="Automata Tutorial" />
+                                <p>Automata</p>
+                            </div> 
+                        </a>
+                        
+                        <a href="https://www.javatpoint.com/c-programming-language-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/clanguagehome.png" alt="C Language tutorial" />
+                                <p>C</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/cpp-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/cpp/images/cpp-home.png" alt="C++ tutorial" />
+                                <p>C++</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/java-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/javahome.png" alt="Java tutorial" />
+                                <p>Java</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/net-framework">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/csharp/net/images/net-home.png" alt=".Net Framework tutorial" />
+                                <p>.Net</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/python-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/pythonhome.png" alt="Python tutorial" />
+                                <p>Python</p>
+                            </div>
+                        </a>
+
+                        <a href="https://www.javatpoint.com/programs-list">
+                            <div class="homecontent"><img class="lazyload" data-src="https://www.javatpoint.com/images/programs.jpg" alt="List of Programs" />
+                                <p>Programs</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/control-system-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/control-system/images/control-system-home.jpg" alt="Control Systems tutorial" />
+                                <p>Control S.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/data-mining">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/data-mining/images/data-mining-home.png" alt="Data Mining Tutorial" />
+                                <p>Data Mining</p> 
+                            </div>    
+                        </a> 
+
+</div>
+
+ 
+</div>
+
+
+<br><br/><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+</div></div>
+<div id="right">
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+<br/><br/>
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+<br/><br/>
+
+</div>
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+<!-- right1024only -->
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+<br/><br/>
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+<br/>
+<div id="footer" style="clear:both;width:100%">
+
+<!--<div style="width:100%;float:center;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#90715c,#523b1f);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Summer Training</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers <strong>Summer Internship Training</strong> on Java, PHP, .Net, Hadoop, Data Analytics, R Programming, SAP, Android, Python, Oracle, Seleninum, Linux, C++ and many more technologies in Delhi/NCR, India. For more visit <a style="color:white" href="https://training.javatpoint.com"><img src="https://static.javatpoint.com/images/linkglobe12.png" alt="javatpoint training"/>training.javatpoint.com</a> <br>Course Fee: &#8377; 6000 Only<br>Duration: 6 Week </p></div>--><div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com. <br>Duration: 1 week to 2 week<br></p></div><!--<div class="homebox2"><h2>Our Initiatives</h2><marquee behavior="alternate"><a rel="nofollow noopener" href="https://www.hindi100.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/javatpoint.png" alt="javatpoint"/><p>Hindi100</p></div></a><a rel="nofollow noopener" href="https://www.lyricsia.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/lyrics.png" alt="lyrics"/><p>Lyricsia</p></div></a></div></a></marquee></div>--><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed"/></a> <a target="_blank"  rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts"/></a> <a  rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page"/></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page"/></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube"/></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page"/></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="https://www.javatpoint.com/java-tutorial">Learn Java</a><a href="https://www.javatpoint.com/data-structure-tutorial">Learn Data Structures</a><a href="https://www.javatpoint.com/c-programming-language-tutorial">Learn C Programming</a><a href="https://www.javatpoint.com/cpp-tutorial">Learn C++ Tutorial</a><a href="https://www.javatpoint.com/c-sharp-tutorial">Learn C# Tutorial</a><a href="https://www.javatpoint.com/php-tutorial">Learn PHP Tutorial</a><a href="https://www.javatpoint.com/html-tutorial">Learn HTML Tutorial</a><a href="https://www.javatpoint.com/javascript-tutorial">Learn JavaScript Tutorial</a><a href="https://www.javatpoint.com/jquery-tutorial">Learn jQuery Tutorial</a><a href="https://www.javatpoint.com/spring-tutorial">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="https://www.javatpoint.com/">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="https://www.javatpoint.com/contact-us">Contact Us</a> <a href="https://www.javatpoint.com/subscribe.jsp">Subscribe Us</a> <a href="https://www.javatpoint.com/privacy-policy">Privacy Policy</a><a href="https://www.javatpoint.com/sitemap.xml">Sitemap</a><br><a href="https://www.javatpoint.com/sonoo-jaiswal">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+</div></div></div> 
+ 
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/artificial-neural-network-building-blocks by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:28:30 GMT -->
+</html> 

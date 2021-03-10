@@ -1,0 +1,82 @@
+ASP.Net MVC Validation - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevASP.NET MVC Input ValidationValidation of user input is necessary task for the application programmer. An application should allow only valid user input so that we get only desired information.ASP.NET MVC framework provides built-in annotations that we can apply on Model properties. It validates input and display appropriate message to the user.Commonly used Validation AnnotationsAnnotationsDescriptionRequiredIt is used to make a required field.DisplayNameIt is used to define the text we want to display for the fields.StringLengthIt defines a maximum length for a string field.RangeIt is used to set a maximum and minimum value for a numeric field.BindIt lists fields to exclude or include when binding parameter or form values to model properties.ScaffoldColumnIt allows hiding fields from editor forms.MaxLengthIt is used to set max length for a field.EmailAddressIt is used to validate email address.DataTypeIt is used to specify data type for the field.RegularExpressionIt is used to associate regular expression for a field.ExampleLet's create an example that will validate input by using the annotations. To create the example, first we are creating a StudentsController and then a Student Model.Controller// StudentsController.csusing System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+namespace MvcApplicationDemo.Controllers
+{
+    public class StudentsController : Controller
+    {
+        // GET: Students
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+}Model// Student.csusing System.ComponentModel.DataAnnotations;
+
+namespace MvcApplicationDemo.Models
+{
+    public class Student
+    {
+        public int ID { get; set; }
+        // -- Validating Student Name
+        [Required(ErrorMessage ="Name is required")]
+        [MaxLength(12)]
+        public string Name { get; set; }
+        // -- Validating Email Address
+        [Required(ErrorMessage ="Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string Email { get; set; }
+        // -- Validating Contact Number
+        [Required(ErrorMessage = "Contact is required")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
+        public string Contact { get; set; }
+    }
+}View// Index.cshtml@model MvcApplicationDemo.Models.Student
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h4>Student</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Contact, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Contact, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}Output:To see the output, right click on the Index.cshtml file and select view in browser. This will produce the following result.As we can see that it validates form fields and display error message to the user. In the below screenshot, we are validating that the entered data is as expected.Next TopicASP.NET MVC Entity Framework? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,157 @@
+ASP.Net WebForm User Registration - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevCreating User Registration FormAfter studying web server controls now let's create a user registration form. This web form takes user input and submits to the server. After submitting, it return message of successfully registered. This whole process takes the following steps.Add a Web Form to the projectThis form contains some default html code.Adding Controls to the formTo add controls to the form either we can drag components from the toolbox or write code manually to create the components.The following file contains the code for a user registration form.// WebControls.aspx<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebControls.aspx.cs" 
+Inherits="WebFormsControlls.WebControls" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title></title>
+<style type="text/css">
+.auto-style1 {
+     width: 100%;
+      }
+.auto-style2 {
+     width: 278px;
+       }
+.auto-style3 {
+      width: 278px;
+      height: 23px;
+        }
+.auto-style4 {
+      height: 23px;
+        }
+</style>
+</head>
+<body>
+<form id="form1" runat="server">
+<div>         
+  <table class="auto-style1">
+    <tr>
+    <td>
+    <asp:Label ID="Label1" runat="server" Text="User Name"></asp:Label>
+    </td>
+    <td>
+    <asp:TextBox ID="username" runat="server" required="true"></asp:TextBox></td>
+    </tr>
+    <tr>
+    <td>
+    <asp:Label ID="Label6" runat="server" Text="Email ID"></asp:Label>
+    </td>
+    <td>
+    <asp:TextBox ID="EmailID" runat="server" TextMode="Email"></asp:TextBox></td>
+    </tr>
+    <tr>
+    <td>
+    <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label></td>
+    <td>
+    <asp:TextBox ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox></td>
+    </tr>
+    <tr>
+    <td>
+    <asp:Label ID="Label3" runat="server" Text="Confirm Password"></asp:Label></td>
+    <td>
+    <asp:TextBox ID="TextBox3" runat="server" TextMode="Password"></asp:TextBox></td>
+    </tr>
+    <tr>
+    <td>
+    <asp:Label ID="Label4" runat="server" Text="Gender"></asp:Label></td>
+    <td>
+    <asp:RadioButton ID="RadioButton1" runat="server" GroupName="gender" Text="Male" />
+	<asp:RadioButton ID="RadioButton2" runat="server" GroupName="gender" Text="Female" /></td>
+    </tr>
+    <tr>
+    <td>
+    <asp:Label ID="Label5" runat="server" Text="Select Course"></asp:Label>s</td>
+    <td>
+    <asp:CheckBox ID="CheckBox1" runat="server" Text="J2SEE" />
+	<asp:CheckBox ID="CheckBox2" runat="server" Text="J2EE" />
+	<asp:CheckBox ID="CheckBox3" runat="server" Text="Spring Framework" />
+    </td>
+    </tr>
+    <tr>
+    <td>
+    </td>
+    <td>
+    <br />
+    <asp:Button ID="Button1" runat="server" Text="Register" CssClass="btn btn-primary" OnClick="Button1_Click"/>
+    </td>
+    </tr>
+    </table>
+    <asp:Label ID="message" runat="server" Font-Size="Medium" ForeColor="Red"></asp:Label>
+    </div>
+    </form>
+    <table class="auto-style1">
+    <tr>
+    <td class="auto-style2"><asp:Label ID="ShowUserNameLabel" runat="server" ></asp:Label></td>
+    <td>
+    <asp:Label ID="ShowUserName" runat="server" ></asp:Label></td>
+    </tr>
+    <tr>
+    <td class="auto-style2"><asp:Label ID="ShowEmailIDLabel" runat="server" ></asp:Label></td>
+    <td>
+    <asp:Label ID="ShowEmail" runat="server" ></asp:Label></td>
+    </tr>
+    <tr>
+    <td class="auto-style3"><asp:Label ID="ShowGenderLabel" runat="server" ></asp:Label></td>
+    <td class="auto-style4">
+    <asp:Label ID="ShowGender" runat="server" ></asp:Label></td>
+    </tr>
+    <tr>
+    <td class="auto-style2"><asp:Label ID="ShowCourseLabel" runat="server" ></asp:Label></td>
+    <td>
+    <asp:Label ID="ShowCourses" runat="server" ></asp:Label></td>
+    </tr>
+    </table>
+</body>
+</html>Handling Submit RequestIn code behind file, we are adding a message that trigger only when user submit the registration form. This file includes the following code.// WebControls.aspx.csusing System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+namespace WebFormsControlls
+{
+    public partial class WebControls : System.Web.UI.Page
+    {
+        protected System.Web.UI.HtmlControls.HtmlInputFile File1;
+        protected System.Web.UI.HtmlControls.HtmlInputButton Submit1;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+        }
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            message.Text      = "Hello " + username.Text + " ! ";
+            message.Text      = message.Text + " <br/> You have successfuly Registered with the following details.";
+            ShowUserName.Text = username.Text;
+            ShowEmail.Text    = EmailID.Text;
+            if (RadioButton1.Checked)
+            {
+                ShowGender.Text = RadioButton1.Text;
+            }
+            else ShowGender.Text = RadioButton2.Text;
+        var courses = "";
+            if (CheckBox1.Checked)
+            {
+                courses = CheckBox1.Text + " ";
+            }
+            if (CheckBox2.Checked)
+            {
+                courses += CheckBox2.Text + " ";
+            }   
+            if (CheckBox3.Checked)
+            {
+                courses += CheckBox3.Text;
+            }
+            ShowCourses.Text = courses;
+            ShowUserNameLabel.Text = "User Name";
+            ShowEmailIDLabel.Text = "Email ID";
+            ShowGenderLabel.Text = "Gender";
+            ShowCourseLabel.Text = "Courses";
+            username.Text = "";
+            EmailID.Text = "";
+            RadioButton1.Checked = false;
+            RadioButton2.Checked = false;
+            CheckBox1.Checked = false;
+            CheckBox2.Checked = false;
+            CheckBox3.Checked = false;
+        }
+    }
+}Run User Registration FormTo run this form, just right click and select view in browser option. We did it in our example.Output:And it produces the following output.After filling the form and registration, it shows a greeting message to the user.After submit the registration details.Next TopicASP.NET WF Events Handling? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

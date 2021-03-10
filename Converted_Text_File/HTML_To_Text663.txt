@@ -1,0 +1,24 @@
+Java Assertion - javatpoint?HomeJavaCC++C#ServletJSPEJBStruts2MailHibernateSpringAndroidDesign PQuizProjectsInterview QCommentForumTrainingBasics of Java OOPs Concepts Java String Java Regex Exception Handling Java Inner classes Java Multithreading Java I/O Java Networking Java AWT Java Swing JavaFX Java Applet Java Reflection Java Date Java Conversion Java Collection Java JDBCJava New FeaturesJava New FeaturesJava 9 FeaturesJava 9 Features Interface Private Methods Try-With Resources Anonymous Classes SafeVarargs Annotation Collection Factory Methods Process API Improvement Version-String Scheme JShell (REPL) Module System Control Panel Stream API Improvement Underscore KeywordJava 8 FeaturesJava 8 Features Lambda Expressions Method References Functional Interfaces Stream API Stream Filter Base64 Encode Decode Default Methods forEach() method Collectors class StringJoiner class Optional class JavaScript Nashorn Parallel Array Sort Type Inference Parameter Reflection Type Annotations JDBC ImprovementsJava 7 FeaturesBinary Literals Switch with String Java 7 Multi Catch Try with Resources Type Inference Numeric Literals Java 7 JDBCJava 4/5 FeaturesJava Assertion Java For-each Loop Java Varargs Java Static Import Java Autoboxing Java Enums Java Annotations Java GenericsRMI Internationalizationnext>> <<prevAssertion:Assertion is a statement in java. It can be used to test your assumptions about the program.While executing assertion, it is believed to be true. If it fails, JVM will throw an error named AssertionError. It is mainly used for testing purpose.Advantage of Assertion:It provides an effective way to detect and correct programming errors.Syntax of using Assertion:There are two ways to use assertion. First way is:
+assert expression;
+
+and second way is:
+assert expression1 : expression2;
+
+Simple Example of Assertion in java:
+import java.util.Scanner;
+  
+class AssertionExample{
+ public static void main( String args[] ){
+
+  Scanner scanner = new Scanner( System.in );
+  System.out.print("Enter ur age ");
+  
+  int value = scanner.nextInt();
+  assert value>=18:" Not valid";
+
+  System.out.println("value is "+value);
+ } 
+}
+
+    download this exampleIf you use assertion, It will not run simply because assertion is disabled by default. To enable the assertion, -ea or -enableassertions switch of java must be used.Compile it by: javac AssertionExample.javaRun it by: java -ea AssertionExampleOutput: Enter ur age 11
+        Exception in thread "main" java.lang.AssertionError: Not validWhere not to use Assertion:There are some situations where assertion should be avoid to use. They are:According to Sun Specification, assertion should not be used to check arguments in the public methods because it should result in appropriate runtime exception e.g. IllegalArgumentException, NullPointerException etc.Do not use assertion, if you don't want any error in any situation.Next TopicFor Each Loop<<prev next>>Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

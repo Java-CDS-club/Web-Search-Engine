@@ -1,0 +1,80 @@
+C++ References - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ ReferencesTill now, we have read that C++ supports two types of variables:An ordinary variable is a variable that contains the value of some type. For example, we create a variable of type int, which means that the variable can hold the value of type integer.A pointer is a variable that stores the address of another variable. It can be dereferenced to retrieve the value to which this pointer points to.There is another variable that C++ supports, i.e., references. It is a variable that behaves as an alias for another variable.How to create a reference?Reference can be created by simply using an ampersand (&) operator. When we create a variable, then it occupies some memory location. We can create a reference of the variable; therefore, we can access the original variable by using either name of the variable or reference. For example,int a=10;Now, we create the reference variable of the above variable.int &ref=a;The above statement means that 'ref' is a reference variable of 'a', i.e., we can use the 'ref' variable in place of 'a' variable.C++ provides two types of references:References to non-const valuesReferences as aliasesReferences to non-const valuesIt can be declared by using & operator with the reference type variable.#include <iostream>
+using namespace std;
+int main()
+{
+int a=10;
+int &value=a;
+std::cout << value << std::endl;
+return 0;
+}Output 10 References as aliasesReferences as aliases is another name of the variable which is being referenced.For example,int a=10;   // 'a' is a variable.
+int &b=a; // 'b' reference to a.
+int &c=a; // 'c' reference to a.Let's look at a simple example.#include <iostream>
+using namespace std;
+int main()
+{
+int a=70; // variable initialization
+int &b=a;
+int &c=a;
+std::cout << "Value of a is :" <<a<< std::endl;
+std::cout << "Value of b is :" <<b<< std::endl;
+std::cout << "Value of c is :" <<c<< std::endl;
+return 0;}In the above code, we create a variable 'a' which contains a value '70'. We have declared two reference variables, i.e., b and c, and both are referring to the same variable 'a'. Therefore, we can say that 'a' variable can be accessed by 'b' and 'c' variable.Output Value of a is :70 
+Value of b is :70 
+Value of c is :70 Properties of ReferencesThe following are the properties of references:InitializátionIt must be initialized at the time of the declaration.#include <iostream>
+using namespace std;
+int main()
+{
+int a=10; // variable initialization
+int &b=a; // b reference to a
+std::cout << "value of a is " <<b<< std::endl;
+return 0;
+}In the above code, we have created a reference variable, i.e., 'b'. At the time of declaration, 'a' variable is assigned to 'b'. If we do not assign at the time of declaration, then the code would look like:int &b;
+&b=a;  The above code will throw a compile-time error as 'a' is not assigned at the time of declaration.Output value of a is 10 ReassignmentIt cannot be reassigned means that the reference variable cannot be modified.#include <iostream>
+using namespace std;
+int main()
+{
+int x=11; // variable initialization
+int z=67;
+int &y=x; // y reference to x
+int &y=z; // y reference to z, but throws a compile-time error.
+return 0;}In the above code, 'y' reference variable is referring to 'x' variable, and then 'z' is assigned to 'y'. But this reassignment is not possible with the reference variable, so it throws a compile-time error.Compile-time error main.cpp: In function 'int main()':
+main.cpp:18:9: error: redeclaration of 'int& y'
+int &y=z; // y reference to z, but throws a compile-time error.
+^
+main.cpp:17:9: note: 'int& y' previously declared here
+int &y=x; // y reference to x
+^Function ParametersReferences can also be passed as a function parameter. It does not create a copy of the argument and behaves as an alias for a parameter. It enhances the performance as it does not create a copy of the argument.Let's understand through a simple example.#include <iostream>
+using namespace std;
+int main()
+{
+int a=9; // variable initialization
+int b=10; // variable initialization
+swap(a, b); // function calling
+std::cout << "value of a is :" <<a<< std::endl;
+std::cout << "value of b is :" <<b<< std::endl;
+return 0;
+}
+void swap(int &p, int &q) // function definition
+{
+int temp; // variable declaration
+temp=p;
+p=q;
+q=temp;
+}In the above code, we are swapping the values of 'a' and 'b'. We have passed the variables 'a' and 'b' to the swap() function. In swap() function, 'p' is referring to 'a' and 'q' is referring to 'b'. When we swap the values of 'p' and 'q' means that the values of 'a' and 'b' are also swapped.Output value of a is :10 
+value of b is :9 References as shortcutsWith the help of references, we can easily access the nested data.#include <iostream>
+using namespace std;
+struct profile
+{
+int id;
+};
+struct employee
+{
+profile p;
+};
+int main()
+{
+employee e;
+int &ref=e.p.id;
+ref=34;
+std::cout << e.p.id << std::endl;
+}In the above code, we are trying to access the 'id' of the profile struct of the employee. We generally access this member by using the statement e.p.id, but this would be a tedious task if we have multiple access to this member. To avoid this situation, we create a reference variable, i.e., ref, which is another name of 'e.p.id'.Output 34 Next TopicC++ Tutorial? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

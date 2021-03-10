@@ -1,0 +1,21 @@
+Apache POI Word Extract Paragraph - javatpoint?HomeApache POIJMeterJavaCC++C#ServletJSPEJBStruts2MailHibernateSpringAndroidDesign PQuizProjectsInterview QCommentForumTrainingApache POI TutorialPOI Tutorial POI Introduction POI Architecture POI Features POI InstallationExcel DocumentExcel Document Handling POI Creating Workbook POI Creating Cell POI Creating Date Cell POI Aligning Cell POI Cell Border POI Cell Color POI Merging Cells POI Excel Font POI Excel Header POI Hiding Rows POI Cell Properties POI Drawing Border POI Multiple Styles POI Excel Cell Type POI Drawing Shape POI Image POI Newline in Cell POI Outlining POI Page Number POI Reading Cell Content POI Rewriting POI Shift Row POI Styling Shapes POI Comment POI HyperlinkWord DocumentPOI Microsoft Word POI Creating MS Word POI Word Paragraph POI Word Table POI Word Style POI Word Aligning POI Extract Text POI Extract ParagraphPowerpoint DocumentPOI Powerpoint POI Powerpoint Slide POI Slide Layout POI Powerpoint Image POI Reorder Slide POI Page Size POI Powerpoint Hyperlink POI Powerpoint Delete Slidenext ? ? prevApache POI Extract ParagraphTo extract paragraph text, we use getParagraphs() method of XWPFDocument class. This method returns a list of all paragraphs of document which can be stored in a list variable and get by iterating loop.Lets see an example in which we are extracting paragraph using a Java program.Apache POI Extracting Paragraph Examplepackage poiexample;
+import java.io.FileInputStream;
+import org.apache.poi.openxml4j.opc.OPCPackage;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+public class ReadParagraphExample {
+	public static void main(String[] args) {
+		 try(FileInputStream fis = new FileInputStream("Javatpoint.docx")) {
+			 XWPFDocument doc    = new XWPFDocument(OPCPackage.open(fis));
+			 java.util.List<XWPFParagraph> paragraphs =  doc.getParagraphs();
+			 for (XWPFParagraph paragraph: paragraphs){
+				 System.out.println(paragraph.getText());
+			 }
+		 }catch(Exception e) {
+			 System.out.println(e);
+		 }
+	}
+}Input:Output:Apache POI (Poor Obfuscation Implementation) is a project design and developed by Apache Software
+Foundation. It is a collection of pure Java libraries, used to read and write Microsoft office 
+files such as Word, PowerPoint etc. The purpose was to design a cross-platform API that can 
+manipulate various file formats of Microsoft Office and Open Office Documents.Next TopicApache POI Powerpoint? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

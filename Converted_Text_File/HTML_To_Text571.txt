@@ -1,0 +1,210 @@
+DS Array representation of Queue - javatpoint?HomeData StructureCC++C#JavaSQLHTMLCSSJavaScriptAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumDS TutorialDS Tutorial DS Introduction DS Algorithm Asymptotic Analysis DS Pointer DS StructureDS ArrayDS Array 2D ArrayDS Linked ListLinked List Doubly Linked List Circular Linked List Circular Doubly ListDS StackDS Stack Array Implementation Linked List ImplementationDS QueueDS Queue Array Representation Linked List Representation Circular QueueDS TreeDS Tree Binary Tree Binary Search Tree AVL Tree B Tree B+ TreeDS GraphDS Graph Graph Implementation BFS Algorithm DFS Algorithm Spanning TreeDS SearchingLinear Search Binary SearchDS SortingBubble Sort Bucket Sort Comb Sort Counting Sort Heap Sort Insertion Sort Merge Sort Quick Sort Radix Sort Selection Sort Shell Sort Bitonic Sort Cocktail Sort Cycle Sort Tim Sortnext ? ? prevArray representation of QueueWe can easily represent queue by using linear arrays. There are two variables i.e. front and rear, that are implemented in the case of every queue. Front and rear variables point to the position from where insertions and deletions are performed in a queue. Initially, the value of front and queue is -1 which represents an empty queue. Array representation of a queue containing 5 elements along with the respective values of front and rear, is shown in the following figure.The above figure shows the queue of characters forming the English word "HELLO". Since, No deletion is performed in the queue till now, therefore the value of front remains -1 . However, the value of rear increases by one every time an insertion is performed in the queue. After inserting an element into the queue shown in the above figure, the queue will look something like following. The value of rear will become 5 while the value of front remains same.After deleting an element, the value of front will increase from -1 to 0. however, the queue will look something like following.Algorithm to insert any element in a queueCheck if the queue is already full by comparing rear to max - 1. if so, then return an overflow error.If the item is to be inserted as the first element in the list, in that case set the value of front and rear to 0 and insert the element at the rear end.Otherwise keep increasing the value of rear and insert each element one by one having rear as the index.AlgorithmStep 1: IF REAR = MAX - 1Write OVERFLOWGo to step[END OF IF]Step 2: IF FRONT = -1 and REAR = -1SET FRONT = REAR = 0ELSESET REAR = REAR + 1[END OF IF]Step 3: Set QUEUE[REAR] = NUMStep 4: EXITC Functionvoid insert (int queue[], int max, int front, int rear, int item) 
+{
+	if (rear + 1 == max)
+	{
+		printf("overflow");
+	}
+	else
+	{
+		if(front == -1 && rear == -1)
+		{
+			front = 0;
+			rear = 0;
+		}
+		else
+		{
+			rear = rear + 1; 
+		}
+		queue[rear]=item;
+	}
+}Algorithm to delete an element from the queueIf, the value of front is -1 or value of front is greater than rear , write an underflow message and exit.Otherwise, keep increasing the value of front and return the item stored at the front end of the queue at each time.AlgorithmStep 1: IF FRONT = -1 or FRONT > REARWrite UNDERFLOWELSESET VAL = QUEUE[FRONT]SET FRONT = FRONT + 1[END OF IF]Step 2: EXITC Functionint delete (int queue[], int max, int front, int rear)
+{
+	int y; 
+	if (front == -1 || front > rear) 
+ 
+	{
+		printf("underflow");
+	}
+	else 
+	{
+		y = queue[front];
+		if(front == rear)
+		{
+			front = rear = -1;
+			else 
+			front = front + 1; 
+		
+		}
+		return y;
+	}
+} Menu driven program to implement queue using array#include<stdio.h> 
+#include<stdlib.h>
+#define maxsize 5
+void insert();
+void delete();
+void display();
+int front = -1, rear = -1;
+int queue[maxsize];
+void main ()
+{
+	int choice; 
+	while(choice != 4) 
+	{	
+		printf("\n*************************Main Menu*****************************\n");
+		printf("\n=================================================================\n");
+		printf("\n1.insert an element\n2.Delete an element\n3.Display the queue\n4.Exit\n");
+		printf("\nEnter your choice ?");
+		scanf("%d",&choice);
+		switch(choice)
+		{
+			case 1:
+			insert();
+			break;
+			case 2:
+			delete();
+			break;
+			case 3:
+			display();
+			break;
+			case 4:
+			exit(0);
+			break;
+			default: 
+			printf("\nEnter valid choice??\n");
+		}
+	}
+}
+void insert()
+{
+	int item;
+	printf("\nEnter the element\n");
+	scanf("\n%d",&item);	
+	if(rear == maxsize-1)
+	{
+		printf("\nOVERFLOW\n");
+		return;
+	}
+	if(front == -1 && rear == -1)
+	{
+		front = 0;
+		rear = 0;
+	}
+	else 
+	{
+		rear = rear+1;
+	}
+	queue[rear] = item;
+	printf("\nValue inserted ");
+	
+}
+void delete()
+{
+	int item; 
+	if (front == -1 || front > rear)
+	{
+		printf("\nUNDERFLOW\n");
+		return;
+			
+	}
+	else
+	{
+		item = queue[front];
+		if(front == rear)
+		{
+			front = -1;
+			rear = -1 ;
+		}
+		else 
+		{
+			front = front + 1;
+		}
+		printf("\nvalue deleted ");
+	}
+	
+	
+}
+	
+void display()
+{
+	int i;
+	if(rear == -1)
+	{
+		printf("\nEmpty queue\n");
+	}
+	else
+	{	printf("\nprinting values .....\n");
+		for(i=front;i<=rear;i++)
+		{
+			printf("\n%d\n",queue[i]);
+		}	
+	}
+}Output:
+*************Main Menu**************
+
+==============================================
+
+1.insert an element
+2.Delete an element
+3.Display the queue
+4.Exit
+
+Enter your choice ?1
+
+Enter the element
+123
+
+Value inserted 
+
+*************Main Menu**************
+
+==============================================
+
+1.insert an element
+2.Delete an element
+3.Display the queue
+4.Exit
+
+Enter your choice ?1
+
+Enter the element
+90
+
+Value inserted 
+
+*************Main Menu**************
+
+===================================
+
+1.insert an element
+2.Delete an element
+3.Display the queue
+4.Exit
+
+Enter your choice ?2
+
+value deleted 
+
+*************Main Menu**************
+==============================================
+
+1.insert an element
+2.Delete an element
+3.Display the queue
+4.Exit
+
+Enter your choice ?3
+
+printing values .....
+
+90
+
+*************Main Menu**************
+
+==============================================
+
+1.insert an element
+2.Delete an element
+3.Display the queue
+4.Exit
+
+Enter your choice ?4Drawback of array implementationAlthough, the technique of creating a queue is easy, but there are some drawbacks of using this technique to implement a queue.Memory wastage : The space of the array, which is used to store queue elements, can never be reused to store the elements of that queue because the elements can only be inserted at front end and the value of front might be so high so that, all the space before that, can never be filled.The above figure shows how the memory space is wasted in the array representation of queue. In the above figure, a queue of size 10 having 3 elements, is shown. The value of the front variable is 5, therefore, we can not reinsert the values in the place of already deleted element before the position of front. That much space of the array is wasted and can not be used in the future (for this queue).Deciding the array sizeOn of the most common problem with array implementation is the size of the array which requires to be declared in advance. Due to the fact that, the queue can be extended at runtime depending upon the problem, the extension in the array size is a time taking process and almost impossible to be performed at runtime since a lot of reallocations take place. Due to this reason, we can declare the array large enough so that we can store queue elements as enough as possible but the main problem with this declaration is that, most of the array slots (nearly half) can never be reused. It will again lead to memory wastage.Next TopicLinked List Representation? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

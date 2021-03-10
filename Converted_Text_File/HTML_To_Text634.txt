@@ -1,0 +1,44 @@
+ASP.Net Razor Code Blocks - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevASP.NET Razor Code BlocksCode block is used to enclose C# code statements. It starts with @ (at) character and is enclosed by {} (curly braces). Unlike expressions, C# code inside code blocks is not rendered. The default language in a code block is C#, but we can transit back to HTML. HTML within a code block will be rendered as HTML.Example// Index.cshtml@{
+    Layout = null;
+    var name = "John";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>My name is: @name </h2>
+</body>
+</html>It produces the following output.Implicit transitionsC# is default language in Razor code block. HTML written within code block is rendered as HTML, this is called implicit transition. Razor code blocks implicit transitions HTML code and render to the view page.In the following code, HTML is written and it executes without error.// Index.cshtml@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+@{
+    var name = "JavaTpoint";
+    <h4>Welcome to the @name </h4>
+}
+</body>
+</html>It produces the following output.Explicit delimited transitionSometimes, when we define a sub-section of a code block that should render HTML, surround the characters to be rendered with the Razor <text> tag.It is mandate to use <text> tag. Otherwise, it throws a compile time error. See the following code.// Index.cshtml@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+@for (var i = 0; i < 5; i++)
+{
+    <text>i= @i </text> <br/>
+}
+</body>
+</html>It produces the following output.Next TopicASP.Net Razor Control Structures? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,104 @@
+CoffeeScript Interview Questions - javatpoint?HomeInterview QuestionsJavaCSQLAndroidHTMLXMLJavaScriptAjaxCloudPythonWeb ServicesQuizProjectsCommentForumTrainingAll InterviewInterview Tips JOB/HR Interview Competency Interview Business Analyst Behavioral InterviewCompany InterviewCompany Interview IBM Interview Infosys Interview Capgemini Interview Cognizant Interview Wipro Interview Accenture Interview iGate Interview TCS Interview HCL Interview Adobe Interview Microsoft Interview DXC Technology Interview Ericsson Interview EXL Service Interview IndiaMART Interview Intuit Interview SpaceX Interview Sapient InterviewTechnical InterviewC Interview C++ Interview Data Structure Interview Linux Interview Unix Interview Shell Scripting Networking Interview CCNA Interview Android Interview Cloud Computing Hadoop Interview Testing/QTP Interview Selenium Interview Web Services Interview OS Interview Excel Interview SEO Interview Digital Marketing Python Interview Django Interview Pascal Interview Ruby Interview Ruby on Rails Interview Memcached Interview Go Interview OpenStack Interview Scala Interview Control Systems Electrical Machines Power System Digital Electronics Robotics Interview TypeScript Interview Swift Interview Blockchain Interview Bitcoin Interview AWS Interview Informatica Interview QA Interview React Interview GIT Interview J2EE Interview Deep Learning Salesforce Interview TestNG Interview Agile Interview Machine Learning API Testing Algorithm Java Design Pattern Teradata TensorFlow LINQ Mainframe Laravel JIRA JCL Pytorch ETL Testing Linked List DataStage Tableau SAP ABAP DAA Computer Graphics Data Science Software Engineering Power BI Xamarin Ansible Data Warehouse Ionic Devops React Native Python Pandas HTTP Interview Kali Linux Interview PowerShell Interview SharePoint Interview Talend Interview Microsoft Azure Interview R Interview Flutter Interview MATLAB Interview ES6 Interview Questions RPA Interview QuestionsWeb InterviewHTML Interview CSS Interview JavaScript Interview jQuery Interview AngularJS Interview Angular Interview Angular 7 Interview Node.js Interview AJAX Interview XML Interview Dojo Interview Backbone.js Interview Ember.js Interview XHTML Interview XSLT Interview XPath Interview XQuery Interview XForms Interview SASS Interview CoffeeScript Interview LESS Interview Perl Interview Pure.CSS Interview Materialize Interview Framework7 Interview SVG InterviewPHP InterviewPHP Interview Wordpress Interview Joomla Interview Drupal Interview Magento Interview CodeIgniter Interview Phalcon Interview.Net Interview.Net Interview C# Interview ASP.NET Interview ADO.NET Interview WCF Interview WPF Interview Silverlight Interview F# InterviewJava InterviewJava 1 Interview Java 2 Interview Exception & String Multithreading Collections Interview JDBC Interview Servlet Interview JSP Interview EJB Interview Struts Interview Hibernate Interview Spring Interview Spring Boot Interview Spring MVC Interview JPA Interview Maven Interview JUnit Interview JSF Interview PrimeFaces Interview RichFaces Interview GWT Interview JDB Interview JOGL Interview jBPM Interview Jenkins InterviewDatabase InterviewDBMS Interview SQL Interview PL/SQL Interview Oracle Interview MySql Interview SQL Server Interview MongoDB Interview Cassandra Interview DB2 Interview Access Interview SQLite Interview CouchDB Interview Neo4j Interview MariaDB Interview PouchDB Interview Redis InterviewCoffeeScript Interview QuestionsA list of frequently asked CoffeeScript Interview Questions are given below:1) Define CoffeeScript.The CoffeeScript is a lightweight programing language that compiles into JavaScript. It is getting popular day by day because it provides better and more consistent syntax than JavaScript, still contains the flexibility and other advantages of JavaScript.2) Who was the founder of CoffeeScript?The CoffeeScript was designed and developed by Jeremy Ashkenas in December 2009.3) What was the primary purpose behind the invention of CoffeeScript?The primary purpose of CoffeeScript was to remove all the rough edges from JavaScript and provides a smooth way of programming in JavaScript. Using CoffeeScript, we can also create classes and inherit them.4) Which languages have the most impact on CoffeeScript?Python, Ruby, and Haskell have inspired the CoffeeScript. It adopts syntax & coding styles from them, which makes it unique and useful.5) What are the basic rules to remember for CoffeeScript?You must remember these rules for CoffeeScript:You don't need to use curly braces in CoffeeScript.No need of parenthesis for defining a function which has arguments.6) Explain the advantages of CoffeeScript over JavaScript.Following is a list of advantages of CoffeeScript over JavaScript:Less coding: A CoffeeScript's program contains very less code than the same JavaScript?s program. It facilitates you to use less code for the same task.Light-weighted: CoffeeScript is light-weighted, small programming language. It contains very lightweight add-ons such as Ruby string Interpolation.Reliable: The CoffeeScript is a programming language which is safe for writing dynamic programs.Readable and easy to maintain: CoffeeScript provide aliases for the operators which makes the code easy to understand and manage.Inheritance: JavaScript does not support class-based inheritance whereas CoffeeScript offers class-based inheritance to the programmer to implement inheritance.No var keyword: In javascript, we have to use the var keyword to create variables, whereas in CoffeeScript there is no need to use the var keyword to create variables.7) Explain the disadvantages of CoffeeScript over javascript.Following are some disadvantages of using CoffeeScript over javascript:Sensitive to whitespaces: CoffeeScript is very sensitive to whitespaces. Programming should be careful of using proper indentations. If the programmer could not maintain the appropriate indentation, then the entire code may go wrong.Compilation time required: CoffeeScript needs to be compiled first to the javascript which takes some time and efforts of the computer. Every time CoffeeScript is compiled in javascript code to execute its functionality in the browser.8) What is the difference between variables in CoffeeScript and JavaScript?In JavaScript, it is required to declare a variable using the var keyword and initialize it. However, in CoffeeScript, we can create a variable directly, by assigning the value to a literal such as: -name=variable value9) Explain functions in CoffeeScript.The syntax of CoffeeScript's function is more straightforward than JavaScript's function. In CoffeeScript, you have to define function expressions. The function keyword is not used in CoffeeScript. Instead of this, you have to use an arrow symbol (->).10) Why is CoffeeScript getting popularity day by day?The CoffeeScript is the 11th most popular language in Github. Its primary purpose is to produce efficient JavaScript without writing much code. It also focuses on highlighting all the functional aspects of JavaScript with a simple syntax.Reasons behind the popularity of CoffeeScript:Very Little Coding is required when programming in CoffeeScript as compared to JavaScript.CoffeeScript includes all the useful features of JavaScript.You can use any existing JavaScript library seamlessly with CoffeeScript.11) What are the disadvantages of CoffeeScript?CoffeeScript includes an additional compilation step during compilation.Only a few resources are available for this language.12) What are transpilers in CoffeeScript?In CoffeeScript, a tool is required to translate/ convert CoffeeScript codes into JavaScript. This tool is known as transpilers.13) What is splat in CoffeeScript?Splat is the term used for (...) operator for var-argument. Splatted arguments can come either before, after or between standard arguments.For example, (first, rest ....)14) What is the use of clone-function in CoffeeScript?In CoffeeScript, clone function is used to clone or duplicate an instance of an object. Create a clone() method which returns a new instance with copied values.For example:clone = (obj) -> return obj if obj is null or typeof (obj) isnt "object" temp = new obj.constructor() for key of obj temp[key] = clone(obj[key]) temp15) Explain class methods in CoffeeScript?In CoffeeScript, class objects are stored in the object itself rather than on the object prototype. It saves memory and gives a central location to store class-level values.16) How can you replace a portion of strings with another value?You can use Regular Expression to match and replace a portion of a string with another value.17) What is the difference between copying an object through assignment and clone-function?The main difference between copying an object through assignment and clone-function is the way they handle references. The assignment only copies the reference of the object while clone-function creates an entirely new object.18) How CoffeeScript interpolates the strings?The concept of Interpolation in CoffeeScript is same as Ruby. Most expressions of CoffeeScript are valid inside the #{...} interpolation syntax.19) How do Boolean works with CoffeeScript?In CoffeeScript, "True" is generally represented as "On" or "Yes" and "False" is represented as "Off" or "No".20) How can you create and delete a missing function in CoffeeScript?You can use the existential assignment operator (?=) to create and delete the missing function in CoffeeScript.21) Is it possible to bind parameters to properties in CoffeeScript?Yes, You can bind parameters to properties in CoffeeScript by using @ shorthand. It can also be used to define class functions.22) How can you map an array in CoffeeScript?You can map an array in the object by using map() with an anonymous function in CoffeeScript. Forsimple mapping, the list comprehension is more useful, because CoffeeScript directly support list comprehensions.23) How can you use arrays to swap variables?You can use CoffeeScript's destructuring assignment syntax to swap variables using the array. It allows exchanging two values without the use of a temporary variable.24) Why are Essential Operators are used in CoffeeScript?Existential Operators are used in CoffeeScript for the following reasons:To check the existence of a variable.For conditional assignment.For function chaining.25) What is String interpolation in CoffeeScript? Give an example.The CoffeeScript provides a feature known as string interpolation used to include variables in the string. Ruby programming language inspires this feature.Syntax: String = "This is a string #{variable_name}"String interpolation is done using the above syntax. Using double quotes "", Hashtag #, and a pair of curly braces {}.For example:name = "Raju"
+age = 26
+message ="Hello #{name} your age is #{age}"
+console.log message
+On compiling the above coffeeScript code compiler will generate the corresponding javascript:
+// Generated by CoffeeScript 1.10.0
+(function() {
+  var age, message, name;
+
+  name = "Raju";
+
+  age = 26;
+
+  message = "Hello " + name + " your age is " + age;
+
+  console.log(message);
+
+}).call(this);26) What is string concatenation in CoffeeScript? How is it done?In CoffeeScript, we can easily concatenate two strings by using + operator between the two strings.For example:new_string = "Hello how are you "+"Welcome to Javatpoint".
+console.log new_String
+On compiling the above CoffeeScript code compiler will generate corresponding javascript code as follows:
+// Generated by CoffeeScript 1.10.0
+(function() {
+  var new_string;
+
+  new_string = "Hello how are you " + "Welcome to Tutorialspoint";
+
+  console.log(new_String);
+
+}).call(this);27) What is string object in coffeeScript/javaScript? Explain its methods.The string object of javascript helps you work with the series of characters. String object provides various of methods to perform various operations in strings.We can use the javascript library in CoffeeScript code. Hence we can use all the methods of string object in javascript.Following are some of the methods of string object:charAt(): This method returns the character at the given index value of a string object.charCodeAt(): This method returns the Unicode value of the character at the given index.concat(): This method combines two substrings and returns a superstring.indexOf(): This method returns the index of calling string having the first occurrence of a specified value, It will return -1 if not found.lastIndexOf(): This method returns the index of calling string having the last occurrence of a specified value, It will return -1 if not found.localeCompare(): This method returns a number representing whether a reference string comes before or after or is the same as given string in sort order.match(): This method is used to match a regular expression against a string.search(): This method executes a search for a match between the regular expressions in a specified string.slice(): Extract the section of a string object and returns a new string object.split(): Splits a string object into the array of strings by separating the string into substrings.substr(): This method returns the calling string beginning at the specified location through the specified number of characters.toLocaleLowerCase(): Converts the calling string into the lower case while respecting the current locale.toLocaleUpperCase(): Converts calling string into the upper case while respecting the current locale.toLowerCase(): Returns calling string in lower case.ToUpperCase(): Returns calling string in upper case.28) What is splat in CoffeeScript? Explain with an example.The CoffeeScript provides a feature known as splat which is used to pass multiple arguments to a function.We can use splats in functions by placing three dots after the variable name.For example:indian_team = (first, second, others...) ->
+  Captain = first
+  WiseCaptain = second
+  team  = others
+  console.log "Captain: " +Captain
+  console.log "Wise captain: " +WiseCaptain
+  console.log "Other team members: " +team
+
+#Passing 4 arguments
+console.log "############## Four Players ############"
+indian_team "Mahendra Singh Dhoni", "Virat Kohli", "Shikhar Dhawan", "Rohit Sharma"
+
+#Passing 6 arguments
+console.log "############## Six Players ############"
+indian_team "Mahendra Singh Dhoni", "Virat Kohli", "Shikhar Dhawan", "Rohit Sharma", "Gurkeerat Singh Mann", "Rishi Dhawan"
+  
+#Passing full squad
+console.log "############## Full squad #############"
+indian_team "Mahendra Singh Dhoni", "Virat Kohli", "Shikhar Dhawan", "Rohit Sharma", "Gurkeerat Singh Mann", "Rishi Dhawan", "Ravindra Jadeja", "Axar Patel", "Jasprit Bumrah", "Umesh Yadav", "Harbhajan Singh", "Ashish Nehra", "Hardik Pandya", "Suresh Raina", "Yuvraj Singh", "Ajinkya Rahane"Explanation of the above example:In the above case of spats, multiple arguments were being passed to the function. By placing three dots after the argument list of the function indian_team. In the first pass we have passed four arguments to the function, in the second pass we have passed six arguments to the function, and in the last pass, we had passed the names of the full squad to the function.29) Give an example to demonstrate the use of splats with tailing argument in CoffeeScript. Also, explain.The splats with tailing argument refer to the argument placed after the splat argument.For example:indian_team = (first, second, others...., last) ->
+  Captain = first
+  WiseCaptain = second
+  team  = others
+  Wicketkeeper =last
+  console.log "Captain: " +Captain
+  console.log "Wise captain: " +WiseCaptain
+  console.log "Wicket keeper is:"+last
+  console.log "Other team members: " +team  
+  
+squad = [
+   "Mahendra Singh Dhoni"
+   "Virat Kohli"
+   "Shikhar Dhawan"
+   "Rohit Sharma"   
+   "Gurkeerat Singh Mann"
+   "Rishi Dhawan"
+   "R Ashwin"
+   "Ravindra Jadeja"
+   "Axar Patel"
+   "Jasprit Bumrah"
+   "Umesh Yadav"
+   "Harbhajan Singh"
+   "Ashish Nehra"
+   "Hardik Pandya"
+   "Suresh Raina"
+   "Yuvraj Singh"
+   "Ajinkya Rahane"
+ ]In the above example of using tailing with splats, we have placed an additional argument to the argument list of the indian_team function.30) Give an example to demonstrate the use of comprehensions with splats.Within the function, we can also iterate the elements of a splat using comprehensions as shown in the following example. Save this code in a file with the name splats_comprehensions.coffeeindian_team = (first, second, others...) ->
+  Captain = first
+  WiseCaptain = second
+  team  = others
+  console.log "Captain: " +Captain
+  console.log "Wise captain: " +WiseCaptain
+  console.log "Other team members:: "
+  console.log member for member in others
+
+squad = [
+   "Mahendra Singh Dhoni"
+   "Virat Kohli"
+   "Shikhar Dhawan"
+   "Rohit Sharma"   
+   "Gurkeerat Singh Mann"
+   "Rishi Dhawan"
+   "R Ashwin"
+   "Ravindra Jadeja"
+   "Axar Patel"
+   "Jasprit Bumrah"
+   "Umesh Yadav"
+   "Harbhajan Singh"
+   "Ashish Nehra"
+   "Hardik Pandya"
+   "Suresh Raina"
+   "Yuvraj Singh"
+   "Ajinkya Rahane"
+ ]
+
+indian_team squad...31) Explain the various math functions which can be used in CoffeeScript.We can use the javascript library in CoffeeScript code. Hence we can use all the methods of math object in javascript.Following are some math function present in the math object:\abs(): This function returns the absolute value of a number.acos(): This function returns arccosine (in radians) of a number.asin(): This function returns arcsine (in radians) of a number.atan(): This function returns arctangent (in radians) of a number.atan2(): This function returns arctangent of the quotient of its arguments.ceil(): This function returns the smallest integer greater than or equal to the given number.cos(): This function returns the cosin of the given number.exp(): This function returns EN, Where N is the argument, and E is the Euler's constant, the base of the natural logarithm.floor(): This function returns the largest integer less than equal to the number.log(): This function returns natural logarithm (base E) of a number.max(): This function returns largest of zero or more numbers.min(): This function returns the smallest of zero or more numbers.pow(): This function returns the base exponent of the given number.random(): This function returns the pseudo-random number between 0 and 1.round(): This function returns the value of the number rounded to the nearest integer.sin(): This function returns the sine of the given number.sqrt(): This function returns the square root of the specified number.tan(): This function returns the tangent of the specified number.Java Basics Interview QuestionsJava OOPs Interview QuestionsJava Multithreading QuestionsJava String & Exception QuestionsJava Collection Interview QuestionsJDBC Interview QuestionsServlet Interview QuestionsJSP Interview QuestionsSpring Interview QuestionsHibernate Interview QuestionsPL/SQL Interview QuestionsSQL Interview QuestionsOracle Interview QuestionsAndroid Interview QuestionsSQL Server Interview QuestionsMySQL Interview QuestionsJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

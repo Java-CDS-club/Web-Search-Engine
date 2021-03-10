@@ -1,0 +1,150 @@
+C++ algorithm set_union() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm set_union()C++ Algorithm set_union() function is used to find the union of two sorted ranges [first1, last1) and [first2, last2), which is formed by the elements that are present in either one of the sets or in both.Elements are compared using operator < for the first version or using the given binary comparison function comp for the second version.Syntaxdefault (1)     template <class InputIterator1, class InputIterator2, class OutputIterator>
+                        OutputIterator set_union (InputIterator1 first1, InputIterator1 last1,
+                            InputIterator2 first2, InputIterator2 last2, OutputIterator result);
+
+custom (2)     template <class InputIterator1, class InputIterator2,
+                     class OutputIterator, class Compare>
+                   OutputIterator set_union (InputIterator1 first1, InputIterator1 last1,
+              InputIterator2 first2, InputIterator2 last2, OutputIterator result, Compare comp);Parameterfirst1: An input iterator pointing to the first element in the first of two sorted source sequence.last1: An input iterator pointing to the past last element in the first of two sorted source sequence.first2: An input iterator pointing to the first element in the second sorted source sequence.last2: An input iterator pointing to the past last element in the second sorted source sequence.comp: A user-defined binary predicate function that accepts two arguments and returns true if the two arguments are in order and false otherwise. It follows the strict weak ordering to order the elements.result: An output iterator addressing to the position of the first element in the destination range .Return valueThis function returns an iterator to the end of the constructed range.ComplexityComplexity is linear in the distance between [first1, last1) and [first2, last2): performs up to 2*(count1+count2)-1 comparisons. Where count1 = last1- first1 and count2 = last2- first2.Data racesThe object in the range [first1, last1) and [first2. last2) are accessed.The object in the range between result and returned value are modified.ExceptionsThis function throws an exception if any of element comparison, the element assignments or an operation on iterator throws an exception.Note: The invalid parameters cause an undefined behavior.Example 1Let's see the simple example to demonstrate the use of set_union():#include <iostream>
+#include <set>
+#include <list>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+
+using namespace std;
+
+int main()
+{
+  list<int> a = {1, 2, 3, 4};
+  multiset<int> b = {4, 5, 6, 2};
+  vector<int> result;
+
+  set_union(begin(a), end(a),
+                 begin(b), end(b),
+                 inserter(result, end(result)));
+
+  for_each(begin(result), end(result), [](int x) {
+    cout << x << endl;
+  });
+  
+  return 0;
+}Output:1
+2
+3
+4
+5
+6Example 2Let's see another simple example:#include <iostream>     // std::cout
+#include <algorithm>    // std::set_union, std::sort
+#include <vector>       // std::vector
+
+using namespace std;
+
+int main() 
+{ 
+    int first[] = { 5, 10, 15, 20, 25 }; 
+    int second[] = { 50, 40, 30, 20, 10 }; 
+    int n = sizeof(first) / sizeof(first[0]); 
+  
+    // Print first array 
+    cout << "First array contains:"; 
+    for (int i = 0; i < n; i++) 
+        cout << " " << first[i]; 
+    cout << "\n"; 
+  
+    // Print second array 
+    cout << "Second array contains:"; 
+    for (int i = 0; i < n; i++) 
+        cout << " " << second[i]; 
+    cout << "\n\n"; 
+  
+    vector<int> v(10); 
+    vector<int>::iterator it, st; 
+  
+    sort(first, first + n); 
+    sort(second, second + n); 
+  
+    // Using default function 
+    it = set_union(first, first + n, second, second + n, v.begin()); 
+  
+    cout << "The union has " << (it - v.begin()) << " elements:\n"; 
+    for (st = v.begin(); st != it; ++st) 
+        cout << ' ' << *st; 
+    cout << '\n'; 
+  
+    return 0; 
+}Output:First array contains: 5 10 15 20 25
+Second array contains: 50 40 30 20 10
+
+The union has 8 elements:
+ 5 10 15 20 25 30 40 50Example 3Let's see another simple example to find the list of all students who are attending both subjects:#include <iostream> 
+#include <algorithm> 
+#include <vector> 
+#include <string> 
+  
+using namespace std; 
+  
+// Driver code 
+int main() 
+{ 
+    string first[] = { "Nikita", "Divya", "Deep", "Kashish" }; 
+    string second[] = { "Aman", "Nikita", "Amita", "Deep" }; 
+    int n = sizeof(first) / sizeof(first[0]); 
+  
+    // Print students of first list 
+    cout << "Students in first subject:"; 
+    for (int i = 0; i < n; i++) 
+        cout << " " << first[i]; 
+    cout << "\n"; 
+  
+    // Print students of second list 
+    cout << "Students in second subject:"; 
+    for (int i = 0; i < n; i++) 
+        cout << " " << second[i]; 
+    cout << "\n\n"; 
+  
+    vector<string> v(10); 
+    vector<string>::iterator it, st; 
+  
+    // Sorting both the list 
+    sort(first, first + n); 
+    sort(second, second + n); 
+  
+    // Using default operator< 
+    it = set_union(first, first + n, second, second + n, v.begin()); 
+  
+    cout << "Students attending both subjects are:\n"; 
+    for (st = v.begin(); st != it; ++st) 
+        cout << ' ' << *st; 
+    cout << '\n'; 
+  
+    return 0; 
+}Output:Students in first subject: Nikita Divya Deep Kashish
+Students in second subject: Aman Nikita Amita Deep
+
+Students attending both subjects are:
+ Aman Amita Deep Divya Kashish NikitaExample 4Let's see a simple example:#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <iterator>
+
+using namespace std;
+ 
+int main()
+{ 
+    vector<char> v1 = {'A', 'B', 'C'}; 
+    vector<char> v2 = {      'C', 'D', 'E', 'F'}; 
+    
+    vector<char> dest1;
+ 
+    set_union(v1.begin(), v1.end(),
+                   v2.begin(), v2.end(),                  
+                   back_inserter(dest1));
+ 
+    for (const auto &i : dest1) {
+        cout << i << ' ';
+    }   
+    cout << '\n';
+    
+    return 0;
+}Output:A B C D E FNext TopicC++ Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

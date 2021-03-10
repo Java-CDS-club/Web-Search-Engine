@@ -1,0 +1,331 @@
+Cocktail Sort - javatpoint?HomeData StructureCC++C#JavaSQLHTMLCSSJavaScriptAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumDS TutorialDS Tutorial DS Introduction DS Algorithm Asymptotic Analysis DS Pointer DS StructureDS ArrayDS Array 2D ArrayDS Linked ListLinked List Doubly Linked List Circular Linked List Circular Doubly ListDS StackDS Stack Array Implementation Linked List ImplementationDS QueueDS Queue Array Representation Linked List Representation Circular QueueDS TreeDS Tree Binary Tree Binary Search Tree AVL Tree B Tree B+ TreeDS GraphDS Graph Graph Implementation BFS Algorithm DFS Algorithm Spanning TreeDS SearchingLinear Search Binary SearchDS SortingBubble Sort Bucket Sort Comb Sort Counting Sort Heap Sort Insertion Sort Merge Sort Quick Sort Radix Sort Selection Sort Shell Sort Bitonic Sort Cocktail Sort Cycle Sort Tim Sortnext ? ? prevCocktail SortCocktail sort is the variation of Bubble Sort which traverses the list in both directions alternatively. It is different from bubble sort in the sense that, bubble sort traverses the list in forward direction only, while this algorithm traverses in forward as well as backward direction in one iteration.AlgorithmIn cocktail sort, one iteration consists of two stages:The first stage loop through the array like bubble sort from left to right. The adjacent elements are compared and if left element is greater than the right element, then we swap those elements. The largest element of the list is placed at the end of the array in the forward pass.The second stage loop through the array from the right most unsorted element to the left. The adjacent elements are compared and if right element is smaller than the left element then, we swap those elements. The smallest element of the list is placed at the beginning of the array in backward pass.The process continues until the list becomes unsorted.ExampleConsider the array A : {8, 2, 3, 1, 9}. Sort the elements of the array using Cocktail sort.Iteration 1:Forward pass :  compare 8 with 2; 8>2 ? swap(8,2)
+
+A={2,8,3,1,9}
+
+Compare 8 with 3; 8>3 ? swap(8,3) 
+
+A={2,3,8,1,9}
+
+Compare 8 with 1; 8 > 1 ? swap(8,1) 
+
+A = {2,3,1,8,9} 
+
+Compare 8 with 9; 89 ? do not swap At the end of first forward pass: the largest element of the list is placed at the end. A={2, 3, 1, 8, 9 }Backward pass: compare 8 with 1; 8> 1 ? do not swap
+
+A={2, 3, 1, 8, 9 }
+compare 1 with 3 ; 3>1 ? swap(1,3) 
+ 
+A={2, 1, 3, 8, 9 }
+
+compare 1 with 2 ; 2> 1 ? swap(1,2)
+
+A={1, 2, 3, 8, 9} 
+
+At the end of first backward pass; the smallest element has been placed at the first index of the array.If we have a look at the list produced in the first step; we can find that the list has already been sorted in ascending order but the algorithm will process itself completely.ComplexityComplexityBest CaseAverage CaseWorst CaseTime ComplexityO(n2)O(n2)O(n2)Space ComplexityO(1)C Program#include <stdio.h>
+int temp; 
+void Cocktail(int a[], int n)
+{
+    int is_swapped = 1;
+    int begin = 0,i;
+    int end = n - 1;
+ 
+    while (is_swapped) {
+        is_swapped = 0;
+	 for (i = begin; i < end; ++i) {
+            if (a[i] > a[i + 1]) {
+         	temp = a[i];
+	  	a[i]=a[i+1];
+	  	a[i+1]=temp;                
+		is_swapped = 1;
+            }
+        }
+ if (!is_swapped)
+            break;
+ is_swapped = 0;
+ for (i = end - 1; i >= begin; --i) {
+     if (a[i] > a[i + 1]) 
+	{
+          temp = a[i];
+	  a[i]=a[i+1];
+	  a[i+1]=temp;
+	  is_swapped = 1;
+         }
+      }
+        ++begin;
+    }
+}
+ 
+int main()
+{
+    int arr[] = {0, 10, 2, 8, 23, 1, 3, 45},i;
+    int n = sizeof(arr) / sizeof(arr[0]);
+    Cocktail(arr, n);
+    printf("printing sorted array :\n");
+     for (i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+    return 0;
+}Output:printing sorted array :
+0 1 2 3 8 10 23 45 C++ Program#include <iostream>
+using namespace std; 
+int temp; 
+void Cocktail(int a[], int n)
+{
+    int is_swapped = 1;
+    int begin = 0,i;
+    int end = n - 1;
+ 
+    while (is_swapped) {
+        is_swapped = 0;
+	 for (i = begin; i < end; ++i) {
+            if (a[i] > a[i + 1]) {
+         	temp = a[i];
+	  	a[i]=a[i+1];
+	  	a[i+1]=temp;                
+		is_swapped = 1;
+            }
+        }
+ if (!is_swapped)
+            break;
+ is_swapped = 0;
+ for (i = end - 1; i >= begin; --i) {
+     if (a[i] > a[i + 1]) 
+	{
+          temp = a[i];
+	  a[i]=a[i+1];
+	  a[i+1]=temp;
+	  is_swapped = 1;
+         }
+      }
+        ++begin;
+    }
+}
+ 
+int main()
+{
+    int arr[] = {0, 10, 2, 8, 23, 1, 3, 45},i;
+    int n = sizeof(arr) / sizeof(arr[0]);
+    Cocktail(arr, n);
+    cout <<"printing sorted array :\n";
+     for (i = 0; i < n; i++)
+        cout<<arr[i]<<" ";
+    cout<<"\n";
+    return 0;
+}Output:printing sorted array :
+0 1 2 3 8 10 23 45Java Programpublic class CocktailSort 
+{
+static int temp; 
+static void Cocktail(int a[], int n)
+{
+    boolean is_swapped = true;
+    int begin = 0,i;
+    int end = n - 1;
+ 
+    while (is_swapped) {
+        is_swapped = false;
+	 for (i = begin; i < end; ++i) {
+            if (a[i] > a[i + 1]) {
+         	temp = a[i];
+	  	a[i]=a[i+1];
+	  	a[i+1]=temp;                
+		is_swapped = true;
+            }
+        }
+ if (!is_swapped)
+            break;
+ is_swapped = false;
+ for (i = end - 1; i >= begin; --i) {
+     if (a[i] > a[i + 1]) 
+	{
+          temp = a[i];
+	  a[i]=a[i+1];
+	  a[i+1]=temp;
+	  is_swapped = true;
+         }
+      }
+        ++begin;
+    }
+}
+public static void main(String[] args) {
+	
+    int arr[] = {0, 10, 2, 8, 23, 1, 3, 45},i;
+    int n = arr.length;
+    Cocktail(arr, n);
+    System.out.println("printing sorted array :\n");
+     for (i = 0; i < n; i++)
+        System.out.print(arr[i]+" ");
+    System.out.println();
+    }
+}Output:printing sorted array :
+
+0 1 2 3 8 10 23 45C# Programusing System;
+public class CocktailSort 
+{
+static int temp; 
+static void Cocktail(int[] a, int n)
+{
+    Boolean is_swapped = true;
+    int begin = 0,i;
+    int end = n - 1;
+ 
+    while (is_swapped) {
+        is_swapped = false;
+	 for (i = begin; i < end; ++i) {
+            if (a[i] > a[i + 1]) {
+         	temp = a[i];
+	  	a[i]=a[i+1];
+	  	a[i+1]=temp;                
+		is_swapped = true;
+            }
+        }
+ if (!is_swapped)
+            break;
+ is_swapped = false;
+ for (i = end - 1; i >= begin; --i) {
+     if (a[i] > a[i + 1]) 
+	{
+          temp = a[i];
+	  a[i]=a[i+1];
+	  a[i+1]=temp;
+	  is_swapped = true;
+         }
+      }
+        ++begin;
+    }
+}
+public void Main() {
+	
+    int[] arr = {0, 10, 2, 8, 23, 1, 3, 45};
+	int n = arr.Length,i;
+    Cocktail(arr, n);
+    Console.WriteLine("printing sorted array :\n");
+     for (i = 0; i < n; i++)
+        Console.Write(arr[i]+" ");
+
+    }
+
+Output:printing sorted array :
+
+0 1 2 3 8 10 23 45Python Programdef Cocktail(a,n):
+    is_swapped = True;
+    begin = 0
+    end = n - 1;
+    while is_swapped:
+        is_swapped = False;
+        for i in range(begin,end):
+            if a[i] > a[i + 1]:
+                temp = a[i];
+                a[i]=a[i+1];
+                a[i+1]=temp;
+                is_swapped = True;
+        if not(is_swapped):
+            break;
+        is_swapped = False;
+        for i in range(end-1,begin-1,-1):
+            if a[i] > a[i + 1]:
+                temp = a[i];
+                a[i]=a[i+1];
+                a[i+1]=temp;
+                is_swapped = True;
+        ++begin;
+arr = [0, 10, 2, 8, 23, 1, 3, 45];
+n = len(arr);
+Cocktail(arr, n);
+print("printing sorted array :\n");
+for i in range(0,n):
+    print(arr[i]),Output:printing sorted array :
+
+0 1 2 3 8 10 23 45Rust Programfn main()
+{
+    let mut a :[i32;8] = [0, 10, 2, 8, 23, 1, 3, 45];
+   let mut is_swapped = true;
+    let mut  begin = 0;
+    let end = 7;
+ 
+    while is_swapped {
+        is_swapped = false;
+	 for i in begin..end {
+            if a[i] > a[i + 1] {
+         	let mut temp = a[i];
+	  	    a[i]=a[i+1];
+	     	a[i+1]=temp;                
+	    	is_swapped = true;
+            }
+        }
+ 	if !is_swapped
+ 	{
+            break;
+    }
+ 	is_swapped = false;
+ 	for i in (begin..(end-1)).rev()
+ 	{
+     	if a[i] > a[i + 1]
+    	{
+          let mut temp = a[i];
+	      a[i]=a[i+1];
+	      a[i+1]=temp;
+	      is_swapped =true;
+         }
+      }
+      begin=begin+1;
+    }
+    print!("printing sorted array :\n");
+    for i in 0..7
+    {
+        print!("{}",a[i]);    
+    }
+}Output:printing sorted array :
+0 1 2 3 8 10 23 45JavaScript Program<html>
+<head>
+	<title>Cocktail Sort</title>
+	</head>
+		<body>
+			<script>
+				
+function Cocktail( a, n)
+{
+	var temp=0; 
+    var is_swapped = 1;
+    var begin = 0;
+    var end = n - 1;
+ 
+    while (is_swapped) {
+        is_swapped = 0;
+	 for (i = begin; i < end; ++i) {
+            if (a[i] > a[i + 1]) {
+         	temp = a[i];
+	  	a[i]=a[i+1];
+	  	a[i+1]=temp;                
+		is_swapped = 1;
+            }
+        }
+ 	if (!is_swapped)
+            break;
+ 	is_swapped = 0;
+ 	for (i = end - 1; i >= begin; --i) {
+     	if (a[i] > a[i + 1]) 
+	{
+          temp = a[i];
+	  a[i]=a[i+1];
+	  a[i+1]=temp;
+	  is_swapped = 1;
+         }
+      }
+      begin=begin+1;
+    }
+}
+
+	var txt = "<br>";
+	var arr = [0, 10, 2, 8, 23, 1, 3, 45];
+    var n = arr.length;
+    Cocktail(arr, n);
+    document.writeln("printing sorted array :\n"+txt);
+     for (i = 0; i < n; i++)
+	 {
+		 document.writeln(arr[i]+"/xa0");
+	 }
+</script>
+</body>
+</html>Output:printing sorted array :
+0
+1 2 3 8 10 23 45Next TopicCycle Sort? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

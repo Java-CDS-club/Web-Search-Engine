@@ -1,0 +1,37 @@
+C++ Math islessequal() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ Math islessequal()The islessequal() function checks whether the value of first argument is less than or equal to the second argument. If the value of first argument is less than or equal to the value of second argument, then it returns 1 otherwise 0.Note: If one or both the arguments are NAN then the function returns false(0).SyntaxConsider two numbers 'x' and 'y'. Syntax would be:bool islessequal(float x,float y);
+bool islessequal(double x,double y);
+bool islessequal(long double x,long double y);
+bool islessequal(Arithmetic x,Arithmetic y);Parameter(x,y): The values which we want to compare.Return valueParameter(x,y)Return valuex=y1x>y or x=nan or y=nan0Example 1Let's see a simple example when both x and y are of same type.#include <iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+  float x= 3.4;
+  float y=3.4;
+  cout<<"Values of x and y are : "<<x<<","<<y<<'\n';
+  cout<<"islessequal(x,y) : "<<islessequal(x,y);
+  return 0;
+}Output:Values of x and y are : 3.4,3.4
+islessequal(x,y) : 1In this example, islessequal() function determines that both x and y are equal. Therefore, it returns 1.Example 2Let's see a simple example when both x and y are of different type.#include <iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+  float x= 7.8;
+  int y=2;
+  cout<<"Values of x and y are : "<<x<<","<<y<<'\n';
+  cout<<"islessequal(x,y) : "<<islessequal(x,y);
+  return 0;
+}Output: Values of x and y are : 7.8,2
+ islessequal(x,y) : 0In this example, x is greater than y. Therefore, the function returns 0.Example 2Let's see a simple example .#include <iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+  float x= 0.0/0.0;
+  float y=0.0/0.0;
+  cout<<"Values of x and y are : "<<x<<","<<y<<'\n';
+  cout<<"islessequal(x,y) : "<<islessequal(x,y);
+  return 0;
+}Output:Values of x and y are : nan,nan
+islessequal(x,y) : 0In this example, both x and y are NAN. Therefore, the function returns 0.Next TopicC++ Math Functions? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

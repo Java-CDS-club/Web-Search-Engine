@@ -1,0 +1,31 @@
+JSP config implicit object - javatpoint?HomeCore JavaServletJSPJSTLStruts2Mail APIHibernateSpringAndroidDesign PatternQuizProjectsInterview QCommentForumJSP TutorialJSP IntroductionLife cycle of JSP JSP API JSP in EclipseJSP scripting elementsJSP scriptlet tag JSP expression tag JSP declaration tag9 Implicit ObjectsJSP Request JSP Response JSP Config JSP Application JSP Session JSP PageContext JSP Page JSP ExceptionJSP Directive ElementsJSP page directive JSP include directive JSP taglib directiveJSP ExceptionAction Elementsjsp:forward jsp:include Java Bean class jsp:useBean set & getProperty Displaying applet in JSPExpression LanguageMVC in JSPJSTLJSP Custom tagsExample of Custom Tag Attributes Iteration Custom URIJSP PaginationJSP Pagination ExampleJSP CRUDJSP CRUD ExampleDevelopment in JSPRegistration Form Login Form Uploading File Downloading FileInterview QuestionsJSP Quiznext>><<prev4) JSP config implicit objectIn JSP, config is an implicit object of type ServletConfig. This object can be used to get initialization parameter for a particular JSP page. The config object is created by the web container for each jsp page.Generally, it is used to get initialization parameter from the web.xml file.Example of config implicit object:index.html<form action="welcome">
+<input type="text" name="uname">
+<input type="submit" value="go"><br/>
+</form>web.xml file
+<web-app>
+
+<servlet>
+<servlet-name>sonoojaiswal</servlet-name>
+<jsp-file>/welcome.jsp</jsp-file>
+
+<init-param>
+<param-name>dname</param-name>
+<param-value>sun.jdbc.odbc.JdbcOdbcDriver</param-value>
+</init-param>
+
+</servlet>
+
+<servlet-mapping>
+<servlet-name>sonoojaiswal</servlet-name>
+<url-pattern>/welcome</url-pattern>
+</servlet-mapping>
+
+</web-app>
+
+
+welcome.jsp<% 
+out.print("Welcome "+request.getParameter("uname"));
+
+String driver=config.getInitParameter("dname");
+out.print("driver name is="+driver);
+%>OutputOther topics in JSP implicit ObjectsExample of out implicit ObjectExample of request implicit objectExample of Response implicit ObjectExample of application implicit objectExample of session implicit objectExample of pageContext implicit objectExample of page implicit objectExample of exception implicit object<<prevnext>>Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

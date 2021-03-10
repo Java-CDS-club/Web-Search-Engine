@@ -1,0 +1,83 @@
+C++ set size() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set size()C++ set size() function is used to find the number of elements present in the set container.SyntaxMember type size_type is an unsigned integral type.size_type size() const;               // until C++ 11
+size_type size() const noexcept;    //since C++ 11ParameterNoneReturn valueIt returns the number of elements present in the set.ComplexityConstant.Iterator validityNo changes.Data RacesThe container is accessed.Concurrently accessing the elements of a set is safe.Exception SafetyThis function never throws exception.Example 1Let's see the simple example to calculate the size of the set:#include <set>
+#include <iostream>
+using namespace std;
+ 
+int main()
+{ 
+    set<char> num {'a', 'b', 'c', 'd'}; 
+    cout << "num set contains " << num.size() << " elements.\n";
+    return 0;
+}Output: num set contains 4 elements.In the above example, set num contains 4 elements. Therefore size() returns 4 elements.Example 2Let's see a simple example to calculate initial size of set and size of set after adding elements:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   set<int> m;
+
+   cout << "Initial size of set = " << m.size() << endl;
+
+   m = {1,2,3,4,5,6};
+
+     cout << "Size of set after inserting elements = " << m.size() << endl;
+
+   return 0;
+}Output:Initial size of set = 0
+Size of set after inserting elements = 6In the above example, first set is empty hence, size() function will return 0 and after inserting 6 elements it will return 6.Example 3Let's see a simple example:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<int> myset = {100,200,300,400};
+
+  while (myset.size())
+  {
+    cout << *myset.begin()<< '\n';
+    myset.erase(myset.begin());
+  }
+
+  return 0;
+}Output:100
+200
+300
+400In the above example, It simply use the size() function in while loop and prints the elements of set until the size of set.Example 4Let's see a simple example:#include <iostream>
+#include <set>
+#include <string>
+
+using namespace std;
+
+int main() {
+
+  typedef set<int> marksSet;
+   
+   int number;
+   marksSet marks;
+
+   cout<<"Enter three sets of marks: \n";
+   
+   for(int i =0; i<3; i++)
+   {
+       cin>> number;    // Get value
+       marks.insert(number);   // Put them in set
+   }
+   
+      cout<<"\nSize of phone set is:"<< marks.size();
+      cout<<"\nList of telephone numbers: \n";
+      marksSet::iterator p;
+      for(p = marks.begin(); p!=marks.end(); p++)
+      {
+          cout<<(*p)<<" \n ";
+      }
+    
+   return 0;
+}Output:Enter three sets of marks: 
+78 90 84
+
+Size of phone set is: 3
+List of telephone numbers: 
+78 
+ 84 
+ 90In the above example, the program first creates marks set interactively. Then it displays the total size of marks set and all the elements available in the set.Next TopicSet max_size() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

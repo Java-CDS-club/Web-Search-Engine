@@ -1,0 +1,34 @@
+Bash Read User Input - Javatpoint?HomeJavaCBashJavaScriptXMLAjaxSQLC++C#HTMLAndroidCloudDesign PatternQuizProjectsInterview QCommentForumBash TutorialBash Tutorial What is Bash History of Bash Features of Bash Bash Scripting Filesystem & File Permission Hello World! Bash Script Relative vs Absolute path Bash Comments Bash Quotes Bash Variables Read User Input Bash Date Format Bash SleepBash OperatorsBash Arithmetic OperatorsConditional StatementsBash If Statement Bash If Else Bash Else If Bash CaseBash LoopsBash For Loop Bash While Loop Bash Until LoopBash StringBash String Bash Find String Bash Split String Bash Substring Bash Concatenate StringBash FunctionBash FunctionsBash ArrayBash ArraysMiscellaneousBash Read File Bash Write File Check if file Exists Check if Variable is Set Bash Alias Git Bash Zsh vs Bash Bash Hash Commandnext ? ? prevRead User InputIn this topic, we will learn how to read the user input from the terminal and the script.To read the Bash user input, we use the built-in Bash command called read. It takes input from the user and assigns it to the variable. It reads only a single line from the Bash shell. Below is the syntax for its implementation.Syntaxread <variable_name>Follow the given examples to read user input from the Bash Script:Example 1:In this example, we read both the single and multiple variables from the Bash Script by using read command.Program:#!/bin/bash
+
+# Read the user input 
+
+echo "Enter the user name: "
+read first_name
+echo "The Current User Name is $first_name"
+echo
+echo "Enter other users'names: "
+read name1 name2 name3
+echo "$name1, $name2, $name3 are the other users."See the Bash Console:Output:What will happen if we don't pass any variable with the read command?If we don't pass any variable with the read command, then we can pass a built-in variable called REPLY (should be prefixed with the $ sign) while displaying the input. It can be explained using the below program:Program:#!/bin/bash
+
+# using read command without any variable
+
+echo "Enter name : "
+
+read
+
+echo "Name : $REPLY"On Bash Console:Output:Example 2:In this example, we enter the input on the same PROMPT by using the -p command line option as follows:read -p PROMPT <variable_name>Program:#!/bin/bash
+
+read -p "username:" user_var
+echo "The username is: " $user_varSee the Bash Console:Output:Example 3:This example is to keep the input on silent mode, such that whatever be a user input on the command line will be hidden to others.So, we pass a username and hide the password (silent mode) by using the command line options (-s, -p) commonly as follows:read -sp PROMPT <variable_name>Where -s allows a user to keep the input on silent mode and -p to input on newly command prompt.Program:#!/bin/bash
+
+read -p "username : " user_var
+read -sp "password : " pass_var
+echo
+echo "username : " $user_var
+echo "password : "  $pass_varSee the Bash Console:Output:NOTE: At the 5th line of the script, we have given a blanked line with echo command, because if we do not make it blank then, it will give output with both the password and username on the same PROMPT as the below image.So, write your script by adding a blank echo command line.Example 4: This example is to enter multiple inputs using an array. So use the -a command line option as follows:read -a <variable_name>Where -a helps script to read an array, and variable_name refers to an array.Program:#!/bin/bash
+
+# Reading multiple inputs using an array
+
+echo "Enter names : "
+read -a names
+echo "The entered names are : ${names[0]}, ${names[1]}."See the code on Bash Console:Output:Next TopicBash Date Format? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

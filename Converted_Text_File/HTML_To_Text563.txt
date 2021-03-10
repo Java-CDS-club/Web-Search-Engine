@@ -1,0 +1,29 @@
+Armstrong Number in C# - javatpoint?Home.NetC#ADO.NETASP.NETSQL ServerF#AngularJSNode.jsExpress.jsSQLHTMLJavaScriptAjaxQuizProjectsInterview QCommentForumTrainingC# Basics C# Control Statements C# Arrays C# OOPs Concepts C# String C# Exception Handling C# File I/O C# Collections C# Delegates C# Reflection C# MultithreadingC# ProgramsC# Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleC# Interview Questionsnext ? ? prevArmstrong Number in C#Before going to write the C# program to check whether the number is Armstrong or not, let's understand what is Armstrong number.Armstrong number is a number that is equal to the sum of cubes of its digits. For example 0, 1, 153, 370, 371 and 407 are the Armstrong numbers.Let's try to understand why 371 is an Armstrong number.371 = (3*3*3)+(7*7*7)+(1*1*1)    
+where:    
+(3*3*3)=27    
+(7*7*7)=343    
+(1*1*1)=1    
+So:    
+27+343+1=371    Let's see the C# program to check Armstrong Number.using System;
+  public class ArmstrongExample
+   {
+     public static void Main(string[] args)
+      {
+       int  n,r,sum=0,temp;    
+       Console.Write("Enter the Number= ");    
+       n= int.Parse(Console.ReadLine());   
+       temp=n;    
+       while(n>0)    
+       {    
+        r=n%10;    
+        sum=sum+(r*r*r);    
+        n=n/10;    
+       }    
+       if(temp==sum)    
+        Console.Write("Armstrong Number.");    
+       else    
+        Console.Write("Not Armstrong Number.");    
+      }
+  }Output:Enter the Number= 371
+Armstrong Number.Enter the Number= 342   
+Not Armstrong Number.Next TopicSum of digits program in C#? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

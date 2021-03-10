@@ -1,0 +1,80 @@
+C Format Specifier - javatpoint?HomeCC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumC/C++ TrainingC TutorialWhat is C Language History of C Features of C How to install C First C Program Compilation Process in C printf scanf Variables in C Data Types in c Keywords in c C Identifiers C Operators C Comments C Format Specifier C Escape Sequence ASCII value in C Constants in C Literals in C Tokens in C C Boolean Static in C Programming Errors in C Conditional Operator in C Bitwise Operator in C 2s complement in C C Fundamental TestC Control StatementsC if-else C switch if-else vs switch C Loops C do-while loop C while loop C for loop Nested Loops in C Infinite Loop in C C break C continue C goto Type Casting C Control Statement TestC FunctionsWhat is function Call: Value & Reference Recursion in c Storage Classes C Functions TestC Array1-D Array 2-D Array Return an Array in C Array to Function C Array TestC PointersC Pointers C Pointer to Pointer C Pointer Arithmetic Dangling Pointers in C sizeof() operator in C const Pointer in C void pointer in C C Dereference Pointer Null Pointer in C C Function Pointer C Pointers TestC Dynamic MemoryDynamic memoryC StringsString in C C gets() & puts() C String Functions C strlen() C strcpy() C strcat() C strcmp() C strrev() C strlwr() C strupr() C strstr() C String TestC MathC Math FunctionsC Structure UnionC Structure typedef in C C Array of Structures C Nested Structure C Union C Structure TestC File HandlingC File Handling C fprintf() fscanf() C fputc() fgetc() C fputs() fgets() C fseek() C rewind() C ftell()C PreprocessorC Preprocessor C Macros C #include C #define C #undef C #ifdef C #ifndef C #if C #else C #error C #pragma C Preprocessor TestC Command LineCommand Line ArgumentsC MiscC Expressions Data Segments Flow of C Program Classification of Programming LanguagesC Programming TestC Programming TestC ProgramsTop 10+ C Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Count the number of digits in C Reverse Number Swap Number Print "Hello" without ; Assembly code in C C program without main Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci Triangle Hexadecimal to Binary Hexadecimal to Decimal Strong number in C Star Program in CMathPrime Numbers List Composite Numbers List Square Numbers List Binary Numbers List Fibonacci Numbers List Ounces in a Cup Ounces in a Pound Ounces in a Gallon Ounces in a Liter Ounces in a Pint Ounces in a Quart Ounces in a TablespoonC InterviewC Interview Questionsnext ? ? prevC Format SpecifierThe Format specifier is a string used in the formatted input and output functions. The format string determines the format of the input and output. The format string always starts with a '%' character.The commonly used format specifiers in printf() function are:Format specifierDescription%d or %iIt is used to print the signed integer value where signed integer means that the variable can hold both positive and negative values.%uIt is used to print the unsigned integer value where the unsigned integer means that the variable can hold only positive value.%oIt is used to print the octal unsigned integer where octal integer value always starts with a 0 value.%xIt is used to print the hexadecimal unsigned integer where the hexadecimal integer value always starts with a 0x value. In this, alphabetical characters are printed in small letters such as a, b, c, etc.%XIt is used to print the hexadecimal unsigned integer, but %X prints the alphabetical characters in uppercase such as A, B, C, etc.%fIt is used for printing the decimal floating-point values. By default, it prints the 6 values after '.'.%e/%EIt is used for scientific notation. It is also known as Mantissa or Exponent.%gIt is used to print the decimal floating-point values, and it uses the fixed precision, i.e., the value after the decimal in input would be exactly the same as the value in the output.%pIt is used to print the address in a hexadecimal form.%cIt is used to print the unsigned character.%sIt is used to print the strings.%ldIt is used to print the long-signed integer value.Let's understand the format specifiers in detail through an example.%dint main()
+{
+  int b=6;
+  int c=8;
+  printf("Value of b is:%d", b);
+  printf("\nValue of c is:%d",c);
+
+    return 0;
+}In the above code, we are printing the integer value of b and c by using the %d specifier.Output%uint main()
+{
+  int b=10;
+  int c= -10;
+  printf("Value of b is:%u", b);
+  printf("\nValue of c is:%u",c);
+
+    return 0;
+}In the above program, we are displaying the value of b and c by using an unsigned format specifier, i.e., %u. The value of b is positive, so %u specifier prints the exact value of b, but it does not print the value of c as c contains the negative value.Output%oint main()
+{
+  int a=0100;
+  printf("Octal value of a is: %o", a);
+  printf("\nInteger value of a is: %d",a);
+  return 0;
+}In the above code, we are displaying the octal value and integer value of a.Output%x and %Xint main()
+{
+  int y=0xA;
+  printf("Hexadecimal value of y is: %x", y);
+  printf("\nHexadecimal value of y is: %X",y);
+  printf("\nInteger value of y is: %d",y);
+    return 0;
+}In the above code, y contains the hexadecimal value 'A'. We display the hexadecimal value of y in two formats. We use %x and %X to print the hexadecimal value where %x displays the value in small letters, i.e., 'a' and %X displays the value in a capital letter, i.e., 'A'.Output%fint main()
+{
+  float y=3.4;
+  printf("Floating point value of y is: %f", y);
+  return 0;
+}The above code prints the floating value of y.Output%eint main()
+{
+  float y=3;
+  printf("Exponential value of y is: %e", y);
+  return 0;
+}Output%Eint main()
+{
+  float y=3;
+  printf("Exponential value of y is: %E", y);
+  return 0;
+}Output%gint main()
+{
+  float y=3.8;
+  printf("Float value of y is: %g", y);
+  return 0;
+}In the above code, we are displaying the floating value of y by using %g specifier. The %g specifier displays the output same as the input with a same precision.Output%pint main()
+{
+  int y=5;
+  printf("Address value of y in hexadecimal form is: %p", &y);
+  return 0;
+}Output%cint main()
+{
+  char a='c';
+  printf("Value of a is: %c", a);
+  return 0;
+}Output%sint main()
+{
+  printf("%s", "javaTpoint");
+  return 0;
+}OutputMinimum Field Width SpecifierSuppose we want to display an output that occupies a minimum number of spaces on the screen. You can achieve this by displaying an integer number after the percent sign of the format specifier.int main()
+{
+ int x=900;
+  printf("%8d", x);
+  printf("\n%-8d",x);
+  return 0;
+}In the above program, %8d specifier displays the value after 8 spaces while %-8d specifier will make a value left-aligned.OutputNow we will see how to fill the empty spaces. It is shown in the below code:int main()
+{
+ int x=12;
+  printf("%08d", x);
+  return 0;
+}In the above program, %08d means that the empty space is filled with zeroes.OutputSpecifying PrecisionWe can specify the precision by using '.' (Dot) operator which is followed by integer and format specifier.int main()
+{
+ float x=12.2;
+  printf("%.2f", x);
+  return 0;
+} OutputNext TopicC Escape Sequence? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

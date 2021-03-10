@@ -1,0 +1,134 @@
+C++ algorithm random_shuffle() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm random_shuffle()C++ Algorithm random_shuffle() reorders the elements of a range by putting them at random places.The first version uses an internal random number generator and the second version uses a random number generator which is a special kind of function object that is explicitly passed as an argument.Syntaxgenerator by default (1)	
+
+template <class RandomAccessIterator>
+                 void random_shuffle (RandomAccessIterator first, RandomAccessIterator last);
+
+specific generator (2)
+	
+template <class RandomAccessIterator, class RandomNumberGenerator>
+  void random_shuffle (RandomAccessIterator first, RandomAccessIterator last,
+                       RandomNumberGenerator& gen);Parameterfirst: A random access iterator pointing the position of the first element in the range to be rearranged.last: A random access iterator pointing the position one past the final element in the range to be rearranged.result: An output iterator pointing the position of the first element in the destination range.gen: A special function object called a random number generator.Return valueNoneComplexityComplexity is linear in the range [first, last): obtain random values and swaps elements.Data racesThe object in the range [first, last) are modified.The object in the range between result and the returned value are changed.ExceptionsThis function throws an exception if any of random number generations the element swaps or an operation on iterator throws an exception.Please note that invalid parameters cause an undefined behavior.Example 1Let's see the simple example to demonstrate the use of random_shuffle():#include <iostream>
+#include <vector> 
+#include <algorithm>
+#include <numeric>
+#include <iterator>
+
+using namespace std;
+
+int main() {
+  vector<int> v(10); 
+  iota(v.begin(), v.end(), 0);  //generating a value from 0-9
+
+  cout << "before: ";
+  copy(v.begin(), v.end(), ostream_iterator<int>(cout, " "));
+  cout << endl;
+
+  random_shuffle(v.begin(), v.end());
+
+  cout << " after: ";
+  copy(v.begin(), v.end(), ostream_iterator<int>(cout, " "));
+  cout << endl;
+  
+  return 0;
+}Output:before: 0 1 2 3 4 5 6 7 8 9 
+after: 4 3 7 8 0 5 2 1 6 9Example 2Let's see another simple example:#include <iostream>
+#include <vector>
+#include <algorithm>
+ 
+using namespace std;
+ 
+int main()
+{
+  int a[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  vector<int> v(a, a+10);
+ 
+  cout <<"Here are the values in the vector:\n";
+  for (vector<int>::size_type i=0; i<v.size(); i++)
+    cout <<v.at(i)<<" ";
+ 
+  cout << "\n\nNow we randomize the order of the values.";
+  random_shuffle(v.begin(), v.end());
+ 
+  cout <<"\n\nHere are the revised contents of the vector:\n";
+  for (vector<int>::size_type i=0; i<v.size(); i++)
+    cout <<v.at(i)<<" ";
+ 
+  return 0;
+}Output:Here are the values in the vector:
+1 2 3 4 5 6 7 8 9 10 
+
+Now we randomize the order of the values.
+
+Here are the revised contents of the vector:
+5 4 8 9 1 6 3 2 7 10  Example 3Let's see another simple example:#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <iomanip>
+using namespace std;
+ 
+void print(vector <string> vs)
+{   
+    vector <string>::iterator i;
+    for(i = vs.begin(); i != vs.end(); i++)
+    {
+        cout << setw(2) << *i << "  ";
+    }
+    cout << endl;
+}
+ 
+int main()
+{
+    string s[] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+    vector <string> vs(s, s + 13);
+ 
+    cout << "Original order : ";
+    print(vs);
+    cout << "Shuffling cards in uniformly random order ... "
+         << endl;
+    random_shuffle(vs.begin(), vs.end());
+    cout << "Pick any three cards ... " << endl;
+    cout << "You have got   : ";
+    cout << vs.back() << ", ";
+    vs.pop_back();
+    cout << vs.back() << ", ";
+    vs.pop_back();
+    cout << vs.back() << endl;
+    vs.pop_back();
+    
+    return 0;
+}Output:Original order :  A   2   3   4   5   6   7   8   9  10   J   Q   K  
+Shuffling cards in uniformly random order ... 
+Pick any three cards ... 
+You have got   : 9, 8, 4Example 4Let's see another simple example:#include <iostream>     // std::cout
+#include <algorithm>    // std::random_shuffle
+#include <vector>       // std::vector
+#include <ctime>        // std::time
+#include <cstdlib>      // std::rand, std::srand
+
+using namespace std;
+
+// random generator function:
+int myrandom (int i) { return rand()%i;}
+
+int main () {
+  srand ( unsigned ( time(0) ) );
+  vector<int> myvector;
+
+  // set some values:
+  for (int i=1; i<10; ++i) myvector.push_back(i); // 1 2 3 4 5 6 7 8 9
+
+  // using built-in random generator:
+  random_shuffle ( myvector.begin(), myvector.end() );
+
+  // using myrandom:
+  random_shuffle ( myvector.begin(), myvector.end(), myrandom);
+
+  // print out content:
+  cout << "myvector contains:";
+  for (vector<int>::iterator it=myvector.begin(); it!=myvector.end(); ++it)
+    cout << ' ' << *it;
+
+  cout << '\n';
+
+  return 0;
+}Output:myvector contains: 9 7 5 6 3 4 2 8 1Next TopicC++ Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,72 @@
+Computer Graphics Midpoint Circle Algorithm - javatpoint?HomeComputer FundamentalsComputer GraphicsBiometricsComputer NetworkJavaHTMLCSSSeleniumjQueryProjectsInterview QCommentForumTrainingComputer GraphicsComputer Graphics Tutorial Application of Computer Graphics Interactive and Passive GraphicsGraphic SystemsDisplay Processor Cathode Ray Tube (CRT) Random Scan vs Raster Scan Color CRT Monitors Direct View Storage Tubes Flat Panel DisplayInput-Output DevicesInput Devices Trackball Light Pen Image Scanner Output Devices PlottersScan Conversion a lineScan Conversion Definition Scan Converting a Point Scan Converting a Straight Line DDA Algorithm Bresenham's Line AlgorithmScan Conversion CircleDefining a Circle Defining a Circle using Polynomial Method Defining a Circle using Polar Coordinates Method Bresenham's Circle Algorithm Midpoint Circle AlgorithmScan Converting EllipseScan converting a Ellipse Polynomial Method Trignometric Method Midpoint Ellipse AlgorithmFilled Area PrimitivesBoundary Fill Algorithm Flood Fill Algorithm Scan Line Polygon Fill Algorithm2D TransformationsIntroduction of Transformation Translation Scaling Rotation Reflection Shearing Matrix Representation Homogeneous Coordinates Composite Transformation Pivot Point Rotation2D-ViewingWindow Window to Viewport Co-ordinate Transformation Zooming PanningClipping TechniquesClipping Point Clipping Line Clipping Midpoint Subdivision Algorithm Text Clipping Polygon Sutherland-Hodgeman Polygon Clipping Weiler-Atherton Polygon ClippingPointing & PositioningPointing & Positioning Techniques Elastic or Rubber Band Techniques DraggingShadingIntroduction of Shading Constant Intensity Shading Gouraud shading Phong ShadingAnimationAnimation Application Areas of Animation Animation Functions3D Computer GraphicsThree Dimensional Graphics Three Dimensional Transformations Scaling Rotation Rotation about Arbitrary Axis Inverse Transformations Reflection ShearingHidden SurfacesHidden Surface Removal Back Face Removal Algorithm Z-Buffer Algorithm Painter's Algorithm Scan Line Algorithm Subdivision Algorithm 3D Modelling SystemProjectionProjection Perspective Projection Parallel ProjectionProgramsComputer Graphics Programsnext ? ? prevMidPoint Circle AlgorithmIt is based on the following function for testing the spatial relationship between the arbitrary point (x, y) and a circle of radius r centered at the origin:Now, consider the coordinates of the point halfway between pixel T and pixel SThis is called midpoint (xi+1,yi-) and we use it to define a decision parameter:            Pi=f (xi+1,yi-) = (xi+1)2+(yi-)2-r2 ...............equation 2If Pi is -ve ?midpoint is inside the circle and we choose pixel TIf Pi is+ve ?midpoint is outside the circle (or on the circle)and we choose pixel S.The decision parameter for the next step is:Pi+1=(xi+1+1)2+(yi+1-)2- r2............equation 3Since xi+1=xi+1, we haveIf pixel T is choosen ?Pi0We have yi+1=yiIf pixel S is choosen ?Pi?0We have yi+1=yi-1We can continue to simplify this in n terms of (xi,yi) and getNow, initial value of Pi (0,r)from equation 2We can put ?1?r is an integerSo, P1=1-rAlgorithm:Step1: Put x =0, y =r in equation 2            We have p=1-rStep2: Repeat steps while x ? y            Plot (x, y)            If (p0)Then set p = p + 2x + 3Else            p = p + 2(x-y)+5            y =y - 1 (end if)            x =x+1 (end loop)Step3: EndProgram to draw a circle using Midpoint Algorithm:#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+
+class bresen
+{
+	float x, y,a, b, r, p;
+	public:
+	void get ();
+	void cal ();
+};
+	void main ()
+    {
+	bresen b;
+	b.get ();
+	b.cal ();
+	getch ();
+   }
+	Void bresen :: get ()
+   {
+	cout"ENTER CENTER AND RADIUS";
+	 cout "ENTER (a, b)";
+	cin>>a>>b;
+	cout"ENTER r";
+	cin>>r;
+}
+void bresen ::cal ()
+{
+	/* request auto detection */
+	int gdriver = DETECT,gmode, errorcode;
+	int midx, midy, i;
+	/* initialize graphics and local variables */
+	initgraph (&gdriver, &gmode, " ");
+	/* read result of initialization */
+	errorcode = graphresult ();
+	if (errorcode ! = grOK)    /*an error occurred */
+	{
+ 		printf("Graphics error: %s \n", grapherrormsg (errorcode);
+		printf ("Press any key to halt:");
+		getch ();
+		exit (1); /* terminate with an error code */
+	}
+	x=0;
+	y=r;
+	putpixel (a, b+r, RED);
+	putpixel (a, b-r, RED);
+	putpixel (a-r, b, RED);
+	putpixel (a+r, b, RED);
+	p=5/4)-r;
+	while (x=y)
+	{
+		If (p0)
+		p+= (4*x)+6;
+		else
+		{
+			p+=(2*(x-y))+5;
+			y--;
+		}
+		x++;
+		putpixel (a+x, b+y, RED);
+		putpixel (a-x, b+y, RED);
+		putpixel (a+x, b-y, RED);
+		putpixel (a+x, b-y, RED);
+		putpixel (a+x, b+y, RED);
+		putpixel (a+x, b-y, RED);
+		putpixel (a-x, b+y, RED);
+		putpixel (a-x, b-y, RED);
+	}
+}Output:Next TopicScan converting a Ellipse? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

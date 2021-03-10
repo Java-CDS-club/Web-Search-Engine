@@ -1,0 +1,75 @@
+Angular 7 First App - Javatpoint?HomeAngularJSAngular 7JavaAWSIoTComputer FundamentalsControl SystemHTMLCSSAptitudeSeleniumKotlinJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingAngular 7 TutorialAngular 7 Tutorial Angular 7 Introduction Angular 7 Features Angular 7 Installation History & Versions Angular 7 First App Angular 7 Files Explanation Angular 7 with Bootstrap All CLI commands Angular 7 Libraries Angular 7 Architecture Angular 7 ComponentsAngular 7 DirectivesAngular 7 Directives Angular 7 ngIf Directive Angular 7 ngStyle DirectiveAngular 7 DatabindingAngular 7 Databinding Angular 7 String Interpolation Angular 7 Event Binding Angular 7 Property BindingAngular 7 PipesAngular 7 PipesError FixingAngular 7 Error FixingAngular 7 FormsAngular 7 Forms Data Flow in Angular Forms Angular Reactive Forms Template-driven FormsAngular MiscAngular vs ReactAngular + SpringCRUD Example File Upload Example Login & Logout Example Search Field Examplenext ? ? prevAngular 7 Project Setup (Create first app)Following are the Angular CLI commands to create the first Angular app.npm install -g @angular/cli
+ng new my-dream-app
+cd my-dream-app
+ng serveRun the following command to create your first Angular app.ng new my-first-appNavigate to your first app.cd my-first-appStart your server to run app.ng serveYour server is running on localhost:4200. Now, go to the browser and open it.Now, you need an IDE to edit and run your app's code. Here, we are using WebStorm.Open WebStorm and open your app "my-first-app" in the IDE. It will look like this:Here, go to src folder, you will see app folder there. Expand the app folder.You will see 5 components there:app.component.cssapp.component.htmlapp.component.spec.tsapp.component.tsapp.module.tsYou can see the code within the different components to understand what is going on and which part is responsible for the outlook of the app.app.component.cssThis part is empty because we don't specify any CSS here.app.component.html This is the most important component, the front page of your app. Here, you can change the salutation used before your app's name. You can also change the content on the front page and their respective links.Code:<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul>app.component.spec.ts:This file is used for testing purpose only.import { TestBed, async } from '@angular/core/testing';
+import { AppComponent } from './app.component';
+
+describe('AppComponent', () => {
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        AppComponent
+      ],
+    }).compileComponents();
+  }));
+
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
+  it(`should have as title 'my-first-app'`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('my-first-app');
+  });
+
+  it('should render title in a h1 tag', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to my-first-app!');
+  });
+});app.component.ts You can change the name of your app here. You just have to change the title.import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'my-first-app';
+}app.module.tsimport { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }Next TopicAngular 7 Files Explanation? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

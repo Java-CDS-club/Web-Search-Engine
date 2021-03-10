@@ -1,0 +1,66 @@
+Computer Graphics Scan Converting a Straight Line - javatpoint?HomeComputer FundamentalsComputer GraphicsBiometricsComputer NetworkJavaHTMLCSSSeleniumjQueryProjectsInterview QCommentForumTrainingComputer GraphicsComputer Graphics Tutorial Application of Computer Graphics Interactive and Passive GraphicsGraphic SystemsDisplay Processor Cathode Ray Tube (CRT) Random Scan vs Raster Scan Color CRT Monitors Direct View Storage Tubes Flat Panel DisplayInput-Output DevicesInput Devices Trackball Light Pen Image Scanner Output Devices PlottersScan Conversion a lineScan Conversion Definition Scan Converting a Point Scan Converting a Straight Line DDA Algorithm Bresenham's Line AlgorithmScan Conversion CircleDefining a Circle Defining a Circle using Polynomial Method Defining a Circle using Polar Coordinates Method Bresenham's Circle Algorithm Midpoint Circle AlgorithmScan Converting EllipseScan converting a Ellipse Polynomial Method Trignometric Method Midpoint Ellipse AlgorithmFilled Area PrimitivesBoundary Fill Algorithm Flood Fill Algorithm Scan Line Polygon Fill Algorithm2D TransformationsIntroduction of Transformation Translation Scaling Rotation Reflection Shearing Matrix Representation Homogeneous Coordinates Composite Transformation Pivot Point Rotation2D-ViewingWindow Window to Viewport Co-ordinate Transformation Zooming PanningClipping TechniquesClipping Point Clipping Line Clipping Midpoint Subdivision Algorithm Text Clipping Polygon Sutherland-Hodgeman Polygon Clipping Weiler-Atherton Polygon ClippingPointing & PositioningPointing & Positioning Techniques Elastic or Rubber Band Techniques DraggingShadingIntroduction of Shading Constant Intensity Shading Gouraud shading Phong ShadingAnimationAnimation Application Areas of Animation Animation Functions3D Computer GraphicsThree Dimensional Graphics Three Dimensional Transformations Scaling Rotation Rotation about Arbitrary Axis Inverse Transformations Reflection ShearingHidden SurfacesHidden Surface Removal Back Face Removal Algorithm Z-Buffer Algorithm Painter's Algorithm Scan Line Algorithm Subdivision Algorithm 3D Modelling SystemProjectionProjection Perspective Projection Parallel ProjectionProgramsComputer Graphics Programsnext ? ? prevScan Converting a Straight LineA straight line may be defined by two endpoints & an equation. In fig the two endpoints are described by (x1,y1) and (x2,y2). The equation of the line is used to determine the x, y coordinates of all the points that lie between these two endpoints.Using the equation of a straight line, y = mx + b where m =  & b = the y interrupt, we can find values of y by incrementing x from x =x1, to x = x2. By scan-converting these calculated x, y values, we represent the line as a sequence of pixels.Properties of Good Line Drawing Algorithm:1. Line should appear Straight: We must appropriate the line by choosing addressable points close to it. If we choose well, the line will appear straight, if not, we shall produce crossed lines.The lines must be generated parallel or at 45° to the x and y-axes. Other lines cause a problem: a line segment through it starts and finishes at addressable points, may happen to pass through no another addressable points in between.2. Lines should terminate accurately: Unless lines are plotted accurately, they may terminate at the wrong place.3. Lines should have constant density: Line density is proportional to the no. of dots displayed divided by the length of the line.To maintain constant density, dots should be equally spaced.4. Line density should be independent of line length and angle: This can be done by computing an approximating line-length estimate and to use a line-generation algorithm that keeps line density constant to within the accuracy of this estimate.5. Line should be drawn rapidly: This computation should be performed by special-purpose hardware.Algorithm for line Drawing:Direct use of line equationDDA (Digital Differential Analyzer)Bresenham's AlgorithmDirect use of line equation:It is the simplest form of conversion. First of all scan P1 and P2 points. P1 has co-ordinates (x1',y1') and (x2' y2' ).Then       m = (y2',y1')/( x2',x1') and b = If value of |m|?1 for each integer value of x. But do not consider If value of |m|>1 for each integer value of y. But do not consider Example: A line with starting point as (0, 0) and ending point (6, 18) is given. Calculate value of intermediate points and slope of line.Solution: P1 (0,0) P7 (6,18)              x1=0              y1=0              x2=6              y2=18              We know equation of line is              y =m x + b              y = 3x + b..............equation (1)put value of x from initial point in equation (1), i.e., (0, 0) x =0, y=0              0 = 3 x 0 + b              0 = b ? b=0put b = 0 in equation (1)              y = 3x + 0              y = 3xNow calculate intermediate points    Let x = 1 ? y = 3 x 1 ? y = 3    Let x = 2 ? y = 3 x 2 ? y = 6    Let x = 3 ? y = 3 x 3 ? y = 9    Let x = 4 ? y = 3 x 4 ? y = 12    Let x = 5 ? y = 3 x 5 ? y = 15    Let x = 6 ? y = 3 x 6 ? y = 18So points are P1 (0,0)              P2 (1,3)              P3 (2,6)              P4 (3,9)              P5 (4,12)              P6 (5,15)              P7 (6,18)Algorithm for drawing line using equation:Step1: Start AlgorithmStep2: Declare variables x1,x2,y1,y2,dx,dy,m,b,Step3: Enter values of x1,x2,y1,y2.              The (x1,y1) are co-ordinates of a starting point of the line.              The (x2,y2) are co-ordinates of a ending point of the line.Step4: Calculate dx = x2- x1Step5: Calculate dy = y2-y1Step6: Calculate m = Step7: Calculate b = y1-m* x1Step8: Set (x, y) equal to starting point, i.e., lowest point and xendequal to largest value of x.              If dx 0                  then x = x2              y = y2                        xend= x1        If dx > 0              then x = x1                  y = y1                        xend= x2Step9: Check whether the complete line has been drawn if x=xend, stopStep10: Plot a point at current (x, y) coordinatesStep11: Increment value of x, i.e., x = x+1Step12: Compute next value of y from equation y = mx + bStep13: Go to Step9.Program to draw a line using LineSlope Method#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+
+class bresen
+{
+	float x, y, x1, y1, x2, y2, dx, dy, m, c, xend;
+	public:
+	void get ();
+	void cal ();
+};
+	void main ()
+    {
+	bresen b;
+	b.get ();
+	b.cal ();
+	getch ();
+   }
+	Void bresen :: get ()
+   {
+	print ("Enter start & end points");
+	print ("enter x1, y1, x2, y2");
+	scanf ("%f%f%f%f",sx1, sx2, sx3, sx4)
+}
+void bresen ::cal ()
+{
+	/* request auto detection */
+	int gdriver = DETECT,gmode, errorcode;
+	/* initialize graphics and local variables */
+	initgraph (&gdriver, &gmode, " ");
+	/* read result of initialization */
+	errorcode = graphresult ();
+	if (errorcode ! = grOK)    /*an error occurred */
+	{
+ 		printf("Graphics error: %s \n", grapherrormsg (errorcode);
+		printf ("Press any key to halt:");
+		getch ();
+		exit (1); /* terminate with an error code */
+	}
+	dx = x2-x1;
+	dy=y2-2y1;
+	m = dy/dx;
+	c = y1 - (m * x1);
+	if (dx0)
+	{
+		x=x2;
+		y=y2;
+		xend=x1;
+	}
+    else
+	{
+		x=x1;
+		y=y1;
+		xend=x2;
+	}
+while (x=xend)
+	{
+		putpixel (x, y, RED);
+		y++;
+		y=(x*x) +c;
+	}
+}OUTPUT: Enter Starting and End Points
+Enter (X1, Y1, X2, Y2) 200 100 300 200Next TopicDDA Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,117 @@
+CouchDB Create View - javatpoint?HomeCouchDBSQLPL/SQLSQLiteMongoDBCassandraMySQLOracleQuizProjectsInterview QCommentForumTrainingCouchDB TutorialCouchDB Tutorial CouchDB vs MongoDB Features of CouchDB CouchDB Installation CouchDB Fauxton CouchDB Curl Run CouchDB Mango Create DB User CouchDB HTTP APICouchDB DatabaseCreate Database Delete DatabaseCouchDB DocumentCreate Document Update Document Delete Document Create ViewCouchDB ConnectivityJava CouchDB PHP CouchDB Python CouchDB Node.js CouchDBInterview QuestionsCouchDB Interviewnext ? ? prevCouchDB Create ViewThere are two employees in our "employees" database.Let's suppose employee1 and employee2:Now, Open Fauxton and go to all documents where you see a block named New View.Click on new view and fill the required fields:View is created now. You can verify it and get view result by follow the following commands:Create a file as "app.js", having the following code:const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const NodeCouchdb = require('node-couchdb');
+const app = express();
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.use (bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.get('/', function(req,res){
+ res.send('Working........');
+});
+app.listen(3000, function(){
+ console.log('Server is started om Port 3000');
+});Execute the following code:node app  Open the local browser: localhost:3000List Databasesconst express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const NodeCouchdb = require('node-couchdb');
+
+const couch = NodeCouchdb({
+auth:{
+user: 'ajeet'
+password: '12345'
+}
+});
+couch.listDatabases().then(function(dbs){
+console.log(dbs);
+});
+
+const app = express();
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.use (bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.get('/', function(req,res){
+ res.send('Working........');
+});
+app.listen(3000, function(){
+ console.log('Server is started on Port 3000');
+});Create a folder "view" and then create a file "index.ejs" within it, having the following code:Hello World!Now change in the "app.js" file:res.render('index');Get View ResultClick on all and then click on API URL to copy the url.Now go to app.js and change the code with the following:const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const NodeCouchdb = require('node-couchdb');
+
+const couch = new NodeCouchdb({
+auth:{
+user:"ajeet",
+password:"12345"
+}
+});
+
+const dbName ='employees';
+const viewUrl = '_design/all_employees/_view/all';
+
+couch.listDatabases().then(function(dbs){
+console.log(dbs);
+});
+
+
+const app = express();
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.use (bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.get('/', function(req,res){
+ couch.get(dbName, viewUrl).then(
+function(data, headers, status){
+console.log(data);
+res.render('index',{
+customer:data 
+});
+},
+function(err){
+res.send(err);
+});
+});
+
+app.listen(3000, function(){
+ console.log('Server is started on Port 3000');
+});Now start server and you will see the following result:To see the documents detailsEdit "app.js" with the following code:const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const NodeCouchdb = require('node-couchdb');
+
+const couch = new NodeCouchdb({
+auth:{
+user:"ajeet",
+password:"12345"
+}
+});
+
+const dbName ='employees';
+const viewUrl = '_design/all_employees/_view/all';
+couch.listDatabases().then(function(dbs){
+console.log(dbs);
+});
+
+const app = express();
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.use (bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.get('/', function(req,res){
+ couch.get(dbName, viewUrl).then(
+function(data, headers, status){
+console.log(data.data.rows);
+res.render('index',{
+customer:data 
+});
+},
+function(err){
+res.send(err);
+});
+});
+app.listen(3000, function(){
+ console.log('Server is started on Port 3000');
+});Output:Next TopicJava CouchDB Connectivity? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

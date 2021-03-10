@@ -1,0 +1,122 @@
+C++ algorithm upper_bound() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm upper_bound()C++ Algorithm upper_bound() function is the version of binary search. This function is used to return an iterator pointing to the first element in the range [first, last) that is greater than to the specified value val.The first version uses operator < to compare the elements and the second version uses the given comparison function i.e. comp.Syntaxdefault (1)      template <class ForwardIterator, class T>
+                          ForwardIterator upper_bound (ForwardIterator first, ForwardIterator last,
+                               const T& val); 
+
+custom (2)      template <class ForwardIterator, class T, class Compare>
+                          ForwardIterator upper_bound (ForwardIterator first, ForwardIterator last,
+                               const T& val, Compare comp);Parameterfirst: A forward iterator pointing to the first element in the range to be searched.last: A forward iterator pointing to the past last element in the range to be searched.comp: A user defined binary predicate function that accepts two arguments and returns true if the two arguments are in order and false otherwise. It follows the strict weak ordering to order the elements.val: A value of the upper bound to compare the elements in the range.Return valueIt returns an iterator pointing to the first element of the range that is greater than val or last if no such element is found.ComplexityOn average, complexity is logarithmic in the distance between first and last: performs up to log2 (N) + 1 element comparisons Where N = last - first.Data racesThe object in the range [first, last) are accessed.ExceptionsThis function throws an exception if either an element comparison or an operation on iterator throws an exception.Note: The invalid parameters cause an undefined behavior.Example 1Let's see the simple example to demonstrate the use of upper_bound():#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+
+  vector<int> v = {3, 1, 4, 6, 5};
+  
+  decltype(v)::iterator it = upper_bound(v.begin(), v.end(), 3);
+  cout<<"Upper bound of 3 is: ";
+  cout << *it << endl;
+  
+  return 0;
+}Output:Upper bound of 3 is: 4Example 2Let's see another simple example:#include <iostream>     // std::cout
+#include <algorithm>    // std::lower_bound, std::upper_bound, std::sort
+#include <vector>       // std::vector
+
+using namespace std;
+
+int main () {
+  int myints[] = {10,20,30,30,20,10,10,20};
+  vector<int> v(myints,myints+8);           // 10 20 30 30 20 10 10 20
+
+  sort (v.begin(), v.end());                // 10 10 10 20 20 20 30 30
+
+  vector<int>::iterator low,up;
+  low=lower_bound (v.begin(), v.end(), 20); //          ^
+  up= upper_bound (v.begin(), v.end(), 20); //                   ^
+
+  cout << "lower_bound at position " << (low- v.begin()) << '\n';
+  cout << "upper_bound at position " << (up - v.begin()) << '\n';
+
+  return 0;
+}Output:lower_bound at position 3
+upper_bound at position 6Example 3Let's see another simple example:#include <iostream>
+#include <vector>
+#include <algorithm>
+ 
+using namespace std;
+ 
+int main()
+{
+  int a[] = {2, 3, 5, 6, 7, 7, 7,  8, 9, 10};
+  vector<int> v(a, a+10);
+  cout <<"\nHere are the contents of v:\n";
+  for (vector<int>::size_type i=0; i<v.size(); i++)
+    cout <<v.at(i)<<" ";  
+ 
+  vector<int>::iterator upper;
+ 
+  upper = upper_bound(v.begin(), v.end(), 3);
+  if (upper != v.end())
+    cout <<"\nUpper bound of 3 in v = "<<*upper;
+ 
+  upper = upper_bound(v.begin(), v.end(), 4);
+  if (upper != v.end())
+    cout <<"\nUpper bound of 4 in v = "<<*upper;
+ 
+  upper = upper_bound(v.begin(), v.end(), 5);
+  if (upper != v.end())
+    cout <<"\nUpper bound of 5 in v = "<<*upper;
+ 
+  upper = upper_bound(v.begin(), v.end(), 7);
+  if (upper != v.end())
+    cout <<"\nUpper bound of 7 in v = "<<*upper;
+ 
+  upper = upper_bound(v.begin(), v.end(), 0);
+  if (upper != v.end())
+    cout <<"\nUpper bound of 0 in v = "<<*upper;
+ 
+  upper = upper_bound(v.begin(), v.end(), 15);
+  if (upper != v.end())
+    cout <<"\nUpper bound of 15 in v = "<<*upper;
+  cout <<"\n\nNote that the upper bound location of 15 is \nthe end (one-past-the-last) vector position.";
+ 
+  return 0;
+}Output:Here are the contents of v:
+2 3 5 6 7 7 7 8 9 10 
+Upper bound of 3 in v = 5
+Upper bound of 4 in v = 5
+Upper bound of 5 in v = 6
+Upper bound of 7 in v = 8
+Upper bound of 0 in v = 2
+
+Note that the upper bound location of 15 is 
+the end (one-past-the-last) vector position.Example 4Let's see another simple example:#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool ignore_case(char a, char b) {
+   return(tolower(a) == tolower(b));
+}
+
+int main(void) {
+   vector<char> v = {'A', 'b', 'C', 'd', 'E'};
+   auto it = upper_bound(v.begin(), v.end(), 'C');
+
+   cout << "Upper bound of \'C\' is " << *it << endl;
+
+   it = upper_bound(v.begin(), v.end(), 'C', ignore_case);
+
+   cout << "Upper bound of \'C\' is " << *it << endl;
+
+   it = upper_bound(v.begin(), v.end(), 'z', ignore_case);
+
+   cout << "All elements are less than \'z\'." << endl;
+
+   return 0;
+}Output:Upper bound of 'C' is d
+Upper bound of 'C' is C
+All elements are less than 'z'.Next TopicC++ Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,88 @@
+Comment Form Example using AJAX in Java - javatpoint?HomeAjaxCJavaPHPHTMLCSSJavaScriptjQueryjQuery UIXMLJSONNode.jsSQLAndroidPythonQuizProjectsInterview QCommentForumTrainingAJAX TutorialWhat is AJAX? Asynchronous Ajax Technologies XMLHttpRequest How AJAX Works?Java AJAXAJAX Example AJAX with Database Email Finder Comment Form Search ExampleJSON AJAXAJAX JSONAJAX InterviewAJAX Interview Questionsnext ? ? prevComment Form Example using AJAX in JavaIn this example, we are creating a form to post comment. The form data is saved in the database and a list of all posted comments are shown below the comment form.Steps to create comment form example using AJAX in JavaYou need to follow following steps:Create table in databaseload the org.json.jar fileCreate comment formCreate server side page to save the form data and print all posted commentsCreate table in databaseIn this example, we are using oracle 10g database. The table structure is given below:The id field of "usercomment" table is auto incremented.Load the org.json.jar filedownload this example, we have included the org.json.jar file inside the WEB-INF/lib directory.Create comment formIn this page, we have created a form that gets input from the user. When user clicks on the Post Comment button, postComment() function is called. We have written all the ajax code inside this function.index.html<!DOCTYPE html>
+<html>
+<head>
+<script>
+var request;
+function postComment(){
+var comment=document.commentform.comment.value;
+var email=document.commentform.email.value;
+
+var url="index.jsp?comment="+comment+"&email="+email;
+
+if(window.XMLHttpRequest){
+request=new XMLHttpRequest();
+}
+else if(window.ActiveXObject){
+request=new ActiveXObject("Microsoft.XMLHTTP");
+}
+
+try{
+request.onreadystatechange=function(){
+if(request.readyState==4){
+var val=request.responseText;
+document.getElementById('mylocation').innerHTML=val;
+}
+}//end of function
+request.open("GET",url,true);
+request.send();
+}catch(e){alert("Unable to connect to server");}
+}
+</script>
+</head>
+<body>
+<h1>Comment Form</h1>
+<form name="commentform">
+Enter Comment:<br/>
+<textarea name="comment" style="width:300px;height:100px" required>
+</textarea><br/>
+Enter Email:<br/>
+<input type="text" name="email" required/><br/><br/>
+
+<input type="button" value="Post Comment" onclick="postComment()">
+</form>
+
+<span id="mylocation"></span>
+</body>
+</html>Create server side page to process the requestIn this jsp page, we are writing the database code to save the comment and print all comments.index.jsp<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.box{margin:2px;border:1px solid pink;padding:10px;background-color:#e3e3e3}
+</style>
+</head>
+<body>
+
+<%@ page import="java.sql.*" %>
+<%
+String comment=request.getParameter("comment");
+String email=request.getParameter("email");
+if(comment==null||email==null||comment.trim().equals("")||email.trim().equals("")){
+out.print("<p>Please write comment</p>");
+}else{
+
+try{
+Class.forName("oracle.jdbc.driver.OracleDriver");
+Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+PreparedStatement ps=con.prepareStatement("insert into usercomment(comment1,email) values(?,?)");
+ps.setString(1,comment);
+ps.setString(2,email);
+int i=ps.executeUpdate();
+
+PreparedStatement ps2=con.prepareStatement("select * from usercomment order by id desc");
+ResultSet rs=ps2.executeQuery();
+
+out.print("<hr/><h2>Comments:</h2>");
+while(rs.next()){
+out.print("<div class='box'>");
+out.print("<p>"+rs.getString(2)+"</p>");
+out.print("<p><strong>By: "+rs.getString(3)+"</strong></p>");
+out.print("</div>");
+}
+
+con.close();
+}catch(Exception e){out.print(e);}
+
+}//end of else
+%>
+</body>
+</html>Download this ajax exampleOutputSee the comment form.Now write comment and email id, then click on the "Post Comment" button. A list of posted comments will be displayed below the comment form.Next TopicSearch Example using AJAX in Java? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

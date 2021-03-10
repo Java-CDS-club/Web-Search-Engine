@@ -1,0 +1,58 @@
+C Program to convert Number in Characters - javatpoint?HomeCC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumC Tutorial C Control Statements C Functions C Array C Pointers Dynamic Memory Allocation C Strings C Structure Union C File Handling C Preprocessor Command Line ArgumentsC ProgramsTop 10+ C Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Print "Hello" without ; Assembly code in C C program without main Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleC InterviewC Interview Questionsnext ? ? prevC Program to convert Number in CharactersNumber in characters conversion: In c language, we can easily convert number in characters by the help of loop and switch case. In this program, we are taking input from the user and iterating this number until it is 0. While iteration, we are dividing it by 10 and the remainder is passed in switch case to get the word for the number.Let's see the c program to convert number in characters.#include  
+#include
+int main(){
+long int n,sum=0,r;  
+system("cls");
+printf("enter the number=");  
+scanf("%ld",&n);  
+while(n>0)  
+{  
+r=n%10;  
+sum=sum*10+r;  
+n=n/10;  
+}  
+n=sum;  
+while(n>0)  
+{  
+r=n%10;  
+switch(r)  
+{  
+case 1:  
+printf("one ");  
+break;  
+case 2:  
+printf("two ");  
+break;  
+case 3:  
+printf("three ");  
+break;  
+case 4:  
+printf("four ");  
+break;  
+case 5:  
+printf("five ");  
+break;  
+case 6:  
+printf("six ");  
+break;  
+case 7:  
+printf("seven ");  
+break;  
+case 8:  
+printf("eight ");  
+break;  
+case 9:  
+printf("nine ");  
+break;  
+case 0:  
+printf("zero ");  
+break;  
+default:  
+printf("tttt");  
+break;  
+}  
+n=n/10;  
+}  
+return 0;
+}Output:enter the number=4321
+four three two one  Next TopicC Program to print Alphabet Triangle? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

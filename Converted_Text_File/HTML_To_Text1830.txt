@@ -1,0 +1,332 @@
+C++ multiset - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ multisetC++ multiset constructor destructor begin() end() operator= rbegin() rend() cbegin() cend() max_size() size() crbegin() crend() empty() insert() clear() emplace() erase() swap() emplace_hint() find() key_comp() value_comp() count() equal_range() lower_bound() upper_bound() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ STL MultisetIntroduction to multisetMultisets are part of the C++ STL (Standard Template Library). Multisets are the associative containers like Set that stores sorted values (the value is itself the key, of type T), but unlike Set which store only unique keys, multiset can have duplicate keys. By default it uses operator to compare the keys.The value of the elements in a multiset can be inserted or deleted but cannot be altered (The elements are always const).Syntaxtemplate < class T,                             // multiset::key_type/value_type
+           class Compare = less<T>,        // multiset::key_compare/value_compare
+           class Alloc = allocator<T>         // multiset::allocator_type
+           > class multiset;ParametersT: Type of element stored in the container multiset.Compare: A comparison class that takes two arguments of the same type bool and returns a value. This argument is optional and the binary predicate less is the default value.Alloc: Type of the allocator object which is used to define the storage allocation model.Example 1Let's see an example to demonstrate C++ Multiset:#include <iostream>
+#include <set>
+#include <string>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    multiset<int> ms;
+    multiset<int>::iterator it, it1, msIt;
+    int choice, item;   
+    
+    while (1)
+    {
+        cout<<"\n---------------------"<<endl;
+        cout<<"Multiset Example"<<endl;
+        cout<<"\n---------------------"<<endl;
+        cout<<"1.Insert Number into the Multiset"<<endl;
+        cout<<"2.Delete Element from the Multiset"<<endl;
+        cout<<"3.Find Element in a Multiset"<<endl;
+        cout<<"4.Count Elements with a specific key"<<endl;
+        cout<<"5.Size of the Multiset"<<endl;
+        cout<<"6.Display Multiset"<<endl;
+        cout<<"7.First Element of the Multiset"<<endl;
+        cout<<"8.Exit"<<endl;
+        cout<<"Enter your Choice: ";
+        cin>>choice;
+        
+        switch(choice)
+        {
+        case 1:
+            cout<<"Enter value to be inserted: ";
+            cin>>item;
+            if (ms.empty())
+                it1 = ms.insert(item);
+            else
+                it1 = ms.insert(it1, item);
+            break;
+        case 2:
+            cout<<"Enter value to be deleted: ";
+            cin>>item;
+            ms.erase(item);
+            break;
+        case 3:
+            cout<<"Enter element to find ";
+            cin>>item;
+            it = ms.find(item);
+            if (it != ms.end())
+                cout<<"Element found"<<endl;
+            else
+                cout<<"Element not found"<<endl;
+            break;
+        case 4:
+            cout<<"Enter element to be counted: ";
+            cin>>item;
+            cout<<item<<" appears "<<ms.count(item)<<" times."<<endl;
+            break;
+        case 5:
+            cout<<"Size of the Multiset: "<<ms.size()<<endl;
+            break;
+        case 6:
+            cout<<"Elements of the Multiset:  ";
+            for (it = ms.begin(); it != ms.end(); it++)
+                cout<<*it<<"  ";
+            cout<<endl;
+            break;
+        case 7:
+        if(ms.empty())
+        {
+            cout<<"Multiset is empty";
+        }
+        else
+        {
+            msIt =  ms.begin();
+                cout << "The First Element of the Multiset is " << *msIt << endl; 
+        }
+             break;
+		case 8:
+            exit(1);
+	        break;
+        default:
+            cout<<"Wrong Choice"<<endl;
+        }
+    }
+    return 0;
+}Output:---------------------
+Multiset Example
+
+---------------------
+1.Insert Number into the Multiset
+2.Delete Element from the Multiset
+3.Find Element in a Multiset
+4.Count Elements with a specific key
+5.Size of the Multiset
+6.Display Multiset
+7.First Element of the Multiset
+8.Exit
+Enter your Choice: 1
+Enter value to be inserted: 100
+
+---------------------
+Multiset Example
+
+---------------------
+1.Insert Number into the Multiset
+2.Delete Element from the Multiset
+3.Find Element in a Multiset
+4.Count Elements with a specific key
+5.Size of the Multiset
+6.Display Multiset
+7.First Element of the Multiset
+8.Exit
+Enter your Choice: 1
+Enter value to be inserted: 200
+
+---------------------
+Multiset Example
+
+---------------------
+1.Insert Number into the Multiset
+2.Delete Element from the Multiset
+3.Find Element in a Multiset
+4.Count Elements with a specific key
+5.Size of the Multiset
+6.Display Multiset
+7.First Element of the Multiset
+8.Exit
+Enter your Choice: 1
+Enter value to be inserted: 300
+
+---------------------
+Multiset Example
+
+---------------------
+1.Insert Number into the Multiset
+2.Delete Element from the Multiset
+3.Find Element in a Multiset
+4.Count Elements with a specific key
+5.Size of the Multiset
+6.Display Multiset
+7.First Element of the Multiset
+8.Exit
+Enter your Choice: 2
+Enter value to be deleted: 200
+
+---------------------
+Multiset Example
+
+---------------------
+1.Insert Number into the Multiset
+2.Delete Element from the Multiset
+3.Find Element in a Multiset
+4.Count Elements with a specific key
+5.Size of the Multiset
+6.Display Multiset
+7.First Element of the Multiset
+8.Exit
+Enter your Choice: 3
+Enter element to find 100
+Element found
+
+---------------------
+Multiset Example
+
+---------------------
+1.Insert Number into the Multiset
+2.Delete Element from the Multiset
+3.Find Element in a Multiset
+4.Count Elements with a specific key
+5.Size of the Multiset
+6.Display Multiset
+7.First Element of the Multiset
+8.Exit
+Enter your Choice: 4
+Enter element to be counted: 100
+100 appears 1 times.
+
+---------------------
+Multiset Example
+
+---------------------
+1.Insert Number into the Multiset
+2.Delete Element from the Multiset
+3.Find Element in a Multiset
+4.Count Elements with a specific key
+5.Size of the Multiset
+6.Display Multiset
+7.First Element of the Multiset
+8.Exit
+Enter your Choice: 5
+Size of the Multiset: 2
+
+---------------------
+Multiset Example
+
+---------------------
+1.Insert Number into the Multiset
+2.Delete Element from the Multiset
+3.Find Element in a Multiset
+4.Count Elements with a specific key
+5.Size of the Multiset
+6.Display Multiset
+7.First Element of the Multiset
+8.Exit
+Enter your Choice: 6
+Elements of the Multiset:  100  300  
+
+---------------------
+Multiset Example
+
+---------------------
+1.Insert Number into the Multiset
+2.Delete Element from the Multiset
+3.Find Element in a Multiset
+4.Count Elements with a specific key
+5.Size of the Multiset
+6.Display Multiset
+7.First Element of the Multiset
+8.Exit
+Enter your Choice: 7
+The First Element of the Multiset is 100
+
+---------------------
+Multiset Example
+
+---------------------
+1.Insert Number into the Multiset
+2.Delete Element from the Multiset
+3.Find Element in a Multiset
+4.Count Elements with a specific key
+5.Size of the Multiset
+6.Display Multiset
+7.First Element of the Multiset
+8.Exit
+Enter your Choice: 8Example 2Let's see another example to demonstrate C++ Multiset:#include <iostream>
+#include <set>
+#include <iterator>
+
+using namespace std;
+
+int main()
+{
+    // empty multiset container
+    multiset <int, greater <int> > ms1; 
+    
+    // insert elements in random order
+    ms1.insert(400);
+    ms1.insert(300);
+    ms1.insert(600);
+    ms1.insert(200);
+    ms1.insert(500);
+    ms1.insert(500); // 500 will be added again to the multiset unlike set
+    ms1.insert(100);
+    
+    // printing multiset ms1
+    multiset <int> :: iterator itr;
+    
+    cout << "\nMarks of ms1 class Room: "<<endl;
+    for (itr = ms1.begin(); itr != ms1.end(); ++itr)
+    {
+        cout << "  " << *itr;
+    }
+    cout << endl;
+    
+    // assigning the elements from ms1 to ms2
+    multiset <int> ms2(ms1.begin(), ms1.end());
+    
+    // print all elements of the multiset ms2
+    cout << "\nThe Number of students in class Room after assigning Class Room students: "<<endl;
+    for (itr = ms2.begin(); itr != ms2.end(); ++itr)
+    {
+        cout << "  " << *itr;
+    }
+    cout << endl;
+    
+    // Find the highest element in multiset ms1 and ms2
+    multiset<int>::iterator msIt1, msIt2;
+    msIt1 =  ms1.begin();
+    cout<< "\nHighest marks in ms1 Class Room: "<<*msIt1; 
+    
+    msIt2 =  ms2.begin();
+    cout<< "\nHighest marks in ms2 Class Room: "<<*msIt2; 
+        
+    // remove all elements up to element with value 300 in ms2
+    cout << "\n\nms2 Class Room after removal of Students less than 300 marks:\n ";
+    ms2.erase(ms2.begin(), ms2.find(300));
+    for (itr = ms2.begin(); itr != ms2.end(); ++itr)
+    {
+      cout << "  " << *itr;
+    }
+    
+    // remove all elements with value 500 in ms2
+    int num;
+    num = ms2.erase(500);
+    cout << "\n\nms2.erase(500) : ";
+    cout << num << " removed \t" ;
+    for (itr = ms2.begin(); itr != ms2.end(); ++itr)
+    {
+        cout << "  " << *itr;
+    }
+      
+    cout << endl<<endl;
+    //lower bound and upper bound for multiset ms1
+    cout << "ms1.lower_bound(400) : " << *ms1.lower_bound(400) << endl;
+    cout << "ms1.upper_bound(400) : " << *ms1.upper_bound(400) << endl;
+    //lower bound and upper bound for multiset ms2
+    cout << "ms2.lower_bound(400) : " << *ms2.lower_bound(400) << endl;
+    cout << "ms2.upper_bound(400) : " << *ms2.upper_bound(400) << endl;
+    
+return 0;
+}Output:Marks of ms1 class Room: 
+  600  500  500  400  300  200  100
+
+The Number of students in class Room after assigning Class Room students: 
+  100  200  300  400  500  500  600
+
+Highest marks in ms1 Class Room: 600
+Highest marks in ms2 Class Room: 100
+
+ms2 Class Room after removal of Students less than 300 marks:
+   300  400  500  500  600
+
+ms2.erase(500) : 2 removed 	  300  400  600
+
+ms1.lower_bound(400) : 400
+ms1.upper_bound(400) : 300
+ms2.lower_bound(400) : 400
+ms2.upper_bound(400) : 600Member FunctionsBelow is the list of all member functions of multiset:Constructor/DestructorFunctionsDescription(constructor)Construct multiset(destructor)Multiset destructoroperator=Copy elements of the multiset to another multiset.IteratorsFunctionsDescriptionBeginReturns an iterator pointing to the first element in the multiset.CbeginReturns a const iterator pointing to the first element in the multiset.EndReturns an iterator pointing to the past-end.cendReturns a constant iterator pointing to the past-end.rbeginReturns a reverse iterator pointing to the end.rendReturns a reverse iterator pointing to the beginning.crbeginReturns a constant reverse iterator pointing to the end.crendReturns a constant reverse iterator pointing to the beginning.CapacityFunctionsDescriptionemptyReturns true if multiset is empty.sizeReturns the number of elements in the multiset.max_sizeReturns the maximum size of the multiset.ModifiersFunctionsDescriptioninsertInsert element in the multiset.eraseErase elements from the multiset.swapExchange the content of the multiset.clearDelete all the elements of the multiset.emplaceConstruct and insert the new elements into the multiset.emplace_hintConstruct and insert new elements into the multiset by hint.ObserversFunctionsDescriptionkey_compReturn a copy of key comparison object.value_compReturn a copy of value comparison object.OperationsFunctionsDescriptionfindSearch for an element with given key.countGets the number of elements matching with given key.lower_boundReturns an iterator to lower bound.upper_boundReturns an iterator to upper bound.equal_rangeReturns the range of elements matches with given key.AllocatorFunctionsDescriptionget_allocatorReturns an allocator object that is used to construct the multiset.Non-Member Overloaded FunctionsFunctionsDescriptionoperator==Checks whether the two multisets are equal or not.operator!=Checks whether the two multisets are equal or not.operatorChecks whether the first multiset is less than other or not.operator=Checks whether the first multiset is less than or equal to other or not.operator>Checks whether the first multiset is greater than other or not.operator>=Checks whether the first multiset is greater than equal to other or not.swap()Exchanges the element of two multisets.Next TopicC++ multiset? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

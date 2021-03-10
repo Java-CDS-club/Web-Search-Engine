@@ -1,0 +1,486 @@
+Android RSS Feed Reader - javatpoint?HomeAndroidCore JavaServletJSPStruts2Mail APIHibernateSpringDesign PatternQuizProjectsInterview QCommentForumAndroid TrainingAndroid TutorialAndroid Introduction What is Android History and Version Android Architecture Core Building Blocks Android Emulator Install Android Setup Eclipse Hello Android example Internal Details Dalvik VM AndroidManifest.xml R.java Hide Title Bar Screen OrientationAndroid WidgetsUI Widgets Working with Button Toast Custom Toast ToggleButton CheckBox Custom CheckBox RadioButton Dynamic RadioButton Custom RadioButton AlertDialog Spinner AutoCompleteTextView ListView Custom ListView RatingBar WebView SeekBar DatePicker TimePicker Analog and Digital ProgressBar Vertical ScrollView Horizontal ScrollView ImageSwitcher ImageSlider ViewStub TabLayout TabLayout with FrameLayout SearchView SearchView on Toolbar EditText with TextWatcherActivity and IntentsActivity LifeCycle Implicit Intent Explicit Intent StartActivityForResult Share App DataAndroid FragmentsAndroid FragmentsAndroid MenuOption Menu Context Menu Popup MenuAndroid ServiceAndroid ServiceAndroid AlarmManagerAndroid AlarmManagerAndroid StorageAndroid Preferences Internal Storage External StorageAndroid SQLiteSQLite Tutorial SQLite SpinnerXML and JSONXML Parsing SAX XML Parsing DOM XMLPullParser JSON ParsingAndroid MultimediaMediaPlayer: Audio VideoView: Video Recording MediaAndroid SpeechTextToSpeech1 TextToSpeech2Android TelephonyTelephonyManager Get Call State Get Call State 2 Simple Caller Talker Phone Call Send SMS Send EmailAndroid DeviceBluetooth Tutorial List Paired Devices WIFICamera TutorialCamera TutorialSensor TutorialSensor TutorialAndroid GraphicsAndroid GraphicsAndroid AnimationAndroid AnimationAndroid Web ServiceAndroid Web ServiceGoogle MapAndroid Google Map Current Location Search LocationAdding AdsAndroid Google Admob 1) Banner Ads 2) Interstitial AdsAndroid ExamplesQR/Bar Code Scanner RSS Feed Reader Volley Fetch JSON Android Linkify Intro Slider RecyclerView List Swipe Del RecyclerView Swipe Refresh Activity Volley Library Registration Log-in Log-out Network Connectivity Services Firebase Authentication - Google Login Android Notification Using Google reCAPTCHAAndroid SocialIntegrating Google Sign-In Integrating LinkedIn Integrating TwitterAndroid MiscAndroid Device Manager Android Studio Android Auto Android File Transfer Android Messages Android Oreo Android TV Android Screenshot Android Versions Android Watch Android Pay Android Phones Android Tablets Android Find My Phone Android Marshmallow Android Nougat Android Pie Android One Android Antivirus Android Data Recovery Android Lollipop Android vs iPhone Android Wear OS Android x86 Emulator for PC Android 10 Android ad blocker Clear cache Android Root Android DeviceAndroid InterviewInterview QuestionsAndroid QuizAndroid Quiznext ? ? prevAndroid RSS Feed ReaderThe RSS stands for Rich Site Summary. It is used to read the latest update made on the content of a blog or website. RSS feed is mostly used for reading the summary of a blog (newsletter). The content for RSS feed is provided in XML format.The XML format for RSS reader contains the following tags.<channel>
+    <title></title>
+    <link></link>
+    <description></description>
+    <item>
+        <title></title>
+        <link></link>
+        <pubDate></pubDate>
+        <description></description>
+    </item>
+    <item>
+    .
+    .
+    .
+    .
+    </item>
+</channel>In this tutorial, we will read the content of the website (Rediff.com and Cinemablend.com) using Android RSS Feed reader. The contents are displayed in ListView of Android and clicking on these items will load their respective URL.Android RSS Feed Reader ExampleCreate an activity MainActivity.java with the following code. Clicking on the button of this activity redirect to RSSFeedActivity.java class and load the content of a given URL.activity_main.xml<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnRediff"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="101dp"
+        android:text="REDIFF RSS FEED" />
+
+    <Button
+        android:id="@+id/btnCinemaBlend"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnRediff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/btnRediff"
+        android:layout_marginBottom="28dp"
+        android:text="CINEMA BLEND RSS FEED" />
+</RelativeLayout>MainActivity.javapackage example.javatpoint.com.androidrssfeed;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.content.Intent;
+import android.view.View;
+import android.widget.Button;
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    ArrayList<String> rssLinks = new ArrayList<>();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Button btnRediff = findViewById(R.id.btnRediff);
+        Button btnCinemaBlend = findViewById(R.id.btnCinemaBlend);
+        btnRediff.setOnClickListener(this);
+        btnCinemaBlend.setOnClickListener(this);
+        rssLinks.add("http://www.rediff.com/rss/moviesreviewsrss.xml");
+        rssLinks.add("http://www.cinemablend.com/rss_review.php");
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(getApplicationContext(), RSSFeedActivity.class);
+        switch (view.getId()) {
+            case R.id.btnRediff:
+                intent.putExtra("rssLink", rssLinks.get(0));
+                startActivity(intent);
+                break;
+            case R.id.btnCinemaBlend:
+                intent.putExtra("rssLink", rssLinks.get(1));
+                startActivity(intent);
+                break;
+        }
+    }
+}Create a layout rss_item_list_row.xml which contains the fields of a newsletter (page URL, title, publishing date) which are displayed in RSS Feed.rss_item_list_row.xml<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dip">
+
+    <TextView
+        android:id="@+id/page_url"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="1dip"
+        android:textColor="#212121"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/pub_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:paddingBottom="3dip"
+        android:textColor="#9b737775"
+        android:textSize="14sp" />
+
+</RelativeLayout>RSSItem.java
+package example.javatpoint.com.androidrssfeed;
+
+public class RSSItem {
+    public String title;
+    public String link;
+    public String description;
+    public String pubdate;
+    public String guid;
+
+    public RSSItem(String title, String link, String description, String pubdate, String guid) {
+        this.title = title;
+        this.link = link;
+        this.description = description;
+        this.pubdate = pubdate;
+        this.guid = guid;
+    }
+}Create RSSParser.java class, in this class; we will use the instance of DocumentBuilderFactory class to parse the XML document.RSSParser.javapackage example.javatpoint.com.androidrssfeed;
+
+import android.util.Log;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+public class RSSParser {
+
+    // RSS XML document CHANNEL tag
+    private static String TAG_CHANNEL = "channel";
+    private static String TAG_TITLE = "title";
+    private static String TAG_LINK = "link";
+    private static String TAG_DESRIPTION = "description";
+    private static String TAG_ITEM = "item";
+    private static String TAG_PUB_DATE = "pubDate";
+    private static String TAG_GUID = "guid";
+
+    public RSSParser() {
+    }
+
+    public List<RSSItem> getRSSFeedItems(String rss_url) {
+        List<RSSItem> itemsList = new ArrayList<RSSItem>();
+        String rss_feed_xml;
+
+        rss_feed_xml = this.getXmlFromUrl(rss_url);
+        if (rss_feed_xml != null) {
+            try {
+                Document doc = this.getDomElement(rss_feed_xml);
+                NodeList nodeList = doc.getElementsByTagName(TAG_CHANNEL);
+                Element e = (Element) nodeList.item(0);
+
+                NodeList items = e.getElementsByTagName(TAG_ITEM);
+                for (int i = 0; i < items.getLength(); i++) {
+                    Element e1 = (Element) items.item(i);
+
+                    String title = this.getValue(e1, TAG_TITLE);
+                    String link = this.getValue(e1, TAG_LINK);
+                    String description = this.getValue(e1, TAG_DESRIPTION);
+                    String pubdate = this.getValue(e1, TAG_PUB_DATE);
+                    String guid = this.getValue(e1, TAG_GUID);
+
+                    RSSItem rssItem = new RSSItem(title, link, description, pubdate, guid);
+                    // adding item to list
+                    itemsList.add(rssItem);
+                }
+            } catch (Exception e) {
+                // Check log for errors
+                e.printStackTrace();
+            }
+        }
+        return itemsList;
+    }
+
+
+    public String getXmlFromUrl(String url) {
+        String xml = null;
+        try {
+            DefaultHttpClient httpClient = new DefaultHttpClient();
+            HttpGet httpGet = new HttpGet(url);
+            HttpResponse httpResponse = httpClient.execute(httpGet);
+            HttpEntity httpEntity = httpResponse.getEntity();
+            xml = EntityUtils.toString(httpEntity);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return xml;
+    }
+
+    public Document getDomElement(String xml) {
+        Document doc = null;
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        try {
+
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            InputSource is = new InputSource();
+            is.setCharacterStream(new StringReader(xml));
+            doc = db.parse(is);
+        } catch (ParserConfigurationException e) {
+            Log.e("Error: ", e.getMessage());
+            return null;
+        } catch (SAXException e) {
+            Log.e("Error: ", e.getMessage());
+            return null;
+        } catch (IOException e) {
+            Log.e("Error: ", e.getMessage());
+            return null;
+        }
+        return doc;
+    }
+
+    public final String getElementValue(Node elem) {
+        Node child;
+        if (elem != null) {
+            if (elem.hasChildNodes()) {
+                for (child = elem.getFirstChild(); child != null; child = child
+                        .getNextSibling()) {
+                    if (child.getNodeType() == Node.TEXT_NODE || (child.getNodeType() == Node.CDATA_SECTION_NODE)) {
+                        return child.getNodeValue();
+                    }
+                }
+            }
+        }
+        return "";
+    }
+
+    public String getValue(Element item, String str) {
+        NodeList n = item.getElementsByTagName(str);
+        return this.getElementValue(n.item(0));
+    }
+}Now, create an activity RSSFeedActivity.java with the following code. This class uses AsyncTask class to load the items of RSS Feed from the URL in the background.activity_rssfeed.xml<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/relativeLayout"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="1dp" />
+</RelativeLayout>RSSFeedActivity.javapackage example.javatpoint.com.androidrssfeed;
+
+import android.app.ListActivity;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+
+public class RSSFeedActivity extends ListActivity {
+
+    private ProgressBar pDialog;
+    ArrayList<HashMap<String, String>> rssItemList = new ArrayList<>();
+    RSSParser rssParser = new RSSParser();
+    List<RSSItem> rssItems = new ArrayList<>();
+    private static String TAG_TITLE = "title";
+    private static String TAG_LINK = "link";
+    private static String TAG_PUB_DATE = "pubDate";
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_rssfeed);
+
+        String rss_link = getIntent().getStringExtra("rssLink");
+        new LoadRSSFeedItems().execute(rss_link);
+        ListView lv = getListView();
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Intent in = new Intent(getApplicationContext(), WebActivity.class);
+                String page_url = ((TextView) view.findViewById(R.id.page_url)).getText().toString().trim();
+                in.putExtra("url", page_url);
+                startActivity(in);
+            }
+        });
+    }
+
+    public class LoadRSSFeedItems extends AsyncTask<String, String, String> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressBar(RSSFeedActivity.this, null, android.R.attr.progressBarStyleLarge);
+            RelativeLayout relativeLayout = findViewById(R.id.relativeLayout);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.WRAP_CONTENT,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT
+            );
+
+            layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+            pDialog.setLayoutParams(layoutParams);
+            pDialog.setVisibility(View.VISIBLE);
+            relativeLayout.addView(pDialog);
+        }
+
+        @Override
+        protected String doInBackground(String... args) {
+            // rss link url
+            String rss_url = args[0];
+            // list of rss items
+            rssItems = rssParser.getRSSFeedItems(rss_url);
+            // looping through each item
+            for (final RSSItem item : rssItems) {
+                // creating new HashMap
+                if (item.link.toString().equals(""))
+                    break;
+                HashMap<String, String> map = new HashMap<String, String>();
+
+                // adding each child node to HashMap key => value
+                String givenDateString = item.pubdate.trim();
+                SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
+                try {
+                    Date mDate = sdf.parse(givenDateString);
+                    SimpleDateFormat sdf2 = new SimpleDateFormat("EEEE, dd MMMM yyyy - hh:mm a", Locale.US);
+                    item.pubdate = sdf2.format(mDate);
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+
+                }
+
+                map.put(TAG_TITLE, item.title);
+                map.put(TAG_LINK, item.link);
+                map.put(TAG_PUB_DATE, item.pubdate);
+                // adding HashList to ArrayList
+                rssItemList.add(map);
+            }
+
+            // updating UI from Background Thread
+            runOnUiThread(new Runnable() {
+                public void run() {
+                    ListAdapter adapter = new SimpleAdapter(
+                            RSSFeedActivity.this,
+                            rssItemList, R.layout.rss_item_list_row,
+                            new String[]{TAG_LINK, TAG_TITLE, TAG_PUB_DATE},
+                            new int[]{R.id.page_url, R.id.title, R.id.pub_date});
+
+                    // updating listview
+                    setListAdapter(adapter);
+                }
+            });
+            return null;
+        }
+
+        protected void onPostExecute(String args) {
+            pDialog.setVisibility(View.GONE); 
+        }
+    }
+}Create an activity WebActivity.java containing WebView, that load the content of the link clicked in the previous activity.activity_web.xml<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/relativeLayout"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>WebActivity.javapackage example.javatpoint.com.androidrssfeed;
+
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Toast;
+
+public class WebActivity extends AppCompatActivity {
+
+    WebView webView;
+    String url;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_web);
+        Intent in = getIntent();
+        url = in.getStringExtra("url");
+        if (TextUtils.isEmpty(url)) {
+            Toast.makeText(getApplicationContext(), "URL not found", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+        webView = findViewById(R.id.webView);
+        initWebView();
+        webView.loadUrl(url);
+    }
+
+    private void initWebView() {
+        webView.setWebChromeClient(new MyWebChromeClient(this));
+        webView.clearCache(true);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setHorizontalScrollBarEnabled(false);
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+            }
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                webView.loadUrl(url);
+                return true;
+            }
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+            }
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                super.onReceivedError(view, request, error);
+                invalidateOptionsMenu();
+            }
+        });
+        webView.clearCache(true);
+        webView.clearHistory();
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setHorizontalScrollBarEnabled(false);
+    }
+
+    private class MyWebChromeClient extends WebChromeClient {
+        Context context;
+        public MyWebChromeClient(Context context) {
+            super();
+            this.context = context;
+        }
+    }
+}Permission RequiredAdd the INTERNET permission in AndroidMenifest.xml file.<uses-permission android:name="android.permission.INTERNET" />Output:Next Topic#? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

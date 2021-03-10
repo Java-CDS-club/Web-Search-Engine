@@ -1,0 +1,191 @@
+Composite Pattern - Javatpoint?HomeCore JavaServletJSPStruts2Mail APIHibernateSpringAndroidDesign PatternQuizProjectsInterview QCommentForumDesign PatternsJava Design Patterns1) Creational PatternFactory Method Pattern Abstract Factory Pattern Singleton Pattern Prototype Pattern Builder Pattern Object Pool Pattern2) Structural PatternAdapter Pattern Bridge Pattern Composite Pattern Decorator Pattern Facade Pattern Flyweight Pattern proxy Pattern3) Behavioral PatternChain of Responsibility Command Pattern Interpreter Pattern Iterator Pattern Mediator Pattern Memento Pattern Observer Pattern State Pattern Strategy Pattern Template PatternJ2EE PatternsJEE or J2EE PatternsPresentation LayerIntercepting Filter Pattern Front Controller Patternnext ? ? prevComposite PatternComposite Design PatternAdvantage of Composite DPUsage of Composite DPUML of Composite DPExample of Composite DPA Composite Pattern says that just "allow clients to operate in generic manner on objects that may or may not represent a hierarchy of objects".Advantage of Composite Design PatternIt defines class hierarchies that contain primitive and complex objects.It makes easier to you to add new kinds of components.It provides flexibility of structure with manageable class or interface.Usage of Composite PatternIt is used:When you want to represent a full or partial hierarchy of objects.When the responsibilities are needed to be added dynamically to the individual objects without affecting other objects. Where the responsibility of object may vary from time to time.UML for Composite PatternElements used in Composite Pattern:Let's see the 4 elements of composte pattern.1) ComponentDeclares interface for objects in composition.Implements default behavior for the interface common to all classes as appropriate.Declares an interface for accessing and managing its child components.2) LeafRepresents leaf objects in composition. A leaf has no children.Defines behavior for primitive objects in the composition.3) CompositeDefines behavior for components having children.Stores child component.Implements child related operations in the component interface.4) ClientManipulates objects in the composition through the component interface.Note:The work flow of above general UML is as follows.Client uses the component class interface to interact with objects in the composition structure. If recipient is the leaf then request will be handled directly. If recipient is a composite, then it usually forwards the request to its child for performing the additional operations.Example of Composite PatternWe can easily understand the example of composite design pattern by the UML diagram given below:Implementation of above UML:Step 1Create an Employee interface that will be treated as a component.// this is the Employee interface i.e. Component.
+public interface Employee {
+	public  int getId();
+	public String getName();
+	public double getSalary();
+       public void print();
+	public void add(Employee employee);
+       public void remove(Employee employee);
+       public Employee getChild(int i);
+}// End of the Employee interface.Step 2Create a BankManager class that will be treated as a Composite and implements Employee interface.File: BankManager.java// this is the BankManager class i.e. Composite.
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+public class BankManager implements Employee {
+	 private int id;
+	 private String name;
+	 private double salary;
+
+	 public BankManager(int id,String name,double salary) {
+	  this.id=id;	 
+	  this.name = name;
+	  this.salary = salary;
+	 }
+         List<Employee> employees = new ArrayList<Employee>();
+	 @Override
+	 public void add(Employee employee) {
+	    employees.add(employee);
+	 }
+        @Override
+	 public Employee getChild(int i) {
+	  return employees.get(i);
+	 }
+	 @Override
+	 public void remove(Employee employee) {
+	  employees.remove(employee);
+	 }	
+	 @Override
+	 public int getId()  {
+	  return id;
+	 }
+	 @Override
+	 public String getName() {
+	  return name;
+	 }
+    @Override
+	 public double getSalary() {
+	  return salary;
+	 }
+	 @Override
+	 public void print() {
+	  System.out.println("==========================");
+	  System.out.println("Id ="+getId());
+	  System.out.println("Name ="+getName());
+	  System.out.println("Salary ="+getSalary());
+	  System.out.println("==========================");
+	  
+	  Iterator<Employee> it = employees.iterator();
+	  
+	      while(it.hasNext())  {
+	        Employee employee = it.next();
+	        employee.print();
+	     }
+	 }
+}// End of the BankManager class.Step 3Create a Cashier class that will be treated as a leaf and it will implement to the Employee interface.File: Cashier.javapublic  class Cashier implements Employee{
+	/*
+	     In this class,there are many methods which are not applicable to cashier because
+	     it is a leaf node.
+	 */
+	    private int id;
+            private String name;
+	    private double salary;
+	    public Cashier(int id,String name,double salary)  {
+	        this.id=id;
+	        this.name = name;
+	        this.salary = salary;
+	    }
+	    @Override
+	    public void add(Employee employee) {
+	        //this is leaf node so this method is not applicable to this class.
+	    }
+	    @Override
+	    public Employee getChild(int i) {
+	        //this is leaf node so this method is not applicable to this class.
+	        return null;
+	    }
+	    @Override
+		public int getId() {
+			// TODO Auto-generated method stub
+			return id;
+	    }
+	    @Override
+	    public String getName() {
+	        return name;
+	    }
+	    @Override
+	    public double getSalary() {
+	        return salary;
+	    }
+	    @Override
+	    public void print() {
+	        System.out.println("==========================");
+	        System.out.println("Id ="+getId());
+	        System.out.println("Name ="+getName());
+	        System.out.println("Salary ="+getSalary());
+	        System.out.println("==========================");
+	    }
+	    @Override
+	    public void remove(Employee employee) {
+	        //this is leaf node so this method is not applicable to this class.
+	    }
+}Step 4Create a Accountant class that will also be treated as a leaf and it will implement to the Employee interface.File: Accountant.javapublic class Accountant implements Employee{
+/*
+    In this class,there are many methods which are not applicable to cashier because
+    it is a leaf node.
+*/
+    private int id;
+    private String name;
+    private double salary;
+   public Accountant(int id,String name,double salary)  {
+   	   this.id=id;
+       this.name = name;
+       this.salary = salary;
+   }
+   @Override
+   public void add(Employee employee) {
+       //this is leaf node so this method is not applicable to this class.
+   }
+   @Override
+   public Employee getChild(int i) {
+       //this is leaf node so this method is not applicable to this class.
+       return null;
+   }
+   @Override
+	public int getId() {
+		// TODO Auto-generated method stub
+		return id;
+   }
+   @Override
+   public String getName() {
+       return name;
+   }
+   @Override
+   public double getSalary() {
+       return salary;
+   }
+   @Override
+   public void print() {
+       System.out.println("=========================");
+       System.out.println("Id ="+getId());
+       System.out.println("Name ="+getName());
+       System.out.println("Salary ="+getSalary());
+       System.out.println("=========================");
+   }
+  @Override
+   public void remove(Employee employee) {
+       //this is leaf node so this method is not applicable to this class.
+   }
+}
+
+Step 5Create a CompositePatternDemo class that will also be treated as a Client and ii will use the Employee interface.File: CompositePatternDemo.javapublic class CompositePatternDemo {
+	public static void main(String args[]){
+		 Employee emp1=new Cashier(101,"Sohan Kumar", 20000.0);
+		 Employee emp2=new Cashier(102,"Mohan Kumar", 25000.0);
+		 Employee emp3=new Accountant(103,"Seema Mahiwal", 30000.0); 
+		 Employee manager1=new BankManager(100,"Ashwani Rajput",100000.0);
+		  
+		  manager1.add(emp1);
+		  manager1.add(emp2);
+		  manager1.add(emp3);
+		  manager1.print();
+        }
+}download this composite pattern ExampleOutput==========================
+Id =100
+Name =Ashwani Rajput
+Salary =100000.0
+==========================
+==========================
+Id =101
+Name =Sohan Kumar
+Salary =20000.0
+==========================
+==========================
+Id =102
+Name =Mohan Kumar
+Salary =25000.0
+==========================
+=========================
+Id =103
+Name =Seema Mahiwal
+Salary =30000.0
+=========================Next TopicDecorator Pattern<<prev next>>Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

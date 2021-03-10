@@ -1,0 +1,48 @@
+C++ Math lrint() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ Math lrint()The function rounds off the given value using current rounding mode and returns the value of type long int.SyntaxSuppose a number is 'x'. Syntax would be:long int lrint(data_type x);Parameterx: The value that can be float, double or long double.Return valueIt returns the rounded value of x and the return type of the value is long int.Example 1Let's see a simple example.#include 
+#include
+#include 
+using namespace std;
+int main()
+{
+    float r;
+    int str;
+    cout"Enter the value which you want to round :";
+    std::cin >> r ;
+    cout'\n';
+    cout"Name of the methods are :"'\n'"1. Rounding downwards"'\n'"2. Rounding upwards"'\n'"3. 
+    Rounding towards zero"'\n'"4. Rounding to the nearest"'\n';
+    cout"Enter the number of rounding method :";
+    cin>>str;
+    cout'\n';
+    switch(str)
+    {
+        case 1:
+        fesetround(FE_DOWNWARD);
+        cout"Rounding downwards,value is :"'\n';
+        break;
+        case 2:
+        fesetround(FE_UPWARD);
+        cout"Rounding upwards,value is :"'\n';
+        break;
+        case 3:
+        fesetround(FE_TOWARDZERO);
+        cout"Rounding towards zero,value is :"'\n';
+        break;
+        case 4:
+        fesetround(FE_TONEAREST);
+        cout"Rounding to nearest,value is :"'\n';
+        break;
+        default:
+        cout"wrong method";
+    }
+       return 0;
+}Output:Enter the value which you want to round : 7.8
+
+Name of the methods are :
+1. Rounding downwards
+2. Rounding upwards
+3. Rounding towards zero
+4. Rounding to the nearest
+Enter the number of rounding method : 1
+
+Rounding downwards,value is :7Next TopicC++ Math Functions? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

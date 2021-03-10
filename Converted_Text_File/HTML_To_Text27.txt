@@ -1,0 +1,32 @@
+ADC Interfacing with AVR - javatpoint?HomeC LanguageJavaEmbedded SystemRoboticsSQLHTMLCSSJavaScriptXMLPythonAndroidQuizProjectsInterview QCommentForumEmbedded SystemEmbedded System 10+8051 MicroController8051 MicroController 10+AVR MicroController AVR MicroController ATmega32 MicroController ATmega32 Pin Diagram ATmega32 Memories ATmega8 MicroController ATmega8 Pin Diagram I/O Port Programming AVR Registers Programming using Studio LCD Interfacing SPI in AVR Keyboard Interfacing ADC Interfacing Serial Communication PWM MicroController Interrupts MicroControllerES ProjectsES Projects Fire Detection Project RFID Attendance SystemRoboticsRobotics Tutorialnext ? ? prevADC0804 Interfacing with AVR MicrocontrollerADC0804 Pin-out and Typical Connections:For interfacing the ADC0804 with any microcontroller a minimum of 11 pins is required of Analog to Digital Converter for interfacing it with the microcontroller. Out of 11 pins of ADC0804 8 pins are used as data pins and 3 pins are used as control pins.As shown in the below circuit chip select pin can be made low if we are not using the microcontroller port for any other peripheral multiplexing.For using the Integrated Circuit (IC) the universal rule is used. All we need to study the datasheet of the IC which shows how to send a data, which signal to send and at what time the signal must be made low or high etc.Note: Whenever you are working with an IC and wanted to know how to communicate with that IC then simply look into a timing diagram of that IC from its datasheet. It gives you the complete information regarding the communication of IC.The start conversion timing diagram is shown below:The end of conversion timing diagram is shown below:The above timing diagrams are from ADC0804 datasheet. The first diagram in FIGURE 10A represents how to start a conversion. Using timing diagram you can see which signal is to be asserted and at what time we need to start a conversion.Below mention steps are used for starting an Analog to Digital Conversion process:Configure chip select (CS) signal as low.Configure write (WR) signal low.Configure chip select (CS) high.Wait until INTR pin to go low (means conversion ends).Once the conversion process in ADC is complete, the data is available inside the output latch of the ADC. The FIGURE 10B shows a timing diagram of how to read the converted value from the output latch process of ADC. Data of new conversion process is available for reading after ADC0804 make INTR pin lows when the conversion is over.Below mention steps are used for reading the output from the ADC0804:Configure chip select (CS) pin as low.Configure read (RD) signal low.Read the data from a port where ADC is connected.Configure read (RD) signal high.Configure chip select (CS) signal high.The AVR C program for ADC0804 is given below:#include io.h> 
+#define adc_port PINA //ADC data pins for PORTA
+#define rd PB0 //Read the signal from PORTB0
+#define wr PB1 //Write the signal from PORTB1
+#define cs PB2 //Chip Select from PORTB2
+#define intr PB3 //INTR signal for PORTB3
+void conv(); //Start the Conversion
+void read(); //Reading the ADC value
+ 
+unsigned char adc_val;
+ 
+int main(){
+DDRB = (1<<rd)|(1<<wr)|(1<<cs); //read (RD),write (WR), chip select (CS) as output
+DDRC = 0xFF; //PORTC as an output
+PORTC = 0xFF;
+while(1){ //infinite loop
+conv(); //Starting of the conversion
+read(); //Read the converted ADC signal
+PORTC = adc_val; //Move it to the PORTC
+}
+return 0;
+}
+ void conv(){
+PORTB = PORTB & (~((1<<cs)|(1<<wr))); //Make chip select (CS) and write (WR) low
+PORTB = PORTB | ((1<<cs)|(1<<wr)); //Make chip select (CS) and write (WR) high
+while(PINB&(1<<intr)); //Wait for the INTR signal
+}
+ void read(){
+PORTB = PORTB & ( ~((1<<cs)|(1<<rd))); //Make Read (RD) and Chip Select (CS) low
+adc_val = adc_port; //Read ADC port
+PORTB = PORTB | ((1<<cs)|(1<<rd)); //Make Read (RD) and Chip Select (CS) high
+}Next TopicAVR UART/Serial Communication? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

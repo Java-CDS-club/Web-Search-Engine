@@ -1,0 +1,262 @@
+Bubble Sort - javatpoint?HomeData StructureCC++C#JavaSQLHTMLCSSJavaScriptAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumDS TutorialDS Tutorial DS Introduction DS Algorithm Asymptotic Analysis DS Pointer DS StructureDS ArrayDS Array 2D ArrayDS Linked ListLinked List Doubly Linked List Circular Linked List Circular Doubly ListDS StackDS Stack Array Implementation Linked List ImplementationDS QueueDS Queue Array Representation Linked List Representation Circular QueueDS TreeDS Tree Binary Tree Binary Search Tree AVL Tree B Tree B+ TreeDS GraphDS Graph Graph Implementation BFS Algorithm DFS Algorithm Spanning TreeDS SearchingLinear Search Binary SearchDS SortingBubble Sort Bucket Sort Comb Sort Counting Sort Heap Sort Insertion Sort Merge Sort Quick Sort Radix Sort Selection Sort Shell Sort Bitonic Sort Cocktail Sort Cycle Sort Tim Sort?next ? prevBubble SortIn Bubble sort, Each element of the array is compared with its adjacent element. The algorithm processes the list in passes. A list with n elements requires n-1 passes for sorting. Consider an array A of n elements whose elements are to be sorted by using Bubble sort. The algorithm processes like following.In Pass 1, A[0] is compared with A[1], A[1] is compared with A[2], A[2] is compared with A[3] and so on. At the end of pass 1, the largest element of the list is placed at the highest index of the list.In Pass 2, A[0] is compared with A[1], A[1] is compared with A[2] and so on. At the end of Pass 2 the second largest element of the list is placed at the second highest index of the list.In pass n-1, A[0] is compared with A[1], A[1] is compared with A[2] and so on. At the end of this pass. The smallest element of the list is placed at the first index of the list.Algorithm :Step 1: Repeat Step 2 For i = 0 to N-1Step 2: Repeat For J = i + 1 to N - IStep 3: IF A[J] > A[i]SWAP A[J] and A[i][END OF INNER LOOP][END OF OUTER LOOPStep 4: EXITComplexityScenarioComplexitySpaceO(1)Worst case running timeO(n2)Average case running timeO(n)Best case running timeO(n2)C Program#include<stdio.h>
+void main ()
+{
+	int i, j,temp; 
+	int a[10] = { 10, 9, 7, 101, 23, 44, 12, 78, 34, 23}; 
+	for(i = 0; i<10; i++)
+	{
+		for(j = i+1; j<10; j++)
+		{
+			if(a[j] > a[i])
+			{
+				temp = a[i];
+				a[i] = a[j];
+				a[j] = temp; 
+			} 
+		} 
+	} 
+	printf("Printing Sorted Element List ...\n");
+	for(i = 0; i<10; i++)
+	{
+		printf("%d\n",a[i]);
+	}
+}Output:Printing Sorted Element List . . . 
+7
+9
+10
+12
+23
+34
+34
+44
+78 
+101C++ Program#include<iostream>
+using namespace std;
+int main ()
+{
+	int i, j,temp; 
+	int a[10] = { 10, 9, 7, 101, 23, 44, 12, 78, 34, 23}; 
+	for(i = 0; i<10; i++)
+	{
+		for(j = i+1; j<10; j++)
+		{
+			if(a[j] < a[i])
+			{
+				temp = a[i];
+				a[i] = a[j];
+				a[j] = temp; 
+			} 
+		} 
+	} 
+	cout <<"Printing Sorted Element List ...\n";
+	for(i = 0; i<10; i++)
+	{
+		cout <<a[i]<<"\n";
+	}
+	return 0;
+}Output:Printing Sorted Element List ...
+7
+9
+10
+12
+23
+23
+34
+44
+78
+101Java Programpublic class BubbleSort {
+	public static void main(String[] args) {
+	int[] a = {10, 9, 7, 101, 23, 44, 12, 78, 34, 23};
+	for(int i=0;i<10;i++)
+	{
+		for (int j=0;j<10;j++)
+		{
+			if(a[i]<a[j])
+			{
+				int temp = a[i];
+				a[i]=a[j];
+				a[j] = temp; 
+			}
+		}
+	}
+	System.out.println("Printing Sorted List ...");
+	for(int i=0;i<10;i++)
+	{
+		System.out.println(a[i]);
+	}
+}
+}Output:Printing Sorted List . . . 
+7
+9
+10
+12
+23
+34
+34
+44
+78 
+101 C# Programusing System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int i, j,temp; 
+	int[] a = {10, 9, 7, 101, 23, 44, 12, 78, 34, 23}; 
+	for(i = 0; i<10; i++)
+	{
+		for(j = i+1; j<10; j++)
+		{
+			if(a[j] > a[i])
+			{
+				temp = a[i];
+				a[i] = a[j];
+				a[j] = temp; 
+			} 
+		} 
+	} 
+	Console.WriteLine("Printing Sorted Element List ...\n");
+	for(i = 0; i<10; i++)
+	{
+		Console.WriteLine(a[i]);
+	}
+	}
+}Output:Printing Sorted Element List . . . 
+7
+9
+10
+12
+23
+34
+34
+44
+78 
+101 Python Programa=[10, 9, 7, 101, 23, 44, 12, 78, 34, 23]
+for i in range(0,len(a)):
+    for j in range(i+1,len(a)):
+        if a[j]<a[i]:
+            temp = a[j]
+            a[j]=a[i]
+            a[i]=temp
+print("Printing Sorted Element List...")
+for i in a: 
+    print(i)Output:Printing Sorted Element List . . . 
+7
+9
+10
+12
+23
+34
+34
+44
+78 
+101 Rust Programfn main()
+{
+    let mut temp;
+ let mut a: [i32; 10] = [10, 9, 7, 101, 23, 44, 12, 78, 34, 23];
+	for i in 0..10
+	{
+		for j in (i+1)..10
+		{
+			if a[j] < a[i]
+			{
+				temp = a[i];
+				a[i] = a[j];
+				a[j] = temp; 
+			}
+		} 
+	} 
+	println!("Printing Sorted Element List ...\n");
+	for i in &a
+	{
+		println!("{} ",i);
+	}
+}Output:Printing Sorted Element List . . . 
+7
+9
+10
+12
+23
+34
+34
+44
+78 
+101
+4 JavaScript Program<html>
+<head>
+<title> 
+Bubble Sort 
+</title> 
+</head> 
+<body>
+<script> 
+	var a = [10, 9, 7, 101, 23, 44, 12, 78, 34, 23];
+	for(i=0;i<10;i++)
+	{
+		for (j=0;j<10;j++)
+		{
+			if(a[i]<a[j])
+			{
+				 temp = a[i];
+				a[i]=a[j];
+				a[j] = temp; 
+			}
+		}
+	}
+	txt = "<br>";
+	document.writeln("Printing Sorted Element List ..."+txt);
+	for(i=0;i<10;i++)
+	{
+		document.writeln(a[i]);
+		document.writeln(txt);
+	}
+	</script> 
+	</body>
+</html>Output:Printing Sorted Element List ...
+7
+9
+10
+12
+23
+23
+34
+44
+78
+101PHP Program<html>
+<head>
+<title>Bubble Sort</title>
+</head>
+<body>
+<?php
+	$a = array(10, 9, 7, 101, 23, 44, 12, 78, 34, 23);
+	for($i=0;$i<10;$i++)
+	{
+		for ($j=0;$j<10;$j++)
+		{
+			if($a[$i]<$a[$j])
+			{
+				 $temp = $a[$i];
+				$a[$i]=$a[$j];
+				$a[$j] = $temp; 
+			}
+		}
+	}
+	echo "Printing Sorted Element List ...\n";
+	for($i=0;$i<10;$i++)
+	{
+		echo $a[$i];
+		echo "\n";
+	}
+?>
+</body>
+</html>Output:Printing Sorted Element List ...
+7
+9
+10
+12
+23
+23
+34
+44
+78
+101Next TopicBucket Sort? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

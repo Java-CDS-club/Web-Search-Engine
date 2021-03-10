@@ -1,0 +1,35 @@
+Bash Until Loop - Javatpoint?HomeJavaCBashJavaScriptXMLAjaxSQLC++C#HTMLAndroidCloudDesign PatternQuizProjectsInterview QCommentForumBash TutorialBash Tutorial What is Bash History of Bash Features of Bash Bash Scripting Filesystem & File Permission Hello World! Bash Script Relative vs Absolute path Bash Comments Bash Quotes Bash Variables Read User Input Bash Date Format Bash SleepBash OperatorsBash Arithmetic OperatorsConditional StatementsBash If Statement Bash If Else Bash Else If Bash CaseBash LoopsBash For Loop Bash While Loop Bash Until LoopBash StringBash String Bash Find String Bash Split String Bash Substring Bash Concatenate StringBash FunctionBash FunctionsBash ArrayBash ArraysMiscellaneousBash Read File Bash Write File Check if file Exists Check if Variable is Set Bash Alias Git Bash Zsh vs Bash Bash Hash Commandnext ? ? prevBash Until LoopIn this topic, we have defined how to use until loop statement in Bash Script.The while loop is a great option to execute a set of commands when some condition evaluates to true. Sometimes, we need to execute a set of commands until a condition evaluates to true. In such cases, Bash until loop is useful.Bash Until Loop in a bash scripting is used to execute a set of commands repeatedly based on the boolean result of an expression. The set of commands are executed only until the expression evaluates to true. It means that when the expression evaluates to false, a set of commands are executed iteratively. The loop is terminated as soon as the expression evaluates to true for the first time.In short, the until loop is similar to the while loop but with a reverse concept.SyntaxThe syntax of until loop looks almost similar to the syntax of bash while loop. But there is a big difference in the functionalities of both. The syntax of bash until loop can be defined as:until [ expression ];
+do
+command1
+command2
+. . .
+. . . . 
+commandN
+doneIf there are multiple conditions in the expression, then the syntax will be as follows:until [[ expression ]];
+do
+command1
+command2
+. . .
+. . . . 
+commandN
+doneSome of the key points of until loop are given below:The condition is checked before executing the commands.The commands are only executed if the condition evaluates to false.The loop is terminated as soon as the condition evaluates to true.The program control is transferred to the command that follows the 'done' keyword after the termination.The while loop vs. the until loopThe 'until loop' commands execute until a non-zero status is returned.The 'while loop' commands execute until a zero status is returned.The until loop contains property to be executed at least once.Examples of Bash Until LoopFollowing are some examples of bash until loop illustrating different scenarios to help you understand the usage and working of it:Until Loop with Single ConditionIn this example, the until loop contains a single condition in expression. It is the basic example of until loop which will print series of numbers from 1 to 10:Example#!/bin/bash
+#Bash Until Loop example with a single condition
+
+i=1
+until [ $i -gt 10 ]
+do
+echo $i
+((i++))
+doneOutputUntil Loop with Multiple ConditionsFollowing is an example with multiple conditions in an expression:Example#!/bin/bash
+#Bash Until Loop example with multiple conditions
+
+max=5
+a=1
+b=0
+
+until [[ $a -gt $max || $b -gt $max ]];
+do
+echo "a = $a & b = $b."
+((a++))
+((b++))
+doneOutputConclusionIn this topic, we have learned about the syntax of until loop statement in bash scripting for single and multiple conditions in expression with example scripts.Next TopicBash String? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

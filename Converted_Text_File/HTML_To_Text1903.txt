@@ -1,0 +1,35 @@
+C++ Stack - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ StackC++ Stack emplace() empty() pop() push() size() top()next ? ? prevC++ stackIn computer science we go for working on a large variety of programs. Each of them has their own domain and utility. Based on the purpose and environment of the program creation, we have a large number of data structures available to choose from. One of them is 'stack'. Before discussing about this data type let us take a look at its syntax.Syntaxtemplate<class T, class Container = deque<T> > class stack;This data structure works on the LIFO technique, where LIFO stands for Last In First Out. The element which was first inserted will be extracted at the end and so on. There is an element called as 'top' which is the element at the upper most position. All the insertion and deletion operations are made at the top element itself in the stack.Stacks in the application areas are implied as the container adaptors.The containers should have a support for the following list of operations:emptysizebackpush_backpop_backTemplate ParametersT: The argument specifies the type of the element which the container adaptor will be holding.Container: The argument specifies an internal object of container where the elements of the stack are hold.Member TypesGiven below is a list of the stack member types with a short description of the same.Member TypesDescriptionvalue_typeElement type is specified.container_typeUnderlying container type is specified.size_typeIt specifies the size range of the elements.FunctionsWith the help of functions, an object or variable can be played with in the field of programming. Stacks provide a large number of functions that can be used or embedded in the programs. A list of the same is given below:FunctionDescription(constructor)The function is used for the construction of a stack container.emptyThe function is used to test for the emptiness of a stack. If the stack is empty the function returns true else false.sizeThe function returns the size of the stack container, which is a measure of the number of elements stored in the stack.topThe function is used to access the top element of the stack. The element plays a very important role as all the insertion and deletion operations are performed at the top element.pushThe function is used for the insertion of a new element at the top of the stack.popThe function is used for the deletion of element, the element in the stack is deleted from the top.emplaceThe function is used for insertion of new elements in the stack above the current top element.swapThe function is used for interchanging the contents of two containers in reference.relational operatorsThe non member function specifies the relational operators that are needed for the stacks.uses allocator<stack>As the name suggests the non member function uses the allocator for the stacks.Example: A simple program to show the use of basic stack functions.#include <iostream>
+#include <stack>
+using namespace std;
+void newstack(stack <int> ss)
+{
+	stack <int> sg = ss;
+	while (!sg.empty())
+	{
+		cout << '\t' << sg.top();
+		sg.pop();
+	}
+	cout << '\n';
+}
+int main ()
+{
+	stack <int> newst;
+	newst.push(55);
+	newst.push(44);
+	newst.push(33);
+	newst.push(22);
+	newst.push(11);
+
+	cout << "The stack newst is : ";
+	newstack(newst);
+	cout << "\n newst.size() : " << newst.size();
+	cout << "\n newst.top() : " << newst.top();
+	cout << "\n newst.pop() : ";
+	newst.pop();
+	newstack(newst); 
+	return 0;
+}Output:The stack newst is : 	11	22	33	44	55
+
+ newst.size() : 5
+ newst.top() : 11
+ newst.pop() : 	22	33	44	55Next TopicC++ Stack? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

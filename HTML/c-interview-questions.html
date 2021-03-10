@@ -1,0 +1,1404 @@
+ 
+<!DOCTYPE html>
+<html lang="en"> 
+
+<!-- Mirrored from www.javatpoint.com/c-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:22:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head> 
+<meta charset="UTF-8">
+<link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png"/>
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css" />
+<link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/">
+<title>C Programming Interview Questions  - javatpoint</title>
+<meta name="keywords" content="c, interview, questions, language, tutorial, programming, example, loop, pointer, array, file, functions, array, strings, beginners, professionals"/>
+<meta name="description" content="C Porgramming Interview Questions and answers with programming examples for beginners and professionals covering concepts, control statements, c array, c pointers, c structures, c union, c strings and more."/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">						
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="canonical" href="https://www.javatpoint.com/c-interview-questions" />
+<meta name="theme-color" content="#4CAF50"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta name="twitter:title" property="og:title" content="C Programming Interview Questions  - javatpoint" />
+<meta name="twitter:description" property="og:description" content="C Porgramming Interview Questions and answers with programming examples for beginners and professionals covering concepts, control statements, c array, c pointers, c structures, c union, c strings and more." />
+<meta property="og:url" content="https://www.javatpoint.com/c-interview-questions" />
+<meta property="og:site_name" content="www.javatpoint.com" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@pagejavatpoint"/>
+<meta name="twitter:domain" content="www.javatpoint.com"/>
+<meta name="twitter:creator" content="@pagejavatpoint"/>
+<!--<script  id="feedify_webscript" >
+var feedify = feedify || {};
+window.feedify_options={fedify_url:"https://feedify.net/"};
+(function (window, document){
+	function addScript( script_url ){
+		var s = document.createElement('script');
+		s.type = 'text/javascript';
+		s.src = script_url;
+		document.getElementsByTagName('head')[0].appendChild(s);
+	}
+	addScript('https://tpcf.feedify.net/uploads/settings/2e588c15fa58f6d438b0255693eb0ea3.js?ts='+Math.random());
+	addScript('https://cdn.feedify.net/getjs/feedbackembad-min-2.0.js');
+})(window, document);
+</script> -->
+
+<link href="https://www.javatpoint.com/manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://cdn.adpushup.com/37780/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+</head> 
+<body onload="highlightlink()"> 
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#8679</button>
+
+<div id="page" style="margin:-8px;background-color:#f5f5f4">
+<div id="container" >
+
+ <div  class="header">
+<table style="width:100%;margin-bottom:5px">
+    <tr>
+        <td>
+            <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px">
+                <a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a>
+            </div>
+            <div style="float:left;width:60%;">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+                
+            </div>
+            
+        </td>
+    </tr>
+        <!--<tr>
+        <td>
+            <div id="headerlink" style="padding:0px;margin:0px"><span style="margin-right:20px;width:45px"></span><span style="float:right;margin-right:5px;width:45%"> </span>
+                
+            </div>
+        </td>
+    </tr>-->
+
+</table>
+ </div>
+
+ <div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="https://www.javatpoint.com/images/menuhome64.png" onclick="showmenu()"/></span>
+<span style="float:left"><a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<form class="navbar-search-m" method="get" action="https://www.google.com/search" target="_blank"> 
+<input type="text" name="q" class="search-query span2-m" placeholder="Search on javatpoint..."  title="Search on Javatpoint"/>
+<input type="hidden" name="sitesearch" value="www.javatpoint.com"/>
+</form>
+</div>
+</div>
+ 
+<div id="link" style="clear:both">
+ <div  class="ddsmoothmenu">
+<ul>
+<li><a href="https://www.javatpoint.com/">Home</a></li>
+<li><a href="https://www.javatpoint.com/interview-questions-and-answers"  class="selected">Interview Questions</a></li>
+<li><a href="https://www.javatpoint.com/java-tutorial">Java</a></li>
+<li><a href="https://www.javatpoint.com/c-programming-language-tutorial">C</a></li>
+<li><a href="https://www.javatpoint.com/sql-tutorial">SQL</a></li>
+<li><a href="https://www.javatpoint.com/android-tutorial">Android</a></li>
+<li><a href="https://www.javatpoint.com/html-tutorial">HTML</a></li>
+<li><a href="https://www.javatpoint.com/xml-tutorial">XML</a></li>
+<li><a href="https://www.javatpoint.com/javascript-tutorial">JavaScript</a></li>
+<li><a href="https://www.javatpoint.com/ajax-tutorial">Ajax</a></li>
+<li><a href="https://www.javatpoint.com/cloud-computing-tutorial">Cloud</a></li>
+<li><a href="https://www.javatpoint.com/python-tutorial">Python</a></li>
+<li><a href="https://www.javatpoint.com/web-services-tutorial">Web Services</a></li>
+<li><a href="https://www.javatpoint.com/examaccess">Quiz</a></li>
+<li><a href="https://www.javatpoint.com/free-java-projects">Projects</a></li>
+<li><a href="https://www.javatpoint.com/comment.jsp">Comment</a></li>
+<li><a href="https://www.javatpoint.com/forum">Forum</a></li>
+<li><a href="https://www.javatpoint.com/training">Training</a></li>
+
+</ul>
+<br style="clear: left" />
+</div>
+</div>
+<div class="mobilemenu" style="clear:both">
+ <!--<button onclick="showmenu()">Content Menu</button>-->
+<!-- Cm_300x250_Mob_14/9 -->
+
+
+</div>
+
+
+<div id="menu">
+<!--<a target="_blank" href="https://play.google.com/store/apps/details?id=my.example.javatpoint" style="padding-left:10px;color:blue;text-decoration:none"><img src="https://static.javatpoint.com/images/logo/androidhome.png" style="height:20px" alt="Javatpoint interview questions Android App"/> Download Android App</a> -->
+
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">All Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/interview-tips"><span>Interview Tips</span></a>
+<a href="https://www.javatpoint.com/job-interview-questions"><span>JOB/HR Interview</span></a>
+<a href="https://www.javatpoint.com/competency-based-interview-questions"><span>Competency Interview</span></a>
+<a href="https://www.javatpoint.com/business-analyst-interview-questions"><span>Business Analyst</span></a>
+<a href="https://www.javatpoint.com/behavioral-interview-questions"><span>Behavioral Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Company Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/company-interview-questions-and-recruitment-process"><span>Company Interview</span></a>
+<a href="https://www.javatpoint.com/ibm-interview-questions"><span>IBM Interview</span></a>
+<a href="https://www.javatpoint.com/infosys-interview-questions"><span>Infosys Interview</span></a>
+<a href="https://www.javatpoint.com/capgemini-interview-questions"><span>Capgemini Interview</span></a>
+<a href="https://www.javatpoint.com/cognizant-interview-questions"><span>Cognizant Interview</span></a>
+<a href="https://www.javatpoint.com/wipro-interview-questions"><span>Wipro Interview</span></a>
+<a href="https://www.javatpoint.com/accenture-interview-questions"><span>Accenture Interview</span></a>
+<a href="https://www.javatpoint.com/igate-interview-questions"><span>iGate Interview</span></a>
+<a href="https://www.javatpoint.com/tcs-interview-questions"><span>TCS Interview</span></a>
+<a href="https://www.javatpoint.com/hcl-interview-questions"><span>HCL Interview</span></a>
+<a href="https://www.javatpoint.com/adobe-interview-questions">Adobe Interview</a>
+<a href="https://www.javatpoint.com/microsoft-interview-questions">Microsoft Interview</a>
+<a href="https://www.javatpoint.com/dxc-technology-interview-questions">DXC Technology Interview</a>
+<a href="https://www.javatpoint.com/ericsson-interview-questions">Ericsson Interview</a>
+<a href="https://www.javatpoint.com/exl-interview-questions">EXL Service Interview</a>
+<a href="https://www.javatpoint.com/indiamart-interview-questions">IndiaMART Interview</a>
+<a href="https://www.javatpoint.com/intuit-interview-questions">Intuit Interview</a>
+<a href="https://www.javatpoint.com/spacex-interview-questions">SpaceX Interview</a>
+<a href="https://www.javatpoint.com/sapient-interview-questions">Sapient Interview</a>
+
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Technical Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/c-interview-questions"><span>C Interview</span></a>
+<a href="https://www.javatpoint.com/cpp-interview-questions"><span>C++ Interview</span></a>
+<a href="https://www.javatpoint.com/data-structure-interview-questions"><span>Data Structure Interview</span></a>
+<a href="https://www.javatpoint.com/linux-interview-questions"><span>Linux Interview</span></a>
+<a href="https://www.javatpoint.com/unix-interview-questions"><span>Unix Interview</span></a>
+<a href="https://www.javatpoint.com/shell-scripting-interview-questions"><span>Shell Scripting</span></a>
+<a href="https://www.javatpoint.com/networking-interview-questions"><span>Networking Interview</span></a>
+<a href="https://www.javatpoint.com/ccna-interview-questions"><span>CCNA Interview</span></a>
+<a href="https://www.javatpoint.com/android-interview-questions"><span>Android Interview</span></a>
+<a href="https://www.javatpoint.com/cloud-computing-interview-questions"><span>Cloud Computing</span></a>
+<a href="https://www.javatpoint.com/hadoop-interview-questions"><span>Hadoop Interview</span></a>
+<a href="https://www.javatpoint.com/software-testing-interview-questions"><span>Testing/QTP Interview</span></a>
+<a href="https://www.javatpoint.com/selenium-interview-questions"><span>Selenium Interview</span></a>
+<a href="https://www.javatpoint.com/web-services-interview-questions"><span>Web Services Interview</span></a>
+<a href="https://www.javatpoint.com/operating-system-interview-questions"><span>OS Interview</span></a>
+<a href="https://www.javatpoint.com/excel-interview-questions"><span>Excel Interview</span></a>
+<a href="https://www.javatpoint.com/seo-interview-questions"><span>SEO Interview</span></a>
+<a href="https://www.javatpoint.com/digital-marketing-interview-questions-and-answers"><span>Digital Marketing</span></a>
+<a href="https://www.javatpoint.com/python-interview-questions"><span>Python Interview</span></a>
+<a href="https://www.javatpoint.com/django-interview-questions-and-answers"><span>Django Interview</span></a>
+<a href="https://www.javatpoint.com/pascal-interview-questions-and-answers"><span>Pascal Interview</span></a>
+<a href="https://www.javatpoint.com/ruby-interview-questions"><span>Ruby Interview</span></a>
+<a href="https://www.javatpoint.com/ruby-on-rails-interview-questions"><span>Ruby on Rails Interview</span></a>
+<a href="https://www.javatpoint.com/memcached-interview-questions-and-answers"><span>Memcached Interview</span></a>
+<a href="https://www.javatpoint.com/go-programming-interview-questions"><span>Go Interview</span></a>
+<a href="https://www.javatpoint.com/openstack-interview-questions-and-answers"><span>OpenStack Interview</span></a>
+<a href="https://www.javatpoint.com/scala-interview-questions"><span>Scala Interview</span></a>
+<a href="https://www.javatpoint.com/control-systems-interview-questions"><span>Control Systems</span></a>
+<a href="https://www.javatpoint.com/electrical-machines-interview-questions"><span>Electrical Machines</span></a>
+<a href="https://www.javatpoint.com/power-system-interview-questions"><span>Power System</span></a>
+<a href="https://www.javatpoint.com/digital-electronics-interview-questions"><span>Digital Electronics</span></a>
+<a href="https://www.javatpoint.com/robotics-interview-questions">Robotics Interview</a>
+<a href="https://www.javatpoint.com/typescript-interview-questions">TypeScript Interview</a>
+<a href="https://www.javatpoint.com/swift-interview-questions">Swift Interview</a>
+<a href="https://www.javatpoint.com/blockchain-interview-questions">Blockchain Interview</a>
+<a href="https://www.javatpoint.com/bitcoin-interview-questions">Bitcoin Interview</a>
+<a href="https://www.javatpoint.com/aws-interview-questions">AWS Interview</a>
+<a href="https://www.javatpoint.com/informatica-interview-questions">Informatica Interview</a>
+<a href="https://www.javatpoint.com/qa-interview-questions">QA Interview</a>
+<a href="https://www.javatpoint.com/react-interview-questions">React Interview</a>
+<a href="https://www.javatpoint.com/git-interview-questions">GIT Interview</a>
+<a href="https://www.javatpoint.com/j2ee-interview-questions">J2EE Interview</a>
+<a href="https://www.javatpoint.com/deep-learning-interview-questions">Deep Learning</a>
+<a href="https://www.javatpoint.com/salesforce-interview-questions">Salesforce Interview</a>
+<a href="https://www.javatpoint.com/testng-interview-questions">TestNG Interview</a>
+<a href="https://www.javatpoint.com/agile-interview-questions">Agile Interview</a>
+<a href="https://www.javatpoint.com/machine-learning-interview-questions">Machine Learning</a>
+<a href="https://www.javatpoint.com/api-testing-interview-questions">API Testing</a>
+<a href="https://www.javatpoint.com/algorithm-interview-questions">Algorithm</a>
+<a href="https://www.javatpoint.com/java-design-pattern-interview-questions">Java Design Pattern</a>
+<a href="https://www.javatpoint.com/teradata-interview-questions">Teradata</a>
+<a href="https://www.javatpoint.com/tensorflow-interview-questions">TensorFlow</a>
+<a href="https://www.javatpoint.com/linq-interview-questions">LINQ</a>
+<a href="https://www.javatpoint.com/mainframe-interview-questions">Mainframe</a>
+<a href="https://www.javatpoint.com/laravel-interview-questions">Laravel</a>
+<a href="https://www.javatpoint.com/jira-interview-questions">JIRA</a>
+<a href="https://www.javatpoint.com/jcl-interview-questions">JCL</a>
+<a href="https://www.javatpoint.com/pytorch-interview-questions">Pytorch</a>
+<a href="https://www.javatpoint.com/etl-testing-interview-questions">ETL Testing</a>
+<a href="https://www.javatpoint.com/linked-list-interview-questions">Linked List</a>
+<a href="https://www.javatpoint.com/datastage-interview-questions">DataStage</a>
+<a href="https://www.javatpoint.com/tableau-interview-questions">Tableau</a>
+<a href="https://www.javatpoint.com/sap-abap-interview-questions">SAP ABAP</a>
+<a href="https://www.javatpoint.com/daa-interview-questions">DAA</a>
+<a href="https://www.javatpoint.com/computer-graphics-interview-questions">Computer Graphics</a>
+<a href="https://www.javatpoint.com/data-science-interview-questions">Data Science</a>
+<a href="https://www.javatpoint.com/software-engineering-interview-questions">Software Engineering</a>
+<a href="https://www.javatpoint.com/power-bi-interview-questions">Power BI</a>
+<a href="https://www.javatpoint.com/xamarin-interview-questions">Xamarin</a>
+<a href="https://www.javatpoint.com/ansible-interview-questions">Ansible</a>
+<a href="https://www.javatpoint.com/data-warehouse-interview-questions">Data Warehouse</a>
+<a href="https://www.javatpoint.com/ionic-interview-questions">Ionic</a>
+<a href="https://www.javatpoint.com/devops-interview-questions">Devops</a>
+<a href="https://www.javatpoint.com/react-native-interview-questions">React Native</a>
+<a href="https://www.javatpoint.com/python-pandas-interview-questions">Python Pandas</a>
+<a href="https://www.javatpoint.com/http-interview-questions">HTTP Interview</a>
+<a href="https://www.javatpoint.com/kali-linux-interview-questions">Kali Linux Interview</a>
+<a href="https://www.javatpoint.com/powershell-interview-questions">PowerShell Interview</a>
+<a href="https://www.javatpoint.com/sharepoint-interview-questions">SharePoint Interview</a>
+<a href="https://www.javatpoint.com/talend-interview-questions">Talend Interview</a>
+<a href="https://www.javatpoint.com/microsoft-azure-interview-questions">Microsoft Azure Interview</a>
+<a href="https://www.javatpoint.com/r-interview-questions">R Interview</a>
+<a href="https://www.javatpoint.com/flutter-interview-questions">Flutter Interview</a>
+<a href="https://www.javatpoint.com/matlab-interview-questions">MATLAB Interview</a>
+<a href="https://www.javatpoint.com/es6-interview-questions">ES6 Interview Questions</a>
+<a href="https://www.javatpoint.com/rpa-interview-questions">RPA Interview Questions</a>
+
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Web Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/html-interview-questions"><span>HTML Interview</span></a>
+<a href="https://www.javatpoint.com/css-interview-questions"><span>CSS Interview</span></a>
+<a href="https://www.javatpoint.com/javascript-interview-questions"><span>JavaScript Interview</span></a>
+<a href="https://www.javatpoint.com/jquery-interview-questions"><span>jQuery Interview</span></a>
+<a href="https://www.javatpoint.com/angularjs-interview-questions"><span>AngularJS Interview</span></a>
+<a href="https://www.javatpoint.com/angular-interview-questions">Angular Interview</a>
+<a href="https://www.javatpoint.com/angular-7-interview-questions">Angular 7 Interview</a>
+<a href="https://www.javatpoint.com/node-js-interview-questions"><span>Node.js Interview</span></a>
+<a href="https://www.javatpoint.com/ajax-interview-questions"><span>AJAX Interview</span></a>
+<a href="https://www.javatpoint.com/xml-interview-questions"><span>XML Interview</span></a>
+<a href="https://www.javatpoint.com/dojo-interview-questions-and-answers"><span>Dojo Interview</span></a>
+<a href="https://www.javatpoint.com/backbone-js-interview-questions-and-answers"><span>Backbone.js Interview</span></a>
+<a href="https://www.javatpoint.com/ember-js-interview-questions"><span>Ember.js Interview</span></a>
+<a href="https://www.javatpoint.com/xhtml-interview-questions"><span>XHTML Interview</span></a>
+<a href="https://www.javatpoint.com/xslt-interview-questions"><span>XSLT Interview</span></a>
+<a href="https://www.javatpoint.com/xpath-interview-questions"><span>XPath Interview</span></a>
+<a href="https://www.javatpoint.com/xquery-interview-questions"><span>XQuery Interview</span></a>
+<a href="https://www.javatpoint.com/xforms-interview-questions"><span>XForms Interview</span></a>
+<a href="https://www.javatpoint.com/sass-interview-questions-and-answers"><span>SASS Interview</span></a>
+<a href="https://www.javatpoint.com/coffeescript-interview-questions-and-answers"><span>CoffeeScript Interview</span></a>
+<a href="https://www.javatpoint.com/less-interview-questions-and-answers"><span>LESS Interview</span></a>
+<a href="https://www.javatpoint.com/perl-interview-questions"><span>Perl Interview</span></a>
+<a href="https://www.javatpoint.com/pure-css-interview-questions"><span>Pure.CSS Interview</span></a>
+<a href="https://www.javatpoint.com/materialize-css-interview-questions"><span>Materialize Interview</span></a>
+<a href="https://www.javatpoint.com/framework7-interview-questions"><span>Framework7 Interview</span></a>
+<a href="https://www.javatpoint.com/svg-interview-questions"><span>SVG Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/php-interview-questions"><span>PHP Interview</span></a>
+<a href="https://www.javatpoint.com/wordpress-interview-questions"><span>Wordpress Interview</span></a>
+<a href="https://www.javatpoint.com/joomla-interview-questions-and-answers"><span>Joomla Interview</span></a>
+<a href="https://www.javatpoint.com/drupal-interview-questions-and-answers"><span>Drupal Interview</span></a>
+<a href="https://www.javatpoint.com/magento-interview-questions-and-answers"><span>Magento Interview</span></a>
+<a href="https://www.javatpoint.com/codeigniter-interview-questions-and-answers"><span>CodeIgniter Interview</span></a>
+<a href="https://www.javatpoint.com/phalcon-interview-questions"><span>Phalcon Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">.Net Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/dot-net-interview-questions"><span>.Net Interview</span></a>
+<a href="https://www.javatpoint.com/c-sharp-interview-questions"><span>C# Interview</span></a>
+<a href="https://www.javatpoint.com/asp-dot-net-interview-questions"><span>ASP.NET Interview</span></a>
+<a href="https://www.javatpoint.com/ado-dot-net-interview-questions"><span>ADO.NET Interview</span></a>
+<a href="https://www.javatpoint.com/wcf-interview-questions"><span>WCF Interview</span></a>
+<a href="https://www.javatpoint.com/wpf-interview-questions"><span>WPF Interview</span></a>
+<a href="https://www.javatpoint.com/silverlight-interview-questions-and-answers"><span>Silverlight Interview</span></a>
+<a href="https://www.javatpoint.com/fsharp-interview-questions"><span>F# Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/corejava-interview-questions"><span>Java 1 Interview</span></a>
+<a href="https://www.javatpoint.com/corejava-interview-questions-2"><span>Java 2 Interview</span></a>
+<a href="https://www.javatpoint.com/corejava-interview-questions-3"><span>Exception &amp; String</span></a>
+<a href="https://www.javatpoint.com/java-multithreading-interview-questions"><span>Multithreading </span></a>
+<a href="https://www.javatpoint.com/java-collections-interview-questions"><span>Collections Interview</span></a>
+<a href="https://www.javatpoint.com/jdbc-interview-questions"><span>JDBC Interview</span></a>
+<a href="https://www.javatpoint.com/servletinterview"><span>Servlet Interview</span></a>
+<a href="https://www.javatpoint.com/jspinterview"><span>JSP Interview</span></a>
+<a href="https://www.javatpoint.com/ejb-interview-questions"><span>EJB Interview</span></a>
+<a href="https://www.javatpoint.com/struts-interview-questions"><span>Struts Interview</span></a>
+<a href="https://www.javatpoint.com/hibernate-interview-questions"><span>Hibernate Interview</span></a>
+<a href="https://www.javatpoint.com/spring-interview-questions"><span>Spring Interview</span></a>
+<a href="https://www.javatpoint.com/spring-boot-interview-questions"><span>Spring Boot Interview</span></a>
+<a href="https://www.javatpoint.com/spring-mvc-interview-questions"><span>Spring MVC Interview</span></a> 
+<a href="https://www.javatpoint.com/jpa-interview-questions"><span>JPA Interview</span></a>
+<a href="https://www.javatpoint.com/maven-interview-questions"><span>Maven Interview</span></a>
+<a href="https://www.javatpoint.com/junit-interview-questions"><span>JUnit Interview</span></a>
+<a href="https://www.javatpoint.com/jsf-interview-questions"><span>JSF Interview</span></a>
+<a href="https://www.javatpoint.com/primefaces-interview-questions"><span>PrimeFaces Interview</span></a>
+<a href="https://www.javatpoint.com/richfaces-interview-questions"><span>RichFaces Interview</span></a>
+<a href="https://www.javatpoint.com/gwt-interview-questions"><span>GWT Interview</span></a>
+<a href="https://www.javatpoint.com/jdb-interview-questions"><span>JDB Interview</span></a>
+<a href="https://www.javatpoint.com/jogl-interview-questions"><span>JOGL Interview</span></a>
+<a href="https://www.javatpoint.com/jbpm-interview-questions"><span>jBPM Interview</span></a>
+<a href="https://www.javatpoint.com/jenkins-interview-questions"><span>Jenkins Interview</span></a>
+ 
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Database Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/dbms-interview-questions"><span>DBMS Interview</span></a>
+<a href="https://www.javatpoint.com/sql-interview-questions"><span>SQL Interview</span></a>
+<a href="https://www.javatpoint.com/pl-sql-interview-questions"><span>PL/SQL Interview</span></a>
+<a href="https://www.javatpoint.com/oracle-interview-questions"><span>Oracle Interview</span></a>
+<a href="https://www.javatpoint.com/mysql-interview-questions"><span>MySql Interview</span></a>
+<a href="https://www.javatpoint.com/sql-server-interview-questions"><span>SQL Server Interview</span></a>
+<a href="https://www.javatpoint.com/mongodb-interview-questions"><span>MongoDB Interview</span></a>
+<a href="https://www.javatpoint.com/cassandra-interview-questions-and-answers"><span>Cassandra Interview</span></a>
+<a href="https://www.javatpoint.com/db2-interview-questions-and-answers"><span>DB2 Interview</span></a>
+<a href="https://www.javatpoint.com/microsoft-access-interview-questions-and-answers"><span>Access Interview</span></a>
+<a href="https://www.javatpoint.com/sqlite-interview-questions"><span>SQLite Interview</span></a>
+<a href="https://www.javatpoint.com/couchdb-interview-questions"><span>CouchDB Interview</span></a>
+<a href="https://www.javatpoint.com/neo4j-interview-questions-and-answers"><span>Neo4j Interview</span></a>
+<a href="https://www.javatpoint.com/mariadb-interview-questions"><span>MariaDB Interview</span></a>
+<a href="https://www.javatpoint.com/pouchdb-interview-questions"><span>PouchDB Interview</span></a>
+<a href="https://www.javatpoint.com/redis-interview-questions-and-answers"><span>Redis Interview</span></a>
+</div>
+<table  id="leftad">
+<tr><td>
+<img src="https://www.javatpoint.com/images/wh.JPG" alt="space"/>
+</td></tr>
+<tr><td>
+<ins class="adPushupAds" data-adpControl="g8drp" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBqYXZhdHBvaW50bGVmdCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lLWJsb2NrO3dpZHRoOjE2MHB4O2hlaWdodDo2MDBweCIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI0NDc2NDAxMjIyIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+<br><br>
+</td></tr>
+</table>
+</div>
+
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<!-- CM_JTP_Leaderbaord -->
+<ins class="adPushupAds" data-adpControl="nuoc1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDTV9KVFBfTGVhZGVyYmFvcmQgLS0+CjxpbnMgY2xhc3M9ImFkc2J5Z29vZ2xlIgogICAgIHN0eWxlPSJkaXNwbGF5OmJsb2NrIgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjkyMDE5MDE5MTUiCiAgICAgZGF0YS1hZC1mb3JtYXQ9ImF1dG8iCiAgICAgZGF0YS1mdWxsLXdpZHRoLXJlc3BvbnNpdmU9InRydWUiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+
+<div id="city">
+<table>
+<tr><td>
+
+<h1 class="h1">C Programming Interview Questions</h1>
+<img src="https://static.javatpoint.com/interview/images/c-interview-questions.png" alt="C Interview Questions" class="imageright"/>
+<p>A list of 50 top frequently asked C programming interview questions and answers are given below.</p>
+
+<h3 class="h3">1) What is C language?</h3>
+<p>C is a mid-level and procedural programming language. The Procedural programming language is also known as the structured programming language is a technique in which large programs are broken down into smaller modules, and each module uses structured code. This technique minimizes error and misinterpretation. <a href="https://www.javatpoint.com/c-programming-language-tutorial">More details.</a></p>
+<hr/>
+
+<h3 class="h3">2) Why is C known as a mother language?</h3>
+<p>C is known as a mother language because most of the compilers and JVMs are written in C language. Most of the languages which are developed after C language has borrowed heavily from it like C++, Python, Rust, javascript, etc. It introduces new core concepts like arrays, functions, file handling which are used in these languages. <a href="https://www.javatpoint.com/c-programming-language-tutorial">More details.</a></p>
+<hr/>
+<h3 class="h3">3) Why is C called a mid-level programming language?</h3>
+<p>C is called a mid-level programming language because it binds the low level and high -level programming language. We can use C language as a System programming to develop the operating system as well as an Application programming to generate menu driven customer driven billing system. <a href="https://www.javatpoint.com/c-programming-language-tutorial">More details.</a></p>
+<hr/>
+<h3 class="h3">4) Who is the founder of C language?</h3>
+<p>Dennis Ritchie. <a href="https://www.javatpoint.com/history-of-c-language">More details.</a></p>
+<hr/>
+<h3 class="h3">5) When was C language developed?</h3>
+<p>C language was developed in 1972 at bell laboratories of AT&amp;T. <a href="https://www.javatpoint.com/history-of-c-language">More details.</a></p>
+<hr/>
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- CM_JTP_WTC_Responsive -->
+<ins class="adsbygoogle cm_jtp_wtc_responsive"
+     style="display:inline-block"
+     data-ad-client="ca-pub-4699858549023382"
+     data-ad-slot="6746133113"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<h3 class="h3">6) What are the features of the C language?</h3>
+<p>The main features of C language are given below:</p>
+<ul class="points">
+<li><strong>Simple:</strong> C is a simple language because it follows the structured approach, i.e., a program is broken into parts</li>
+<li><strong>Portable:</strong> C is highly portable means that once the program is written can be run on any machine with little or no modifications.</li>
+<li><strong>Mid Level:</strong> C is a mid-level programming language as it combines the low- level language with the features of the high-level language.</li>
+<li><strong>Structured:</strong> C is a structured language as the C program is broken into parts.</li>
+<li><strong>Fast Speed:</strong> C language is very fast as it uses a powerful set of data types and operators.</li>
+<li><strong>Memory Management:</strong> C provides an inbuilt memory function that saves the memory and improves the efficiency of our program.</li>
+<li><strong>Extensible:</strong> C is an extensible language as it can adopt new features in the future.</li>
+</ul>
+<a href="https://www.javatpoint.com/features-of-c-language">More details.</a>
+<hr/>
+<h3 class="h3">7) What is the use of printf() and scanf() functions?</h3>
+<p><strong>printf():</strong> The printf() function is used to print the integer, character, float and string values on to the screen.</p>
+<p>Following are the format specifier: </p>
+<ul class="points">
+<li><strong>%d</strong>: It is a format specifier used to print an integer value.</li>
+<li><strong>%s</strong>: It is a format specifier used to print a string.</li>
+<li><strong>%c</strong>: It is a format specifier used to display a character value.</li>
+<li><strong>%f</strong>: It is a format specifier used to display a floating point value.</li>
+</ul>
+<p><strong>scanf()</strong>: The scanf() function is used to take input from the user.</p>
+<a href="https://www.javatpoint.com/printf-scanf">More details.</a>
+<hr/>
+<h3 class="h3">8) What is the difference between the local variable and global variable in C?</h3>
+<p>Following are the differences between a local variable and global variable:</p>
+<table class="alt">
+<tr>
+	<th>Basis for comparison</th>
+	<th>Local variable</th>
+	<th>Global variable</th>
+</tr>
+<tr>
+	<td>Declaration</td>
+	<td>A variable which is declared inside function or block is known as a local variable.</td>
+	<td>A variable which is declared outside function or block is known as a global variable.</td>
+</tr>
+<tr>
+	<td>Scope</td>
+	<td>The scope of a variable is available within a function in which they are declared.</td>
+	<td>The scope of a variable is available throughout the program.</td>
+</tr>
+<tr>
+	<td>Access</td>
+	<td>Variables can be accessed only by those statements inside a function in which they are declared.</td>
+	<td>Any statement in the entire program can access variables.</td>
+</tr>
+<tr>
+	<td>Life</td>
+	<td>Life of a variable is created when the function block is entered and destroyed on its exit.</td>
+	<td>Life of a variable exists until the program is executing.</td>
+</tr>
+<tr>
+	<td>Storage</td>
+	<td>Variables are stored in a stack unless specified.</td>
+	<td>The compiler decides the storage location of a variable.</td>
+</tr>
+</table>
+<a href="https://www.javatpoint.com/variables-in-c">More details.</a>
+<hr/>
+<h3 class="h3">9) What is the use of a static variable in C?</h3>
+<p>Following are the uses of a static variable:</p>
+<ul class="points">
+<li>A variable which is declared as static is known as a static variable. The static variable retains its value between multiple function calls.</li>
+<li>Static variables are used because the scope of the static variable is available in the entire program. So, we can access a static variable anywhere in the program.</li>
+<li>The static variable is initially initialized to zero. If we update the value of a variable, then the updated value is assigned.</li>
+<li>The static variable is used as a common value which is shared by all the methods.</li>
+<li>The static variable is initialized only once in the memory heap to reduce the memory usage.</li>
+</ul>
+<a href="https://www.javatpoint.com/variables-in-c">More details.</a>
+<hr/>
+<h3 class="h3">10) What is the use of the function in C?</h3>
+<p><strong>Uses of C function are:</strong></p>
+<ul class="points">
+<li>C functions are used to avoid the rewriting the same code again and again in our program.</li>
+<li>C functions can be called any number of times from any place of our program.</li>
+<li>When a program is divided into functions, then any part of our program can easily be tracked.</li>
+<li>C functions provide the reusability concept, i.e., it breaks the big task into smaller tasks so that it makes the C program more understandable.</li>
+</ul>
+<a href="https://www.javatpoint.com/functions-in-c">More details.</a>
+<hr/>
+<h3 class="h3">11) What is the difference between call by value and call by reference in C?</h3>
+<p><strong>Following are the differences between a call by value and call by reference are:</strong></p>
+<table class="alt">
+<tr>
+	<th></th>
+	<th>Call by value</th>
+	<th>Call by reference</th>
+</tr>
+<tr>
+	<td>Description</td>
+	<td>When a copy of the value is passed to the function, then the original value is not modified.</td>
+	<td>When a copy of the value is passed to the function, then the original value is modified.</td>
+</tr>
+<tr>
+	<td>Memory location</td>
+	<td>Actual arguments and formal arguments are created in separate memory locations.</td>
+	<td>Actual arguments and formal arguments are created in the same memory location.</td>
+</tr>
+<tr>
+	<td>Safety</td>
+	<td>In this case, actual arguments remain safe as they cannot be modified.</td>
+	<td>In this case, actual arguments are not reliable, as they are modified.</td>
+</tr>
+<tr>
+	<td>Arguments</td>
+	<td>The copies of the actual arguments are passed to the formal arguments.</td>
+	<td>The addresses of actual arguments are passed to their respective formal arguments.</td>
+</tr>
+</table>
+<p><strong>Example of call by value:</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include &lt;stdio.h&gt;
+void change(int,int);
+int main()
+{
+    int a=10,b=20;
+    change(a,b); //calling a function by passing the values of variables.
+    printf("Value of a is: %d",a);
+    printf("\n");
+    printf("Value of b is: %d",b);
+    return 0;
+}
+void change(int x,int y)
+{
+    x=13;
+    y=17;
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>
+Value of a is: 10
+Value of b is: 20
+</pre></div>
+<p><strong>Example of call by reference:</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include &lt;stdio.h&gt;
+void change(int*,int*);
+int main()
+{
+    int a=10,b=20;
+    change(&a,&b); // calling a function by passing references of variables.
+    printf("Value of a is: %d",a);
+    printf("\n");
+    printf("Value of b is: %d",b);
+    return 0;
+}
+void change(int *x,int *y)
+{
+    *x=13;
+    *y=17;
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>
+Value of a is: 13
+Value of b is: 17
+</pre></div>
+<p><a href="https://www.javatpoint.com/call-by-value-and-call-by-reference-in-c">More details.</a></p>
+<hr/>
+<h3 class="h3">12) What is recursion in C?</h3>
+<p>When a function calls itself, and this process is known as recursion. The function that calls itself is known as a recursive function.</p>
+<p>Recursive function comes in two phases:</p>
+<ol class="points">
+<li>Winding phase</li>
+<li>Unwinding phase</li>
+</ol>
+<p><strong>Winding phase</strong>: When the recursive function calls itself, and this phase ends when the condition is reached.</p>
+<p><strong>Unwinding phase</strong>: Unwinding phase starts when the condition is reached, and the control returns to the original call.</p>
+<p><strong>Example of recursion</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include &lt;stdio.h&gt;
+int calculate_fact(int);
+int main()
+{
+ int n=5,f;
+ f=calculate_fact(n); // calling a function
+ printf("factorial of a number is %d",f);
+  return 0;
+}
+int calculate_fact(int a)
+{
+  if(a==1)
+  {
+      return 1;
+  }
+  else
+  return a*calculate_fact(a-1); //calling a function recursively.
+   }
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>
+factorial of a number is 120
+</pre></div>
+<p><a href="https://www.javatpoint.com/recursion-in-c">More details.</a></p>
+<hr/>
+<h3 class="h3">13) What is an array in C?</h3>
+<p>An Array is a group of similar types of elements. It has a contiguous memory location. It makes the code optimized, easy to traverse and easy to sort. The size and type of arrays cannot be changed after its declaration.</p>
+<p><strong>Arrays are of two types:</strong></p>
+<ul class="points">
+<li><strong>One-dimensional array</strong>: One-dimensional array is an array that stores the elements one after the another.</li>
+</ul>
+<p><strong>Syntax:</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+data_type array_name[size];
+</textarea></div>
+<ul class="points">
+<li><strong>Multidimensional array</strong>: Multidimensional array is an array that contains more than one array.</li>
+</ul>
+<p><strong>Syntax:</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+data_type array_name[size];
+</textarea></div>
+<p><strong>Example of an array:</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include &lt;stdio.h&gt;
+int main()
+{
+   int arr[5]={1,2,3,4,5}; //an array consists of five integer values.
+   for(int i=0;i&lt;5;i++)
+   {
+       printf("%d ",arr[i]);
+   }
+    return 0;
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>
+1 2 3 4 5
+</pre></div>
+<a href="https://www.javatpoint.com/c-array">More details.</a>
+<hr/>
+<h3 class="h3">14) What is a pointer in C?</h3>
+<p>A pointer is a variable that refers to the address of a value. It makes the code optimized and makes the performance fast. Whenever a variable is declared inside a program, then the system allocates some memory to a variable. The memory contains some address number. The variables that hold this address number is known as the pointer variable.</p>
+<p><strong>For example:</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+Data_type *p;
+</textarea></div>
+<p>The above syntax tells that p is a pointer variable that holds the address number of a given data type value.</p>
+<p><strong>Example of pointer</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include &lt;stdio.h&gt;
+int main()
+{
+   int *p; //pointer of type integer.
+   int a=5;
+   p=&a;
+   printf("Address value of 'a' variable is %u",p);
+    return 0;
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>
+Address value of 'a' variable is 428781252
+</pre></div>
+<p><a href="https://www.javatpoint.com/c-pointers">More details.</a></p>
+<hr/>
+<h3 class="h3">15) What is the usage of the pointer in C?</h3>
+<ul class="points">
+<li><strong>Accessing array elements</strong>: Pointers are used in traversing through an array of integers and strings. The string is an array of characters which is terminated by a null character '\0'.</li>
+<li><strong>Dynamic memory allocation</strong>: Pointers are used in allocation and deallocation of memory during the execution of a program.</li>
+<li><strong>Call by Reference</strong>: The pointers are used to pass a reference of a variable to other function.</li>
+<li><strong>Data Structures like a tree, graph, linked list, etc.</strong>: The pointers are used to construct different data structures like tree, graph, linked list, etc.</li>
+</ul>
+<hr/>
+<h3 class="h3">16) What is a NULL pointer in C?</h3>
+<p>A pointer that doesn't refer to any address of value but NULL is known as a NULL pointer. When we assign a '0' value to a pointer of any type, then it becomes a Null pointer.</p>
+<p><a href="https://www.javatpoint.com/c-pointers">More details.</a></p>
+<hr/>
+<h3 class="h3">17) What is a far pointer in C?</h3>
+<p>A pointer which can access all the 16 segments (whole residence memory) of RAM is known as far pointer. A far pointer is a 32-bit pointer that obtains information outside the memory in a given section.</p>
+<hr/>
+<h3 class="h3">18) What is dangling pointer in C?</h3>
+<ul class="points">
+<li>If a pointer is pointing any memory location, but meanwhile another pointer deletes the memory occupied by the first pointer while the first pointer still points to that memory location, the first pointer will be known as a dangling pointer. This problem is known as a dangling pointer problem.</li>
+<li>Dangling pointer arises when an object is deleted without modifying the value of the pointer. The pointer points to the deallocated memory.</li>
+</ul>
+<p><strong>Let's see this through an example.</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+           #include&lt;stdio.h&gt;
+           void main()
+           {
+                   int *ptr = malloc(constant value); //allocating a memory space.
+                   free(ptr); //ptr becomes a dangling pointer.
+           }
+</textarea></div>
+<p>In the above example, initially memory is allocated to the pointer variable ptr, and then the memory is deallocated from the pointer variable. Now, pointer variable, i.e., ptr becomes a dangling pointer.</p>
+<p><strong>How to overcome the problem of a dangling pointer</strong></p>
+<p>The problem of a dangling pointer can be overcome by assigning a NULL value to the dangling pointer. Let's understand this through an example:</p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+     #include&lt;stdio.h&gt;
+           void main()
+           {
+                   int *ptr = malloc(constant value); //allocating a memory space.
+                   free(ptr); //ptr becomes a dangling pointer.
+                   ptr=NULL; //Now, ptr is no longer a dangling pointer.
+           }
+</textarea></div>
+<p>In the above example, after deallocating the memory from a pointer variable, ptr is assigned to a NULL value. This means that ptr does not point to any memory location. Therefore, it is no longer a dangling pointer.</p>
+<hr/>
+<h3 class="h3">19) What is pointer to pointer in C?</h3>
+<p>In case of a pointer to pointer concept, one pointer refers to the address of another pointer. The pointer to pointer is a chain of pointers. Generally, the pointer contains the address of a variable. The pointer to pointer contains the address of a first pointer. Let's understand this concept through an example:</p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include &lt;stdio.h&gt;
+ int main()
+{
+    int a=10;
+    int *ptr,**pptr; // *ptr is a pointer and **pptr is a double pointer.
+    ptr=&a;
+    pptr=&ptr;
+    printf("value of a is:%d",a);
+    printf("\n");
+    printf("value of *ptr is : %d",*ptr);
+    printf("\n");
+    printf("value of **pptr is : %d",**pptr);
+    return 0;
+}
+</textarea></div>
+<p>In the above example, pptr is a double pointer pointing to the address of the ptr variable and ptr points to the address of 'a' variable.</p>
+<p><a href="https://www.javatpoint.com/c-pointer-to-pointer">More details.</a></p>
+<hr/>
+<h3 class="h3">20) What is static memory allocation?</h3>
+<ul class="points">
+<li>In case of static memory allocation, memory is allocated at compile time, and memory can't be increased while executing the program. It is used in the array.</li>
+<li>The lifetime of a variable in static memory is the lifetime of a program.</li>
+<li>The static memory is allocated using static keyword.</lI>
+<li>The static memory is implemented using stacks or heap.</li>
+<li>The pointer is required to access the variable present in the static memory.</li>
+<li>The static memory is faster than dynamic memory.</li>
+<li>In static memory,  more memory space is required to store the variable.</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="Cpp">
+For example:
+int a[10];
+</textarea></div>
+<p>The above example creates an array of integer type, and the size of an array is fixed, i.e., 10.</p>
+<p><a href="https://www.javatpoint.com/dynamic-memory-allocation-in-c">More details.</a></p>
+<hr/>
+<h3 class="h3">21) What is dynamic memory allocation?</h3>
+<ul class="points">
+<li>In case of dynamic memory allocation, memory is allocated at runtime and memory can be increased while executing the program. It is used in the linked list.</li>
+<li>The malloc() or calloc() function is required to allocate the memory at the runtime.</li>
+<li>An allocation or deallocation of memory is done at the execution time of a program.</li>
+<li>No dynamic pointers are required to access the memory.</li>
+<li>The dynamic memory is implemented using data segments.</li>
+<li>Less memory space is required to store the variable.</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="Cpp">
+For example
+int *p= malloc(sizeof(int)*10);
+</textarea></div>
+<p>The above example allocates the memory at runtime.</p>
+<p><a href="https://www.javatpoint.com/dynamic-memory-allocation-in-c">More details.</a></p>
+<hr/>
+<h3 class="h3">22) What functions are used for dynamic memory allocation in C language?</h3>
+<ol class="points">
+<li>malloc()</li>
+<ul class="points">
+<li>The malloc() function is used to allocate the memory during the execution of the program.</li>
+<li>It does not initialize the memory but carries the garbage value.</li>
+<li>It returns a null pointer if it could not be able to allocate the requested space.</li>
+</ul>
+<p><strong>Syntax</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+ptr = (cast-type*) malloc(byte-size) // allocating the memory using malloc() function.
+</textarea></div>
+<li>calloc()</li>
+<ul class="points">
+<li>The calloc() is same as malloc() function, but the difference only is that it initializes the memory with zero value.</li>
+</ul>
+<p><strong>Syntax</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+ptr = (cast-type*)calloc(n, element-size);// allocating the memory using calloc() function.
+</textarea></div>
+<li>realloc()</li>
+<ul class="points">
+<li>The realloc() function is used to reallocate the memory to the new size.</li>
+<li>If sufficient space is not available in the memory, then the new block is allocated to accommodate the existing data.</li>
+</ul>
+<p><strong>Syntax</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+ptr = realloc(ptr, newsize); // updating the memory size using realloc() function.
+</textarea></div>
+<p>In the above syntax, ptr is allocated to a new size.</p>
+<li>free():The free() function releases the memory allocated by either calloc() or malloc() function.</li>
+<p><strong>Syntax</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+free(ptr); // memory is released using free() function.
+</textarea></div>
+<p>The above syntax releases the memory from a pointer variable ptr.</p>
+</ol>
+<p><a href="https://www.javatpoint.com/dynamic-memory-allocation-in-c">More details.</a></p>
+<hr/>
+<h3 class="h3">23) What is the difference between malloc() and calloc()?</h3>
+<table class="alt">
+<tr>
+	<th></th>
+	<th>calloc()</th>
+	<th>malloc()</th>
+</tr>
+<tr>
+	<td>Description</td>
+	<td>The malloc() function allocates a single block of requested memory.</td>
+	<td>The calloc() function allocates multiple blocks of requested memory.</td>
+</tr>
+<tr>
+	<td>Initialization</td>
+	<td>It initializes the content of the memory to zero.</td>
+	<td>It does not initialize the content of memory, so it carries the garbage value.</td>
+</tr>
+<tr>
+	<td>Number of arguments</td>
+	<td>It consists of two arguments.</td>
+	<td>It consists of only one argument.</td>
+</tr>
+<tr>
+	<td>Return value</td>
+	<td>It returns a pointer pointing to the allocated memory.</td>
+	<td>It returns a pointer pointing to the allocated memory.</td>
+</tr>
+</table>
+<p><a href="https://www.javatpoint.com/dynamic-memory-allocation-in-c">More details.</a></p>
+<hr/>
+<h3 class="h3">24) What is the structure?</h3>
+<ul class="points">
+<li>The structure is a user-defined data type that allows storing multiple types of data in a single unit. It occupies the sum of the memory of all members.</li>
+<li>The structure members can be accessed only through structure variables.</li>
+<li>Structure variables accessing the same structure but the memory allocated for each variable will be different.</li>
+</ul>
+<p><strong>Syntax of structure</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+struct structure_name
+{
+  Member_variable1;
+ Member_variable2
+.
+.
+}[structure variables];
+</textarea></div>
+<p><strong>Let's see a simple example.</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include &lt;stdio.h&gt;
+struct student
+{
+    char name[10];       // structure members declaration.
+    int age;
+}s1;      //structure variable
+int main()
+{
+    printf("Enter the name");
+    scanf("%s",s1.name);
+    printf("\n");
+    printf("Enter the age");
+    scanf("%d",&s1.age);
+    printf("\n");
+    printf("Name and age of a student: %s,%d",s1.name,s1.age);
+    return 0;
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>
+Enter the name shikha
+Enter the age 26
+Name and age of a student: shikha,26  
+</pre></div>
+<p><a href="https://www.javatpoint.com/structure-in-c">More details.</a></p>
+<hr/>
+<h3 class="h3">25) What is a union?</h3>
+<ul class="points">
+<li>The union is a user-defined data type that allows storing multiple types of data in a single unit. However, it doesn't occupy the sum of the memory of all members. It holds the memory of the largest member only.</li> 
+<li>In union, we can access only one variable at a time as it allocates one common space for all the members of a union.</li>
+</ul>
+<p><strong>Syntax of union</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+union union_name
+{
+Member_variable1;
+Member_variable2;
+.
+.
+Member_variable n;
+}[union variables];
+</textarea></div>
+<p><strong>Let's see a simple example</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+#include&lt;stdio.h&gt;
+union data
+{
+    int a;      //union members declaration.
+    float b;
+    char ch;
+};
+int main()
+{
+  union data d;       //union variable.
+  d.a=3;
+  d.b=5.6;
+  d.ch='a';
+  printf("value of a is %d",d.a);
+  printf("\n");
+  printf("value of b is %f",d.b);
+  printf("\n");
+  printf("value of ch is %c",d.ch);
+  return 0;
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>
+value of a is 1085485921
+value of b is 5.600022
+value of ch is a
+</pre></div>
+<p>In the above example, the value of a and b gets corrupted, and only variable ch shows the actual output. This is because all the members of a union share the common memory space. Hence, the variable ch whose value is currently updated.</p>
+<p><a href="https://www.javatpoint.com/c-union">More details.</a></p>
+<hr/>
+<h3 class="h3">26) What is an auto keyword  in C?</h3>
+<p>In C, every local variable of a function is known as an automatic (auto) variable. Variables which are declared inside the function block are known as a local variable. The local variables are also known as an auto variable. It is optional to use an auto keyword before the data type of a variable. If no value is stored in the local variable, then it consists of a garbage value.</p>
+<hr/>
+<h3 class="h3">27) What is the purpose of sprintf() function?</h3>
+<p>The sprintf() stands for "string print." The sprintf() function does not print the output on the console screen. It transfers the data to the buffer. It returns the total number of characters present in the string.</p>
+<p><strong>Syntax</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+int sprintf ( char * str, const char * format, ... );
+</textarea></div>
+<p><strong>Let's see a simple example</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+ #include&lt;stdio.h&gt;
+int main()
+{
+ char a[20];
+ int n=sprintf(a,"javaToint");
+ printf("value of n is %d",n);
+ return 0;}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>
+value of n is 9
+</pre></div>
+<hr/>
+<h3 class="h3">28) Can we compile a program without main() function?</h3>
+<p>Yes, we can compile, but it can't be executed.</p>
+<p>But, if we use #define, we can compile and run a C program without using the main() function. For example:</p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include<stdio.h>  
+#define start main  
+void start() {  
+   printf("Hello");  
+}  
+</textarea></div>
+<p><a href="https://www.javatpoint.com/c-program-without-main">More details.</a></p>
+<hr/>
+<h3 class="h3">29) What is a token?</h3>
+<p>The Token is an identifier. It can be constant, keyword, string literal, etc. A token is the smallest individual unit in a program. C has the following tokens:</p>
+<ol class="points">
+<li>Identifiers: Identifiers refer to the name of the variables.</li>
+<li>Keywords: Keywords are the predefined words that are explained by the compiler.</li>
+<li>Constants: Constants are the fixed values that cannot be changed during the execution of a program.</li>
+<li>Operators: An operator is a symbol that performs the particular operation.</li>
+<li>Special characters: All the characters except alphabets and digits are treated as special characters.</li>
+</ol>
+<hr/>
+<h3 class="h3">30) What is command line argument?</h3>
+<p>The argument passed to the main() function while executing the program is known as command line argument. For example:</p>
+
+<div class="codeblock"><textarea name="code" class="Cpp">
+main(int count, char *args[]){
+//code to  be executed
+}
+</textarea></div>
+<a href="https://www.javatpoint.com/command-line-argument-in-c">More details.</a>
+<hr/>
+<h3 class="h3">31) What is the acronym for ANSI?</h3>
+<p>The ANSI stands for " American National Standard Institute." It is an organization that maintains the broad range of disciplines including photographic film, computer languages, data encoding, mechanical parts, safety and more.</p>
+<hr/>
+<h3 class="h3">32) What is the difference between getch() and getche()?</h3>
+<p>The <strong>getch()</strong> function reads a single character from the keyboard. It doesn't use any buffer, so entered data will not be displayed on the output screen.</p>
+<p>The <strong>getche()</strong> function reads a single character from the keyword, but data is displayed on the output screen. Press Alt+f5 to see the entered character.</p>
+<p><strong>Let's see a simple example</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+int main()
+{
+    
+ char ch;
+ printf("Enter a character ");
+ ch=getch(); // taking an user input without printing the value.
+ printf("\nvalue of ch is %c",ch);
+ printf("\nEnter a character again ");
+ ch=getche(); // taking an user input and then displaying it on the screen.
+  printf("\nvalue of ch is %c",ch);
+ return 0;
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>
+Enter a character
+value of ch is a
+Enter a character again a
+value of ch is a
+</pre></div>
+<p>In the above example, the value entered through a getch() function is not displayed on the screen while the value entered through a getche() function is displayed on the screen.</p>
+<hr/>
+<h3 class="h3">33) What is the newline escape sequence?</h3>
+<p>The new line escape sequence is represented by "\n". It inserts a new line on the output screen.</p>
+<a href="https://www.javatpoint.com/escape-sequence-in-c">More details.</a>
+<hr/>
+<h3 class="h3">34) Who is the main contributor in designing the C language after Dennis Ritchie?</h3>
+<p>Brain Kernighan.</p>
+<hr/>
+<h3 class="h3">35) What is the difference between near, far and huge pointers?</h3>
+<p>A virtual address is composed of the <em>selector</em> and <em>offset</em>. </p>
+<p>A <strong>near</strong> pointer doesn't have explicit selector whereas <strong>far, and huge</strong> pointers have explicit selector. When you perform pointer arithmetic on the far pointer, the selector is not modified, but in case of a huge pointer, it can be modified.</p>
+<p>These are the non-standard keywords and implementation specific. These are irrelevant in a modern platform.</p>
+
+<hr/>
+<h3 class="h3">36) What is the maximum length of an identifier?</h3>
+<p>It is 32 characters ideally but implementation specific.</p>
+
+<hr/>
+<h3 class="h3">37) What is typecasting?</h3>
+<p>The typecasting is a process of converting one data type into another is known as typecasting. If we want to store the floating type value to an int type, then we will convert the data type into another data type explicitly.</p>
+<p><strong>Syntax</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+(type_name) expression;
+</textarea></div>
+<hr/>
+<h3 class="h3">38) What are the functions to open and close the file in C language?</h3>
+<p>The <em>fopen()</em> function is used to open file whereas <em>fclose()</em> is used to close file.</p>
+<hr/>
+<h3 class="h3">39) Can we access the array using a pointer in C language?</h3>
+<p>Yes, by holding the base address of array into a pointer, we can access the array using a pointer.</p>
+<hr/>
+<h3 class="h3">40) What is an infinite loop?</h3>
+<p>A loop running continuously for an indefinite number of times is called the infinite loop.</p>
+<p><strong>Infinite For Loop:</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+for(;;){
+//code to be executed
+}
+</textarea></div>
+<p><strong>Infinite While Loop:</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+while(1){
+//code to be executed
+}
+</textarea></div>
+<p><strong>Infinite Do-While Loop:</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+do{
+//code to be executed
+}while(1);
+</textarea></div>
+<hr/>
+<h3 class="h3">41) Write a program to print "hello world" without using a semicolon?</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include&lt;stdio.h&gt;    
+void main(){    
+ if(printf("hello world")){} // It prints the ?hello world? on the screen.
+}   
+</textarea></div>
+<a href="https://www.javatpoint.com/c-program-to-print-hello-without-semicolon">More details.</a>
+<hr/>
+<h3 class="h3">42) Write a program to swap two numbers without using the third variable?</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include&lt;stdio.h&gt;    
+#include&lt;conio.h&gt;    
+main()    
+{    
+int a=10, b=20;    //declaration of variables.
+clrscr();        //It clears the screen.
+printf("Before swap a=%d b=%d",a,b);      
+    
+a=a+b;//a=30 (10+20)     
+b=a-b;//b=10 (30-20)    
+a=a-b;//a=20 (30-10)    
+    
+printf("\nAfter swap a=%d b=%d",a,b);    
+getch();    
+}
+</textarea></div>
+<a href="https://www.javatpoint.com/c-program-to-swap-two-numbers-without-using-third-variable">More details.</a>
+<hr/>
+<h3 class="h3">43) Write a program to print Fibonacci series without using recursion?</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include<stdio.h>  
+#include<conio.h>  
+void main()  
+{  
+ int n1=0,n2=1,n3,i,number;  
+ clrscr();  
+ printf("Enter the number of elements:");  
+ scanf("%d",&number);  
+ printf("\n%d %d",n1,n2);//printing 0 and 1  
+  
+ for(i=2;i<number;++i)//loop starts from 2 because 0 and 1 are already printed  
+ {  
+  n3=n1+n2;  
+  printf(" %d",n3);  
+  n1=n2;  
+  n2=n3;  
+ }  
+getch();  
+}  
+</textarea></div>
+<a href="https://www.javatpoint.com/fibonacci-series-in-c">More details.</a>
+<hr/>
+<h3 class="h3">44) Write a program to print Fibonacci series using recursion?</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include&lt;stdio.h&gt;    
+#include&lt;conio.h&gt;    
+void printFibonacci(int n) // function to calculate the fibonacci series of a given number.
+{    
+static int n1=0,n2=1,n3;    // declaration of static variables.
+    if(n&gt;0){    
+         n3 = n1 + n2;    
+         n1 = n2;    
+        n2 = n3;    
+         printf("%d ",n3);    
+         printFibonacci(n-1);    //calling the function recursively.
+    }    
+}    
+void main(){    
+    int n;    
+    clrscr();    
+    printf("Enter the number of elements: ");    
+    scanf("%d",&n);    
+    printf("Fibonacci Series: ");    
+    printf("%d %d ",0,1);    
+    printFibonacci(n-2);//n-2 because 2 numbers are already printed    
+    getch();    
+}    
+</textarea></div>
+<a href="https://www.javatpoint.com/fibonacci-series-in-c">More details.</a>
+
+<hr/>
+<h3 class="h3">45) Write a program to check prime number in C Programming?</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include&lt;stdio.h&gt;    
+#include&lt;conio.h&gt;    
+void main()    
+{    
+int n,i,m=0,flag=0;    //declaration of variables.
+clrscr();    //It clears the screen.
+printf("Enter the number to check prime:");    
+scanf("%d",&n);    
+m=n/2;    
+for(i=2;i&lt;=m;i++)    
+{    
+if(n%i==0)    
+{    
+printf("Number is not prime");    
+flag=1;    
+break;    //break keyword used to terminate from the loop.
+}    
+}    
+if(flag==0)    
+printf("Number is prime");    
+getch();    //It reads a character from the keyword.
+}
+</textarea></div>
+<a href="https://www.javatpoint.com/prime-number-program-in-c">More details.</a>
+
+<hr/>
+<h3 class="h3">46) Write a program to check palindrome number in C Programming?</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include<stdio.h>  
+#include<conio.h>  
+main()  
+{  
+int n,r,sum=0,temp;  
+clrscr();  
+printf("enter the number=");  
+scanf("%d",&n);  
+temp=n;  
+while(n>0)  
+{  
+r=n%10;  
+sum=(sum*10)+r;  
+n=n/10;  
+}  
+if(temp==sum)  
+printf("palindrome number ");  
+else  
+printf("not palindrome");  
+getch();  
+}  
+</textarea></div>
+<a href="https://www.javatpoint.com/palindrome-program-in-c">More details.</a>
+
+<hr/>
+<h3 class="h3">47) Write a program to print factorial of given number without using recursion?</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include<stdio.h>  
+#include<conio.h>  
+void main(){  
+  int i,fact=1,number;  
+  clrscr();  
+  printf("Enter a number: ");  
+  scanf("%d",&number);  
+  
+  for(i=1;i<=number;i++){  
+      fact=fact*i;  
+  }  
+  printf("Factorial of %d is: %d",number,fact);  
+  getch();  
+}  
+</textarea></div>
+<a href="https://www.javatpoint.com/factorial-program-in-c">More details.</a>
+
+<hr/>
+<h3 class="h3">48) Write a program to print factorial of given number using recursion?</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include&lt;stdio.h&gt;    
+#include&lt;conio.h&gt;    
+ long factorial(int n)    // function to calculate the factorial of a given number. 
+{    
+  if (n == 0)    
+    return 1;    
+else    
+return(n * factorial(n-1));    //calling the function recursively.
+}    
+ void main()    
+{    
+  int number;    //declaration of variables.
+  long fact;    
+ clrscr();    
+  printf("Enter a number: ");    
+scanf("%d", &number);     
+ fact = factorial(number);    //calling a function.
+printf("Factorial of %d is %ld\n", number, fact);    
+ getch();   //It reads a character from the keyword. 
+}
+</textarea></div>
+<a href="https://www.javatpoint.com/factorial-program-in-c">More details.</a>
+
+<hr/>
+<h3 class="h3">49) Write a program to check Armstrong number in C?</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include&lt;stdio.h&gt;    
+#include&lt;conio.h&gt;    
+main()    
+{    
+int n,r,sum=0,temp;    //declaration of variables.
+clrscr(); //It clears the screen.   
+printf("enter the number=");    
+scanf("%d",&n);    
+temp=n;    
+while(n&gt;0)    
+{    
+r=n%10;    
+sum=sum+(r*r*r);    
+n=n/10;    
+}    
+if(temp==sum)    
+printf("armstrong  number ");    
+else    
+printf("not armstrong number");    
+getch();  //It reads a character from the keyword.
+}  
+</textarea></div>
+<a href="https://www.javatpoint.com/armstrong-number-in-c">More details.</a>
+
+<hr/>
+<h3 class="h3">50) Write a program to reverse a given number in C?</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include&lt;stdio.h&gt;    
+#include&lt;conio.h&gt;    
+main()    
+{    
+int n, reverse=0, rem;    //declaration of variables.
+clrscr(); // It clears the screen.   
+printf("Enter a number: ");    
+scanf("%d", &n);    
+while(n!=0)    
+{    
+     rem=n%10;    
+     reverse=reverse*10+rem;    
+     n/=10;    
+}    
+printf("Reversed Number: %d",reverse);    
+getch();  // It reads a character from the keyword.  
+}    
+</textarea></div>
+<a href="https://www.javatpoint.com/c-program-to-reverse-number">More details.</a>
+
+<br/><br/>
+<div id="interviewcategory">
+<table class="alt">
+<tr><td><a href="https://www.javatpoint.com/corejava-interview-questions#corebasicsinterview">Java Interview Questions</a></td>
+<td><a href="https://www.javatpoint.com/cpp-interview-questions">C++ Interview Questions</a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/java-multithreading-interview-questions">Java Multithreading Questions</a></td>
+<td><a href="https://www.javatpoint.com/corejava-interview-questions-3">Java String &amp; Exception Questions</a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/java-collections-interview-questions">Java Collection Interview Questions</a></td>
+<td><a href="https://www.javatpoint.com/jdbc-interview-questions">JDBC Interview Questions</a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/servletinterview">Servlet Interview Questions</a></td>
+<td><a href="https://www.javatpoint.com/jspinterview">JSP Interview Questions</a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/spring-interview-questions"><span>Spring Interview Questions</span></a></td><td><a href="https://www.javatpoint.com/hibernate-interview-questions"><span>Hibernate Interview Questions</span></a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/pl-sql-interview-questions"><span>PL/SQL Interview Questions</span></a></td><td><a href="https://www.javatpoint.com/sql-interview-questions"><span>SQL Interview Questions</span></a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/oracle-interview-questions"><span>Oracle Interview Questions</span></a></td><td><a href="https://www.javatpoint.com/android-interview-questions"><span>Android Interview Questions</span></a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/sql-server-interview-questions"><span>SQL Server Interview Questions</span></a></td><td><a href="https://www.javatpoint.com/mysql-interview-questions"><span>MySQL Interview Questions</span></a></td></tr>
+
+</table>
+</div>
+
+</td></tr>
+</table>
+</div>
+<div style="margin-left:0%">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- AP_37780_300x250(0) -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4699858549023382"
+     data-ad-slot="5022809933"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</div>
+</div>
+
+<div id="right">
+
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+<br/><br/>
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+<br/><br/>
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:10px;">
+<!-- right1024only -->
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+<br/><br/><br/><br/>
+<!-- right1024only -->
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+
+<div id="footer" style="clear:both;width:100%">
+<!--<div style="width:100%;float:center;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#90715c,#523b1f);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Summer Training</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers <strong>Summer Internship Training</strong> on Java, PHP, .Net, Hadoop, Data Analytics, R Programming, SAP, Android, Python, Oracle, Seleninum, Linux, C++ and many more technologies in Delhi/NCR, India. For more visit <a style="color:white" href="https://training.javatpoint.com"><img src="https://static.javatpoint.com/images/linkglobe12.png" alt="javatpoint training"/>training.javatpoint.com</a> <br>Course Fee: &#8377; 6000 Only<br>Duration: 6 Week </p></div>--><div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com. <br>Duration: 1 week to 2 week<br></p></div><!--<div class="homebox2"><h2>Our Initiatives</h2><marquee behavior="alternate"><a rel="nofollow noopener" href="https://www.hindi100.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/javatpoint.png" alt="javatpoint"/><p>Hindi100</p></div></a><a rel="nofollow noopener" href="https://www.lyricsia.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/lyrics.png" alt="lyrics"/><p>Lyricsia</p></div></a></div></a></marquee></div>--><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed"/></a> <a target="_blank"  rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts"/></a> <a  rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page"/></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page"/></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube"/></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page"/></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="https://www.javatpoint.com/java-tutorial">Learn Java</a><a href="https://www.javatpoint.com/data-structure-tutorial">Learn Data Structures</a><a href="https://www.javatpoint.com/c-programming-language-tutorial">Learn C Programming</a><a href="https://www.javatpoint.com/cpp-tutorial">Learn C++ Tutorial</a><a href="https://www.javatpoint.com/c-sharp-tutorial">Learn C# Tutorial</a><a href="https://www.javatpoint.com/php-tutorial">Learn PHP Tutorial</a><a href="https://www.javatpoint.com/html-tutorial">Learn HTML Tutorial</a><a href="https://www.javatpoint.com/javascript-tutorial">Learn JavaScript Tutorial</a><a href="https://www.javatpoint.com/jquery-tutorial">Learn jQuery Tutorial</a><a href="https://www.javatpoint.com/spring-tutorial">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="https://www.javatpoint.com/">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="https://www.javatpoint.com/contact-us">Contact Us</a> <a href="https://www.javatpoint.com/subscribe.jsp">Subscribe Us</a> <a href="https://www.javatpoint.com/privacy-policy">Privacy Policy</a><a href="https://www.javatpoint.com/sitemap.xml">Sitemap</a><br><a href="https://www.javatpoint.com/sonoo-jaiswal">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+</div>
+
+</div></div>
+ 
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script>
+<script type="text/javascript"> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+
+</body> 
+
+<!-- Mirrored from www.javatpoint.com/c-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:22:28 GMT -->
+</html>
+    

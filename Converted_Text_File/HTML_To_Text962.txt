@@ -1,0 +1,54 @@
+Bash Write File - Javatpoint?HomeJavaCBashJavaScriptXMLAjaxSQLC++C#HTMLAndroidCloudDesign PatternQuizProjectsInterview QCommentForumBash TutorialBash Tutorial What is Bash History of Bash Features of Bash Bash Scripting Filesystem & File Permission Hello World! Bash Script Relative vs Absolute path Bash Comments Bash Quotes Bash Variables Read User Input Bash Date Format Bash SleepBash OperatorsBash Arithmetic OperatorsConditional StatementsBash If Statement Bash If Else Bash Else If Bash CaseBash LoopsBash For Loop Bash While Loop Bash Until LoopBash StringBash String Bash Find String Bash Split String Bash Substring Bash Concatenate StringBash FunctionBash FunctionsBash ArrayBash ArraysMiscellaneousBash Read File Bash Write File Check if file Exists Check if Variable is Set Bash Alias Git Bash Zsh vs Bash Bash Hash Commandnext ? ? prevBash Write to a FileWhen we run any command in a bash shell, it generally prints the output of that command to the terminal so that we can read it immediately. But bash also provides an option to 'redirect' the output of any bash command to a Log File. It can save the output into a text file so that we can review it later whenever it is needed.Method 1: Write Output to a File OnlyTo write the output of Bash commands to a file, we may use right angle bracket sign (>) or double right-angle sign (>>):Right Angle Bracket Sign (>)It is used to write the output of bash command to a disk file. If there is no file with the specified name, then it creates a new file with the same name. If the file is there with the specified name, then the content of the file will be overwritten.Double Right Angle Sign (>>)It is used to write the output of bash commands to a file, appending the output to the existing contents of the file. If the file is not present, it creates a new one with the specified name.Technically, both of these operators redirect "stdout (the standard output)" to a file.In a simple way, when we are writing the file for the first time and do not want previous data to be present in the file, we should use the right angle bracket sign (>). It will overwrite the content if it is already present in the file. And in the further script, we may use double right-angle sign (>>) to append the data to a file.ExampleThe 'ls' command is used to print all the files and folders present in the current directory. But when we run the 'ls' command with a right angle bracket sign (>), it will not print the list of files and folders to the screen. It will save the output to the file that we specify with it, i.e., as shown below:Bash Script#!/bin/bash
+#Script to write the output into a file
+
+#Create output file, override if already present
+output=output_file.txt
+
+#Write data to a file
+ls > $output
+
+#Checking the content of the file
+gedit output_file.txtOutputAs shown here, the output of 'ls' command is redirected into a file. To print the contents of a file to the terminal, we can use the 'cat' command in the following form:Bash Script#!/bin/bash
+#Script to write the output into a file
+
+#Create output file, override if already present
+output=output_file.txt
+
+#Write data to a file
+ls > $output
+
+#Printing the content of the file
+cat $outputOutputIf we want to redirect the output of multiple commands to a single file without deleting the available data, then we can use the >> operator. Suppose we want to append the system information to the specified file, we can do that in the following way:Bash Script#!/bin/bash
+#Script to write the output into a file
+
+#Create output file, override if already present
+output=output_file.txt
+
+#Write data to a file
+ls > $output
+
+#Appending the system information
+uname -a >> $output
+
+#Checking the content of the file
+gedit output_file.txtOutputHere, the result of the second command is appended to the end of the file.We can repeat this process several times to keep appending the output to the end of the file.Method 2: Print Output Normally and Write it to a FileSome people may not like writing output to a file using > or >> operators, as there will be no output of the command in the terminal. That is why the 'tee' command is used. The 'tee' command is used to print the input that it receives to the screen. It can save the output to a file at the same time.Bash Script#!/bin/bash
+#Script to write the output into a file
+
+#Create output file, override if already present
+output=output_file.txt
+
+#Write data to a file
+ls | tee $outputOutputThis will override the content of the file, just like the > operator but also print the output on the screen.If we want to write the output to a file without removing the contents of the file using tee command, we can use the following form which will also print the output to the terminal:Bash Script#!/bin/bash
+#Script to write the output into a file
+
+#Create output file, override if already present
+output=output_file.txt
+
+echo ">>" | tee -a $output
+#Write data to a file
+ls | tee $output
+
+echo | tee -a $output
+#Append System Information to the file
+echo ">>" | tee -a $output
+uname | tee -a $outputOutputThis will not only append the output to the end of the file but also print the output on the screen.Next TopicBash check if file Exists? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

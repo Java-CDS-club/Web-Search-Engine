@@ -1,0 +1,26 @@
+Ansible Command - javatpoint?HomeJavaAnsibleTableauVBAJenkinsSoftware TestingSeleniumControl SystemHTMLCSSJavaScriptjQueryQuizProjectsInterview QAnsible TutorialAnsible Tutorial Ansible Workflow Ansible Architecture Installation in Linux ad-hoc Commands Ansible Playbooks Ansible Tower Ansible Roles Ansible Variables Ansible Tags Ansible Galaxy Commands Cheat Sheets Ansible Modules Ansible Shell Ansible Templates Ansible YAML Ansible Inventory Ansible Debug Ansible Apt Ansible Lineinfile Ansible Copy Ansible Command Ansible File Ansible Vault Ansible Windows Ansible Yum Ansible AWX Ansible Unarchive Ansible Pip Ansible vs Chef Ansible vs PuppetInterview QuestionsAnsible Interviewnext ? ? prevAnsible CommandAnsible command module is used to run any commands or run any scripts in the remote target machine. Or used to execute commands on a remote node.The command module is used to run simple Linux commands on a remote node or server, which is a part of the host group or standalone server mentioned in the host group.Ansible Command Module and Shell ModuleThe shell module is used when we need to execute a command in remote servers, in the shell of your choice. By default, the commands are run on the /bin/sh shell. You can make use of the various operations such as '|', '', '>' etc. and environmental variables such as $HOME.The command module does not process the commands through a shell. So it does not support the above operations.You give the command you want to execute the same way you provide it on a UNIX shell, command name followed by the arguments.- name: Executing a command using the shell module 
+  shell: ls -lrt > temp.txtThe first command lists all the files in the current folders and writes that to the file, temp.txt.- name: Executing a command using the command module
+  command: hello.txtThe above example displays the content of the hello.txt file.Changing the Default DirectoryThe command will always execute in the default directory. You can change and specify the directory path where you want to run the command using the chdir parameter. This parameter is available for both command and shell module.You can also change the default shell by specifying the absolute path of the require shell in the executable parameter.- - hosts: loc
+  tasks:
+  - name: ansible command with chdir and executable parameters
+    command: ls -lrt
+    args:
+      chdir: /home/Ansible/command_chdir_example
+      executable: /bin/bashIn the above example, using the "Bourne Again Shell" by giving the obsolete the path /bin/bash. And changed the directory to /home/Ansible/command_chdir_example.Executing Multiple CommandsIf you need to run multiple commands, then you can give them to both shell and command modules using the "with_items".Example 1:- hosts: loc 
+  tasks: 
+  - name: Ansible command module multiple commands 
+    command: "touch {{ item }}"
+    with_items: 
+      - hello.txt 
+      - hello1.txt 
+      - hello2.txt 
+    args: chdir: /root/ansibleExample 2:- hosts: loc
+  tasks:
+  - name: Ansible shell module multiple commands
+    shell: "cat {{ item }} | grep ansible"
+    with_items:
+      - hello.txt
+      - hello1.txt
+      - hello2.txt
+    args:
+      chdir: /root/ansibleIn the above examples, we want to execute three files; hello.txt, hello1.txt, and hello2.txt. Since I give the {{item}} keyword in the command, it will be replaced with an element of the list in each iteration. Ensure that the level of indentation of "with_item" is on the same level as the module name.Next TopicAnsible File? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

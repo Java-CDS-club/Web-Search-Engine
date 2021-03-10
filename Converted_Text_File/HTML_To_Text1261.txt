@@ -1,0 +1,95 @@
+Java Char Keyword - Javatpoint?HomeJavaCC++C#ServletJSPEJBStruts2MailHibernateSpringAndroidDesign PQuizProjectsInterview QCommentForumTrainingJava TrainingJava TutorialWhat is Java History of Java Features of Java C++ vs Java Hello Java Program Program Internal How to set path? JDK, JRE and JVM JVM: Java Virtual Machine Java Variables Java Data Types Unicode System Operators Keywords Control StatementsJava If-else Java Switch Java For Loop Java While Loop Java Do While Loop Java Break Java Continue Java Comments Java Programs Java Object ClassJava OOPs Concepts Naming Convention Object and Class Constructor static keyword this keywordJava InheritanceInheritance(IS-A) Aggregation(HAS-A)Java PolymorphismMethod Overloading Method Overriding Covariant Return Type super keyword Instance Initializer block final keyword Runtime Polymorphism Dynamic Binding instanceof operatorJava AbstractionAbstract class Interface Abstract vs InterfaceJava EncapsulationPackage Access Modifiers EncapsulationJava ArrayJava ArrayJava OOPs MiscObject class Object Cloning Math class Wrapper Class Java Recursion Call By Value strictfp keyword javadoc tool Command Line Arg Object vs Class Overloading vs OverridingJava String Java Regex Exception Handling Java Inner classes Java Multithreading Java I/O Java Networking Java AWT & Events Java Swing JavaFX Java Applet Java Reflection Java Date Java Conversion Java Collection Java JDBC Java Misc Java New Features RMI Internationalization Interview Questions Java MCQnext ? ? prevJava char keywordThe Java char keyword is a primitive data type. It is used to declare the character-type variables and methods. It is capable of holding the unsigned 16-bit Unicode characters.Points to rememberThe char range lies between 0 to 65,535 (inclusive).Its default value is '\u0000'.Its default size is 2 byte.It is used to store characters.Why char uses 2 bytes in java?It is because Java uses Unicode system not ASCII code system.What is \u0000 ?The \u0000 is the lowest range of the Unicode system.Examples of Java char keywordExample 1Let's see a simple example of displaying characters.public class CharExample1 {
+
+	public static void main(String[] args) {
+
+		char char1='a';
+		char char2='A';
+		
+
+		System.out.println("char1: "+char1);
+		System.out.println("char2: "+char2);				
+	}		
+}Output:char1: a
+char2: AExample 2In this example, we provide integer value to char variable. Here, compiler implicitly typecast integer to char and display the corresponding ASCII value.public class CharExample2 {
+
+	public static void main(String[] args) {
+
+		char char1=65;
+		char char2=97;
+		
+		System.out.println("char1: "+char1);
+		System.out.println("char2: "+char2);
+
+	}
+}Output:char1: A
+char2: aExample 3In this example, we typecast the integer value to char explicitly.public class CharExample3 {
+
+	public static void main(String[] args) {
+
+		int num1=97;
+		char char1=(char)num1;
+		
+		int num2=65;
+        char char2=(char)num2;
+
+		System.out.println("char1: "+char1);
+		System.out.println("char2: "+char2);
+
+	}
+	
+}Output:char1: a
+char2: AExample 4Let's see an example to represent the char value in Unicode System.public class CharExample4 {
+
+	public static void main(String[] args) {
+		
+        char char1='\u0061';
+		char char2='\u0041';
+		
+
+		System.out.println("char1: "+char1);
+		System.out.println("char2: "+char2);
+
+			
+	}
+	
+}Output:char1: a
+char2: AExample 5In this example, we increment the provided char value by 1.public class CharExample5 {
+
+	public static void main(String[] args) {
+
+		char char1='A';
+	    char1=(char)(char1+1);
+		
+		System.out.println("char: "+char1);
+
+	}
+}Output:char: BExample 6Let's see an example to break the string in the form of characters.import java.util.Arrays;
+
+public class CharExample6 {
+
+	public static void main(String[] args) {
+
+		String str="javatpoint";
+		char[] ch=str.toCharArray();
+
+		System.out.println("String: "+str);
+		System.out.println("char: "+Arrays.toString(ch));
+
+	}
+	
+}Output:String: javatpoint
+char: [j, a, v, a, t, p, o, i, n, t]Example 7Let's see an example to invoke the method of the char return type.public class CharExample7 {
+
+	public static char display()
+	{
+		
+		return 'a';
+	}
+	
+	public static void main(String[] args) {
+
+		CharExample7 c=new CharExample7();
+		System.out.println(c.display());
+
+	}
+}Output:aNext TopicJava Keywords? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

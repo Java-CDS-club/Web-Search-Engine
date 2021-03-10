@@ -1,0 +1,157 @@
+Android Network Connectivity Services - javatpoint?HomeAndroidCore JavaServletJSPStruts2Mail APIHibernateSpringDesign PatternQuizProjectsInterview QCommentForumAndroid TrainingAndroid TutorialAndroid Introduction What is Android History and Version Android Architecture Core Building Blocks Android Emulator Install Android Setup Eclipse Hello Android example Internal Details Dalvik VM AndroidManifest.xml R.java Hide Title Bar Screen OrientationAndroid WidgetsUI Widgets Working with Button Toast Custom Toast ToggleButton CheckBox Custom CheckBox RadioButton Dynamic RadioButton Custom RadioButton AlertDialog Spinner AutoCompleteTextView ListView Custom ListView RatingBar WebView SeekBar DatePicker TimePicker Analog and Digital ProgressBar Vertical ScrollView Horizontal ScrollView ImageSwitcher ImageSlider ViewStub TabLayout TabLayout with FrameLayout SearchView SearchView on Toolbar EditText with TextWatcherActivity and IntentsActivity LifeCycle Implicit Intent Explicit Intent StartActivityForResult Share App DataAndroid FragmentsAndroid FragmentsAndroid MenuOption Menu Context Menu Popup MenuAndroid ServiceAndroid ServiceAndroid AlarmManagerAndroid AlarmManagerAndroid StorageAndroid Preferences Internal Storage External StorageAndroid SQLiteSQLite Tutorial SQLite SpinnerXML and JSONXML Parsing SAX XML Parsing DOM XMLPullParser JSON ParsingAndroid MultimediaMediaPlayer: Audio VideoView: Video Recording MediaAndroid SpeechTextToSpeech1 TextToSpeech2Android TelephonyTelephonyManager Get Call State Get Call State 2 Simple Caller Talker Phone Call Send SMS Send EmailAndroid DeviceBluetooth Tutorial List Paired Devices WIFICamera TutorialCamera TutorialSensor TutorialSensor TutorialAndroid GraphicsAndroid GraphicsAndroid AnimationAndroid AnimationAndroid Web ServiceAndroid Web ServiceGoogle MapAndroid Google Map Current Location Search LocationAdding AdsAndroid Google Admob 1) Banner Ads 2) Interstitial AdsAndroid ExamplesQR/Bar Code Scanner RSS Feed Reader Volley Fetch JSON Android Linkify Intro Slider RecyclerView List Swipe Del RecyclerView Swipe Refresh Activity Volley Library Registration Log-in Log-out Network Connectivity Services Firebase Authentication - Google Login Android Notification Using Google reCAPTCHAAndroid SocialIntegrating Google Sign-In Integrating LinkedIn Integrating TwitterAndroid MiscAndroid Device Manager Android Studio Android Auto Android File Transfer Android Messages Android Oreo Android TV Android Screenshot Android Versions Android Watch Android Pay Android Phones Android Tablets Android Find My Phone Android Marshmallow Android Nougat Android Pie Android One Android Antivirus Android Data Recovery Android Lollipop Android vs iPhone Android Wear OS Android x86 Emulator for PC Android 10 Android ad blocker Clear cache Android Root Android DeviceAndroid InterviewInterview QuestionsAndroid QuizAndroid Quiznext ? ? prevAndroid Network Connectivity ServicesAndroid network connectivity services allow us to check the network connectivity information of the device. It is very important to check the internet connection of the device while performing the task which is based on internet service such as fetching data from the server (internet) or writing data to the server.Using Android Network Connectivity Services we can also determine the types of a network of android device. It may be of types TYPE_WIFI (wifi), TYPE_MOBILE (mobile), TYPE_BLUETOOTH (Bluetooth), etc.Android Network Connectivity Service ExampleLet's create a simple example to check the network connectivity of the device as well as its type.To access the network connectivity of a device, we need to provide the network access permission in AndroidMenifest.xml file.<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />In the activity_main.xml file of layout add the following code. For accessing the network state of a device, there is no requirement of the layout file. Here, we are using the activity_main.xml file only for storing the state of network type.activity_main.xml<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="example.javatpoint.com.networkconnectivityservice.MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="networkstate"
+        android:text="Network state ?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.183" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Check Connection Type"
+        android:layout_marginTop="392dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>Create a java class named as NetworkState.java. This class contains a getConnectivityStatus() method which returns the constant integer value on the basis of current network connection.The code context.getSystemService(Context.CONNECTIVITY_SERVICE) is used to return the instance of the ConnectivityManager class which access the network properties.NetworkState.javapackage example.javatpoint.com.networkconnectivityservice;
+
+
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
+public class NetworkState {
+    public static int TYPE_NOT_CONNECTED = 0;
+    public static int TYPE_WIFI = 1;
+    public static int TYPE_MOBILE = 2;
+
+    public static int getConnectivityStatus(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        if (null != activeNetwork) {
+            if(activeNetwork.getType() == ConnectivityManager.TYPE_WIFI)
+                return TYPE_WIFI;
+
+            if(activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE)
+                return TYPE_MOBILE;
+        }
+        return TYPE_NOT_CONNECTED;
+    }
+
+    public static String getConnectivityStatusString(Context context) {
+        int conn = NetworkState.getConnectivityStatus(context);
+        String status = null;
+        if (conn == NetworkState.TYPE_WIFI) {
+            status = "Wifi enabled";
+        } else if (conn == NetworkState.TYPE_MOBILE) {
+            status = "Mobile data enabled";
+        } else if (conn == NetworkState.TYPE_NOT_CONNECTED) {
+            status = "Not connected to Internet";
+        }
+        return status;
+    }
+}Create a receiver class named as NetworkReceiver.java and extends the BroadcastReciever class. This class handles the changes occur in the network state of a device. The onReceive() method of BroadcastReciever class called when the network state of device changes.NetworkReceiver.javapackage example.javatpoint.com.networkconnectivityservice;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.widget.Toast;
+
+
+public class NetworkReceiver extends BroadcastReceiver {
+    static String  status =null;
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        status = NetworkState.getConnectivityStatusString(context);
+        Toast.makeText(context, status, Toast.LENGTH_LONG).show();
+        if(status == "Wifi enabled"){
+            //your code when wifi enable
+        }
+        else if(status=="Mobile data enabled"){
+            //your code when TYPE_MOBILE network enable
+        }
+        else if(status=="Not connected to Internet"){
+            //your code when no network connected
+        }
+    }
+}In the MainActivity.java class, we are displaying the network state of a device in TextView by clicking the Button.MainActivity.javapackage example.javatpoint.com.networkconnectivityservice;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button button;
+    TextView textView;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        button = findViewById(R.id.button);
+        textView = findViewById(R.id.textView);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NetworkReceiver receiver = new NetworkReceiver() ;
+                String networkStatus = receiver.status;
+                textView.setText("connection type: "+networkStatus);
+                Toast.makeText(getApplicationContext(), networkStatus, Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+}In the AndroidMenifest.xml file, add the network access permission and receiver class that handles the changes occur in BroadcastReceiver class.AndroidMenifest.xml<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="example.javatpoint.com.networkconnectivityservice">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <receiver
+            android:name=".NetworkReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>OutputNext Topic#? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

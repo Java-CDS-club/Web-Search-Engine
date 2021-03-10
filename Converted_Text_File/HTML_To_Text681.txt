@@ -1,0 +1,69 @@
+Authentication Filter in Servlet - javatpoint?HomeCore JavaServletJSPStruts2Mail APIHibernateSpringAndroidDesign PatternQuizProjectsInterview QCommentForumServlet TutorialWhat is Servlet Web Terminology Servlet API Servlet Interface GenericServlet HttpServlet Servlet Life Cycle Servlet Example How servlet works? War File welcome-file-list Load on startupServlet with IDEservlet in Eclipse servlet in Myeclipse servlet in NetbeansServletRequestServlet CollaborationRequestDispacher sendRedirectServletConfigServletContextAttribute in ServletServlet AdvanceSession TrackingSession Techniques 1) Cookies in Servlet Cookies: Login & Logout 2) Hidden Form Field 3) URL Rewriting 4) HttpSession Session: Login & LogoutEvent and ListenerServlet FilterWhat is Filter Authentication Filter FilterConfig Useful examplesServlet CRUDCRUD ExampleServlet PaginationPagination ExampleServlet MiscellaneousServletInputStream ServletOutputStream Annotation Servlet SingleThreadModel SSI DevelopmentRegistration Example Fetching records Improving Performance Uploading file Downloading file Servlet Sending Email Write data to PDF Login Example Writing ImageServlet QuizServlet Quiz(Part-1) Servlet Quiz(Part-2) Servlet Quiz(Part-3)Interview Questionsnext>> <<prevAuthentication FilterWe can perform authentication in filter. Here, we are going to check to password given by the user in filter class, if given password is admin, it will forward the request to the WelcomeAdmin servlet otherwise it will display error message.Example of authenticating user using filterLet's see the simple example of authenticating user using filter.Here, we have created 4 files:index.htmlMyFilter.javaAdminServlet.javaweb.xmlindex.html<form action="servlet1">
+Name:<input type="text" name="name"/><br/>
+Password:<input type="password" name="password"/><br/>
+
+<input type="submit" value="login">
+
+</form>MyFilter.javaimport java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.*;
+
+public class MyFilter implements Filter{
+
+public void init(FilterConfig arg0) throws ServletException {}
+	
+public void doFilter(ServletRequest req, ServletResponse resp,
+		FilterChain chain) throws IOException, ServletException {
+		
+	PrintWriter out=resp.getWriter();
+		
+	String password=req.getParameter("password");
+	if(password.equals("admin")){
+	chain.doFilter(req, resp);//sends request to next resource
+	}
+	else{
+	out.print("username or password error!");
+	RequestDispatcher rd=req.getRequestDispatcher("index.html");
+	rd.include(req, resp);
+	}
+		
+}
+	public void destroy() {}
+
+}AdminServlet.javaimport java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+
+public class AdminServlet extends HttpServlet {
+public void doGet(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException {
+
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		
+		out.print("welcome ADMIN");
+		out.close();
+	}
+}web.xml<web-app>
+ <servlet>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>AdminServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/servlet1</url-pattern>
+  </servlet-mapping>
+  
+ <filter>
+  <filter-name>f1</filter-name>
+  <filter-class>MyFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  <filter-name>f1</filter-name>
+  <url-pattern>/servlet1</url-pattern>
+  </filter-mapping>
+  
+</web-app>download this example (developed using Myeclipse IDE)download this example (developed using Eclipse IDE)download this example (developed using Netbeans IDE)Next TopicFilter Config<<prev next>>Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

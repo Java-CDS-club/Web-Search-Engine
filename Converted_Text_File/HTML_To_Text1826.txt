@@ -1,0 +1,90 @@
+C++ multiset size() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ multisetC++ multiset constructor destructor begin() end() operator= rbegin() rend() cbegin() cend() max_size() size() crbegin() crend() empty() insert() clear() emplace() erase() swap() emplace_hint() find() key_comp() value_comp() count() equal_range() lower_bound() upper_bound() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ multiset size()C++ Multiset size() function is used to find the number of elements present in the multiset container.SyntaxMember type size_type is an unsigned integral type.size_type size() const;               // until C++ 11
+size_type size() const noexcept;    //since C++ 11
+
+ParameterNoneReturn valueThe size() function returns the number of elements present in the multiset.ComplexityConstant.Iterator validityNo changes.Data RacesThe container is accessed.Concurrently accessing the elements of a multiset container is safe.Exception SafetyThis function never throws exception.Example 1Let's see the simple example to calculate the size of the multiset:#include <set>
+#include <iostream>
+
+using namespace std;
+ 
+int main()
+{ 
+    multiset<char> num {'a', 'b', 'c', 'd', 'a'}; 
+    cout << "num multiset contains " << num.size() << " elements.\n";
+    return 0;
+}Output:num multiset contains 5 elements.In the above example, multiset num contains 5 elements. Therefore size() returns 5 elements.Example 2Let's see a simple example to calculate initial size of multiset and size of multiset after adding elements:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+
+   multiset<int> m;
+
+   cout << "Initial size of multiset = " << m.size() << endl;
+
+   m = {1,2,3,4,5,4};
+
+     cout << "Size of multiset after inserting elements = " << m.size() << endl;
+
+   return 0;
+}Output:Initial size of multiset = 0
+Size of multiset after inserting elements = 6In the above example, first multiset is empty hence, size() function will return 0 and after inserting 6 elements it will return 6.Example 3Let's see a simple example:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  multiset<int> mymultiset = {100,200,300,400,200};
+
+  while (mymultiset.size())
+  {
+    cout << *mymultiset.begin()<< '\n';
+    mymultiset.erase(mymultiset.begin());
+  }
+
+  return 0;
+}Output:100
+200
+200
+300
+400In the above example, It simply uses the size() function in while loop and prints the elements of multiset until the size of multiset.Example 4Let's see a simple example:#include <iostream>
+#include <set>
+#include <string>
+
+using namespace std;
+
+int main() {
+
+  typedef multiset<int> marksMultiset;
+   
+   int number;
+   marksMultiset marks;
+
+   cout<<"Enter three sets of marks: \n";
+   
+   for(int i =0; i<3; i++)
+   {
+       cin>> number;    // Get value
+       marks.insert(number);   // Put them in multiset
+   }
+   
+      cout<<"\nSize of marks multiset is:"<< marks.size();
+      cout<<"\nList of Marks: \n";
+      marksMultiset::iterator p;
+      for(p = marks.begin(); p!=marks.end(); p++)
+      {
+          cout<<(*p)<<" \n ";
+      }
+    
+   return 0;
+}Output:Enter three sets of marks: 
+340
+235
+340
+
+Size of marks multiset is: 3
+List of Marks: 
+235 
+340 
+340In the above example, the program first creates marks multiset interactively. Then it displays the total size of marks multiset and all the elements available in the multiset.Next TopicC++ multiset? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

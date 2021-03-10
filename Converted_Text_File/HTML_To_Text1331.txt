@@ -1,0 +1,66 @@
+COBOL Data Layout - Javatpoint?HomeCCOBOLC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternProjectsInterview QCommentForumCOBOL TutorialCOBOL Tutorial COBOL Introduction COBOL Installation COBOL Program Structure COBOL Coding Sheet COBOL Divisions COBOL Data Types COBOL Verbs COBOL Data Layout Conditional Statements Loop Statements String Handling Array/Table Processing File Handling File Access Mode File Handling Verbs Internal Sort Database Interfacenext ? ? prevCOBOL - Data LayoutCOBOL Layout is a description of the usage of each field and its values. The data description entries in COBOL are as follows:Redefines EntriesRenames EntriesUsage ClauseCopybooksRedefines EntriesThe Redefines clause defines storage with various descriptions of data. If one or more data items are used at the same time, the same storage for other data items can be used.Syntax:level-number data-name1/FILLER REDEFINES data-name2Here, data-name1/FILLER is the REDEFINING date item. And data-name2 is REDEFINED data item.Any number of times, a REDEFINED data item can be redefined. But it is not possible to redefine the REDEFINING item.Example:01 A PIC X(10).
+01 B REDEFINES A PIC X(10).
+01 C REDEFINES A PIC X(09).Here, A is the Redefined item and B and C is Redefining item.The level numbers of redefined items and redefining items must be the same, and the level numbers cannot be 66 or 88. With a redefining object, we cannot use the VALUE clause.       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-DESCRIPTION.
+           05 WS-DATE1 VALUE 20191204.
+           10 WS-YEAR PIC X(4).
+           10 WS-MONTH PIC X(2).
+           10 WS-DATE PIC X(2).
+           05 WS-DATE2 REDEFINES WS-DATE1 PIC 9(8).
+
+       PROCEDURE DIVISION.
+           DISPLAY "WS-DATE1 : "WS-DATE1.
+           DISPLAY "WS-DATE2 : "WS-DATE2.
+
+       STOP RUN.Output:Renames ClauseThe Renames clause presents the existing data items with different names. It is used to reassemble the names of the data and to give them a new name. We may rename the new name of the data for elementary items or groups. The Renames clause is reserved at level 66.Syntax:66 data-name-1 RENAMES data-name-2
+	   [THROUGH/THRU data-name-3]Here, data-name-1 is the logical group's alternative name.Data-name-2 is a starting elementary item, and data-name-3 ends elementary data items in the basic group. The data-name-2 must be a group item if data-name-3 is not mentioned, and all elementary items under this RENAMED must be a data-name-1 item.There are some rules for RENAMES clause:RENAMES entries must be in sequential order.There is no PIC clause for the 66 level numbers.At the end of the group, RENAMES must be coded.Level-66 can't rename level-01, 77, 88, or another level-66 entry.The OCCURS clause should not be used to RENAMED elementary items.Example:01 WS-OLD.
+10 WS-A PIC 9(12).
+10 WS-B PIC X(20).
+10 WS-C PIC A(25).
+10 WS-D PIC X(12).
+66 WS-NEW RENAMES WS-A THRU WS-C.Let's see one example through the COBOL program:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-DESCRIPTION.
+           05 WS-NUM.
+           10 WS-NUM1 PIC 9(2) VALUE 20.
+           10 WS-NUM2 PIC 9(2) VALUE 56.
+           05 WS-CHAR.
+           10 WS-CHAR1 PIC X(2) VALUE 'AA'.
+           10 WS-CHAR2 PIC X(2) VALUE 'BB'.
+           66 WS-RENAME RENAMES WS-NUM2 THRU WS-CHAR2.
+
+       PROCEDURE DIVISION.
+           DISPLAY "WS-RENAME : " WS-RENAME.
+   
+       STOP RUN.Output:Usage ClauseThe usage clause is used to define the operating system where the data is stored in the file. With level numbers 66 or 88, we can use it. If the usage clause is mentioned in a group, the same usage clause will apply to all elementary items.The Usage clause decreases storage space, which implicitly increases the program's efficiency.The different options available with the usage clause are given below:DisplayThe Display clause is the default computation. The data item is stored in ASCII format in this clause and will take 1 byte for each character. The data is stored in the decimal form here. The display clause is applicable to all data types.The memory allocation for Display usage clause is given below:PictureNumber of Bytes91X1A1Means, 1 digit/char = 1 byteThe below example calculates the number of bytes required:01 WS-NUM PIC S9(5)V9(3) USAGE IS DISPLAY.
+It will require 8 bytes as sign and decimal doesn't require any byte.
+
+01 WS-NUM PIC 9(5) USAGE IS DISPLAY.
+It will require 5 bytes as a sign. COMP/COMPUTATIONWe can call the COMP usage clause as BINARY or COMPUTATION. The data item is stored in a binary format. Here, data items must be an integer.The memory allocation for the COMP Usage clause is given below:PictureNumber of BytesS9 TO S9 (4)2S9(5) to S9(9)4S9(9) to S9(18)8Example:01 WS-NUM PIC S9(n) USAGE IS COMP.
+
+If 'n' = 1 to 4, it will take 2 bytes.
+If 'n' = 5 to 9, it will take 4 bytes.
+If 'n' = 10 to 18, it will take 8 bytes.COMP-1/COMPUTATION-1The data item equivalent to Float or Real is represented as a single-precision floating-point number. Data is stored internally in a hexadecimal format. The PIC clause is not accepted by COMP-1. Here one word is equal to 4 bytes.The COMP-1 memory calculations are given below:PictureNumber of Bytes9(16)- 1 word4COMP-2/ COMPUTATION-2The data item is similar to long or double and is defined as a double-precision floating-point number. Data is stored internally in a hexadecimal format. COMP-2 does not define the PIC clause. Here 2 word is equal to 8 bytes.PictureNumber of Bytes9(32)- 2 word8COMP-3/ COMPUTATION-3In packed decimal format, the data item is stored. Every digit takes half a byte (1 nibble), and the sign is stored in the nibble at the right.PictureNumber of Bytes9½ ByteThe Formula to calculate the number of bytes required:01 WS-NUM PIC 9(n) USAGE IS COMP.
+Number of bytes = n/2 (If n is even)
+Number of bytes = n/2 + 1(If the value of n is odd, consider only integer part)
+
+01 WS-NUM PIC 9(4) USAGE IS COMP-3 VALUE 21.
+It will require 2 bytes of storage as each digit occupies half a byte.
+
+01 WS-NUM PIC 9(5) USAGE IS COMP-3 VALUE 21.
+It will require 3 bytes of storage as each digit occupies half a byte.CopybooksA COBOL copybook is a code selection specifying the structures of the data. If we use a specific data structure in many applications, we can use copybooks instead of writing the same data structure over and over again. To add a copybook to a program, we use the COPY statement. In the Working Storage Section, we can only use the COPY statement.The following example adds a copybook inside a COBOL program:DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY ABC.Here, ABC is the copybook name. The following data items in ABC copybook can be used within a program:       01 WS-DESCRIPTION.
+       05 WS-NUM.
+           10 WS-NUM1 PIC 9(2) VALUE 20.
+           10 WS-NUM2 PIC 9(2) VALUE 56.
+       05 WS-CHAR.
+           10 WS-CHAR1 PIC X(2) VALUE 'AA'.
+           10 WS-CHAR2 PIC X(2) VALUE 'BB'.Next TopicCOBOL Conditional Statements? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

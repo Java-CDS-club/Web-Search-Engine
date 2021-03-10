@@ -1,0 +1,92 @@
+COBOL Divisions - Javatpoint?HomeCCOBOLC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternProjectsInterview QCommentForumCOBOL TutorialCOBOL Tutorial COBOL Introduction COBOL Installation COBOL Program Structure COBOL Coding Sheet COBOL Divisions COBOL Data Types COBOL Verbs COBOL Data Layout Conditional Statements Loop Statements String Handling Array/Table Processing File Handling File Access Mode File Handling Verbs Internal Sort Database Interfacenext ? ? prevCOBOL - DivisionsA COBOL division is a block of code. It is a collection of sections, sentences, or a block of statements.The starting line of division is the division name, and the end line of division is the beginning of the next division or the end of the program.Divisions are System-defined words.All divisions should be in Area A.There are four divisions in COBOL:Identification DivisionEnvironment DivisionData DivisionProcedure DivisionIdentification DivisionThe Identification division is the beginning of the COBOL program, and this is the mandatory section in every COBOL program. This division is used by the compiler and programmer to identify the program.In this section, we can define the other optional details. Like Author name, Date of writing the code, date of last compiled code, and other security details as per your requirements.You must define the PROGRAM-ID (a keyword) immediately after the Identification division.Syntax:[Mandatory]      IDENTIFICATION DIVISION.
+[Mandatory]      PROGRAM-ID.  NameOfProgram.
+[Optional]         AUTHOR.  NameOfProgrammer.
+[Optional]         INSTALLATION.  DevelopmentCenter.
+[Optional]         DATE - WRITTEN.  mm/dd/yy.
+[Optional]         DATE-COMPILED.  mm/dd/yy. HH:MM:SS.
+[Optional]         SECURITY.  Program-type.Example:       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+       PROCEDURE DIVISION.
+            DISPLAY 'Welcome to JavaTpoint'.
+       STOP RUN.Output:When you compile and execute the above program, it will display the following output:Environment DivisionIn the Environment division section of the program, we can define the input and output files. This section is optional. This division is usually used to describe the system's environment in which the program will run.Syntax:ENVIRONMENT DIVISION.
+[Optional]         [CONFIGURATION SECTION.
+[Optional]         [SOURCE - COMPUTER.  {source - computer - entry}]
+[Optional]		[OBJECT - COMPUTER.   {object - computer - entry}]
+[Optional]		[SPECIAL - NAMES.        {special - names - entry}]]
+
+[Optional]          [INPUT - OUTPUT SECTION.  
+[Optional]          [FILE - CONTROL.           {file - control - entry}]
+[Optional]          [I-O - CONTROL.            {i-o - control - entry}]]It consists of two sections:1. Configuration SectionThe configuration section contains the information about your system on which your program is written and executed. This section must be specified in Area A.It consists of two paragraphs:Source Computer: This will contain information about the system in which your program is compiled.Object Computer: This will contain information about the system in which your program is executed.Syntax:[Optional]         [CONFIGURATION SECTION.
+[Optional]         [SOURCE - COMPUTER.  {source - computer - entry}]
+[Optional]		[OBJECT - COMPUTER.   {object - computer - entry}]
+[Optional]		[SPECIAL - NAMES.        {special - names - entry}]]Input-Output SectionThis Input-Output section contains information about all the files to be used in your COBOL program.File Control: This will show the external data set's information used in the program.I-O control: This will show the file's information used in the program.Syntax:[Optional]          [INPUT - OUTPUT SECTION.  
+[Optional]          [FILE - CONTROL.           {file - control - entry}]
+[Optional]          [I-O - CONTROL.            {i-o - control - entry}]]Example:Let's see one simple example for Environment section:       IDENTIFICATION DIVISION.
+       PROGRAM-ID. EXAMPLE.
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+           SOURCE-COMPUTER. XXX-370.
+           OBJECT-COMPUTER. XXX-140.
+           SPECIAL-NAMES.
+
+       INPUT-OUTPUT SECTION.
+           FILE-CONTROL.
+           SELECT FILEN ASSIGN TO DDNAME
+           ORGANIZATION IS SEQUENTIAL.
+           I-O-CONTROL.
+           DATA DIVISION.
+           PROCEDURE DIVISION.
+                DISPLAY 'ENVIRONMENT DIVISION WITH ALL ENTRIES..'
+                STOP RUN.Output:DATA DIVISIONData division contains information about the variables and data items used in the program. It defines the variable names, their lengths, decimal locations, and the information about the storage formats.File Section: The file section specifies the details of the records used in the file. It will show the whole record structure of the file.Syntax:DATA DIVISION.
+FILE SECTION.
+ FD/SD filename 
+	[RECORD CONTAINS integer CHARACTERS] 
+	[BLOCK CONTAINS integer RECORDS]
+	[DATA RECORD IS record-name].
+	[RECORDING MODE IS {F/V/U/S}]Working-Storage Section: This section specifies all the temporary variables and also the file structures that are used in the program.Syntax:DATA DIVISION.
+	WORKING-STORAGE SECTION.
+		[Working-storage fields declaration]Local-Storage Section: Local-storage section stores similar information as the working-storage section. The only difference is that in the case of the Local-Storage Section, the variables will be allocated and initialized every time a program starts execution.Linkage Section: This section describes all the data items received from an external program.Syntax:DATA DIVISION.
+LINKAGE SECTION
+	[linkage section data item]Example:Let's see one simple example for Data Division:IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+            01 EMP-NAME1 PIC A(20).
+            01 EMP-NAME2 PIC A(20).
+            01 EMP-NAME3 PIC A(20).
+            01 EMP-ID1 PIC 9(3) VALUE 001.
+            01 EMP-ID2 PIC 9(3) VALUE 002.
+            01 EMP-ID3 PIC 9(3) VALUE 003.
+            
+       PROCEDURE DIVISION.
+           A000-FIRST-PARA.
+              DISPLAY 'Welcome to JavaTpoint Employee List'.
+              MOVE 'Sonu Jaiswal' TO EMP-NAME1.
+              MOVE 'Deep Ghosh' TO EMP-NAME2.
+              MOVE 'Nikita Kesharwani' TO EMP-NAME3.
+                        
+              DISPLAY "1. Founder   : "EMP-NAME1.
+              DISPLAY "   Emp ID is : "EMP-ID1.
+              
+              DISPLAY "2. Developer : "EMP-NAME2.
+              DISPLAY "   Emp ID is : "EMP-ID2.
+              
+              DISPLAY "3. Developer : "EMP-NAME3.
+              DISPLAY "   Emp ID is : "EMP-ID3.
+              
+       STOP RUN.Output:Procedure DivisionThe procedure division is the main section of the COBOL program. Like the main() function of C/C++ program. From the procedure, division section program will actually start the execution.This section is the logical section of the program. Here all the business logic is written. Like C/C++ main() function, all COBOL programs must have a procedure division.The procedure division contains executable statements, and executable statements contain variables defined in the data division. We can use the user-defined names and paragraphs in the procedure division.We must specify at least one statement in this division. We cannot leave it empty.The procedure division ends with EXIT PROGRAM, which is used in the called programs or STOP RUN, which is used in the calling programs.The Procedure division begins in Area A.Syntax:PROCEDURE DIVISION [USING {data-name-1}?]Example:Let's see the example for Procedure Division:IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+            01 WS-NAME PIC A(20).
+            01 WS-ID PIC 9(5) VALUE 12345.
+
+       PROCEDURE DIVISION.
+           A000-FIRST-PARA.
+              DISPLAY '******** Welcome to JavaTpoint ********'.
+              MOVE 'Nikita Kesharwani' TO WS-NAME.
+              DISPLAY "My name is : "WS-NAME.
+              DISPLAY "My ID is : "WS-ID.
+       STOP RUN.Output:Next TopicCOBOL Data Types? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

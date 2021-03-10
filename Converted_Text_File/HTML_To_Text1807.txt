@@ -1,0 +1,105 @@
+C++ multiset end() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ multisetC++ multiset constructor destructor begin() end() operator= rbegin() rend() cbegin() cend() max_size() size() crbegin() crend() empty() insert() clear() emplace() erase() swap() emplace_hint() find() key_comp() value_comp() count() equal_range() lower_bound() upper_bound() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ multiset end()C++ multiset end() function is used to return an iterator which is next to the last entry in the multiset.Note:- This is a placeholder. No element exists in this location and attempting to access is undefined behavior.Syntax      iterator end();                            //until C++ 11
+
+const_iterator end() const;                //until C++ 11
+
+      iterator end() noexcept;              //since C++ 11
+
+const_iterator end() const noexcept;  //since C++ 11ParameterNoneReturn valueIt returns an iterator which is pointing next to the last element of the multiset.ComplexityConstant.Iterator validityNo changes.Data RacesConcurrently accessing the elements of a multiset is safe.The container is accessed neither the non-const nor the const versions modify the container.Exception SafetyThis member function never throws exception.Example 1Let's see the simple example for end() function:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  multiset<string> mymultiset = {"Java", "C++", "Java", "C++"};
+
+  // show content:
+  for (multiset<string>::iterator it=mymultiset.begin(); it!=mymultiset.end(); ++it)
+    cout << *it<< '\n';
+
+  return 0;
+}Output:C++
+C++
+Java
+JavaIn the above example, end() function is used to return an iterator pointing next to the last element in the mymultiset multiset.Example 2Let's see a simple example to iterate over the multiset using for-each loop:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main()
+{
+  multiset<int> c;
+  c.insert(5);
+  c.insert(2);
+  c.insert(1);
+  c.insert(1);
+  c.insert(0);
+  c.insert(0);
+  c.insert(2);
+
+  multiset<int>::iterator i = c.begin();
+  while (i != c.end())
+    cout << *i++ << " ";
+  cout << endl;
+}Output:0 0 1 1 2 2 5Example 3Let's see a simple example to iterate over the multiset using while loop:#include <iostream>
+#include <set>
+#include <string>
+
+int main()
+{
+    using namespace std;
+ 
+      multiset<string> mymultiset = { "Nikita","Deep","Deep","Sonu","Aman" };
+
+ cout<<"Elements of mymultiset are: "<<endl;
+    multiset<string>::const_iterator it; // declare an iterator
+
+    it = mymultiset.begin(); // assign it to the start of the multiset
+
+    while (it != mymultiset.end()) // while it hasn't reach the end
+    {
+cout << *it << "\n"; 
+
+// print the value of the element it points to
+
+++it; // and iterate to the next element
+    }
+ 
+    cout << endl;
+}Output:Elements of mymultiset are: 
+Aman
+Deep
+Deep
+Nikita
+SonuIn the above example, end() function is used to return an iterator pointing next to the last element in the mymultiset multiset.Example 4Let's see a simple example:#include <iostream>
+#include <string>
+#include <set>
+
+
+using namespace std;
+
+int main ()
+{
+    int val;
+    multiset<int> c = {10,20,10,20,40,50};
+ 
+    cout<<"Enter value to find: ";
+    cin>>val;
+
+    auto result = c.find(val);  
+    
+    //find until end of the multiset elements
+    if (result != c.end()) {  
+        cout << "Element found: "<< *result; 
+        cout << endl;  
+    } else {  
+        cout << "Element not found." << endl;  
+    }  
+    
+  return 0;
+}Output:Enter value to find: 60
+Element not found.
+
+
+Enter value to find: 20
+Element found: 20In the above example, end() function is used to return an iterator pointing next to the last element in the mymultiset multiset.Next TopicC++ multiset? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

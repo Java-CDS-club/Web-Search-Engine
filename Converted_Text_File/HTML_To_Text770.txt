@@ -1,0 +1,68 @@
+Automata Conversion from NFA with null to DFA - Javatpoint?HomeCompilerAutomataAWSIoTComputer FundamentalsControl SystemJavaHTMLCSSAptitudeSeleniumKotlinJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingAutomata TutorialAutomata Tutorial Theory of Automata Finite Automata Transition Diagram Transition Table DFA Examples of DFA NFA Examples of NFA Eliminating ? Transitions Conversion from NFA to DFA Conversion from NFA with ? to DFA Minimization of DFARegular ExpressionRegular Expression Examples of Regular Expression Conversion of RE to FA Arden's Theorem Moore Machine Mealy Machine Conversion from Mealy machine to Moore machine Conversion from Moore machine to Mealy machineCFGContext-free Grammar Derivation Derivation Tree Ambiguity in Grammar Unambiguous Grammar Simplification of CFG Chomsky's Normal Form (CNF) Greibach Normal Form (GNF)PDAPushdown Automata PDA Acceptance Non-deterministic Pushdown Automata CFG to PDA ConversionTuring MachineAutomata Turing Machine Basic Model of Turing machine Language accepted by Turing machine Example of TM Introduction to Undecidability Undecidable Problem about TM Post Correspondence Problem Chomsky Hierarchynext ? ? prevConversion from NFA with ? to DFANon-deterministic finite automata(NFA) is a finite automata where for some cases when a specific input is given to the current state, the machine goes to multiple states or more than 1 states. It can contain ? move. It can be represented as M = { Q, ?, ?, q0, F}.Where  Q: finite set of states
+  ?: finite set of the input symbol
+  q0: initial state 
+  F: final state
+  ?: Transition functionNFA with ? move: If any FA contains ? transaction or move, the finite automata is called NFA with ? move.?-closure: ?-closure for a given state A means a set of states which can be reached from the state A with only ?(null) move including the state A itself.Steps for converting NFA with ? to DFA:Step 1: We will take the ?-closure for the starting state of NFA as a starting state of DFA.Step 2: Find the states for each input symbol that can be traversed from the present. That means the union of transition value and their closures for each state of NFA present in the current state of DFA.Step 3: If we found a new state, take it as current state and repeat step 2.Step 4: Repeat Step 2 and Step 3 until there is no new state present in the transition table of DFA.Step 5: Mark the states of DFA as a final state which contains the final state of NFA.Example 1:Convert the NFA with ? into its equivalent DFA.Solution:Let us obtain ?-closure of each state.?-closure {q0} = {q0, q1, q2}
+?-closure {q1} = {q1}
+?-closure {q2} = {q2}
+?-closure {q3} = {q3}
+?-closure {q4} = {q4}Now, let ?-closure {q0} = {q0, q1, q2} be state A.Hence?'(A, 0) = ?-closure {?((q0, q1, q2), 0) }
+              = ?-closure {?(q0, 0) ? ?(q1, 0) ? ?(q2, 0) }
+              = ?-closure {q3}
+              = {q3}            call it as state B.
+
+?'(A, 1) = ?-closure {?((q0, q1, q2), 1) }
+              = ?-closure {?((q0, 1) ? ?(q1, 1) ? ?(q2, 1) }
+              = ?-closure {q3}
+              = {q3} = B.The partial DFA will beNow,?'(B, 0) = ?-closure {?(q3, 0) }
+              = ?
+?'(B, 1) = ?-closure {?(q3, 1) }
+              = ?-closure {q4}
+              = {q4}            i.e. state C
+For state C:?'(C, 0) = ?-closure {?(q4, 0) }
+              = ?
+?'(C, 1) = ?-closure {?(q4, 1) }
+              = ?The DFA will be,Example 2:Convert the given NFA into its equivalent DFA.Solution: Let us obtain the ?-closure of each state.?-closure(q0) = {q0, q1, q2}
+?-closure(q1) = {q1, q2}
+?-closure(q2) = {q2}Now we will obtain ?' transition. Let ?-closure(q0) = {q0, q1, q2} call it as state A.?'(A, 0) = ?-closure{?((q0, q1, q2), 0)}
+              = ?-closure{?(q0, 0) ? ?(q1, 0) ? ?(q2, 0)}
+              = ?-closure{q0}
+              = {q0, q1, q2}
+
+?'(A, 1) = ?-closure{?((q0, q1, q2), 1)}
+              = ?-closure{?(q0, 1) ? ?(q1, 1) ? ?(q2, 1)}
+              = ?-closure{q1}
+              = {q1, q2}         call it as state B
+
+?'(A, 2) = ?-closure{?((q0, q1, q2), 2)}
+              = ?-closure{?(q0, 2) ? ?(q1, 2) ? ?(q2, 2)}
+              = ?-closure{q2} 
+              = {q2}         call it state C
+Thus we have obtained?'(A, 0) = A
+?'(A, 1) = B
+?'(A, 2) = CThe partial DFA will be:Now we will find the transitions on states B and C for each input.Hence?'(B, 0) = ?-closure{?((q1, q2), 0)}
+              = ?-closure{?(q1, 0) ? ?(q2, 0)}
+              = ?-closure{?}
+              = ?
+
+?'(B, 1) = ?-closure{?((q1, q2), 1)}
+              = ?-closure{?(q1, 1) ? ?(q2, 1)}
+              = ?-closure{q1}
+              = {q1, q2}         i.e. state B itself
+
+?'(B, 2) = ?-closure{?((q1, q2), 2)}
+              = ?-closure{?(q1, 2) ? ?(q2, 2)}
+              = ?-closure{q2}
+              = {q2}         i.e. state C itself
+Thus we have obtained?'(B, 0) = ?
+?'(B, 1) = B
+?'(B, 2) = CThe partial transition diagram will beNow we will obtain transitions for C:?'(C, 0) = ?-closure{?(q2, 0)}
+              = ?-closure{?}
+              = ?
+
+?'(C, 1) = ?-closure{?(q2, 1)}
+              = ?-closure{?}
+              = ?
+
+?'(C, 2) = ?-closure{?(q2, 2)}
+              = {q2}Hence the DFA isAs A = {q0, q1, q2} in which final state q2 lies hence A is final state. B = {q1, q2} in which the state q2 lies hence B is also final state. C = {q2}, the state q2 lies hence C is also a final state.Next TopicMinimization of DFA? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

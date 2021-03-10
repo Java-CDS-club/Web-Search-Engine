@@ -1,0 +1,61 @@
+C++ Output Iterator - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ Output IteratorOutput Iterator is an iterator used to modify the value in the container.Dereferencing an output iterator allows us to alter the value of the container.It does not allow us to read the value from the container.It is a one-way and write-only iterator.It can be incremented, but cannot be decremented.Operators that can be used for an output iterator are increment operator(++), decrement operator(--) and assignment operator(=).There are two main subclasses of an Output Iterator are:insert iteratorostream iteratorInsert IteratorAn insert iterator is an iterator used to insert the element in a specified position.An assignment operator on the insert_iterator inserts the new element at the current position.Syntaxtemplate<class Container, class Iterator>
+insert_iterator<container> inserter(Container &x,Iterator it);Parametersx: It is the container on which the new element is to be inserted.it: It is an iterator object pointing to the position which is to be modified.Let's see a simple example:#include <iostream>     // std::cout
+#include <iterator>     // std::front_inserter
+#include <vector>         // std::list
+#include <algorithm>    // std::copy
+using namespace std;
+int main () {
+  vector<int> v1,v2;
+  for (int i=1; i<=5; i++)
+  { 
+  v1.push_back(i); 
+  v2.push_back(i+2);
+  }
+ vector<int>::iterator it = v1.begin();
+  advance (it,3);
+ copy (v2.begin(),v2.end(),inserter(v1,it));
+  cout<<"Elements of v1 are :";
+  for (  it = v1.begin(); it!= v1.end(); ++it )
+  cout << ' ' << *it;
+  cout << '\n';
+  return 0;
+}Output:Elements of v1 are : 1 2 3 3 4 5 6 7 4 5In the above example, insert_iterator is applied on the copy algorithm to insert the elements of the vector v2 into the vector v1 at a specified position pointed by it.Ostream iteratorAn ostream iterators are the output iterators used to write to the output stream such as cout successively.An ostream iterator is created using a basic_ostream object.When an assigenment operator is used on the ostream iterator, it inserts a new element into the output stream.Syntaxtemplate<class T, class charT=char, class traits=char_traits<charT>>
+class ostream_iterator;Member functions of Ostream Iterator classOstream_iterator<T, charT, traits>& operator=(const T& value);
+Ostream_iterator<T, charT, traits>& operator*();
+Ostream_iterator<T, charT, traits>& operator++();
+Ostream_iterator<T, charT, traits>& operator++(int);ParametersT: It is the type of elements to be inserted into the container.charT: The type of elements that ostream can handle, for example, char ostream.traits: These are the character traits that the stream handles for the elements.Let's see a simple example:#include <iostream>
+#include<iterator>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int main()
+{
+   vector<int> v;
+   for(int i=1;i<=5;i++)
+   {
+       v.push_back(i*10);
+   }
+ ostream_iterator<int> out(cout,",");
+ copy(v.begin(),v.end(),out);
+    return 0;
+}Output:10,20,30,40,50In the above example, out is an object of the ostream_iterator used to add the delimiter ',' between the vector elements.Let's see another simple example of ostream iterator:#include <iostream>
+#include<iterator>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int main()
+{
+   ostream_iterator<int> out(cout,",");
+   *out = 5;
+   out++;
+   *out = 10;
+   out++;
+   *out = 15;
+   return 0;
+}Output:5,10,15,Features Of Output IteratorEquality/Inequality Operator: Output iterators cannot be compared either by using equality or inequality operator. Suppose X and Y are the two iterators:X==Y;  invalid
+X!=Y;   invalidDereferencing: An output iterator can be dereferenced as an lvalue.*X=7;Incrementable: An output iterator can be incremented by using operator++() function.X++;
+++X;Limitations Of Output IteratorAssigning but no accessing: We can assign an output iterator as an lvalue, but we cannot access them as an rvalue.Suppose 'A' is an output iterator type and 'x' is a integer variable:*A = x;                   // valid
+  x = *A;                 // invalidIt cannot be decremented: We can increment the output iterator by using operator++() function, but we cannot decrement the output iterator.Suppose 'A' is an output iterator type:A++;            // not valid
+++A;            // not validMulti-pass algorithm: An output iterator cannot be used as a multi-pass algorithm. Since an output iterator is unidirectional and can move only forward. Therefore, it cannot be used to move through the container multiple timesRelational Operators: An output iterator cannot be compared by using any of the relational operators.Suppose 'A' and 'B' are the two iterators:A = =B;        // not valid
+A = =B;        // not validArithmetic Operators: An output iterator cannot be used with the arithmetic operators. Therefore, we can say that the output iterator only moves forward in a sequential manner.Suppose 'A' is an output iterator:A + 2;               // invalid
+A + 5;               // invalid   Next Topic? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,91 @@
+Cookies in Servlet - javatpoint?HomeCore JavaServletJSPStruts2Mail APIHibernateSpringAndroidDesign PatternQuizProjectsInterview QCommentForumServlet TutorialWhat is Servlet Web Terminology Servlet API Servlet Interface GenericServlet HttpServlet Servlet Life Cycle Servlet Example How servlet works? War File welcome-file-list Load on startupServlet with IDEservlet in Eclipse servlet in Myeclipse servlet in NetbeansServletRequestServlet CollaborationRequestDispacher sendRedirectServletConfigServletContextAttribute in ServletServlet AdvanceSession TrackingSession Techniques 1) Cookies in Servlet Cookies: Login & Logout 2) Hidden Form Field 3) URL Rewriting 4) HttpSession Session: Login & LogoutEvent and ListenerServlet FilterWhat is Filter Authentication Filter FilterConfig Useful examplesServlet CRUDCRUD ExampleServlet PaginationPagination ExampleServlet MiscellaneousServletInputStream ServletOutputStream Annotation Servlet SingleThreadModel SSI DevelopmentRegistration Example Fetching records Improving Performance Uploading file Downloading file Servlet Sending Email Write data to PDF Login Example Writing ImageServlet QuizServlet Quiz(Part-1) Servlet Quiz(Part-2) Servlet Quiz(Part-3)Interview Questionsnext ? ? prevCookies in ServletA cookie is a small piece of information that is persisted between the multiple client requests.A cookie has a name, a single value, and optional attributes such as a comment, path and domain qualifiers, a maximum age, and a version number.How Cookie worksBy default, each request is considered as a new request. In cookies technique, we add cookie with response from the servlet. So cookie is stored in the cache of the browser. After that if request is sent by the user, cookie is added with request by default. Thus, we recognize the user as the old user.Types of CookieThere are 2 types of cookies in servlets.Non-persistent cookiePersistent cookieNon-persistent cookieIt is valid for single session only. It is removed each time when user closes the browser.Persistent cookieIt is valid for multiple session . It is not removed each time when user closes the browser. It is removed only if user logout or signout.Advantage of CookiesSimplest technique of maintaining the state.Cookies are maintained at client side.Disadvantage of CookiesIt will not work if cookie is disabled from the browser.Only textual information can be set in Cookie object.Note: Gmail uses cookie technique for login. If you disable the cookie, gmail won't work.Cookie classjavax.servlet.http.Cookie class provides the functionality of using cookies. It provides a lot of useful methods for cookies.Constructor of Cookie classConstructorDescriptionCookie()constructs a cookie.Cookie(String name, String value)constructs a cookie with a specified name and value.Useful Methods of Cookie classThere are given some commonly used methods of the Cookie class.MethodDescriptionpublic void setMaxAge(int expiry)Sets the maximum age of the cookie in seconds.public String getName()Returns the name of the cookie. The name cannot be changed after creation.public String getValue()Returns the value of the cookie.public void setName(String name)changes the name of the cookie.public void setValue(String value)changes the value of the cookie.Other methods required for using CookiesFor adding cookie or getting the value from the cookie, we need some methods provided by other interfaces. They are:public void addCookie(Cookie ck):method of HttpServletResponse interface is used to add cookie in response object.public Cookie[] getCookies():method of HttpServletRequest interface is used to return all the cookies from the browser.How to create Cookie?Let's see the simple code to create cookie.	Cookie ck=new Cookie("user","sonoo jaiswal");//creating cookie object
+	response.addCookie(ck);//adding cookie in the responseHow to delete Cookie?Let's see the simple code to delete cookie. It is mainly used to logout or signout the user.        Cookie ck=new Cookie("user","");//deleting value of cookie
+        ck.setMaxAge(0);//changing the maximum age to 0 seconds
+        response.addCookie(ck);//adding cookie in the responseHow to get Cookies?Let's see the simple code to get all the cookies.        Cookie ck[]=request.getCookies();
+        for(int i=0;i<ck.length;i++){
+         out.print("<br>"+ck[i].getName()+" "+ck[i].getValue());//printing name and value of cookie
+        }Simple example of Servlet CookiesIn this example, we are storing the name of the user in the cookie object and accessing it in another servlet. As we know well that session corresponds to the particular user. So if you access it from too many browsers with different values, you will get the different value.index.html
+<form action="servlet1" method="post">
+Name:<input type="text" name="userName"/><br/>
+<input type="submit" value="go"/>
+</form>
+
+FirstServlet.java
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+
+public class FirstServlet extends HttpServlet {
+
+  public void doPost(HttpServletRequest request, HttpServletResponse response){
+	try{
+
+	response.setContentType("text/html");
+	PrintWriter out = response.getWriter();
+		
+	String n=request.getParameter("userName");
+	out.print("Welcome "+n);
+
+	Cookie ck=new Cookie("uname",n);//creating cookie object
+	response.addCookie(ck);//adding cookie in the response
+
+	//creating submit button
+	out.print("<form action='servlet2'>");
+	out.print("<input type='submit' value='go'>");
+	out.print("</form>");
+		
+	out.close();
+
+        }catch(Exception e){System.out.println(e);}
+  }
+}
+
+SecondServlet.java
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class SecondServlet extends HttpServlet {
+
+public void doPost(HttpServletRequest request, HttpServletResponse response){
+	try{
+
+	response.setContentType("text/html");
+	PrintWriter out = response.getWriter();
+	
+	Cookie ck[]=request.getCookies();
+	out.print("Hello "+ck[0].getValue());
+
+	out.close();
+
+         }catch(Exception e){System.out.println(e);}
+	}
+	
+
+}web.xml
+<web-app>
+
+<servlet>
+<servlet-name>s1</servlet-name>
+<servlet-class>FirstServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>s1</servlet-name>
+<url-pattern>/servlet1</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>s2</servlet-name>
+<servlet-class>SecondServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>s2</servlet-name>
+<url-pattern>/servlet2</url-pattern>
+</servlet-mapping>
+
+</web-app>
+
+download this example (developed using Myeclipse IDE)download this example (developed using Eclipse IDE)download this example (developed using Netbeans IDE)OutputNext Topicservlet login and logout example using cookies (Real Login App)? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

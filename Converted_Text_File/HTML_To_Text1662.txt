@@ -1,0 +1,130 @@
+C++ algorithm partition_point() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm partition_point()C++ Algorithm partition_point() function is used to return the first element in the given range for which pred is not true. The elements are sorted in a way that the elements which satisfy the condition come before those who do not satisfy.Syntaxtemplate <class ForwardIterator, class UnaryPredicate>
+ForwardIterator partition_point (ForwardIterator first, ForwardIterator last,
+                                   UnaryPredicate pred);Parameterfirst: An forward iterator pointing to the first element in the range to check for a condition.last: A forward iterator pointing to the past last element of the range.pred: A user defined unary predicate function that defines the condition to be tested.Return valueThis function returns a forward iterator to point to the first element that does not fulfill the condition tested by pred or returns last if one is not found.ComplexityComplexity is logarithmic in the range [first, last).Data racesSome of the object in the range [first, last) are accessed.ExceptionsThis function throws an exception if either an element's comparison or an operation on iterator throws an exception.Note: The invalid parameters cause an undefined behavior.Example 1Let's see the simple example to demonstrate the use of partition_point():#include <algorithm>
+#include <array>
+#include <iostream>
+#include <iterator>
+
+using namespace std;
+ 
+int main()
+{
+    array<int, 9> v = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+ 
+    auto is_even = [](int i)
+        { return i % 2 == 0; };
+    partition(v.begin(), v.end(), is_even);
+ 
+    auto p = std::partition_point(v.begin(), v.end(), is_even);
+ 
+    cout << "Before partition:\n    ";
+    copy(v.begin(), p, ostream_iterator<int>(cout, " "));
+    cout << "\nAfter partition:\n    ";
+    copy(p, v.end(), ostream_iterator<int>(cout, " "));
+    
+    return 0;
+}Output:Before partition:
+    8 2 6 4 
+After partition:
+    5 3 7 1 9Example 2Let's see another simple example:#include <iostream>     // std::cout
+#include <algorithm>    // std::partition, std::partition_point
+#include <vector>       // std::vector
+
+using namespace std;
+
+bool IsOdd (int i) { return (i%2)==1; }
+
+int main () {
+  vector<int> foo {1,2,3,4,5,6,7,8,9};
+  vector<int> odd;
+
+  partition (foo.begin(),foo.end(),IsOdd);
+
+  auto it = partition_point(foo.begin(),foo.end(),IsOdd);
+  odd.assign (foo.begin(),it);
+
+  // print contents of odd:
+  cout << "odd:";
+  for (int& x:odd) cout << ' ' << x;
+  cout << '\n';
+
+  return 0;
+}Output:odd: 1 9 3 7 5Example 3Let's see another simple example:#include<iostream> 
+#include<algorithm> // for partition algorithm 
+#include<vector> // for vector 
+using namespace std; 
+int main() 
+{ 
+    // Initializing vector 
+    vector<int> vect = { 2, 1, 5, 6, 8, 7 }; 
+      
+    // partitioning vector using stable_partition() 
+    // in sorted order 
+    stable_partition(vect.begin(), vect.end(), [](int x) 
+    { 
+        return x%2 == 0;         
+    }); 
+      
+    // Displaying partitioned Vector 
+    cout << "The partitioned vector is : "; 
+    for (int &x : vect) cout << x << " "; 
+    cout << endl; 
+      
+    // Declaring iterator 
+    vector<int>::iterator it1; 
+      
+    // using partition_point() to get ending position of partition 
+    auto it = partition_point(vect.begin(), vect.end(), [](int x) 
+    { 
+        return x%2==0; 
+    }); 
+      
+    // Displaying partitioned Vector 
+    cout << "The vector elements returning true for condition are : "; 
+    for ( it1= vect.begin(); it1!=it; it1++) 
+    cout << *it1 << " "; 
+    cout << endl; 
+      
+    return 0; 
+      
+} Output:The partitioned vector is : 2 6 8 1 5 7 
+The vector elements returning true for condition are : 2 6 8 Example 4Let's see another simple example:#include <iostream> // std::cout 
+#include <algorithm> // std::partition, std::partition_point 
+#include <vector> // std::vector 
+
+using namespace std;
+  
+bool IsNegative(int i) { return (i < 0); } 
+  
+int main() 
+{ 
+    vector<int> data{ 1, -1, 3, -4, 5, 2, -2, 4, -5, -3 }; 
+    vector<int> negative, positive; 
+  
+    // partition data on the basis of odd elements using  
+    // pred IsNegative() 
+    stable_partition(data.begin(), data.end(), IsNegative); 
+  
+    // gets the partition point based on odd elements 
+    auto it = partition_point(data.begin(), data.end(),  IsNegative); 
+  
+    // assign elements to odd from beginning till 
+    // partition point. 
+    negative.assign(data.begin(), it); 
+    positive.assign(it, data.end()); 
+  
+    // print contents of odd: 
+    cout << "Negative: "; 
+    for (int& x : negative) 
+        cout << ' ' << x; 
+    cout << '\n'; 
+  
+    // print contents of even: 
+    cout << "Positive: "; 
+    for (int& x : positive) 
+        cout << ' ' << x; 
+    cout << '\n'; 
+  
+    return 0; 
+}Output:Negative:  -1 -4 -2 -5 -3
+Positive:  1 3 5 2 4Next TopicC++ Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

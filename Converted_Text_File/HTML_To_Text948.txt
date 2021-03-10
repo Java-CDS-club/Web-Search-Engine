@@ -1,0 +1,55 @@
+Bash If Else Statement - Javatpoint?HomeJavaCBashJavaScriptXMLAjaxSQLC++C#HTMLAndroidCloudDesign PatternQuizProjectsInterview QCommentForumBash TutorialBash Tutorial What is Bash History of Bash Features of Bash Bash Scripting Filesystem & File Permission Hello World! Bash Script Relative vs Absolute path Bash Comments Bash Quotes Bash Variables Read User Input Bash Date Format Bash SleepBash OperatorsBash Arithmetic OperatorsConditional StatementsBash If Statement Bash If Else Bash Else If Bash CaseBash LoopsBash For Loop Bash While Loop Bash Until LoopBash StringBash String Bash Find String Bash Split String Bash Substring Bash Concatenate StringBash FunctionBash FunctionsBash ArrayBash ArraysMiscellaneousBash Read File Bash Write File Check if file Exists Check if Variable is Set Bash Alias Git Bash Zsh vs Bash Bash Hash Commandnext ? ? prevBash If ElseIn this topic, we will understand how to use if-else statements in Bash scripts to get our automated tasks completed.Bash if-else statements are used to perform conditional tasks in the sequential flow of execution of statements. Sometimes, we want to process a specific set of statements if a condition is true, and another set of statements if it is false. To perform such type of actions, we can apply the if-else mechanism. We can apply the condition with the 'if statement'.Bash If Else SyntaxA syntax of if-else statement in Bash Shell Scripting can be defined as below:if [ condition ];
+then
+   <if block commands>
+else
+  <else block commands>
+fiImportant Points to RememberWe can use a set of one or more conditions joined using conditional operators.Else block commands includes a set of actions to perform when the condition is false.The semi-colon (;) after the conditional expression is a must.Check out the following examples demonstrating the use of the if-else statement in Bash Script:Example 1Following example consists of two different scenarios where in the first if-else statement, the condition is true, and in the second if-else statement, the condition is false.#!/bin/bash
+
+#when the condition is true
+if [ 10 -gt 3 ];
+then
+  echo "10 is greater than 3."
+else
+  echo "10 is not greater than 3."
+fi
+
+#when the condition is false
+if [ 3 -gt 10 ];
+then
+  echo "3 is greater than 10."
+else
+  echo "3 is not greater than 10."
+fiOutputIn the first if-else expression, the condition ( 10 -gt 3 ) is true and so the statement in the if block is executed. Whereas in the other if-else expression, the condition ( 3 -gt 10 ) is false and so the statement in the else block is executed.Example 2In this example, we explained how to use multiple conditions with the if-else statement in Bash. We use bash logical operators to join multiple conditions.#!/bin/bash
+
+# When condition is true
+# TRUE && FALSE || FALSE || TRUE
+if [[ 10 -gt 9 && 10 == 9 || 2 -lt 1 || 25 -gt 20 ]];
+then
+  echo "Given condition is true."
+else
+  echo "Given condition is false."
+fi
+
+# When condition is false
+#TRUE && FALSE || FALSE || TRUE
+if [[ 10 -gt 9 && 10 == 8 || 3 -gt 4 || 8 -gt 8 ]];
+then
+  echo "Given condition is true."
+else
+  echo "Given condition is not true."
+fiOutputBash If Else Statement in a Single LineWe can write complete 'if-else statement' along with the commands in a single line. You need to follow the given rules to use if-else statement in a single line:Use a semi-colon (;) at the end of statements in if and else blocks.Use spaces as a delimiter to append all the statements.An example is given below demonstrating how to use if-else statement in a single line:Example#!/bin/bash
+
+read -p "Enter a value:" value
+if [ $value -gt 9 ]; then echo "The value you typed is greater than 9."; else echo "The value you typed is not greater than 9."; fiOutputWhen we enter a value as 25, then the output will look like:Bash Nested If ElseJust like nested if statement, the if-else statement can also be used inside another if-else statement. It is called nested if-else in Bash scripting.Following is an example explaining how to make use of the nested if-else statement in Bash:Example#!/bin/bash
+
+read -p "Enter a value:" value
+if [ $value -gt 9 ];
+then
+  if [ $value -lt 11 ];
+  then
+     echo "$value>9, $value11"
+  else
+    echo "The value you typed is greater than 9."
+  fi
+else echo "The value you typed is not greater than 9."
+fiOutputIf we enter 10 as value, then the output will look like this:ConclusionIn this topic, we have learned about the syntax and usage of Bash if-else statement with the examples.Next TopicBash Else If? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

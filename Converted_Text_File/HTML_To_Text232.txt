@@ -1,0 +1,114 @@
+Android Service Tutorial - javatpoint?HomeAndroidCore JavaServletJSPStruts2Mail APIHibernateSpringDesign PatternQuizProjectsInterview QCommentForumAndroid TrainingAndroid TutorialAndroid Introduction What is Android History and Version Android Architecture Core Building Blocks Android Emulator Install Android Setup Eclipse Hello Android example Internal Details Dalvik VM AndroidManifest.xml R.java Hide Title Bar Screen OrientationAndroid WidgetsUI Widgets Working with Button Toast Custom Toast ToggleButton CheckBox Custom CheckBox RadioButton Dynamic RadioButton Custom RadioButton AlertDialog Spinner AutoCompleteTextView ListView Custom ListView RatingBar WebView SeekBar DatePicker TimePicker Analog and Digital ProgressBar Vertical ScrollView Horizontal ScrollView ImageSwitcher ImageSlider ViewStub TabLayout TabLayout with FrameLayout SearchView SearchView on Toolbar EditText with TextWatcherActivity and IntentsActivity LifeCycle Implicit Intent Explicit Intent StartActivityForResult Share App DataAndroid FragmentsAndroid FragmentsAndroid MenuOption Menu Context Menu Popup MenuAndroid ServiceAndroid ServiceAndroid AlarmManagerAndroid AlarmManagerAndroid StorageAndroid Preferences Internal Storage External StorageAndroid SQLiteSQLite Tutorial SQLite SpinnerXML and JSONXML Parsing SAX XML Parsing DOM XMLPullParser JSON ParsingAndroid MultimediaMediaPlayer: Audio VideoView: Video Recording MediaAndroid SpeechTextToSpeech1 TextToSpeech2Android TelephonyTelephonyManager Get Call State Get Call State 2 Simple Caller Talker Phone Call Send SMS Send EmailAndroid DeviceBluetooth Tutorial List Paired Devices WIFICamera TutorialCamera TutorialSensor TutorialSensor TutorialAndroid GraphicsAndroid GraphicsAndroid AnimationAndroid AnimationAndroid Web ServiceAndroid Web ServiceGoogle MapAndroid Google Map Current Location Search LocationAdding AdsAndroid Google Admob 1) Banner Ads 2) Interstitial AdsAndroid ExamplesQR/Bar Code Scanner RSS Feed Reader Volley Fetch JSON Android Linkify Intro Slider RecyclerView List Swipe Del RecyclerView Swipe Refresh Activity Volley Library Registration Log-in Log-out Network Connectivity Services Firebase Authentication - Google Login Android Notification Using Google reCAPTCHAAndroid SocialIntegrating Google Sign-In Integrating LinkedIn Integrating TwitterAndroid MiscAndroid Device Manager Android Studio Android Auto Android File Transfer Android Messages Android Oreo Android TV Android Screenshot Android Versions Android Watch Android Pay Android Phones Android Tablets Android Find My Phone Android Marshmallow Android Nougat Android Pie Android One Android Antivirus Android Data Recovery Android Lollipop Android vs iPhone Android Wear OS Android x86 Emulator for PC Android 10 Android ad blocker Clear cache Android Root Android DeviceAndroid InterviewInterview QuestionsAndroid QuizAndroid Quiznext ? ? prevAndroid Service TutorialAndroid service is a component that is used to perform operations on the background such as playing music, handle network transactions, interacting content providers etc. It doesn't has any UI (user interface).The service runs in the background indefinitely even if application is destroyed.Moreover, service can be bounded by a component to perform interactivity and inter process communication (IPC).The android.app.Service is subclass of ContextWrapper class.Note: Android service is not a thread or separate process.Life Cycle of Android ServiceThere can be two forms of a service.The lifecycle of service can follow two different paths: started or bound.StartedBound1) Started ServiceA service is started when component (like activity) calls startService() method, now it runs in the background indefinitely. It is stopped by stopService() method. The service can stop itself by calling the stopSelf() method.2) Bound ServiceA service is bound when another component (e.g. client) calls bindService() method. The client can unbind the service by calling the unbindService() method.The service cannot be stopped until all clients unbind the service.Understanding Started and Bound Service by background music exampleSuppose, I want to play music in the background, so call startService() method. But I want to get information of the current song being played, I will bind the service that provides information about the current song.Android Service ExampleLet's see the example of service in android that plays an audio in the background. Audio will not be stopped even if you switch to another activity. To stop the audio, you need to stop the service.activity_main.xmlDrag the 3 buttons from the pallete, now the activity_main.xml will look like this:File: activity_main.xml?xml version="1.0" encoding="utf-8"?>
+
+
+
+    
+
+    
+
+    
+activity_next.xmlIt is the layout file of next activity.File: activity_next.xmlIt contains only one textview displaying the message Next Page?xml version="1.0" encoding="utf-8"?>
+
+
+    
+Service classNow create the service implemenation class by inheriting the Service class and overridding its callback methods.File: MyService.javapackage example.javatpoint.com.androidservice;
+
+import android.app.Service;
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
+import android.widget.Toast;
+
+public class MyService extends Service {
+    MediaPlayer myPlayer;
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+    @Override
+    public void onCreate() {
+        Toast.makeText(this, "Service Created", Toast.LENGTH_LONG).show();
+
+        myPlayer = MediaPlayer.create(this, R.raw.sun);
+        myPlayer.setLooping(false); // Set looping
+    }
+    @Override
+    public void onStart(Intent intent, int startid) {
+        Toast.makeText(this, "Service Started", Toast.LENGTH_LONG).show();
+        myPlayer.start();
+    }
+    @Override
+    public void onDestroy() {
+        Toast.makeText(this, "Service Stopped", Toast.LENGTH_LONG).show();
+        myPlayer.stop();
+    }
+}Activity classNow create the MainActivity class to perform event handling. Here, we are writing the code to start and stop service. Additionally, calling the second activity on buttonNext.File: MainActivity.javapackage example.javatpoint.com.androidservice;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    Button buttonStart, buttonStop,buttonNext;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        buttonStart = findViewById(R.id.buttonStart);
+        buttonStop = findViewById(R.id.buttonStop);
+        buttonNext =  findViewById(R.id.buttonNext);
+
+        buttonStart.setOnClickListener(this);
+        buttonStop.setOnClickListener(this);
+        buttonNext.setOnClickListener(this);
+
+
+    }
+    public void onClick(View src) {
+        switch (src.getId()) {
+            case R.id.buttonStart:
+
+                startService(new Intent(this, MyService.class));
+                break;
+            case R.id.buttonStop:
+                stopService(new Intent(this, MyService.class));
+                break;
+            case R.id.buttonNext:
+                Intent intent=new Intent(this,NextPage.class);
+                startActivity(intent);
+                break;
+        }
+    }
+}NextPage classNow, create another activity.File: NextPage.javapackage example.javatpoint.com.androidservice;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class NextPage extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_next);
+    }
+}Declare the Service in the AndroidManifest.xml fileFinally, declare the service in the manifest file.File: AndroidManifest.xmlLet's see the complete AndroidManifest.xml file?xml version="1.0" encoding="utf-8"?>
+
+
+    
+        
+            
+                
+
+                
+            
+        
+        
+        
+    
+
+Output:Next TopicAndroid AlarmManager? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

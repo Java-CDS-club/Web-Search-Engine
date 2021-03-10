@@ -1,0 +1,217 @@
+C++ set erase() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set erase()C++ set erase() function is used to remove either a single element associated with given key or a range of elements ([first, last)) from the set container. Hence, the size will be reduced by the number of elements removed.Syntaxvoid erase (iterator position);                       	  //until C++ 11
+
+size_type erase (const value_type& val);    		  //until C++ 11
+
+void erase (iterator first, iterator last);  		  //until C++ 11
+
+iterator  erase (const_iterator position);		  //since C++ 11
+
+size_type erase (const value_type& val);		  //since C++ 11	
+
+iterator  erase (const_iterator first, const_iterator last); //since C++ 11Parameterposition: iterator pointing to a single element to be removed from the set.val: Value to be removed from the set.first: Beginning of the range to erase.last: End of the range to erase.Return valueIt returns an iterator that points to the next element of the deleted element or returns the number of deleted elements.Complexityerase(position): Amortized constant.erase (val): Logarithmic in container size.erase(first,last): Linear in the distance between first and last.Iterator validityIterators, references and the pointers pointing to elements removed by the function are invalidated.All other iterators, pointers and references keep their validity.Data RacesThe container is modified.The elements removed are modified. Iterating ranges in the container is not safe although concurrently accessing other elements is safe.Exception SafetyThis function does not throw exception.If an invalid range or position is specified, it causes undefined behavior.Example 1Let's see the simple example to erase the element by the iterator.#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<int> myset;
+  set<int>::iterator it;
+
+  myset = {10,20,30};
+  
+  cout<<"Before erasing the element: \n";
+   for (it=myset.begin(); it!=myset.end(); ++it)
+    cout << *it << '\n';
+
+  it=myset.find('b');
+  myset.erase (*it);                   // erasing by iterator
+
+  cout<<"\nAfter erasing the element: \n";
+  for (it=myset.begin(); it!=myset.end(); ++it)
+    cout << *it << '\n';
+    
+  return 0;
+}Output:Before erasing the element: 
+10
+20
+30
+
+After erasing the element: 
+10
+20
+30In the above example, element is erased by the iterator it.Example 2Let's see a simple example to erase the element of the set with the given key value:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<int> myset;
+  set<int>::iterator it;
+
+  myset = {10, 20, 30, 40};
+  
+  cout<<"Before erasing the element: \n";
+   for (it=myset.begin(); it!=myset.end(); ++it)
+    cout << *it<< '\n';
+
+   myset.erase (30);                  // erasing by value
+
+  cout<<"\nAfter erasing the element: \n";
+  for (it=myset.begin(); it!=myset.end(); ++it)
+    cout << *it<< '\n';
+  return 0;
+}Output:Before erasing the element: 
+10
+20
+30
+40
+
+After erasing the element: 
+10
+20
+40In the above example, erase(value) function uses the value 30 from the set.Example 3Let's see a simple example to erase the element by the given range:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<int> myset;
+  set<int>::iterator it;
+
+  myset = {10, 20, 30};
+  
+  cout<<"Before erasing the element are: \n";
+   cout<<"Size is: "<<myset.size()<<'\n';
+   for (it=myset.begin(); it!=myset.end(); ++it)
+   cout << *it << '\n';
+
+   myset.erase ( myset.begin () ,  myset.end () );   // erasing by range
+
+  cout<<"\nAfter erasing the element are: \n";
+  cout<<"Size is: "<<myset.size();
+  for (it=myset.begin(); it!=myset.end(); ++it)
+  cout << *it << '\n';
+  return 0;
+}Output:Before erasing the element are: 
+Size is: 3
+10
+20
+30
+
+After erasing the element are: 
+Size is: 0In the above example, erase(first, last) function is used to erase the element with the given range i.e. begin to end.Example 4Let's see a simple example to erase all the odd numbers from the set:#include <set>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    set<int> m = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+                          
+    // erase all odd numbers from m
+    cout<<"After erasing odd numbers,elements are:\n ";
+    for(auto it = m.begin(); it != m.end(); )
+        if(*it % 2 == 1)
+            it = m.erase(it);
+        else
+            ++it;
+    for(auto& p : m)
+        cout << p << ", ";
+}Output:After erasing odd numbers, elements are:
+ 2, 4, 6, 8, 10, 12, 14,In the above example, all the odd numbers has been erased and displaying even numbers.Example 5Let's see another example:#include <set>  
+#include <string>  
+#include <iostream>  
+#include <iterator> // next() and prev() helper functions  
+  
+using namespace std;  
+  
+using myset = set<string>;  
+  
+void printset(const myset& s) {  
+    for (const auto& iter : s) {  
+        cout << " [" << iter << "]";  
+    }  
+    cout << endl << "size() == " << s.size() << endl << endl;  
+}  
+  
+int main()  
+{  
+    myset s1;  
+  
+    // Fill in some data to test with, one at a time  
+    s1.insert("Bob");  
+    s1.insert("Robert");  
+    s1.insert("Bert");  
+    s1.insert("Rob");  
+    s1.insert("Bobby");  
+  
+    cout << "Starting data of set s1 is:" << endl;  
+    printset(s1);  
+    // The 1st member function removes an element at a given position  
+    s1.erase(next(s1.begin()));  
+    cout << "After the 2nd element is deleted, the set s1 is:" << endl;  
+    printset(s1);  
+  
+    // Fill in some data to test with, one at a time, using an intializer list  
+    myset s2{ "meow", "hiss", "purr", "growl", "yowl" };  
+  
+    cout << "Starting data of set s2 is:" << endl;  
+    printset(s2);  
+    // The 2nd member function removes elements  
+    // in the range [First, Last)  
+    s2.erase(next(s2.begin()), prev(s2.end()));  
+    cout << "After the middle elements are deleted, the set s2 is:" << endl;  
+    printset(s2);  
+  
+    myset s3;  
+  
+    // Fill in some data to test with, one at a time, using emplace  
+    s3.emplace("C");  
+    s3.emplace("C#");  
+    s3.emplace("D");  
+    s3.emplace("D#");  
+    s3.emplace("E");  
+    s3.emplace("E#");  
+    s3.emplace("F");  
+    s3.emplace("F#");  
+    s3.emplace("G");  
+    s3.emplace("G#");  
+    s3.emplace("A");  
+    s3.emplace("A#");  
+    s3.emplace("B");  
+  
+    cout << "Starting data of set s3 is:" << endl;  
+    printset(s3);  
+    // The 3rd member function removes elements with a given Key  
+    myset::size_type count = s3.erase("E#");  
+    // The 3rd member function also returns the number of elements removed  
+    cout << "The number of elements removed from s3 is: " << count << "." << endl;  
+    cout << "After the element with a key of \"E#\" is deleted, the set s3 is:" << endl;  
+    printset(s3);  
+}  Output:Starting data of set s1 is:
+ [Bert] [Bob] [Bobby] [Rob] [Robert]
+size() == 5
+
+After the 2nd element is deleted, the set s1 is:
+ [Bert] [Bobby] [Rob] [Robert]
+size() == 4
+
+Starting data of set s2 is:
+ [growl] [hiss] [meow] [purr] [yowl]
+size() == 5
+
+After the middle elements are deleted, the set s2 is:
+ [growl] [yowl]
+size() == 2
+
+Starting data of set s3 is:
+ [A] [A#] [B] [C] [C#] [D] [D#] [E] [E#] [F] [F#] [G] [G#]
+size() == 13
+
+The number of elements removed from s3 is: 1.
+After the element with a key of "E#" is deleted, the set s3 is:
+ [A] [A#] [B] [C] [C#] [D] [D#] [E] [F] [F#] [G] [G#]
+size() == 12Next TopicSet swap() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

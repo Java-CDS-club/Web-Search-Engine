@@ -1,0 +1,58 @@
+Angular 7 Error Fixing - Javatpoint?HomeAngularJSAngular 7JavaAWSIoTComputer FundamentalsControl SystemHTMLCSSAptitudeSeleniumKotlinJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingAngular 7 TutorialAngular 7 Tutorial Angular 7 Introduction Angular 7 Features Angular 7 Installation History & Versions Angular 7 First App Angular 7 Files Explanation Angular 7 with Bootstrap All CLI commands Angular 7 Libraries Angular 7 Architecture Angular 7 ComponentsAngular 7 DirectivesAngular 7 Directives Angular 7 ngIf Directive Angular 7 ngStyle DirectiveAngular 7 DatabindingAngular 7 Databinding Angular 7 String Interpolation Angular 7 Event Binding Angular 7 Property BindingAngular 7 PipesAngular 7 PipesError FixingAngular 7 Error FixingAngular 7 FormsAngular 7 Forms Data Flow in Angular Forms Angular Reactive Forms Template-driven FormsAngular MiscAngular vs ReactAngular + SpringCRUD Example File Upload Example Login & Logout Example Search Field Examplenext ? ? prevAngular Error FixingYou can get errors in Angular because of many causes.Let's take an example to see some specific types of errors.We have created an app named "testing-app". In this app, we have a server and a button on the page which has the ability to create other servers.Here, "component.html" file contains the following code:My ServersAdd Server{{ server }}component.ts file: import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'testing-app';
+  servers;
+
+  OnAddServer() {
+    this.servers.push('Another Server Added');
+  }
+
+  onRemoveServer(id: number) {
+    const position = id + 1;
+    this.servers.splice(position, 1);
+  }
+}See the output: Now, if you click on the "Add Servers" button, it will not add any server. Open the browser console to see the error type.You can see that it is showing "push" property undefined. Here, you get some useful information about errors.Let's check component.ts file:import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'testing-app';
+  servers;
+
+  OnAddServer() {
+    this.servers.push('Another Server Added');
+  }
+
+  onRemoveServer(id: number) {
+    const position = id + 1;
+    this.servers.splice(position, 1);
+  }
+}Here, we have declared servers but it is not initialized. So, we set it to be in array format to keep newly created servers. So, change it to:servers= [];Change the component.ts:import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'testing-app';
+  servers = [];
+
+  OnAddServer() {
+    this.servers.push('Another Server Added');
+  }
+
+  onRemoveServer(id: number) {
+    const position = id + 1;
+    this.servers.splice(position, 1);
+  }
+}Output:Now, you can see that this error is removed.Debugging code in the browserAngular Augury ToolSearch Angular Augury on Google chrome.Click on Add to chrome button to add this tool on Chrome.After adding it on chrome, open your browser's developer tool and open Augury.Augury is an awesome tool to analyse your Angular application. Open Augury and reload your browser's page. You will see pages like this:This is injector graph: This is Router Tree:This is ngModule: Next TopicAngular 7 Directives? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

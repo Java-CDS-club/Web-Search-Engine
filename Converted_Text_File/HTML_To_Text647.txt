@@ -1,0 +1,66 @@
+ASP.Net Web Form Events Handling - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevASP.NET Web Forms Events HandlingASP.NET provides important feature event handling to Web Forms. It let us to implement event-based model for our application. As a simple example, we can add a button to an ASP.NET Web Forms page and then write an event handler for the button's click event. ASP.NET Web Forms allows events on both client and server sides.In ASP.NET Web Forms pages, however, events associated with server controls originate on the client but are handled on the Web server by the ASP.NET.ASP.NET Web Forms follow a standard .NET Framework pattern for event-handler methods. All events pass two arguments: an object representing the object that raised the event, and an event object containing any event-specific information.Example: Creating Event HandlerHere, we are creating an event handler for click event. In this example, when user click on the button, an event fires and handler code executes at server side.// EventHandling.aspx<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EnventHandling.aspx.cs" 
+Inherits="asp.netexample.EnventHandling" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title></title>
+<style type="text/css">
+.auto-style1 {
+width: 100%;
+        }
+.auto-style2 {
+width: 108px;
+        }
+</style>
+</head>
+<body>
+<form id="form1" runat="server">
+<div>
+<table class="auto-style1">
+<tr>
+<td class="auto-style2">First value</td>
+<td>
+<asp:TextBox ID="firstvalue" runat="server"></asp:TextBox>
+</td>
+</tr>
+<tr>
+<td class="auto-style2">Second value</td>
+<td>
+<asp:TextBox ID="secondvalue" runat="server"></asp:TextBox>
+</td>
+</tr>
+<tr>
+<td class="auto-style2">Sum</td>
+<td>
+<asp:TextBox ID="total" runat="server"></asp:TextBox>
+</td>
+</tr>
+<tr>
+<td class="auto-style2"> </td>
+<td>
+<br/>
+<asp:Button ID="Button1" runat="server" OnClick="Button1_Click"Text="Sum"/>
+</td>
+</tr>
+</table>
+</div>
+</form>
+</body>
+</html>Code Behind// EventHandling.aspx.csusing System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+namespace asp.netexample
+{
+public partial class EnventHandling : System.Web.UI.Page
+    {
+protected void Button1_Click(object sender, EventArgs e)
+        {
+int a = Convert.ToInt32(firstvalue.Text);
+int b = Convert.ToInt32(secondvalue.Text);
+            total.Text = (a + b).ToString();
+        }
+    }
+}Output:Next TopicASP.NET WF Authentication? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,82 @@
+COBOL Loop Statements - Javatpoint?HomeCCOBOLC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternProjectsInterview QCommentForumCOBOL TutorialCOBOL Tutorial COBOL Introduction COBOL Installation COBOL Program Structure COBOL Coding Sheet COBOL Divisions COBOL Data Types COBOL Verbs COBOL Data Layout Conditional Statements Loop Statements String Handling Array/Table Processing File Handling File Access Mode File Handling Verbs Internal Sort Database Interfacenext ? ? prevCOBOL - Loop StatementsThere are some set of statements in a program that needs to be executed repeatedly, such as reading each record of a file up to its end. The statements in the program are running in a series until or unless if any statement executed in the flow alters the execution sequence.For iterative programming, PERFORM statements are used in the COBOL. These loop statements are:PERFORM THRUPERFORM UNTILPERFORM TIMESPERFORM VARYINGPERFORM THRUPerform Thru performs a series of paragraphs by giving in the sequence the first and last names of the paragraph. After performing the last paragraph, the control will return.Based on how the statements coded under it, PERFORM is mainly classified into two types:Inline PerformOutline PerformLet's see the difference between them:InlineOutlineINLINE executes a series of statements or a block of statements between the PERFORM and the END-PERFORM.OUTLINE Perform is used to execute a series of statements or blocks of statements coded in a separate section or paragraph that are not coded in along with the PERFORM statement.This requires no separate PARAGRAPH or SECTION that needs to be coded, which are to be executed.It requires a separate PARAGRAPH or SECTION that needs to be coded for statements that are to be executed.In this, scope terminator (END-PERFORM) is mandatory.In this, scope terminator (END-PERFORM) is not required.Syntax: - Following is the syntax for INLINE PERFORM:PERFORMDISPLAY 'HELLO WORLD'END-PERFORM.Syntax:- Following is the syntax for OUTLINE PERFORM:PERFORM PARAGRAPH1 THRU PARAGRAPH2Example:Let's see an example for PERFORM THRU statement:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       PROCEDURE DIVISION.
+           A-PARA.
+           PERFORM DISPLAY 'IN A-PARA'
+           END-PERFORM.
+           PERFORM C-PARA THRU E-PARA.
+   
+           B-PARA.
+              DISPLAY 'IN B-PARA'.
+           STOP RUN.
+   
+           C-PARA.
+              DISPLAY 'IN C-PARA'.
+   
+           D-PARA.
+             DISPLAY 'IN D-PARA'.
+   
+           E-PARA.
+             DISPLAY 'IN E-PARA'.Output:When you compile and execute the above program, it will display the following output:PERFORM UNTILA block of statements or a paragraph/section will be executed in the PERFORM UNTIL statement until the specified condition becomes true.The default condition is ' WITH TEST BEFORE, 'and it specifies that the condition is tested before the execution of statements in a paragraph.Syntax:Following is the syntax for PERFORM UNTIL:PERFORM A-PARA UNTIL COUNT=5
+
+PERFORM A-PARA WITH TEST BEFORE UNTIL COUNT=5
+
+PERFORM A-PARA WITH TEST AFTER UNTIL COUNT=5Example:Let's see an example for PERFORM UNTIL statement:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-CNT PIC 9(1) VALUE 0. 
+
+       PROCEDURE DIVISION.
+           A-PARA.
+           PERFORM B-PARA WITH TEST AFTER UNTIL WS-CNT>3.
+           STOP RUN.
+   
+           B-PARA.
+              DISPLAY 'WS-CNT : 'WS-CNT.
+              ADD 1 TO WS-CNT.Output:When you compile and execute the above program, it will display the following output:PERFORM TIMESPERFORM TIMES is mainly used to execute the block of statements or paragraphs/sections repetitively with the number of times specified.Syntax:Following is the syntax for PERFORM TIMES:PERFORM A-PARA 5 TIMES.Example:Let's see an example of PERFORM TIMES:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       PROCEDURE DIVISION.
+           A-PARA.
+           PERFORM B-PARA 3 TIMES.
+           STOP RUN.
+   
+           B-PARA.
+           DISPLAY 'IN B-PARA'.Output:When you compile and execute the above program, it will display the following output:PERFORM VARYINGA block of a statement or a paragraph/section will be performed in PERFORM VARYING until the condition becomes true in the UNTIL phrase.Syntax:Following is the syntax for PERFORM VARYING:PERFORM A-PARA VARYING A FROM 1 BY 1 UNTIL A = 5.Example:Let's see an example of PERFORM VARYING:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+             01 WS-A PIC 9(2) VALUE 0.
+
+           PROCEDURE DIVISION.
+            A-PARA.
+         PERFORM B-PARA VARYING WS-A FROM 2 BY 2 UNTIL WS-A=12
+           STOP RUN.
+
+            B-PARA.
+               DISPLAY 'IN B-PARA ' WS-A.Output:When you compile and execute the above program, it will display the following output:GO TO StatementIn a program, the GO TO statement changes the execution flow. In this statement, control transfers only in the forward direction. It is used for exiting a program. The various types of GO TO statements are as follows:Unconditional GO TOFollowing is the syntax for Unconditional GO TO:GO TO para-name.Conditional GO TOFollowing is the syntax for Conditional GO TO:GO TO para-1 para-2 para-3 DEPENDING ON x.Here, if x = 1, then the control will be transferred to the first paragraph, and if x = 2, then the control will transfer to the second paragraph, and so on.Example:Let's see an example for GO To statement:       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-A PIC 9 VALUE 2.
+   
+       PROCEDURE DIVISION.
+           A-PARA.
+              DISPLAY 'IN A-PARA'
+           GO TO B-PARA.
+   
+           B-PARA.
+              DISPLAY 'IN B-PARA '.
+           GO TO C-PARA D-PARA DEPENDING ON WS-A.
+   
+           C-PARA.
+             DISPLAY 'IN C-PARA '.
+   
+           D-PARA.
+             DISPLAY 'IN D-PARA '.
+       STOP RUN.Output:When you compile and execute the above program, it will display the following output:Next TopicCOBOL String Handling? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

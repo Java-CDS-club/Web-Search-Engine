@@ -1,0 +1,109 @@
+ASP.Net MVC ViewBag - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevASP.NET MVC ViewData, ViewBag and TempDataASP.NET MVC provides three variables to store and passing values from controller to view. Both ViewData and ViewBag are similar except TempData that has additional features.We will discuss about each of these with example.ASP.NET MVC ViewDataIt is a dictionary of objects and derived from ViewDataDictionary class. We can access value by using string as a key. It is type-safe and requires typecasting for data type. It avoids error and check for null reference at run time. It is accessible only during current request.ExampleWe are creating a controller and returning a view to the browser. This controller passes Courses ViewData to the view.Controllerusing System;
+using System.Collections.Generic;
+using System.Web.Mvc;
+namespace ViewBagExample.Controllers
+{
+    public class ViewBagController : Controller
+    {
+        // GET: ViewBag
+        public ActionResult Index()
+        {
+            List Courses = new List();
+            Courses.Add("J2SE");
+            Courses.Add("J2EE");
+            Courses.Add("Spring");
+            Courses.Add("Hibernates");
+            ViewData["Courses"] = Courses;
+            return View();
+        }
+    }
+}View// Index.cshtml<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>List of Courses</h2>
+    <ul>
+        @{
+            foreach (var Courses in ViewData["Courses"] as List<string>)
+            {
+                <li> @Courses</li>
+            }
+        }
+    </ul>
+</body>
+</html>Output:It produces the following output to the browser.ASP.NET MVC ViewBagIt is a dynamic property which is similar to ViewData. It was introduced in .NET Framework version 4.0. it is used to send data from controller to the view page. ViewBag can get and set value dynamically that's why it is called dynamic property. It does not require type conversion and convert type dynamically.ExampleHere, in this example, we are implementing ViewBag property. Controller and an Index file is given below.Controllerusing System;
+using System.Collections.Generic;
+using System.Web.Mvc;
+namespace ViewBagExample.Controllers
+{
+    public class ViewBagController : Controller
+    {
+        // GET: ViewBag
+        public ActionResult Index()
+        {
+            List<string> Courses = new List<string>();
+            Courses.Add("J2SE");
+            Courses.Add("J2EE");
+            Courses.Add("Spring");
+            Courses.Add("Hibernates");
+            ViewBag.Courses = Courses;
+            return View();
+        }
+    }
+}View<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>List of Courses</h2>
+    <ul>
+        @{
+            foreach (var Courses in ViewBag.Courses)
+            {
+                <li> @Courses</li>
+            }
+        }
+    </ul>
+</body>
+</html>Output:The Index file produces the following output to the browser.ASP.NET MVC TempDataIt represents a set of data that persists only from one request to the next. It is derived from TempDataDictionary, we can use its object to pass data as we did in ViewData. The value of TempData persists only from one request to the next. Retention is used to mark key to persist data so that it can retain for the next request.We can also use TempData to pass data from one action to another action. Let's see an example.ExampleController// TempDataController.csusing System;
+using System.Collections.Generic;
+using System.Web.Mvc;
+namespace ViewBagExample.Controllers
+{
+    public class ViewBagController : Controller
+    {
+        // GET: ViewBag
+        public ActionResult Index()
+        {
+            List Courses = new List();
+            Courses.Add("J2SE");
+            Courses.Add("J2EE");
+            Courses.Add("Spring");
+            Courses.Add("Hibernates");
+            TempData["Courses"] = Courses;
+            return View();
+        }
+    }
+}View// Index.cshtml<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>List of Courses</h2>
+    <ul>
+        @{
+            foreach (var Courses in TempData["Courses"] as List<string>)
+            {
+                <li> @Courses</li>
+            }
+        }
+    </ul>
+</body>
+</html>Output:This index file produces the following output to the browser.Next TopicASP.Net Razor? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

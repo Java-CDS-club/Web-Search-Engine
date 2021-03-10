@@ -1,0 +1,858 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/android-ad-blocker by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 05:56:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Android Ad Blocker - javatpoint</title><link rel="SHORTCUT ICON" href="../static.javatpoint.com/images/favicon2.png"/>
+<link rel="stylesheet" type="text/css" href="../static.javatpoint.com/link.css"/><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50"/><meta property="og:title" content="Android Ad Blocker - javatpoint" /><meta property="og:description" content="Android Ad Blocker with examples of Activity and Intent, Fragments, Menu, Service, alarm manager, storage, sqlite, xml, json, multimedia, speech, web service, telephony, animation and graphics" />
+<meta name="keywords" content="android, tutorial, android ui widgets, activity and intent, Fragments, android menu, android service, alarm manager, android studio, storage, android device manager, json, multimedia, speech, web service, android telephony, android animation and graphics, facebook, twitter, whatsapp, android emulator, android auto, android file transfer, android messages, android oreo, android tv, android screenshot, android versions, android watch, android oreo version, kit kat version, android marshmallow version, cupcake, ie cream sandwich version, eclair version, android jelly bean version, android lollipop version, android nougat version, android Pie version, android 10 version, latest versions"/><meta name="description" content="Android Ad Blocker with examples of Activity and Intent, Fragments, Menu, Service, alarm manager, storage, sqlite, xml, json, multimedia, speech, web service, telephony, animation and graphics"/><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="android-ad-blocker.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Android Ad Blocker - javatpoint" /><meta name="twitter:description" property="og:description" content="Android Ad Blocker with examples of Activity and Intent, Fragments, Menu, Service, alarm manager, storage, sqlite, xml, json, multimedia, speech, web service, telephony, animation and graphics" /><meta property="og:url" content="android-ad-blocker.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@pagejavatpoint"/><meta name="twitter:domain" content="www.javatpoint.com"/><meta name="twitter:creator" content="@pagejavatpoint"/>
+
+
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = '../delivery.adrecover.com/37784/adRecoverb466.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = '../cdn.adpushup.com/37780/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+</head> 
+<body onload="highlightlink()"> 
+ 
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#8679;</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px">
+    <tr>
+        <td>
+            <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px">
+                <a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a>
+            </div>
+            <div style="float:left;width:60%;">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = '../cse.google.com/cse07b6.html?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+                
+            </div>
+            
+        </td>
+    </tr>
+        <!--<tr>
+        <td>
+            <div id="headerlink" style="padding:0px;margin:0px"><span style="margin-right:20px;width:45px"></span><span style="float:right;margin-right:5px;width:45%"> </span>
+                
+            </div>
+        </td>
+    </tr>-->
+
+</table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()"/></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = '../cse.google.com/cse07b6.html?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+<!--<form class="navbar-search-m" method="get" action="https://www.google.com/search" target="_blank"> <input type="text" name="q" class="search-query span2-m" placeholder="Search on javatpoint..." title="Search on Javatpoint"/><input type="hidden" name="sitesearch" value="www.javatpoint.com"/></form>-->
+
+</div>
+</div>
+<div id="link" style="clear:both"> <div id="smoothmenu1" class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="android-tutorial.html"  class="selected">Android</a></li>
+<li><a href="java-tutorial.html">Core Java</a></li>
+<li><a href="servlet-tutorial.html">Servlet</a></li>
+<li><a href="jsp-tutorial.html">JSP</a></li>
+<li><a href="struts-2-tutorial.html">Struts2</a></li>
+<li><a href="java-mail-api-tutorial.html">Mail API</a></li>
+<li><a href="hibernate-tutorial.html">Hibernate</a></li>
+<li><a href="spring-tutorial.html">Spring</a></li>
+<li><a href="design-patterns-in-java.html">Design Pattern</a></li>
+<li><a href="examaccess.html">Quiz</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a>
+<li><a href="comment.html">Comment</a>
+<li><a href="forum.html">Forum</a>
+</li>
+</ul>
+<br style="clear: left" />
+</div>
+
+</div>
+<div class="mobilemenu" style="clear:both"> 
+<!-- Cm_300x250_Mob_14/9 -->
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+
+<div id="menu">
+<a target="_blank" href="https://training.javatpoint.com/android-training.jsp" class="training">Android Training</a> 
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-tutorial.html"><span>Android Introduction</span></a>
+<a href="android-what-where-and-why.html" >What is Android</a>
+<a href="android-history-and-versions.html" >History and Version</a>
+<a href="android-software-stack.html" >Android Architecture</a>
+<a href="android-core-building-blocks.html" >Core Building Blocks</a>
+<a href="android-emulator.html" >Android Emulator</a>
+<a href="installing-softwares-for-android.html" >Install Android</a>
+<a href="how-to-setup-android-for-eclipse-ide.html" >Setup Eclipse</a>
+<a href="hello-android-example.html" >Hello Android example</a>
+<a href="internal-details-of-hello-android-example.html" >Internal Details</a>
+<a href="dalvik-virtual-machine.html" >Dalvik VM</a>
+<a href="AndroidManifest-xml-file-in-android.html" >AndroidManifest.xml</a>
+<a href="R-java-file-in-android.html" >R.java</a>
+<a href="android-hide-title-bar-example.html" >Hide Title Bar</a>
+<a href="android-screen-orientation-example.html" >Screen Orientation</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Widgets</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-ui-widgets-tutorial.html">UI Widgets</a>
+<a href="android-working-with-button.html" >Working with Button</a>
+<a href="android-toast-example.html" >Toast</a>
+<a href="android-custom-toast-example.html" >Custom Toast</a>
+<a href="android-togglebutton-example.html" >ToggleButton</a>
+<a href="android-checkbox-example.html" >CheckBox</a>
+<a href="android-custom-checkbox.html" >Custom CheckBox</a>
+<a href="android-radiobutton.html" >RadioButton</a>
+<a href="android-dynamic-radiobutton.html" >Dynamic RadioButton</a>
+<a href="android-custom-radiobutton.html" >Custom RadioButton</a>
+<a href="android-alert-dialog-example.html" >AlertDialog</a>
+<a href="android-spinner-example.html" >Spinner</a>
+<a href="android-autocompletetextview-example.html" >AutoCompleteTextView</a>
+<a href="android-listview-example.html" >ListView</a>
+<a href="android-custom-listview.html" >Custom ListView</a>
+<a href="android-rating-bar-example.html" >RatingBar</a>
+<a href="android-webview-example.html" >WebView</a>
+<a href="android-seekbar-example.html" >SeekBar</a>
+<a href="android-datepicker-example.html" >DatePicker</a>
+<a href="android-timepicker-example.html" >TimePicker</a>
+<a href="android-analog-clock-and-digital-clock-example.html" >Analog and Digital</a>
+<a href="android-progressbar-example.html" >ProgressBar</a>
+<a href="android-scrollview-vertical.html" >Vertical ScrollView</a>
+<a href="android-scrollview-horizontal.html" >Horizontal ScrollView</a>
+<a href="android-image-switcher.html" >ImageSwitcher</a>
+<a href="android-image-slider.html" >ImageSlider</a>
+<a href="android-viewstub.html" >ViewStub</a>
+<a href="android-tablayout.html" >TabLayout</a>
+<a href="android-tablayout-with-framelayout.html" >TabLayout with FrameLayout</a>
+<a href="android-searchview.html" >SearchView</a>
+<a href="android-searchview-on-toolbar.html" >SearchView on Toolbar</a>
+<a href="android-edittext-with-textwatcher.html" >EditText with TextWatcher</a>
+
+<!--
+<a href="android-edittext-example" >EditText</a>
+<a href="android-multiautocompletetextview-example" >MultiACTV</a>
+<a href="android-imagebutton-example" >ImageButton</a>
+<a href="android-radiobutton-example" >RadioButton</a>
+<a href="android-downloading-image-and-displyaing-using-imageview-example" >Downloading Image</a>
+<a href="android-mapview-example" >MapView</a>
+<a href="understanding-adapters-in-android" >Understanding Adapters</a>
+<a href="android-listview-example" >ListView</a>
+<a href="android-gridview-example" >GridView</a>
+<a href="android-multithreading-example" >Multithreading</a>
+<a href="android-puzzle-game-example" >PuzzleGame</a>
+-->
+</div>
+
+<!--
+<div class="leftmenu2"  >
+<a href="android-layout-managers"><span>Layout Managers</span></a>
+</div>
+
+<div class="leftmenu">
+<a href="android-linearlayout-example" >LinearLayout</a>
+<a href="android-relativelayout-example" >RelativeLayout</a>
+<a href="android-tablelayout-example" >TableLayout</a>
+<a href="android-framelayout-example" >FrameLayout</a>
+<a href="android-gridlayout-example" >GridLayout</a>
+</div>
+-->
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Activity and Intents</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-life-cycle-of-activity.html" >Activity LifeCycle</a>
+<a href="android-intent-tutorial.html" >Implicit Intent</a>
+<a href="android-explicit-intent-example.html" >Explicit Intent</a>
+<a href="android-startactivityforresult-example.html" >StartActivityForResult</a>
+<a href="android-share-app-data.html" >Share App Data</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Fragments</span></h2>
+</div>
+<div class="leftmenu"  >
+<a href="android-fragments.html"><span>Android Fragments</span></a>
+</div>
+
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Menu</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-option-menu-example.html" >Option Menu</a>
+<a href="android-context-menu-example.html" >Context Menu</a>
+<a href="android-popup-menu-example.html" >Popup Menu</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Service</span></h2>
+</div>
+<div class="leftmenu"  >
+<a href="android-service-tutorial.html"><span>Android Service</span></a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android AlarmManager</span></h2>
+</div>
+<div class="leftmenu"  >
+<a href="android-alarmmanager.html"><span>Android AlarmManager</span></a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Storage</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-preferences-example.html" >Android Preferences</a>
+<a href="android-internal-storage-example.html" >Internal Storage</a>
+<a href="android-external-storage-example.html" >External Storage</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android SQLite</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-sqlite-tutorial.html" >SQLite Tutorial</a>
+<a href="android-sqlite-example-with-spinner.html" >SQLite Spinner</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">XML and JSON</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-xml-parsing-using-sax-parser.html" >XML Parsing SAX</a>
+<a href="android-xml-parsing-using-dom-parser.html" >XML Parsing DOM</a>
+<a href="android-XMLPullParser-tutorial.html" >XMLPullParser</a>
+<a href="android-json-parsing-tutorial.html" >JSON Parsing</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Multimedia</span></h2>
+</div>
+<div class="leftmenu">
+<a href="playing-audio-in-android-example.html" >MediaPlayer: Audio</a>
+<a href="playing-video-in-android-example.html" >VideoView: Video</a>
+<a href="android-mediarecorder-example.html" >Recording Media</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Speech</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-texttospeech-tutorial.html" >TextToSpeech1</a>
+<a href="android-texttospeech-example.html" >TextToSpeech2</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Telephony</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-telephony-manager-tutorial.html" >TelephonyManager</a>
+<a href="android-call-state-example.html" >Get Call State</a>
+<a href="android-call-state-broadcastreceiver-example.html">Get Call State 2</a>
+<a href="android-simple-caller-talker-example.html">Simple Caller Talker</a>
+<a href="how-to-make-a-phone-call-in-android.html" >Phone Call</a>
+<a href="how-to-send-sms-in-android.html" >Send SMS</a>
+<a href="how-to-send-email-in-android-using-intent.html" >Send Email</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Device</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-bluetooth-tutorial.html" >Bluetooth Tutorial</a>
+<a href="android-bluetooth-list-paired-devices-example.html" >List Paired Devices</a>
+<a href="android-wifi-example.html" >WIFI</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Camera Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-camera-tutorial.html" >Camera Tutorial</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Sensor Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-sensor-tutorial.html" >Sensor Tutorial</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Graphics</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-simple-graphics-example.html" >Android Graphics</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Animation</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-animation-example.html" >Android Animation</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Web Service</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-web-service.html" >Android Web Service</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Google Map</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-google-map.html" >Android Google Map</a>
+<a href="android-google-map-displaying-current-location.html" >Current Location</a>
+<a href="android-google-map-search-location-using-geocodr.html" >Search Location</a>
+</div>
+
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Adding Ads</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-google-admob.html" >Android Google Admob</a>
+<a href="android-banner-ads.html" >1) Banner Ads</a>
+<a href="android-interstitial-ads.html" >2) Interstitial Ads</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Examples</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-qr-code-or-bar-code-scanner.html" >QR/Bar Code Scanner</a>
+<a href="android-rss-feed-reader.html" >RSS Feed Reader</a>
+<a href="volley-library-fetching-json-data-from-url.html" >Volley Fetch JSON</a>
+<a href="android-linkify-example.html" >Android Linkify</a>
+<a href="android-introduction-slider-example.html" >Intro Slider</a>
+<a href="android-recyclerview-list-example.html" >RecyclerView List</a>
+<a href="android-swipe-to-delete-recyclerview-items-with-undu.html" >Swipe Del RecyclerView</a>
+<a href="swipe-to-refresh-android-activity.html" >Swipe Refresh Activity</a>
+<a href="android-volley-library-registration-login-logout.html">Volley Library Registration Log-in Log-out</a>
+<a href="android-network-connectivity-services.html">Network Connectivity Services</a>
+<a href="android-firebase-authentication-google-login.html">Firebase Authentication - Google Login</a>
+<a href="android-notification.html">Android Notification</a>
+<a href="using-google-recaptcha-in-android-application.html">Using Google reCAPTCHA</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Social</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-googlesignin-integrating.html">Integrating Google Sign-In</a>
+<a href="android-linkedin-integrating.html">Integrating LinkedIn</a>
+<a href="android-twitter-integrating.html">Integrating Twitter</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-device-manager.html">Android Device Manager</a>
+<a href="android-studio.html">Android Studio</a>
+ 
+<a href="android-auto.html">Android Auto</a>
+<a href="android-file-transfer.html">Android File Transfer</a>
+<a href="android-messages.html">Android Messages</a>
+<a href="android-oreo.html">Android Oreo</a>
+<a href="android-tv.html">Android TV</a>
+<a href="android-screenshot.html">Android Screenshot</a>
+<a href="android-versions.html">Android Versions</a>
+<a href="android-watch.html">Android Watch</a>
+<a href="android-pay.html">Android Pay</a>
+<a href="android-phones.html">Android Phones</a>
+<a href="android-tablet.html">Android Tablets</a>
+<a href="android-find-my-phone.html">Android Find My Phone</a>
+<a href="android-marshmallow.html">Android Marshmallow</a>
+<a href="android-nougat.html">Android Nougat</a>
+<a href="android-pie.html">Android Pie</a>
+<a href="android-one.html">Android One</a>
+
+<a href="android-antivirus.html">Android Antivirus</a>
+<a href="android-data-recovery.html">Android Data Recovery</a>
+<a href="android-lollipop.html">Android Lollipop</a>
+<a href="android-vs-iphone.html">Android vs iPhone</a>
+<a href="android-wear-os.html">Android Wear OS</a>
+<a href="android-x86.html">Android x86</a>
+<a href="android-emulator-for-pc.html">Emulator for PC</a>
+
+<a href="android-10.html">Android 10</a>
+<a href="android-ad-blocker.html">Android ad blocker</a>
+<a href="clear-cache-android.html">Clear cache Android</a>
+<a href="how-to-root-android-device.html">Root Android Device</a>
+</div>
+
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-interview-questions.html" >Interview Questions</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Android Quiz</span></h2>
+</div>
+<div class="leftmenu">
+<a href="android-quiz.html" >Android Quiz</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint"/>
+<br/>
+<div id="leftad" style="margin-left:20px">
+<!-- javatpointleft -->
+<ins class="adPushupAds" data-adpControl="g8drp" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBqYXZhdHBvaW50bGVmdCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lLWJsb2NrO3dpZHRoOjE2MHB4O2hlaWdodDo2MDBweCIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI0NDc2NDAxMjIyIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+</div>
+<div class="onlycontent">
+<div class="onlycontentad">
+<!-- CM_JTP_Leaderbaord -->
+<ins class="adPushupAds" data-adpControl="nuoc1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDTV9KVFBfTGVhZGVyYmFvcmQgLS0+CjxpbnMgY2xhc3M9ImFkc2J5Z29vZ2xlIgogICAgIHN0eWxlPSJkaXNwbGF5OmJsb2NrIgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjkyMDE5MDE5MTUiCiAgICAgZGF0YS1hZC1mb3JtYXQ9ImF1dG8iCiAgICAgZGF0YS1mdWxsLXdpZHRoLXJlc3BvbnNpdmU9InRydWUiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+
+<div id="bottomnextup">
+<a class="next" href="clear-cache-android.html">next &rarr;</a>
+<a class="next" href="android-10.html">&larr; prev</a>
+</div>
+
+<h1 class="h1">Android ad blocker</h1>
+<p>Companies and various websites bloom on creating advertisements (ads or ad) as a primary way of getting leads to convert into sales. The ads are displayed at the time of browsing the web, watching a video, and playing a game. Most of the products or services are push while using an app or website. The pop-up ads were reserve for laptop or desktop PC, but they also targeted smartphone as it is available on each person's hand. So, users need some good <strong>ad blocker apps</strong> for their smartphones.</p>
+<p>Most of the ad blocker apps are not available on the Google Play store. They can be downloaded and installed from any third-party source.</p>
+<p>So, what is the best Android ad blocker app to stop displaying ads on the screen? Installing the ad blocker <a href="android-tutorial.html">Android</a> app will stop showing ads on the device.</p>
+<h2 class="h2">Top Android Ad blocker Apps</h2>
+<p>There are several ad blocker apps available on the various third-party source or even in Google play store. Some of them are given below:</p>
+<h4 class="n">Note: The order of below mentioned ad blocker apps are not on the basis of their performance. It is only a compilation. So, choose on the basis of requirements.</h4>
+
+<h3 class="h3">1. Adblock Plus</h3>
+<p><strong>Adblock Plus</strong> for Android is one of the most trusted and best ad blocker apps. It executes in the background and filters web traffic, almost like its web browser extension. You need to set it up once, and it runs on its own in the background. It works on both rooted as well as un-rooted Android devices.</p>
+<p>This can be downloaded from their website <a href="https://adblockplus.org/" rel="nofollow" target="_blank">https://adblockplus.org/</a> or Google play store. There is also an official <strong>Adblock Plus</strong> add-on for Chrome and another browser, install it, and restart Chrome and enjoy the ad-free browsing.</p>
+<p><img src="../static.javatpoint.com/androidpages/images/android-ad-blocker1.png" alt="Android ad blocker"/></p>
+<h3 class="h3">2. AdAway</h3>
+<p><strong>AdAway</strong> is a simple ad blocker app for Android devices. It utilized a modified host file to send an ad request to 12.0.0.1., and you will see no ads. This application is set with the host files that hit any ads which are coming towards your way with a quick change of direction. The redirect effectively kills banner ads, pop-ups, and any advertisements shown in games as well. The app supports custom and modified host files. Host files are stored in a read-only part of the Android system.</p>
+<p>AdAway is a free app that can be downloaded from <a href="https://f-droid.org/en/packages/org.adaway/" rel="nofollow" target="_blank">https://f-droid.org/en/packages/org.adaway/</a>, not available on the Play Store.</p>
+<p><img src="../static.javatpoint.com/androidpages/images/android-ad-blocker2.png" alt="Android ad blocker"/></p>
+<h3 class="h3">3. AdGuard</h3>
+<p>AdGuard app works as similar to AdBlock Plus. It runs on background and filters all the web traffic. The AdGuard Android app claims to refine entire maliciousness ad out from the web to provide you a graceful and problem-free browsing practice. It requires some extra setup and works without root. It also has a good looking Material Design user interface to bring everything together. It consists of features like increased web page speed, firewall, and malware protection. It is available in both premium and free version. You can download AdGuard ad blocker from <em>adguard.com/en/adguard-android/overview.html.</em></p>
+<p><img src="../static.javatpoint.com/androidpages/images/android-ad-blocker3.png" alt="Android ad blocker"/></p>
+<h3 class="h3">4. Block This</h3>
+<p><strong>Block This</strong> ad blocker app is an effective, open-source, and completely free to users. It is not much popular ad blocker. This app uses DNS blocking rather than a filter. The developer claims that the <a href="dns-full-form.html">DNS</a> blocking system uses less battery as compared to a standard ad blocker. This is because most of the work is performed before the data reaches to your Android smartphone. You can download <strong>Block This</strong> Android app from their <a href="website.html">website</a> <strong>block-this.com.</strong></p>
+<p><img src="../static.javatpoint.com/androidpages/images/android-ad-blocker4.png" alt="Android ad blocker"/></p>
+<h3 class="h3">5. Google Chrome: Fast &amp; Secure (ad blocker)</h3>
+<p>The <strong>Google Chrome</strong> browser also works as an ad blocker. It filters several ads traffic or at least the most abusive ad traffic. Google Chrome is an ad-blocking app; however, it still shows the ads, which are the least offensive to the viewer. There are some other web browsers that block ads, including Firefox Focus, Brave Browser, Samsung Browser, Kiwi Browser, and Dolphin Browser. You can choose according to your needs. You can download Google Chrome ad blocker from <a href="https://play.google.com/store/apps/details?id=com.android.chrome" rel="nofollow" target="_blank">https://play.google.com/store/apps/details?id=com.android.chrome</a>.</p>
+<p><img src="../static.javatpoint.com/androidpages/images/android-ad-blocker5.png" alt="Android ad blocker"/></p>
+<h3 class="h3">6. Free Adblocker Browser</h3>
+<p>The Free <strong>Adblocker Browser</strong> is a good option to block ads on the device. It has a different graphic than the normal browser. It kills any ad that comes towards your web. It kills banner ads, pop-ups, video ads, and also stops sites that are trying to track your footsteps.</p>
+<p>Adblocker Browser covers the most user's requirements, such as ad set up on auto-play or cloudy cookie. This app and its ad-blocking feature are free to download from <a href="https://play.google.com/store/apps/details?id=com.hsv.freeadblockerbrowser" rel="nofollow" target="_blank">Google play store</a>.</p>
+<p><img src="../static.javatpoint.com/androidpages/images/android-ad-blocker6.png" alt="Android ad blocker"/></p>
+<h3 class="h3">7. Adblocker Browser</h3>
+<p><strong>Adblocker Browser</strong> for Android devices is similar to other ad-blocking apps. It blocks all the incoming ads naturally and also provides a measure of control to users. There are many other options that can help you to disable your privacy as well as tracking, malware domains, and anti-ad blocking messages. You can download the Adblocker Browser app from <a href="https://play.google.com/store/apps/details?id=org.adblockplus.browser" rel="nofollow" target="_blank">Google play store</a>.</p>
+<p><img src="../static.javatpoint.com/androidpages/images/android-ad-blocker7.png" alt="Android ad blocker"/></p>
+<h3 class="h3">8. AppBrain Ad Detector</h3>
+<p><strong>AppBrain Ad Detector</strong> blocks the pop-ups and ads. Its working functionality is slightly different than the others. It locks down the push notification and spam ads while detecting the harmful app networks. AppBrain Ad Detector app is easy to use. It has a tab for "Concerns", which instantly allows you to see any harm if it is coming towards your way. You can download the AppBrain Ad Detector app from <a href="https://play.google.com/store/apps/details?id=com.appspot.swisscodemonkeys.detector" rel="nofollow" target="_blank">Google play store</a>.</p>
+<p><img src="../static.javatpoint.com/androidpages/images/android-ad-blocker8.png" alt="Android ad blocker"/></p>
+<h3 class="h3">9. TrustGo Ad Detector</h3>
+<p>Are you attentive to mobile ads that are collecting your personal data through the apps? <strong>TrustGo Ad Detector</strong> app scans and protects your Android device from possible identity leaks and privacy violations that can sometimes happen due to ads displayed on your Android app. Use your Android device with the clarity so that your personal information is safe and secure. The TrustGo Ad Detector app is a unique type of ad blocker that keeps your personal information safe and secure. You can download it from <em>apkmonk.com/app/com.trustgo.addetector/.</em></p>
+<p><img src="../static.javatpoint.com/androidpages/images/android-ad-blocker9.png" alt="Android ad blocker"/></p>
+<h3 class="h3">10. AdBlock Fast</h3>
+<p><strong>AdBlock Fast</strong> is an ad blocker app that works with older Android devices and older internet browsers. This ad blocker works up to Samsung Internet 4.0. It is treated as one of the leading ad blockers app. AdBlock Fast has its own optimized filtering rule-sets, which help to load web pages faster. It consumes less memory, <a href="cpu-full-form.html">CPU</a> cycles, and disk space as compared to other ad blockers apps. This app is free, safe, fast, and easy to use. You can download AdBlock Fast app from <a href="https://play.google.com/store/apps/details?id=com.rocketshipapps.adblockfast&amp;hl=en" rel="nofollow" target="_blank">Google play store</a>.</p>
+<p><img src="../static.javatpoint.com/androidpages/images/android-ad-blocker10.png" alt="Android ad blocker"/></p>
+<h3 class="h3">11. Adblock Plus Samsung Internet</h3>
+<p>The <strong>Adblock Plus Samsung Internet</strong> offers you to surf the web browser faster and free from ads. This app helps in saving battery life by loading only the important information and avoid ads on the browser. It also provides a privacy protection feature like anti-tracking. This app also blocks region-specific ads when you are traveling to another region. The Adblock Plus Samsung comes with the best customer service and 100% free. If you are using a Samsung mobile, then this app is definitely for you. You can download it from <a href="https://play.google.com/store/apps/details?id=com.betafish.adblocksbrowser&amp;hl=en" rel="nofollow" target="_blank">Google play store</a>.</p>
+<p><img src="../static.javatpoint.com/androidpages/images/android-ad-blocker11.png" alt="Android ad blocker"/></p>
+<h3 class="h3">12. Turbo Browser</h3>
+<p><strong>Turbo Browser</strong> has a built-in ad-blocking feature on the browser. It is popular to load web pages quicker and gives you to download multiple files at high speed. This app also saves the maximum data so that you get the only content that you need. Turbo Browser blocks the ad on the browser, so browsing becomes faster as compared to regular browsers.</p>
+<p><img src="../static.javatpoint.com/androidpages/images/android-ad-blocker12.png" alt="Android ad blocker"/></p>
+<h3 class="h3">13. Disconnect Premium VPN</h3>
+<p><strong>Disconnect Premium</strong> is one of the best ad blocker apps for Android devices. It also protects your personal information as well as block ads while surfing the internet using your mobile device. It has built-in <a href="vpn-full-form.html">VPN</a> (Virtual Private Network), which makes it more secure for browsing. VPN's system is designed to hide your IP address so that you cannot be tracked by other sources. You can download this app from<a href="https://play.google.com/store/apps/details?id=me.disconnect.pro&amp;hl=en" rel="nofollow" target="_blank">Google play store</a>.</p>
+<p><img src="../static.javatpoint.com/androidpages/images/android-ad-blocker13.png" alt="Android ad blocker"/></p>
+<h3 class="h3">Is there any ad-block for Chrome Mobile</h3>
+<p>Although several apps promise to work fine as an ad blocker on Android Chrome, however, they may not work very well. But you have an option to turn off pop-up ads easily. To disable the pop-up ads on chrome browser, you have to follow the below steps on Android:</p>
+<ol class="points">
+<li>Open your Chrome browser app on your Android device.</li>
+<li>Tap on three-dot on the menu available to the right side of the address bar, scroll down and go to <strong>"Settings</strong>". Go to <strong>Site Settings</strong>.</li>
+<li>Turn on or off the toggle under the <strong>Pop-ups and redirects</strong>.</li>
+</ol>
+
+<hr/>
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="clear-cache-android.html">Clear cache android</a></span>
+</div>
+
+<!-- link -->
+<br/><br/>
+
+<div id="bottomnext">
+<a style="float:left" class="next" href="android-10.html">&larr; prev</a>
+<a style="float:right" class="next" href="clear-cache-android.html">next &rarr;</a>
+</div>
+
+<br/><br/>
+</td></tr>
+</table>
+</div>
+
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/android-ad-blocker"><img src="images/facebook32.png" alt="facebook"/></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/android-ad-blocker"><img src="images/twitter32.png" alt="twitter"/></a>
+<!--<a rel="nofollow" title="Google+" target="_blank" href="https://plusone.google.com/_/+1/confirm?hl=en&url=https://www.javatpoint.com/android-ad-blocker"><img src="https://www.javatpoint.com/images/google-plus32.png" alt="google plus"/></a>-->
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/android-ad-blocker"><img src="images/pinterest32.png" alt="pinterest"/></a>
+<!--<a rel="nofollow" title="Tumblr" target="_blank" href="https://www.tumblr.com/share/link?url=https://www.javatpoint.com/android-ad-blocker"><img src="https://www.javatpoint.com/images/tumblr32.png" alt="tumbler"/></a>-->
+<!-- contribute start-->
+
+<!-- contribute end-->
+
+<script async src="../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+<!-- AP_37780_300x250(0) -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4699858549023382"
+     data-ad-slot="5022809933"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+<!-- latest tutorials start --> 
+<h2 class="h2">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+
+                          <a href="python-openpyxl.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/openpyxl/images/openpyxl-home.png" alt="Openpyxl Tutorial" />
+                                <p>Openpyxl</p> 
+                            </div>    
+                        </a> 
+                          <a href="tally.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/tally/images/tally-home.png" alt="Tally Tutorial" />
+                                <p>Tally</p> 
+                            </div>    
+                        </a> 
+                          <a href="godot.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/godot/images/godot-home.png" alt="Godot Tutorial" />
+                                <p>Godot</p> 
+                            </div>    
+                        </a> 
+                          <a href="spring-boot-tutorial.html"> 
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/springboot/images/spring-boot-home.jpg" alt="Spring Boot Tutorial" />
+                                <p>Spring Boot</p>  
+                            </div>    
+                        </a> 
+                          <a href="gradle.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/gradle/images/gradle-home.png" alt="Gradle Tutorial" />
+                                <p>Gradle</p> 
+                            </div>    
+                        </a> 
+                           <a href="uml.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/uml/images/uml-home.png" alt="UML Tutorial" />
+                                <p>UML</p> 
+                            </div>    
+                        </a> 
+                          <a href="artificial-neural-network.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/artificial-neural-network/images/ann-home.png" alt="Artificial Neural Network Tutorial" />
+                                <p>ANN</p> 
+                            </div>    
+                        </a> 
+                          <a href="es6.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/es6/images/es6-home.png" alt="ES6 Tutorial" />
+                                <p>ES6</p> 
+                            </div>    
+                        </a> 
+                        <a href="flutter.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/flutter/images/flutter-home.png" alt="Flutter Tutorial" />
+                                <p>Flutter</p>
+                            </div> 
+                        </a> 
+                        <a href="selenium-python.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/selenium-python/images/selenium-python-home.png" alt="Selenium Python" />
+                                <p>Selenium Py</p>
+                            </div> 
+                        </a> 
+                        <a href="firebase.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/firebase/images/firebase-home.png" alt="Firebase Tutorial" />
+                                <p>Firebase</p>
+                            </div> 
+                        </a> 
+                        <a href="cobol.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/cobol/images/cobol-home.png" alt="Cobol Tutorial" />
+                                <p>Cobol</p>
+                            </div> 
+                        </a>  
+</div>
+<hr/>
+<!-- preparation start -->  
+<h2 class="h2">Preparation</h2>
+<div class="firsthomecontent"> 
+
+                        <a href="aptitude/quantitative.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+                                <p>Aptitude</p>
+                            </div>
+                        </a>
+                        <a href="reasoning.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+                                <p>Reasoning</p>
+                            </div>
+                        </a>
+                        <a href="verbal-ability.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+                                <p>Verbal A.</p>
+                            </div>
+                        </a>
+                        <a href="interview-questions-and-answers.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+                                <p>Interview</p>
+                            </div>
+                        </a>
+                        <a href="company-interview-questions-and-recruitment-process.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+                                <p>Company</p>
+                            </div> 
+                        </a> 
+
+</div>
+<hr/>
+<!-- trending start -->  
+<h2 class="h2">Trending Technologies</h2>
+<div class="firsthomecontent">
+
+                        <a href="artificial-intelligence-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/ai/images/ai-home.png" alt="Artificial Intelligence Tutorial" />
+                                <p>AI</p>
+                            </div> 
+                        </a> 
+                        <a href="aws-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/aws/images/aws-home.png" alt="AWS Tutorial" />
+                                <p>AWS</p>
+                            </div>
+                        </a>
+                        <a href="selenium-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/selenium/images/selenium-home.jpg" alt="Selenium tutorial" />
+                                <p>Selenium</p>
+                            </div>
+                        </a>
+                        <a href="cloud-computing-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/cloudhome.png" alt="Cloud tutorial" />
+                                <p>Cloud</p>
+                            </div>
+                        </a>
+                        <a href="hadoop-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/hadoop.jpg" alt="Hadoop tutorial" />
+                                <p>Hadoop</p>
+                            </div>
+                        </a>
+                        <a href="reactjs-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/reactjs/images/reactjs-home.png" alt="ReactJS Tutorial" />
+                                <p>ReactJS</p>
+                            </div> 
+                        </a>  
+                        <a href="data-science.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/data-science/images/data-science-home.png" alt="Data Science Tutorial" />
+                                <p>D. Science</p>
+                            </div> 
+                        </a>  
+                        <a href="angular-7-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/angular7/images/angular-7-home.png" alt="Angular 7 Tutorial" />
+                                <p>Angular 7</p>
+                            </div> 
+                        </a>  
+                        <a href="blockchain-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/blockchain/images/blockchain-home.png" alt="Blockchain Tutorial" />
+                                <p>Blockchain</p>
+                            </div>  
+                        </a> 
+                        <a href="git.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/git/images/git-home.png" alt="Git Tutorial" />
+                                <p>Git</p>
+                            </div> 
+                        </a> 
+                          <a href="machine-learning.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/machine-learning/images/machine-learning-home.png" alt="Machine Learning Tutorial" />
+                                <p>ML</p> 
+                            </div>    
+                        </a> 
+                          <a href="devops.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/devops/images/devops-home.png" alt="DevOps Tutorial" />
+                                <p>DevOps</p> 
+                            </div>    
+                        </a> 
+
+</div>
+ 
+<hr/>
+<!-- B.Tech / MCA -->
+                    <h2 class="h2">B.Tech / MCA</h2>
+                    <div class="firsthomecontent">
+                        <a href="dbms-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/dbms/images/dbms-home.jpg" alt="DBMS tutorial" />
+                                <p>DBMS</p>
+                            </div>
+                        </a>
+                        <a href="data-structure-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/ds/images/ds-home.png" alt="Data Structures tutorial" />
+                                <p>DS</p>
+                            </div>
+                        </a> 
+                        <a href="daa-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/daa/images/daa-home.png" alt="DAA tutorial" />
+                                <p>DAA</p>
+                            </div>
+                        </a>
+                        <a href="os-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/operating-system/images/operating-system-home.png" alt="Operating System tutorial" />
+                                <p>OS</p>
+                            </div>
+                        </a>
+                        <a href="computer-network-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/computer-network/images/computer-network-home.png" alt="Computer Network tutorial" />
+                                <p>C. Network</p>
+                            </div>
+                        </a>
+                        <a href="compiler-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/compiler/images/compiler-design-home.png" alt="Compiler Design tutorial" />
+                                <p>Compiler D.</p>
+                            </div>
+                        </a>
+                        <a href="computer-organization-and-architecture-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/coa/images/coa-home.png" alt="Computer Organization and Architecture" />
+                                <p>COA</p>
+                            </div>
+                        </a>
+                        <a href="discrete-mathematics-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/dms/images/discrete-mathematics-home.png" alt="Discrete Mathematics Tutorial" />
+                                <p>D. Math.</p>
+                            </div>
+                        </a>
+                        <a href="ethical-hacking-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/ethical-hacking/images/ethical-hacking-home.png" alt="Ethical Hacking Tutorial" />
+                                <p>E. Hacking</p>
+                            </div>
+                        </a>
+                        <a href="computer-graphics-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/computer-graphics/images/computer-graphics-home.png" alt="Computer Graphics Tutorial" />
+                                <p>C. Graphics</p>
+                            </div> 
+                        </a>
+                        <a href="software-engineering-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/software-engineering/images/software-engineering-home.png" alt="Software Engineering Tutorial" />
+                                <p>Software E.</p>
+                            </div> 
+                        </a> 
+
+                        <a href="html-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/html-tutorial.png" alt="html tutorial" />
+                                <p>Web Tech.</p>
+                            </div>
+                        </a>
+                        <a href="cyber-security-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/cybersecurity/images/cyber-security-home.png" alt="Cyber Security tutorial" />
+                                <p>Cyber Sec.</p>
+                            </div>
+                        </a>
+                        <a href="automata-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/automata/images/automata-home.jpg" alt="Automata Tutorial" />
+                                <p>Automata</p>
+                            </div> 
+                        </a>
+                        
+                        <a href="c-programming-language-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/clanguagehome.png" alt="C Language tutorial" />
+                                <p>C</p>
+                            </div>
+                        </a>
+                        <a href="cpp-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/cpp/images/cpp-home.png" alt="C++ tutorial" />
+                                <p>C++</p>
+                            </div>
+                        </a>
+                        <a href="java-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/javahome.png" alt="Java tutorial" />
+                                <p>Java</p>
+                            </div>
+                        </a>
+                        <a href="net-framework.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/csharp/net/images/net-home.png" alt=".Net Framework tutorial" />
+                                <p>.Net</p>
+                            </div>
+                        </a>
+                        <a href="python-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/pythonhome.png" alt="Python tutorial" />
+                                <p>Python</p>
+                            </div>
+                        </a>
+
+                        <a href="programs-list.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://www.javatpoint.com/images/programs.jpg" alt="List of Programs" />
+                                <p>Programs</p>
+                            </div>
+                        </a>
+                        <a href="control-system-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/control-system/images/control-system-home.jpg" alt="Control Systems tutorial" />
+                                <p>Control S.</p>
+                            </div>
+                        </a>
+                        <a href="data-mining.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/data-mining/images/data-mining-home.png" alt="Data Mining Tutorial" />
+                                <p>Data Mining</p> 
+                            </div>    
+                        </a> 
+
+</div>
+
+ 
+</div>
+
+
+<br><br/><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+</div></div>
+<div id="right">
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+<br/><br/>
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+<br/><br/>
+
+</div>
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+<!-- right1024only -->
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+<br/><br/>
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+<br/>
+<div id="footer" style="clear:both;width:100%">
+
+<!--<div style="width:100%;float:center;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#90715c,#523b1f);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Summer Training</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers <strong>Summer Internship Training</strong> on Java, PHP, .Net, Hadoop, Data Analytics, R Programming, SAP, Android, Python, Oracle, Seleninum, Linux, C++ and many more technologies in Delhi/NCR, India. For more visit <a style="color:white" href="https://training.javatpoint.com"><img src="https://static.javatpoint.com/images/linkglobe12.png" alt="javatpoint training"/>training.javatpoint.com</a> <br>Course Fee: &#8377; 6000 Only<br>Duration: 6 Week </p></div>--><div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com. <br>Duration: 1 week to 2 week<br></p></div><!--<div class="homebox2"><h2>Our Initiatives</h2><marquee behavior="alternate"><a rel="nofollow noopener" href="https://www.hindi100.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/javatpoint.png" alt="javatpoint"/><p>Hindi100</p></div></a><a rel="nofollow noopener" href="https://www.lyricsia.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/lyrics.png" alt="lyrics"/><p>Lyricsia</p></div></a></div></a></marquee></div>--><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="../static.javatpoint.com/images/social/rss1.png" alt="RSS Feed"/></a> <a target="_blank"  rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="../static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts"/></a> <a  rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="../static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page"/></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="../static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page"/></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="../static.javatpoint.com/images/youtube32.png" alt="YouTube"/></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="../static.javatpoint.com/images/social/blog.png" alt="Blog Page"/></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+</div></div></div> 
+ 
+<script src="../static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="../static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/android-ad-blocker by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 05:56:27 GMT -->
+</html> 

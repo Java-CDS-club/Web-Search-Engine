@@ -1,0 +1,80 @@
+C++ set cend() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set cend()C++ set cend() function is used to return a constant iterator which is next to the last entry in the set.Note:- This is a placeholder. No element exists in this location and attempting to access is undefined behavior.Syntaxconst_iterator cend() const noexcept;  //since C++ 11A const_iterator is an iterator that points to constant content.ParameterNoneReturn valueIt returns a constant iterator which is pointing next to the last element of the set.ComplexityConstant.Iterator validityNo changes.Data RacesThe container is accessed.Concurrently accessing the elements of a set is safe.Exception SafetyThis member function never throws exceptions.Example 1Let's see the simple example for cend() function:#include <iostream>
+#include <set>
+
+int main ()
+{
+  std::set<int> myset = {60,20,40,50,10,30};
+
+  std::cout << "myset contains:";
+  for (auto it=myset.cbegin(); it != myset.cend(); ++it)
+    std::cout << ' ' << *it;
+
+  std::cout << '\n';
+
+  return 0;
+}Output:myset contains: 10 20 30 40 50 60In the above example, cend() function is used to return an iterator pointing next to the last element in the myset set.Example 2Let's see a simple example to find the element in the set:#include <iostream>
+#include <string>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+    int val;
+    set<int> c = {10,20,30,40,50};
+ 
+    cout<<"Enter value to find: ";
+    cin>>val;
+
+    auto result = c.find(val);  
+    
+    //find until end of the set elements
+    if (result != c.cend()) {  
+        cout << "Element found: "<< *result; 
+        cout << endl;  
+    } else {  
+        cout << "Element not found." << endl;  
+    }  
+    
+  return 0;
+}Output:Enter value to find: 10
+Element found: 10Example 3Let's see a simple example to iterate over the set using while loop:#include <iostream>
+#include <set>
+#include <string>
+int main()
+{
+    using namespace std;
+ 
+    set<string> myset = {"Orange", "Banana", "Apple"};
+
+    set<string>::const_iterator it; // declare an iterator
+    
+    it = myset.cbegin(); // assign it to the start of the set
+    
+    while (it != myset.cend()) // while it hasn't reach the end
+    {
+        cout << *it <<endl; 
+        // print the value of the element it points to
+        ++it; // and iterate to the next element
+    }
+    cout << endl;
+}Output:Apple
+Banana
+OrangeIn the above example, cend() function is used to return an iterator pointing next to the last element in the myset set.Example 4Let's see a simple example:#include <iostream>
+#include <set>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+  set<int> c = {3, 1, 2};
+
+  for_each(c.cbegin(), c.cend(), [](const int& x) {
+    cout << x << endl;
+  });
+  
+  return 0;
+}Output:1
+2
+3In the above example, cend() function is used to return an iterator pointing next to the last element in the myset set.Next TopicSet rbegin() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,719 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/aws-non-relational-database by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:30:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>AWS Non Relational Databases - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png"/>
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css"/><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50"/><meta property="og:title" content="AWS Non Relational Databases - Javatpoint" /><meta property="og:description" content="AWS Non Relational Databases with aws, tutorial, introduction, amazon web services, aws history, features of aws, aws free tier, storage, database, network services, redshift, web services etc." />
+<meta name="keywords" content="aws, tutorial, introduction, amazon web services, aws history, features of aws, aws global infrastructure, aws free tier, storage, database, network services, redshift, web services, computer services"/><meta name="description" content="AWS Non Relational Databases with aws, tutorial, introduction, amazon web services, aws history, features of aws, aws free tier, storage, database, network services, redshift, web services etc."/><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="https://www.javatpoint.com/aws-non-relational-database" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="AWS Non Relational Databases - Javatpoint" /><meta name="twitter:description" property="og:description" content="AWS Non Relational Databases with aws, tutorial, introduction, amazon web services, aws history, features of aws, aws free tier, storage, database, network services, redshift, web services etc." /><meta property="og:url" content="https://www.javatpoint.com/aws-non-relational-database" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@pagejavatpoint"/><meta name="twitter:domain" content="www.javatpoint.com"/><meta name="twitter:creator" content="@pagejavatpoint"/>
+
+
+<link href="https://www.javatpoint.com/manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://cdn.adpushup.com/37780/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+</head> 
+<body onload="highlightlink()"> 
+ 
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#8679;</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px">
+    <tr>
+        <td>
+            <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px">
+                <a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a>
+            </div>
+            <div style="float:left;width:60%;">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+                
+            </div>
+            
+        </td>
+    </tr>
+        <!--<tr>
+        <td>
+            <div id="headerlink" style="padding:0px;margin:0px"><span style="margin-right:20px;width:45px"></span><span style="float:right;margin-right:5px;width:45%"> </span>
+                
+            </div>
+        </td>
+    </tr>-->
+
+</table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="https://www.javatpoint.com/images/menuhome64.png" alt="Go To Top" onclick="showmenu()"/></span>
+<span style="float:left"><a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+<!--<form class="navbar-search-m" method="get" action="https://www.google.com/search" target="_blank"> <input type="text" name="q" class="search-query span2-m" placeholder="Search on javatpoint..." title="Search on Javatpoint"/><input type="hidden" name="sitesearch" value="www.javatpoint.com"/></form>-->
+
+</div>
+</div>
+<div id="link" style="clear:both"> <div  class="ddsmoothmenu">
+<ul>
+<li><a href="https://www.javatpoint.com/">Home</a></li>
+<li><a href="https://www.javatpoint.com/aws-tutorial" class="selected">AWS</a></li>
+<li><a href="https://www.javatpoint.com/computer-network-tutorial">Computer Network</a></li>
+<li><a href="https://www.javatpoint.com/iot-tutorial">IoT</a></li>
+<li><a href="https://www.javatpoint.com/data-structure-tutorial">DS</a></li>
+<li><a href="https://www.javatpoint.com/java-tutorial">Java</a></li>
+<li><a href="https://www.javatpoint.com/html-tutorial">HTML</a></li>
+<li><a href="https://www.javatpoint.com/css-tutorial">CSS</a></li>
+<li><a href="https://www.javatpoint.com/aptitude/quantitative">Aptitude</a></li>
+<li><a href="https://www.javatpoint.com/selenium-tutorial">Selenium</a></li>
+<li><a href="https://www.javatpoint.com/kotlin-tutorial">Kotlin</a></li>
+<li><a href="https://www.javatpoint.com/javascript-tutorial">JavaScript</a></li>
+<li><a href="https://www.javatpoint.com/jquery-tutorial">jQuery</a></li>
+<li><a href="https://www.javatpoint.com/examaccess">Quiz</a></li>
+<li><a href="https://www.javatpoint.com/free-java-projects">Projects</a></li>
+<li><a href="https://www.javatpoint.com/corejava-interview-questions">Interview Q</a></li>
+<li><a href="https://www.javatpoint.com/comment.jsp">Comment</a></li>
+<li><a href="https://www.javatpoint.com/forum">Forum</a></li>
+<li><a href="https://www.javatpoint.com/training">Training</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both"> 
+<!-- Cm_300x250_Mob_14/9 -->
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">AWS Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/aws-tutorial">AWS Tutorial</a>
+<a href="https://www.javatpoint.com/history-of-aws">History of AWS</a>
+<a href="https://www.javatpoint.com/features-of-aws">AWS Features</a>
+<a href="https://www.javatpoint.com/aws-global-infrastructure">Global Infrastructure</a>
+<a href="https://www.javatpoint.com/aws-free-tier">AWS Free Tier</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">AWS IAM</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/aws-iam">AWS IAM</a>
+<a href="https://www.javatpoint.com/aws-saml">AWS SAML</a>
+<a href="https://www.javatpoint.com/aws-iam-identities">IAM Identities</a>
+<a href="https://www.javatpoint.com/aws-iam-roles">IAM Roles</a>
+<a href="https://www.javatpoint.com/aws-iam-roles-use-cases">IAM Roles Use Cases</a>
+<a href="https://www.javatpoint.com/aws-creating-iam-roles">Creating IAM Roles</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Storage Services</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/aws-s3">AWS S3</a>
+<a href="https://www.javatpoint.com/aws-s3-concepts">AWS S3 Concepts</a>
+<a href="https://www.javatpoint.com/aws-creating-s3-bucket">Creating S3 Bucket</a>
+<a href="https://www.javatpoint.com/aws-storage-classes">AWS Storage Classes</a>
+<a href="https://www.javatpoint.com/aws-versioning">AWS Versioning</a>
+<a href="https://www.javatpoint.com/aws-cross-region-replication">Cross Region Replication</a>
+<a href="https://www.javatpoint.com/aws-lifecycle-management">Lifecycle Management</a>
+<a href="https://www.javatpoint.com/aws-cloudfront-cdn">CloudFront CDN</a>
+<a href="https://www.javatpoint.com/aws-creating-a-cloudfront-cdn">Creating CloudFront CDN</a>
+<a href="https://www.javatpoint.com/aws-storage-gateway">Storage Gateway</a>
+<a href="https://www.javatpoint.com/aws-snowball">AWS Snowball</a>
+<a href="https://www.javatpoint.com/aws-s3-transfer-acceleration">S3 Transfer Acceleration</a>
+</div>
+
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">EC2 - Backbone of AWS</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/aws-ec2">AWS EC2</a>
+<a href="https://www.javatpoint.com/aws-ebs">AWS EBS</a>
+
+<a href="https://www.javatpoint.com/aws-ec2-creating-an-instance">Creating an EC2 instance</a>
+<a href="https://www.javatpoint.com/aws-ebs-volume">EBS Volume</a>
+<a href="https://www.javatpoint.com/aws-security-group">Security Group</a>
+<a href="https://www.javatpoint.com/aws-ami">AWS AMI</a>
+<a href="https://www.javatpoint.com/aws-creating-an-ami">Creating an AMI</a>
+
+<a href="https://www.javatpoint.com/aws-load-balancing">AWS Load Balancing</a>
+<a href="https://www.javatpoint.com/aws-creating-load-balancer">Creating Load Balancer</a>
+
+<a href="https://www.javatpoint.com/aws-lambda">AWS Lambda</a>
+<a href="https://www.javatpoint.com/aws-creating-a-lambda">Creating a Lambda</a>
+<a href="https://www.javatpoint.com/aws-cloudwatch-ec2">CloudWatch EC2</a>
+<a href="https://www.javatpoint.com/aws-bash-script">AWS Bash Script</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">AWS Route53</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/aws-dns">What is DNS</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Database Services</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/aws-relational-databases">Relational Database</a>
+<a href="https://www.javatpoint.com/aws-non-relational-database">Non Relational Database</a>
+
+<a href="https://www.javatpoint.com/aws-elasticache">AWS Elasticache</a>
+<a href="https://www.javatpoint.com/creating-an-rds-instance-in-aws">Creating an RDS Instance</a>
+<a href="https://www.javatpoint.com/aws-dynamodb">AWS DynamoDB</a>
+<a href="https://www.javatpoint.com/aws-aurora">AWS Aurora</a>
+<a href="https://www.javatpoint.com/aws-redshift">AWS Redshift</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Application Services</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/aws-sqs">AWS SQS</a>
+<a href="https://www.javatpoint.com/aws-swf">AWS SWF</a>
+<a href="https://www.javatpoint.com/aws-sns">AWS SNS</a>
+<a href="https://www.javatpoint.com/aws-elastic-transcoder">Elastic Transcoder</a>
+<a href="https://www.javatpoint.com/aws-api-gateway">API Gateway</a>
+<a href="https://www.javatpoint.com/aws-kinesis">AWS Kinesis</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">AWS VPC</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/aws-vpc">AWS VPC</a>
+<a href="https://www.javatpoint.com/creating-your-own-custom-vpc">Creating your own custom VPC</a>
+<a href="https://www.javatpoint.com/aws-direct-connect">Direct Connect</a>
+<a href="https://www.javatpoint.com/aws-nat-gateways">NAT Gateways</a>
+
+<a href="https://www.javatpoint.com/aws-bastion-host">AWS Bastion Host</a>
+<a href="https://www.javatpoint.com/aws-vpc-endpoint">AWS VPC Endpoint</a>
+<a href="https://www.javatpoint.com/aws-vpc-flowlogs">AWS VPC FlowLogs</a>
+<a href="https://www.javatpoint.com/aws-nacl">AWS NACL</a>
+<a href="https://www.javatpoint.com/aws-nacl-vs-security-group">NACL vs Security Group</a>
+<a href="https://www.javatpoint.com/aws-data-pipeline">AWS Data Pipeline</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/aws-interview-questions">AWS Interview Questions</a>
+</div>
+
+<img src="https://www.javatpoint.com/wh.JPG" alt="JavaTpoint"/>
+<br/>
+<div id="leftad" style="margin-left:20px">
+<!-- javatpointleft -->
+<ins class="adPushupAds" data-adpControl="g8drp" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBqYXZhdHBvaW50bGVmdCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lLWJsb2NrO3dpZHRoOjE2MHB4O2hlaWdodDo2MDBweCIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI0NDc2NDAxMjIyIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+</div>
+<div class="onlycontent">
+<div class="onlycontentad">
+<!-- CM_JTP_Leaderbaord -->
+<ins class="adPushupAds" data-adpControl="nuoc1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDTV9KVFBfTGVhZGVyYmFvcmQgLS0+CjxpbnMgY2xhc3M9ImFkc2J5Z29vZ2xlIgogICAgIHN0eWxlPSJkaXNwbGF5OmJsb2NrIgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjkyMDE5MDE5MTUiCiAgICAgZGF0YS1hZC1mb3JtYXQ9ImF1dG8iCiAgICAgZGF0YS1mdWxsLXdpZHRoLXJlc3BvbnNpdmU9InRydWUiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+
+<div id="bottomnextup">
+<a class="next" href="https://www.javatpoint.com/aws-elasticache">next &rarr;</a>
+<a class="next" href="https://www.javatpoint.com/aws-relational-databases">&larr; prev</a>
+</div>
+
+<h1 class="h1">What is a NonRelational Database?</h1>
+<ul class="points">
+<li><strong>NonRelational Database</strong> is a database that does not follow the relational database model provided by the relational database management system.</li>
+<li>It is a NoSQL database, we have seen a steady growth in Non Relational Database with the rise in Big data applications.</li>
+<li>We have a NonRelational Database. Inside the database, we have a collection. Inside a collection, we have got a document, and inside the document, we have key-value pairs. If we talk in a relational sense then Collection is a table, the document is a row, and row consists of key-value pairs.</li>
+</ul>
+<h2 class="h2">How does a Non Relational database work?</h2>
+<p>A Non Relational database model uses a variety of different data models such as key-value, document, Graph, in-memory, and search.</p>
+<p><strong>Let's understand through an example.</strong></p>
+<ul class="points">
+<li>In a relational database, a book record consists of separate tables, and the relationship between tables are defined by primary and foreign constraints. For example, <strong>Book</strong> table has three columns, i.e., <strong>Book id, Book title</strong> and <strong>Edition Number, Author</strong> table has three columns, i.e., <strong>Author id, Author name</strong>, and <strong>Book id</strong>. The relationship model is designed so that the database can enforce referential integrity between the tables to reduce redundancy.</li>
+<li>In NonRelational database, records are stored in the form of json format. Each book item such as Book id, Book title, Edition Number, Author id, Author name is stored as attributes in a document.</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="html">
+JSON/NoSQL
+ {
+     "Book id": "1",
+     "Book title": "Computer",
+     "Edition Number": "121",
+     "Author id": "23",
+     "Author name": "Ankita"
+}
+</textarea></div>
+<h2 class="h2">Why to use Non Relational database</h2>
+<p>Non Relational database is used because of the following features:</p>
+<ul class="points">
+<li><strong>Flexibility:</strong> It has a very flexible data model which provides faster and iterative development. The flexible model of Non Relational database makes an ideal for structured, semi-structured and unstructured data.</li>
+<li><strong>Scalability:</strong> Non Relational databases provide scaling out by using distributed clusters of hardware rather than scaling up by adding expensive servers.</li>
+<li><strong>High-performance:</strong> Non Relational databases use some specific data models such as key-value, document, etc that provides higher performance than relational databases.</li>
+<li><strong>Highly functional:</strong> Non Relational databases provide highly functional APIs and data types for their respective data models. </li>
+</ul>
+<h2 class="h2">Non Relational database types</h2>
+<ul class="points">
+<li>Key value</li>
+<li>Document</li>
+<li>Graph</li>
+<li>In-memory</li>
+<li>Search</li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/aws/images/non-relational-databases-types.png" alt="Non Relational Database"/>
+<h2 class="h3">Key value</h2>
+<ul class="points">
+<li>A Key-value database is a nonrelational database which stores the data in the form of key value.</li>
+<li>Key-value databases provide highly partitionable and horizontal scaling that other types of databases cannot achieve.</li>
+<li>Key-value databases are used by those enterprises who want to store large volumes of data without any performance overhead.</li>
+<li>A key in the key-value pair must be unique, and it allows you to access the value associated with the key.</li>
+<li>Redis, Riak, and Oracle NoSQL are examples of key-value databases.</li>
+<li>A key-value store is a Big-Hash table of keys and values.</li>
+<li>A key is auto-generated while the value can be a string, JSON, BLOB, etc.</li>
+<li>A key value has a hash table which consists of a key and a pointer pointing to a particular data.</li>
+<li>A hash table is a bucket which consists of a logical group of keys.</li>
+</ul>
+<p><strong>Consider the simple example in which key is a student id and the value associated with the key is the name of the student.</strong></p>
+<table class="alt">
+<tr>
+	<th>Key</th>
+	<th>Value</th>
+</tr>
+<tr>
+	<td>1</td>
+	<td>Akshita</td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>Ankita</td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>Yesha</td>
+</tr>
+</table>
+<h3 class="h4">Disadvantages of Key-Value database:</h3>
+<ul class="points">
+<li>It does not provide the capabilities that traditional database system provides such as consistency when multiple transactions are executed simultaneously. Such capabilities are provided by the application itself.</li>
+<li>When the volume of data increases, then maintaining a unique key becomes a difficult task.</li>
+</ul>
+<h2 class="h3">Document </h2>
+<ul class="points">
+<li>The document database is a nonrelational database used to store the semistructured data as documents.</li>
+<li>The document database is required for developers as data in the application tier is represented as JSON format.</li>
+<li>In a Document database, a document can have the same or a different data structure.</li>
+<li>Documents are grouped into collections which behave similarly as a table in the relational database.</li>
+<li>The document database is very popular as it allows you to persist the data in a database by using the same model that you use in your application code.</li>
+<li><strong>Apache CouchDB, MongoDB</strong> are examples of a Document database.</li>
+</ul>
+<h2 class="h3">Graph</h2>
+<img src="https://static.javatpoint.com/tutorial/aws/images/non-relational-databases-graph.png" alt="Non Relational Database"/>
+<ul class="points">
+<li>A Graph database is a network database represented by edges and nodes to store the data.</li>
+<li>A Graph can be easily transformed from one model to another model by using a Graph database.</li>
+<li>Nodes have some relationships, which is represented by edges between the nodes.</li>
+<li>Some defined properties are associated with both nodes and edges.</li>
+<li>The Graph contains nodes and edges. Nodes are used to store the entities while edges are used to store the relationship between edges.</li>
+<li>An edge has a start node, end node, type, and direction. It also describes the parent-child relationship.</li>
+<li>Traversing the joins in a Graph database is very fast because the relationship between the nodes is not calculated at query time but it is persisted in a database.</li>
+</ul>
+<h2 class="h3">In-memory</h2>
+<ul class="points">
+<li>An in-memory database is a type of nonrelational database that depends on memory for data storage rather than storing the data on disk or SSDs.</li>
+<li>It minimizes the response time by eliminating the need to access disks.</li>
+<li>Since the data is stored and managed in main memory, therefore it is at risk of data lost on server failure.</li>
+<li>An In-memory database is ideal for applications that require microsecond response time.</li>
+<li>The use cases of In-memory database are Real-time bidding, Gaming Leaderboards, and caching.</li>
+</ul>
+<h2 class="h3">Search</h2>
+<ul class="points">
+<li>Search database is a nonrelational database which is used to search the data content.</li>
+<li>It uses indexes to categorize the similar characteristics among the data, and facilitate the search capability.</li>
+<li>It is mainly used with data that may be long, semistructured or unstructured data.</li>
+<li>It offers some specialized methods such as full-text search, complex search expressions, and ranking of search results.</li>
+</ul>
+
+<hr/>
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="https://www.javatpoint.com/aws-elasticache">AWS Elasticache</a></span>
+</div>
+<!-- link -->
+<br/><br/>
+<div id="bottomnext">
+<a style="float:left" class="next" href="https://www.javatpoint.com/aws-relational-databases">&larr; prev</a>
+<a style="float:right" class="next" href="https://www.javatpoint.com/aws-elasticache">next &rarr;</a>
+</div>
+
+<br/><br/>
+</td></tr>
+</table>
+</div>
+
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/aws-non-relational-database"><img src="https://www.javatpoint.com/images/facebook32.png" alt="facebook"/></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/aws-non-relational-database"><img src="https://www.javatpoint.com/images/twitter32.png" alt="twitter"/></a>
+<!--<a rel="nofollow" title="Google+" target="_blank" href="https://plusone.google.com/_/+1/confirm?hl=en&url=https://www.javatpoint.com/aws-non-relational-database"><img src="https://www.javatpoint.com/images/google-plus32.png" alt="google plus"/></a>-->
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/aws-non-relational-database"><img src="https://www.javatpoint.com/images/pinterest32.png" alt="pinterest"/></a>
+<!--<a rel="nofollow" title="Tumblr" target="_blank" href="https://www.tumblr.com/share/link?url=https://www.javatpoint.com/aws-non-relational-database"><img src="https://www.javatpoint.com/images/tumblr32.png" alt="tumbler"/></a>-->
+<!-- contribute start-->
+
+<!-- contribute end-->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- AP_37780_300x250(0) -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4699858549023382"
+     data-ad-slot="5022809933"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+<!-- latest tutorials start --> 
+<h2 class="h2">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+
+                          <a href="https://www.javatpoint.com/python-openpyxl">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/openpyxl/images/openpyxl-home.png" alt="Openpyxl Tutorial" />
+                                <p>Openpyxl</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/tally">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/tally/images/tally-home.png" alt="Tally Tutorial" />
+                                <p>Tally</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/godot">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/godot/images/godot-home.png" alt="Godot Tutorial" />
+                                <p>Godot</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/spring-boot-tutorial"> 
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/springboot/images/spring-boot-home.jpg" alt="Spring Boot Tutorial" />
+                                <p>Spring Boot</p>  
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/gradle">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/gradle/images/gradle-home.png" alt="Gradle Tutorial" />
+                                <p>Gradle</p> 
+                            </div>    
+                        </a> 
+                           <a href="https://www.javatpoint.com/uml">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/uml/images/uml-home.png" alt="UML Tutorial" />
+                                <p>UML</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/artificial-neural-network">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/artificial-neural-network/images/ann-home.png" alt="Artificial Neural Network Tutorial" />
+                                <p>ANN</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/es6">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/es6/images/es6-home.png" alt="ES6 Tutorial" />
+                                <p>ES6</p> 
+                            </div>    
+                        </a> 
+                        <a href="https://www.javatpoint.com/flutter">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/flutter/images/flutter-home.png" alt="Flutter Tutorial" />
+                                <p>Flutter</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/selenium-python">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/selenium-python/images/selenium-python-home.png" alt="Selenium Python" />
+                                <p>Selenium Py</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/firebase">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/firebase/images/firebase-home.png" alt="Firebase Tutorial" />
+                                <p>Firebase</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/cobol">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/cobol/images/cobol-home.png" alt="Cobol Tutorial" />
+                                <p>Cobol</p>
+                            </div> 
+                        </a>  
+</div>
+<hr/>
+<!-- preparation start -->  
+<h2 class="h2">Preparation</h2>
+<div class="firsthomecontent"> 
+
+                        <a href="https://www.javatpoint.com/aptitude/quantitative">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+                                <p>Aptitude</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/reasoning">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+                                <p>Reasoning</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/verbal-ability">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+                                <p>Verbal A.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/interview-questions-and-answers">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+                                <p>Interview</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/company-interview-questions-and-recruitment-process">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+                                <p>Company</p>
+                            </div> 
+                        </a> 
+
+</div>
+<hr/>
+<!-- trending start -->  
+<h2 class="h2">Trending Technologies</h2>
+<div class="firsthomecontent">
+
+                        <a href="https://www.javatpoint.com/artificial-intelligence-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/ai/images/ai-home.png" alt="Artificial Intelligence Tutorial" />
+                                <p>AI</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/aws-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/aws/images/aws-home.png" alt="AWS Tutorial" />
+                                <p>AWS</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/selenium-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/selenium/images/selenium-home.jpg" alt="Selenium tutorial" />
+                                <p>Selenium</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/cloud-computing-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/cloudhome.png" alt="Cloud tutorial" />
+                                <p>Cloud</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/hadoop-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/hadoop.jpg" alt="Hadoop tutorial" />
+                                <p>Hadoop</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/reactjs-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/reactjs/images/reactjs-home.png" alt="ReactJS Tutorial" />
+                                <p>ReactJS</p>
+                            </div> 
+                        </a>  
+                        <a href="https://www.javatpoint.com/data-science">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/data-science/images/data-science-home.png" alt="Data Science Tutorial" />
+                                <p>D. Science</p>
+                            </div> 
+                        </a>  
+                        <a href="https://www.javatpoint.com/angular-7-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/angular7/images/angular-7-home.png" alt="Angular 7 Tutorial" />
+                                <p>Angular 7</p>
+                            </div> 
+                        </a>  
+                        <a href="https://www.javatpoint.com/blockchain-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/blockchain/images/blockchain-home.png" alt="Blockchain Tutorial" />
+                                <p>Blockchain</p>
+                            </div>  
+                        </a> 
+                        <a href="https://www.javatpoint.com/git">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/git/images/git-home.png" alt="Git Tutorial" />
+                                <p>Git</p>
+                            </div> 
+                        </a> 
+                          <a href="https://www.javatpoint.com/machine-learning">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/machine-learning/images/machine-learning-home.png" alt="Machine Learning Tutorial" />
+                                <p>ML</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/devops">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/devops/images/devops-home.png" alt="DevOps Tutorial" />
+                                <p>DevOps</p> 
+                            </div>    
+                        </a> 
+
+</div>
+ 
+<hr/>
+<!-- B.Tech / MCA -->
+                    <h2 class="h2">B.Tech / MCA</h2>
+                    <div class="firsthomecontent">
+                        <a href="https://www.javatpoint.com/dbms-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/dbms/images/dbms-home.jpg" alt="DBMS tutorial" />
+                                <p>DBMS</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/data-structure-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/ds/images/ds-home.png" alt="Data Structures tutorial" />
+                                <p>DS</p>
+                            </div>
+                        </a> 
+                        <a href="https://www.javatpoint.com/daa-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/daa/images/daa-home.png" alt="DAA tutorial" />
+                                <p>DAA</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/os-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/operating-system/images/operating-system-home.png" alt="Operating System tutorial" />
+                                <p>OS</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/computer-network-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/computer-network/images/computer-network-home.png" alt="Computer Network tutorial" />
+                                <p>C. Network</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/compiler-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/compiler/images/compiler-design-home.png" alt="Compiler Design tutorial" />
+                                <p>Compiler D.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/computer-organization-and-architecture-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/coa/images/coa-home.png" alt="Computer Organization and Architecture" />
+                                <p>COA</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/discrete-mathematics-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/dms/images/discrete-mathematics-home.png" alt="Discrete Mathematics Tutorial" />
+                                <p>D. Math.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/ethical-hacking-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/ethical-hacking/images/ethical-hacking-home.png" alt="Ethical Hacking Tutorial" />
+                                <p>E. Hacking</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/computer-graphics-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/computer-graphics/images/computer-graphics-home.png" alt="Computer Graphics Tutorial" />
+                                <p>C. Graphics</p>
+                            </div> 
+                        </a>
+                        <a href="https://www.javatpoint.com/software-engineering-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/software-engineering/images/software-engineering-home.png" alt="Software Engineering Tutorial" />
+                                <p>Software E.</p>
+                            </div> 
+                        </a> 
+
+                        <a href="https://www.javatpoint.com/html-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/html-tutorial.png" alt="html tutorial" />
+                                <p>Web Tech.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/cyber-security-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/cybersecurity/images/cyber-security-home.png" alt="Cyber Security tutorial" />
+                                <p>Cyber Sec.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/automata-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/automata/images/automata-home.jpg" alt="Automata Tutorial" />
+                                <p>Automata</p>
+                            </div> 
+                        </a>
+                        
+                        <a href="https://www.javatpoint.com/c-programming-language-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/clanguagehome.png" alt="C Language tutorial" />
+                                <p>C</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/cpp-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/cpp/images/cpp-home.png" alt="C++ tutorial" />
+                                <p>C++</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/java-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/javahome.png" alt="Java tutorial" />
+                                <p>Java</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/net-framework">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/csharp/net/images/net-home.png" alt=".Net Framework tutorial" />
+                                <p>.Net</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/python-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/pythonhome.png" alt="Python tutorial" />
+                                <p>Python</p>
+                            </div>
+                        </a>
+
+                        <a href="https://www.javatpoint.com/programs-list">
+                            <div class="homecontent"><img class="lazyload" data-src="https://www.javatpoint.com/images/programs.jpg" alt="List of Programs" />
+                                <p>Programs</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/control-system-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/control-system/images/control-system-home.jpg" alt="Control Systems tutorial" />
+                                <p>Control S.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/data-mining">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/data-mining/images/data-mining-home.png" alt="Data Mining Tutorial" />
+                                <p>Data Mining</p> 
+                            </div>    
+                        </a> 
+
+</div>
+
+ 
+</div>
+
+
+<br><br/><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+</div></div>
+<div id="right">
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+<br/><br/>
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+<br/><br/>
+
+</div>
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+<!-- right1024only -->
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+<br/><br/>
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+<br/>
+<div id="footer" style="clear:both;width:100%">
+
+<!--<div style="width:100%;float:center;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#90715c,#523b1f);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Summer Training</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers <strong>Summer Internship Training</strong> on Java, PHP, .Net, Hadoop, Data Analytics, R Programming, SAP, Android, Python, Oracle, Seleninum, Linux, C++ and many more technologies in Delhi/NCR, India. For more visit <a style="color:white" href="https://training.javatpoint.com"><img src="https://static.javatpoint.com/images/linkglobe12.png" alt="javatpoint training"/>training.javatpoint.com</a> <br>Course Fee: &#8377; 6000 Only<br>Duration: 6 Week </p></div>--><div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com. <br>Duration: 1 week to 2 week<br></p></div><!--<div class="homebox2"><h2>Our Initiatives</h2><marquee behavior="alternate"><a rel="nofollow noopener" href="https://www.hindi100.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/javatpoint.png" alt="javatpoint"/><p>Hindi100</p></div></a><a rel="nofollow noopener" href="https://www.lyricsia.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/lyrics.png" alt="lyrics"/><p>Lyricsia</p></div></a></div></a></marquee></div>--><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed"/></a> <a target="_blank"  rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts"/></a> <a  rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page"/></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page"/></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube"/></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page"/></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="https://www.javatpoint.com/java-tutorial">Learn Java</a><a href="https://www.javatpoint.com/data-structure-tutorial">Learn Data Structures</a><a href="https://www.javatpoint.com/c-programming-language-tutorial">Learn C Programming</a><a href="https://www.javatpoint.com/cpp-tutorial">Learn C++ Tutorial</a><a href="https://www.javatpoint.com/c-sharp-tutorial">Learn C# Tutorial</a><a href="https://www.javatpoint.com/php-tutorial">Learn PHP Tutorial</a><a href="https://www.javatpoint.com/html-tutorial">Learn HTML Tutorial</a><a href="https://www.javatpoint.com/javascript-tutorial">Learn JavaScript Tutorial</a><a href="https://www.javatpoint.com/jquery-tutorial">Learn jQuery Tutorial</a><a href="https://www.javatpoint.com/spring-tutorial">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="https://www.javatpoint.com/">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="https://www.javatpoint.com/contact-us">Contact Us</a> <a href="https://www.javatpoint.com/subscribe.jsp">Subscribe Us</a> <a href="https://www.javatpoint.com/privacy-policy">Privacy Policy</a><a href="https://www.javatpoint.com/sitemap.xml">Sitemap</a><br><a href="https://www.javatpoint.com/sonoo-jaiswal">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+</div></div></div> 
+ 
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/aws-non-relational-database by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:30:46 GMT -->
+</html> 

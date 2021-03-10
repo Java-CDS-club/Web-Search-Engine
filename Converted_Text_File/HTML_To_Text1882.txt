@@ -1,0 +1,130 @@
+C++ set operator greater than - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ std operator>Operator> is a non-member overloaded function of set in C++. This function is used to check whether the first set is greater than other or not.Note: Operator> sequentially compares the element of set and comparison will stop at first mismatch.Syntaxtemplate <class T, class Compare, class Alloc>
+  bool operator>  ( const set<T,Compare,Alloc>& lhs,
+                    const set<T,Compare,Alloc>& rhs );Parameterlhs: First set object.rhs: Second set object.Return valueIt returns true if the left side of the set container object is greater than the right side of the set object otherwise, false.ComplexityComplexity will be constant, if the size of lhs and rhs is different.Otherwise, up to linear in the size of lhs and rhs.Iterator validityNo changes.Data RacesContainers, lhs and rhs are accessed.Concurrently accessing the elements of unmodified set is always safe.Exception SafetyThis function does not throw an exception.Example 1Let's see the simple example to check whether the first set is greater than or not:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main() {
+   set<char> m1;
+   set<char> m2;
+
+   m1.emplace('a');
+
+   if (m1 > m2)
+      cout << "Set m1 is greater than m2." << endl;
+
+   m1 = m2;
+
+   if (!(m1 > m2))
+      cout << "Set m1 is not greater than m2." << endl;
+
+   return 0;
+}Output:Set m1 is greater than m2.
+Set m1 is not greater than m2.In the above example, there are two sets m1 and m2. m1 contains one element and m2 is empty. When we compare both sets then it will display the message "set m1 is greater than m2" and after assigning m2 to m1 both sets have equal element then it will display the message that "set m1 is not greater than m2".Example 2Let's see a simple example:#include <set>  
+#include <iostream>  
+
+using namespace std;
+
+int main( )  
+{  
+ 
+   set < int> m1, m2, m3;  
+   int i;  
+  
+   for ( i = 0 ; i < 3 ; i++ )  
+   {  
+      m1.insert ( i );  
+      m2.insert (i * i );  
+      m3.insert (i - 1 );  
+   }  
+  
+   if ( m1 > m2 )  
+      cout << "The set m1 is greater than the set m2." << endl;  
+   else  
+      cout << "The set m1 is not greater than the set m2." << endl;  
+  
+   if ( m1 > m3 )  
+      cout << "The set m1 is greater than the set m3." << endl;  
+   else  
+      cout << "The set m1 is not greater than the set m3." << endl;  
+      
+      return 0;
+}  Output:The set m1 is not greater than the set m2.
+The set m1 is greater than the set m3.Example 3Let's see a simple example:#include <iostream>
+#include <set>
+ 
+using namespace std;
+
+int  main () 
+{ 
+  set < int >  s1 ,  s2 ; 
+  s1 . insert ( 10 ); 
+  s1 . insert ( 20 ); 
+  s1 . insert ( 30 ); 
+  s2  =  s1 ;
+
+  cout  <<  ( s1  >  s2 )  << endl ;
+
+  s1 . insert ( 40 );
+
+  cout  <<  ( s1  >  s2 )  << endl ; 
+}Output:0
+1In the above example if s1 is greater than s2 then it will return 1 otherwise 0.Example 4#include <set>  
+#include <iostream>  
+
+using namespace std; 
+  
+int main ()  
+{  
+   set<string> m2;
+   typedef set<string> login; 
+   
+   m2 = {"xyz@123"} ; //stored id and password
+   
+   string password;
+   login m1;
+   
+       cout<<"---------Login----------"<<endl<<endl;
+       cout<<"Enter password: \n";
+       cin>> password;       // Get value
+       m1.insert(password);   // Put them in set
+
+     cout<<"Password you have entered: \n";
+     for (auto it = m1.begin(); it != m1.end(); it++) {
+        cout << (*it)<< endl;
+      }
+      cout<<"Password stored in the system :\n";
+     for (auto it = m2.begin(); it != m2.end(); it++) {
+        cout << (*it)<< endl;
+     }
+
+   if (m2 > m1)  
+        cout << "\nIncorrect Password..." << endl;
+   else  
+        cout << "\nWelcome to your Page..." << endl;
+      return 0;
+}Output:1).
+---------Login----------
+
+Enter password: 
+xyz@123
+Password you have entered: 
+xyz@123
+Password stored in the system :
+xyz@123
+
+Welcome to your Page...
+
+
+2).
+---------Login---------
+
+Enter password: 
+abc@123
+Password you have entered: 
+abc@123
+Password stored in the system:
+xyz@123
+
+Incorrect Password...In the above example, there are two sets m1 and m2. m1 contains stored password and second set m2 stores user's entered password. It checks whether the m2 is greater than m1 or not. If password of m2 is not greater than m1 then login is successful otherwise, login fails.Next TopicSet operator>=? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

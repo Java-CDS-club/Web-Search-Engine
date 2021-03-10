@@ -1,0 +1,55 @@
+Spring Cloud Config Server to Local Git Repository - javatpoint?HomeMicroservicesCore JavaServletJSPStruts2HibernateSpringAndroidDesign PatternQuizProjectsInterview QCommentForumMicroservices TutorialMicroservices Tutorial Advantages and Disadvantages of Microservices Challenges of Microservices Architecture Difference between MSA and SOA Microservices Monitoring and Virtualization Tool Microservices Components and Standardizing Port and URL Creating a Simple Microservice Setting up Spring Cloud Config Server Connect Spring Cloud Config Server to Local Git Repository Introduction to Currency Conversion and Currency Exchange Service Configure JPA and Initialized Data Creating a JPA Repository Setting up Currency Conversion Microservice Invoking Currency Exchange Microservice from Currency Conversion Microservice Using Feign REST Client for Service Invocation Client Side Load Balancing with Ribbon Eureka Naming Server Connecting Microservice to Eureka Distributing Calls Using Eureka and Ribbon Introduction to API Gateway Zuul API Gateway Implementing Zuul Logging Filter Executing a Request through Zuul API Gateway Introduction to Distributed Tracing Installing RabbitMQ Server Distributed Tracing with Zipkin Connecting Microservices to Zipkin Understanding the need for Spring Cloud Bus Implementing Spring Cloud Bus Fault Tolerance with Hystrixnext ? ? prevConnect Spring Cloud Config Server to Local Git RepositoryIn this section, we are going to learn how to connect spring-cloud-config-server to the local git repository. First, we will find the folder path.Right-click on git-localconfig-repo -> Properties -> copy the Location label address and paste it into the application.properties file.Add the annotation @EnableConfigServer in the SpringCloudConfigServerApplication.java file.Type the following URL in the browser:localhost:8888/limits-service/defaultOutput{
+name: "limits-service",
+-profiles: [
+"default"
+],
+label: null,
+version:"0898c54ae1deb62733728e37e4c7962f529ee9ad",
+state: null,
+-propertySources: [
+- {
+name: C:\Users\Anubhav\git-localconfig-repo\limits-service.properties",
+-source: {
+limits-service-minimum: "8",
+limits-service-maximum: "88"
+}
+}
+]
+}In this we have establish the connection between SprinCloudConfigServer and the Git repository.We can see that it displays a set of property and values. It also retrieves the file name of the property file from where these values (minimum and maximum) are retrieved.The important thing about SpringCloudConfigServer is that it stores configuration for multiple services. It can also store configuration for each of the services for different environments.In the above figure, there are three services CurrencyCalculationService, CurrencyExchangeService, and LimitsService. The LimitsService has four environment services Dev, QA, Stage, and Production. We can configure these three services in SpringCloudConfigServer.Configuration for Multiple Environment in Git Repositoryservices Dev, QA, Stage, and Production. We can configure these three services in SpringCloudConfigServer.Configuration for Multiple Environment in Git Repository In the spring-cloud-config-server project, we have added a link to git-localconfig-repo, which contains the limits-service.properties file. It becomes the default configuration for the limits-service.However, we can overwrite them for a specific environment. To overwrite these values, copy the limits-service.properties and paste in the folder git-localconfig-reporename it with limits-service-dev.properties. Now update the minimum and maximum values.limits-service.minimum=1
+limits-service.maximum=111Again copy the same file and paste it in the same folder. Rename it with limits-service-qa.properties. Now update the minimum and maximum values.limits-service.minimum=2
+limits-service.maximum=222If we want to pick the default value of the maximum instead of modified value, put a introduction-to-currency-conversion-and-currency-exchange-service symbol at the starting of the statement. Now the second statement becomes a comment.limits-service.minimum=1
+introduction-to-currency-conversion-and-currency-exchange-servicelimits-service.maximum=111When we execute it, it picks up the maximum value 888 from the default properties file instead of maximum value 111. Whenever we make the changes in the file, commit the changes in the local repository.Now open the Git Bash and execute the following commands:Create the directory in which we want to add files.cd git-localconfig-repoAdd the files into the Git repository.git add -ANow check the status of the files that have to be committed.git statusNow commit the changesgit commit -m "Dev and QA"Now we can access the properties Dev and QA.Type the following in the address bar of the browser.localhost:8888/limits-service/qaOutput{
+name: "limits-service",
+-profiles: [
+"qa"
+],
+label: null,
+version:"0898c54ae1deb62733728e37e4c7962f529ee9ad",
+state: null,
+-propertySources: [
+- {
+name: C:\Users\Anubhav\git-localconfig-repo\limits-service-qa.properties",
+-source: {
+limits-service-minimum: "2",
+limits-service-maximum: "222"
+}
+},
+-{
+name: C:\Users\Anubhav\git-localconfig-repo\limits-service.properties?,
+-source: {
+limits-service-minimum: "8",
+limits-service-maximum: "888"
+}
+}
+]
+}We can observe that it is retrieving the property sources. These list of property are in the list of priority. The heights priority is whatever values are configured in the QA file.If there is a value that is not present in the QA file, then the value from the default file will be picked up. So whatever is in the QA file gets the highest property.Connect limits-service to Spring Cloud Config ServerIn this section, we will connect limits-service to pick up the configuration from the spring-cloud-config-server. We do not need to configure values in the application.properties file. Move to the limits-service project and rename the application.properties file to bootstrap.properties. We do not need to configure values in the bootstrap.properties. All the configuration values picked from the spring-cloud-config-server. Specify the URI in the bootstrap.properties.spring.application.name=limits-service
+spring.cloud.config.uri=http://localhost:8888limits-service is the critical path of the bootstrap.properties. Based on the application name, we are going to pick up values from the local Git repository. Now restart the LimitsServiceApplication.java. Fetching config from the server at http://localhost:8888
+Located environment: name=limits-service, profiles=[default], label= null,  version="0898c54ae1deb62733728e37e4c7962f529ee9ad", state=null, Configuring profiles for Limit ServiceThe point to understand here is that all the configuration for the limits-service is coming from the Git repository. We did not configure anything in the limits-service. The advantage of configuring stuff in the Git repository is that the entire configuration of limits-service is separated from the deployment of the limits-service. It will automatically pick up from the Git repository.Now open the bootstrap.properties and add the dev profile into it.spring .profile.active=devWhen we run the limits, it shows the following output:{
+maximum: 111,
+minimum:1
+}If we look at the limits-service-dev.properties file, the values are fetching from there.Suppose we want to pick a maximum value from the limits-service.properties and minimum value from limits-service-dev.properties then remove the maximum value from the limits-service-dev.properties. The limits-service-dev.properties file looks like this:limits-service-minimum: 1Now commit the changes by using the following commands:git add *;
+git status
+git commit -m "removed configuration for maximum "Now start the LimitsServiceApplication.java. When we start the LimitsServiceApplication, it picks values from the SpringCloudConfigServer. We can observe that it picks the maximum value from the limits-service.properties (default service) that is 888 and the minimum value from the limit-service-dev.properties that is 1. However, we have overwritten the minimum value of the default service.Let's see what happens when we change the profile dev to qa. Open bootstrap.properties and write qa in place of dev. The application will start and pick up the changes. Now execute the limits.Output{
+maximum: 222,
+minimum: 2
+}These are the values that are coming from the qa environment configuration.Next TopicIntroduction to Currency Conversion and Currency Exchange Service? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

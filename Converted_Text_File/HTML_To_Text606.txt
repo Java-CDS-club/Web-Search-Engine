@@ -1,0 +1,70 @@
+ASP.Net DataGrid - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevASP.NET DataGrid.NET Framework provides DataGrid control to display data on the web page. It was introduced in .NET 1.0 and now has been deprecated. DataGrid is used to display data in scrollable grid. It requires data source to populate data in the grid.It is a server side control and can be dragged from the toolbox to the web form. Data Source for the DataGrid can be either a DataTable or a database. Let's see an example, how can we create a DataGrid in our application.This tutorial contains two examples. One is using the DataTable and second is using the database to display data into the DataGrid.ASP.NET DataGrid Example with DataTableThis example uses DataTable to bind data to the DataGrid control.// DataGridExample2.aspx<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DataGridExample2.aspx.cs" Inherits="DataGridExample.DataGridExample2" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <p>This DataGrid contains DataTable records </p>
+            <asp:DataGrid ID="DataGrid1" runat="server">
+        </asp:DataGrid>
+        </div>
+    </form>
+</body>
+</html>CodeBehind// DataGridExample2.aspx.csusing System;
+using System.Data;
+namespace DataGridExample
+{
+    public partial class DataGridExample2 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("ID");
+            table.Columns.Add("Name");
+            table.Columns.Add("Email");
+            table.Rows.Add("101", "Deepak Kumar", "deepak@example.com");
+            table.Rows.Add("102", "John", "john@example.com");
+            table.Rows.Add("103", "Subramanium Swami", "subramanium@example.com");
+            table.Rows.Add("104", "Abdul Khan", "abdul@example.com");
+            DataGrid1.DataSource = table;
+            DataGrid1.DataBind();
+        }
+    }
+}Output:It produces the following output to the browser.ASP.NET DataGrid Example with DatabaseThis example uses database as a data source to display data to the DataGrid. This example includes the following steps.1) Add a web formCreate a new form to drag DataGrid upon it. See, as we did in the following screenshot.After adding, now, open toolbox and drag DataGrid control to the form.After dragging, initially it looks like the following.This form contains the following source code at backend.// DataGridExample.aspx<%@ Page Language="C#" AutoEventWireup="true" 
+CodeBehind="DataGridExample.aspx.cs" Inherits="AdoNetExample.DataGridExample" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+        </div>
+        <asp:DataGrid ID="DataGrid1" runat="server">
+        </asp:DataGrid>
+    </form>
+</body>
+</html>2) Connect to the DatabaseIn the CodeBehind file, we have code of database connectivity, and binding fetched record to the DataGrid.CodeBehind file// DataGridExample.aspx.csusing System;
+using System.Data;
+using System.Data.SqlClient;
+namespace AdoNetExample
+{
+    public partial class DataGridExample : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection("data source=.; database=student; integrated security=SSPI"))
+            {
+                SqlDataAdapter sde = new SqlDataAdapter("Select * from student", con);
+                DataSet ds = new DataSet();
+                sde.Fill(ds);
+                DataGrid1.DataSource = ds;
+                DataGrid1.DataBind();
+            }
+        }
+    }
+}Records in SQL Server TableA student table contains records that we want to display by using the DataGrid. This table contains the following records.Output:After executing this application, it fetches records from the SQL server and displays to the web browser.Next TopicASP.NET Web Form User Registration? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

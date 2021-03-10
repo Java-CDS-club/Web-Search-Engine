@@ -1,0 +1,63 @@
+AJAX example with database in Java - javatpoint?HomeAjaxCJavaPHPHTMLCSSJavaScriptjQueryjQuery UIXMLJSONNode.jsSQLAndroidPythonQuizProjectsInterview QCommentForumTrainingAJAX TutorialWhat is AJAX? Asynchronous Ajax Technologies XMLHttpRequest How AJAX Works?Java AJAXAJAX Example AJAX with Database Email Finder Comment Form Search ExampleJSON AJAXAJAX JSONAJAX InterviewAJAX Interview Questionsnext ? ? prevAjax Java Example with DatabaseIn this example, we are interacting with the database. You don't have to make any extra effort. Only write the database logic in you server side page.In this example, we have written the server side code inside the index.jsp file.Steps to create ajax example with database through jspYou need to follow following steps:load the org.json.jar filecreate input page to receive any text or numbercreate server side page to process the requestLoad the org.json.jar filedownload this example, we have included the org.json.jar file inside the WEB-INF/lib directory.create input page to receive any text or numberIn this page, we have created a form that gets input from the user. When user press any key sendInfo() function is called. We have written all the ajax code inside this function.We have called the getInfo() function whenever ready state changes. It writes the returned data in the web page dynamically by the help of innerHTML property.table1.html<html>
+<head>
+<script>
+var request;
+function sendInfo()
+{
+var v=document.vinform.t1.value;
+var url="index.jsp?val="+v;
+
+if(window.XMLHttpRequest){
+request=new XMLHttpRequest();
+}
+else if(window.ActiveXObject){
+request=new ActiveXObject("Microsoft.XMLHTTP");
+}
+
+try{
+request.onreadystatechange=getInfo;
+request.open("GET",url,true);
+request.send();
+}catch(e){alert("Unable to connect to server");}
+}
+
+function getInfo(){
+if(request.readyState==4){
+var val=request.responseText;
+document.getElementById('amit').innerHTML=val;
+}
+}
+
+</script>
+</head>
+<body>
+    <marquee><h1>This is an example of ajax</h1></marquee>
+<form name="vinform">
+Enter id:<input type="text" name="t1" onkeyup="sendInfo()">
+</form>
+
+<span id="amit"> </span>
+
+</body>
+</html>create server side page to process the requestIn this jsp page, we printing the id and name of the employee for the given id.index.jsp<%@ page import="java.sql.*"%>
+
+<%
+String s=request.getParameter("val");
+if(s==null || s.trim().equals("")){
+out.print("Please enter id");
+}else{
+int id=Integer.parseInt(s);
+out.print(id);
+try{
+Class.forName("com.mysql.jdbc.Driver");
+Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mdb","root","root");
+PreparedStatement ps=con.prepareStatement("select * from emp where id=?");
+ps.setInt(1,id);
+ResultSet rs=ps.executeQuery();
+while(rs.next()){
+out.print(rs.getInt(1)+" "+rs.getString(2));
+}
+con.close();
+}catch(Exception e){e.printStackTrace();}
+}
+%>download this ajax exampleOutputNext TopicJava AJAX Email Finder Example? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

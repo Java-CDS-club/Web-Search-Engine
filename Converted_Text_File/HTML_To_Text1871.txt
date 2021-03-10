@@ -1,0 +1,98 @@
+C++ set empty() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set empty()C++ empty() function is used to check whether the set container is empty or not. It returns true if the set container is empty (size is 0) otherwise, it returns false.Syntaxbool empty() const;               // until C++ 11
+bool empty const noexcept;    //since C++ 11ParameterNoneReturn valueIt returns true if the set container is empty (size is 0) otherwise, it returns false.ComplexityConstant.Iterator validityNo changes.Data RacesThe container is accessed.Concurrently accessing the elements of set is safe.Exception SafetyThis function never throws exception.Example 1Let's see the simple example to check if a set contains any element or not:#include <set>
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    set<int> numbers;
+    cout << " Initially, numbers.empty(): " << numbers.empty() << "\n";
+    numbers = {100, 200, 300};
+    cout << "\n After adding elements, numbers.empty(): " << numbers.empty() << "\n";
+}Output: Initially, numbers.empty(): 1
+
+ After adding elements, numbers.empty(): 0In the above example, initially size of set is 0 hence, empty() function returns 1(true) and after adding elements it returns 0(false).Example 2Let's see a simple example to check whether set is empty or not:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+
+   set<char> s;
+
+   if (s.empty())
+      cout << "Set is empty." << endl;
+
+   s = {100};
+
+   if (!s.empty())
+      cout << "Set is not empty." << endl;
+
+   return 0;
+}Output:Set is empty
+Set is not emptyIn the above example, if condition statement is used. If set is empty, it will return set is empty after and adding elements, it will return set is not empty.Example 3Let's see a simple example:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<int> myset;
+
+  myset = {100, 200, 300};
+
+  while (!myset.empty())
+  {
+    cout << *myset.begin()<< '\n';
+    myset.erase(*myset.begin());
+  }
+
+  return 0;
+}Output:100
+200
+300In the above example, It simply uses the empty() function in while loop and prints the elements of set until the set is not empty.Example 4Let's see a simple example:#include <iostream>
+#include <set>
+#include <string>
+
+using namespace std;
+
+int main() {
+
+  typedef set<int> phoneSet;
+   
+   int number;
+   phoneSet phone;
+   
+   if (phone.empty())
+      cout << "Set is empty. Please insert content! \n " << endl;
+   
+   cout<<"Enter three sets of number: \n";
+   
+   for(int i =0; i<3; i++)
+   {
+       cin>> number;    // Get value
+       phone.insert(number);   // Put them in set
+   }
+
+   if (!phone.empty())
+   {
+      cout<<"\nList of telephone numbers: \n";
+      phoneSet::iterator p;
+      for(p = phone.begin(); p!=phone.end(); p++)
+      {
+          cout<<(*p)<<" \n ";
+      }
+   }
+   return 0;
+}Output:
+Set is empty. Please insert content! 
+ 
+Enter three sets of number: 
+1111
+5555
+3333
+
+List of telephone numbers: 
+1111 
+3333 
+5555 In the above example, the program first creates phone set interactively with three set of numbers, then it checks if the set is empty or not. If set is empty, it displays a message otherwise, it displays all the telephone numbers available in the set.Next TopicSet size() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

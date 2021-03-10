@@ -1,0 +1,55 @@
+COBOL File Access Mode - Javatpoint?HomeCCOBOLC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternProjectsInterview QCommentForumCOBOL TutorialCOBOL Tutorial COBOL Introduction COBOL Installation COBOL Program Structure COBOL Coding Sheet COBOL Divisions COBOL Data Types COBOL Verbs COBOL Data Layout Conditional Statements Loop Statements String Handling Array/Table Processing File Handling File Access Mode File Handling Verbs Internal Sort Database Interfacenext ? ? prevCOBOL - File Access ModeEvery file organization (In our previous section, we discussed many file organizations) has different modes of access.The access mode is used to define the accessing way of the file based on the requirements in the program. In short, we can say, access mode defines how the data is required to read and write from the file.Mainly there are three access modes:Sequential AccessRandom AccessDynamic AccessSequential AccessAs the name indicates, the records in the file can be read sequentially for the sequential access, i.e., one after the other from the beginning.The method to retrieve the record varies according to the chosen file organization.In sequential files, records are retrieved in the same way as they were inserted.For indexed files, records are accessed in the order of the key filed selected, beginning at the present position of the file position indicator.For relative files, records are accessed in the order of the relative record number.Syntax:ENVIRONMENT DIVISION.
+INPUT-OUTPUT SECTION.
+FILE-CONTROL.
+   SELECT file-name ASSIGN TO dd-name
+   ORGANIZATION IS SEQUENTIAL
+   ACCESS MODE IS SEQUENTIAL
+
+ENVIRONMENT DIVISION.
+INPUT-OUTPUT SECTION.
+   FILE-CONTROL.
+   SELECT file-name ASSIGN TO dd-name
+   ORGANIZATION IS INDEXED
+   ACCESS MODE IS SEQUENTIAL
+   RECORD KEY IS rec-key1
+   ALTERNATE RECORD KEY IS rec-key2
+
+ENVIRONMENT DIVISION.
+INPUT-OUTPUT SECTION.
+   FILE-CONTROL.
+   SELECT file-name ASSIGN TO dd-name
+   ORGANIZATION IS RELATIVE
+   ACCESS MODE IS SEQUENTIAL
+   RELATIVE KEY IS rec-key1Disadvantages of Sequential Access ModeThe sequential access mode is very effective when the file has fewer records, but when the file has a huge number of records, it will take too much time to read a specific record from the file.Random AccessIn the random access mode, we can access the records randomly, i.e., directly by providing the key.This mode of access is often used only for indexed and relative files.For indexed files, records are retrieved according to the value you place in a key field. Value can be primary, alternative, or relative. There can be one or more alternate indexes.Records are retrieved for relative files based on the value you put in the relative key.Syntax:ENVIRONMENT DIVISION.
+INPUT-OUTPUT SECTION.
+   FILE-CONTROL.
+   SELECT file-name ASSIGN TO dd-name
+   ORGANIZATION IS INDEXED
+   ACCESS MODE IS RANDOM
+   RECORD KEY IS rec-key1
+   ALTERNATE RECORD KEY IS rec-key2
+
+		
+ENVIRONMENT DIVISION.
+INPUT-OUTPUT SECTION.
+   FILE-CONTROL.
+   SELECT file-name ASSIGN TO dd-name
+   ORGANIZATION IS RELATIVE
+   ACCESS MODE IS RANDOM
+   RELATIVE KEY IS rec-key1Dynamic AccessIn the same program, dynamic access allows sequential as well as random access. In dynamic access mode, we can use a file description for both types of processing i.e., random and sequential processing, such as retrieving some records with the help of keys and some records in sequential order.With relative and indexed files, the dynamic access mode provides you to move between random access mode and sequential access mode when reading a file by using the NEXT phrase on the READ statement.Syntax:ENVIRONMENT DIVISION.
+INPUT-OUTPUT SECTION.
+   FILE-CONTROL.
+   SELECT file-name ASSIGN TO dd-name
+   ORGANIZATION IS SEQUENTIAL
+   ACCESS MODE IS DYNAMIC
+   RECORD KEY IS rec-key1
+   ALTERNATE RECORD KEY IS rec-key2
+
+		
+ENVIRONMENT DIVISION.
+INPUT-OUTPUT SECTION.
+   FILE-CONTROL.
+   SELECT file-name ASSIGN TO dd-name
+   ORGANIZATION IS RELATIVE
+   ACCESS MODE IS DYNAMIC
+   RELATIVE KEY IS rec-key1Next TopicCOBOL File Handling Verbs? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

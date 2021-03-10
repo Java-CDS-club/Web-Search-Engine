@@ -1,0 +1,113 @@
+Bash For Loop - Javatpoint?HomeJavaCBashJavaScriptXMLAjaxSQLC++C#HTMLAndroidCloudDesign PatternQuizProjectsInterview QCommentForumBash TutorialBash Tutorial What is Bash History of Bash Features of Bash Bash Scripting Filesystem & File Permission Hello World! Bash Script Relative vs Absolute path Bash Comments Bash Quotes Bash Variables Read User Input Bash Date Format Bash SleepBash OperatorsBash Arithmetic OperatorsConditional StatementsBash If Statement Bash If Else Bash Else If Bash CaseBash LoopsBash For Loop Bash While Loop Bash Until LoopBash StringBash String Bash Find String Bash Split String Bash Substring Bash Concatenate StringBash FunctionBash FunctionsBash ArrayBash ArraysMiscellaneousBash Read File Bash Write File Check if file Exists Check if Variable is Set Bash Alias Git Bash Zsh vs Bash Bash Hash Commandnext ? ? prevBash For LoopIn this topic, we will understand the usage of for loop in Bash scripts.Like any other programming language, bash shell scripting also supports 'for loops' to perform repetitive tasks. It helps us to iterate a particular set of statements over a series of words in a string, or elements in an array. For example, you can either run UNIX command (or task) many times or just read and process the list of commands using a 'for loop'.Syntax of For LoopWe can apply 'for loop' on bash script in two ways. One way is 'for-in' and another way is the c-style syntax. Following is the syntax of 'for loop' in bash shell scripting:for variable in list
+do
+commands
+doneOrfor (( expression1; expression2; expression3 ))
+do
+commands
+doneThere are some key points of 'for loop' statement:Each block of 'for loop' in bash starts with 'do' keyword followed by the commands inside the block. The 'for loop' statement is closed by 'done' keyword.The number of time for which a 'for loop' will iterate depends on the declared list variables.The loop will select one item from the list and assign the value on a variable which will be used within the loop.After the execution of commands between 'do' and 'done', the loop goes back to the top and select the next item from the list and repeat the whole process.The list can contain numbers or string etc. separated by spaces.Some of the 'for loop' examples are given below to illustrate how do they work:Basic 'For Loop' ExampleBash Script#!/bin/bash
+#This is the basic example of 'for loop'.
+
+learn="Start learning from Javatpoint."
+
+for learn in $learn
+do
+echo $learn
+done
+
+echo "Thank You."OutputFor Loop to Read a RangeBash Script#!/bin/bash
+#This is the basic example to print a series of numbers from 1 to 10.
+
+for num in {1..10}
+do
+echo $num
+done
+
+echo "Series of numbers from 1 to 10."OutputFor Loop to Read a Range with Increment/DecrementWe can increase or decrease a specified value by adding two another dots (..) and the value to step by, e.g., {START..END..INCREMENT}. Check out the example below:For Increment#!/bin/bash
+
+#For Loop to Read a Range with Increment
+
+for num in {1..10..1}
+do
+echo $num
+doneOutputFor Decreament#!/bin/bash
+
+#For Loop to Read a Range with Decrement
+
+for num in {10..0..1}
+do
+echo $num
+doneOutputFor Loop to Read Array VariablesWe can use 'for loop' to iterate the values of an array.The syntax can be defined as:array=(  "element1" "element 2" .  .  "elementN" )
+
+for i in "${arr[@]}"
+do
+echo $i
+doneOutputFor each element in 'array', the statements or set of commands from 'do' till 'done' are executed. Each element could be accessed as 'i' within the loop for the respective iteration. Check out the example below explaining the use of 'for loop' to iterate over elements of an array:Bash Script#!/bin/bash
+
+#Array Declaration
+arr=( "Welcome""to""Javatpoint" )
+
+for i in "${arr[@]}"
+do
+echo $i
+doneOutputFor Loop to Read white spaces in String as word separatorsThe syntax can be defined as below:#!/bin/bash
+
+for word in $str;
+do
+
+doneHere, str refers to a string.The statements from 'do' till 'done' are executed for each 'word' of a string. Check out the example below:Bash Script#!/bin/bash
+#For Loop to Read white spaces in String as word separators
+
+str="Let's start
+learning from Javatpoint."
+
+for i in $str;
+do
+echo "$i"
+doneOutputFor Loop to Read each line in String as a wordThe syntax can be defined as below:#!/bin/bash
+
+for word in "$str";
+do
+
+doneHere, the statements from 'do' till 'done' are executed for each 'line' of a string. Check out the example below:Bash Script#!/bin/bash
+#For Loop to Read each line in String as a word
+
+str="Let's start
+learning from 
+Javatpoint."
+
+for i in "$str";
+do
+echo "$i"
+doneOutputNote: The only difference between 'For Loop to Read white spaces in String as word separators' and 'For Loop to Read each line in String as a word' is the double quotes around string variable.For Loop to Read Three-expressionThree expression syntax is the most common syntax of 'for loop'. The first expression refers to the process of initialization, the second expression refers to the termination, and the third expression refers to the increment or decrement.Check out the example below to print 1 to 10 numbers using three expressions with for loop:Bash Script#!/bin/bash
+#For Loop to Read Three-expression
+
+for ((i=1; i=10; i++))
+do
+echo "$i"
+doneOutputFor Loop with a Break StatementA 'break' statement can be used inside 'for' loop to terminate from the loop.Bash Script#!/bin/bash
+#Table of 2
+
+for table in {2..100..2}
+do
+echo $table
+if [ $table == 20 ]; then
+break
+fi
+doneOutputFor Loop with a Continue StatementWe can use the 'continue' statement inside the 'for' loop to skip any specific statement on a particular condition. It tells Bash to stop executing that particular iteration of the loop and process the next iteration.Bash Script#!/bin/bash
+#Numbers from 1 to 20, ignoring from 6 to 15 using continue statement"
+
+for ((i=1; i=20; i++));
+do
+if [[ $i -gt 5 && $i -lt 16 ]];
+then
+continue
+fi
+echo $i
+doneOutputInfinite Bash For LoopWhen there is no 'start, condition, and increment' in the bash three expressions for loop, it becomes an infinite loop. To terminate the infinite loop in Bash, we can press Ctrl+C.Bash Script#!/bin/bash
+
+i=1;
+for (( ; ; ))
+do
+sleep 1s
+echo "Current Number: $((i++))"
+doneOutputConclusionIn this topic, we discussed how to use for loop statement in Bash to perform specific tasksNext TopicBash While Loop? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

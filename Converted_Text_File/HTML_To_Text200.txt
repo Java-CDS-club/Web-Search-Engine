@@ -1,0 +1,158 @@
+Android Linkify Example - javatpoint?HomeAndroidCore JavaServletJSPStruts2Mail APIHibernateSpringDesign PatternQuizProjectsInterview QCommentForumAndroid TrainingAndroid TutorialAndroid Introduction What is Android History and Version Android Architecture Core Building Blocks Android Emulator Install Android Setup Eclipse Hello Android example Internal Details Dalvik VM AndroidManifest.xml R.java Hide Title Bar Screen OrientationAndroid WidgetsUI Widgets Working with Button Toast Custom Toast ToggleButton CheckBox Custom CheckBox RadioButton Dynamic RadioButton Custom RadioButton AlertDialog Spinner AutoCompleteTextView ListView Custom ListView RatingBar WebView SeekBar DatePicker TimePicker Analog and Digital ProgressBar Vertical ScrollView Horizontal ScrollView ImageSwitcher ImageSlider ViewStub TabLayout TabLayout with FrameLayout SearchView SearchView on Toolbar EditText with TextWatcherActivity and IntentsActivity LifeCycle Implicit Intent Explicit Intent StartActivityForResult Share App DataAndroid FragmentsAndroid FragmentsAndroid MenuOption Menu Context Menu Popup MenuAndroid ServiceAndroid ServiceAndroid AlarmManagerAndroid AlarmManagerAndroid StorageAndroid Preferences Internal Storage External StorageAndroid SQLiteSQLite Tutorial SQLite SpinnerXML and JSONXML Parsing SAX XML Parsing DOM XMLPullParser JSON ParsingAndroid MultimediaMediaPlayer: Audio VideoView: Video Recording MediaAndroid SpeechTextToSpeech1 TextToSpeech2Android TelephonyTelephonyManager Get Call State Get Call State 2 Simple Caller Talker Phone Call Send SMS Send EmailAndroid DeviceBluetooth Tutorial List Paired Devices WIFICamera TutorialCamera TutorialSensor TutorialSensor TutorialAndroid GraphicsAndroid GraphicsAndroid AnimationAndroid AnimationAndroid Web ServiceAndroid Web ServiceGoogle MapAndroid Google Map Current Location Search LocationAdding AdsAndroid Google Admob 1) Banner Ads 2) Interstitial AdsAndroid ExamplesQR/Bar Code Scanner RSS Feed Reader Volley Fetch JSON Android Linkify Intro Slider RecyclerView List Swipe Del RecyclerView Swipe Refresh Activity Volley Library Registration Log-in Log-out Network Connectivity Services Firebase Authentication - Google Login Android Notification Using Google reCAPTCHAAndroid SocialIntegrating Google Sign-In Integrating LinkedIn Integrating TwitterAndroid MiscAndroid Device Manager Android Studio Android Auto Android File Transfer Android Messages Android Oreo Android TV Android Screenshot Android Versions Android Watch Android Pay Android Phones Android Tablets Android Find My Phone Android Marshmallow Android Nougat Android Pie Android One Android Antivirus Android Data Recovery Android Lollipop Android vs iPhone Android Wear OS Android x86 Emulator for PC Android 10 Android ad blocker Clear cache Android Root Android DeviceAndroid InterviewInterview QuestionsAndroid QuizAndroid Quiznext ? ? prevAndroid Linkify ExampleThe Linkify class is used to create the links from the TextView or the Spannable. It converts the text and regular expression to the clickable links on the basis of the pattern match of text value and the regex. The Linkify class creates the links for web URL, email address, phone number, and map address by using pattern.Android clickable links can be created by two different ways:1. Using layout (.xml) file: it uses autoLink attribute with the specified type.<TextView
+     android:id="@+id/url"
+            android:autoLink="web"/>2. Using Java class: it uses the addlLinks() method with specified types of Linkify class.TextView webURL = new TextView(this);
+webURL.setText("https://www.yoururl1.com/");
+Linkify.addLinks(webURL , Linkify.WEB_URLS);Android Linkify ExampleIn this example, we will create links for the web URL, email address and phone number. Create an activity_main.xml file in layout directory and add the following code.activity_main.xml<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="example.javatpoint.com.androidlinkify.MainActivity">
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp">
+    </ListView>
+</RelativeLayout>Create a custom layout myList.xml file and add the following code. In this layout, we use autoLink attribute with the web, email, and phone property.myList.xml<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:padding="5dp" />
+
+    <LinearLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium Text"
+            android:autoLink="web"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:padding="2dp"
+            android:textColor="#4d4d4d" />
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:autoLink="email"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/phonenumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:autoLink="phone"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+</LinearLayout>Create an adapter class MyListActivity.java and extends ArrayAdapterwith the following code.MyListActivity.javapackage example.javatpoint.com.androidlinkify;
+
+import android.app.Activity;
+import android.text.util.Linkify;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class MyListAdapter extends ArrayAdapter<String> {
+
+    private final Activity context;
+    private final String[] url;
+    private final String[] email;
+    private final String[] phonenumber;
+    private final Integer[] imgid;
+
+    public MyListAdapter(Activity context, String[] url,String[] email,String[] phonenumber, Integer[] imgid) {
+        super(context, R.layout.mylist, url);
+        // TODO Auto-generated constructor stub
+        this.context=context;
+        this.url=url;
+        this.email=email;
+        this.phonenumber=phonenumber;
+        this.imgid=imgid;
+
+    }
+
+    public View getView(int position, View view, ViewGroup parent) {
+        LayoutInflater inflater=context.getLayoutInflater();
+        View rowView=inflater.inflate(R.layout.mylist, null,true);
+
+        TextView titleText = (TextView) rowView.findViewById(R.id.url);
+        TextView subtitleText = (TextView) rowView.findViewById(R.id.email);
+        TextView phonenumberText = (TextView) rowView.findViewById(R.id.phonenumber);
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
+        imageView.setImageResource(imgid[position]);
+
+        titleText.setText(url[position]);
+        subtitleText.setText(email[position]);
+        phonenumberText.setText(phonenumber[position]);
+        Linkify.addLinks(phonenumberText,Linkify.PHONE_NUMBERS);
+
+        return rowView;
+    };
+
+}Finally, in the MainActivity.java class, set the adapter instance to ListView.MianActivity.javapackage example.javatpoint.com.androidlinkify;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.ListView;
+
+public class MainActivity extends AppCompatActivity {
+    ListView list;
+
+    String[] urls ={
+            "https://www.yoururl1.com/","https://www.yoururl2.com/",
+            "https://www.yoururl3.com/","https://www.yoururl4.com/",
+            "https://www.yoururl5.com/","https://www.yoururl6.com/",
+            "https://www.yoururl7.com/","https://www.yoururl8.com/",
+            "https://www.yoururl9.com/","https://www.yoururl19.com/",
+    };
+
+    String[] emails ={
+            "email_1@mail.com","email_2@mail.com",
+            "email_3@mail.com","email_4@gmail.com",
+            "email_5@mail.com","email_6@mail.com",
+            "email_7@mail.com","email_8@mail.com",
+            "email_9@gmail.com","email_10@mail.com"
+    };
+
+    String[] phoneNumber ={
+            "+(1234)-567","+(1234)-567",
+            "7563654321","9475000000","8575000000",
+            "+1 (919) 555-1212","+91 (919) 555-1212",
+            "6463654321","5475000000","8575000000",
+    };
+
+    Integer[] imgid={
+            R.drawable.image_1,R.drawable.image_2,
+            R.drawable.image_3,R.drawable.image_4,
+            R.drawable.image_5, R.drawable.image_6,
+            R.drawable.image_7,R.drawable.image_8,
+            R.drawable.image_9,R.drawable.image_10,
+    };
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        MyListAdapter adapter=new MyListAdapter(this, urls, emails,phoneNumber,imgid);
+        list= findViewById(R.id.list);
+        list.setAdapter(adapter);
+    }
+}Output:Next Topic#? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

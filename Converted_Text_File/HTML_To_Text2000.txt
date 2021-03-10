@@ -1,0 +1,114 @@
+Crash Report in Firebase Crashlytics - Javatpoint?HomeJavaFirebaseXMLAndroidiOSUnityAjaxSQLC++HTMLSpringCloudDesign PatternQuizProjectsInterview QCommentForumFirebase TutorialFirebase Tutorial Firebase Introduction Firebase Features Android Studio Adding Firebase to App Firebase AssistanceFirebase AuthenticationFirebase Authentication Signing with Google Signing with Facebook Signing with phone numberFirebase UIUI: using email/password UI: using email linkFirebase SDKSDK: using email/password SDK: using email linkReal-time DatabaseRealtime Database Setup & Configuration Data organization Read and Write Update and DeleteFirebase FirestoreFirestore Firestore vs Real-time database Setup & configuration Data Organization Read and Write Update and DeleteFirebase Cloud StorageCloud Storage Setup & Configuration Creating References Download Files Upload FilesFirebase HostingFirebase HostingFirebase Cloud FunctionFirebase Cloud Function Firebase Triggers Creating & DeployingFirebase CrashlyticsFirebase Crashlytics Setup & Configuration Crash ReportCloud MessagingFirebase Cloud Messaging Types of Message Sending Notification MessageIn-App MessagingFirebase In-App Messaging Setup & ConfigurationDynamic LinkDynamic Links in Firebase Creating Dynamic Link Receiving Dynamic LinksAdMobAdMob with Firebasenext ? ? prevCrash Report in Firebase CrashlyticsIn our previous section, we learned about Firebase Crashlytics and how we can set up and configure it with our application. Now, we will test our Firebase Crashlytics implementation. So we have to set up the app for the crash to happen in order to know the Crashlytics is working properly.Firebase Crashlytics provides four logging mechanisms for giving more insight into crash reports. These mechanisms are:Custom keysCustom logsUser identifiersCaught exceptionCustom KeysCustom keys help us to get the specific state of our app, leading up to a crash. Custom keys associate arbitrary key/value pairs with our crash reports and see them in the Firebase console. There are five methods to set keys, and each of them handles a different data type.Crashlytics.setString(key, "foo" /* string value */)
+
+Crashlytics.setBool(key, true /* boolean value */)
+
+Crashlytics.setDouble(key, 1.0 /* double value */)
+
+Crashlytics.setFloat(key, 1.0f /* float value */)
+
+Crashlytics.setInt(key, 1 /* int value */)Re-setting a key updates its value:Crashlytics.setInt("current_level", 3)
+Crashlytics.setString("last_UI_action", "logged_in")Adding Custom Log MessagesWe can add custom Crashlytics logs in our app for giving more context for the events leading up to a crash. It associates the logs with our crash data and makes them visible in the Firebase console. We can write logs to a crash report with the Crashlytics.log method and with Log.println():Crashlytics.log(Log.DEBUG,"tag","message")
+//For crash report only
+Crashlytics.log("message")Setting User IdentifiersTo diagnose an issue, it's often helpful to know which of our users experienced a given crash. Crashlytics include a way to identify users in the crash reports anonymously. For adding user IDs to the reports, we have to assign each user a unique identifier in the form of an ID number, token, or hashed value:Crashlytics.setUserIdentifier("user123456789")If we ever need to clear a user identifier after setting it, reset the value to a blank string. When we clear a user identifier, it will not remove existing Crashlytics records.Logging Non-fatal ExceptionLogging non-fatal exception means that we can log caught exceptions in our app's catch blocks:try{
+    methodThatThrows()
+}catch(e: Exception){
+    Crashlytics.logException(e)
+    //handle our exception here
+}All logged exceptions appear as non-fatal issues in the Firebase console. The issue summary contains all the state information which we normally get from crashes, along with breakdowns by Android version and hardware device.Crashlytics processes exception in a dedicated background thread, and the performance impacts on the app is minimal.Enabling Opt-in ReportingBy default, Firebase Crashlytics automatically collects crash reports for all app's users. We can use Opt-in Reporting by enabling more control over the data, they send. We have to disable automatic collection and initialize Crashlytics only for opt-in users. We can turn off the automatic collection with a meta-data tag in our AndroidManifest.xml file:<meta-data>
+	android:name="firebase_crashlytics_collection_enabled"
+	android: value="false"/>We can enable collection for selected users by initializing Crashlytics from one of our app's activities, Fabric.with(this, Crashlytics()).Managing Crash Insight DataCrash Insights let us resolve the issues by comparing your anonymous stack traces with those of other Firebase apps.Crash Insight Data helps in the following two ways:It enables you to know if the issue belongs to a larger trend.It can also provide resources which can help in debugging the crash.Crash Insight uses aggregated crash data to identify common stability trends. We can opt-out of Crash Insight from the Crash Insight menu at the top of our Crashlytics issue list in the Firebase console.Customizing Velocity AlertsVelocity alerts can notify our team when any individual issue is causing an urgent problem in our app. The velocity alerts are triggered when an issue in our app crosses a threshold which we had defined in the Firebase console. The threshold is defined in terms of a percentage of user sessions that were impacted by a crash, and the value is set in between 0.1% and 1% of sessions.An alert is triggered if, during a specific time period, the following are true:When an issue in an app exceeds the defined threshold for that app.When the app has 250 sessions in that time period.When there was no alert previously raised for the issue in the app.For updating velocity alerts, we must have the necessary permissions. In the Firebase console, go to Crashlytics dashboard:Select the app from the app dropdown list present at the top of the page.Open the overflow menu from the top bar of the issues pane, and then select velocity alert settings.For setting the alert threshold for the app, follow the on-screen instructions.We can route velocity alerts to our team using either emails or integrations. Let's see an example in which we will create an application that has a button which is going to simulate a crash.activity_main.xmlMainActivity.ktpackage com.example.crashlyticsexample
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Log
+import android.view.ViewGroup
+import android.widget.Button
+import com.crashlytics.android.Crashlytics
+import io.fabric.sdk.android.Fabric
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+    
+        super.onCreate(savedInstanceState)
+        setKeysBasic("JasonTest");
+        logReportAndPrint()
+        logReportOnly()
+        setUserId()
+        logCaughtEx()
+        enableDebugMode()
+        forceACrash()
+    
+    }
+    //Setting key-value pairs
+    private fun setKeysBasic(key: String) {
+        
+	    Crashlytics.setString(key, "foo" /* string value */)
+
+        Crashlytics.setBool(key, true /* boolean value */)
+
+        Crashlytics.setDouble(key, 1.0 /* double value */)
+
+        Crashlytics.setFloat(key, 1.0f /* float value */)
+
+        Crashlytics.setInt(key, 1 /* int value */)
+    }
+    // Modifying keys 
+    private fun resetKey() {
+        Crashlytics.setInt("current_level", 3)
+        Crashlytics.setString("last_UI_action", "logged_in")
+    }
+
+//Adding custom log and log messages     
+private fun logReportAndPrint() {
+        Crashlytics.log(Log.DEBUG, "tag", "message")
+    }
+    
+// Only for log Report
+    private fun logReportOnly() {
+        Crashlytics.log("message")
+    }
+
+// Enabling at run time
+    private fun enableAtRuntime() {
+        Fabric.with(this, Crashlytics())
+    }
+// Setting user identifier
+    private fun setUserId() {
+        Crashlytics.setUserIdentifier("user123456789")
+    }
+
+    @Throws(Exception::class)
+    private fun methodThatThrows() {
+        throw Exception()
+    }
+// log exception
+    private fun logCaughtEx() {
+        try {
+            methodThatThrows()
+        } catch (e: Exception) {
+            Crashlytics.logException(e)
+            // handle your exception here
+        }
+    }
+// Enabling debug mode
+    private fun enableDebugMode() {
+        val fabric = Fabric.Builder(this)
+            .kits(Crashlytics())
+            .debuggable(true) // Enables Crashlytics debugger
+            .build()
+        Fabric.with(fabric)
+    }
+
+    private fun forceACrash() {
+        val crashButton = Button(this)
+        crashButton.text = "Crash!"
+        crashButton.setOnClickListener {
+            Crashlytics.getInstance().crash() // Force a crash
+        }
+
+        addContentView(crashButton, ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT))
+    }
+}Next TopicFirebase Cloud Messaging? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

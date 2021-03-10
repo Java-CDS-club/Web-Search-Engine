@@ -1,0 +1,118 @@
+Algebra of Sets - javatpoint?HomeDBMSDSDMSDAAGraph TheoryControl SystemAptitudeSeleniumKotlinC#HTMLCSSJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingDiscrete MathematicsDiscrete MathematicsSets TheorySets Introduction Types of Sets Sets Operations Algebra of Sets Multisets Inclusion-Exclusion Principle Mathematical InductionRelationsBinary Relation Representation of Relations Composition of Relations Types of Relations Closure Properties of Relations Equivalence Relations Partial Ordering RelationsFunctions & AlgorithmsFunctions Types of Functions Identity Functions Composition of Functions Mathematical Functions Algorithms & FunctionsLogic & PropositionalPropositions & Compound Statements Basic Logical Operations Conditional & Biconditional Statements Tautologies & Contradictions Predicate Logic Normal FormsCounting TechniquesBasic Counting Principles Permutations & Combinations Pigeonhole PrincipleRecurrence RelationsRecurrence Relations Linear Recurrence Relations with Constant Coefficients Particular Solution Total Solution Generating FunctionsProbability TheoryProbability Addition Theorem Multiplication Theorem Conditional ProbabilityGraph TheoryIntroduction of Graphs Types of Graphs Representation of Graphs Isomorphic and Homeomorphic Graphs Regular and Bipartite Graphs Planar and Non-Planar Graphs Dijkstra's Algorithm Travelling Salesman ProblemBinary TreesIntroduction of Trees Binary Trees Traversing Binary Trees Binary Search Trees Minimum Spanning TreeOperator & PostulatesBinary Operation Property of Binary OperationsGroup TheorySemiGroup Group SubGroup Normal SubgroupOrdered Sets & LatticesPartially Ordered Sets Hasse Diagrams LatticesBoolean AlgebraBoolean Algebra Boolean Expression Canonical Forms Logic Gates & Circuits Karnaugh Mapsnext ? ? prevAlgebra of SetsSets under the operations of union, intersection, and complement satisfy various laws (identities) which are listed in Table 1.Table: Law of Algebra of Sets Idempotent Laws(a) A ? A = A(b) A ? A = AAssociative Laws(a) (A ? B) ? C = A ? (B ? C)(b) (A ? B) ? C = A ? (B ? C)Commutative Laws(a) A ? B = B ? A(b) A ? B = B ? ADistributive Laws(a) A ? (B ? C) = (A ? B) ? (A ? C)(b) A ? (B ? C) =(A ? B) ? (A ? C)De Morgan's Laws(a) (A ?B)c=Ac? Bc(b) (A ?B)c=Ac? BcIdentity Laws(a) A ? ? = A(b) A ? U = U(c) A ? U =A(d) A ? ? = ?Complement Laws(a) A ? Ac= U(b) A ? Ac= ?(c) Uc= ?(d) ?c = UInvolution Law(a) (Ac)c = ATable 1 shows the law of algebra of sets.Example 1: Prove Idempotent Laws:(a) A ? A = A  Solution:Since, B ? A ? B, therefore A ? A ? A
+Let   x ? A ? A ? x ? A  or   x ? A ?  x ? A
+? A ? A ? A
+As  A ? A ? A and  A ? A ? A ? A =A ? A. Hence Proved.(b) A ? A = ASolution:Since, A ? B ? B, therefore A ? A ? A
+Let x ? A ? x ? A  and x ? A  
+? x ? A ? A         ? A ? A ? A
+As A ? A ? A and A ? A ? A ? A = A ? A. Hence Proved.Example 2: Prove Associative Laws:(a) (A ? B) ? C = A ? (B ? C)Solution:Let some x ? (A'? B) ? C
+   ?  (x ? A   or   x ? B)    or   x ? C
+   ?   x ? A   or   x ? B     or  x ? C
+  ?    x ? A   or   (x ? B    or  x ? C)
+  ?   x ? A   or   x ? B ? C 
+  ?   x ? A ? (B ? C).
+Similarly, if some   x ? A ? (B ? C), then  x ? (A ? B) ? C.
+Thus, any 	         x ? A ? (B ? C) ?  x ? (A ? B) ? C. Hence Proved.(b) (A ? B) ? C = A ? (B ? C)Solution:Let some x ? A ? (B ? C) ?   x ? A and x ? B ? C 
+   ?   x ? A  and (x ? B and x ? C)  ?   x ? A  and x ? B and x ? C
+  ?   (x ? A  and x ? B) and x ? C)  ?   x ? A ? B and x ? C
+  ?   x ? (A ? B) ? C.
+Similarly, if some   x ? A ? (B ? C), then x ? (A ? B) ? C
+Thus, any 	         x ? (A ? B) ? C  ?  x ? A ? (B ? C). Hence Proved.Example3: Prove Commutative Laws(a)  A ? B = B ? ASolution:To Prove 
+      A ? B = B ? A
+      A ? B = {x: x ? A or x ? B}
+            = {x: x ? B or x ? A}   (? Order is not preserved in case of sets)
+      A ? B = B ? A. Hence Proved.(b) A ? B = B ? A Solution:To Prove 
+      A ? B = B ? A
+      A ? B = {x: x ? A and x ? B}
+            = {x: x ? B and x ? A}   (? Order is not preserved in case of sets)
+      A ? B = B ? A. Hence Proved.Example 4: Prove Distributive Laws(a) A ? (B ? C) = (A ? B) ? (A ? C)Solution:To Prove 
+	     Let x ? A ? (B ? C)  ? x ? A or  x ? B ? C 
+      ?   (x ? A  or x ? A) or (x ? B and   x ? C)
+      ?   (x ? A  or x ? B) and (x ? A  or x ? C)
+      ?   x ? A ? B and   x ? A ? C
+      ?   x ? (A ? B) ? (A ? C)
+	  
+Therefore, A ? (B ? C) ? (A ? B) ? (A ? C)............(i)
+Again, Let y ? (A ? B)  ? (A ? C) ?   y ? A ? B and y ? A ? C
+      ?   (y ? A or y ? B) and (y ? A or y ? C)
+      ?   (y ? A and y ? A) or (y ? B and y ? C)
+      ?   y ? A    or    y ? B ? C
+      ?   y ? A  ? (B ? C)
+Therefore, (A ? B) ? (A ? C) ? A ? (B ? C)............(ii)
+
+Combining (i) and (ii), we get A ? (B ? C) = (A ? B) ? (A ? C). Hence Proved(b) A ? (B ? C) = (A ? B) ? (A ? C)Solution:To Prove 
+      Let x ? A ? (B ? C)   ?   x ? A and x ? B ? C
+	?  (x ? A and x ? A) and (x ? B  or x ? C)
+         ?  (x ? A and x ? B) or  (x ? A and x ? C)
+         ?   x ? A ? B or  x ? A ? C
+         ?   x ? (A ? B) ? (A ? C)
+		 
+Therefore, A ? (B ? C) ? (A ? B) ? (A ? C)............ (i)
+Again, Let  y ? (A ? B) ? (A ? C) ? y ? A ? B or y ? A ? C
+	  ?  (y ? A and y ? B) or (y ? A and y ? C)
+	  ?  (y ? A or y ? A) and (y ? B or y ? C)
+	  ? y ? A and  y ? B ? C
+           ? y ? A ? (B ? C)
+Therefore, (A ? B) ? (A ? C) ? A ? (B ? C)............ (ii)
+
+Combining (i) and (ii), we get A ? (B ? C) = (A ? B) ? (A ? C). Hence ProvedExample 5: Prove De Morgan's Laws(a) (A ?B)c=Ac? Bc
+Solution:To Prove (A ?B)c=Ac? Bc
+Let x ? (A ?B)c  ?  x ?  A ? B			(? a ? A ? a ? Ac)
+           ?  x ?  A and x ? B
+           ?  x ?  Ac and x ? Bc
+           ?  x ?  Ac? Bc
+Therefore,  (A ?B)c ? Ac? Bc............. (i)
+Again, let x ? Ac? Bc ? x ? Ac and x ? Bc
+            ? x ?  A and x ? B
+            ?  x ?  A ? B
+            ? x ? (A ?B)c
+Therefore, Ac? Bc  ? (A ?B)c............. (ii)
+Combining (i) and (ii), we get Ac? Bc =(A ?B)c. Hence Proved.(b) (A ?B)c = Ac? Bc
+Solution:Let x ? (A ?B)c ? x ?  A ? B    (? a ? A ? a ? Ac)
+           ? x ?  A or x ? B
+           ? x ? Ac and x ? Bc
+           ? x ? Ac? Bc
+? (A ?B)c? (A ?B)c.................. (i)
+Again, Let x ? Ac? Bc   ? x ? Ac or x ? Bc
+            ? x ?  A or x ? B
+            ? x ?  A ? B
+            ? x ? (A ?B)c
+? Ac? Bc? (A ?B)c.................... (ii)
+Combining (i) and (ii), we get(A ?B)c=Ac? Bc. Hence Proved.Example 6: Prove Identity Laws.(a) A ? ? = ASolution:To Prove A ? ? = A
+	         Let  x ? A ? ? ? x ? A   or  x ? ?
+              ? x ? A        (?x ? ?, as ? is the null set )
+        Therefore, x ? A ? ? ? x ? A   
+  Hence,     A ? ? ? A.
+We know that A ? A ? B for any set B.
+ But for B = ?, we have A ? A ? ? 
+From above, A ? A ? ? , A ? ? ? A ? A = A ? ?. Hence Proved.(b) A ? ? = ?Solution:To Prove A ? ? = ?
+If  x ? A, then x ?  ?             (?? is a null set)
+Therefore, x ? A, x ?  ? ? A ? ? = ?. Hence Proved.(c) A ? U = USolution:To Prove A ? U = U
+Every set is a subset of a universal set.
+   ?   A ? U ? U
+    Also,   U ? A ? U
+Therefore, A ? U = U. Hence Proved.(d) A ? U = ASolution:To Prove A ? U = A
+We know   A ? U ? A................. (i)
+So we have to show that A ? A ? U
+Let  x ? A ? x ? A and x ? U        (? A ? U so x ? A ? x ? U )         
+   ?     x ? A ? x ? A ? U
+   ?     A ? A ? U................. (ii)
+From (i) and (ii), we get A ? U = A. Hence Proved.Example7: Prove Complement Laws(a) A ? Ac= USolution:To Prove A ? Ac= U
+  Every set is a subset of U
+    ?  A ? Ac ? U.................. (i)
+We have to show that U ? A ? Ac
+  Let x ? U  ?  x ? A    or    x ?  A     
+      ?  x ? A    or   x ? Ac    ? x ? A ? Ac
+    ? U ? A ? Ac................... (ii)
+From (i) and (ii), we get A ? Ac= U. Hence Proved.(b) A ? Ac=?Solution:As ? is the subset of every set
+     ?     ? ? A ? Ac..................... (i)
+We have to show that A ? Ac ? ?
+Let x ? A ? Ac  ? x ? A and x ?  Ac       
+     ? x ? A  and x ?  A
+      ? x ? ?
+    ?      A ? Ac ??..................... (ii)
+
+From (i) and (ii), we get A? Ac=?. Hence Proved.(c) Uc= ?Solution:Let x ? Uc   ? x ? U ? x ? ?
+    ? Uc= ?. Hence Proved.     (As U is the Universal Set).(d) ?c = USolution:Let x ? ?c ? x ? ?  ? x ? U       (As ? is an empty set)
+	? ?c = U.  Hence Proved.	Example8: Prove Involution Law(a) (Ac )c A.Solution:Let x ? (Ac )c ? x ? Ac?  x ? a
+     ? (Ac )c =A. Hence Proved.Duality:The dual E? of E is the equation obtained by replacing every occurrence of ?, ?, U and ? in E by ?, ?, ?, and U, respectively. For example, the dual of(U ? A) ? (B ? A) = A is (? ? A) ? (B ? A) = AIt is noted as the principle of duality, that if any equation E is an identity, then its dual E? is also an identity.Principle of Extension:According to the Principle of Extension two sets, A and B are the same if and only if they have the same members. We denote equal sets by A=B. If A= {1, 3, 5} and B= {3, 1, 5}, then A=B i.e., A and B are equal sets.
+ If A= {1, 4, 7} and B= {5, 4, 8}, then A? B i.e.., A and B are unequal sets.Cartesian product of two sets:The Cartesian Product of two sets P and Q in that order is the set of all ordered pairs whose first member belongs to the set P and second member belong to set Q and is denoted by P x Q, i.e.,P x Q = {(x, y): x ? P, y ? Q}.Example: Let P = {a, b, c} and Q = {k, l, m, n}. Determine the Cartesian product of P and Q.Solution: The Cartesian product of P and Q isNext TopicMultisets? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

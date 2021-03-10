@@ -1,0 +1,89 @@
+Android Animation Example - javatpoint?HomeAndroidCore JavaServletJSPStruts2Mail APIHibernateSpringDesign PatternQuizProjectsInterview QCommentForumAndroid TrainingAndroid TutorialAndroid Introduction What is Android History and Version Android Architecture Core Building Blocks Android Emulator Install Android Setup Eclipse Hello Android example Internal Details Dalvik VM AndroidManifest.xml R.java Hide Title Bar Screen OrientationAndroid WidgetsUI Widgets Working with Button Toast Custom Toast ToggleButton CheckBox Custom CheckBox RadioButton Dynamic RadioButton Custom RadioButton AlertDialog Spinner AutoCompleteTextView ListView Custom ListView RatingBar WebView SeekBar DatePicker TimePicker Analog and Digital ProgressBar Vertical ScrollView Horizontal ScrollView ImageSwitcher ImageSlider ViewStub TabLayout TabLayout with FrameLayout SearchView SearchView on Toolbar EditText with TextWatcherActivity and IntentsActivity LifeCycle Implicit Intent Explicit Intent StartActivityForResult Share App DataAndroid FragmentsAndroid FragmentsAndroid MenuOption Menu Context Menu Popup MenuAndroid ServiceAndroid ServiceAndroid AlarmManagerAndroid AlarmManagerAndroid StorageAndroid Preferences Internal Storage External StorageAndroid SQLiteSQLite Tutorial SQLite SpinnerXML and JSONXML Parsing SAX XML Parsing DOM XMLPullParser JSON ParsingAndroid MultimediaMediaPlayer: Audio VideoView: Video Recording MediaAndroid SpeechTextToSpeech1 TextToSpeech2Android TelephonyTelephonyManager Get Call State Get Call State 2 Simple Caller Talker Phone Call Send SMS Send EmailAndroid DeviceBluetooth Tutorial List Paired Devices WIFICamera TutorialCamera TutorialSensor TutorialSensor TutorialAndroid GraphicsAndroid GraphicsAndroid AnimationAndroid AnimationAndroid Web ServiceAndroid Web ServiceGoogle MapAndroid Google Map Current Location Search LocationAdding AdsAndroid Google Admob 1) Banner Ads 2) Interstitial AdsAndroid ExamplesQR/Bar Code Scanner RSS Feed Reader Volley Fetch JSON Android Linkify Intro Slider RecyclerView List Swipe Del RecyclerView Swipe Refresh Activity Volley Library Registration Log-in Log-out Network Connectivity Services Firebase Authentication - Google Login Android Notification Using Google reCAPTCHAAndroid SocialIntegrating Google Sign-In Integrating LinkedIn Integrating TwitterAndroid MiscAndroid Device Manager Android Studio Android Auto Android File Transfer Android Messages Android Oreo Android TV Android Screenshot Android Versions Android Watch Android Pay Android Phones Android Tablets Android Find My Phone Android Marshmallow Android Nougat Android Pie Android One Android Antivirus Android Data Recovery Android Lollipop Android vs iPhone Android Wear OS Android x86 Emulator for PC Android 10 Android ad blocker Clear cache Android Root Android DeviceAndroid InterviewInterview QuestionsAndroid QuizAndroid Quiznext ? ? prevAndroid Animation ExampleAndroid provides a large number of classes and interface for the animation development. Most of the classes and interfaces are given in android.animation package.Android Animation enables you to change the object property and behavior at run time. There are various ways to do animation in android.The AnimationDrawable class provides methods to start and end the animation. Even, you can use time based animation.Let's have a look at the simple example of android animation.activity_main.xmlYou need to have a view only.File: activity_main.xml<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <View
+             />
+
+</RelativeLayout>File: logo.xmlHave a image view only.<?xml version="1.0" encoding="utf-8"?>
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/anm"
+     >
+
+</ImageView>MainActivity classFile: MainActivity.javapackage com.javatpoint.animation;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.graphics.drawable.AnimationDrawable;
+import android.widget.ImageView;
+
+public class MainActivity extends Activity {
+
+	ImageView anm;
+	 public void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.logo);
+	        anm = (ImageView)findViewById(R.id.anm);
+	        
+	        anm.setBackgroundResource(R.drawable.animation);
+		// the frame-by-frame animation defined as a xml file within the drawable folder
+	        
+	        /*
+	         * NOTE: It's not possible to start the animation during the onCreate.
+	         */
+	    }
+	 public void onWindowFocusChanged (boolean hasFocus) {
+			super.onWindowFocusChanged(hasFocus);
+			AnimationDrawable frameAnimation = 
+				(AnimationDrawable) anm.getBackground();
+			if(hasFocus) {
+				frameAnimation.start();
+			} else {
+				frameAnimation.stop();
+			}
+		}
+
+}You need to create animation.xml file inside res/drawable-hdpi directory.You need to have many images. Here, we are using 14 images and all the 14 images are located inside res/drawable-mdpi directory.File: animation.xml<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:oneshot="false">
+
+	<item android:drawable="@drawable/frame0" android:duration="120" />
+	<item android:drawable="@drawable/frame1" android:duration="120" />
+	<item android:drawable="@drawable/frame2" android:duration="120" />
+	<item android:drawable="@drawable/frame3" android:duration="120" />
+	<item android:drawable="@drawable/frame4" android:duration="120" />
+	<item android:drawable="@drawable/frame5" android:duration="120" />
+	<item android:drawable="@drawable/frame6" android:duration="120" />
+	<item android:drawable="@drawable/frame7" android:duration="120" />
+	<item android:drawable="@drawable/frame8" android:duration="120" />
+	<item android:drawable="@drawable/frame9" android:duration="120" />
+	<item android:drawable="@drawable/frame10" android:duration="120" />
+	<item android:drawable="@drawable/frame11" android:duration="120" />
+	<item android:drawable="@drawable/frame12" android:duration="120" />
+	<item android:drawable="@drawable/frame13" android:duration="120" />
+	<item android:drawable="@drawable/frame14" android:duration="120" />
+	<item android:drawable="@drawable/frame14" android:duration="120" />
+	<item android:drawable="@drawable/frame13" android:duration="120" />
+	<item android:drawable="@drawable/frame12" android:duration="120" />
+	<item android:drawable="@drawable/frame11" android:duration="120" />
+	<item android:drawable="@drawable/frame10" android:duration="120" />
+	<item android:drawable="@drawable/frame9" android:duration="120" />
+	<item android:drawable="@drawable/frame8" android:duration="120" />
+	<item android:drawable="@drawable/frame7" android:duration="120" />
+	<item android:drawable="@drawable/frame6" android:duration="120" />
+	<item android:drawable="@drawable/frame5" android:duration="120" />
+	<item android:drawable="@drawable/frame4" android:duration="120" />
+	<item android:drawable="@drawable/frame3" android:duration="120" />
+	<item android:drawable="@drawable/frame2" android:duration="120" />
+	<item android:drawable="@drawable/frame1" android:duration="120" />
+	<item android:drawable="@drawable/frame0" android:duration="120" />
+	
+</animation-list>download this android exampleOutput:Next TopicAndroid Web Service? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,37 @@
+Apache POI Powerpoint Hyperlink - javatpoint?HomeApache POIJMeterJavaCC++C#ServletJSPEJBStruts2MailHibernateSpringAndroidDesign PQuizProjectsInterview QCommentForumTrainingApache POI TutorialPOI Tutorial POI Introduction POI Architecture POI Features POI InstallationExcel DocumentExcel Document Handling POI Creating Workbook POI Creating Cell POI Creating Date Cell POI Aligning Cell POI Cell Border POI Cell Color POI Merging Cells POI Excel Font POI Excel Header POI Hiding Rows POI Cell Properties POI Drawing Border POI Multiple Styles POI Excel Cell Type POI Drawing Shape POI Image POI Newline in Cell POI Outlining POI Page Number POI Reading Cell Content POI Rewriting POI Shift Row POI Styling Shapes POI Comment POI HyperlinkWord DocumentPOI Microsoft Word POI Creating MS Word POI Word Paragraph POI Word Table POI Word Style POI Word Aligning POI Extract Text POI Extract ParagraphPowerpoint DocumentPOI Powerpoint POI Powerpoint Slide POI Slide Layout POI Powerpoint Image POI Reorder Slide POI Page Size POI Powerpoint Hyperlink POI Powerpoint Delete Slidenext ? ? prevApache POI Powerpoint HyperlinkTo set hyperlink in powerpoint, Apache POI provides a createHyperlink() method, responsible to create a link on the slide. See the following example, we are demonstrating the hyperlink implementation in powerpoint using Java program.package poiexample;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import org.apache.poi.xslf.usermodel.SlideLayout;
+import org.apache.poi.xslf.usermodel.XMLSlideShow;
+import org.apache.poi.xslf.usermodel.XSLFHyperlink;
+import org.apache.poi.xslf.usermodel.XSLFSlide;
+import org.apache.poi.xslf.usermodel.XSLFSlideLayout;
+import org.apache.poi.xslf.usermodel.XSLFSlideMaster;
+import org.apache.poi.xslf.usermodel.XSLFTextRun;
+import org.apache.poi.xslf.usermodel.XSLFTextShape;
+public class ReadImageExample {
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+		XMLSlideShow ppt = new XMLSlideShow();
+	    try (OutputStream os = new FileOutputStream("Javatpoint.pptx")) {		
+	    	// Setting layout
+	    	XSLFSlideMaster defaultMaster = ppt.getSlideMasters().get(0);
+			XSLFSlideLayout tc = defaultMaster.getLayout(SlideLayout.TITLE_AND_CONTENT);
+		    XSLFSlide slide = ppt.createSlide(tc);
+		    // Setting title
+		    XSLFTextShape title = slide.getPlaceholder(0);
+		    title.setText("Hyperlink Example");
+		    // Setting body
+		    XSLFTextShape body = slide.getPlaceholder(1);
+		    body.clearText();
+		    XSLFTextRun r = body.addNewTextParagraph().addNewTextRun();
+		    r.setText("Click here to visit Javatpoint.");
+		    XSLFHyperlink link = r.createHyperlink();
+		    link.setAddress("https://www.javatpoint.com");
+		    ppt.write(os);
+	    }catch(Exception e) {
+			 System.out.println(e);
+		 }
+	}
+}Output:Next TopicPOI Powerpoint Delete Slide? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

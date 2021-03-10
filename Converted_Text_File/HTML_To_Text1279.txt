@@ -1,0 +1,266 @@
+DS Circular Queue - javatpoint?HomeData StructureCC++C#JavaSQLHTMLCSSJavaScriptAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumDS TutorialDS Tutorial DS Introduction DS Algorithm Asymptotic Analysis DS Pointer DS StructureDS ArrayDS Array 2D ArrayDS Linked ListLinked List Doubly Linked List Circular Linked List Circular Doubly ListDS StackDS Stack Array Implementation Linked List ImplementationDS QueueDS Queue Array Representation Linked List Representation Circular QueueDS TreeDS Tree Binary Tree Binary Search Tree AVL Tree B Tree B+ TreeDS GraphDS Graph Graph Implementation BFS Algorithm DFS Algorithm Spanning TreeDS SearchingLinear Search Binary SearchDS SortingBubble Sort Bucket Sort Comb Sort Counting Sort Heap Sort Insertion Sort Merge Sort Quick Sort Radix Sort Selection Sort Shell Sort Bitonic Sort Cocktail Sort Cycle Sort Tim Sortnext ? ? prevCircular QueueDeletions and insertions can only be performed at front and rear end respectively, as far as linear queue is concerned.Consider the queue shown in the following figure.The Queue shown in above figure is completely filled and there can't be inserted any more element due to the condition rear == max - 1 becomes true.However, if we delete 2 elements at the front end of the queue, we still can not insert any element since the condition rear = max -1 still holds.This is the main problem with the linear queue, although we have space available in the array, but we can not insert any more element in the queue. This is simply the memory wastage and we need to overcome this problem.One of the solution of this problem is circular queue. In the circular queue, the first index comes right after the last index. You can think of a circular queue as shown in the following figure.Circular queue will be full when front = -1 and rear = max-1. Implementation of circular queue is similar to that of a linear queue. Only the logic part that is implemented in the case of insertion and deletion is different from that in a linear queue.ComplexityTime ComplexityFrontO(1)RearO(1)enQueue()O(1)deQueue()O(1)Insertion in Circular queueThere are three scenario of inserting an element in a queue.If (rear + 1)%maxsize = front, the queue is full. In that case, overflow occurs and therefore, insertion can not be performed in the queue.If rear != max - 1, then rear will be incremented to the mod(maxsize) and the new value will be inserted at the rear end of the queue.If front != 0 and rear = max - 1, then it means that queue is not full therefore, set the value of rear to 0 and insert the new element there.Algorithm to insert an element in circular queueStep 1: IF (REAR+1)%MAX = FRONTWrite " OVERFLOW "Goto step 4[End OF IF]Step 2: IF FRONT = -1 and REAR = -1SET FRONT = REAR = 0ELSE IF REAR = MAX - 1 and FRONT ! = 0SET REAR = 0ELSESET REAR = (REAR + 1) % MAX[END OF IF]Step 3: SET QUEUE[REAR] = VALStep 4: EXITC Functionvoid insert(int item, int queue[])
+{
+	if((rear+1)%maxsize == front)
+	{
+		printf("\nOVERFLOW");
+		return;
+	}
+	else if(front == -1 && rear == -1)
+	{
+		front = 0;
+		rear = 0;
+	}
+	else if(rear == maxsize -1 && front != 0) 
+	{
+		rear = 0;
+	}
+	else 
+	{
+		rear = (rear+1)%maxsize;
+	}
+	queue[rear] = item;
+}Algorithm to delete an element from a circular queueTo delete an element from the circular queue, we must check for the three following conditions.If front = -1, then there are no elements in the queue and therefore this will be the case of an underflow condition.If there is only one element in the queue, in this case, the condition rear = front holds and therefore, both are set to -1 and the queue is deleted completely.If front = max -1 then, the value is deleted from the front end the value of front is set to 0.Otherwise, the value of front is incremented by 1 and then delete the element at the front end.AlgorithmStep 1: IF FRONT = -1Write " UNDERFLOW "Goto Step 4[END of IF]Step 2: SET VAL = QUEUE[FRONT]Step 3: IF FRONT = REARSET FRONT = REAR = -1ELSEIF FRONT = MAX -1SET FRONT = 0ELSESET FRONT = FRONT + 1[END of IF][END OF IF]Step 4: EXITC Functionvoid delete()
+{ 
+	if(front == -1 & rear == -1)
+	{
+		printf("\nUNDERFLOW\n");
+		return;
+	}
+	else if(front == rear)
+	{
+		front = -1;
+		rear = -1;
+	}
+	else if(front == maxsize -1)
+		{
+			front = 0;
+		}
+	else 
+		front = front + 1;
+}Menu-Driven program implementing all the operations on a circular queue#include<stdio.h> 
+#include<stdlib.h>
+#define maxsize 5
+void insert();
+void delete();
+void display();
+int front = -1, rear = -1;
+int queue[maxsize];
+void main ()
+{
+	int choice; 
+	while(choice != 4) 
+	{	
+		printf("\n*************************Main Menu*****************************\n");
+		printf("\n=================================================================\n");
+		printf("\n1.insert an element\n2.Delete an element\n3.Display the queue\n4.Exit\n");
+		printf("\nEnter your choice ?");
+		scanf("%d",&choice);
+		switch(choice)
+		{
+			case 1:
+			insert();
+			break;
+			case 2:
+			delete();
+			break;
+			case 3:
+			display();
+			break;
+			case 4:
+			exit(0);
+			break;
+			default: 
+			printf("\nEnter valid choice??\n");
+		}
+	}
+}
+void insert()
+{
+	int item;
+	printf("\nEnter the element\n");
+	scanf("%d",&item);	
+	if((rear+1)%maxsize == front)
+	{
+		printf("\nOVERFLOW");
+		return;
+	}
+	else if(front == -1 && rear == -1)
+	{
+		front = 0;
+		rear = 0;
+	}
+	else if(rear == maxsize -1 && front != 0) 
+	{
+		rear = 0;
+	}
+	else 
+	{
+		rear = (rear+1)%maxsize;
+	}
+	queue[rear] = item;
+	printf("\nValue inserted ");
+}
+void delete()
+{
+	int item; 
+	if(front == -1 & rear == -1)
+	{
+		printf("\nUNDERFLOW\n");
+		return;
+	}
+	else if(front == rear)
+	{
+		front = -1;
+		rear = -1;
+	}
+	else if(front == maxsize -1)
+		{
+			front = 0;
+		}
+	else 
+		front = front + 1;
+}
+	
+void display()
+{
+   int i;	   
+   if(front == -1)
+      printf("\nCircular Queue is Empty!!!\n");
+   else
+   {
+      i = front;
+      printf("\nCircular Queue Elements are : \n");
+      if(front <= rear){
+	 while(i <= rear)
+	    printf("%d %d %d\n",queue[i++],front,rear);
+      }
+      else{
+	 while(i <= maxsize - 1)
+	    printf("%d %d %d\n", queue[i++],front,rear);
+	 i = 0;
+	 while(i <= rear)
+	    printf("%d %d %d\n",queue[i++],front,rear);
+      }
+   }
+}Output:**********Main Menu**********
+
+=============================
+
+1.insert an element
+2.Delete an element
+3.Display the queue
+4.Exit
+
+Enter your choice ?1
+
+Enter the element
+1
+
+Value inserted 
+**********Main Menu**********
+
+=============================
+1.insert an element
+2.Delete an element
+3.Display the queue
+4.Exit
+
+Enter your choice ?1
+
+Enter the element
+2
+
+Value inserted 
+**********Main Menu**********
+
+=============================
+1.insert an element
+2.Delete an element
+3.Display the queue
+4.Exit
+
+Enter your choice ?1
+
+Enter the element
+3
+
+Value inserted 
+**********Main Menu**********
+
+=============================
+1.insert an element
+2.Delete an element
+3.Display the queue
+4.Exit
+
+Enter your choice ?3
+
+Circular Queue Elements are : 
+1
+2
+3
+
+**********Main Menu**********
+
+=============================
+1.insert an element
+2.Delete an element
+3.Display the queue
+4.Exit
+
+Enter your choice ?2
+
+**********Main Menu**********
+
+=============================
+1.insert an element
+2.Delete an element
+3.Display the queue
+4.Exit
+
+Enter your choice ?1
+
+Enter the element
+4
+
+Value inserted 
+**********Main Menu**********
+
+=============================
+1.insert an element
+2.Delete an element
+3.Display the queue
+4.Exit
+
+Enter your choice ?3
+
+Circular Queue Elements are : 
+2
+3
+4
+
+**********Main Menu**********
+
+=============================
+1.insert an element
+2.Delete an element
+3.Display the queue
+4.Exit
+
+Enter your choice ?1
+
+Enter the element
+1
+
+OVERFLOW
+**********Main Menu**********
+
+=============================
+1.insert an element
+2.Delete an element
+3.Display the queue
+4.Exit
+
+Enter your choice ?
+
+4Next TopicDS Tree? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

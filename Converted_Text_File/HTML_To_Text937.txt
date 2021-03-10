@@ -1,0 +1,57 @@
+Bash check if file Exists - Javatpoint?HomeJavaCBashJavaScriptXMLAjaxSQLC++C#HTMLAndroidCloudDesign PatternQuizProjectsInterview QCommentForumBash TutorialBash Tutorial What is Bash History of Bash Features of Bash Bash Scripting Filesystem & File Permission Hello World! Bash Script Relative vs Absolute path Bash Comments Bash Quotes Bash Variables Read User Input Bash Date Format Bash SleepBash OperatorsBash Arithmetic OperatorsConditional StatementsBash If Statement Bash If Else Bash Else If Bash CaseBash LoopsBash For Loop Bash While Loop Bash Until LoopBash StringBash String Bash Find String Bash Split String Bash Substring Bash Concatenate StringBash FunctionBash FunctionsBash ArrayBash ArraysMiscellaneousBash Read File Bash Write File Check if file Exists Check if Variable is Set Bash Alias Git Bash Zsh vs Bash Bash Hash Commandnext ? ? prevBash check if file ExistsMost of the time, we may find a situation where we may need to perform an action that will check whether a file exists or not.In Bash, we can use a 'test command' to check whether a file exists and determine the type of a file.Following are the syntaxes of the test command, and we can use any of these commands:test expression
+[ expression ]
+[[ expression ]]We are required to use a single bracket '[' command to make our script portable for all POSIX shells. The upgraded version of the test command contains double brackets '[[' which is supported on most of the modern systems using Bash, Zsh, and Ksh as a default shell.Check If File ExistsWhile checking if a file exists, the most commonly used file operators are -e and -f. The '-e' option is used to check whether a file exists regardless of the type, while the '-f' option is used to return true value only if the file is a regular file (not a directory or a device).The most common option to check if the file exists or not is to use the test command with the 'if conditional statement'.Following are the examples to check whether the 'read_file.txt' file exists:Method 1#!/bin/bash
+
+File=read_file.txt
+if test -f "$File"; then
+echo "$File exist "
+fiMethod 2#!/bin/bash
+
+File=read_file.txt
+if [ -f "$File" ]; then
+echo "$File exist "
+fiMethod 3#!/bin/bash
+
+File=read_file.txt
+if [[ -f "$File" ]]; then
+echo "$File exist "
+fiOutputOutput for all the three methods will be as below because we have a file (read_file.txt) present in the directory:read_file.txt existIf we want to perform an action which will provide a result based on whether the file exists or not, we can use the if/then construct in the following way:Example#!/bin/bash
+
+File=read_file.txt
+if [ -f "$File" ]; then
+echo "$File exist"
+else
+echo "$File does not exist"
+fiOutputread_file.txt existWe can also use the test command without the if statement. We can use any of the following methods:Method 1#!/bin/bash
+
+File=read_file.txt
+test -f read_file.txt && echo "$File exist"Method 2#!/bin/bash
+
+File=read_file.txt
+[ -f read_file.txt ] && echo "$File exist"Method 3#!/bin/bash
+
+File=read_file.txt
+[[ -f read_file.txt ]] && echo "$File exist"OutputOutput for all the three methods will be as below because we have a file (read_file.txt) present in the directory:read_file.txt existIf there are several commands to be run after the && operator, then enclose the commands in curly brackets separated by semicolon(;) or AND (&&), i.e.:Example#!/bin/bash
+
+File=read_file.txt
+[ -f read_file.txt ] && { echo "$File exist"; echo "Task Completed"; }Unlike &&, the statement after the || operator is executed only if the exit status of the test command is 'false'.Example#!/bin/bash
+
+File=read_file.txt
+
+[ -f read_file.txt ] && echo "$File exist" || echo "$File does not exist"Outputread_file.txt existThese are the commonly used methods in Bash to check whether the file exists or not.Check If Directory ExistsThe operator '-d' allows us to test whether a file is a directory or not.Following are the methods to check whether the 'Javatpoint' directory exists:Method 1#!/bin/bash
+
+File=Javatpoint
+if [ -d "$File" ]; then
+echo "$File is a directory"
+fiMethod 2#!/bin/bash
+
+File=Javatpoint
+[ -d "$File" ] && echo "$File is a directory"Note: We can also use double brackets '[[' instead of a single bracket '['.OutputOutput for both the above methods will be as below as we have a directory (named Javatpoint) present in the specified location:Javatpoint is a directoryCheck IF File does not ExistThe test expression can be negated by using the exclamation mark (! -logical NOT operator). Check out the following example:Example#!/bin/bash
+
+File=missing_read_file.txt
+if [ ! -f "$File" ]; then
+echo "$File does not exist"
+fiAbove script can also be written as below:#!/bin/bash
+
+File=missing_read_file.txt
+[ ! -f "$File" ] && echo "$File unavailable"Outputmissing_read_file.txt unavailableFile Test OperatorsThe test commands include the following File Operators which allow us to test for particular types of files:-b File Returns'True' if the FILE exists as a block special file.-c File Returns'True' if the FILE exists as a special character file.-d File Returns'True' if the FILE exists as a directory.-e File Returns'True' if the FILE exists as a file, regardless of type (node, directory, socket, etc.).-f File Returns'True' if the FILE exists as a regular file (not a directory or device).-G File Returns'True' if the FILE exists and contains the same group as the user is running the command.-h File Returns'True' if the FILE exists as a symbolic link.-g File Returns'True' if the FILE exists and contains set-group-id (sgid) flag set.-k File Returns'True' if the FILE exists and contains a sticky bit flag set.-L File Returns'True' if the FILE exists as a symbolic link.-O File Returns'True' if the FILE exists and is owned by the user who is running the command.-p File Returns'True' if the FILE exists as a pipe.-r File Returns'True' if the FILE exists as a readable file.-S File Returns'True' if the FILE exists as a socket.-s File Returns'True' if the FILE exists and has nonzero size.-u File Returns'True' if the FILE exists, and set-user-id (suid) flag is set.-w File Returns'True' if the FILE exists as a writable file.-x File Returns'True' if the FILE exists as an executable file.Next TopicBash Check if Variable is Set? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

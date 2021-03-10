@@ -1,0 +1,104 @@
+C++ multiset key_comp() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ multisetC++ multiset constructor destructor begin() end() operator= rbegin() rend() cbegin() cend() max_size() size() crbegin() crend() empty() insert() clear() emplace() erase() swap() emplace_hint() find() key_comp() value_comp() count() equal_range() lower_bound() upper_bound() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ multiset key_comp()C++ Multiset key_comp() function is used to return a copy of the comparison object which is used by the multiset container to compare keys.The comparison object can be used to compare key values of two elements in a container. This comparison object is given when constructing the object and it can be a pointer to a function or a function object. In either case, this takes two arguments of the same type, returning true if the first argument is before the second argument according to the narrower weak order, otherwise returns false.Note: By default, comparison object is a less object, which returns the same as operator <.SyntaxKey_compare key_comp() const;Note: A stored object defines member functions:operator bool ( const  Key &  _Left , const Key &  _Right );ParameterNoneReturn valueIt returns a key comparison function object.ComplexityConstant.Iterator validityNo changes.Data RacesThe container is accessed.No contained elements are accessed: Concurrently accessing and modifying the elements is safe.Exception SafetyIf an exception is thrown, there are no changes in the container.Example 1Let's see the simple example to compare key values:#include <iostream>
+#include <set>
+ 
+ using namespace std;
+
+ int  main () 
+ { 
+  multiset < int >  m ; 
+  multiset < int > :: key_compare  comp  =  m . key_comp () ; 
+
+  cout  <<"Compare keys (1 is true and 0 is false):  "<<  comp ( 1 ,  5 )  <<endl ; 
+  cout  <<"Compare keys (1 is true and 0 is false):  "<<  comp ( 3 ,  2 )  <<endl ; 
+return 0;
+ }Output:Compare keys (1 is true and 0 is false):  1
+Compare keys (1 is true and 0 is false):  0In the above example, comp(1, 5) returns true because 1 is less than 5 and comp(3, 2) returns false because 3 is not less than 2.Example 2Let's see a simple example:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  multiset<int> mymultiset;
+  int highest;
+
+  multiset<int>::key_compare mycomp = mymultiset.key_comp();
+
+  for (int i=0; i<=5; i++) mymultiset.insert(i);
+
+  cout << "mymultiset contains:";
+
+  highest=*mymultiset.rbegin();
+  multiset<int>::iterator it=mymultiset.begin();
+  do {
+    cout << ' ' << *it;
+  } while ( mycomp(*(++it),highest) );
+
+  cout << '\n';
+
+  return 0;
+}Output:mymultiset contains: 0 1 2 3 4In the above example, highest variable stores the last element of the mymultiset multiset and iterator initialized with first element of the multiset (in sorted order). Do-while loop is used to print the element of the multiset where the loop will run until first key is less than last key (for this it is using key_comp() function named as mycomp).Example 3Let's see a simple example:#include <set>  
+#include <iostream>  
+  
+int main( )  
+{  
+   using namespace std;  
+  
+   multiset <int, less<int> > s1;  
+   multiset<int, less<int> >::key_compare kc1 = s1.key_comp( ) ;  
+   bool result1 = kc1( 2, 3 ) ;  
+   if( result1 == true )     
+   {  
+      cout << "kc1( 2,3 ) returns value of true, "  
+           << "where kc1 is the function object of s1."  
+           << endl;  
+   }  
+   else     
+   {  
+      cout << "kc1( 2,3 ) returns value of false "  
+           << "where kc1 is the function object of s1."  
+           << endl;  
+   }  
+  
+   multiset <int, greater<int> > s2;  
+   multiset<int, greater<int> >::key_compare kc2 = s2.key_comp( ) ;  
+   bool result2 = kc2( 2, 3 ) ;  
+   if(result2 == true)     
+   {  
+      cout << "kc2( 2,3 ) returns value of true, "  
+           << "where kc2 is the function object of s2."  
+           << endl;  
+   }  
+   else     
+   {  
+      cout << "kc2( 2,3 ) returns value of false, "  
+           << "where kc2 is the function object of s2."  
+           << endl;  
+   }  
+   return 0;
+}  Output:kc1( 2,3 ) returns value of true, where kc1 is the function object of s1.
+kc2( 2,3 ) returns value of false, where kc2 is the function object of s2.In the above example, there are two multisets used i.e. m1 and m2. The key comparison object of m1 is less and key comparison object of m2 is greater. Therefore, when we compare (2, 3) then kc1 function object of m1 returns true and kc2 function object of m2 returns false.Example 4Let's see a simple example:#include <set>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+typedef multiset<int> multisetObj ;
+
+int main(){
+
+	//default constructor
+	multisetObj c1 ;
+	
+    multisetObj::key_compare kc = c1.key_comp() ;
+	cout << "use function object kc to find less of (10, 4)..." 
+		<< endl ;
+		
+	if (kc(10, 4) == true)
+		cout << "kc(10, 4) == true, which means 10 < 4" << endl ;
+	else
+		cout << "kc(10, 4) == false, which means 10 > 4" << endl ;
+		
+return 0;
+}Output:use function object kc to find less of (10, 4)...
+kc(10, 4) == false, which means 10 > 4In the above example, kc function object of multiset multisetobj compares (10, 4) if it is true, then it will return 10 < 4 and if it is not true, then it will return 10 > 4.Next TopicC++ multiset? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

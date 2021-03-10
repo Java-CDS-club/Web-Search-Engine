@@ -1,0 +1,777 @@
+ 
+<!DOCTYPE html>
+<html lang="en"> 
+
+<!-- Mirrored from www.javatpoint.com/couchdb-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:26:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head> 
+<meta charset="UTF-8">
+<link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png"/>
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css" />
+<link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/">
+<title>CouchDB Interview Questions - javatpoint</title>
+<meta name="keywords" content="couchdb, interview, questions, beginners, professionals, basic, frequently, asked"/>
+<meta name="description" content="CouchDB Interview Questions for beginners and professionals with a list of top frequently asked CouchDB interview questions and answers with java, .net, php, database, hr, spring, hibernate, android, oracle, sql, asp.net, c#, python, c, c++ etc."/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">						
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="canonical" href="https://www.javatpoint.com/couchdb-interview-questions" />
+<meta name="theme-color" content="#4CAF50"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta name="twitter:title" property="og:title" content="CouchDB Interview Questions - javatpoint" />
+<meta name="twitter:description" property="og:description" content="CouchDB Interview Questions for beginners and professionals with a list of top frequently asked CouchDB interview questions and answers with java, .net, php, database, hr, spring, hibernate, android, oracle, sql, asp.net, c#, python, c, c++ etc." />
+<meta property="og:url" content="https://www.javatpoint.com/couchdb-interview-questions" />
+<meta property="og:site_name" content="www.javatpoint.com" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@pagejavatpoint"/>
+<meta name="twitter:domain" content="www.javatpoint.com"/>
+<meta name="twitter:creator" content="@pagejavatpoint"/>
+<!--<script  id="feedify_webscript" >
+var feedify = feedify || {};
+window.feedify_options={fedify_url:"https://feedify.net/"};
+(function (window, document){
+	function addScript( script_url ){
+		var s = document.createElement('script');
+		s.type = 'text/javascript';
+		s.src = script_url;
+		document.getElementsByTagName('head')[0].appendChild(s);
+	}
+	addScript('https://tpcf.feedify.net/uploads/settings/2e588c15fa58f6d438b0255693eb0ea3.js?ts='+Math.random());
+	addScript('https://cdn.feedify.net/getjs/feedbackembad-min-2.0.js');
+})(window, document);
+</script> -->
+
+<link href="https://www.javatpoint.com/manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://cdn.adpushup.com/37780/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+</head> 
+<body onload="highlightlink()"> 
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#8679</button>
+
+<div id="page" style="margin:-8px;background-color:#f5f5f4">
+<div id="container" >
+
+ <div  class="header">
+<table style="width:100%;margin-bottom:5px">
+    <tr>
+        <td>
+            <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px">
+                <a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a>
+            </div>
+            <div style="float:left;width:60%;">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+                
+            </div>
+            
+        </td>
+    </tr>
+        <!--<tr>
+        <td>
+            <div id="headerlink" style="padding:0px;margin:0px"><span style="margin-right:20px;width:45px"></span><span style="float:right;margin-right:5px;width:45%"> </span>
+                
+            </div>
+        </td>
+    </tr>-->
+
+</table>
+ </div>
+
+ <div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="https://www.javatpoint.com/images/menuhome64.png" onclick="showmenu()"/></span>
+<span style="float:left"><a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<form class="navbar-search-m" method="get" action="https://www.google.com/search" target="_blank"> 
+<input type="text" name="q" class="search-query span2-m" placeholder="Search on javatpoint..."  title="Search on Javatpoint"/>
+<input type="hidden" name="sitesearch" value="www.javatpoint.com"/>
+</form>
+</div>
+</div>
+ 
+<div id="link" style="clear:both">
+ <div  class="ddsmoothmenu">
+<ul>
+<li><a href="https://www.javatpoint.com/">Home</a></li>
+<li><a href="https://www.javatpoint.com/interview-questions-and-answers"  class="selected">Interview Questions</a></li>
+<li><a href="https://www.javatpoint.com/java-tutorial">Java</a></li>
+<li><a href="https://www.javatpoint.com/c-programming-language-tutorial">C</a></li>
+<li><a href="https://www.javatpoint.com/sql-tutorial">SQL</a></li>
+<li><a href="https://www.javatpoint.com/android-tutorial">Android</a></li>
+<li><a href="https://www.javatpoint.com/html-tutorial">HTML</a></li>
+<li><a href="https://www.javatpoint.com/xml-tutorial">XML</a></li>
+<li><a href="https://www.javatpoint.com/javascript-tutorial">JavaScript</a></li>
+<li><a href="https://www.javatpoint.com/ajax-tutorial">Ajax</a></li>
+<li><a href="https://www.javatpoint.com/cloud-computing-tutorial">Cloud</a></li>
+<li><a href="https://www.javatpoint.com/python-tutorial">Python</a></li>
+<li><a href="https://www.javatpoint.com/web-services-tutorial">Web Services</a></li>
+<li><a href="https://www.javatpoint.com/examaccess">Quiz</a></li>
+<li><a href="https://www.javatpoint.com/free-java-projects">Projects</a></li>
+<li><a href="https://www.javatpoint.com/comment.jsp">Comment</a></li>
+<li><a href="https://www.javatpoint.com/forum">Forum</a></li>
+<li><a href="https://www.javatpoint.com/training">Training</a></li>
+
+</ul>
+<br style="clear: left" />
+</div>
+</div>
+<div class="mobilemenu" style="clear:both">
+ <!--<button onclick="showmenu()">Content Menu</button>-->
+<!-- Cm_300x250_Mob_14/9 -->
+
+
+</div>
+
+
+<div id="menu">
+<!--<a target="_blank" href="https://play.google.com/store/apps/details?id=my.example.javatpoint" style="padding-left:10px;color:blue;text-decoration:none"><img src="https://static.javatpoint.com/images/logo/androidhome.png" style="height:20px" alt="Javatpoint interview questions Android App"/> Download Android App</a> -->
+
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">All Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/interview-tips"><span>Interview Tips</span></a>
+<a href="https://www.javatpoint.com/job-interview-questions"><span>JOB/HR Interview</span></a>
+<a href="https://www.javatpoint.com/competency-based-interview-questions"><span>Competency Interview</span></a>
+<a href="https://www.javatpoint.com/business-analyst-interview-questions"><span>Business Analyst</span></a>
+<a href="https://www.javatpoint.com/behavioral-interview-questions"><span>Behavioral Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Company Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/company-interview-questions-and-recruitment-process"><span>Company Interview</span></a>
+<a href="https://www.javatpoint.com/ibm-interview-questions"><span>IBM Interview</span></a>
+<a href="https://www.javatpoint.com/infosys-interview-questions"><span>Infosys Interview</span></a>
+<a href="https://www.javatpoint.com/capgemini-interview-questions"><span>Capgemini Interview</span></a>
+<a href="https://www.javatpoint.com/cognizant-interview-questions"><span>Cognizant Interview</span></a>
+<a href="https://www.javatpoint.com/wipro-interview-questions"><span>Wipro Interview</span></a>
+<a href="https://www.javatpoint.com/accenture-interview-questions"><span>Accenture Interview</span></a>
+<a href="https://www.javatpoint.com/igate-interview-questions"><span>iGate Interview</span></a>
+<a href="https://www.javatpoint.com/tcs-interview-questions"><span>TCS Interview</span></a>
+<a href="https://www.javatpoint.com/hcl-interview-questions"><span>HCL Interview</span></a>
+<a href="https://www.javatpoint.com/adobe-interview-questions">Adobe Interview</a>
+<a href="https://www.javatpoint.com/microsoft-interview-questions">Microsoft Interview</a>
+<a href="https://www.javatpoint.com/dxc-technology-interview-questions">DXC Technology Interview</a>
+<a href="https://www.javatpoint.com/ericsson-interview-questions">Ericsson Interview</a>
+<a href="https://www.javatpoint.com/exl-interview-questions">EXL Service Interview</a>
+<a href="https://www.javatpoint.com/indiamart-interview-questions">IndiaMART Interview</a>
+<a href="https://www.javatpoint.com/intuit-interview-questions">Intuit Interview</a>
+<a href="https://www.javatpoint.com/spacex-interview-questions">SpaceX Interview</a>
+<a href="https://www.javatpoint.com/sapient-interview-questions">Sapient Interview</a>
+
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Technical Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/c-interview-questions"><span>C Interview</span></a>
+<a href="https://www.javatpoint.com/cpp-interview-questions"><span>C++ Interview</span></a>
+<a href="https://www.javatpoint.com/data-structure-interview-questions"><span>Data Structure Interview</span></a>
+<a href="https://www.javatpoint.com/linux-interview-questions"><span>Linux Interview</span></a>
+<a href="https://www.javatpoint.com/unix-interview-questions"><span>Unix Interview</span></a>
+<a href="https://www.javatpoint.com/shell-scripting-interview-questions"><span>Shell Scripting</span></a>
+<a href="https://www.javatpoint.com/networking-interview-questions"><span>Networking Interview</span></a>
+<a href="https://www.javatpoint.com/ccna-interview-questions"><span>CCNA Interview</span></a>
+<a href="https://www.javatpoint.com/android-interview-questions"><span>Android Interview</span></a>
+<a href="https://www.javatpoint.com/cloud-computing-interview-questions"><span>Cloud Computing</span></a>
+<a href="https://www.javatpoint.com/hadoop-interview-questions"><span>Hadoop Interview</span></a>
+<a href="https://www.javatpoint.com/software-testing-interview-questions"><span>Testing/QTP Interview</span></a>
+<a href="https://www.javatpoint.com/selenium-interview-questions"><span>Selenium Interview</span></a>
+<a href="https://www.javatpoint.com/web-services-interview-questions"><span>Web Services Interview</span></a>
+<a href="https://www.javatpoint.com/operating-system-interview-questions"><span>OS Interview</span></a>
+<a href="https://www.javatpoint.com/excel-interview-questions"><span>Excel Interview</span></a>
+<a href="https://www.javatpoint.com/seo-interview-questions"><span>SEO Interview</span></a>
+<a href="https://www.javatpoint.com/digital-marketing-interview-questions-and-answers"><span>Digital Marketing</span></a>
+<a href="https://www.javatpoint.com/python-interview-questions"><span>Python Interview</span></a>
+<a href="https://www.javatpoint.com/django-interview-questions-and-answers"><span>Django Interview</span></a>
+<a href="https://www.javatpoint.com/pascal-interview-questions-and-answers"><span>Pascal Interview</span></a>
+<a href="https://www.javatpoint.com/ruby-interview-questions"><span>Ruby Interview</span></a>
+<a href="https://www.javatpoint.com/ruby-on-rails-interview-questions"><span>Ruby on Rails Interview</span></a>
+<a href="https://www.javatpoint.com/memcached-interview-questions-and-answers"><span>Memcached Interview</span></a>
+<a href="https://www.javatpoint.com/go-programming-interview-questions"><span>Go Interview</span></a>
+<a href="https://www.javatpoint.com/openstack-interview-questions-and-answers"><span>OpenStack Interview</span></a>
+<a href="https://www.javatpoint.com/scala-interview-questions"><span>Scala Interview</span></a>
+<a href="https://www.javatpoint.com/control-systems-interview-questions"><span>Control Systems</span></a>
+<a href="https://www.javatpoint.com/electrical-machines-interview-questions"><span>Electrical Machines</span></a>
+<a href="https://www.javatpoint.com/power-system-interview-questions"><span>Power System</span></a>
+<a href="https://www.javatpoint.com/digital-electronics-interview-questions"><span>Digital Electronics</span></a>
+<a href="https://www.javatpoint.com/robotics-interview-questions">Robotics Interview</a>
+<a href="https://www.javatpoint.com/typescript-interview-questions">TypeScript Interview</a>
+<a href="https://www.javatpoint.com/swift-interview-questions">Swift Interview</a>
+<a href="https://www.javatpoint.com/blockchain-interview-questions">Blockchain Interview</a>
+<a href="https://www.javatpoint.com/bitcoin-interview-questions">Bitcoin Interview</a>
+<a href="https://www.javatpoint.com/aws-interview-questions">AWS Interview</a>
+<a href="https://www.javatpoint.com/informatica-interview-questions">Informatica Interview</a>
+<a href="https://www.javatpoint.com/qa-interview-questions">QA Interview</a>
+<a href="https://www.javatpoint.com/react-interview-questions">React Interview</a>
+<a href="https://www.javatpoint.com/git-interview-questions">GIT Interview</a>
+<a href="https://www.javatpoint.com/j2ee-interview-questions">J2EE Interview</a>
+<a href="https://www.javatpoint.com/deep-learning-interview-questions">Deep Learning</a>
+<a href="https://www.javatpoint.com/salesforce-interview-questions">Salesforce Interview</a>
+<a href="https://www.javatpoint.com/testng-interview-questions">TestNG Interview</a>
+<a href="https://www.javatpoint.com/agile-interview-questions">Agile Interview</a>
+<a href="https://www.javatpoint.com/machine-learning-interview-questions">Machine Learning</a>
+<a href="https://www.javatpoint.com/api-testing-interview-questions">API Testing</a>
+<a href="https://www.javatpoint.com/algorithm-interview-questions">Algorithm</a>
+<a href="https://www.javatpoint.com/java-design-pattern-interview-questions">Java Design Pattern</a>
+<a href="https://www.javatpoint.com/teradata-interview-questions">Teradata</a>
+<a href="https://www.javatpoint.com/tensorflow-interview-questions">TensorFlow</a>
+<a href="https://www.javatpoint.com/linq-interview-questions">LINQ</a>
+<a href="https://www.javatpoint.com/mainframe-interview-questions">Mainframe</a>
+<a href="https://www.javatpoint.com/laravel-interview-questions">Laravel</a>
+<a href="https://www.javatpoint.com/jira-interview-questions">JIRA</a>
+<a href="https://www.javatpoint.com/jcl-interview-questions">JCL</a>
+<a href="https://www.javatpoint.com/pytorch-interview-questions">Pytorch</a>
+<a href="https://www.javatpoint.com/etl-testing-interview-questions">ETL Testing</a>
+<a href="https://www.javatpoint.com/linked-list-interview-questions">Linked List</a>
+<a href="https://www.javatpoint.com/datastage-interview-questions">DataStage</a>
+<a href="https://www.javatpoint.com/tableau-interview-questions">Tableau</a>
+<a href="https://www.javatpoint.com/sap-abap-interview-questions">SAP ABAP</a>
+<a href="https://www.javatpoint.com/daa-interview-questions">DAA</a>
+<a href="https://www.javatpoint.com/computer-graphics-interview-questions">Computer Graphics</a>
+<a href="https://www.javatpoint.com/data-science-interview-questions">Data Science</a>
+<a href="https://www.javatpoint.com/software-engineering-interview-questions">Software Engineering</a>
+<a href="https://www.javatpoint.com/power-bi-interview-questions">Power BI</a>
+<a href="https://www.javatpoint.com/xamarin-interview-questions">Xamarin</a>
+<a href="https://www.javatpoint.com/ansible-interview-questions">Ansible</a>
+<a href="https://www.javatpoint.com/data-warehouse-interview-questions">Data Warehouse</a>
+<a href="https://www.javatpoint.com/ionic-interview-questions">Ionic</a>
+<a href="https://www.javatpoint.com/devops-interview-questions">Devops</a>
+<a href="https://www.javatpoint.com/react-native-interview-questions">React Native</a>
+<a href="https://www.javatpoint.com/python-pandas-interview-questions">Python Pandas</a>
+<a href="https://www.javatpoint.com/http-interview-questions">HTTP Interview</a>
+<a href="https://www.javatpoint.com/kali-linux-interview-questions">Kali Linux Interview</a>
+<a href="https://www.javatpoint.com/powershell-interview-questions">PowerShell Interview</a>
+<a href="https://www.javatpoint.com/sharepoint-interview-questions">SharePoint Interview</a>
+<a href="https://www.javatpoint.com/talend-interview-questions">Talend Interview</a>
+<a href="https://www.javatpoint.com/microsoft-azure-interview-questions">Microsoft Azure Interview</a>
+<a href="https://www.javatpoint.com/r-interview-questions">R Interview</a>
+<a href="https://www.javatpoint.com/flutter-interview-questions">Flutter Interview</a>
+<a href="https://www.javatpoint.com/matlab-interview-questions">MATLAB Interview</a>
+<a href="https://www.javatpoint.com/es6-interview-questions">ES6 Interview Questions</a>
+<a href="https://www.javatpoint.com/rpa-interview-questions">RPA Interview Questions</a>
+
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Web Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/html-interview-questions"><span>HTML Interview</span></a>
+<a href="https://www.javatpoint.com/css-interview-questions"><span>CSS Interview</span></a>
+<a href="https://www.javatpoint.com/javascript-interview-questions"><span>JavaScript Interview</span></a>
+<a href="https://www.javatpoint.com/jquery-interview-questions"><span>jQuery Interview</span></a>
+<a href="https://www.javatpoint.com/angularjs-interview-questions"><span>AngularJS Interview</span></a>
+<a href="https://www.javatpoint.com/angular-interview-questions">Angular Interview</a>
+<a href="https://www.javatpoint.com/angular-7-interview-questions">Angular 7 Interview</a>
+<a href="https://www.javatpoint.com/node-js-interview-questions"><span>Node.js Interview</span></a>
+<a href="https://www.javatpoint.com/ajax-interview-questions"><span>AJAX Interview</span></a>
+<a href="https://www.javatpoint.com/xml-interview-questions"><span>XML Interview</span></a>
+<a href="https://www.javatpoint.com/dojo-interview-questions-and-answers"><span>Dojo Interview</span></a>
+<a href="https://www.javatpoint.com/backbone-js-interview-questions-and-answers"><span>Backbone.js Interview</span></a>
+<a href="https://www.javatpoint.com/ember-js-interview-questions"><span>Ember.js Interview</span></a>
+<a href="https://www.javatpoint.com/xhtml-interview-questions"><span>XHTML Interview</span></a>
+<a href="https://www.javatpoint.com/xslt-interview-questions"><span>XSLT Interview</span></a>
+<a href="https://www.javatpoint.com/xpath-interview-questions"><span>XPath Interview</span></a>
+<a href="https://www.javatpoint.com/xquery-interview-questions"><span>XQuery Interview</span></a>
+<a href="https://www.javatpoint.com/xforms-interview-questions"><span>XForms Interview</span></a>
+<a href="https://www.javatpoint.com/sass-interview-questions-and-answers"><span>SASS Interview</span></a>
+<a href="https://www.javatpoint.com/coffeescript-interview-questions-and-answers"><span>CoffeeScript Interview</span></a>
+<a href="https://www.javatpoint.com/less-interview-questions-and-answers"><span>LESS Interview</span></a>
+<a href="https://www.javatpoint.com/perl-interview-questions"><span>Perl Interview</span></a>
+<a href="https://www.javatpoint.com/pure-css-interview-questions"><span>Pure.CSS Interview</span></a>
+<a href="https://www.javatpoint.com/materialize-css-interview-questions"><span>Materialize Interview</span></a>
+<a href="https://www.javatpoint.com/framework7-interview-questions"><span>Framework7 Interview</span></a>
+<a href="https://www.javatpoint.com/svg-interview-questions"><span>SVG Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/php-interview-questions"><span>PHP Interview</span></a>
+<a href="https://www.javatpoint.com/wordpress-interview-questions"><span>Wordpress Interview</span></a>
+<a href="https://www.javatpoint.com/joomla-interview-questions-and-answers"><span>Joomla Interview</span></a>
+<a href="https://www.javatpoint.com/drupal-interview-questions-and-answers"><span>Drupal Interview</span></a>
+<a href="https://www.javatpoint.com/magento-interview-questions-and-answers"><span>Magento Interview</span></a>
+<a href="https://www.javatpoint.com/codeigniter-interview-questions-and-answers"><span>CodeIgniter Interview</span></a>
+<a href="https://www.javatpoint.com/phalcon-interview-questions"><span>Phalcon Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">.Net Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/dot-net-interview-questions"><span>.Net Interview</span></a>
+<a href="https://www.javatpoint.com/c-sharp-interview-questions"><span>C# Interview</span></a>
+<a href="https://www.javatpoint.com/asp-dot-net-interview-questions"><span>ASP.NET Interview</span></a>
+<a href="https://www.javatpoint.com/ado-dot-net-interview-questions"><span>ADO.NET Interview</span></a>
+<a href="https://www.javatpoint.com/wcf-interview-questions"><span>WCF Interview</span></a>
+<a href="https://www.javatpoint.com/wpf-interview-questions"><span>WPF Interview</span></a>
+<a href="https://www.javatpoint.com/silverlight-interview-questions-and-answers"><span>Silverlight Interview</span></a>
+<a href="https://www.javatpoint.com/fsharp-interview-questions"><span>F# Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/corejava-interview-questions"><span>Java 1 Interview</span></a>
+<a href="https://www.javatpoint.com/corejava-interview-questions-2"><span>Java 2 Interview</span></a>
+<a href="https://www.javatpoint.com/corejava-interview-questions-3"><span>Exception &amp; String</span></a>
+<a href="https://www.javatpoint.com/java-multithreading-interview-questions"><span>Multithreading </span></a>
+<a href="https://www.javatpoint.com/java-collections-interview-questions"><span>Collections Interview</span></a>
+<a href="https://www.javatpoint.com/jdbc-interview-questions"><span>JDBC Interview</span></a>
+<a href="https://www.javatpoint.com/servletinterview"><span>Servlet Interview</span></a>
+<a href="https://www.javatpoint.com/jspinterview"><span>JSP Interview</span></a>
+<a href="https://www.javatpoint.com/ejb-interview-questions"><span>EJB Interview</span></a>
+<a href="https://www.javatpoint.com/struts-interview-questions"><span>Struts Interview</span></a>
+<a href="https://www.javatpoint.com/hibernate-interview-questions"><span>Hibernate Interview</span></a>
+<a href="https://www.javatpoint.com/spring-interview-questions"><span>Spring Interview</span></a>
+<a href="https://www.javatpoint.com/spring-boot-interview-questions"><span>Spring Boot Interview</span></a>
+<a href="https://www.javatpoint.com/spring-mvc-interview-questions"><span>Spring MVC Interview</span></a> 
+<a href="https://www.javatpoint.com/jpa-interview-questions"><span>JPA Interview</span></a>
+<a href="https://www.javatpoint.com/maven-interview-questions"><span>Maven Interview</span></a>
+<a href="https://www.javatpoint.com/junit-interview-questions"><span>JUnit Interview</span></a>
+<a href="https://www.javatpoint.com/jsf-interview-questions"><span>JSF Interview</span></a>
+<a href="https://www.javatpoint.com/primefaces-interview-questions"><span>PrimeFaces Interview</span></a>
+<a href="https://www.javatpoint.com/richfaces-interview-questions"><span>RichFaces Interview</span></a>
+<a href="https://www.javatpoint.com/gwt-interview-questions"><span>GWT Interview</span></a>
+<a href="https://www.javatpoint.com/jdb-interview-questions"><span>JDB Interview</span></a>
+<a href="https://www.javatpoint.com/jogl-interview-questions"><span>JOGL Interview</span></a>
+<a href="https://www.javatpoint.com/jbpm-interview-questions"><span>jBPM Interview</span></a>
+<a href="https://www.javatpoint.com/jenkins-interview-questions"><span>Jenkins Interview</span></a>
+ 
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Database Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/dbms-interview-questions"><span>DBMS Interview</span></a>
+<a href="https://www.javatpoint.com/sql-interview-questions"><span>SQL Interview</span></a>
+<a href="https://www.javatpoint.com/pl-sql-interview-questions"><span>PL/SQL Interview</span></a>
+<a href="https://www.javatpoint.com/oracle-interview-questions"><span>Oracle Interview</span></a>
+<a href="https://www.javatpoint.com/mysql-interview-questions"><span>MySql Interview</span></a>
+<a href="https://www.javatpoint.com/sql-server-interview-questions"><span>SQL Server Interview</span></a>
+<a href="https://www.javatpoint.com/mongodb-interview-questions"><span>MongoDB Interview</span></a>
+<a href="https://www.javatpoint.com/cassandra-interview-questions-and-answers"><span>Cassandra Interview</span></a>
+<a href="https://www.javatpoint.com/db2-interview-questions-and-answers"><span>DB2 Interview</span></a>
+<a href="https://www.javatpoint.com/microsoft-access-interview-questions-and-answers"><span>Access Interview</span></a>
+<a href="https://www.javatpoint.com/sqlite-interview-questions"><span>SQLite Interview</span></a>
+<a href="https://www.javatpoint.com/couchdb-interview-questions"><span>CouchDB Interview</span></a>
+<a href="https://www.javatpoint.com/neo4j-interview-questions-and-answers"><span>Neo4j Interview</span></a>
+<a href="https://www.javatpoint.com/mariadb-interview-questions"><span>MariaDB Interview</span></a>
+<a href="https://www.javatpoint.com/pouchdb-interview-questions"><span>PouchDB Interview</span></a>
+<a href="https://www.javatpoint.com/redis-interview-questions-and-answers"><span>Redis Interview</span></a>
+</div>
+<table  id="leftad">
+<tr><td>
+<img src="https://www.javatpoint.com/images/wh.JPG" alt="space"/>
+</td></tr>
+<tr><td>
+<ins class="adPushupAds" data-adpControl="g8drp" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBqYXZhdHBvaW50bGVmdCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lLWJsb2NrO3dpZHRoOjE2MHB4O2hlaWdodDo2MDBweCIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI0NDc2NDAxMjIyIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+<br><br>
+</td></tr>
+</table>
+</div>
+
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<!-- CM_JTP_Leaderbaord -->
+<ins class="adPushupAds" data-adpControl="nuoc1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDTV9KVFBfTGVhZGVyYmFvcmQgLS0+CjxpbnMgY2xhc3M9ImFkc2J5Z29vZ2xlIgogICAgIHN0eWxlPSJkaXNwbGF5OmJsb2NrIgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjkyMDE5MDE5MTUiCiAgICAgZGF0YS1hZC1mb3JtYXQ9ImF1dG8iCiAgICAgZGF0YS1mdWxsLXdpZHRoLXJlc3BvbnNpdmU9InRydWUiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+
+<div id="city">
+<table>
+<tr><td>
+
+<img src="https://static.javatpoint.com/interview/images/couchdb-interview-questions.png" alt="CouchDB Interview Questions" class="imageright"/>
+<h1 class="h1">CouchDB Interview Questions</h1>
+
+<h3 class="h3">1) What is CouchDB?</h3>
+<p>CouchDB is documented database server accessible through a RESTful JSON API. It is distributed, robust, incremental replication with bi-direction. It is schema-free with flat address space.</p>
+<p>CouchDB is an open source NoSQL database which focuses on ease of use. It was developed by Apache. It is fully compatible with the web. CouchDB uses JSON to store data, JavaScript as its query language to transform the documents, using MapReduce, and HTTP for an API.</p>
+<p>CouchDB features are as follows:</p>
+<ul class="points">
+<li>CouchDB can be replicated across multiple server instances.</li>
+<li>CouchDB has various libraries for the language of your choice.</li>
+<li>It has fast indexing and retrieval</li>
+<li>It has a REST-like interface for document insertion, updates, recovery, and deletion.</li>
+<li>CouchDB supports JSON-based document format, i.e., easily translatable across different languages. </li>
+</ul>
+<p>Latest release: Version 2.2.0 on Aug 8, 2018</p>
+<hr/>
+<h3 class="h3">2) In which language CouchDB is written?</h3>
+<p>CouchDB is written in Erlang. It is a concurrent, functional programming language mainly focuses on fault tolerance (Erlang programming language also used for build massively scalable soft real-time system with requirements on high availability).</p>
+<p>Some of its parts are written in C language too. As we know that CouchDB supports view server and the views (form map or reduce) are written in JavaScript per default (but can also be written in Erlang). Therefore CouchDB requires the JavaScript engine SpiderMonkey (which is written in C language).</p>
+<hr/>
+<h3 class="h3">3) In which language CouchDB's early work was started?</h3>
+<p>CouchDB early work was started in C++. But later, it was replaced by Erlang OTP platform.</p>
+<p>Erlang has proven as an excellent match for this project.</p>
+<hr/>
+<h3 class="h3">4) How CouchDB is different from other SQL databases?</h3>
+<p>CouchDB is not a relational database. Some people think that it is a replacement for a relational database, but it is completely different from SQL databases. It is fast, efficient and faults tolerant.</p>
+<table class="alt">
+<tr>
+	<th>Couch database</th>
+	<th>SQL Databases</th>
+</tr>
+<tr>
+    <td>In CouchDB, JSON-based document format are used to store data, JavaScript for MapReduce indexes, and regular HTTP of its API.<br>
+Couch database is a database which stores data in the JSON document. Query your index and documents with the help of web browser via HTTP. All the indexes are combining with each other and transform with the help of JavaScript.</td>
+    <td>It is open source and uses RDBMS to store data. It is very fast, Multi-user, Multi-thread, and robust SQL (structured query language) database server.<br>
+SQL database generally used for big data storage of a large project.</td>
+</tr>
+<tr>
+    <td>It is a NoSQL database and likes manual transmission.</td>
+    <td>It is a SQL database and likes automatic transmission.</td>
+</tr>
+<tr>
+    <td>Implemented in Erlang programming language</td>
+    <td>Implemented in C, C++ programming languages.</td>
+</tr>
+</table>
+<p><strong>Structure of NoSQL database:</strong></p>
+<img src="https://www.javatpoint.com/couchdb/images/introduction-to-couchdb1.png" alt="CouchDB interview questions"/>
+<hr/>
+<h3 class="h3">5) Is CouchDB used in the Software industry?</h3>
+<p>CouchDB is very popular now a day, and many companies are using CouchDB.</p> 
+<p>These are the essential features of CouchDB:</p>
+<ul class="points">
+<li>CouchDB can be replicated across multiple server instances.</li>
+<li>CouchDB has various libraries for the language of your choice.</li> 
+<li>It has fast indexing and retrieval</li>
+<li>It has a REST-like interface for document insertion, updates, recovery, and deletion.</li>
+<li>CouchDB supports JSON-based document format, i.e., easily translatable across different languages.</li>
+</ul>
+<p>That's why the software companies use CouchDB.</p>
+<p><strong>Here we have a list of Top companies which uses CouchDB:</strong></p>
+<table class="alt">
+<tr>
+	<th>Company</th>
+	<th>Website</th>
+	<th>Revenue</th>
+	<th>Company size</th>
+	<th>Country</th>
+</tr>
+<tr>
+    <td>GrubHub Inc.</td>
+    <td>grubhub.com</td>
+	<td>200M-1000M</td>
+	<td>1000-5000</td>
+	<td>United States</td>
+</tr>
+<tr>
+    <td>Hothead Games, Inc.</td>
+    <td>hotheadgames.com</td>
+	<td>10M-15M</td>
+	<td>50-200</td>
+	<td>Canada</td>
+</tr>
+<tr>
+    <td>Ultimate software group Inc.</td>
+    <td>Ultimatesoftware.com</td>
+	<td>200M-1000M</td>
+	<td>1000-5000</td>
+	<td>United States</td>
+</tr>
+<tr>
+    <td>SLALOM,LLC</td>
+    <td>Slalom.com</td>
+	<td>200M-1000M</td>
+	<td>5000-10000</td>
+	<td>United States</td>
+</tr>
+<tr>
+    <td>GenCorp technologies</td>
+    <td>Credera.com</td>
+	<td>10M-50M	</td>
+	<td>200-500</td>
+	<td>United States</td>
+</tr>
+</table>
+<hr/>
+<h3 class="h3">6) What is the difference between CouchDB and MongoDB?</h3>
+<p>These are the following differences:</p>
+<table class="alt">
+<tr>
+	<th>Criteria</th>
+	<th>CouchDB</th>
+	<th>MongoDB</th>
+</tr>
+<tr>
+    <td>Interface</td>
+    <td>REST/HTTP</td>
+	<td>TCP/IP Custom Protocol</td>
+</tr>
+<tr>
+    <td>Object Storage</td>
+    <td>Record is stored in documents in the database.</td>
+	<td>Record is stored in collections in the database.</td>
+</tr>
+<tr>
+    <td>Replication</td>
+    <td>It follows Master-Master replication.</td>
+	<td>It follows Master-Slave replication.</td>
+</tr>
+<tr>
+    <td>Query Method</td>
+    <td>CouchDB follows Map/Reduce query method. (JavaScript+others)</td>
+	<td>MongoDB follows Map/Reduce (JavaScript) creating collection + object-based query language.</td>
+</tr>
+<tr>
+    <td>Data Model</td>
+    <td>It follows the document-oriented model and data is presented in JSON format.</td>
+	<td>Document-Oriented (BSON)</td>
+</tr>
+<tr>
+    <td>Concurrency</td>
+    <td>MVVC (Multi-version concurrency control).</td>
+	<td>Update-in-place</td>
+</tr>
+<tr>
+    <td>Preference</td>
+    <td>CouchDB favors availability</td>
+	<td>MongoDB favors Consistency</td>
+</tr>
+<tr>
+    <td>Performance consistency</td>
+    <td>In CouchDB, data is safer than MongoDB</td>
+	<td>In MongoDB, the database contains collections and collection contains documents.It is faster than CouchDB.</td>
+</tr>
+<tr>
+    <td>Written in</td>
+    <td>It is written in Erlang.</td>
+	<td>It is written in C++.</td>
+</tr>
+</table>
+<p>MongoDB is faster than CouchDB, and scalability is also better of the MongoDB.</p>
+<p>CouchDB runs on different operating system like Android, iOS platform but MongoDB doesn't support mobile OS. Mongo DB is better as compare to CouchDB for rapid growth when the structure is not clearly defined from the beginning.</p>
+<hr/>
+<h3 class="h3">7) What is the similarity between MongoDB and CouchDB?</h3>
+<p>The similarity between MongoDB and CouchDB are:</p>
+<ul class="points">
+<li>MongoDB and CouchDB both are the document-oriented databases.</li>
+<li>MongoDB and CouchDB both are the best examples of an open-source NoSQL database. i.e., both are Schema-free.</i>
+<li>MongoDB and CouchDB both support JavaScript, can be used in queries, support aggregation functions such as MapReduce and sent the database to execute it.</li>
+<li>MongoDB and CouchDB both support common programming languages C, C#, Erlang, Java, JavaScript, Ruby, Python, Haskell, PHP, Perl, Smalltalk, etc.</li>
+</ul>
+<p>These are some common functionality of CouchDB and MongoDB.</p>
+<hr/>
+<h3 class="h3">8) What are the main features of CouchDB?</h3>
+<ul class="points">
+<li><strong>JSON Documents</strong>: CouchDB stores data in JSON document.</li>
+<li><strong>RESTful Interface</strong>: CouchDB does all tasks like replication, data insertion, etc. via HTTP.</li>
+<li><strong>N-Master Replication</strong>: CouchDB facilitates you to make use of an unlimited amount of 'masters,' making for some very interesting replication topologies.</li>
+<li><strong>Built for Offline</strong>: CouchDB can replicate to devices (like Android phones) that can go offline and handle data sync for you when the device is back online.</li>
+<li><strong>Replication Filters</strong>: CouchDB facilitates you to filter precisely the data you wish to replicate to different nodes.</li>
+<li><strong>ACID semantics</strong>: The CouchDB file layout follows all the features of ACID properties. Once the data is entered into the disc, it will not be overwritten. Document updates (add, edit, delete) follow Atomicity, i.e., they will be saved completely or not saved at all. The database will not have any partially saved or edited documents. Almost all of these update are serialized, and any number of clients can read a document without waiting and without being interrupted.</li>
+<li><strong>Document storage</strong>: CouchDB is a NoSQL database which follows document storage. Documents are the primary unit of data where each field is uniquely named and contains values of various data types such as text, number, Boolean, lists, etc. Documents don't have a set limit to text size or element count.</li>
+<li><strong>Eventually consistency</strong>: CouchDB guarantees to provide availability and partition tolerance.</li>
+<li><strong>Authentication and Session Support</strong>: CouchDB facilitates you to keep authentication open via a session cookie like a web application.</li>
+<li><strong>Security</strong>: CouchDB also provides database-level security. The permissions per database are separated into readers and admin. Readers can both read and write to the database.</li>
+<li><strong>Validation</strong>: You can validate the inserted data into the database by combining with authentication to ensure the creator of the document is the one who is logged in.</li>
+<li><strong>Map/Reduce List and Show</strong>: The main reason behind the popularity of MongoDB and CouchDB is map/reduce system.</li>
+</ul>
+<hr/>
+<h3 class="h3">9) Why Does CouchDB not use Mnesia?</h3>
+<p>There are many reasons behind CouchDB not using Mnesia:</p>
+<ul class="points">
+<li>It provides a storage limitation of 2 gigs per file.</li>
+<li>It requires validation and fixup cycle after a crash or power failure, so even if the size limitation is lifted, the fixup time on large files is prohibitive.</li>
+<li>Mnesia has some useful features, but features of Mnesia aren't really useful for CouchDB.</li>
+<li>Mnesia is not a general-purpose, large-scale database. It works best as a configuration type database.</li>
+<li>Mnesia works best as a configuration type database. It is necessary for the normal operations. The type where the data is not central to the function of the application, but necessary for normal operation of it.</li>
+<li>Things that need to update, configure and often reconfigure like a network router, HTTP proxies, etc. whose configuration data is rarely huge.</li>
+</ul>
+<hr/>
+<h3 class="h3">10) How would you use transactions with CouchDB?</h3>
+<p>CouchDB uses an "Optimistic concurrency" model. In this model, if you send a document version along with your update, CouchDB rejects the change if the current document version doesn't match to your sent update.</p>
+<p>So, you have to re-frame many normal transaction based scenarios for CouchDB. It's helpful to approach problems from a higher level, rather than attempting to mold Couch to a SQL based world. </p>
+<p>If you have a document describing the item, and it includes a field for "Quantity available", you can handle concurrency issues:</p>
+<p>First of all recover document, note down property that sent by CouchDB along with database, after that, Decrement the quantity field, if it's greater than zero. After that, send the updated document back using the _rev property. Check, If the _rev matches the currently stored number, be done else if there is a conflict when _rev is not matched then recover the newest document version.</p>
+<p><strong>For example:</strong></p>
+<p>I would like to take a ("master product") document that contains all the data information like name, picture description, price, etc. </p>
+<p>Here we have to create to a field (product-key and, Claimed-by) by adding a new document inventory-ticket, if you are spelling a model of a hammer and have 20 items to sell, you might have documents with keys like hammer-1, hammer-2 to represent each one individually.</p>
+<h4 class="n">Now, I would like to create a view that gives a list of available hammer</h4>
+<div class="codeblock"><textarea name="code" class="sql">
+ Map
+Function (doc)
+{
+If(doc.type== 'inventory-ticket' && doc.claimed_by==null)
+{
+emit(doc.product_key, { 'inventory-ticket' :doc.id, '_rev' : doc._rev});
+}
+}
+</textarea></div>
+<p>This gives me list of available tickets with their product_key, I could grab a group of these when someone wants to buy hammer then iterate through the sending updates until I successfully claim one.</p>
+<p><strong>Reduce</strong></p>
+<div class="codeblock"><textarea name="code" class="sql">
+ Function (keys, values, combine)
+
+{
+Return values.length();
+}
+</textarea></div>
+<p><strong>This gives me a list of total unclaimed inventory_ticket items.</strong></p>
+<p><strong>This example represents that</strong> transaction with CouchDB is possible that it substantially reduces conflicting updates, and cut down on the needs to respond to a conflict with the new updates. In this model, you won't have multiple users attempting to change data in primary product entry. When you have multiple users for a single ticket, then you have to identify those users who want to retake it by your view, ignore those, and you move to the next ticket and try again.</p>
+<hr/>
+<h3 class="h3">11) As CouchDB is written in Erlang and Erlang is known as slow to adopt Unicode. So, if it creates a problem for CouchDB?</h3>
+<p>CouchDB uses Erlang binary internally. So, data come to CouchDB is always UTF-8 encoded. There is no problem occurred.</p>
+<hr/>
+<h3 class="h3">12) What is the usage of CouchDB?</h3>
+<p>CouchDB facilitates developers to write a client-side application which interacts directly to the Couch without the need of server-side middle layer. It reduces the time of development and handling replication. Its database is stored locally so the application can run almost no latency. The main objective of CouchDB is to run on the internet applications and the connected devices through which we access the internet.</p>
+<ul class="points">
+<li>CouchDB has an HTTP-based REST API, which makes communication with the database very easy.</li>
+<li>CouchDB has the simple structure of HTTP resources and methods (GET, PUT, and DELETE) that are easy to understand and use.</li>
+<li>In CouchDB, data is stored in the flexible document-based structure so, there is no need to worry about the structure of the data.</li>
+<li>CouchDB facilitates users with powerful data mapping, which allows querying, combining, and filtering the information.</li> 
+<li>CouchDB provides easy-to-use replication, using which you can copy, share, and synchronize the data between databases and machines.</li>
+</ul>
+<hr/>
+<h3 class="h3">13) What do you know about couchdbKit?</h3>
+<p>The couchdbKit provides a framework for your Python application to access and manage Python applications. It offers features to easily access and manage CouchDB by a client, allow to manage databases, Couch database server, doc management, and view access. </p>
+<p>Objects mostly reflect python object for service. Server and data objects could be used for example.</p>
+<p><strong>Steps to install couchdbkit:</strong></p>
+<ul class="points">
+<li>Couchdbkit requires python 2.x superior to 2.6</li>
+<li>To install Couchdbkit using pip you must make sure that you have a recent version on distribute installed.</p>
+<li>$ curl -0 <a href="http://python-distribute.org/distribute_setup.py" rel="nofollow" target="_blank"> http://python-distribute.org/distribute_setup.py</a></li>
+<li><strong>$</strong> curl sudo python distribute_setup.py</li>
+<li><strong>$</strong> easy_install pip</li>
+</ul>
+<p><strong>To install or upgrade to a latest released version of couchdbkit</strong></p>
+<p>$ pip install couchdbkit</p>
+<hr/>
+<h3 class="h3">14) Can Views update documents or databases?</h3>
+<p>No. Views are always read-only for databases and their documents.</p>
+<p>Views are used for the following purpose:</p>
+<ul class="points">
+<li>It filters the document from the database to find relevant data for a particular process.</li>
+<li>Extracting data from documents and present it in a specific order.</li>
+<li>Building indexes to find the document by any value or structure that resides in them and use these indexes to represent the relationship between documents.</li>
+<li>Finally, with views, you can make all sorts of calculations on the data in your documents</li>
+</ul>
+<p><strong>For example:</strong></p>
+<p>If documents represent your company's financial transactions, a view can answer the question of what the spending was in the last week, month, or year.</p>
+<hr/>
+<h3 class="h3">15) What platforms are supported in CouchDB?</h3>
+<p>Most POSIX systems are supported like GNU/Linux and OS X. Window is not officially supported but it should work.</p>
+<hr/>
+<h3 class="h3">16) What is the use of sequences? How do you do sequences?</h3>
+<p>Sequences are often used to ensure unique identifiers for each row in a database table. Sequences are hard to realize with replication. CouchDB generates unique ids from its own, and you can specify your own as well, so you don't need a sequence here. If you use a sequence for something else, you might find a way to express in CouchDB in another way. </p>
+<hr/>
+<h3 class="h3">17) How can you do replication?</h3>
+<p>Replication: Replication synchronizes two copies of the same database; these databases live on the same server or can be live on two different servers. If you change one copy of the database, replication will send the details to another copy.</p>
+<p>For replication, first you have to send request of HTTP to CouchDB with a source, and a target database and CouchDB will send the changes from source to target.</p>
+<p>Let's see, how replication looks like:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+POST /_replicate with a post body of </li>  
+{"source":"$source_database" 
+, 
+"target":"$target_database"}
+</textarea></div>
+<p>Here $source_database and $target_database can be the names of local database or full URIs of remote databases. Both databases need to be created before they can be replicated from or to.</p>
+<hr/>
+<h3 class="h3">18) Is it possible to communicate to CouchDB without going through HTTP/ API?</h3>
+<p>CouchDB's data model and internal API map the REST/HTTP model in a very simple way that any other API would inherit some features of HTTP. However, there is a plan to refractor CouchDB's internals to provide a documented Erlang API.</p>
+<hr/>
+<div id="interviewcategory">
+<table class="alt">
+<tr><td><a href="https://www.javatpoint.com/interview-tips">Interview Tips</a></td>
+<td><a href="https://www.javatpoint.com/job-interview-questions">Job/HR Interview Questions</a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/javascript-interview-questions">JavaScript Interview Questions</a></td>
+<td><a href="https://www.javatpoint.com/jquery-interview-questions">jQuery Interview Questions</a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/corejava-interview-questions#corebasicsinterview">Java Basics Interview Questions</a></td>
+<td><a href="https://www.javatpoint.com/corejava-interview-questions#oopsinterview">Java OOPs Interview Questions</a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/servletinterview">Servlet Interview Questions</a></td>
+<td><a href="https://www.javatpoint.com/jspinterview">JSP Interview Questions</a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/spring-interview-questions"><span>Spring Interview Questions</span></a></td><td><a href="https://www.javatpoint.com/hibernate-interview-questions"><span>Hibernate Interview Questions</span></a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/pl-sql-interview-questions"><span>PL/SQL Interview Questions</span></a></td><td><a href="https://www.javatpoint.com/sql-interview-questions"><span>SQL Interview Questions</span></a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/oracle-interview-questions"><span>Oracle Interview Questions</span></a></td><td><a href="https://www.javatpoint.com/android-interview-questions"><span>Android Interview Questions</span></a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/sql-server-interview-questions"><span>SQL Server Interview Questions</span></a></td><td><a href="https://www.javatpoint.com/mysql-interview-questions"><span>MySQL Interview Questions</span></a></td></tr>
+
+</table>
+</div>
+
+<br/><br/>
+</td></tr></table>
+</div>
+<div style="margin-left:0%">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- AP_37780_300x250(0) -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4699858549023382"
+     data-ad-slot="5022809933"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</div>
+</div>
+
+<div id="right">
+
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+<br/><br/>
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+<br/><br/>
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:10px;">
+<!-- right1024only -->
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+<br/><br/><br/><br/>
+<!-- right1024only -->
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+
+<div id="footer" style="clear:both;width:100%">
+<!--<div style="width:100%;float:center;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#90715c,#523b1f);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Summer Training</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers <strong>Summer Internship Training</strong> on Java, PHP, .Net, Hadoop, Data Analytics, R Programming, SAP, Android, Python, Oracle, Seleninum, Linux, C++ and many more technologies in Delhi/NCR, India. For more visit <a style="color:white" href="https://training.javatpoint.com"><img src="https://static.javatpoint.com/images/linkglobe12.png" alt="javatpoint training"/>training.javatpoint.com</a> <br>Course Fee: &#8377; 6000 Only<br>Duration: 6 Week </p></div>--><div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com. <br>Duration: 1 week to 2 week<br></p></div><!--<div class="homebox2"><h2>Our Initiatives</h2><marquee behavior="alternate"><a rel="nofollow noopener" href="https://www.hindi100.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/javatpoint.png" alt="javatpoint"/><p>Hindi100</p></div></a><a rel="nofollow noopener" href="https://www.lyricsia.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/lyrics.png" alt="lyrics"/><p>Lyricsia</p></div></a></div></a></marquee></div>--><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed"/></a> <a target="_blank"  rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts"/></a> <a  rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page"/></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page"/></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube"/></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page"/></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="https://www.javatpoint.com/java-tutorial">Learn Java</a><a href="https://www.javatpoint.com/data-structure-tutorial">Learn Data Structures</a><a href="https://www.javatpoint.com/c-programming-language-tutorial">Learn C Programming</a><a href="https://www.javatpoint.com/cpp-tutorial">Learn C++ Tutorial</a><a href="https://www.javatpoint.com/c-sharp-tutorial">Learn C# Tutorial</a><a href="https://www.javatpoint.com/php-tutorial">Learn PHP Tutorial</a><a href="https://www.javatpoint.com/html-tutorial">Learn HTML Tutorial</a><a href="https://www.javatpoint.com/javascript-tutorial">Learn JavaScript Tutorial</a><a href="https://www.javatpoint.com/jquery-tutorial">Learn jQuery Tutorial</a><a href="https://www.javatpoint.com/spring-tutorial">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="https://www.javatpoint.com/">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="https://www.javatpoint.com/contact-us">Contact Us</a> <a href="https://www.javatpoint.com/subscribe.jsp">Subscribe Us</a> <a href="https://www.javatpoint.com/privacy-policy">Privacy Policy</a><a href="https://www.javatpoint.com/sitemap.xml">Sitemap</a><br><a href="https://www.javatpoint.com/sonoo-jaiswal">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+</div>
+
+</div></div>
+ 
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script>
+<script type="text/javascript"> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+
+</body> 
+
+<!-- Mirrored from www.javatpoint.com/couchdb-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:26:47 GMT -->
+</html>
+    

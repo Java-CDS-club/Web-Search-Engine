@@ -1,0 +1,502 @@
+Adobe Interview Questions | Adobe Recruitment Process - javatpoint?HomeInterview QuestionsJavaCSQLAndroidHTMLXMLJavaScriptAjaxCloudPythonWeb ServicesQuizProjectsCommentForumTrainingAll InterviewInterview Tips JOB/HR Interview Competency Interview Business Analyst Behavioral InterviewCompany InterviewCompany Interview IBM Interview Infosys Interview Capgemini Interview Cognizant Interview Wipro Interview Accenture Interview iGate Interview TCS Interview HCL Interview Adobe Interview Microsoft Interview DXC Technology Interview Ericsson Interview EXL Service Interview IndiaMART Interview Intuit Interview SpaceX Interview Sapient InterviewTechnical InterviewC Interview C++ Interview Data Structure Interview Linux Interview Unix Interview Shell Scripting Networking Interview CCNA Interview Android Interview Cloud Computing Hadoop Interview Testing/QTP Interview Selenium Interview Web Services Interview OS Interview Excel Interview SEO Interview Digital Marketing Python Interview Django Interview Pascal Interview Ruby Interview Ruby on Rails Interview Memcached Interview Go Interview OpenStack Interview Scala Interview Control Systems Electrical Machines Power System Digital Electronics Robotics Interview TypeScript Interview Swift Interview Blockchain Interview Bitcoin Interview AWS Interview Informatica Interview QA Interview React Interview GIT Interview J2EE Interview Deep Learning Salesforce Interview TestNG Interview Agile Interview Machine Learning API Testing Algorithm Java Design Pattern Teradata TensorFlow LINQ Mainframe Laravel JIRA JCL Pytorch ETL Testing Linked List DataStage Tableau SAP ABAP DAA Computer Graphics Data Science Software Engineering Power BI Xamarin Ansible Data Warehouse Ionic Devops React Native Python Pandas HTTP Interview Kali Linux Interview PowerShell Interview SharePoint Interview Talend Interview Microsoft Azure Interview R Interview Flutter Interview MATLAB Interview ES6 Interview Questions RPA Interview QuestionsWeb InterviewHTML Interview CSS Interview JavaScript Interview jQuery Interview AngularJS Interview Angular Interview Angular 7 Interview Node.js Interview AJAX Interview XML Interview Dojo Interview Backbone.js Interview Ember.js Interview XHTML Interview XSLT Interview XPath Interview XQuery Interview XForms Interview SASS Interview CoffeeScript Interview LESS Interview Perl Interview Pure.CSS Interview Materialize Interview Framework7 Interview SVG InterviewPHP InterviewPHP Interview Wordpress Interview Joomla Interview Drupal Interview Magento Interview CodeIgniter Interview Phalcon Interview.Net Interview.Net Interview C# Interview ASP.NET Interview ADO.NET Interview WCF Interview WPF Interview Silverlight Interview F# InterviewJava InterviewJava 1 Interview Java 2 Interview Exception & String Multithreading Collections Interview JDBC Interview Servlet Interview JSP Interview EJB Interview Struts Interview Hibernate Interview Spring Interview Spring Boot Interview Spring MVC Interview JPA Interview Maven Interview JUnit Interview JSF Interview PrimeFaces Interview RichFaces Interview GWT Interview JDB Interview JOGL Interview jBPM Interview Jenkins InterviewDatabase InterviewDBMS Interview SQL Interview PL/SQL Interview Oracle Interview MySql Interview SQL Server Interview MongoDB Interview Cassandra Interview DB2 Interview Access Interview SQLite Interview CouchDB Interview Neo4j Interview MariaDB Interview PouchDB Interview Redis InterviewAdobe Interview QuestionsAbout the company: AdobeAdobe Systems Incorporated, also known as Adobe, is an American multinational company of Computer software. Adobe is headquartered in San Jose, California, United State with total 17000 employees across the world (in 2017). Adobe was established by John Warnock and Charles Geschke in December 1982. It was founded primarily to develop and sell the PostScript page description language. The Company provides various creative software products and services which are used by professional, application developers, enterprises and consumers. Adobe is famous for Photoshop, Acrobat Reader, Portable Document Format (PDF), Adobe Creative Suite, and Adobe Creative Cloud. Adobe mainly focused on three Segments, which are Digital media, Digital marketing, and print and publishing. Adobe is one of the best company to work for, and also Ranked as 5th best U.S. Company in 2003. Adobe is given ranked as 51th for Best Global Brands by Interbrand in year 2018.Key people of Adobe:CEO and Chairman: Shantanu NarayenCFO: John F MurphyCTO: Abhay ParasnisAdobe Recruitment process:Adobe recruitment process is one of the difficult recruitment processes. Adobe selects the candidates very carefully, with lots of screening to choose the best talent of all the candidates. The recruitment process of Adobe is also different from other companies as it takes 5- 6 rounds for an Interview. Following are the main rounds of the recruitment process.Online Written RoundGroup discussion RoundMultiple technical Interview RoundsDirector RoundHR RoundAcademic Criteria:65% in X and XII, and 70% in graduation or CGPA 7.No backlogs at the time of applying.First Round: Online Written RoundDescription:This first round will be the Online Test, which consists of two sections mainly. The first section will be based on basic aptitude and reasoning. The second section will contain the MCQ questions based on C/C++/JAVA output based questions, and coding question, which will be subjective. This round is organized on Hackerrank Platform, in which candidate can code in any of preferred language(C, C++ or Java). The first section of this round will be the most comfortable round of complete recruitment process but needs a good speed to clear it.Test Pattern for the first round:SectionsTime durationNumber of questionsTopicsAptitude15 min15 questionsQuantitate AptitudeArithmetic AlgebraTime and workProfit & LossGeometrySpeed & distancePercentageReasoning Section30 min30 questionsLogical ReasoningPuzzlesData interpretationBlood relation, etc.Technical(MCQ) +Coding test(subjective)75-120 min15-20 QuestionsC languageData StructureBit ManipulationA. Quantitative and Reasoning SectionThe quantitate aptitude section of the recruitment process is relatively easy, but candidates need to have basics clear and must have a good speed. There is no negative marking.The analytical section contains the tricky questions which can consume more time so be careful while attempting these section.Sample aptitude questions with the answer to prepare for the first round:Aptitude Interview Questions1) If a bulb in a room flashes on every 9 seconds, how many times will it flash in ¾ of an hour?301300250401Show AnswerAnswer: aExplanation:Bulb flash on every 9 seconds.¾ of an hour= ¾* 60 = 45 min45 min= 45*60 = 2700 secondsSo light will flash in ¾ of an hour= 2700/9= 300 timesBut count starts after the first flash hence the total number of time = 300+1= 3012) The present age of Arjun, Ram, and Vivek is in the proportion of 4:7:9. If 9 years ago, the sum of their age was 53, then what will be their present age?16,28,368,20,2820,35,45None of the aboveShow AnswerAnswer: aExplanation: The present age of Arjun, Ram, and Vivek is in the ratio of 4:7:9Let, the present age of Arjun= 4xPresent age of Ram= 7xPresent age of Vivek= 9xAs per question(4x-9)+ (7x-9) + (9x-9) = 5320x-27=53X=4So the present age of Arjun= 16, Ram= 28, and Vivek = 363) If the average age of employees in an office is 40 years and 120 new employees joined the company whose average age is 32 years. Hence the average age of all employees decreased by 4 years. So what is the total number of employees in the company now?1200120360240Show AnswerAnswer: dExplanation:Let's x be an initial total number of employeesInitial average age of employees = 40 years(Initial total age of employee)/x=40Initial total age of employees= 40xTotal age of 120 employees= 32*120As per question:Average age is decreased by 4, hence(40x+32*120)/(x+120) = (40-4)(40x+3840)=36*(x+120)4x=4320-3840X=120So total number of employees now in the company = 120+120= 2404) Find the largest 4 digit number, which will be exactly divisible by 88?9768998899448888Show AnswerAnswer: cExplanation:The largest 4 digit number= 99999999/88= remainder =55So the new number will be = 9999-55= 9944It will be completely divisible by 88; hence the largest number will be 99445) Compute the sum of the first five prime numbers?11182628Show AnswerAnswer: dExplanation:Required sum of five prime number = (2+ 3+5+7+11) = 286) 'A' alone can complete 1/4th of the work in 2 days. 'B' alone can complete 2/3th of the work in 4 days. If all the three workers work together, they can complete the work in 3 days so what part of the work will be completed by 'C' alone in 2 days?1/121/81/161/20Show AnswerAnswer: aExplanation:Let's one day work by C = x1-day work by A= 1/81-day work by B= 1/6As per question:1/8+1/6+x= 1/3By solving the equation:x=1/24If x's1 day work = 1/24So two day's work by c = 1/127) One day Ravi started moving 30 minutes late from home and reached his office late by 50 minutes while driving 25% slower than his usual speed. How much time does Ravi usually take to reach his office from home?20 min80 min60 min40 minShow AnswerAnswer: cExplanation:Let suppose t is usual time to reach to office from home, Usual time and speed time= t, speed = sLate time and speed 25% slower speed = 3/4s, time= t+20D = s*tD= (3s/4)*(t+20)S*t= (3s/4)*(t+20)4t= 3t+60t= 60 min.8) A shopkeeper sells one table for Rs. 840 at a gain of 20% and another table for Rs. 960 at a loss of 4%. What will be his total gain or loss?100/17% gain100/17% loss20/3% gainNone of them.Show AnswerAnswer: aExplanation:Cost price for 1 table = (100*840) / (100+20) = 700Cost price for 2 table = (100*960) / (100-4) = 1000Total cost price of tables = 1000+700=1700Total selling price = 840+960 = 1800Gain = selling price- cost priceGain = 1800-1700= 100Gain%= (100*100) / 1700Gain% = 100/179) If in a conical tent, there is a space for accommodation of 10 persons. Each person must have 6 sq. Meter space to stand and 30 cubic meters of air to breathe. What will be the height of the cone?15m37.5m75m150mShow AnswerAnswer: 30mExplanation:If, Space occupied by 1 person= 6 sq. mSpace occupied by 10 person = 60sq. mHence base area of conical tent= pi*r*r = 60As each person needs air to breath = 30 cubic meter10 person needs air to breadth= 300 cubic meterSo, the volume of the conical tent, (1/3)*pi*r*r*h= 60020*h= 600h= 30m10) A can do a piece of work in 10 days, B can do the same work in 12 days and Ravi in 15 days. They all start the work together, but A leaves after 2 days and B leaves 3 days before the completion of work. Find the days in which work will be completed.6 days5 days9 days7 daysShow AnswerAnswer: dExplanation:The work completed by,A in 10 days, B in 12 days, C in 15 days,Total work done to be completed= L.C.M of (10, 12, 15) = 60unitSo A can do 6 unit of work in 1 day, B can do 5 unit, C can do 4 unitAs per the question, Let in x days' remaining work will be completed, then(6+5+4)*2+ (5+4)*(x-3) + (4*3) = 60 unitAfter solving,30+ 9(x-3) +12=60X=5 daysSo total required days = 5+2= 7 days.Reasoning Questions:1) If MADRAS can be coded as NBESBT, then how can we code BOMBAY?CQOCBZCPOCBZCPNCBZCPNCPXShow AnswerAnswer: CExplanation:M A D R A S <=========> N B E S B TEvery letter is equivalent to its next letter, so M with N, A with B, D with E, and so on.HenceB O M B A Y can be written as C P N C B Z2) Which will be the next term in the series: 3, 4, 6, 9, 13,_______16151817Show AnswerAnswer: cExplanation:As in the given series, 3, (3+1=4), (4+2=6), (6+3=9), (9+4=13), so__ (13+5=18) Hence next term will be 183) If w, x, y z are integers. There is the condition, that expression x-y-z is even, and the expression y-z-w is odd. If x is even what must be true?w must me oddy-z must be oddz must be evenz must be oddShow AnswerAnswer: aExplanation:As x is an even number, then x-y-z must be even if y and z both be odd, and y-z-w must be odd when w must be odd4) What will be the next term in the series of BXF, DVI, FTL, HRO,_____JPLKPLJOLNone of themShow AnswerAnswer: dExplanation:As in given seriesB X F, D V I, F T L, H R OFor the first letter,B-C-D, D-E-F, F-G-H, H-I-JFor 2 letterX-w-V, V-U-T, T-S-R, R-Q-PFor 3 letterF-G-H-I, I-J-K-l, L-M-N-O, O-P-Q-R So next term should be JPR so answer will be none of them, Hence the next term in series will be- JPR5) If in some code language,i. Guda buka means Clear waterii. Pin gola means Overcast skyiii. Pin saf buka means Clear blue skyThen, which of the following word means BLUE?bUKAsafGudaPinShow AnswerAnswer: bExplanation:By 1 and 2 and 3 statement, it is found that buka means clear, pin means sky, so saf means blue.6) If Win is related to Competition, then Invention is related to.ExperimentDiscoveryLaboratoryTrialShow AnswerAnswer: a7) Rahul said to Akash, "That boy playing with the football is the younger of the two brothers of the daughter of my father's wife." How is the boy playing football related to Rahul?SonBrotherBrother-in-lawCousinShow AnswerAnswer: bExplanation:My father's wife= Rahul's motherDaughter of my father's wife= Rahul's sisterYounger of the two brothers= Rahul's b brother.8) By introducing Riya, Sam says, "She is the wife of the only nephew of only brother of my mother." How is Riya related to Sam?WifeSister-in-lawSisterData is inadequateShow AnswerAnswer: aExplanation:The Only brother of my mother = Sam's uncleWife of the only nephew= Sam's wifeHence Riya is Sams wife.9) Engineer: Map::Bricklayer:? Find the word.TemplateMouldCementDesignShow AnswerAnswer: a10) Find out the odd word form the following options:Steering wheelTyreCarEngineShow AnswerAnswer: cExplanation:In the options Steering wheel, Tyre, and Engine all are the part of the car.B: Sample Technical MCQThe second section of the first round is technical MCQ and coding section. This section is little tough to crack. It requires a thoroughly study of concepts for data structure, C, Bit manipulation, and algorithms. There are some sample questions for Adobe interview with the answers.1) What will be the output for the following:int main(){     int i;     int arr[5] = {5};     for (i = 0; i < 5; i++)     printf("%d ", arr[i]);     return 0;}0 0 0 0 05 0 0 0 05 5 5 5 5ErrorShow AnswerAnswer: b2) In C language, parameters are always_______Passed by referencePassed by value resultPassed by valuePointer variable are passed by reference and non-pointer variable are passed by valueShow AnswerAnswer: c3) Find the output for the following code:#include <stdio.h>int main(){printf("%d", main);return 0;}Compile time errorAddress of the main function0Any random valueShow AnswerAnswer: b4) What is a use of the following statement?scanf ("%3s", str);Reads maximum 3 characterReads 3 character from consoleTake the string str in multiple of 3None of the above.Show AnswerAnswer: a5) Find the output for the following code.char p[10];char *s = "computer";int length = strlen(s);int i;for (i = 0; i < length; i++)p[i] = s[length - i];printf("%s", p)retupmoccomputernull valueNo output will printShow AnswerAnswer: d6) What will be the maximum number of binary trees that can be formed using three unlabelled nodes?1465Show AnswerAnswer: d7) What will be the total number of structurally different possible binary trees with 3 nodes?105168245Show AnswerAnswer: bExplanation:The number of structurally possible trees = !2N/ (! N*(! (N+1))Where n= number of nodes, here N=3 hence,The answer will be 5.8) Which sorting algorithm can be used to sort a random linked list with minimum time complexity?Quick SortMerge SortInsertion SortHeap SortShow AnswerAnswer: b9) Compute the output for the following code:#include<stdio.h>struct st{      int x;      static int y;};int main(){      printf("%d", sizeof(struct st));      return 0;}84Compile time errorRun time errorShow AnswerAnswer: cExplanation:In C language, we cannot have static members inside the struct and unions types, so this program will generate the compile-time error.10) Compute the output for the following code:#include <stdio.h>int main(){   int arr[] = {5, 8, 10, 12,18};   int *p = arr;   ++*p;   p += 3;   printf("%d", *p);   return 0;}101218No output.Show AnswerAnswer: bCoding Questions:This section is a coding round in which a candidate needs to write code for the given questions in any preferred language(C/C++/Java). Some of the coding questions are given below for practice.1) Write code to reverse the linked list?#include<stdio.h> 
+#include<stdlib.h> 
+struct Node 
+{ 
+	int data; 
+	struct Node* next; 
+}; 
+
+/* Function for reversing the linked list */
+static void reverseList(struct Node** head_ref) 
+{ 
+	struct Node* t2 = NULL; 
+	struct Node* start = *head_ref; 
+	struct Node* t1 = NULL; 
+	while (start != NULL) 
+	{ 
+	
+		t1 = start->next; 
+		start->next = t2; 
+		t2 = start; 
+		start = t1; 
+	} 
+	*head_ref = t2; 
+} 
+void newNode(struct Node** head_ref, int new_data) 
+{ 
+	struct Node* new_node = 
+			(struct Node*) malloc(sizeof(struct Node));		 
+	new_node->data = new_data; 
+	new_node->next = (*head_ref);	 
+	(*head_ref) = new_node; 
+} 
+
+/* Function to print linked list */
+void printList(struct Node *head) 
+{ 
+	struct Node *temp = head; 
+	while(temp != NULL) 
+	{ 
+		printf("%d ", temp->data);	 
+		temp = temp->next; 
+	} 
+}	 
+
+
+int main() 
+{ 
+
+	struct Node* head = NULL; 
+	
+	newNode(&head, 20); 
+	newNode(&head, 14); 
+	newNode(&head, 30); 
+	newNode(&head, 68);	 
+	
+	printf("Input linked list\n"); 
+	printList(head);	 
+	reverseList(&head);					 
+	printf("\nReversed Linked list \n"); 
+	printList(head);	 
+
+}Output:Input linked list
+68 30 14 20 
+Reversed Linked list 
+20 14 30 68 2) Write a code which multiplies two numbers using the minimum number of additions.#include<stdio.h>
+ 
+int main()
+{
+      int product=0, x, y, n;
+      x=10;
+      y= 20; 
+     
+      for(n = 0; n < y; n++)
+      {
+            product = product + x;
+      }
+      printf("\n The product of %d and %d: %d\n", x, y, product);
+      return 0;
+}
+} Output:The product of 10 and 20: 2003) Write a program which swaps two integer pointers?	#include<stdio.h>
+               int main()
+                {
+                    int *a, *b, *temp, x=20,y=30; 
+    	     a=&x;
+    	     b=&y;
+    	  printf("Before swap %d %d", *a, *b); 
+    
+      	 *temp= *a;
+      	 *a=*b;
+       	*b= *temp; 
+  printf("\n After swap %d %d", *a, *b); 
+  	  return 0;
+}Output:Before swap 20 30
+ After swap 30 204) Write a program to calculate the nth term of the Fibonacci series?#include<stdio.h> 
+int fun(int n) 
+{ 
+if (n <= 1) 
+return n; 
+else
+return fun(n-1) + fun(n-2); 
+} 
+int main(){
+    int n1=0, n2=1, n3=0, n=7; 
+    printf("The series is %d %d", n1, n2);
+    for(int i=2; i<=n; i++){
+        n3=n1+n2;
+        printf(" %d", n3);
+        n1=n2;
+        n2=n3;
+        
+    }
+    printf("\nThe nth term is %d", fun(n));
+}Output:The series is 0 1 1 2 3 5 8 13
+The nth term is 135) Write a program to count the total Set Bits in a number?#include <stdio.h>
+
+int main() {
+int n=15, count_zerobit= 0, count_onebit=0, total_bits=0; 
+	
+while(n>0){
+
+if(n%2==0)
+
+count_zerobit=count_zerobit+1;
+else
+count_onebit=count_onebit+1;
+n=n>>1; 
+	}	
+total_bits=count_onebit+count_zerobit; 
+printf("Total bits are=%d Total zero bits are=%d Total one's bits are= %d", total_bits, count_zerobit, count_onebit); 
+}Output:Total bits are=4 Total zero bits are=0 Total one's bits are= 46) Write an algorithm to compute the output for X^N, having complexity log n.#include<stdio.h>
+int pow(int x, int n) 
+{ 
+    int y; 
+    if( n == 0) 
+        return 1; 
+    y = pow(x, n/2); 
+    if (n%2 == 0) 
+        return y*y; 
+    else
+        return x*y*y; 
+} 
+int main() 
+{ 
+    int x = 6; 
+    int n = 3; 
+  
+    printf("The output for x^n, where x=%d, n=%d, %d", x, n, pow(x, n)); 
+    return 0; 
+}Output:The output for x^n, where x=6, n=3, 2167) Write code to check a binary tree is BST tree or not?public class CheckBST {
+	public static Node prevNode = null;
+//Method1:
+	public boolean isBST1(Node root) {
+		if (root != null) {
+			if (!isBST1(root.left))
+				return false;
+			if (prevNode != null && prevNode.data >= root.data) {
+				return false;
+			}
+			prevNode = root;
+			return isBST1(root.right);
+		}
+		return true;
+	}
+
+	//method 2
+	
+	public boolean isBST2(Node root, int min, int max) {
+		if (root != null) {
+			if (root.data > max || root.data < min) {
+				return false;
+			}
+			return isBST2(root.left, min, root.data)
+					&& isBST2(root.right, root.data, max);
+		} else {
+			return true;
+		}
+	}
+
+	public void inorder(Node root) {
+		if (root != null) {
+			inorder(root.left);
+			System.out.print("  " + root.data);
+			inorder(root.right);
+		}
+	}
+
+	public static void main(String args[]) {
+		CheckBST cb = new CheckBST();
+		Node root = new Node(7);
+		root.left = new Node(3);
+		root.right = new Node(9);
+		root.left.left = new Node(1);
+		root.left.right = new Node(4);
+		root.right.left = new Node(8);
+		root.right.right = new Node(10);
+		System.out.println("Input Tree is ");
+		cb.inorder(root);
+		System.out.println();
+		System.out.println("Tree is BST or not  : " + cb.isBST1(root));
+		System.out.println("Tree is BST or not : "
+				+ cb.isBST2(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+		root.left.right.right = new Node(20);
+		System.out.println("Input Tree is ");
+		cb.inorder(root);
+		System.out.println();
+		System.out.println("Tree is BST or not: " + cb.isBST1(root));
+		System.out.println("Tree is BST or not : "
+				+ cb.isBST2(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+
+	}
+
+}
+
+class Node {
+	int data;
+	Node left;
+	Node right;
+
+	public Node(int data) {
+		this.data = data;
+		left = null;
+		right = null;
+	}
+}Output:Input Tree is 
+ 1  3  4  7  8  9  10
+Tree is BST or not: true
+Tree is BST or not: true
+Input Tree is 
+ 1  3  4  20  7  8  9  10
+Tree is BST or not: false
+Tree is BST or not: false8) Write a code to find the nth element from the end in a list?public class ListElement{
+ 
+	Node head;
+ 
+	static class Node {
+	int value;
+	Node next;
+ 
+	Node(int value) {
+		this.value = value;
+                      }
+	}
+ 
+	public void addToList(Node node) {
+ 
+		if (head == null) {
+			head = node;
+		} else {
+			Node temp = head;
+			while (temp.next != null)
+				temp = temp.next;
+ 
+			temp.next = node;
+		}
+	}
+ 
+ 
+	public void printList() {
+		Node temp = head;
+		while (temp != null) {
+			System.out.format("%d ", temp.value);
+			temp = temp.next;
+		}
+		System.out.println();
+	}
+ 
+ 
+	public Node nthFromLastNode(Node head,int n)
+	{
+		Node firstPtr=head;
+		Node secondPtr=head;
+ 
+		for (int i = 0; i < n; i++) {
+			firstPtr=firstPtr.next;
+ 
+		}
+ 
+		while(firstPtr!=null)
+		{
+			firstPtr=firstPtr.next;
+			secondPtr=secondPtr.next;
+		}
+ 
+		return secondPtr;
+	}
+ 
+	public static void main(String[] args) {
+		ListElement li = new ListElement();
+		// Creating a linked list
+		Node head=new Node(18);
+		li.addToList(head);
+		li.addToList(new Node(20));
+		li.addToList(new Node(30));
+		li.addToList(new Node(15));
+		li.addToList(new Node(10));
+ 	    li.addToList(new Node(16));
+		li.printList();
+		Node nthNodeFromLast= li.nthFromLastNode(head,4);
+		System.out.println("4th node from end is :"+ nthNodeFromLast.value);
+ 
+	}
+ 
+}Output:18 20 30 15 10 16 
+4th node from end is: 30Technical Round interview questions:This is the third main round of the Adobe interview process. It contains various rounds. In this round, candidates are checked on their technical skills. If candidate clears one round, then he/she can proceed for the next round.Technical First round1) Differentiate between typedef and #define?The primary difference between typedef and #define is given below:typedef is used to define the types or to give a new name to types whereas #define is pre-processor directive, which is used to define the macro.typedef gives the actual definition to the new datatype, whereas #define is used just to copy-paste the value definition where it is used.typedef is known to the compiler, but #define is just known to pre-processor.Example:#include <stdio.h> 
+typedef int CHAR; 
+#define AP "Andhra Pradesh"
+
+int main() 
+{ 
+	CHAR a, b; 
+	a = 10; 
+	printf("%d\n""%s"  , a, AP); 
+	return 0; 
+}Output:10
+Andhra Pradesh2) Why we use sprint() function?sprint() is a C library function which is termed as "string print." sprintf function is used to hold the formatted data output as String.Syntax:int  sprintf (char *string,  const char *form, .... )Example:#include<stdio.h> 
+int main() 
+{ 
+	char string[50]; 
+	int a = 10, b = 5, c; 
+	c = a * b; 
+	sprintf(string, "multiplication of %d and %d is %d", a, b, c); 
+           	printf("%s",  string); 
+return 0; 
+}Output:multiplication of 10 and 5 is 23) How to differentiate between char a[]= ?String and char*a =?String.The statements:Char a[ ]= "computer";char *a= "computer";The difference between the above two statements is that the first statement will create an array of 9 elements will automatically add the null pointer and the size of array 'a' will be 9.But the second statement will create a pointer variable. We cannot perform any array operation on this pointer variable as it will be stored in read-only mode.Example:#include <stdio.h> 
+int main() 
+{ 
+	char a[] = "Computer"; 
+	printf("%lu", sizeof(a)); 
+	a[1] = 'n'; 
+	printf("\n%s", a); 
+	return 0; 
+}    Output:9
+CnmputerExample 2#include <stdio.h> 
+int main() 
+{ 
+	char *a = "Computer"; 
+	printf("%lu", sizeof(a)); 
+
+	return 0; 
+}4) Explain Data breakpoints? Where can we use this?Data Breakpoint is a strong feature available for C++, which allow us to stop the execution when the value stored at a particular memory location changes. Data breakpoints can be used to solve the memory corruption issue.5) Differentiate between new and malloc()?The new and malloc() both are used for dynamic memory allocation. But there are various differences between new and malloc, which are given below,new is an operator in C language, whereas malloc() is a function for memory allocation.new operator calls the constructor, whereas malloc() does not call the constructor.The memory allocated from the "free store" by new operator, whereas memory allocated from the heap by malloc() function.On failure of execution, new operator throws an exception, whereas malloc() returns Null.new operator does not require the sizeof() operator, malloc() function requires the sizeof() operator to know the memory size.6) Differentiate between process and thread?Following are the basic differences between the process and the thread:The Process is an execution of a program, whereas thread is a lightweight process.A Process does not share the resources like memory, whereas thread can share the resources.The Process takes more time for context switching, whereas thread requires less time for context switching.The Process is less efficient as compared to a thread in terms of communication.7) What is C++ Shorthand property? What is its role?C++ provides shorthand property, which enables a programmer to use the assignment operator in a shorter way.Example:x=x+5; can be written as x+=5 using shorthandx=x-10; can be written as x-=10;8) What do you understand by function prototype declaration and definition?Function prototype declaration: function prototype declaration statement gives the following information about the function:It tells the symbolic name of the functions.Information about the return type of function.Information about the argument passed as input with their datatypes.Example:int add(int a, int b, int c)Where add is the name of a function, and a, b and c are the passed arguments.Function definition: The function definition is the actual source code of the function. Function definition gives information that what that function actually does.Example:int add(int a, int b, int c){c= a + b; return c; }9) What do you understand by Conditional Operators?Conditional operators are ternary operators with three operands, which are used as shorthand in place of the if-else statement.Conditional operators return the first expression if the condition is true and return second expression if the condition is false.Syntax:(Check expression)? Expression1: Expression2;Example:var = (x < 10) ? 20 : 40;10) What is volatile Keyword in C?The volatile keyword is a qualifier which is used with the variables at the time of declaration.It gives the information to the compiler that variable's value can be changed at any instance of time even it does not appear to be modified.Volatile keyword is used to declare a variable as a volatile variable. It can be used before the datatype or after the data type.Syntax:volatile int x;   or int volatile x; 11) What do you understand by OS? Explain in Easiest way.An operating system is a program which is an interface between the user and hardwareIt manages all other programs in the computer after loaded, by a boot program.OS works as a backbone for the computer or mobile devices.Examples of an operating system are UNIX, LINUX, MS- Windows, MAC-OS, etc.12) Why we use pointers in C and C++?Pointers are the variables which stores address of another variable in C and C++.Following are the main reasons that why we use pointers in C and C++:Pointers can be used for dynamic memory allocation.Pointers help to perform array arithmetic and accessing an array element.Pointers are helpful in creating API.Pointers are used in the implementation of the data structure.Pointers are beneficial to pass by reference.13) Differentiate between call by pointer and call by reference?In C++ language, we can pass an argument to a function by reference or by pointer, both are the correct approaches and precisely same, but the basic differences between both are:We can assign pointer as a null pointer directly, but it cannot be done with reference.We can reassign a pointer, but reference cannot be reassigned.14) What do you understand by calloc() and malloc()?In C, calloc() and malloc() are the library functions, and both are used for dynamic memory allocation. Which means it allocates the memory at run-time as per requirement from the heap section.malloc(): malloc() function is a library function which allocates a single block of requested memory and return a pointer void to it, which can be cast to any return type. It returns the null value if sufficient memory is not available.Syntax:ptr=(cast-type*)malloc(byte-size)calloc(): calloc() function is also a library function which allocates the multiple blocks of memory of requested size. It initially initializes the memory to zero and returns NULL if memory is not sufficient.Syntax:ptr=(cast-type*)calloc(number, byte-size)15) Explain the term, "virtual machine"?The Virtual machine is a software program which behaves like a separate computer. It works same as the main computer and also capable of running applications and other programs. A virtual machine, called as a guest is created within the main machine called as host. There are two types of virtual machines depending upon their uses.System virtual machineProcess virtual machine16) What do you understand by Synchronization?Synchronization is a process of performing two things simultaneously at the same time.Synchronization is of two types:Process or thread synchronizationData synchronizationProcess synchronization: Process/thread synchronization is a mechanism which controls the access of shared resources between two concurrent threads. It ensures that two concurrent thread do not share the same resource at the same time. Synchronization deals with problems such as deadlock, starvation, busy waiting, etc.Data Synchronization: Data synchronization is a technique which ensure the integrity of data between two devices. With the help of data synchronization, it keeps multiple copies of single data in different location. It includes file synchronization, journaling, Raid, etc.17) Explain the term Mutex? What is Reader-writer problem?Mutex:In multithreading, Mutex(mutual exclusion object) is a program object which provides locking mechanism to the threads.Mutex ensures the proper thread synchronization between two or more threads. Only one thread can execute a program or resources at a time.Reader-writer problem:In OS, a situation is called as Reader-writer problem for a particular shared data area which involves:Any number of reader can read from that shared area, but only one writer can write at one time.No other process can access that area when one writer is writing in that particular area.If in that shared area there are non-zero readers then writer cannot write there.This problem mostly occurs in Concurrency or multithreading.18) Why we use void keyword?We can use void keyword for two purposes:Function parameter: When we use void as function parameter, it means function does not accept any value.Example:int showMessage(void){   
+}Function Return type: When we use void as function return type, it means it will not return anything.Example:void showMessage() {
+} void keyword can also be used with the pointers which makes it more powerful as, when void is used with pointer it termed as generic type, which can hold address of any type.19) Explain the exit controlled loop?An Exit controlled loop is a type of loop which first execute the instruction and then checks the condition. When we use exit controlled loop, then at least one time execution occurs even if the condition is false. The do-while loop is an example of exit controlled loop.#include <stdio.h>
+
+int main() {
+int x = 10; 
+do{
+    printf("\n the value of x is %d", x);
+    x - -;
+}
+while(x>=5);
+   return 0; 
+}
+
+Output: 
+the value of x is 10
+ the value of x is 9
+ the value of x is 8
+ the value of x is 7
+ the value of x is 6
+ the value of x is 520) What is a DNS server?DNS server is a main part of DNS (Domain Name System) infrastructure. It is a computer server which stores and manages the database of IP addresses and their respective Hosts name.DNS server is also called as name server, which is used to map the domain name to the corresponding IP address.A single domain name can have multiple IP's that means IP addresses can vary with time.Technical Second Round1) What are the different layers in TCP/IP models? Explain the protocols at each layer?TCP/IP model is termed as Transmission Control Protocol/Internet Protocol. TCP/IP model is a practical and concise version of the OSI model. Current network architecture depends on the TCP/IP model. It consists of mainly four layers:Application LayerTransport Layer/Host-to-host layerNetwork LayerLink Layer/Network Access Layer1. Link Layer:is responsible for the physical flow of data through the network. It consists of hardware devices such as optical fibre, coaxial cable, or twisted pair, etc. In this layer, data travels in the form of bits and frames.The protocol used at this level is Ethernet, token ring, etc.2. Internet Layer:Internet layer is the Upper layer of the Link layer. This layer converts the data into data-packets, called as IP datagrams and send these datagrams across the host through the network. These datagrams consist of host and destination address, by which they are forwarded through the network.The primary protocols used at this level are:IP (internet protocol): This protocol is responsible for forwarding the packets from source host to destination using an address which is consisted by packet header. IP has two main versions IPv4 and IPv6.ICMP (Internet control message protocol): This protocol is mainly responsible for informing the problem in the network.ARP (Address resolution protocol): ARP protocol is an essential protocol of the TCP/IP model, and it is responsible to resolve an IPv4 address to physical address.3. Transport Layer: This is the third layer of the TCP/IP model, which is responsible for the communication between the source host and destination host and error-free data transmission.This layer consists of mainly two protocols:TCP (Transmission Control Protocol): TCP is a reliable protocol for error-free communication between the source and destination host. It's a connection-oriented protocol.UDP (User Datagram Protocol): This protocol is not reliable as compare to TCP protocol, we can use this protocol which does not require reliable communication. It is a connectionless protocol.4. Application layer: This is the top layer of the TCP/IP model. It describes the application protocol and provides node-to-node communication.This layer contains various higher level protocols which are:HTTP and HTTPs(Hypertext transfer protocol)FTP(File transfer protocol)SSH( Secure Shell)TFTP(Trivial file transfer protocol)SMTP(Simple mail transfer protocol)DHCP(Dynamic host configuration protocol)2) Explain the working of the stack while calling a function? When stack overflow occurred?The Stack is a particular area of RAM, just like as Heap. But stack is used to store local variables, parameters and return values used inside a function and stack stores and deallocates memory automatically.When we call a function, stack performs following steps:Push space for the return variables.Push parameters in the stack.Push the local variable of the function.When we call a function, stack adds a stack frame which consists space for actual parameters, local variables, return address, etc. This stack frame lives in active frame till the time function is being called, and once execution finishes then stack remove that stack frame from the stack.Stack Overflow: As we know that stack deallocated the memory and free up space after execution but still there is a condition when complete stack space used, and there is no more space to save the variables, so this is called stack overflow. It occurs because the space size of the stack is also limited in size, and at the time of execution if we allocate more memory than available memory than overflow occurred and the program got crashed. Some example for stack overflow are:Use of Infinite recursionUse of very large stack variableUse of very deep recursion3) Explain the meaning for the declaration: int*const p & const int* const p?int * const p: By declaring a pointer in such a way that means we are declaring point variable p as constant, which cannot be changed. We cannot change the address its holding, or it cannot point to other variables. If we try to change the address of p, then it will give a compile time error.const int * const p: By declaring a pointer in such a way means, we cannot change the address of the pointer as we as we cannot change the address at that address. If we try to do it, then it will generate a compile time error.4) What are default functions in C++C++ provides the six default member functions which are given below:Default constructorDestructorsCopy constructorsCopy assignment operatorsMove constructorsMove assignment operators5) Which data structure is used for the dictionary?To implement a dictionary, which type of data structure should be used depends on what we required, there are some following data structure which can be used for implementation of the dictionary.Hash-table: If we want a simple dictionary with no option for the prefix, or nearest neighbour search then we can use Hashing or Hashtable for the dictionary.Trie: It can be a good option if we want to add prefix and fast lookup. But, it takes more space than other data structures.Ternary Search Tree: If we want all the qualities like trie but do not want to give the more space then we can use ternary search tree.BK-tree: BK-tree is one of the best data structure if we want specifications like spell checker, find the similar word, etc.6) How can you find a unique word from a String which also has duplicate words?We can find the unique word from a string by using HashMap, Set and Regex.Candidate can also be asked for questions like:Implement Snake and Ladder game and find the minimum number of moves required to reach from 1 to 100 in a given game, using Dynamic Programming.Model a data structure for a DFA that takes an event as parameter and performs a desired action.Solve the three mislabelled jars problem.How to compare two binary trees?How to prove that in a tree the number of internal nodes is one less than leaves?Technical third round or director RoundThis round is a challenging round as in this round the manager ask the questions based on your projects, so candidate must have in-depth knowledge about their project which they have done and some problematic puzzles which candidates needs to solve.1) Write an algorithm for the tower of Hanoi?Tower of Hanoi is a very popular mathematics puzzle. In this puzzle, we are given three disk and three rods. Disks are arranged in the first rod like a stack, in ascending order. We need to transfer the disk from the first rod to third in the same order.There are some rules as well:We can move one disk at one timeWe can only move the uppermost diskDisk always should be in ascending order, i.e., a bigger disk cannot put on a smaller one.Algorithm:Let's suppose there are thee towers Beg, Aux, and Dest, and there are two disks where n disk is larger disk and n-1 is smaller one.StartStep 1: shift n-1 disk from tower Beg to AuxStep 2: shift n disk from Beg to EndStep 3: shift disk n-1 form tower Aux to C.Tower(n, Beg, Aux, Dest)
+Begin
+If n=1 then,
+Print: Beg-> Dest;
+else
+ Call Tower(n-1, Beg, Dest, Aux);
+Call Tower(n, Beg, Aux, End);
+Call Tower(n-1, Aux, Beg, End);
+endif
+End2) Write a code to find the loop in a Linked list? How will you remove this loop?#include<stdio.h> 
+#include<stdlib.h> 
+struct Node 
+{ 
+	int data; 
+	struct Node* next; 
+}; 
+
+/* Function for removing the loop. */
+void remLoop(struct Node *, struct Node *); 
+
+/*Function to remove and detect the loop*/
+int detAndRemLoop(struct Node *list) 
+{ 
+	struct Node *p1 = list, *p2 = list; 
+
+	while (p1 && p2 && p2->next) 
+	{ 
+		p1 = p1->next; 
+		p2 = p2->next->next; 
+
+		/*if p1 and p2 will meet at some point which means there is a loop*/
+		if (p1 == p2) 
+		{ 
+			remLoop(p1, list); 
+	                           printf("Loop is occurred\n"); 
+			/* Return 1 if loop is found */
+			return 1; 
+		
+		} 
+	} 
+
+	/* Return 0 if there is no loop*/
+	return 0; 
+} 
+
+/* Function to remove loop. */
+void remLoop(struct Node *loop_node, struct Node *head) 
+{ 
+	struct Node *ptr1 = loop_node; 
+	struct Node *ptr2 = loop_node; 
+
+	// Count the number of nodes in loop 
+	unsigned int k = 1, i; 
+	while (ptr1->next != ptr2) 
+	{ 
+		ptr1 = ptr1->next; 
+		k++; 
+	} 
+
+	// Fix one pointer to head 
+	ptr1 = head; 
+	ptr2 = head; 
+	for (i = 0; i < k; i++) 
+	ptr2 = ptr2->next; 
+	while (ptr2 != ptr1) 
+	{ 
+		ptr1 = ptr1->next; 
+		ptr2 = ptr2->next; 
+	} 
+	ptr2 = ptr2->next; 
+	while (ptr2->next != ptr1) 
+	ptr2 = ptr2->next; 
+
+	/* Set the next node to Null to fix the loop */
+	ptr2->next = NULL; 
+} 
+
+/* Function to print linked list */
+void printList(struct Node *node) 
+{ 
+	while (node != NULL) 
+	{ 
+		printf("%d ", node->data); 
+		node = node->next; 
+	} 
+} 
+
+struct Node *newNode(int key) 
+{ 
+	struct Node *temp = (struct Node*)malloc(sizeof(struct Node)); 
+	temp->data = key; 
+	temp->next = NULL; 
+	return temp; 
+} 
+
+int main() 
+{ 
+	struct Node *head = newNode(40); 
+	head->next = newNode(15); 
+	head->next->next = newNode(12); 
+	head->next->next->next = newNode(10); 
+	head->next->next->next->next = newNode(4); 
+
+	/* Create a loop*/
+	head->next->next->next->next->next = head->next->next; 
+
+	detAndRemLoop(head); 
+
+	printf("Linked List after removing loop \n"); 
+	printList(head); 
+	return 0; 
+}Output:Loop is occurred
+Linked List after removing loop 
+40 15 12 10 43) How will you design a data structure for excel spreadsheets?We can design an excel spreadsheets by using:Two-dimensional array ( but it will take lots of space)Sparse matrixMap, etc.4) Explain memory protection in OS.Memory protection is a mechanism which controls the unauthorized access of memory in the computer. Memory protection prevents the unallocated memory access by a process. Memory address is first checked before used by a process, to see whether it is allocated address or not.There are two registers LBR and UBR are used to implement memory protection.5) What is Virtual Memory in OS?Virtual Memory is memory management technique of Operating System. Virtual memory is an extra space provided to a program when a main memory does not have the sufficient space to execute a code. It temporarily transfers data from RAM to disk storage, which uses inactive memory of hard disk, which is termed as Virtual Memory.6) Write an algorithm to insert an element into a sorted linked list?Suppose the linked list is sorted in ascending order then following is the algorithm for the same. Let the input node is 13 and let assign as nSuppose Input linked list is:3 8 11 15 20 1) If given linked list is empty then assign the node as head and return it.2) If value of the node n is less than value of head node, then insert the node at start and assign it as head.3) In a loop, search the appropriate node after which the input node is to be inserted. To search the appropriate node start from head, keep moving until you reach a node x(Let?s suppose 15)whose value is greater than the input node. The node before the x will be the appropriate node(11).4) Insert the node(13) after the appropriate node(11) found in step 3.After insertion:3 8 11 13 15 20 7) Find pair of elements whose sum equal to a given number?#include <stdio.h>
+
+void Pair(int arr[], int n, int sum)
+{
+    for (int i = 0; i <=n; i++)
+    {
+        for (int j = i + 1; j <=n; j++)
+        {
+            if (arr[i] + arr[j] == sum){
+            
+                printf("Pair element found at position %d and %d\n ", i, j);}
+            
+        }
+    }
+}
+ 
+
+int main()
+{
+    int arr[] = { 5,8,9,1,6,2,7,3};
+    int sum = 11;
+ 
+    int n = sizeof(arr)/sizeof(arr[0]);
+ 
+    Pair(arr, n, sum);
+ 
+    return 0;
+}Output:Pair element found at position 0 and 4
+ Pair element found at position 1 and 7
+ Pair element found at position 2 and 5Candidates can also be asked for following questions:If there is an array of number which contains numbers from 1 to n. If we replace 1 number with another. Find both number in O (N).If in a marriage function there are n people then arrange those people in two groups, such that each person know each other?Implement Snake and Ladder game and find the minimum number of moves required to reach from 1 to 100 in a given game, using Dynamic Programming.There are n houses in a city. All in a single row. We can colour a house with any one of three colours (R,G,B). Cost of colouring each house is given for each colour. No two neighbour house can have same colour. Print min cost to colour all house.If Given LinkedList and a number k. reverse LinkedList in a group of k.HR RoundHR round will be the last round for the complete recruitment process. This will be an easy round as compare to all above rounds as in this round, interviewer just wants to interact with the candidate. In this round, interviewer will judge the candidate on the basis of communication skills and soft skills.1) Brief about yourself?This question is a very common question and asked mostly in most of the interviews. Answer of this question should be in the following way.Good morning/afternoon/evening, sir/mam, it's my pleasure to have this opportunity for introducing myself. My name is Anamika Singh, and I belong to Udaipur. I have completed my B. Tech in CSE branch from Noida Institute of Engineering & technology, and I did my schooling from Saint John Inter College.If I talk about my family member, so there are 5 members in my family including me. My father is a Government teacher, my mother is a housewife, and I have a younger brother who has completed his higher secondary last month.I am having a good knowledge of programming languages such as C, C++, and Java. I have also created some college-based project on these technologies.I am very Confident, smart and adaptive person. I can adjust myself in any environment and can deal with any type of situation.My hobbies are playing badminton, dancing, painting, and internet surfing.Thank you.2) Why do you want to join Adobe?The interviewer asks this question to check if you are really interested to join or what is your motivation to join this company. You should answer this question in the following way:Sir, Adobe is one of the great companies, which spread over world-wide. Everyone would love to work with Adobe. It's a great place to work. And my technical skills match with the company' requirement. I can show my technical skills to contribute for company's growth as well as my career growth.3) What skills do you have, so that we should hire you?By this question, interviewer wants to check, that how deep you know about your skills and how see yourself differently from others. Answer for this should be given as:I have a good theoretical and practical knowledge of C, C++, Java, and Data structure. I have created various projects on these technologies. I can solve coding puzzles very efficiently in less time than others.4) Which is your dream company?By this question, the interviewer wants to check your passion. Is this company is your dream company, or you want to join this company as you don't have any other options. So candidate should answer this question carefully.To answer this question candidate should never use any other company's name while they can choose the characteristics of the company.Example:My dream job is one, which works on innovation and which provides product to the world which can change the one's lifestyle. And I was excited about this job. As per my knowledge, Adobe is a company which beliefs on the innovation and creativity.5) Tell something about your family background?This is a general and relaxing question as you don't need to think so much to answer this. To answer this question, you need to tell how many members do you have, and what they do.Example:There are five members in my family including me. My father Mr. Jay Prakash is a Businessman, having a business of Electronics equipment. My mother Mrs. Sunita is a great homemaker. I have two Elder brothers, who are working in HCL technologies as software developers.6) Where do you want to see yourself after ten years?Example:After ten years, I want to see myself on a respective position in this company where I can handle big responsibilities of the company. I want to learn on every level which will enhance my skills, and it will be helpful for the company growth.7) What is your unique and different quality, which makes you the most suitable employee for this company?This is the same question as "why should I hire you," Answer should be given as question number 3.8) Do you think that you are a goal oriented person?Yes, I am a goal-oriented person, I have some key goal of life which I want to achieve as early as I can. I regularly update my goal list that till the time what I Have achieved, and what is remaining yet.9) What are your greatest strength and Weakness?My greatest strength is my self-motivated nature. With the help of this, I can face any challenge.My greatest weakness is my emotional nature. I get susceptible when I see someone in any adverse condition.Javatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

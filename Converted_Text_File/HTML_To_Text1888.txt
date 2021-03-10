@@ -1,0 +1,100 @@
+C++ set operator=() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set operator=There are following three uses of operator= in set:Operator= is used to assign new content to the set container by replacing its old content (or copy the content) and modifies size if necessary.Operator= is used to move the content of one set container into another and modifies size if necessary.Operator= is used to copy the elements from initializer list to set container.Syntaxcopy(1)               set& operator= (const set& x);                             //until C++ 11
+copy (1) 	set& operator= (const set& x);		            //since C++ 11
+move (2)	set& operator= (set&& x);                                   //since C++ 11
+initializer list (3)	set& operator= (initializer_list<value_type> il);      //since C++ 11copy (1):- Copies all the elements from x into the set container.move (2):- Moves the content of x into the set container.initializer_list (3):- Copies the elements of il into the set container.Parameterx: A set object with the same type.il: An initializer list object.Return valuethis pointer.ComplexityCopy assignment: Linear in sizes.Move assignment: Linear in current container size.Initializer list assignment: Up to logarithmic in sizes.Iterator validityAll references, iterators and pointers related to this set are invalidated.Data RacesAll copied elements are accessed.The move assignment modifies x.The set container and all its elements are modified.Exception SafetyIf an exception is thrown, the container is in a valid state.Example 1Let's see the simple example to copy the content of one set to another:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+
+   set<int> s1 = {10,20,30};
+
+   cout << "Set s1 contains following elements" << endl;
+    for (auto it = s1.begin(); it != s1.end(); ++it)
+      cout << *it << endl;
+      
+    set<int> s2 = s1;  
+    cout<<"\nAfter Copying the elements from s1 to s2... \n";  
+    
+    cout << "\nSet s2 contains following elements" << endl;
+    for (auto it = s2.begin(); it != s2.end(); ++it)
+      cout << *it<< endl; 
+
+   return 0;
+}Output:Set s1 contains following elements
+10
+20
+30
+
+After copying the elements from s1 to s2... 
+
+Set s2 contains following elements
+10
+20
+30In the above example, operator = is used to copy the content of one set s1 to another set s2.Example 2Let's see a simple example to move the elements of one set to another:#include <iostream> 
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   
+   set<char> s1 = {'a','e','i','o','u'};
+
+      cout << "Set m1 contains following elements" << endl;
+    for (auto it = s1.begin(); it != s1.end(); ++it)
+      cout << *it << ", ";
+      
+    set<char> s2 = move(s1); 
+    cout<<"\n\nAfter moving the elements from s1 to s2... \n";  
+    
+    cout << "\nSet s2 contains following elements" << endl;
+    for (auto it = s2.begin(); it != s2.end(); ++it)
+      cout << *it << ", ";
+
+   return 0;
+}Output:Set m1 contains following elements
+a, e, i, o, u, 
+
+After moving the elements from s1 to s2?
+
+Set s2 contains following elements
+a, e, i, o, u,In the above example, operator = is used to move the content of one set s1 to another set s2.Example 3Let's see a simple example to copy the content from initializer list to set:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   set<int> s;
+
+   s = {100, 200, 300, 400, 500};  //initializer list
+
+   cout << "Set contains the following elements" << endl;
+
+   for (auto it = s.begin(); it != s.end(); ++it)
+      cout << *it << endl;
+
+   return 0;
+}Output:Set contains the following elements
+100
+200
+300
+400
+500In the above example, operator = is used to copy the content from initializer list to set m.Example 4Let's see a simple example:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int  main () 
+{ 
+  int  values []  =  {  5 ,  2 ,  4 ,  1 ,  0 ,  0 ,  9  }; 
+  set < int >  c1 ( values ,  values  +  7 ); 
+  set < int >  c2 ;
+
+  c2  =  c1 ; 
+  c1  =  set < int > ();
+
+  cout<<  "Size Of c1:"  <<  c1 . size ()  << endl ; 
+  cout<< "Size Of c2:"  <<  c2 . size ()  << endl ; 
+}Output:Size Of c1:0
+Size Of c2:6In the above example, there are two sets c1 and c2. c1 has 7 elements and c2 is empty, but after assigning c1 to c2, size of c1 become 0 and size of c2 become 7.Next TopicSet begin() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

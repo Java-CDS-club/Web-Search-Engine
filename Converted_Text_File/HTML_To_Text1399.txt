@@ -1,0 +1,62 @@
+Java Comparable - javatpoint?HomeJavaCC++C#ServletJSPEJBStruts2MailHibernateSpringAndroidDesign PQuizProjectsInterview QCommentForumTrainingBasics of Java OOPs Concepts Java String Java Regex Exception Handling Java Inner classes Java Multithreading Java I/O Java Networking Java AWT Java Swing JavaFX Java Applet Java Reflection Java Date Java ConversionJava CollectionsCollection Framework Java ArrayList Java LinkedList ArrayList vs LinkedList Java List Interface Java HashSet Java LinkedHashSet Java TreeSet Queue & PriorityQueue Deque & ArrayDeque Java Map Interface Java HashMap Working of HashMap Java LinkedHashMap Java TreeMap Java Hashtable HashMap vs Hashtable Java EnumSet Java EnumMap Collections class Sorting Collections Comparable interface Comparator interface Comparable vs Comparator Properties class ArrayList vs Vector Collection Quiz-1Java JDBC Java New Features RMI Internationalization Interview Questionsnext ? ? prevJava Comparable interfaceJava Comparable interface is used to order the objects of the user-defined class. This interface is found in java.lang package and contains only one method named compareTo(Object). It provides a single sorting sequence only, i.e., you can sort the elements on the basis of single data member only. For example, it may be rollno, name, age or anything else.compareTo(Object obj) methodpublic int compareTo(Object obj): It is used to compare the current object with the specified object. It returnspositive integer, if the current object is greater than the specified object.negative integer, if the current object is less than the specified object.zero, if the current object is equal to the specified object.We can sort the elements of:String objectsWrapper class objectsUser-defined class objectsCollections classCollections class provides static methods for sorting the elements of collections. If collection elements are of Set or Map, we can use TreeSet or TreeMap. However, we cannot sort the elements of List. Collections class provides methods for sorting the elements of List type elements.Method of Collections class for sorting List elementspublic void sort(List list): It is used to sort the elements of List. List elements must be of the Comparable type.Note: String class and Wrapper classes implement the Comparable interface by default. So if you store the objects of string or wrapper classes in a list, set or map, it will be Comparable by default.Java Comparable ExampleLet's see the example of the Comparable interface that sorts the list elements on the basis of age.File: Student.javaclass Student implements Comparable{
+int rollno;
+String name;
+int age;
+Student(int rollno,String name,int age){
+this.rollno=rollno;
+this.name=name;
+this.age=age;
+}
+
+public int compareTo(Student st){
+if(age==st.age)
+return 0;
+else if(age>st.age)
+return 1;
+else
+return -1;
+}
+}File: TestSort1.javaimport java.util.*;
+public class TestSort1{
+public static void main(String args[]){
+ArrayList al=new ArrayList();
+al.add(new Student(101,"Vijay",23));
+al.add(new Student(106,"Ajay",27));
+al.add(new Student(105,"Jai",21));
+
+Collections.sort(al);
+for(Student st:al){
+System.out.println(st.rollno+" "+st.name+" "+st.age);
+}
+}
+}105 Jai 21
+101 Vijay 23
+106 Ajay 27Java Comparable Example: reverse orderLet's see the same example of the Comparable interface that sorts the list elements on the basis of age in reverse order.File: Student.java   class Student implements Comparable{  
+    int rollno;  
+    String name;  
+    int age;  
+    Student(int rollno,String name,int age){  
+    this.rollno=rollno;  
+    this.name=name;  
+    this.age=age;  
+    }  
+      
+    public int compareTo(Student st){  
+    if(age==st.age)  
+    return 0;  
+    else if(ageFile: TestSort2.java    import java.util.*;  
+    public class TestSort2{  
+    public static void main(String args[]){  
+    ArrayList al=new ArrayList();  
+    al.add(new Student(101,"Vijay",23));  
+    al.add(new Student(106,"Ajay",27));  
+    al.add(new Student(105,"Jai",21));  
+      
+    Collections.sort(al);  
+    for(Student st:al){  
+    System.out.println(st.rollno+" "+st.name+" "+st.age);  
+    }  
+    }  
+    }  106 Ajay 27
+101 Vijay 23
+105 Jai 21Next TopicComparator Interface In Collection Framework? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

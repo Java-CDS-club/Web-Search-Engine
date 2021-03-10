@@ -1,0 +1,806 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/conversion-of-number-system-in-digital-electronics by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 05:52:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Conversion of Number System in Digital Electronics Tutorial - Javatpoint</title><link rel="SHORTCUT ICON" href="../static.javatpoint.com/images/favicon2.png"/>
+<link rel="stylesheet" type="text/css" href="../static.javatpoint.com/link.css"/><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50"/><meta property="og:title" content="Conversion of Number System in Digital Electronics Tutorial - Javatpoint" /><meta property="og:description" content="Conversion of Number System in Digital Electronics Tutorial with Tutorial, Number System, Gray code, Boolean algebra and logic gates, Canonical and standard form, Simplification of Boolean function etc." />
+<meta name="keywords" content="digital electronics, tutorials, number system, number base conversion, gray code, boolean algebra and logic gates, binary system, canonical and standard form, simplification of boolean function"/><meta name="description" content="Conversion of Number System in Digital Electronics Tutorial with Tutorial, Number System, Gray code, Boolean algebra and logic gates, Canonical and standard form, Simplification of Boolean function etc."/><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="conversion-of-number-system-in-digital-electronics.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Conversion of Number System in Digital Electronics Tutorial - Javatpoint" /><meta name="twitter:description" property="og:description" content="Conversion of Number System in Digital Electronics Tutorial with Tutorial, Number System, Gray code, Boolean algebra and logic gates, Canonical and standard form, Simplification of Boolean function etc." /><meta property="og:url" content="conversion-of-number-system-in-digital-electronics.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@pagejavatpoint"/><meta name="twitter:domain" content="www.javatpoint.com"/><meta name="twitter:creator" content="@pagejavatpoint"/>
+
+
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = '../delivery.adrecover.com/37784/adRecoverb466.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = '../cdn.adpushup.com/37780/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+</head> 
+<body onload="highlightlink()"> 
+ 
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#8679;</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px">
+    <tr>
+        <td>
+            <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px">
+                <a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a>
+            </div>
+            <div style="float:left;width:60%;">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = '../cse.google.com/cse07b6.html?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+                
+            </div>
+            
+        </td>
+    </tr>
+        <!--<tr>
+        <td>
+            <div id="headerlink" style="padding:0px;margin:0px"><span style="margin-right:20px;width:45px"></span><span style="float:right;margin-right:5px;width:45%"> </span>
+                
+            </div>
+        </td>
+    </tr>-->
+
+</table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()"/></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = '../cse.google.com/cse07b6.html?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+<!--<form class="navbar-search-m" method="get" action="https://www.google.com/search" target="_blank"> <input type="text" name="q" class="search-query span2-m" placeholder="Search on javatpoint..." title="Search on Javatpoint"/><input type="hidden" name="sitesearch" value="www.javatpoint.com"/></form>-->
+
+</div>
+</div>
+<div id="link" style="clear:both"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="biometrics-tutorial.html">Biometrics</a></li>
+<li><a href="digital-electronics.html" class="selected">Digital Electronics</a></li>
+<li><a href="computer-fundamentals-tutorial.html">Computer Fundamentals</a></li>
+<li><a href="computer-network-tutorial.html">Computer Network</a></li>
+<li><a href="control-system-tutorial.html">Control System</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+<li><a href="http://training.javatpoint.com/">Training</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both"> 
+<!-- Cm_300x250_Mob_14/9 -->
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Digital Electronics</span></h2>
+</div>
+<div class="leftmenu">
+<a href="digital-electronics.html">Digital Electronics</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Binary System</span></h2>
+</div>
+<div class="leftmenu">
+<a href="number-system-in-digital-electronics.html">Number System</a>
+<a href="conversion-of-number-system-in-digital-electronics.html">Number Base Conversion</a>
+<a href="gray-code-in-digital-electronics.html">Gray Code</a>
+<a href="excess-3-code-in-digital-electronics.html">Excess-3 Code</a>
+<a href="error-detection-and-correction-code-in-digital-electronics.html">Error Detection &amp; Correction Code</a>
+<a href="ascii-code-in-digital-electronics.html">ASCII Code</a>
+<a href="signed-and-unsigned-binary-numbers-in-digital-electronics.html">Signed &amp; Unsigned Binary Numbers</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint"/>
+<br/>
+<div id="leftad" style="margin-left:20px">
+<!-- javatpointleft -->
+<ins class="adPushupAds" data-adpControl="g8drp" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBqYXZhdHBvaW50bGVmdCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lLWJsb2NrO3dpZHRoOjE2MHB4O2hlaWdodDo2MDBweCIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI0NDc2NDAxMjIyIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+</div>
+<div class="onlycontent">
+<div class="onlycontentad">
+<!-- CM_JTP_Leaderbaord -->
+<ins class="adPushupAds" data-adpControl="nuoc1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDTV9KVFBfTGVhZGVyYmFvcmQgLS0+CjxpbnMgY2xhc3M9ImFkc2J5Z29vZ2xlIgogICAgIHN0eWxlPSJkaXNwbGF5OmJsb2NrIgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjkyMDE5MDE5MTUiCiAgICAgZGF0YS1hZC1mb3JtYXQ9ImF1dG8iCiAgICAgZGF0YS1mdWxsLXdpZHRoLXJlc3BvbnNpdmU9InRydWUiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+
+<div id="bottomnextup">
+<a class="next" href="gray-code-in-digital-electronics.html">next &rarr;</a>
+<a class="next" href="number-system-in-digital-electronics.html">&larr; prev</a>
+</div>
+
+<h1 class="h1">Number Base Conversion</h1>
+<p>In our previous section, we learned different types of number systems such as binary, decimal, octal, and hexadecimal. In this part of the tutorial, we will learn how we can change a number from one number system to another number system.</p>
+<p>As, we have four types of number systems so each one can be converted into the remaining three systems. There are the following conversions possible in Number System</p>
+<ol class="points">
+<li>Binary to other Number Systems.</li>
+<li>Decimal to other Number Systems.</li>
+<li>Octal to other Number Systems.</li>
+<li>Hexadecimal to other Number Systems.</li>
+</ol>
+<img src="../static.javatpoint.com/tutorial/digital-electronics/images/number-base-conversion.png" alt="Number Base Conversion"/>
+<h2 class="h2">Binary to other Number Systems</h2>
+<p>There are three conversions possible for binary number, i.e., binary to decimal, binary to octal, and binary to hexadecimal. The conversion process of a binary number to decimal differs from the remaining others. Let's take a detailed discussion on Binary Number System conversion.</p>
+<h3 class="h3">Binary to Decimal Conversion</h3>
+<p>The process of converting binary to decimal is quite simple. The process starts from multiplying the bits of binary number with its corresponding positional weights. And lastly, we add all those products.</p>
+<p>Let's take an example to understand how the conversion is done from binary to decimal.</p>
+<p class="pq"><strong>Example 1: (10110.001)<sub>2</sub></strong></p>
+<p>We multiplied each bit of (10110.001)<sub>2</sub> with its respective positional weight, and last we add the products of all the bits with its weight.</p>
+<p><strong>(10110.001)<sub>2</sub></strong>=(1&times;2<sup>4</sup>)+(0&times;2<sup>3</sup>)+(1&times;2<sup>2</sup>)+(1&times;2<sup>1</sup>)+(0&times;2<sup>0</sup>)+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (0&times;2<sup>-1</sup>)+(0&times;2<sup>-2</sup>)+(1&times;2<sup>-3</sup>)<br>
+<strong>(10110.001)<sub>2</sub></strong>=(1&times;16)+(0&times;8)+(1&times;4)+(1&times;2)+(0&times;1)+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (0&times;1&frasl;2)+(0&times;1&frasl;4)+(1&times;1&frasl;8)<br>
+<strong>(10110.001)<sub>2</sub></strong>=16+0+4+2+0+0+0+0.125<br>
+<strong>(10110.001)<sub>2</sub></strong>=<strong>(22.125 )<sub>10</sub></strong></p>
+<h3 class="h3">Binary to Octal Conversion</h3>
+<p>The base numbers of binary and octal are 2 and 8, respectively. In a binary number, the pair of three bits is equal to one octal digit. There are only two steps to convert a binary number into an octal number which are as follows:</p>
+<ol class="points">
+<li>In the first step, we have to make the pairs of three bits on both sides of the binary point. If there will be one or two bits left in a pair of three bits pair, we add the required number of zeros on extreme sides.</li>
+<li>In the second step, we write the octal digits corresponding to each pair.</li>
+</ol>
+<p class="pq"><strong>Example 1: (111110101011.0011)<sub>2</sub></strong></p>
+<p>1. Firstly, we make pairs of three bits on both sides of the binary point.</p>
+<p>111 &nbsp; &nbsp; &nbsp; 110 &nbsp; &nbsp; &nbsp; 101 &nbsp; &nbsp; &nbsp; 011.001 &nbsp; &nbsp; &nbsp; 1</p>
+<p>On the right side of the binary point, the last pair has only one bit. To make it a complete pair of three bits, we added two zeros on the extreme side.</p>
+<p>111 &nbsp; &nbsp; &nbsp; 110 &nbsp; &nbsp; &nbsp; 101 &nbsp; &nbsp; &nbsp; 011.001 &nbsp; &nbsp; &nbsp; 100</p>
+<p>2. Then, we wrote the octal digits, which correspond to each pair.</p>
+<p><strong>(111110101011.0011)<sub>2</sub>=(7653.14)<sub>8</sub></strong></p>
+<h3 class="h3">Binary to Hexadecimal Conversion</h3>
+<p>The base numbers of binary and hexadecimal are 2 and 16, respectively. In a binary number, the pair of four bits is equal to one hexadecimal digit. There are also only two steps to convert a binary number into a hexadecimal number which are as follows:</p>
+<ol class="points">
+<li>In the first step, we have to make the pairs of four bits on both sides of the binary point. If there will be one, two, or three bits left in a pair of four bits pair, we add the required number of zeros on extreme sides.</li>
+<li>In the second step, we write the hexadecimal digits corresponding to each pair.</li>
+</ol>
+<p class="pq"><strong>Example 1: (10110101011.0011)<sub>2</sub></strong></p>
+<p>1. Firstly, we make pairs of four bits on both sides of the binary point.</p>
+<p>111 1010  1011.0011</p>
+<p>On the left side of the binary point, the first pair has three bits. To make it a complete pair of four bits, add one zero on the extreme side.</p>
+<p>0111  1010 1011.0011</p>
+<p>2. Then, we write the hexadecimal digits, which correspond to each pair.</p>
+<p><strong>(011110101011.0011)<sub>2</sub>=(7AB.3)<sub>16</sub></strong></p>
+<h2 class="h2">Decimal to other Number System</h2>
+<p>The decimal number can be an integer or floating-point integer. When the decimal number is a floating-point integer, then we convert both part (integer and fractional) of the decimal number in the isolated form(individually). There are the following steps that are used to convert the decimal number into a similar number of any base <strong>'r'</strong>.</p>
+<ol class="points">
+<li>In the first step, we perform the division operation on integer and successive part with base <strong>'r'</strong>. We will list down all the remainders till the quotient is zero. Then we find out the remainders in reverse order for getting the integer part of the equivalent number of base <strong>'r'</strong>. In this, the least and most significant digits are denoted by the first and the last remainders.</li>
+<li>In the next step, the multiplication operation is done with base <strong>'r'</strong> of the fractional and successive fraction. The carries are noted until the result is zero or when the required number of the equivalent digit is obtained. For getting the fractional part of the equivalent number of base <strong>'r'</strong>, the normal sequence of carrying is considered.</li>
+</ol>
+<h3 class="h3">Decimal to Binary Conversion</h3>
+<p>For converting decimal to binary, there are two steps required to perform, which are as follows:</p>
+<ol class="points">
+<li>In the first step, we perform the division operation on the integer and the successive quotient with the base of binary(2).</li>
+<li>Next, we perform the multiplication on the integer and the successive quotient with the base of binary(2).</li>
+</ol>
+<p class="pq"><strong>Example 1: (152.25)<sub>10</sub></strong></p>
+<p><strong>Step 1:</strong></p>
+<p>Divide the number 152 and its successive quotients with base 2.</p>
+<table class="alt">
+<tr>
+	<th>Operation</th>
+	<th>Quotient</th>
+	<th>Remainder</th>
+</tr>
+<tr>
+	<td>152/2</td>
+	<td>76</td>
+	<td>0 (LSB)</td>
+</tr>
+<tr>
+	<td>76/2</td>
+	<td>38</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>38/2</td>
+	<td>19</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>19/2</td>
+	<td>9</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>9/2</td>
+	<td>4</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>4/2</td>
+	<td>2</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>2/2</td>
+	<td>1</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>1/2</td>
+	<td>0</td>
+	<td>1(MSB)</td>
+</tr>
+</table>
+<p><strong>(152)<sub>10</sub>=(10011000)<sub>2</sub></strong></p>
+<p><strong>Step 2:</strong></p>
+<p>Now, perform the multiplication of 0.27 and successive fraction with base 2.</p>
+<table class="alt">
+<tr>
+	<th>Operation</th>
+	<th>Result</th>
+	<th>carry</th>
+</tr>
+<tr>
+	<td>0.25&times;2</td>
+	<td>0.50</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>0.50&times;2</td>
+	<td>0</td>
+	<td>1</td>
+</tr>
+</table>
+<p><strong>(0.25)<sub>10</sub>=(.01)<sub>2</sub></strong></p>
+<h3 class="h3">Decimal to Octal Conversion</h3>
+<p>For converting decimal to octal, there are two steps required to perform, which are as follows:</p>
+<ol>
+<li>In the first step, we perform the division operation on the integer and the successive quotient with the base of octal(8).</li>
+<li>Next, we perform the multiplication on the integer and the successive quotient with the base of octal(8).</li>
+</ol>
+<p class="pq"><strong>Example 1: (152.25)<sub>10</sub></strong></p>
+<p><strong>Step 1:</strong></p>
+<p>Divide the number 152 and its successive quotients with base 8.</p>
+<table class="alt">
+<tr>
+	<th>Operation</th>
+	<th>Quotient</th>
+	<th>Remainder</th>
+</tr>
+<tr>
+	<td>152/8</td>
+	<td>19</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>19/8</td>
+	<td>2</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>2/8</td>
+	<td>0</td>
+	<td>2</td>
+</tr>
+</table>
+<p><strong>(152)<sub>10</sub>=(230)<sub>8</sub></strong></p>
+<p><strong>Step 2:</strong></p>
+<p>Now perform the multiplication of 0.25 and successive fraction with base 8.</p>
+<table class="alt">
+<tr>
+	<th>Operation</th>
+	<th>Result</th>
+	<th>carry</th>
+</tr>
+<tr>
+	<td>0.25&times;8</th>
+	<th>0</th>
+	<th>2</td>
+</tr>
+</table>
+<p><strong>(0.25)<sub>10</sub>=(2)<sub>8</sub></strong></p>
+<p>So, the octal number of the decimal number 152.25 is <strong>230.2</strong></p>
+<h3 class="h3">Decimal to hexadecimal conversion</h3>
+<p>For converting decimal to hexadecimal, there are two steps required to perform, which are as follows:</p>
+<ol class="points">
+<li>In the first step, we perform the division operation on the integer and the successive quotient with the base of hexadecimal (16).</li>
+<li>Next, we perform the multiplication on the integer and the successive quotient with the base of hexadecimal (16).</li>
+</ol>
+<p class="pq"><strong>Example 1: (152.25)<sub>10</sub></strong></p>
+<p><strong>Step 1:</strong></p>
+<p>Divide the number 152 and its successive quotients with base 8.</p>
+<table class="alt">
+<tr>
+	<th>Operation</th>
+	<th>Quotient</th>
+	<th>Remainder</th>
+</tr>
+<tr>
+	<td>152/16</td>
+	<td>9</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>9/16</td>
+	<td>0</td>
+	<td>9</td>
+</tr>
+</table>
+<p><strong>(152)<sub>10</sub>=(98)<sub>16</sub></strong></p>
+<p><strong>Step 2:</strong></p>
+<p>Now perform the multiplication of 0.25 and successive fraction with base 16.</p>
+<table class="alt">
+<tr>
+	<th>Operation</th>
+	<th>Result</th>
+	<th>carry</th>
+</tr>
+<tr>
+	<td>0.25&times;16</td>
+	<td>0</td>
+	<td>4</td>
+</tr>
+</table>
+<p><strong>(0.25)<sub>10</sub>=(4)<sub>16</sub></strong></p>
+<p>So, the hexadecimal number of the decimal number 152.25 is <strong>230.4.</strong></p>
+<h2 class="h2">Octal to other Number System</h2>
+<p>Like binary and decimal, the octal number can also be converted into other number systems. The process of converting octal to decimal differs from the remaining one. Let's start understanding how conversion is done.</p>
+<h3 class="h3">Octal to Decimal Conversion</h3>
+<p>The process of converting octal to decimal is the same as binary to decimal. The process starts from multiplying the digits of octal numbers with its corresponding positional weights. And lastly, we add all those products.</p>
+<p>Let's take an example to understand how the conversion is done from octal to decimal.</p>
+<p class="pq"><strong>Example 1: (152.25)<sub>8</sub></strong></p>
+<p><strong>Step 1:</strong></p>
+<p>We multiply each digit of <strong>152.25</strong> with its respective positional weight, and last we add the products of all the bits with its weight.</p>
+<p><strong>(152.25)<sub>8</sub></strong>=(1&times;8<sup>2</sup>)+(5&times;8<sup>1</sup>)+(2&times;8<sup>0</sup>)+(2&times;8<sup>-1</sup>)+(5&times;8<sup>-2</sup>)<br>
+<strong>(152.25)<sub>8</sub></strong>=64+40+2+(2&times;1&frasl;8)+(5&times;1&frasl;64)<br>
+<strong>(152.25)<sub>8</sub></strong>=64+40+2+0.25+0.078125<br>
+<strong>(152.25)<sub>8</sub></strong>=106.328125</p>
+<p>So, the decimal number of the octal number 152.25 is <strong>106.328125</strong></p>
+<h3 class="h3">Octal to Binary Conversion</h3>
+<p>The process of converting octal to binary is the reverse process of binary to octal. We write the three bits binary code of each octal number digit.</p>
+<p class="pq"><strong>Example 1: (152.25)<sub>8</sub></strong></p>
+<p>We write the three-bit binary digit for 1, 5, 2, and 5.</p>
+<p><strong>(152.25)<sub>8</sub></strong>=(001101010.010101)<sub>2</sub></p>
+<p>So, the binary number of the octal number 152.25 is <strong>(001101010.010101)<sub>2</sub></strong></p>
+<h3 class="h3">Octal to hexadecimal conversion</h3>
+<p>For converting octal to hexadecimal, there are two steps required to perform, which are as follows:</p>
+<ol class="points">
+<li>In the first step, we will find the binary equivalent of number <strong>25</strong>.</li>
+<li>Next, we have to make the pairs of four bits on both sides of the binary point. If there will be one, two, or three bits left in a pair of four bits pair, we add the required number of zeros on extreme sides and write the hexadecimal digits corresponding to each pair.</li>
+</ol>
+<p class="pq"><strong>Example 1: (152.25)<sub>8</sub></strong></p>
+<p><strong>Step 1:</strong></p>
+<p>We write the three-bit binary digit for 1, 5, 2, and 5.</p>
+<p><strong>(152.25)<sub>8</sub></strong>=(001101010.010101)<sub>2</sub></p>
+<p>So, the binary number of the octal number 152.25 is <strong>(001101010.010101)<sub>2</sub></strong></p>
+<p><strong>Step 2:</strong></p>
+<p>1. Now, we make pairs of four bits on both sides of the binary point.</p>
+<p>0 &nbsp; &nbsp; &nbsp; 0110 &nbsp; &nbsp; &nbsp; 1010.0101 &nbsp; &nbsp; &nbsp; 01</p>
+<p>On the left side of the binary point, the first pair has only one digit, and on the right side, the last pair has only two-digit. To make them complete pairs of four bits, add zeros on extreme sides.</p>
+<p>0000 &nbsp; &nbsp; &nbsp; 0110 &nbsp; &nbsp; &nbsp; 1010.0101 &nbsp; &nbsp; &nbsp; 0100</p>
+<p>2. Now, we write the hexadecimal digits, which correspond to each pair.</p>
+<p><strong>(0000 &nbsp; &nbsp; &nbsp; 0110 &nbsp; &nbsp; &nbsp; 1010.0101 &nbsp; &nbsp; &nbsp; 0100)<sub>2</sub></strong>=<strong>(6A.54)<sub>16</sub></strong></p>
+<h2 class="h2">Hexa-decimal to other Number System</h2>
+<p>Like binary, decimal, and octal, hexadecimal numbers can also be converted into other number systems. The process of converting hexadecimal to decimal differs from the remaining one. Let's start understanding how conversion is done.</p>
+<h3 class="h3">Hexa-decimal to Decimal Conversion</h3>
+<p>The process of converting hexadecimal to decimal is the same as binary to decimal. The process starts from multiplying the digits of hexadecimal numbers with its corresponding positional weights. And lastly, we add all those products.&nbsp;</p>
+<p>Let's take an example to understand how the conversion is done from hexadecimal to decimal.</p>
+<p class="pq"><strong>Example 1: (152A.25)<sub>16</sub></strong></p>
+<p><strong>Step 1:</strong></p>
+<p>We multiply each digit of <strong>152A.25</strong> with its respective positional weight, and last we add the products of all the bits with its weight.</p>
+<p><strong>(152A.25)<sub>16</sub></strong>=(1&times;16<sup>3</sup>)+(5&times;16<sup>2</sup>)+(2&times;16<sup>1</sup>)+(A&times;16<sup>0</sup>)+(2&times;16<sup>-1</sup>)+(5&times;16<sup>-2</sup>)<br>
+<strong>(152A.25)<sub>16</sub></strong>=(1&times;4096)+(5&times;256)+(2&times;16)+(10&times;1)+(2&times;16<sup>-1</sup>)+(5&times;16<sup>-2</sup>)<br>
+<strong>(152A.25)<sub>16</sub></strong>=4096+1280+32+10+(2&times;1&frasl;16)+(5&times;1&frasl;256)<br>
+<strong>(152A.25)<sub>16</sub></strong>=5418+0.125+0.125 <br>
+<strong>(152A.25)<sub>16</sub></strong>=5418.14453125</p>
+<p>So, the decimal number of the hexadecimal number 152A.25 is <strong>5418.14453125</strong></p>
+<h3 class="h3">Hexadecimal to Binary Conversion</h3>
+<p>The process of converting hexadecimal to binary is the reverse process of binary to hexadecimal. We write the four bits binary code of each hexadecimal number digit.</p>
+<p class="pq"><strong>Example 1: (152A.25)<sub>16</sub></strong></p>
+<p>We write the four-bit binary digit for 1, 5, A, 2, and 5.</p>
+<p><strong>(152A.25)<sub>16</sub>=(0001  0101  0010  1010.0010  0101)<sub>2</sub></strong></p>
+<p>So, the binary number of the hexadecimal number 152.25 is <strong>(1010100101010.00100101)<sub>2</sub></strong></p>
+<h3>Hexadecimal to Octal Conversion</h3>
+<p>For converting hexadecimal to octal, there are two steps required to perform, which are as follows:</p>
+<ol class="points">
+<li>In the first step, we will find the binary equivalent of the hexadecimal number.</li>
+<li>Next, we have to make the pairs of three bits on both sides of the binary point. If there will be one or two bits left in a pair of three bits pair, we add the required number of zeros on extreme sides and write the octal digits corresponding to each pair.</li>
+</ol>
+<p class="pq"><strong>Example 1: (152A.25)<sub>16</sub></strong></p>
+<p><strong>Step 1:</strong></p>
+<p>We write the four-bit binary digit for 1, 5, 2, A, and 5.</p>
+<p><strong>(152A.25)<sub>16</sub>=(0001  0101  0010  1010.0010  0101)<sub>2</sub></strong></p>
+<p>So, the binary number of hexadecimal number 152A.25 is <strong>(0011010101010.010101)<sub>2</sub></strong></p>
+<p><strong>Step 2:</strong></p>
+<p>3. Then, we make pairs of three bits on both sides of the binary point.</p>
+<p>001 &nbsp; &nbsp; 010 &nbsp; &nbsp; 100 &nbsp; &nbsp; 101 &nbsp; &nbsp; 010.001 &nbsp; &nbsp; 001 &nbsp; &nbsp; 010</p>
+<p>4. Then, we write the octal digit, which corresponds to each pair.</p>
+<p><strong>(001010100101010.001001010)<sub>2</sub>=(12452.112)<sub>8</sub></strong></p>
+<p>So, the octal number of the hexadecimal number 152A.25 is <strong>12452.112</strong></p>
+
+<hr/>
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="gray-code-in-digital-electronics.html">Gray Code</a></span>
+</div>
+<!-- link -->
+<br/><br/>
+<div id="bottomnext">
+<a style="float:left" class="next" href="number-system-in-digital-electronics.html">&larr; prev</a>
+<a style="float:right" class="next" href="gray-code-in-digital-electronics.html">next &rarr;</a>
+</div>
+
+<br/><br/>
+</td></tr>
+</table>
+</div>
+
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/conversion-of-number-system-in-digital-electronics"><img src="images/facebook32.png" alt="facebook"/></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/conversion-of-number-system-in-digital-electronics"><img src="images/twitter32.png" alt="twitter"/></a>
+<!--<a rel="nofollow" title="Google+" target="_blank" href="https://plusone.google.com/_/+1/confirm?hl=en&url=https://www.javatpoint.com/conversion-of-number-system-in-digital-electronics"><img src="https://www.javatpoint.com/images/google-plus32.png" alt="google plus"/></a>-->
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/conversion-of-number-system-in-digital-electronics"><img src="images/pinterest32.png" alt="pinterest"/></a>
+<!--<a rel="nofollow" title="Tumblr" target="_blank" href="https://www.tumblr.com/share/link?url=https://www.javatpoint.com/conversion-of-number-system-in-digital-electronics"><img src="https://www.javatpoint.com/images/tumblr32.png" alt="tumbler"/></a>-->
+<!-- contribute start-->
+
+<!-- contribute end-->
+
+<script async src="../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+<!-- AP_37780_300x250(0) -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4699858549023382"
+     data-ad-slot="5022809933"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+<!-- latest tutorials start --> 
+<h2 class="h2">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+
+                          <a href="python-openpyxl.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/openpyxl/images/openpyxl-home.png" alt="Openpyxl Tutorial" />
+                                <p>Openpyxl</p> 
+                            </div>    
+                        </a> 
+                          <a href="tally.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/tally/images/tally-home.png" alt="Tally Tutorial" />
+                                <p>Tally</p> 
+                            </div>    
+                        </a> 
+                          <a href="godot.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/godot/images/godot-home.png" alt="Godot Tutorial" />
+                                <p>Godot</p> 
+                            </div>    
+                        </a> 
+                          <a href="spring-boot-tutorial.html"> 
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/springboot/images/spring-boot-home.jpg" alt="Spring Boot Tutorial" />
+                                <p>Spring Boot</p>  
+                            </div>    
+                        </a> 
+                          <a href="gradle.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/gradle/images/gradle-home.png" alt="Gradle Tutorial" />
+                                <p>Gradle</p> 
+                            </div>    
+                        </a> 
+                           <a href="uml.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/uml/images/uml-home.png" alt="UML Tutorial" />
+                                <p>UML</p> 
+                            </div>    
+                        </a> 
+                          <a href="artificial-neural-network.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/artificial-neural-network/images/ann-home.png" alt="Artificial Neural Network Tutorial" />
+                                <p>ANN</p> 
+                            </div>    
+                        </a> 
+                          <a href="es6.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/es6/images/es6-home.png" alt="ES6 Tutorial" />
+                                <p>ES6</p> 
+                            </div>    
+                        </a> 
+                        <a href="flutter.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/flutter/images/flutter-home.png" alt="Flutter Tutorial" />
+                                <p>Flutter</p>
+                            </div> 
+                        </a> 
+                        <a href="selenium-python.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/selenium-python/images/selenium-python-home.png" alt="Selenium Python" />
+                                <p>Selenium Py</p>
+                            </div> 
+                        </a> 
+                        <a href="firebase.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/firebase/images/firebase-home.png" alt="Firebase Tutorial" />
+                                <p>Firebase</p>
+                            </div> 
+                        </a> 
+                        <a href="cobol.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/cobol/images/cobol-home.png" alt="Cobol Tutorial" />
+                                <p>Cobol</p>
+                            </div> 
+                        </a>  
+</div>
+<hr/>
+<!-- preparation start -->  
+<h2 class="h2">Preparation</h2>
+<div class="firsthomecontent"> 
+
+                        <a href="aptitude/quantitative.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+                                <p>Aptitude</p>
+                            </div>
+                        </a>
+                        <a href="reasoning.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+                                <p>Reasoning</p>
+                            </div>
+                        </a>
+                        <a href="verbal-ability.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+                                <p>Verbal A.</p>
+                            </div>
+                        </a>
+                        <a href="interview-questions-and-answers.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+                                <p>Interview</p>
+                            </div>
+                        </a>
+                        <a href="company-interview-questions-and-recruitment-process.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+                                <p>Company</p>
+                            </div> 
+                        </a> 
+
+</div>
+<hr/>
+<!-- trending start -->  
+<h2 class="h2">Trending Technologies</h2>
+<div class="firsthomecontent">
+
+                        <a href="artificial-intelligence-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/ai/images/ai-home.png" alt="Artificial Intelligence Tutorial" />
+                                <p>AI</p>
+                            </div> 
+                        </a> 
+                        <a href="aws-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/aws/images/aws-home.png" alt="AWS Tutorial" />
+                                <p>AWS</p>
+                            </div>
+                        </a>
+                        <a href="selenium-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/selenium/images/selenium-home.jpg" alt="Selenium tutorial" />
+                                <p>Selenium</p>
+                            </div>
+                        </a>
+                        <a href="cloud-computing-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/cloudhome.png" alt="Cloud tutorial" />
+                                <p>Cloud</p>
+                            </div>
+                        </a>
+                        <a href="hadoop-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/hadoop.jpg" alt="Hadoop tutorial" />
+                                <p>Hadoop</p>
+                            </div>
+                        </a>
+                        <a href="reactjs-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/reactjs/images/reactjs-home.png" alt="ReactJS Tutorial" />
+                                <p>ReactJS</p>
+                            </div> 
+                        </a>  
+                        <a href="data-science.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/data-science/images/data-science-home.png" alt="Data Science Tutorial" />
+                                <p>D. Science</p>
+                            </div> 
+                        </a>  
+                        <a href="angular-7-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/angular7/images/angular-7-home.png" alt="Angular 7 Tutorial" />
+                                <p>Angular 7</p>
+                            </div> 
+                        </a>  
+                        <a href="blockchain-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/blockchain/images/blockchain-home.png" alt="Blockchain Tutorial" />
+                                <p>Blockchain</p>
+                            </div>  
+                        </a> 
+                        <a href="git.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/git/images/git-home.png" alt="Git Tutorial" />
+                                <p>Git</p>
+                            </div> 
+                        </a> 
+                          <a href="machine-learning.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/machine-learning/images/machine-learning-home.png" alt="Machine Learning Tutorial" />
+                                <p>ML</p> 
+                            </div>    
+                        </a> 
+                          <a href="devops.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/devops/images/devops-home.png" alt="DevOps Tutorial" />
+                                <p>DevOps</p> 
+                            </div>    
+                        </a> 
+
+</div>
+ 
+<hr/>
+<!-- B.Tech / MCA -->
+                    <h2 class="h2">B.Tech / MCA</h2>
+                    <div class="firsthomecontent">
+                        <a href="dbms-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/dbms/images/dbms-home.jpg" alt="DBMS tutorial" />
+                                <p>DBMS</p>
+                            </div>
+                        </a>
+                        <a href="data-structure-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/ds/images/ds-home.png" alt="Data Structures tutorial" />
+                                <p>DS</p>
+                            </div>
+                        </a> 
+                        <a href="daa-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/daa/images/daa-home.png" alt="DAA tutorial" />
+                                <p>DAA</p>
+                            </div>
+                        </a>
+                        <a href="os-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/operating-system/images/operating-system-home.png" alt="Operating System tutorial" />
+                                <p>OS</p>
+                            </div>
+                        </a>
+                        <a href="computer-network-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/computer-network/images/computer-network-home.png" alt="Computer Network tutorial" />
+                                <p>C. Network</p>
+                            </div>
+                        </a>
+                        <a href="compiler-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/compiler/images/compiler-design-home.png" alt="Compiler Design tutorial" />
+                                <p>Compiler D.</p>
+                            </div>
+                        </a>
+                        <a href="computer-organization-and-architecture-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/coa/images/coa-home.png" alt="Computer Organization and Architecture" />
+                                <p>COA</p>
+                            </div>
+                        </a>
+                        <a href="discrete-mathematics-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/dms/images/discrete-mathematics-home.png" alt="Discrete Mathematics Tutorial" />
+                                <p>D. Math.</p>
+                            </div>
+                        </a>
+                        <a href="ethical-hacking-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/ethical-hacking/images/ethical-hacking-home.png" alt="Ethical Hacking Tutorial" />
+                                <p>E. Hacking</p>
+                            </div>
+                        </a>
+                        <a href="computer-graphics-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/computer-graphics/images/computer-graphics-home.png" alt="Computer Graphics Tutorial" />
+                                <p>C. Graphics</p>
+                            </div> 
+                        </a>
+                        <a href="software-engineering-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/software-engineering/images/software-engineering-home.png" alt="Software Engineering Tutorial" />
+                                <p>Software E.</p>
+                            </div> 
+                        </a> 
+
+                        <a href="html-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/html-tutorial.png" alt="html tutorial" />
+                                <p>Web Tech.</p>
+                            </div>
+                        </a>
+                        <a href="cyber-security-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/cybersecurity/images/cyber-security-home.png" alt="Cyber Security tutorial" />
+                                <p>Cyber Sec.</p>
+                            </div>
+                        </a>
+                        <a href="automata-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/automata/images/automata-home.jpg" alt="Automata Tutorial" />
+                                <p>Automata</p>
+                            </div> 
+                        </a>
+                        
+                        <a href="c-programming-language-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/clanguagehome.png" alt="C Language tutorial" />
+                                <p>C</p>
+                            </div>
+                        </a>
+                        <a href="cpp-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/cpp/images/cpp-home.png" alt="C++ tutorial" />
+                                <p>C++</p>
+                            </div>
+                        </a>
+                        <a href="java-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/javahome.png" alt="Java tutorial" />
+                                <p>Java</p>
+                            </div>
+                        </a>
+                        <a href="net-framework.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/csharp/net/images/net-home.png" alt=".Net Framework tutorial" />
+                                <p>.Net</p>
+                            </div>
+                        </a>
+                        <a href="python-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/pythonhome.png" alt="Python tutorial" />
+                                <p>Python</p>
+                            </div>
+                        </a>
+
+                        <a href="programs-list.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://www.javatpoint.com/images/programs.jpg" alt="List of Programs" />
+                                <p>Programs</p>
+                            </div>
+                        </a>
+                        <a href="control-system-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/control-system/images/control-system-home.jpg" alt="Control Systems tutorial" />
+                                <p>Control S.</p>
+                            </div>
+                        </a>
+                        <a href="data-mining.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/data-mining/images/data-mining-home.png" alt="Data Mining Tutorial" />
+                                <p>Data Mining</p> 
+                            </div>    
+                        </a> 
+
+</div>
+
+ 
+</div>
+
+
+<br><br/><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+</div></div>
+<div id="right">
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+<br/><br/>
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+<br/><br/>
+
+</div>
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+<!-- right1024only -->
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+<br/><br/>
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+<br/>
+<div id="footer" style="clear:both;width:100%">
+
+<!--<div style="width:100%;float:center;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#90715c,#523b1f);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Summer Training</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers <strong>Summer Internship Training</strong> on Java, PHP, .Net, Hadoop, Data Analytics, R Programming, SAP, Android, Python, Oracle, Seleninum, Linux, C++ and many more technologies in Delhi/NCR, India. For more visit <a style="color:white" href="https://training.javatpoint.com"><img src="https://static.javatpoint.com/images/linkglobe12.png" alt="javatpoint training"/>training.javatpoint.com</a> <br>Course Fee: &#8377; 6000 Only<br>Duration: 6 Week </p></div>--><div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com. <br>Duration: 1 week to 2 week<br></p></div><!--<div class="homebox2"><h2>Our Initiatives</h2><marquee behavior="alternate"><a rel="nofollow noopener" href="https://www.hindi100.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/javatpoint.png" alt="javatpoint"/><p>Hindi100</p></div></a><a rel="nofollow noopener" href="https://www.lyricsia.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/lyrics.png" alt="lyrics"/><p>Lyricsia</p></div></a></div></a></marquee></div>--><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="../static.javatpoint.com/images/social/rss1.png" alt="RSS Feed"/></a> <a target="_blank"  rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="../static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts"/></a> <a  rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="../static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page"/></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="../static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page"/></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="../static.javatpoint.com/images/youtube32.png" alt="YouTube"/></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="../static.javatpoint.com/images/social/blog.png" alt="Blog Page"/></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+</div></div></div> 
+ 
+<script src="../static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="../static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/conversion-of-number-system-in-digital-electronics by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 05:52:44 GMT -->
+</html> 

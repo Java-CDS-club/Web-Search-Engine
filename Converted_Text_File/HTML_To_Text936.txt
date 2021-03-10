@@ -1,0 +1,56 @@
+Bash Case Statement - Javatpoint?HomeJavaCBashJavaScriptXMLAjaxSQLC++C#HTMLAndroidCloudDesign PatternQuizProjectsInterview QCommentForumBash TutorialBash Tutorial What is Bash History of Bash Features of Bash Bash Scripting Filesystem & File Permission Hello World! Bash Script Relative vs Absolute path Bash Comments Bash Quotes Bash Variables Read User Input Bash Date Format Bash SleepBash OperatorsBash Arithmetic OperatorsConditional StatementsBash If Statement Bash If Else Bash Else If Bash CaseBash LoopsBash For Loop Bash While Loop Bash Until LoopBash StringBash String Bash Find String Bash Split String Bash Substring Bash Concatenate StringBash FunctionBash FunctionsBash ArrayBash ArraysMiscellaneousBash Read File Bash Write File Check if file Exists Check if Variable is Set Bash Alias Git Bash Zsh vs Bash Bash Hash Commandnext ? ? prevBash CaseIn this topic, we will discuss the basics of case statements and how to use them in Bash scripts.The Bash case statement is the simplest form of IF-THEN-ELSE with many ELIF elements. Using the case statement makes our bash script more readable and easier to maintain. These are generally applied to simplify the complex conditions having multiple different choices.The Bash case statement follows a similar logic as the Javascript or C switch statement. There is a slight difference, as follows:The Bash case statement takes a value once and tests that value multiple times. It stops searching for a pattern once it has found it and executed the statement linked with it, which is almost opposite in case of the C switch statement.Case Statement SyntaxSyntax of the bash case statement is given below:case expression in
+	pattern_1)
+		statements
+		;;
+	pattern_2)
+		statements
+		;;
+	pattern_3|pattern_4|pattern_5)
+		statements
+		;;
+	pattern-n)
+		statements
+		;;
+	*)
+		statements
+		;;
+esacThere are some key points of bash case statements:Each case statement in bash starts with the 'case' keyword, followed by the case expression and 'in' keyword. The case statement is closed by 'esac' keyword.We can apply multiple patterns separated by | operator. The ) operator indicates the termination of a pattern list.A pattern containing the statements is referred to as a clause, and it must be terminated by double semicolon (;;).An asterisk symbol (*) is used as a final pattern to define the default case. It is used as a default case when used as the last case.How it worksFirst of all, the case statement expands the expression and tries to match with each of the included patterns. When it finds a match, all the linked statements are executed till the double semicolon (;;). After the first match, case terminates with the exit status of the last executed statement.If there is no matched pattern, the exit status of the case is zero. Otherwise, the return status is the exit status of the executed statements.If the default asterisk pattern is used, it will be executed in case of no matched pattern.Let's try to understand this mechanism with the help of a few examples:Example 1In this example, we have defined a simple scenario to demonstrate the use of the case statement.Bash Script#!/bin/bash
+
+echo "Do you know Java Programming?"
+read -p "Yes/No? :" Answer
+case $Answer in
+	Yes|yes|y|Y)
+		echo "That's amazing."
+		echo
+		;;
+	No|no|N|n)
+		echo "It's easy. Let's start learning from javatpoint."
+		;;
+esacOutputExample 2In this example, we have defined a combined scenario where there is also a default case when no previous matched case is found.Bash Script#!/bin/bash
+
+echo "Which Operating System are you using?"
+echo "Windows, Android, Chrome, Linux, Others?"
+read -p "Type your OS Name:" OS
+
+case $OS in
+	Windows|windows)
+		echo "That's common. You should try something new."
+		echo
+		;;
+	Android|android)
+		echo "This is my favorite. It has lots of applications."
+		echo
+		;;
+	Chrome|chrome)
+		echo "Cool!!! It's for pro users. Amazing Choice."
+		echo
+		;;
+	Linux|linux)
+		echo "You might be serious about security!!"
+		echo
+		;;
+	*)
+		echo "Sounds interesting. I will try that."
+		echo
+		;;
+esacOutputWe have run the script with three different inputs, check out the output below:ConclusionIn this topic, we have learned about the syntax and usage of Bash Case statement with the examples.Next TopicBash For Loop? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

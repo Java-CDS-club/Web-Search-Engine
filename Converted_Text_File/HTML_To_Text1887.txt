@@ -1,0 +1,123 @@
+C++ set swap() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ std swap()C++ std swap(set) is a non-member function of set in C++. This is used to swap (or exchange) the contents of two sets (i.e. x and y) but both the sets must be of same type although sizes may differ.Syntaxtemplate <class T, class Compare, class Alloc>
+  void swap (set<T,Compare,Alloc>& x, set<T,Compare,Alloc>& y);Parameterx: First set object.y: Second set object of the same type.Return valueNoneComplexityConstant.Iterator validityAll iterators, references and pointers referring to elements in both containers remain valid.Note that the end iterators do not refer to elements and may be invalidated.Data RacesBoth containers x and y are modified.No contained elements are accessed by the call.Exception SafetyThis function does not throw an exception.Example 1Let's see the simple example to swap the element of one set to another:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   set<char> m1 = {'a','b','c','d'};
+
+   set<char> m2;
+
+   swap(m1, m2);
+
+   cout << "Set contains following elements" << endl;
+
+   for (auto it = m2.begin(); it != m2.end(); ++it)
+      cout << *it<< endl;
+
+   return 0;
+}Output:Set contains following elements
+a
+b
+c
+dIn the above example, set m1 has five elements and m2 is empty. When you swap m1 to m2 then all the elements of m1 is swapped to m2.Example 2Let's see a simple example to exchange the contents of two sets:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<int> set1,set2;
+
+  set1= {100,200};
+
+  set2 = {110, 220, 330};
+
+  swap(set1,set2);
+
+  cout << "set1 contains:\n";
+  for (set<int>::iterator it=set1.begin(); it!=set1.end(); ++it)
+    cout << *it<< '\n';
+
+  cout << "set2 contains:\n";
+  for (set<int>::iterator it=set2.begin(); it!=set2.end(); ++it)
+    cout << *it<< '\n';
+
+  return 0;
+}Output:set1 contains:
+110
+220
+330
+set2 contains:
+100
+200In the above example, contents of two sets i.e. set1 and set2 are exchanged to each other.Example 3Let's see a simple example to swap the contents of two sets:#include <iostream>
+#include <set>
+
+using namespace std;
+
+ int main ()
+{
+  int myints[]={12,75,10,32,20,25};
+  set<int> first (myints,myints+3);     // 10,12,75
+  set<int> second (myints+3,myints+6);  // 20,25,32
+
+  swap(first,second);
+
+  cout << "first contains:";
+  for (set<int>::iterator it=first.begin(); it!=first.end(); ++it)
+    cout << ' ' << *it;
+  cout << '\n';
+
+  cout << "second contains:";
+  for (set<int>::iterator it=second.begin(); it!=second.end(); ++it)
+    cout << ' ' << *it;
+  cout << '\n';
+
+  return 0;
+}Output:first contains: 20 25 32
+second contains: 10 12 75Example 4Let's see a simple example:#include <iostream>
+#include <string>
+#include <set>
+
+using namespace std;
+
+void show(const char *msg, set<int> mp);
+
+int main() {
+  set<int> m1, m2;
+
+  m1.insert(100);
+  m1.insert(300);
+  m1.insert(200);
+
+  // Exchange the contents of m1 and m2.
+  cout << "Exchange m1 and m2.\n";
+  swap(m1,m2);
+  show("Contents of m2: ", m2);
+  show("Contents of m1: ", m1);
+
+ // Clear m1.
+  m1.clear();
+  if(m1.empty()) cout << "m1 is now empty.";
+
+  return 0;
+}
+
+// Display the contents of a set<string, int> by using an iterator.
+void show(const char *msg, set<int> mp) {
+  set<int>::iterator itr;
+
+  cout << msg << endl;
+  for(itr=mp.begin(); itr != mp.end(); ++itr)
+    cout << "  " << *itr<< endl;
+  cout << endl;
+}Output:Exchange m1 and m2.
+Contents of m2: 
+  100
+  200
+  300
+
+Contents of m1: 
+
+m1 is now empty.In the above example, contents of set m1 are swapped to set m2 and after swapping m1 set have been cleared.Next TopicC++ Set? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

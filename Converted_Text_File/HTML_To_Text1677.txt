@@ -1,0 +1,46 @@
+C++ algorithm search_n() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm Functions search_n()C++ Algorithm search_n() function searches the container [first,last) for the occurrence of a sequence of count elements, that is every element is searched to check whether it satisfies a given pred. An iterator to first element satifisying the condition is returned, else an iterator to last is returned.Syntaxtemplate<class ForwardIterator,class Size,class T> ForwardIterator search_n(ForwardIterator first, ForwardIterator last,  Size count, const T&val);
+template<class ForwardIterator, class Size, class T, class BinaryPredicate> ForwardIterator search_n ( ForwardIterator first, ForwardIterator last, Size count, const T& val, BinaryPredicate pred);Parameterfirst: It is a forward iterator to the first element of the range, where the element itself is included in the range.last: It is a forward iterator to the last element of the range, where the element itself is not included in the range.count: It gives the least number of elements that are supposed to be matching a condition.val: The argument specifies the conditional value or the pred condition for which the function search_n is applied on a range.pred: It is a Binary function that accepts two arguments, and gives a boolean result.Return valueThe function returns an iterator to the first element which matches the pred, if no such element is found then an iterator to the last element is returned.Example 1#include<iostream>
+#include<algorithm>
+#include<vector>
+bool newpred(int m, int n)
+{
+	return(m==n);
+}
+int main()
+{
+	int newints[]={40,50,60,60,50,40,40,50};
+	std::vector<int> newvector(newints, newints+8);
+	std::vector<int>::iterator ti;
+	ti=std::search_n (newvector.begin(),newvector.end(),2,60);
+	if(ti!=newvector.end())
+	std::cout<<"Two times 60 has been found at position"<<(ti-     newvector.begin())<<"\n";
+	else
+	std::cout<<"No match of 60 has been found \n";
+	return 0;
+}Output:Two times 60 has been at position 2Example 2#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+bool newpred(int m, int n)
+{
+	return(m==n);
+}
+int main()
+{
+    int m, n;
+    vector<int> u1 = { 11, 22, 33, 44, 55, 33, 33, 66, 77 };
+    int u2 = 33;
+    vector<int>::iterator ti;
+    ti = std::search_n(u1.begin(), u1.end(), 2, u2, newpred);
+    if (ti!= u1.end()) 
+    {
+        cout << "Value u2 has been found at position "
+             << (ti - u1.begin());
+    } 
+    else 
+    {
+        cout << "Value u2 is not present"
+             << "in vector u1";
+    }
+    return 0;
+}Output:Value u2 has been found at position 5ComplexityThe complexity of the function is linear starting from the first element to the last one.Data racesSome or all of the container objects are accesed.ExceptionsThe function throws an exception if any of the container elements throws one.Next TopicC++ Algorithm swap Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,178 @@
+C++ algorithm rotate() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm rotate()C++ Algorithm rotate() function is used to rotate the order of the elements within a range [first, last).The sequence will start at the element in the middle of the source sequence and the last element will be followed by first.middle to the elements between the middle and the last element.Syntaxtemplate <class ForwardIterator>
+void rotate (ForwardIterator first, ForwardIterator middle,
+ForwardIterator last);					 // until C++ 11
+
+template <class ForwardIterator>
+ForwardIterator rotate (ForwardIterator first, ForwardIterator middle,
+ForwardIterator last); 				    //since C++ 11Parameterfirst: A forward iterator pointing the position of the first element in the range to be rotated.middle: A forward iterator addressing to the element within the range [first, last) that is moved to the first position in the range.last: A forward iterator pointing the position one past the final element in the range in which the elements are being reversed.Return valueNoneComplexityComplexity is linear in the range [first, last): swaps or moves elements until all elements have been relocated.Data racesThe object in the range [first, last) are modified.ExceptionsThis function throws an exception if either an element swap or move or an operation on iterator throws an exception.Please note that invalid parameters cause an undefined behavior.Example 1Let's see the simple example to rotate the given string:#include <algorithm>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+  string str = "Hello";
+  cout << "Before Rotate : "<< str << endl;
+  
+  rotate(str.begin(), str.begin() + 2, str.end());
+  cout <<"After Rotate  : " << str << endl;
+  
+  return 0;
+}Output:Before Rotate : Hello
+After Rotate  : lloHeExample 2Let's see another simple example:#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <iomanip>
+using namespace std;
+ 
+void print(char a[], int N)
+{   
+    for(int i = 0; i < N; i++)
+    {
+        cout << (i + 1) << ". " << setw(2)
+             << left << a[i] << "  ";
+    }
+    cout << endl;
+}
+ 
+int main()
+{
+    char s[] = {'A', 'B', 'C', 'D', 'E', 'G', 'H'};
+    int slen = sizeof(s) / sizeof(char);
+ 
+    cout << "Original order : ";
+    print(s, slen);
+    cout << "Rotate with \'C\' as middle element" << endl;
+    rotate(s, s + 2, s + slen);
+    cout << "Rotated order  : ";
+    print(s, slen);
+    cout << "Rotate with \'G\' as middle element" << endl;
+    rotate(s, s + 3, s + slen);
+    cout << "Rotated order  : ";
+    print(s, slen);
+    cout << "Rotate with \'A\' as middle element" << endl;
+    rotate(s, s + 3, s + slen);
+    cout << "Original order : ";
+    print(s, slen);
+    
+    return 0;
+}Output:Original order : 1. A   2. B   3. C   4. D   5. E   6. G   7. H   
+Rotate with 'C' as middle element
+Rotated order  : 1. C   2. D   3. E   4. G   5. H   6. A   7. B   
+Rotate with 'G' as middle element
+Rotated order  : 1. G   2. H   3. A   4. B   5. C   6. D   7. E   
+Rotate with 'A' as middle element
+Original order : 1. B   2. C   3. D   4. E   5. G   6. H   7. A   Example 3Let's see another simple example:#include<iostream> 
+#include<algorithm> 
+#include<vector> 
+using namespace std; 
+
+int main () { 
+    vector<int> vec1{1,2,3,4,5,6,7,8,9}; 
+  
+    // Print old vector 
+    cout << "Old vector:"; 
+    for(int i=0; i < vec1.size(); i++) 
+        cout << " " << vec1[i]; 
+    cout << "\n"; 
+    // Rotate vector left 3 times. 
+    int rotL=3; 
+  
+    // rotate function 
+    rotate(vec1.begin(), vec1.begin()+rotL, vec1.end()); 
+  
+    // Print new vector 
+    cout << "New vector after left rotation :"; 
+    for (int i=0; i < vec1.size(); i++) 
+        cout<<" "<<vec1[i]; 
+    cout << "\n\n"; 
+  
+    vector <int> vec2{1,2,3,4,5,6,7,8,9}; 
+  
+    // Print old vector 
+    cout << "Old vector:"; 
+    for (int i=0; i < vec2.size(); i++) 
+        cout << " " << vec2[i]; 
+    cout << "\n"; 
+  
+    // Rotate vector right 4 times. 
+    int rotR = 4; 
+  
+    // std::rotate function 
+    rotate(vec2.begin(), vec2.begin()+vec2.size()-rotR, vec2.end()); 
+  
+    // Print new vector 
+    cout << "New vector after right rotation :"; 
+    for (int i=0; i < vec2.size(); i++) 
+        cout << " " << vec2[i]; 
+    cout << "\n"; 
+  
+return 0; 
+} Output:Old vector : 1 2 3 4 5 6 7 8 9
+New vector after left rotation : 4 5 6 7 8 9 1 2 3
+
+Old vector : 1 2 3 4 5 6 7 8 9
+New vector after right rotation : 6 7 8 9 1 2 3 4 5Example 4Let's see another simple example:#include <vector>  
+#include <deque>  
+#include <algorithm>  
+#include <iostream>  
+  
+int main( ) {  
+   using namespace std;  
+   vector <int> v1;  
+   deque <int> d1;  
+   vector <int>::iterator v1Iter1;  
+   deque<int>::iterator d1Iter1;  
+  
+   int i;  
+   for ( i = -3 ; i <= 5 ; i++ )  
+   {  
+      v1.push_back( i );  
+   }  
+  
+   int ii;  
+   for ( ii =0 ; ii <= 5 ; ii++ )  
+   {  
+      d1.push_back( ii );  
+   }  
+  
+   cout << "Vector v1 is ( " ;  
+   for ( v1Iter1 = v1.begin( ) ; v1Iter1 != v1.end( ) ;v1Iter1 ++ )  
+      cout << *v1Iter1  << " ";  
+   cout << ")." << endl;  
+  
+   rotate ( v1.begin ( ) , v1.begin ( ) + 3 , v1.end ( ) );  
+   cout << "After rotating, vector v1 is ( " ;  
+   for ( v1Iter1 = v1.begin( ) ; v1Iter1 != v1.end( ) ;v1Iter1 ++ )  
+      cout << *v1Iter1  << " ";  
+   cout << ")." << endl;  
+  
+   cout << "The original deque d1 is ( " ;  
+   for ( d1Iter1 = d1.begin( ) ; d1Iter1 != d1.end( ) ;d1Iter1 ++ )  
+      cout << *d1Iter1  << " ";  
+   cout << ")." << endl;  
+  
+   int iii = 1;  
+   while ( iii <= d1.end ( ) - d1.begin ( ) ) {  
+      rotate ( d1.begin ( ) , d1.begin ( ) + 1 , d1.end ( ) );  
+      cout << "After the rotation of a single deque element to the back,\n d1 is   ( " ;  
+      for ( d1Iter1 = d1.begin( ) ; d1Iter1 != d1.end( ) ;d1Iter1 ++ )  
+         cout << *d1Iter1  << " ";  
+      cout << ")." << endl;  
+      iii++;  
+   }  
+}Output:Vector v1 is ( -3 -2 -1 0 1 2 3 4 5 ).
+After rotating, vector v1 is ( 0 1 2 3 4 5 -3 -2 -1 ).
+The original deque d1 is ( 0 1 2 3 4 5 ).
+After the rotation of a single deque element to the back,
+ d1 is   ( 1 2 3 4 5 0 ).
+After the rotation of a single deque element to the back,
+ d1 is   ( 2 3 4 5 0 1 ).
+After the rotation of a single deque element to the back,
+ d1 is   ( 3 4 5 0 1 2 ).
+After the rotation of a single deque element to the back,
+ d1 is   ( 4 5 0 1 2 3 ).
+After the rotation of a single deque element to the back,
+ d1 is   ( 5 0 1 2 3 4 ).
+After the rotation of a single deque element to the back,
+ d1 is   ( 0 1 2 3 4 5 ).Next TopicC++ Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,47 @@
+Angular 7 Directives - Javatpoint?HomeAngularJSAngular 7JavaAWSIoTComputer FundamentalsControl SystemHTMLCSSAptitudeSeleniumKotlinJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingAngular 7 TutorialAngular 7 Tutorial Angular 7 Introduction Angular 7 Features Angular 7 Installation History & Versions Angular 7 First App Angular 7 Files Explanation Angular 7 with Bootstrap All CLI commands Angular 7 Libraries Angular 7 Architecture Angular 7 ComponentsAngular 7 DirectivesAngular 7 Directives Angular 7 ngIf Directive Angular 7 ngStyle DirectiveAngular 7 DatabindingAngular 7 Databinding Angular 7 String Interpolation Angular 7 Event Binding Angular 7 Property BindingAngular 7 PipesAngular 7 PipesError FixingAngular 7 Error FixingAngular 7 FormsAngular 7 Forms Data Flow in Angular Forms Angular Reactive Forms Template-driven FormsAngular MiscAngular vs ReactAngular + SpringCRUD Example File Upload Example Login & Logout Example Search Field Examplenext ? ? prevAngular 7 DirectivesDirectives are instructions in the DOM. They specify how to place your components and business logic in the Angular.Directives are js class and declared as @directive. There are 3 directives in Angular.Component DirectivesStructural DirectivesAttribute DirectivesComponent Directives: Component directives are used in main class. They contain the detail of how the component should be processed, instantiated and used at runtime.Structural Directives: Structural directives start with a * sign. These directives are used to manipulate and change the structure of the DOM elements. For example, *ngIf and *ngFor.Attribute Directives: Attribute directives are used to change the look and behavior of the DOM elements. For example: ngClass, ngStyle etc.Difference between Attribute Directive and Structural DirectiveAttribute DirectivesStructural DirectivesAttribute directives look like a normal HTML Attribute and mainly used in databinding and event binding.Structural Directives start with a * symbol and look different.Attribute Directives affect only the element they are added to.Structural Directives affect the whole area in the DOM.How to create custom Directives?You can create your own custom directives to use in Angular components.Create a basic attribute directiveYou have seen the attribute directive like ngClass and ngStyle. Now, it's time to create our own attribute directives.First, create a folder. Let's name it "simple-style". Then, create a file within that folder named as "simple-style.directive.ts"import {Directive, ElementRef, OnInit} from '@angular/core';
+
+ @Directive( {
+  selector: '[appSimpleStyle]'
+})
+export class SimpleStyleDirective implements OnInit {
+  constructor(private elementRef: ElementRef) {
+  }
+  ngOnInit() {
+  this.elementRef.nativeElement.style.backgroundColor = 'green';
+  }Now, you have to inform Angular that you have a new directive. So, you have to add SimpleStyleDirective to app.module.ts and also import it.import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import {SimpleStyleDirective} from './simple-style/simple-style.directive';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    SimpleStyleDirective
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }Now, your directive is created. Let's check it. Open app.component.html and use your created SimpleStyleDirective<p appSimpleStyle>Style me with your created SimpleStyleDirective</p><div class="container">
+  <div class="row">
+ <div class="col-xs-12">
+   <h2>My Servers</h2>
+   <button class="btn btn-primary" (click)="OnAddServer()">Add Server</button>
+ <br><br>
+
+ <ul class="list-group">
+   <li
+   class="list-group-item "
+   *ngFor="let server of servers; let i = index"
+   (click)="onRemoveServer(i)">{{ server }}
+   </li>
+ </ul>
+ <p appSimpleStyle>Style me with your created SimpleStyleDirective</p>
+ </div>
+ </div>
+</div>
+</textarea></div>
+Output:You can see that your created attribute directive is working. Here, you have learnt how to create selector, how to create attribute directory, and also learnt how to use and also how to useNext TopicAngular 7 ngIf Directive? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

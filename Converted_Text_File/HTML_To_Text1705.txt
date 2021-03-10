@@ -1,0 +1,65 @@
+C++ File and Stream - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ Files and StreamsIn C++ programming we are using the iostream standard library, it provides cin and cout methods for reading from input and writing to output respectively.To read and write from a file we are using the standard C++ library called fstream. Let us see the data types define in fstream library is:Data TypeDescriptionfstreamIt is used to create files, write information to files, and read information from files.ifstreamIt is used to read information from files.ofstreamIt is used to create files and write information to the files.C++ FileStream example: writing to a fileLet's see the simple example of writing to a text file testout.txt using C++ FileStream programming.#include <iostream>
+#include <fstream>
+using namespace std;
+int main () {
+  ofstream filestream("testout.txt");
+  if (filestream.is_open())
+  {
+    filestream << "Welcome to javaTpoint.\n";
+    filestream << "C++ Tutorial.\n";
+    filestream.close();
+  }
+  else cout <<"File opening is fail.";
+  return 0;
+}Output:The content of a text file testout.txt is set with the data:
+Welcome to javaTpoint.
+C++ Tutorial.C++ FileStream example: reading from a fileLet's see the simple example of reading from a text file testout.txt using C++ FileStream programming.#include <iostream>
+#include <fstream>
+using namespace std;
+int main () {
+  string srg;
+  ifstream filestream("testout.txt");
+  if (filestream.is_open())
+  {
+    while ( getline (filestream,srg) )
+    {
+      cout << srg <<endl;
+    }
+    filestream.close();
+  }
+  else {
+      cout << "File opening is fail."<<endl; 
+    }
+  return 0;
+}Note: Before running the code a text file named as "testout.txt" is need to be created and the content of a text file is given below:Welcome to javaTpoint.C++ Tutorial.Output:Welcome to javaTpoint.
+C++ Tutorial.C++ Read and Write ExampleLet's see the simple example of writing the data to a text file testout.txt and then reading the data from the file using C++ FileStream programming.#include <fstream>
+#include <iostream>
+using namespace std;
+int main () {
+   char input[75];
+   ofstream os;
+   os.open("testout.txt");
+   cout <<"Writing to a text file:"  endl;
+   cout << "Please Enter your name: "; 
+   cin.getline(input, 100);
+   os << input << endl;
+   cout << "Please Enter your age: "; 
+   cin >> input;
+   cin.ignore();
+   os << input << endl;
+   os.close();
+   ifstream is; 
+   string line;
+   is.open("testout.txt"); 
+   cout << "Reading from a text file:" << endl; 
+   while (getline (is,line))
+   {
+   cout << line << endl;
+   }	
+   is.close();
+   return 0;
+}Output:Writing to a text file:  
+ Please Enter your name: Nakul Jain    
+Please Enter your age: 22  
+ Reading from a text file:   Nakul Jain  
+ 22Next TopicC++ getline()? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

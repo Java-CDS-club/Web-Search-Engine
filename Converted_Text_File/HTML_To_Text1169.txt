@@ -1,0 +1,25 @@
+C Program to swap two numbers without using third variable - javatpoint?HomeCC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumC Tutorial C Control Statements C Functions C Array C Pointers Dynamic Memory Allocation C Strings C Structure Union C File Handling C Preprocessor Command Line ArgumentsC ProgramsTop 10+ C Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Print "Hello" without ; Assembly code in C C program without main Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleC InterviewC Interview Questionsnext ? ? prevC Program to swap two numbers without third variableWe can swap two numbers without using third variable. There are two common ways to swap two numbers without using third variable:By + and -By * and /Program 1: Using + and -Let's see a simple c example to swap two numbers without using third variable.#include
+ int main()  
+{  
+int a=10, b=20;    
+printf("Before swap a=%d b=%d",a,b);    
+a=a+b;//a=30 (10+20)  
+b=a-b;//b=10 (30-20)  
+a=a-b;//a=20 (30-10)  
+printf("\nAfter swap a=%d b=%d",a,b);  
+return 0;
+} Output:Before swap a=10 b=20
+After swap a=20 b=10Program 2: Using * and /Let's see another example to swap two numbers using * and /.#include
+#include
+ int main()  
+{  
+int a=10, b=20;    
+printf("Before swap a=%d b=%d",a,b);     
+a=a*b;//a=200 (10*20)  
+b=a/b;//b=10 (200/20)  
+a=a/b;//a=20 (200/10)  
+ system("cls");
+printf("\nAfter swap a=%d b=%d",a,b);     
+return 0;
+} Output:Before swap a=10 b=20
+After swap a=20 b=10Next TopicC Program to print "hello" without semicolon? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

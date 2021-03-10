@@ -1,0 +1,189 @@
+ASP.Net MVC Scaffolding - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevASP.NET MVC ScaffoldingIt is a feature of ASP.NET that allows us to generate functional code rapidly. It is also known as code generator framework. It is pre-installed in Visual Studio 2013 and higher version.To create basic CRUD application, scaffolding is best choice. It reduces time amount and generate clean code. Here, we are using scaffolding to develop CRUD application.ASP.NET CRUD ExampleThis example consist couple of steps that are given below.Create New ProjectSelect File menu from menu bar and select New->Project. We can also use shortcut Ctrl+Shift+N to create a new project.This will pop up a window of that contains projects. We are selecting ASP.NET Web Application.After clicking ok, it pops up a new window of templates. Here, we are selecting MVC template which is used to create MVC web application.Hit ok then it will create a project and shows a progress bar as shown below.CRUD Project StructureWe can run this application by pressing Ctrl+F5. It will produce a default index page to the browser that looks like the below.To create complete crud, we need to add Models, Views and Controller in our project. Here, we are creating a Model that deals with data.Create a New ModelWe are creating a Student Model inside Models folder of our project. Right click on the Models folder and select add->class that will pop up a dialog box. Create class by providing name.This model class has some source code, modify its code as we did below.// Student.csusing System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+namespace CrudExample.Models
+{
+public class Student
+    {
+public int ID { get; set; }
+        [Required]
+public string Name { get; set; }
+        [Required]
+        [EmailAddress]
+public string Email { get; set; }
+        [Required]
+public string Contact { get; set; }
+    }
+}Create a Context ClassWe are creating another class inside the Models folder, it is used to communicate with Entity Framework and perform database operations. This class inherits DbContext class.// StudentRecord.csusing System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Data.Entity;
+namespace CrudExample.Models
+{
+public class StudentRecord : DbContext
+    {
+public DbSet Students { get; set; }
+protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove();
+        }
+    }
+}Add Scaffold to the ProjectRight click on the Controllers folder and add scaffold as we did in the screen shoot.It will pop up the following dialog box. Select controller with Entity Framework.And click Add button. It asks for Model and context name. Fill the entries and click ok.After clicking add button, it creates a StudentsController controller and a Students folder. The Students folder contains web pages for the each CRUD operation.// StudentsController.csusing System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using CrudExample.Models;
+namespace CrudExample.Controllers
+{
+public class StudentsController : Controller
+    {
+private StudentRecord db = newStudentRecord();
+// GET: Students
+public ActionResult Index()
+        {
+return View(db.Students.ToList());
+        }
+// GET: Students/Details/5
+public ActionResult Details(int? id)
+        {
+if (id == null)
+            {
+return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+Student student = db.Students.Find(id);
+if (student == null)
+            {
+return HttpNotFound();
+            }
+return View(student);
+        }
+// GET: Students/Create
+public ActionResult Create()
+        {
+return View();
+        }
+// POST: Students/Create
+// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+public ActionResult Create([Bind(Include = "ID,Name,Email,Contact")] Student student)
+        {
+if (ModelState.IsValid)
+            {
+                db.Students.Add(student);
+                db.SaveChanges();
+return RedirectToAction("Index");
+            }
+return View(student);
+        }
+// GET: Students/Edit/5
+public ActionResult Edit(int? id)
+        {
+if (id == null)
+            {
+return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+Student student = db.Students.Find(id);
+if (student == null)
+            {
+return HttpNotFound();
+            }
+return View(student);
+        }
+// POST: Students/Edit/5
+// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+public ActionResult Edit([Bind(Include = "ID,Name,Email,Contact")] Student student)
+        {
+if (ModelState.IsValid)
+            {
+                db.Entry(student).State = EntityState.Modified;
+                db.SaveChanges();
+return RedirectToAction("Index");
+            }
+return View(student);
+        }
+// GET: Students/Delete/5
+public ActionResult Delete(int? id)
+        {
+if (id == null)
+            {
+return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+Student student = db.Students.Find(id);
+if (student == null)
+            {
+return HttpNotFound();
+            }
+return View(student);
+        }
+// POST: Students/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+public ActionResult DeleteConfirmed(int id)
+        {
+Student student = db.Students.Find(id);
+            db.Students.Remove(student);
+            db.SaveChanges();
+return RedirectToAction("Index");
+        }
+protected override void Dispose(bool disposing)
+        {
+if (disposing)
+            {
+                db.Dispose();
+            }
+base.Dispose(disposing);
+        }
+    }
+}The Students folder inside the View contains the following files.The Index.cshtml file contains the following code.// Index.cshtml@model IEnumerable<scaffoldingTest.Models.Student>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+<tr>
+<th>
+            @Html.DisplayNameFor(model => model.Name)
+</th>
+<th>
+            @Html.DisplayNameFor(model => model.Email)
+</th>
+<th>
+            @Html.DisplayNameFor(model => model.Contact)
+</th>
+<th></th>
+</tr>
+@foreach (var item in Model) {
+<tr>
+<td>
+            @Html.DisplayFor(modelItem => item.Name)
+</td>
+<td>
+            @Html.DisplayFor(modelItem => item.Email)
+</td>
+<td>
+            @Html.DisplayFor(modelItem => item.Contact)
+</td>
+<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+</td>
+</tr>
+}
+</table>Output:Right click on the Index.cshtml file and select "view in browser", this will execute file and produce the following output.// Index fileThis index file is used to show student record. Currently table is empty, so it does not show any data.Add new StudentWe can add new student by clicking on the Create New button. This will redirect to a student form.After adding it, we added two more entries then redirect back to the index file. Now, it contains three student record.Update RecordWe can update record by clicking on the Edit button. This will redirect to the update form. The following screenshot shows the edit page.After updating record index page looks like this:Delete RecordWe can delete any record simply by clicking on the provided Delete link. Let's delete Roman Johnfrom the table. A confirmation message is display to the user for surety.After clicking on the Delete button, it redirects to the index page that contains the remaining records.We can see that there are only two records are present.Next TopicASP.Net MVC ViewBag? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

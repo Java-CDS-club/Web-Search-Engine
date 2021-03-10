@@ -1,0 +1,39 @@
+Ansible Shell - javatpoint?HomeJavaAnsibleTableauVBAJenkinsSoftware TestingSeleniumControl SystemHTMLCSSJavaScriptjQueryQuizProjectsInterview QAnsible TutorialAnsible Tutorial Ansible Workflow Ansible Architecture Installation in Linux ad-hoc Commands Ansible Playbooks Ansible Tower Ansible Roles Ansible Variables Ansible Tags Ansible Galaxy Commands Cheat Sheets Ansible Modules Ansible Shell Ansible Templates Ansible YAML Ansible Inventory Ansible Debug Ansible Apt Ansible Lineinfile Ansible Copy Ansible Command Ansible File Ansible Vault Ansible Windows Ansible Yum Ansible AWX Ansible Unarchive Ansible Pip Ansible vs Chef Ansible vs PuppetInterview QuestionsAnsible Interviewnext ? ? prevAnsible ShellAnsible shell module is designed to execute the shell commands against the target UNIX based hosts. Ansible can run except any high complexes commands with pipes, redirection. And you can also perform the shell scripts using the Ansible shell module.The main advantage of the Ansible shell is except any high complexes commands with pipes and semicolons can be a disadvantage from the security perspective as a single mistake could cost a lot and break the system integrity.The Ansible shell module is designed to work only with LINUX based machines and not for the windows. For windows, you should use the win_shellAnsible shell module can be used to execute shell scripts. Ansible has a dedicated module named script, which is used to copy the shell script from the control machine to the remote server.Let see the syntax of how to use the Ansible shell module in the playbook and Adhoc:Syntax of Ansible shell module in a playbookThe beauty of the playbook is the way it looks and written. A playbook is written in YAML so it can be easily understood.The below image demonstrates how an Adhoc command would be transformed as a play of an Ansible playbook.Syntax of Ansible shell module in AdhocThe below image shows a quick syntax of the Ansible shell module in Adhoc manner.ExampleTo execute a single command in a single task using a Shell or command module. Suppose you want to get the date of the remote server. And the remote server is under the hostgroup which name is testservers.Step 1: Login to the Ansible server.Step 2: Below is an example that executes a single command using the Shell module in a remote host.---
+-name: Shell command example 
+Hosts: testservers
+tasks:
+-name: check date with the shell command
+shell:
+"date"
+register: datecmd
+tags: datecmd
+-debug: msg= "{{datecmd.stdout}}"In the above example, we are running our playbook against a hostgroup named testservers and executing a simple date command and saving the output of that command into a Register variable named datecmd.At the last line, we retrieve the registered variable and printing only the date command output stored in the stdout property of datecmd.Example 2: Execute multiple commands in a single shell:The Shell can accept various commands together in a single shell play. Also, you can write your shell script with the Ansible shell module.In the below example, we grouped some shell commands to execute a controlled and clean tomcat restart.The playbook is designed to execute the following steps in order, such as:Stop the tomcatServerClear the cacheTruncate the log fileStart the instance---
+  - name: Shell Examples
+    hosts: testservers
+    tasks:
+    - name: Clear Cache and Restart tomcat
+      become: yes
+      delay: 10
+      async: 10
+      poll: 50
+      shell: |
+        echo -e "\n Change directory to the Tomcat"
+        cd tomcat8/
+        echo -e "\n Present working directory is" `pwd`
+        
+        echo -e "\n Stopping the tomcat instance"
+        bin/shutdown.sh
+        echo -e "\n Clearning the tmp and work directory of tomcat"
+        rm -rfv tmp/*
+        rm -rfv work/*
+        echo -e "\nTruncate the log file"
+        > logs/catalina.out
+        echo -e "\nDirectory listing"
+        ls -lrtd logs/catalina.out
+        echo -e "\nStarting the instance"
+        bin/startup.sh    
+      args:
+        chdir: "/apps/tomcat/"
+      register: fileout
+      tags: fileout 
+    - debug: msg="{{ fileout.stdout_lines }}"Next TopicAnsible Templates? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

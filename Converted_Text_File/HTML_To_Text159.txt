@@ -1,0 +1,140 @@
+Android Bluetooth Tutorial - javatpoint?HomeAndroidCore JavaServletJSPStruts2Mail APIHibernateSpringDesign PatternQuizProjectsInterview QCommentForumAndroid TrainingAndroid TutorialAndroid Introduction What is Android History and Version Android Architecture Core Building Blocks Android Emulator Install Android Setup Eclipse Hello Android example Internal Details Dalvik VM AndroidManifest.xml R.java Hide Title Bar Screen OrientationAndroid WidgetsUI Widgets Working with Button Toast Custom Toast ToggleButton CheckBox Custom CheckBox RadioButton Dynamic RadioButton Custom RadioButton AlertDialog Spinner AutoCompleteTextView ListView Custom ListView RatingBar WebView SeekBar DatePicker TimePicker Analog and Digital ProgressBar Vertical ScrollView Horizontal ScrollView ImageSwitcher ImageSlider ViewStub TabLayout TabLayout with FrameLayout SearchView SearchView on Toolbar EditText with TextWatcherActivity and IntentsActivity LifeCycle Implicit Intent Explicit Intent StartActivityForResult Share App DataAndroid FragmentsAndroid FragmentsAndroid MenuOption Menu Context Menu Popup MenuAndroid ServiceAndroid ServiceAndroid AlarmManagerAndroid AlarmManagerAndroid StorageAndroid Preferences Internal Storage External StorageAndroid SQLiteSQLite Tutorial SQLite SpinnerXML and JSONXML Parsing SAX XML Parsing DOM XMLPullParser JSON ParsingAndroid MultimediaMediaPlayer: Audio VideoView: Video Recording MediaAndroid SpeechTextToSpeech1 TextToSpeech2Android TelephonyTelephonyManager Get Call State Get Call State 2 Simple Caller Talker Phone Call Send SMS Send EmailAndroid DeviceBluetooth Tutorial List Paired Devices WIFICamera TutorialCamera TutorialSensor TutorialSensor TutorialAndroid GraphicsAndroid GraphicsAndroid AnimationAndroid AnimationAndroid Web ServiceAndroid Web ServiceGoogle MapAndroid Google Map Current Location Search LocationAdding AdsAndroid Google Admob 1) Banner Ads 2) Interstitial AdsAndroid ExamplesQR/Bar Code Scanner RSS Feed Reader Volley Fetch JSON Android Linkify Intro Slider RecyclerView List Swipe Del RecyclerView Swipe Refresh Activity Volley Library Registration Log-in Log-out Network Connectivity Services Firebase Authentication - Google Login Android Notification Using Google reCAPTCHAAndroid SocialIntegrating Google Sign-In Integrating LinkedIn Integrating TwitterAndroid MiscAndroid Device Manager Android Studio Android Auto Android File Transfer Android Messages Android Oreo Android TV Android Screenshot Android Versions Android Watch Android Pay Android Phones Android Tablets Android Find My Phone Android Marshmallow Android Nougat Android Pie Android One Android Antivirus Android Data Recovery Android Lollipop Android vs iPhone Android Wear OS Android x86 Emulator for PC Android 10 Android ad blocker Clear cache Android Root Android DeviceAndroid InterviewInterview QuestionsAndroid QuizAndroid Quiznext ? ? prevAndroid Bluetooth TutorialBluetooth is a way to exchange data with other devices wirelessly. Android provides Bluetooth API to perform several tasks such as:scan bluetooth devicesconnect and transfer data from and to other devicesmanage multiple connections etc.Android Bluetooth APIThe android.bluetooth package provides a lot of interfaces classes to work with bluetooth such as:BluetoothAdapterBluetoothDeviceBluetoothSocketBluetoothServerSocketBluetoothClassBluetoothProfileBluetoothProfile.ServiceListenerBluetoothHeadsetBluetoothA2dpBluetoothHealthBluetoothHealthCallbackBluetoothHealthAppConfigurationandroid-preferences-exampleBluetoothAdapter classBy the help of BluetoothAdapter class, we can perform fundamental tasks such as initiate device discovery, query a list of paired (bonded) devices, create a BluetoothServerSocket instance to listen for connection requests etc.Constants of BluetoothAdapter classBluetoothAdapter class provides many constants. Some of them are as follows:String ACTION_REQUEST_ENABLEString ACTION_REQUEST_DISCOVERABLEString ACTION_DISCOVERY_STARTEDString ACTION_DISCOVERY_FINISHEDMethods of BluetoothAdapter classCommonly used methods of BluetoothAdapter class are as follows:static synchronized BluetoothAdapter getDefaultAdapter() returns the instance of BluetoothAdapter.boolean enable() enables the bluetooth adapter if it is disabled.boolean isEnabled() returns true if the bluetooth adapter is enabled.boolean disable() disables the bluetooth adapter if it is enabled.String getName() returns the name of the bluetooth adapter.boolean setName(String name) changes the bluetooth name.int getState() returns the current state of the local bluetooth adapter.Set<BluetoothDevice> getBondedDevices() returns a set of paired (bonded) BluetoothDevice objects.boolean startDiscovery() starts the discovery process.Android Bluetooth Example: enable, disable and make discovrable bluetooth programmaticallyYou need to write few lines of code only, to enable or disable the bluetooth.activity_main.xmlDrag one textview and three buttons from the pallete, now the activity_main.xml file will like this:File: activity_main.xml<RelativeLayout xmlns:androclass="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <TextView android:text=""
+     android:id="@+id/out" 
+     android:layout_width="wrap_content" 
+     android:layout_height="wrap_content">
+    </TextView>
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="49dp"
+        android:text="TURN_ON" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="27dp"
+        android:text="DISCOVERABLE" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="28dp"
+        android:text="TURN_OFF" />
+
+</RelativeLayout>Provide PermissionYou need to provide following permissions in AndroidManifest.xml file.    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />The full code of AndroidManifest.xml file is given below.File: AndroidManifest.xml<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:androclass="http://schemas.android.com/apk/res/android"
+    package="com.example.bluetooth"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.bluetooth.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>Activity classLet's write the code to enable, disable and make bluetooth discoverable.File: MainActivity.javapackage com.example.bluetooth;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+      private static final int REQUEST_ENABLE_BT = 0;
+      private static final int REQUEST_DISCOVERABLE_BT = 0;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    final TextView out=(TextView)findViewById(R.id.out);
+    final Button button1 = (Button) findViewById(R.id.button1);
+    final Button button2 = (Button) findViewById(R.id.button2);
+    final Button button3 = (Button) findViewById(R.id.button3);
+    final BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+    if (mBluetoothAdapter == null) {
+       out.append("device not supported");
+    }
+    button1.setOnClickListener(new View.OnClickListener() {
+        public void onClick(View v) {
+            if (!mBluetoothAdapter.isEnabled()) {
+                Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+            }
+        }
+    });
+    button2.setOnClickListener(new View.OnClickListener() {
+     @Override
+        public void onClick(View arg0) {
+            if (!mBluetoothAdapter.isDiscovering()) {
+                  //out.append("MAKING YOUR DEVICE DISCOVERABLE");
+                   Toast.makeText(getApplicationContext(), "MAKING YOUR DEVICE DISCOVERABLE",
+			 Toast.LENGTH_LONG);
+
+                Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+                startActivityForResult(enableBtIntent, REQUEST_DISCOVERABLE_BT);
+                  
+            }
+        }
+    });
+    button3.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View arg0) {   
+            mBluetoothAdapter.disable();
+            //out.append("TURN_OFF BLUETOOTH");
+            Toast.makeText(getApplicationContext(), "TURNING_OFF BLUETOOTH", Toast.LENGTH_LONG);
+         
+            }
+    });
+}
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        return true;
+    }
+
+}download this android exampleYou need to run it on the real device (e.g. mobile) to test the application.Next topics of android bluetooth tutorial:android bluetooth list paired devices exampleNext TopicAndroid Bluetooth List Paired Devices Example? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

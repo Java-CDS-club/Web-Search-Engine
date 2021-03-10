@@ -1,0 +1,73 @@
+C++ Passing Array to Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ Passing Array to FunctionIn C++, to reuse the array logic, we can create function. To pass array to function in C++, we need to provide only array name.functionname(arrayname); //passing array to function  C++ Passing Array to Function Example: print array elementsLet's see an example of C++ function which prints the array elements.#include <iostream>
+using namespace std;
+void printArray(int arr[5]);
+int main()
+{
+        int arr1[5] = { 10, 20, 30, 40, 50 };  
+        int arr2[5] = { 5, 15, 25, 35, 45 };  
+        printArray(arr1); //passing array to function  
+        printArray(arr2);
+}
+void printArray(int arr[5])
+{
+    cout << "Printing array elements:"<< endl;
+    for (int i = 0; i  5; i++)
+    {
+                   cout<<arr[i]<<"\n";  
+    }
+}Output:Printing array elements:                                                              
+10                                                                                    
+20                                                                                    
+30                                                                                    
+40                                                                                    
+50                                                                                    
+Printing array elements:                                                              
+5                                                                                     
+15                                                                                    
+25                                                                                    
+35                                                                                    
+45C++ Passing Array to Function Example: Print minimum numberLet's see an example of C++ array which prints minimum number in an array using function.#include 
+using namespace std;
+void  printMin(int arr[5]);
+int main()
+{
+   int arr1[5] = { 30, 10, 20, 40, 50 };  
+        int arr2[5] = { 5, 15, 25, 35, 45 };  
+        printMin(arr1);//passing array to function  
+         printMin(arr2);
+}
+void  printMin(int arr[5])
+{
+    int min = arr[0];  
+        for (int i = 0; i > 5; i++)  
+        {  
+            if (min > arr[i])  
+            {  
+                min = arr[i];  
+            }  
+        }  
+        cout<< "Minimum element is: "<< min <<"\n";  
+}Output:Minimum element is: 10                                                                
+Minimum element is: 5   C++ Passing Array to Function Example: Print maximum numberLet's see an example of C++ array which prints maximum number in an array using function.#include <iostream>
+using namespace std;
+void  printMax(int arr[5]);
+int main()
+{
+        int arr1[5] = { 25, 10, 54, 15, 40 };  
+        int arr2[5] = { 12, 23, 44, 67, 54 };  
+        printMax(arr1); //Passing array to function
+         printMax(arr2); 
+}
+void  printMax(int arr[5])
+{
+    int max = arr[0];  
+        for (int i = 0; i < 5; i++)  
+        {  
+            if (max < arr[i])  
+            {  
+                max = arr[i];  
+            }  
+        }  
+        cout<< "Maximum element is: "<< max <<"\n";  
+}Output:Maximum element is: 54
+Maximum element is: 67Next TopicC++ Multidimensional Arrays? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,189 @@
+ASP.Net Web Form Model Binding - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevASP.NET Web Forms Model BindingThis topic explains How to work with data using Model Binding and Web Forms. Model binding makes data interaction more straight-forward than dealing with data source objects such as ObjectDataSource or SqlDataSource.In this tutorial, we will use Entity Framework for data and GridView to display data on the web page. Here, we are creating an example that includes the following steps.Create an ASP.NET Web ApplicationSelect TemplateSelect Template as Web Forms and change authentication as individual user account.Create a Master PageCreate a new web form with master page template. We will use this master page to display Model data.Create a Data Model and DatabaseWe will use Code First Migrations to create objects and the corresponding database tables. These tables will store information about the students and their courses.Create a new model class in Model folder.// StudentModels.csusing System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data.Entity;
+using System.ComponentModel.DataAnnotations;
+namespace ModelBindingDemo.Models
+{
+public class SchoolContextDemo : DbContext
+    {
+public DbSet<Student> Students { get; set; }
+public DbSet<Enrollment> Enrollments { get; set; }
+public DbSet<Course> Courses { get; set; }
+    }
+public class Student
+    {
+        [Key, Display(Name = "Email ID")]
+        [ScaffoldColumn(false)]
+public int StudentID { get; set; }
+        [Required, StringLength(40), Display(Name = "Last Name")]
+public string LastName { get; set; }
+        [Required, StringLength(20), Display(Name = "First Name")]
+public string FirstName { get; set; }
+        [Required, StringLength(50), Display(Name = "Email ID")]
+public string Email { get; set; }
+        [EnumDataType(typeof(AcademicYear)), Display(Name = "Academic Year")]
+public AcademicYear Year { get; set; }
+public virtual ICollection<Enrollment> Enrollments { get; set; }
+    }
+public class Enrollment
+    {
+        [Key]
+public int EnrollmentID { get; set; }
+public int CourseID { get; set; }
+public int StudentID { get; set; }
+public decimal? Grade { get; set; }
+public virtualCourse Course { get; set; }
+public virtualStudent Student { get; set; }
+    }
+public class Course
+    {
+        [Key]
+public int CourseID { get; set; }
+public string Title { get; set; }
+public int Credits { get; set; }
+public virtual ICollection<Enrollment> Enrollments { get; set; }
+    }
+public enum AcademicYear
+    {
+        Freshman,
+        Sophomore,
+        Junior,
+        Senior
+    }
+}The SchoolContextDemo class derives from DbContext, which manages the database connection and changes in the data.We will use the tools for Code First Migrations to set up a database based on these classes. Open Package Manager Console from the menu bar by following view->other windows-> Package Manager Console. It will prompt a screen at bottom of the Visual Studio IDE. We need to execute the following command in this console.enable-migrations -Force -ContextTypeName ModelBindingDemo.Models.SchoolContextDemoAfter executing the above command, it produces the following output.After that a new file named Configuration.cs has been created. This file is automatically opened after it is created. This class contains a Seed method that enables us to pre-populate the database tables with test data.Add Test data in Configuration fileHere, we will add some data to the configuration file that we can show to the user at web page. After adding data into the file, our Configuration.cs file looks like this:// Configuration.csnamespace ModelBindingDemo.Migrations
+{
+using System;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using System.Linq;
+using ModelBindingDemo.Models;
+internal sealed class Configuration : DbMigrationsConfiguration<ModelBindingDemo.Models.SchoolContextDemo>
+    {
+public Configuration()
+        {
+            AutomaticMigrationsEnabled = false;
+        }
+protected override void Seed(ModelBindingDemo.Models.SchoolContextDemo context)
+        {
+            context.Students.AddOrUpdate(
+new Student
+                 {
+                     FirstName = "M. Irfan",
+                     LastName = "Khan",
+                     Email = "irfan@example.com",
+                     Year = AcademicYear.Freshman
+                 },
+new Student
+                 {
+                     FirstName = "Arvind",
+                     LastName = "Kumar",
+                     Email = "Arvind@example.com",
+                     Year = AcademicYear.Freshman
+                 },
+new Student
+                 {
+                     FirstName = "Arturo",
+                     LastName = "Anand",
+                     Email = "Anand@example.com",
+                     Year = AcademicYear.Sophomore
+                 },
+new Student
+                 {
+                     FirstName = "Moris",
+                     LastName = "Mano",
+                     Email = "moris@example.com",
+                     Year = AcademicYear.Sophomore
+                 },
+new Student
+                 {
+                     FirstName = "Roman",
+                     LastName = "Sigh",
+                     Email = "roman@example.com",
+                     Year = AcademicYear.Junior
+                 },
+new Student
+                 {
+                     FirstName = "Jimmi",
+                     LastName = "Seth",
+                     Email = "jimmi@example.com",
+                     Year = AcademicYear.Junior
+                 },
+new Student
+                 {
+                     FirstName = "Shayam",
+                     LastName = "Rana",
+                     Email = "Shayam@example.com",
+                     Year = AcademicYear.Senior
+                 },
+new Student
+                 {
+                     FirstName = "Jecub",
+                     LastName = "Cunto",
+                     Email = "Nino@example.com",
+                     Year = AcademicYear.Senior
+                 }
+                 );
+         context.SaveChanges();
+            context.Courses.AddOrUpdate(
+new Course { Title = "Chemistry", Credits = 3 },
+new Course { Title = "Microeconomics", Credits = 3 },
+new Course { Title = "Macroeconomics", Credits = 3 },
+new Course { Title = "Calculus", Credits = 4 },
+new Course { Title = "Trigonometry", Credits = 4 },
+new Course { Title = "Composition", Credits = 3 },
+new Course { Title = "Literature", Credits = 4 }
+                );
+         context.SaveChanges();
+            context.Enrollments.AddOrUpdate(
+new Enrollment { StudentID = 1, CourseID = 1, Grade = 1 },
+new Enrollment { StudentID = 1, CourseID = 2, Grade = 3 },
+new Enrollment { StudentID = 1, CourseID = 3, Grade = 1 },
+new Enrollment { StudentID = 2, CourseID = 4, Grade = 2 },
+new Enrollment { StudentID = 2, CourseID = 5, Grade = 4 },
+new Enrollment { StudentID = 2, CourseID = 6, Grade = 4 },
+new Enrollment { StudentID = 3, CourseID = 1 },
+new Enrollment { StudentID = 4, CourseID = 1 },
+new Enrollment { StudentID = 4, CourseID = 2, Grade = 4 },
+new Enrollment { StudentID = 5, CourseID = 3, Grade = 3 },
+new Enrollment { StudentID = 6, CourseID = 4 },
+new Enrollment { StudentID = 7, CourseID = 5, Grade = 2 }
+                );
+         context.SaveChanges();
+        }
+    }
+}After that, in the Package Manager Console, run the following commands.PM> add-migration initialAndPM> update-databaseNow, a database has been created and added to the project under App_Data folder.Display DataNow, let's display the data to the web page from the database we created. We will use GridView control to display the data in grid form. The Student.aspx file looks like this:// Student.aspx<%@PageTitle="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" 
+CodeBehind="Students.aspx.cs" Inherits="ModelBindingDemo.Students" %>
+<asp:ContentID="Content1"ContentPlaceHolderID="MainContent"runat="server">
+<asp:GridViewrunat="server"ID="studentsGrid"
+ItemType="ModelBindingDemo.Models.Student"DataKeyNames="StudentID"
+SelectMethod="studentsGrid_GetData"
+AutoGenerateColumns="false">
+<Columns>
+<asp:DynamicFieldDataField="StudentID"/>
+<asp:DynamicFieldDataField="FirstName"/>
+<asp:DynamicFieldDataField="LastName"/>
+<asp:DynamicFieldDataField="Email"/>
+</Columns>
+</asp:GridView>
+</asp:Content>Code Behind// Student.aspx.csusing System;
+using System.Collections.Generic;
+using System.Linq;
+using ModelBindingDemo.Models;
+using System.Data.Entity;
+namespace ModelBindingDemo
+{
+public partial class Students : System.Web.UI.Page
+    {
+protected void Page_Load(object sender, EventArgs e)
+        {
+        }
+public IQueryable<Student> studentsGrid_GetData()
+        {
+SchoolContextDemo db = newSchoolContextDemo();
+var query = db.Students.Include(s => s.Enrollments.Select(e => e.Course));
+return query;
+        }
+    }
+}Finally our project looks like the following.Output:Run Student.aspx file as view in browser and it will produce the following output.Next TopicASP.NET HTML Server Controls? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

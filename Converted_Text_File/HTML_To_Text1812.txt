@@ -1,0 +1,122 @@
+C++ multiset insert() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ multisetC++ multiset constructor destructor begin() end() operator= rbegin() rend() cbegin() cend() max_size() size() crbegin() crend() empty() insert() clear() emplace() erase() swap() emplace_hint() find() key_comp() value_comp() count() equal_range() lower_bound() upper_bound() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ multiset insert()C++ Multiset insert() function is used for inserting new element or a range of elements in the multiset.Syntaxsingle element (1)     iterator insert (const value_type& val);   //until C++ 11
+
+with hint (2)	iterator insert (iterator position, const value_type& val);   //until C++ 11
+
+range (3)	  template <class InputIterator>
+  		   void insert (InputIterator first, InputIterator last);        //until C++ 11
+
+single element (1)  iterator insert (const value_type& val);
+                                iterator insert (value_type&& val);                            //since C++ 11
+            
+with hint (2)	iterator insert (const_iterator position, const value_type& val);
+                          iterator insert (const_iterator position, value_type&& val); //since C++ 11
+
+range (3)	template <class InputIterator>
+                          void insert (InputIterator first, InputIterator last);            //since C++ 11
+
+initializer list (4)       void insert (initializer_list<value_type> il);              //since C++ 11Parameterval: Value to insert in the multiset.position: Hint for the position to insert element in the multiset.first: Beginning of range to insert value.last: End of range to insert value.il: An initializer list.Return valueThe insert() function return an iterator pointing to the newly inserted element in the multiset.ComplexityIf a single element is inserted, complexity will be logarithmic in size.If a hint is given and the position given is the optimal, then the complexity will be amortized constant.Iterator validityNo changes.Data RacesThe container is modified.Concurrently accessing the existing elements of multiset is safe, although iterating ranges in the container is not.Exception SafetyThis function does not throw exception.Example 1Let's see the simple example to insert the elements into the multiset:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main()
+{
+    multiset<int> s;
+ 
+    s.insert(1);
+    s.insert(4);
+    s.insert(2);
+    s.insert(3);
+    s.insert(3);
+ 
+    cout << "The elements in multiset are: ";
+    for (auto it = s.begin(); it != s.end(); it++)
+        cout << *it << " ";
+ 
+    return 0;
+}Output:The elements in multiset are: 1 2 3 3 4In the above example, it simply inserts the element with the given key.Example 2Let's see a simple example to insert the element in the specified position:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main()
+{ 
+    multiset<int> s;
+ 
+    // Function to insert elements
+    // in the multiset container
+    auto itr = s.insert(s.begin(), 1);
+ 
+    // the time taken to insertion
+    // is very less as the correct
+    // position for insertion is given
+    itr = s.insert(itr, 4);
+    itr = s.insert(itr, 2);
+    itr = s.insert(itr, 4);
+    itr = s.insert(itr, 3);
+ 
+    cout << "The elements in multiset are: ";
+    for (auto it = s.begin(); it != s.end(); it++)
+        cout << *it << " ";
+ 
+    return 0;
+}Output:The elements in multiset are: 1 2 3 4 4 In the above example, elements are inserted in the defined position.Example 3Let's see a simple example to insert the elements of one multiset to another in a given range:#include <iostream>
+# include<iostream>
+# include<set>
+
+using namespace std;
+
+int main()
+{ 
+    multiset<int> s1;
+ 
+    // Function to insert elements
+    // in the multiset container
+    s1.insert(1);
+    s1.insert(4);
+    s1.insert(2);
+    s1.insert(4);
+    s1.insert(3);
+ 
+    cout << "The elements in multiset1 are: ";
+    for (auto it = s1.begin(); it != s1.end(); it++)
+        cout << *it << " ";
+ 
+    multiset<int> s2;
+ 
+    // Function to insert one multiset to another
+    // all elements from where 3 is to end is
+    // inserted to multiset2
+    s2.insert(s1.find(3), s1.end());
+ 
+    cout << "\nThe elements in multiset2 are: ";
+    for (auto it = s2.begin(); it != s2.end(); it++)
+        cout << *it << " ";
+ 
+    return 0;
+}Output:The elements in multiset1 are: 1 2 3 4 4 
+The elements in multiset2 are: 3 4 4  Example 4Let's see a simple example to insert the elements from the initializer list:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   multiset<string> m = {"Java", "C++", "SQL"};
+   
+  // Insert the elements from an initializer_list 
+   m.insert({"C++", "Oracle"});
+
+   cout << "Multiset contains following elements" << endl;
+
+   for (auto it = m.begin(); it != m.end(); ++it)
+      cout << *it<< endl;
+
+   return 0;
+}
+
+Output:Multiset contains following elements
+C++
+C++
+Java
+Oracle
+SQLIn the above example, elements are inserted from an initializer list.Next TopicC++ multiset? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

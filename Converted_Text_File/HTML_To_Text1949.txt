@@ -1,0 +1,38 @@
+C++ Structs - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ StructsIn C++, classes and structs are blueprints that are used to create the instance of a class. Structs are used for lightweight objects such as Rectangle, color, Point, etc.Unlike class, structs in C++ are value type than reference type. It is useful if you have data that is not intended to be modified after creation of struct.C++ Structure is a collection of different data types. It is similar to the class that holds different types of data.The Syntax Of Structurestruct structure_name
+{
+     // member declarations.
+} In the above declaration, a structure is declared by preceding the struct keyword followed by the identifier(structure name). Inside the curly braces, we can declare the member variables of different types. Consider the following situation:struct Student
+{
+    char name[20];
+     int id;
+     int age;
+}In the above case, Student is a structure contains three variables name, id, and age. When the structure is declared, no memory is allocated. When the variable of a structure is created, then the memory is allocated. Let's understand this scenario.How to create the instance of Structure?Structure variable can be defined as:Student s;Here, s is a structure variable of type Student. When the structure variable is created, the memory will be allocated. Student structure contains one char variable and two integer variable. Therefore, the memory for one char variable is 1 byte and two ints will be 2*4 = 8. The total memory occupied by the s variable is 9 byte.How to access the variable of Structure:The variable of the structure can be accessed by simply using the instance of the structure followed by the dot (.) operator and then the field of the structure.For example:s.id = 4;In the above statement, we are accessing the id field of the structure Student by using the dot(.) operator and assigns the value 4 to the id field.C++ Struct ExampleLet's see a simple example of struct Rectangle which has two data members width and height.#include <iostream>  
+using namespace std;  
+ struct Rectangle    
+{    
+   int width, height;    
+    
+ };    
+int main(void) {  
+    struct Rectangle rec;  
+    rec.width=8;  
+    rec.height=5;  
+   cout<<"Area of Rectangle is: "<<(rec.width * rec.height)<<endl;  
+ return 0;  
+}  Output:Area of Rectangle is: 40C++ Struct Example: Using Constructor and MethodLet's see another example of struct where we are using the constructor to initialize data and method to calculate the area of rectangle.#include <iostream>  
+using namespace std;  
+ struct Rectangle    {    
+   int width, height;    
+  Rectangle(int w, int h)    
+    {    
+        width = w;    
+        height = h;    
+    }    
+  void areaOfRectangle() {     
+    cout<<"Area of Rectangle is: "<<(width*height); }    
+ };    
+int main(void) {  
+    struct Rectangle rec=Rectangle(4,6);  
+    rec.areaOfRectangle();  
+   return 0;  
+}  Output:Area of Rectangle is: 24Structure v/s ClassStructureClassIf access specifier is not declared explicitly, then by default access specifier will be public.If access specifier is not declared explicitly, then by default access specifier will be private.Syntax of Structure:struct structure_name{// body of the structure.}Syntax of Class:class class_name{// body of the class.}The instance of the structure is known as "Structure variable".The instance of the class is known as "Object of the class".Next TopicC++ Enumeration? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,53 @@
+ASP.Net Web Form RangeValidator - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevASP.NET RangeValidator ControlThis validator evaluates the value of an input control to check that the value lies between specified ranges.It allows us to check whether the user input is between a specified upper and lower boundary. This range can be numbers, alphabetic characters and dates.Note: if the input control is empty, no validation will be performed.The ControlToValidateproperty is used to specify the control to validate. The MinimumValue and MaximumValue properties are used to set minimum and maximum boundaries for the control.RangeValidator PropertiesPropertyDescriptionAccessKeyIt is used to set keyboard shortcut for the control.TabIndexThe tab order of the control.BackColorIt is used to set background color of the control.BorderColorIt is used to set border color of the control.BorderWidthIt is used to set width of border of the control.FontIt is used to set font for the control text.ForeColorIt is used to set color of the control text.TextIt is used to set text to be shown for the control.ToolTipIt displays the text when mouse is over the control.VisibleTo set visibility of control on the form.HeightIt is used to set height of the control.WidthIt is used to set width of the control.ControlToValidateIt takes ID of control to validate.ErrorMessageIt is used to display error message when validation failed.TypeIt is used to set datatype of the control value.MaximumValueIt is used to set upper boundary of the range.MinimumValueIt is used to set lower boundary of the range.ExampleIn the following example, we are using RangeValidator to validate user input in specified range.// RangeValidator.aspx<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RangeValidator.aspx.cs" 
+Inherits="asp.netexample.RangeValidator" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title></title>
+<style type="text/css">
+.auto-style1 {
+height: 82px;
+        }
+.auto-style2 {
+width: 100%;
+        }
+.auto-style3 {
+width: 89px;
+        }
+.auto-style4 {
+margin-left: 80px;
+        }
+</style>
+</head>
+<body>
+<form id="form1" runat="server">
+<div class="auto-style1">
+<p class="auto-style4">
+            Enter value between 100 and 200<br/>
+</p>
+<table class="auto-style2">
+<tr>
+<td class="auto-style3">
+<asp:Label ID="Label2" runat="server" Text="Enter a value"></asp:Label>
+</td>
+<td>
+<asp:TextBox ID="uesrInput"runat="server"></asp:TextBox>
+<asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="uesrInput" 
+ErrorMessage="Enter value in specified range" ForeColor="Red" MaximumValue="199" MinimumValue="101" 
+SetFocusOnError="True"Type=" Integer"></asp:RangeValidator>
+</td>
+</tr>
+<tr>
+<td class="auto-style3"> </td>
+<td>
+<br/>
+<asp:Button ID="Button2" runat="server" Text="Save"/>
+</td>
+</tr>
+</table>
+<br/>
+<br/>
+</div>
+</form>
+</body>
+</html>Output:It throws an error message when the input is not in range.Next TopicASP.NET RegularExpressionValidator? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

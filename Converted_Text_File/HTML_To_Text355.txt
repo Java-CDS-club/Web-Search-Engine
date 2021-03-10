@@ -1,0 +1,79 @@
+Ansible YAML - javatpoint?HomeJavaAnsibleTableauVBAJenkinsSoftware TestingSeleniumControl SystemHTMLCSSJavaScriptjQueryQuizProjectsInterview QAnsible TutorialAnsible Tutorial Ansible Workflow Ansible Architecture Installation in Linux ad-hoc Commands Ansible Playbooks Ansible Tower Ansible Roles Ansible Variables Ansible Tags Ansible Galaxy Commands Cheat Sheets Ansible Modules Ansible Shell Ansible Templates Ansible YAML Ansible Inventory Ansible Debug Ansible Apt Ansible Lineinfile Ansible Copy Ansible Command Ansible File Ansible Vault Ansible Windows Ansible Yum Ansible AWX Ansible Unarchive Ansible Pip Ansible vs Chef Ansible vs PuppetInterview QuestionsAnsible Interviewnext ? ? prevAnsible YAMLYAML is used to describe configuration that has been increasing in the past few years with the help of Ansible and SaltStack.YAML is more comfortable for humans to read and write in comparison to other standard data formats such as XML or JSON. There are libraries available in most programming languages for working with YAML.For Ansible, every YAML file starts with a list. Each item in the list is a list of key-value pairs, commonly called a "hash" or "dictionary". So, we need to know how to write lists and dictionaries in YAML.There’s another small quirk to YAML. All YAML files (regardless of their association with Ansible or not) can optionally begin with --- and end with ---. This is part of the YAML format and indicates the start and end of a document.All members of a list are lines beginning at the same indentation level starting with a "-" (a dash and space):---
+# A list of colors
+- White
+- Orange
+- Red
+- Black
+---We have different ways in which the YAML data is represented, such as:Key-value PairYAML uses the Key-Value pair to represent the data. And the dictionary is described in the key: value pair.NOTE: There should be space between: and value.For example, a student record---
+# A student record
+Martin:
+name: Martin 
+roll no: 10
+class: 12th
+div: A
+---AbbreviationWe can also use the abbreviation to represent the directories:Martin: [name: martin, roll no: 10, class: 12th, div: A] Representing ListWe can also represent List in YAML. Every element (member) of the list should be written in a new line with the same indentation starting with "-" (- and space).For example: Name of the countries---
+#Name of country 
+Countries:  
+   - India 
+   - China 
+   - USA
+   - Iceland 
+---AbbreviationTo represent the list, we can also use the abbreviation method:Countries: ['India', 'China', 'USA', 'Iceland']List inside Dictionaries We can use the list inside dictionaries, i.e., the value of a key is a list.For example, a student record---
+# A student record
+Martin:
+name: Martin 
+roll no: 10
+class: 12th
+div: A
+likes:
+- Physics 
+- Chemistry
+- Math 
+---List of Directories We can also make a list of directories:For example: ---
+# A student record
+- Martin:
+name: Martin 
+roll no: 10
+class: 12th
+div: A
+likes:
+- Physics 
+- Chemistry
+- Math 
+- Edward:
+ name: Edward
+ roll no: 11
+class: 12th
+div: A
+likes: 
+- Biology 
+- English 
+---YAML uses "|" to include newlines while showing multiple lines and ">" to suppress newlines while showing various lines. Due to this, we can read and edit long lines. In both cases, the indentation will be ignored.We can also represent Boolean (True/false) values in YAML, where Boolean values can be case insensitive.For example, a student result---  
+#a student result 
+- Martin:
+name: Martin 
+roll no: 10
+class: 12th
+div: A
+likes:
+- Physics 
+- Chemistry
+- Math 
+   
+   result: 
+      Physics: 70 
+     Chemistry: 45 
+Math: 85
+Biology: 65
+      English: 80 
+   
+   passed: TRUE 
+   
+   messageIncludeNewLines: | 
+      Congratulation!! 
+      You passed with 79% 
+   
+   messageExcludeNewLines: > 
+      Congratulation!! 
+      You passed with 79% 
+--- Next TopicAnsible Inventory? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

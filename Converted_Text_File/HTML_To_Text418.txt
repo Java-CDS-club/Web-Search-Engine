@@ -1,0 +1,25 @@
+Apache Ant Telnet Task - javatpoint?HomeApache POIApache AntJMeterJavaCC#ServletJSPEJBStruts2MailHibernateSpringAndroidDesign PQuizProjectsInterview QCommentForumTrainingApache Ant TutorialApache Ant Tutorial Apache Ant Features Apache Ant Installation Apache Ant Hello World Apache Ant Projects Apache Ant Targets Apache Ant Tasks Apache Ant Properties Ant Token Filters Ant Command Line Args Ant If and Unless Attributes Apache Ant Types Ant Custom Components Ant Listeners and Loggers Apache Ant IDE Integration Apache Ant InputHandler Ant Tasks Outside Ant Ant Argument Processor Apache Ant API Apache Ant JARApache Ant TasksApache Ant AntStructure Apache Ant Basename Apache Ant Gzip Apache Ant Chmod Apache Ant Concat Apache Ant Condition Apache Ant Copy Apache Ant CVS Apache Ant Delete Apache Ant EAR Apache Ant Fail Apache Ant Filter Apache Ant Import Apache Ant Java Apache Ant Javac Apache Ant Length Apache Ant LoadFile Apache Ant Mkdir Apache Ant Move Apache Ant Sleep Apache Ant War Apache Ant Zip Apache Ant JUnit Apache Ant Telnetnext ? ? prevApache Ant Telnet TaskAnt Telnet task is used to provide bidirectional text oriented communication facility. It is a network protocol. By default Apache Ant does not support it. So, we need to include a external JAR commons-net.jar file into classpath.This task is mainly used to automate telnet session xml file.The <telnet> element supports nested elements <read> and <write>to perform read/write operations respectively.Apache Ant Telnet Task AttributesAttributeValuesRequireduseridA user id to login into server.YespasswordPassword to login into server.YesserverServer name/address.Yesportthe port number of the remote telnet server.NoinitialCRsend a cr after connecting.Notimeoutset a default timeout to wait for a response.NoLet's see some example to understand the telnet task.Apache Ant Telnet Task Example<project name="java-ant project" default="run">	
+	<target name="run">
+		<telnet userid="java" password="java123" server="localhost">
+  			<read>/home/javatpoint</read>
+    		<write>ls</write>
+   			<read string="/home/javatpoint"/>
+		</telnet>
+	</target>
+</project>The above example is a simple telnet connection program which connect to localhost by mapping provided userid and password.Time Out<project name="java-ant project" default="run">	
+	<target name="run">
+		<telnet userid="java" password="******" server="localhost" timeout="20">
+   			<read>/home/javatpoint</read>
+   			<write echo="false">sleep 15</write>
+   			<read timeout="10">/home/javatpoint</read>
+		</telnet>
+	</target>
+</project>During connection, we can also set connection timeout period.Specify Port Number<project name="java-ant project" default="run">	
+	<target name="run">
+		<telnet port="80" server="localhost" timeout="20">
+   			<read/>
+   			<write>GET / http/0.9</write>
+  			<write/>
+   			<read timeout="10">
+
+</read> </telnet> </target> </project> We can also specify port number to connect with the network running on different-different port numbers.Next Topic#? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

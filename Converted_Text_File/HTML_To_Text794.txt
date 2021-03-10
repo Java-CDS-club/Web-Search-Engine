@@ -1,0 +1,53 @@
+AVR UART/Serial Communication - javatpoint?HomeC LanguageJavaEmbedded SystemRoboticsSQLHTMLCSSJavaScriptXMLPythonAndroidQuizProjectsInterview QCommentForumEmbedded SystemEmbedded System 10+8051 MicroController8051 MicroController 10+AVR MicroController AVR MicroController ATmega32 MicroController ATmega32 Pin Diagram ATmega32 Memories ATmega8 MicroController ATmega8 Pin Diagram I/O Port Programming AVR Registers Programming using Studio LCD Interfacing SPI in AVR Keyboard Interfacing ADC Interfacing Serial Communication PWM MicroController Interrupts MicroControllerES ProjectsES Projects Fire Detection Project RFID Attendance SystemRoboticsRobotics Tutorialnext ? ? prevAVR UART/Serial CommunicationIn AVR microcontroller, the following sets of registers are used for communicate over UART:UCSRA: In this registers flags used for various errors that might occurs during the data transmission. e.g. frame error, parity error etc.UCSRC: In this registers we can set the stop bits, parity mode and so on.UCSRB: In this register we are providing with lot of enable bits. For example different interrupt enable bits for transmitting and receiving the enable bits.UBRRH & UBRRL: In UBRRL register, lower byte is used for storing the required Baud rate and in UBRRH register, the higher byte is used for storing the required Baud rate.More information about the above registers can be found in a datasheet of the AVR microcontroller you are using.The initialization of serial communication registers in assembly language is given below:.include \"m8515def.inc\"
+.def reg1 = r16
+.def reg2 = r17
+Serial_Init:
+;Load the register UBRRH with 0 and the register UBRRL with 25
+;The baud rate of 9600 at 4MHz frequency is set
+ldi reg1,00
+out UBRRH,reg1
+ldi reg2,25
+out UBRRL,reg1
+;All error flags is clear
+ldi reg1,00
+out UCSRA,reg1
+;Enable the reception and transmission
+ldi reg1,(1<<RXEN)+(1<<TXEN)
+out UCSRB,reg1
+;Set the Frame format
+;8,N,1
+ldi reg1,(1<<URSEL)|(3<<UCSZ0)
+out UCSRC,reg1
+retThe initialization of serial communication registers in embedded C language is given below: #include io.h>.
+void serial_init(){
+UCSRA=0x00;
+UCSRC=0x86;
+UBRRL=0x19;
+UCSRB=0x18;
+UBRRH=0x00;
+}For transmitting data serially we required to put the data to send in 8-bit UART Data Register (UDR) and poll the empty transmit buffer at set condition. While receiving data from the receive flag, when it's set the data received from the UDR register. An example for implementing this in assembly language is given below:Serial_Send:
+         ;need to wait for the empty transmit buffer flag
+         sbis UDRE, UCSRA
+          rjmp Serial_Send
+           ;If a flag is set (High)
+         ;Move the data content for send in UDR
+         out UDR,reg2
+          ret
+
+Serial_Read:
+         ;Waiting for the Receive flag
+         sbis UCSRA,RXC
+         rjmp Serial_Read
+         ;If the flag is set
+         ;Now read the data from UDR
+          in reg2,UDR
+           retFor transmitting data serially we required to put the data to send in 8-bit UART Data Register (UDR) and poll the empty transmit buffer at set condition. While receiving data from the receive flag, when it's set the data received from the UDR register. An example for implementing this in embedded C language is given below:unsigned char serial_read()
+{
+	while(!(UCSRA & (1<<RXC)));
+	return UDR;
+}
+void serial_send(unsigned char dat)
+{
+	while(!(UCSRA & (1lt;<UDRE)));
+	UDR = dat;
+}Next TopicPulse Width Modulation in AVR Microcontroller? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

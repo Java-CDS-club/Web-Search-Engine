@@ -1,0 +1,688 @@
+ 
+<!DOCTYPE html>
+<html lang="en"> 
+
+<!-- Mirrored from www.javatpoint.com/cassandra-interview-questions-and-answers by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:26:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head> 
+<meta charset="UTF-8">
+<link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png"/>
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css" />
+<link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/">
+<title>Cassandra Interview Questions - javatpoint</title>
+<meta name="keywords" content="cassandra, interview, questions, beginners, professionals, basic, frequently, asked"/>
+<meta name="description" content="Cassandra Interview Questions for beginners and professionals with a list of top frequently asked Cassandra interview questions and answers with java, .net, php, database, hr, spring, hibernate, android, oracle, sql, asp.net, c#, python, c, c++ etc."/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">						
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="canonical" href="https://www.javatpoint.com/cassandra-interview-questions-and-answers" />
+<meta name="theme-color" content="#4CAF50"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta name="twitter:title" property="og:title" content="Cassandra Interview Questions - javatpoint" />
+<meta name="twitter:description" property="og:description" content="Cassandra Interview Questions for beginners and professionals with a list of top frequently asked Cassandra interview questions and answers with java, .net, php, database, hr, spring, hibernate, android, oracle, sql, asp.net, c#, python, c, c++ etc." />
+<meta property="og:url" content="https://www.javatpoint.com/cassandra-interview-questions-and-answers" />
+<meta property="og:site_name" content="www.javatpoint.com" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@pagejavatpoint"/>
+<meta name="twitter:domain" content="www.javatpoint.com"/>
+<meta name="twitter:creator" content="@pagejavatpoint"/>
+<!--<script  id="feedify_webscript" >
+var feedify = feedify || {};
+window.feedify_options={fedify_url:"https://feedify.net/"};
+(function (window, document){
+	function addScript( script_url ){
+		var s = document.createElement('script');
+		s.type = 'text/javascript';
+		s.src = script_url;
+		document.getElementsByTagName('head')[0].appendChild(s);
+	}
+	addScript('https://tpcf.feedify.net/uploads/settings/2e588c15fa58f6d438b0255693eb0ea3.js?ts='+Math.random());
+	addScript('https://cdn.feedify.net/getjs/feedbackembad-min-2.0.js');
+})(window, document);
+</script> -->
+
+<link href="https://www.javatpoint.com/manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://cdn.adpushup.com/37780/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+</head> 
+<body onload="highlightlink()"> 
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#8679</button>
+
+<div id="page" style="margin:-8px;background-color:#f5f5f4">
+<div id="container" >
+
+ <div  class="header">
+<table style="width:100%;margin-bottom:5px">
+    <tr>
+        <td>
+            <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px">
+                <a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a>
+            </div>
+            <div style="float:left;width:60%;">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+                
+            </div>
+            
+        </td>
+    </tr>
+        <!--<tr>
+        <td>
+            <div id="headerlink" style="padding:0px;margin:0px"><span style="margin-right:20px;width:45px"></span><span style="float:right;margin-right:5px;width:45%"> </span>
+                
+            </div>
+        </td>
+    </tr>-->
+
+</table>
+ </div>
+
+ <div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="https://www.javatpoint.com/images/menuhome64.png" onclick="showmenu()"/></span>
+<span style="float:left"><a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<form class="navbar-search-m" method="get" action="https://www.google.com/search" target="_blank"> 
+<input type="text" name="q" class="search-query span2-m" placeholder="Search on javatpoint..."  title="Search on Javatpoint"/>
+<input type="hidden" name="sitesearch" value="www.javatpoint.com"/>
+</form>
+</div>
+</div>
+ 
+<div id="link" style="clear:both">
+ <div  class="ddsmoothmenu">
+<ul>
+<li><a href="https://www.javatpoint.com/">Home</a></li>
+<li><a href="https://www.javatpoint.com/interview-questions-and-answers"  class="selected">Interview Questions</a></li>
+<li><a href="https://www.javatpoint.com/java-tutorial">Java</a></li>
+<li><a href="https://www.javatpoint.com/c-programming-language-tutorial">C</a></li>
+<li><a href="https://www.javatpoint.com/sql-tutorial">SQL</a></li>
+<li><a href="https://www.javatpoint.com/android-tutorial">Android</a></li>
+<li><a href="https://www.javatpoint.com/html-tutorial">HTML</a></li>
+<li><a href="https://www.javatpoint.com/xml-tutorial">XML</a></li>
+<li><a href="https://www.javatpoint.com/javascript-tutorial">JavaScript</a></li>
+<li><a href="https://www.javatpoint.com/ajax-tutorial">Ajax</a></li>
+<li><a href="https://www.javatpoint.com/cloud-computing-tutorial">Cloud</a></li>
+<li><a href="https://www.javatpoint.com/python-tutorial">Python</a></li>
+<li><a href="https://www.javatpoint.com/web-services-tutorial">Web Services</a></li>
+<li><a href="https://www.javatpoint.com/examaccess">Quiz</a></li>
+<li><a href="https://www.javatpoint.com/free-java-projects">Projects</a></li>
+<li><a href="https://www.javatpoint.com/comment.jsp">Comment</a></li>
+<li><a href="https://www.javatpoint.com/forum">Forum</a></li>
+<li><a href="https://www.javatpoint.com/training">Training</a></li>
+
+</ul>
+<br style="clear: left" />
+</div>
+</div>
+<div class="mobilemenu" style="clear:both">
+ <!--<button onclick="showmenu()">Content Menu</button>-->
+<!-- Cm_300x250_Mob_14/9 -->
+
+
+</div>
+
+
+<div id="menu">
+<!--<a target="_blank" href="https://play.google.com/store/apps/details?id=my.example.javatpoint" style="padding-left:10px;color:blue;text-decoration:none"><img src="https://static.javatpoint.com/images/logo/androidhome.png" style="height:20px" alt="Javatpoint interview questions Android App"/> Download Android App</a> -->
+
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">All Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/interview-tips"><span>Interview Tips</span></a>
+<a href="https://www.javatpoint.com/job-interview-questions"><span>JOB/HR Interview</span></a>
+<a href="https://www.javatpoint.com/competency-based-interview-questions"><span>Competency Interview</span></a>
+<a href="https://www.javatpoint.com/business-analyst-interview-questions"><span>Business Analyst</span></a>
+<a href="https://www.javatpoint.com/behavioral-interview-questions"><span>Behavioral Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Company Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/company-interview-questions-and-recruitment-process"><span>Company Interview</span></a>
+<a href="https://www.javatpoint.com/ibm-interview-questions"><span>IBM Interview</span></a>
+<a href="https://www.javatpoint.com/infosys-interview-questions"><span>Infosys Interview</span></a>
+<a href="https://www.javatpoint.com/capgemini-interview-questions"><span>Capgemini Interview</span></a>
+<a href="https://www.javatpoint.com/cognizant-interview-questions"><span>Cognizant Interview</span></a>
+<a href="https://www.javatpoint.com/wipro-interview-questions"><span>Wipro Interview</span></a>
+<a href="https://www.javatpoint.com/accenture-interview-questions"><span>Accenture Interview</span></a>
+<a href="https://www.javatpoint.com/igate-interview-questions"><span>iGate Interview</span></a>
+<a href="https://www.javatpoint.com/tcs-interview-questions"><span>TCS Interview</span></a>
+<a href="https://www.javatpoint.com/hcl-interview-questions"><span>HCL Interview</span></a>
+<a href="https://www.javatpoint.com/adobe-interview-questions">Adobe Interview</a>
+<a href="https://www.javatpoint.com/microsoft-interview-questions">Microsoft Interview</a>
+<a href="https://www.javatpoint.com/dxc-technology-interview-questions">DXC Technology Interview</a>
+<a href="https://www.javatpoint.com/ericsson-interview-questions">Ericsson Interview</a>
+<a href="https://www.javatpoint.com/exl-interview-questions">EXL Service Interview</a>
+<a href="https://www.javatpoint.com/indiamart-interview-questions">IndiaMART Interview</a>
+<a href="https://www.javatpoint.com/intuit-interview-questions">Intuit Interview</a>
+<a href="https://www.javatpoint.com/spacex-interview-questions">SpaceX Interview</a>
+<a href="https://www.javatpoint.com/sapient-interview-questions">Sapient Interview</a>
+
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Technical Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/c-interview-questions"><span>C Interview</span></a>
+<a href="https://www.javatpoint.com/cpp-interview-questions"><span>C++ Interview</span></a>
+<a href="https://www.javatpoint.com/data-structure-interview-questions"><span>Data Structure Interview</span></a>
+<a href="https://www.javatpoint.com/linux-interview-questions"><span>Linux Interview</span></a>
+<a href="https://www.javatpoint.com/unix-interview-questions"><span>Unix Interview</span></a>
+<a href="https://www.javatpoint.com/shell-scripting-interview-questions"><span>Shell Scripting</span></a>
+<a href="https://www.javatpoint.com/networking-interview-questions"><span>Networking Interview</span></a>
+<a href="https://www.javatpoint.com/ccna-interview-questions"><span>CCNA Interview</span></a>
+<a href="https://www.javatpoint.com/android-interview-questions"><span>Android Interview</span></a>
+<a href="https://www.javatpoint.com/cloud-computing-interview-questions"><span>Cloud Computing</span></a>
+<a href="https://www.javatpoint.com/hadoop-interview-questions"><span>Hadoop Interview</span></a>
+<a href="https://www.javatpoint.com/software-testing-interview-questions"><span>Testing/QTP Interview</span></a>
+<a href="https://www.javatpoint.com/selenium-interview-questions"><span>Selenium Interview</span></a>
+<a href="https://www.javatpoint.com/web-services-interview-questions"><span>Web Services Interview</span></a>
+<a href="https://www.javatpoint.com/operating-system-interview-questions"><span>OS Interview</span></a>
+<a href="https://www.javatpoint.com/excel-interview-questions"><span>Excel Interview</span></a>
+<a href="https://www.javatpoint.com/seo-interview-questions"><span>SEO Interview</span></a>
+<a href="https://www.javatpoint.com/digital-marketing-interview-questions-and-answers"><span>Digital Marketing</span></a>
+<a href="https://www.javatpoint.com/python-interview-questions"><span>Python Interview</span></a>
+<a href="https://www.javatpoint.com/django-interview-questions-and-answers"><span>Django Interview</span></a>
+<a href="https://www.javatpoint.com/pascal-interview-questions-and-answers"><span>Pascal Interview</span></a>
+<a href="https://www.javatpoint.com/ruby-interview-questions"><span>Ruby Interview</span></a>
+<a href="https://www.javatpoint.com/ruby-on-rails-interview-questions"><span>Ruby on Rails Interview</span></a>
+<a href="https://www.javatpoint.com/memcached-interview-questions-and-answers"><span>Memcached Interview</span></a>
+<a href="https://www.javatpoint.com/go-programming-interview-questions"><span>Go Interview</span></a>
+<a href="https://www.javatpoint.com/openstack-interview-questions-and-answers"><span>OpenStack Interview</span></a>
+<a href="https://www.javatpoint.com/scala-interview-questions"><span>Scala Interview</span></a>
+<a href="https://www.javatpoint.com/control-systems-interview-questions"><span>Control Systems</span></a>
+<a href="https://www.javatpoint.com/electrical-machines-interview-questions"><span>Electrical Machines</span></a>
+<a href="https://www.javatpoint.com/power-system-interview-questions"><span>Power System</span></a>
+<a href="https://www.javatpoint.com/digital-electronics-interview-questions"><span>Digital Electronics</span></a>
+<a href="https://www.javatpoint.com/robotics-interview-questions">Robotics Interview</a>
+<a href="https://www.javatpoint.com/typescript-interview-questions">TypeScript Interview</a>
+<a href="https://www.javatpoint.com/swift-interview-questions">Swift Interview</a>
+<a href="https://www.javatpoint.com/blockchain-interview-questions">Blockchain Interview</a>
+<a href="https://www.javatpoint.com/bitcoin-interview-questions">Bitcoin Interview</a>
+<a href="https://www.javatpoint.com/aws-interview-questions">AWS Interview</a>
+<a href="https://www.javatpoint.com/informatica-interview-questions">Informatica Interview</a>
+<a href="https://www.javatpoint.com/qa-interview-questions">QA Interview</a>
+<a href="https://www.javatpoint.com/react-interview-questions">React Interview</a>
+<a href="https://www.javatpoint.com/git-interview-questions">GIT Interview</a>
+<a href="https://www.javatpoint.com/j2ee-interview-questions">J2EE Interview</a>
+<a href="https://www.javatpoint.com/deep-learning-interview-questions">Deep Learning</a>
+<a href="https://www.javatpoint.com/salesforce-interview-questions">Salesforce Interview</a>
+<a href="https://www.javatpoint.com/testng-interview-questions">TestNG Interview</a>
+<a href="https://www.javatpoint.com/agile-interview-questions">Agile Interview</a>
+<a href="https://www.javatpoint.com/machine-learning-interview-questions">Machine Learning</a>
+<a href="https://www.javatpoint.com/api-testing-interview-questions">API Testing</a>
+<a href="https://www.javatpoint.com/algorithm-interview-questions">Algorithm</a>
+<a href="https://www.javatpoint.com/java-design-pattern-interview-questions">Java Design Pattern</a>
+<a href="https://www.javatpoint.com/teradata-interview-questions">Teradata</a>
+<a href="https://www.javatpoint.com/tensorflow-interview-questions">TensorFlow</a>
+<a href="https://www.javatpoint.com/linq-interview-questions">LINQ</a>
+<a href="https://www.javatpoint.com/mainframe-interview-questions">Mainframe</a>
+<a href="https://www.javatpoint.com/laravel-interview-questions">Laravel</a>
+<a href="https://www.javatpoint.com/jira-interview-questions">JIRA</a>
+<a href="https://www.javatpoint.com/jcl-interview-questions">JCL</a>
+<a href="https://www.javatpoint.com/pytorch-interview-questions">Pytorch</a>
+<a href="https://www.javatpoint.com/etl-testing-interview-questions">ETL Testing</a>
+<a href="https://www.javatpoint.com/linked-list-interview-questions">Linked List</a>
+<a href="https://www.javatpoint.com/datastage-interview-questions">DataStage</a>
+<a href="https://www.javatpoint.com/tableau-interview-questions">Tableau</a>
+<a href="https://www.javatpoint.com/sap-abap-interview-questions">SAP ABAP</a>
+<a href="https://www.javatpoint.com/daa-interview-questions">DAA</a>
+<a href="https://www.javatpoint.com/computer-graphics-interview-questions">Computer Graphics</a>
+<a href="https://www.javatpoint.com/data-science-interview-questions">Data Science</a>
+<a href="https://www.javatpoint.com/software-engineering-interview-questions">Software Engineering</a>
+<a href="https://www.javatpoint.com/power-bi-interview-questions">Power BI</a>
+<a href="https://www.javatpoint.com/xamarin-interview-questions">Xamarin</a>
+<a href="https://www.javatpoint.com/ansible-interview-questions">Ansible</a>
+<a href="https://www.javatpoint.com/data-warehouse-interview-questions">Data Warehouse</a>
+<a href="https://www.javatpoint.com/ionic-interview-questions">Ionic</a>
+<a href="https://www.javatpoint.com/devops-interview-questions">Devops</a>
+<a href="https://www.javatpoint.com/react-native-interview-questions">React Native</a>
+<a href="https://www.javatpoint.com/python-pandas-interview-questions">Python Pandas</a>
+<a href="https://www.javatpoint.com/http-interview-questions">HTTP Interview</a>
+<a href="https://www.javatpoint.com/kali-linux-interview-questions">Kali Linux Interview</a>
+<a href="https://www.javatpoint.com/powershell-interview-questions">PowerShell Interview</a>
+<a href="https://www.javatpoint.com/sharepoint-interview-questions">SharePoint Interview</a>
+<a href="https://www.javatpoint.com/talend-interview-questions">Talend Interview</a>
+<a href="https://www.javatpoint.com/microsoft-azure-interview-questions">Microsoft Azure Interview</a>
+<a href="https://www.javatpoint.com/r-interview-questions">R Interview</a>
+<a href="https://www.javatpoint.com/flutter-interview-questions">Flutter Interview</a>
+<a href="https://www.javatpoint.com/matlab-interview-questions">MATLAB Interview</a>
+<a href="https://www.javatpoint.com/es6-interview-questions">ES6 Interview Questions</a>
+<a href="https://www.javatpoint.com/rpa-interview-questions">RPA Interview Questions</a>
+
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Web Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/html-interview-questions"><span>HTML Interview</span></a>
+<a href="https://www.javatpoint.com/css-interview-questions"><span>CSS Interview</span></a>
+<a href="https://www.javatpoint.com/javascript-interview-questions"><span>JavaScript Interview</span></a>
+<a href="https://www.javatpoint.com/jquery-interview-questions"><span>jQuery Interview</span></a>
+<a href="https://www.javatpoint.com/angularjs-interview-questions"><span>AngularJS Interview</span></a>
+<a href="https://www.javatpoint.com/angular-interview-questions">Angular Interview</a>
+<a href="https://www.javatpoint.com/angular-7-interview-questions">Angular 7 Interview</a>
+<a href="https://www.javatpoint.com/node-js-interview-questions"><span>Node.js Interview</span></a>
+<a href="https://www.javatpoint.com/ajax-interview-questions"><span>AJAX Interview</span></a>
+<a href="https://www.javatpoint.com/xml-interview-questions"><span>XML Interview</span></a>
+<a href="https://www.javatpoint.com/dojo-interview-questions-and-answers"><span>Dojo Interview</span></a>
+<a href="https://www.javatpoint.com/backbone-js-interview-questions-and-answers"><span>Backbone.js Interview</span></a>
+<a href="https://www.javatpoint.com/ember-js-interview-questions"><span>Ember.js Interview</span></a>
+<a href="https://www.javatpoint.com/xhtml-interview-questions"><span>XHTML Interview</span></a>
+<a href="https://www.javatpoint.com/xslt-interview-questions"><span>XSLT Interview</span></a>
+<a href="https://www.javatpoint.com/xpath-interview-questions"><span>XPath Interview</span></a>
+<a href="https://www.javatpoint.com/xquery-interview-questions"><span>XQuery Interview</span></a>
+<a href="https://www.javatpoint.com/xforms-interview-questions"><span>XForms Interview</span></a>
+<a href="https://www.javatpoint.com/sass-interview-questions-and-answers"><span>SASS Interview</span></a>
+<a href="https://www.javatpoint.com/coffeescript-interview-questions-and-answers"><span>CoffeeScript Interview</span></a>
+<a href="https://www.javatpoint.com/less-interview-questions-and-answers"><span>LESS Interview</span></a>
+<a href="https://www.javatpoint.com/perl-interview-questions"><span>Perl Interview</span></a>
+<a href="https://www.javatpoint.com/pure-css-interview-questions"><span>Pure.CSS Interview</span></a>
+<a href="https://www.javatpoint.com/materialize-css-interview-questions"><span>Materialize Interview</span></a>
+<a href="https://www.javatpoint.com/framework7-interview-questions"><span>Framework7 Interview</span></a>
+<a href="https://www.javatpoint.com/svg-interview-questions"><span>SVG Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/php-interview-questions"><span>PHP Interview</span></a>
+<a href="https://www.javatpoint.com/wordpress-interview-questions"><span>Wordpress Interview</span></a>
+<a href="https://www.javatpoint.com/joomla-interview-questions-and-answers"><span>Joomla Interview</span></a>
+<a href="https://www.javatpoint.com/drupal-interview-questions-and-answers"><span>Drupal Interview</span></a>
+<a href="https://www.javatpoint.com/magento-interview-questions-and-answers"><span>Magento Interview</span></a>
+<a href="https://www.javatpoint.com/codeigniter-interview-questions-and-answers"><span>CodeIgniter Interview</span></a>
+<a href="https://www.javatpoint.com/phalcon-interview-questions"><span>Phalcon Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">.Net Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/dot-net-interview-questions"><span>.Net Interview</span></a>
+<a href="https://www.javatpoint.com/c-sharp-interview-questions"><span>C# Interview</span></a>
+<a href="https://www.javatpoint.com/asp-dot-net-interview-questions"><span>ASP.NET Interview</span></a>
+<a href="https://www.javatpoint.com/ado-dot-net-interview-questions"><span>ADO.NET Interview</span></a>
+<a href="https://www.javatpoint.com/wcf-interview-questions"><span>WCF Interview</span></a>
+<a href="https://www.javatpoint.com/wpf-interview-questions"><span>WPF Interview</span></a>
+<a href="https://www.javatpoint.com/silverlight-interview-questions-and-answers"><span>Silverlight Interview</span></a>
+<a href="https://www.javatpoint.com/fsharp-interview-questions"><span>F# Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/corejava-interview-questions"><span>Java 1 Interview</span></a>
+<a href="https://www.javatpoint.com/corejava-interview-questions-2"><span>Java 2 Interview</span></a>
+<a href="https://www.javatpoint.com/corejava-interview-questions-3"><span>Exception &amp; String</span></a>
+<a href="https://www.javatpoint.com/java-multithreading-interview-questions"><span>Multithreading </span></a>
+<a href="https://www.javatpoint.com/java-collections-interview-questions"><span>Collections Interview</span></a>
+<a href="https://www.javatpoint.com/jdbc-interview-questions"><span>JDBC Interview</span></a>
+<a href="https://www.javatpoint.com/servletinterview"><span>Servlet Interview</span></a>
+<a href="https://www.javatpoint.com/jspinterview"><span>JSP Interview</span></a>
+<a href="https://www.javatpoint.com/ejb-interview-questions"><span>EJB Interview</span></a>
+<a href="https://www.javatpoint.com/struts-interview-questions"><span>Struts Interview</span></a>
+<a href="https://www.javatpoint.com/hibernate-interview-questions"><span>Hibernate Interview</span></a>
+<a href="https://www.javatpoint.com/spring-interview-questions"><span>Spring Interview</span></a>
+<a href="https://www.javatpoint.com/spring-boot-interview-questions"><span>Spring Boot Interview</span></a>
+<a href="https://www.javatpoint.com/spring-mvc-interview-questions"><span>Spring MVC Interview</span></a> 
+<a href="https://www.javatpoint.com/jpa-interview-questions"><span>JPA Interview</span></a>
+<a href="https://www.javatpoint.com/maven-interview-questions"><span>Maven Interview</span></a>
+<a href="https://www.javatpoint.com/junit-interview-questions"><span>JUnit Interview</span></a>
+<a href="https://www.javatpoint.com/jsf-interview-questions"><span>JSF Interview</span></a>
+<a href="https://www.javatpoint.com/primefaces-interview-questions"><span>PrimeFaces Interview</span></a>
+<a href="https://www.javatpoint.com/richfaces-interview-questions"><span>RichFaces Interview</span></a>
+<a href="https://www.javatpoint.com/gwt-interview-questions"><span>GWT Interview</span></a>
+<a href="https://www.javatpoint.com/jdb-interview-questions"><span>JDB Interview</span></a>
+<a href="https://www.javatpoint.com/jogl-interview-questions"><span>JOGL Interview</span></a>
+<a href="https://www.javatpoint.com/jbpm-interview-questions"><span>jBPM Interview</span></a>
+<a href="https://www.javatpoint.com/jenkins-interview-questions"><span>Jenkins Interview</span></a>
+ 
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Database Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/dbms-interview-questions"><span>DBMS Interview</span></a>
+<a href="https://www.javatpoint.com/sql-interview-questions"><span>SQL Interview</span></a>
+<a href="https://www.javatpoint.com/pl-sql-interview-questions"><span>PL/SQL Interview</span></a>
+<a href="https://www.javatpoint.com/oracle-interview-questions"><span>Oracle Interview</span></a>
+<a href="https://www.javatpoint.com/mysql-interview-questions"><span>MySql Interview</span></a>
+<a href="https://www.javatpoint.com/sql-server-interview-questions"><span>SQL Server Interview</span></a>
+<a href="https://www.javatpoint.com/mongodb-interview-questions"><span>MongoDB Interview</span></a>
+<a href="https://www.javatpoint.com/cassandra-interview-questions-and-answers"><span>Cassandra Interview</span></a>
+<a href="https://www.javatpoint.com/db2-interview-questions-and-answers"><span>DB2 Interview</span></a>
+<a href="https://www.javatpoint.com/microsoft-access-interview-questions-and-answers"><span>Access Interview</span></a>
+<a href="https://www.javatpoint.com/sqlite-interview-questions"><span>SQLite Interview</span></a>
+<a href="https://www.javatpoint.com/couchdb-interview-questions"><span>CouchDB Interview</span></a>
+<a href="https://www.javatpoint.com/neo4j-interview-questions-and-answers"><span>Neo4j Interview</span></a>
+<a href="https://www.javatpoint.com/mariadb-interview-questions"><span>MariaDB Interview</span></a>
+<a href="https://www.javatpoint.com/pouchdb-interview-questions"><span>PouchDB Interview</span></a>
+<a href="https://www.javatpoint.com/redis-interview-questions-and-answers"><span>Redis Interview</span></a>
+</div>
+<table  id="leftad">
+<tr><td>
+<img src="https://www.javatpoint.com/images/wh.JPG" alt="space"/>
+</td></tr>
+<tr><td>
+<ins class="adPushupAds" data-adpControl="g8drp" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBqYXZhdHBvaW50bGVmdCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lLWJsb2NrO3dpZHRoOjE2MHB4O2hlaWdodDo2MDBweCIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI0NDc2NDAxMjIyIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+<br><br>
+</td></tr>
+</table>
+</div>
+
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<!-- CM_JTP_Leaderbaord -->
+<ins class="adPushupAds" data-adpControl="nuoc1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDTV9KVFBfTGVhZGVyYmFvcmQgLS0+CjxpbnMgY2xhc3M9ImFkc2J5Z29vZ2xlIgogICAgIHN0eWxlPSJkaXNwbGF5OmJsb2NrIgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjkyMDE5MDE5MTUiCiAgICAgZGF0YS1hZC1mb3JtYXQ9ImF1dG8iCiAgICAgZGF0YS1mdWxsLXdpZHRoLXJlc3BvbnNpdmU9InRydWUiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+
+<div id="city">
+<table>
+<tr><td>
+
+<img src="https://static.javatpoint.com/interview/images/cassandra-interview-questions.png" alt="Cassandra Interview Questions" class="imageright"/>
+<h1 class="h1">Cassandra Interview Questions</h1>
+<p>A list of top frequently asked <strong>Cassandra interview questions</strong> and answers are given below. </p>
+
+<h3 class="h3">1)	Explain Cassandra.</h3>
+<p>Cassandra is a popular NOSQL database management system used to handle large amount of data. It is free and open source distributed database that provides high availability without any failure. </p>
+<hr/>
+<h3 class="h3">2) In which language Cassandra is written? </h3>
+<p>Cassandra is written in Java. It is originally designed by Facebook consisting of flexible schemas. It is highly scalable for big data.</p>
+<hr/>
+<h3 class="h3">3) Who was the original author of Cassandra?</h3>
+<p>The original authors of Cassandra are Avinash Lakshman and Prashant Malik. It was initially developed at Facebook to power the Facebook inbox search feature.</p>
+<hr/>
+<h3 class="h3">4) Which query language is used in Cassandra database?</h3>
+<p>Cassandra introduced its own Cassandra Query Language (CQL). CQL is a simple interface for accessing Cassandra, as an alternative to the traditional Structured Query Language (SQL).</p>
+<hr/>
+<h3 class="h3">5) What are the benefits/advantages of Cassandra?</h3>
+<ul class="points">
+<li>Cassandra delivers real-time performance simplifying the work of Developers, Administrators, Data Analysts and Software Engineers.</li>
+<li>It provides extensible scalability and can be easily scaled up and scaled down as per the requirements.</li>
+<li>Data can be replicated to several nodes for fault-tolerance.</li>
+<li>Being a distributed management system, there is no single point of failure.</li>
+<li>Every node in a cluster contains different data and able to serve any request.</li>
+</ul>
+<hr/>
+<h3 class="h3">6) Where Cassandra stores its data?</h3>
+<p>Cassandra stores its data in the data dictionary.</p>
+<hr/>
+<h3 class="h3">7) What was the design goal of Cassandra?</h3>
+<p>The main design goal of Cassandra was to handle big data workloads across multiple nodes without a single point of failure.</p>
+<hr/>
+<h3 class="h3">8) How many types of NoSQL databases? Give some examples.</h3>
+<p>There are mainly 4 types of NoSQL databases:</p>
+<ul class="points">
+<li>Document store types ( MongoDB and CouchDB)</li>
+<li>Key-Value store types ( Redis and Volgemort)</li>
+<li>Column store types ( Cassandra)</li>
+<li>Graph store types ( Neo4j and Giraph)</li>
+</ul>
+<hr/>
+<h3 class="h3">9) Mention some important components of Cassandra data models?</h3>
+<p>These are some key components of Cassandra data model: -</p>
+<ul class="points">
+<li>Table( collection of columns)</li>
+<li>Node</li>
+<li>Cluster</li>
+<li>Keyspace</li>
+</ul>
+<hr/>
+<h3 class="h3">10) What are the other components of Cassandra?</h3>
+<p>Some other components of Cassandra are:</p>
+<ul class="points">
+<li>Node</li>
+<li>Data Center</li>
+<li>Commit log</li>
+<li>Mem-table</li>
+<li>SSTable</li>
+<li>Bloom Filter</li>
+</ul>
+<hr/>
+<h3 class="h3">11) What is keyspace in Cassandra?</h3>
+<p>In Cassandra, a keyspace is a namespace that determines data replication on nodes. A cluster contains of one keyspace per node.</p>
+<hr/>
+<h3 class="h3">12) What are the different composite keys in Cassandra?</h3>
+<p>In Cassandra, composite keys are used to define key or a column name with a concatenation of data of different type. There are two types of Composite key in Cassandra:</p>
+<ul class="points">
+<li>Row Key</li>
+<li>Column Name</li>
+</ul>
+<hr/>
+<h3 class="h3">13) What is data replication in Cassandra?</h3>
+<p>Data replication is an electronic copying of data from a database in one computer or server to a database in another so that all users can share the same level of information. Cassandra stores replicas on multiple nodes to ensure reliability and fault tolerance. The replication strategy decides the nodes where replicas are placed.</p>
+<hr/>
+<h3 class="h3">14) What is node in Cassandra? </h3>
+<p>In Cassandra, node is a place where data is stored.</p>
+<hr/>
+<h3 class="h3">15) 15)	What do you mean by data center in Cassandra?</h3>
+<p>Data center is a complete data of clusters.</p>
+<hr/>
+<h3 class="h3">16) What do you mean by commit log in Cassandra?</h3>
+<p>In Cassandra, commit log is a crash-recovery mechanism. Every write operation is written to the commit log.</p>
+<hr/>
+<h3 class="h3">17) 17)	What do you mean by column family in Cassandra?</h3>
+<p>Column family is a table in RDMS that contains an ordered collection of rows.</p>
+<hr/>
+<h3 class="h3">18) What do you mean by consistency in Cassandra?</h3>
+<p>Consistency in Cassandra specifies how to synchronize and up to date a row of Cassandra data and its replicas.</p>
+<hr/>
+<h3 class="h3">19) How many types of tunable consistency are supported in Cassandra?</h3>
+<p>It supports two consistencies: Eventual Consistency and Strong Consistency.</p>
+<p>The eventual consistency is used when no new updates are made on a given data item, all accesses return the last updated value eventually. Systems with eventual consistency are known to have achieved replica convergence.</p>
+<p>Cassandra supports the following conditions for strong consistency: </p>
+<p><strong>R + W > N</strong></p>
+<p><strong>Here</strong></p>
+<p><strong>N:</strong> Number of replicas</p>
+<p><strong>W:</strong> Number of nodes that need to agree for a successful write</p>
+<p><strong>R:</strong> Number of nodes that need to agree for a successful read</p>
+<hr/>
+<h3 class="h3">20) What is tunable consistency in Cassandra?</h3>
+<p>Tunable Consistency is a phenomenal characteristic of Cassandra which makes it a popular choice.  Consistency refers to the up-to-date and synchronized data rows on all their replicas. Cassandra's Tunable Consistency facilitates users to select the consistency level best suited for their use cases.</p>
+<hr/>
+<h3 class="h3">21) What is the syntax to create keyspace in Cassandra?</h3>
+<div class="codeblock"><textarea name="code" class="xml">
+ CREATE KEYSPACE <identifier> WITH <properties>
+</textarea></div>
+<hr/>
+<h3 class="h3">22) What is a column family in Cassandra?</h3>
+<p>In Cassandra, a collection of rows is referred as "column family".</p>
+<hr/>
+<h3 class="h3">23) How does Cassandra perform write function?</h3>
+<p>Cassandra performs the write function by applying two commits:</p>
+<ul class="points">
+<li>First commit is applied on disk and then second commit to an in-memory structure known as memtable.</li>
+<li>When the both commits are applied successfully, the write is achieved.</li> 
+<li>Writes are written in the table structure as SSTable (sorted string table).</li>
+</ul>
+<hr/>
+<h3 class="h3">24) What is memtable?</h3>
+<p>Memtable is in-memory/write-back cache space containing content in key and column format. In memtable, data is sorted by key, and each ColumnFamily has a distinct memtable that retrieves column data via key. It stores the writes until it is full, and then flushed out.</p>
+<hr/>
+<h3 class="h3">25) What is SSTable?</h3>
+<p>SSTable is a short form of 'Sorted String Table'. It refers to an important data file in Cassandra and accepts regular written memtables. They are stored on disk and exist for each Cassandra table.</p>
+<hr/>
+<h3 class="h3">26) How the SSTable is different from other relational tables?</h3>
+<p>SStables do not allow any further addition and removal of data items once written. For each SSTable, Cassandra creates three separate files like partition index, partition summary and a bloom filter. </p>
+<hr/>
+<h3 class="h3">27) What are the management tools in Cassandra?</h3>
+<p><strong>DataStaxOpsCenter:</strong> It is an internet-based management and monitoring solution for Cassandra cluster and DataStax. It is free to download and includes an additional Edition of OpsCenter. </p>
+<p><strong>SPM:</strong> SPM primarily administers Cassandra metrics and various OS and JVM metrics. It also monitors Hadoop, Spark, Solr, Storm, zookeeper and other Big Data platforms besides Cassandra.</p> 
+<hr/>
+<h3 class="h3">28) Mention some important features of SPM in Cassandra?</h3>
+<p>The main features of SPM are:</p>
+<ul class="points">
+<li>Correlation of events and metrics</li>
+<li>Distributed transaction tracing</li>
+<li>Creating real-time graphs with zooming</li>
+<li>Detection and heartbeat alerting</li>
+</ul>
+<hr/>
+<h3 class="h3">29) What is cluster in Cassandra?</h3>
+<p>In Cassandra, the cluster is an outermost container for keyspaces that arranges the nodes in a ring format and assigns data to them. These nodes have a replica which takes charge in case of data handling failure.</p>
+<hr/>
+<h3 class="h3">30) What is the role of ALTER KEYSPACE?</h3>
+<p>ALTER KEYSPACE is used to change the value of DURABLE_WRITES with its related properties.</p>
+<hr/>
+<h3 class="h3">31) What do you mean by Cassandra-Cqlsh?</h3>
+<p>Cqlsh is a Cassandra query language shell used to execute the commands of CQL (Cassandra query language).</p>
+<hr/>
+<h3 class="h3">32) What are the differences between a node, a cluster, and datacenter in Cassandra?</h3>
+<p><strong>Node:</strong> A node is a single machine running Cassandra.</p>
+<p><strong>Cluster:</strong> A cluster is a collection of nodes that contains similar types of data together.</p> 
+<p><strong>Datacenter:</strong> A datacenter is a useful component when serving customers in different geographical areas. Different nodes of a cluster can be grouped into different data centers.</p>
+<hr/>
+<h3 class="h3">33) What is the use of Cassandra CQL collection?</h3>
+<p>Cassandra CQL collection is used to collect the data and store it in a column where each collection represents the same type of data. CQL consist of three types of types:</p>
+<ul class="points">
+<li><strong>SET:</strong> It is a collection of unordered list of unique elements.</li>
+<li><strong>List:</strong> It is a collection of elements arranged in an order and can contain duplicate values.</li>
+<li><strong>MAP:</strong> It is a collection of unique elements in a form of key-value pair.</li>
+</ul>
+<hr/>
+<h3 class="h3">34) What is the use of Bloom Filter in Cassandra?</h3>
+<p>On a request of a data, before doing any disk I/O Bloom filter checks whether the requested data exist in the row of SSTable.</p>
+<hr/>
+<h3 class="h3">35) How does Cassandra delete data?</h3>
+<p>In Cassandra, to delete a row, it is required to associate the value of column to Tombstone (where Tombstone is a special value).</p>
+<hr/>
+<h3 class="h3">36) What is SuperColumn in Cassandra?</h3>
+<p>In Cassandra, SuperColumn is a unique element containing similar collection of data. They are actually key-value pairs with values as columns.</p>
+<hr/>
+<h3 class="h3">37) What is the difference between Column and SuperColumn?</h3>
+<p>Difference between Column and SuperColumn:</p>
+<ul class="points">
+<li>The values in columns are string while the values in SuperColumn are Map of Columns with different data types.</li>
+<li>Unlike Columns, Super Columns do not contain the third component of timestamp.</li>
+</ul>
+<hr/>
+<h3 class="h3">38) What is Hadoop, HBase, Hive and Cassandra? Specify similarities and differences among them.</h3>
+<p>Hadoop, HBase, Hive and Cassandra all are Apache products.</p>
+<p>Apache Hadoop supports file storage, grid compute processing via Map reduce. Apache Hive is a SQL like interface on the top of Haddop.  Apache HBase follows column family storage built like Big Table. Apache Cassandra also follows column family storage built like Big Table with Dynamo topology and consistency.</p>
+<hr/>
+<h3 class="h3">39) What is the usage of "void close()" method?</h3>
+<p>In Cassandra, the void close() method is used to close the current session instance.</p>
+<hr/>
+<h3 class="h3">40) Which command is used to start the cqlsh prompt?</h3>
+<p>The <strong>cqlsh</strong> command is used to start the cqlsh prompt.</p>
+<hr/>
+<h3 class="h3">41) What is the usage of "cqlsh-version" command?</h3>
+<p>The "cqlsh-version" command is used to provide the version of the cqlsh you are using.</p>
+<hr/>
+<h3 class="h3">42) Does Cassandra work on Windows?</h3>
+<p>Yes. Cassandra is compatible on Windows and works pretty well. Now its Linux and Window compatible version are available.</p>
+<hr/>
+<h3 class="h3">43) What is Kundera in Cassandra?</h3>
+<p>In Cassandra, Kundera is an object-relational mapping (ORM) implementation which is written using Java annotations.</p>
+<hr/>
+<h3 class="h3">44) What do you mean by Thrift in Cassandra?</h3>
+<p>Thrift is the name of RPC client which is used to communicate with the Cassandra Server.</p>
+<hr/>
+<h3 class="h3">45) What is Hector in Cassandra?</h3>
+<p>Hector was one of the early Cassandra clients. It is an open source project written in Java using the MIT license.</p>
+<HR/>
+<div id="interviewcategory">
+<table class="alt">
+<tr><td><a href="https://www.javatpoint.com/corejava-interview-questions#corebasicsinterview">Java Basics Interview Questions</a></td>
+<td><a href="https://www.javatpoint.com/corejava-interview-questions#oopsinterview">Java OOPs Interview Questions</a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/java-multithreading-interview-questions">Java Multithreading Questions</a></td>
+<td><a href="https://www.javatpoint.com/corejava-interview-questions-3">Java String &amp; Exception Questions</a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/java-collections-interview-questions">Java Collection Interview Questions</a></td>
+<td><a href="https://www.javatpoint.com/jdbc-interview-questions">JDBC Interview Questions</a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/servletinterview">Servlet Interview Questions</a></td>
+<td><a href="https://www.javatpoint.com/jspinterview">JSP Interview Questions</a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/spring-interview-questions"><span>Spring Interview Questions</span></a></td><td><a href="https://www.javatpoint.com/hibernate-interview-questions"><span>Hibernate Interview Questions</span></a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/pl-sql-interview-questions"><span>PL/SQL Interview Questions</span></a></td><td><a href="https://www.javatpoint.com/sql-interview-questions"><span>SQL Interview Questions</span></a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/oracle-interview-questions"><span>Oracle Interview Questions</span></a></td><td><a href="https://www.javatpoint.com/android-interview-questions"><span>Android Interview Questions</span></a></td></tr>
+<tr><td><a href="https://www.javatpoint.com/sql-server-interview-questions"><span>SQL Server Interview Questions</span></a></td><td><a href="https://www.javatpoint.com/mysql-interview-questions"><span>MySQL Interview Questions</span></a></td></tr>
+
+</table>
+</div>
+
+</td></tr>
+</table>
+</div>
+<div style="margin-left:0%">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- AP_37780_300x250(0) -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4699858549023382"
+     data-ad-slot="5022809933"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</div>
+</div>
+
+<div id="right">
+
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+<br/><br/>
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+<br/><br/>
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:10px;">
+<!-- right1024only -->
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+<br/><br/><br/><br/>
+<!-- right1024only -->
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+
+<div id="footer" style="clear:both;width:100%">
+<!--<div style="width:100%;float:center;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#90715c,#523b1f);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Summer Training</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers <strong>Summer Internship Training</strong> on Java, PHP, .Net, Hadoop, Data Analytics, R Programming, SAP, Android, Python, Oracle, Seleninum, Linux, C++ and many more technologies in Delhi/NCR, India. For more visit <a style="color:white" href="https://training.javatpoint.com"><img src="https://static.javatpoint.com/images/linkglobe12.png" alt="javatpoint training"/>training.javatpoint.com</a> <br>Course Fee: &#8377; 6000 Only<br>Duration: 6 Week </p></div>--><div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com. <br>Duration: 1 week to 2 week<br></p></div><!--<div class="homebox2"><h2>Our Initiatives</h2><marquee behavior="alternate"><a rel="nofollow noopener" href="https://www.hindi100.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/javatpoint.png" alt="javatpoint"/><p>Hindi100</p></div></a><a rel="nofollow noopener" href="https://www.lyricsia.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/lyrics.png" alt="lyrics"/><p>Lyricsia</p></div></a></div></a></marquee></div>--><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed"/></a> <a target="_blank"  rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts"/></a> <a  rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page"/></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page"/></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube"/></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page"/></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="https://www.javatpoint.com/java-tutorial">Learn Java</a><a href="https://www.javatpoint.com/data-structure-tutorial">Learn Data Structures</a><a href="https://www.javatpoint.com/c-programming-language-tutorial">Learn C Programming</a><a href="https://www.javatpoint.com/cpp-tutorial">Learn C++ Tutorial</a><a href="https://www.javatpoint.com/c-sharp-tutorial">Learn C# Tutorial</a><a href="https://www.javatpoint.com/php-tutorial">Learn PHP Tutorial</a><a href="https://www.javatpoint.com/html-tutorial">Learn HTML Tutorial</a><a href="https://www.javatpoint.com/javascript-tutorial">Learn JavaScript Tutorial</a><a href="https://www.javatpoint.com/jquery-tutorial">Learn jQuery Tutorial</a><a href="https://www.javatpoint.com/spring-tutorial">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="https://www.javatpoint.com/">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="https://www.javatpoint.com/contact-us">Contact Us</a> <a href="https://www.javatpoint.com/subscribe.jsp">Subscribe Us</a> <a href="https://www.javatpoint.com/privacy-policy">Privacy Policy</a><a href="https://www.javatpoint.com/sitemap.xml">Sitemap</a><br><a href="https://www.javatpoint.com/sonoo-jaiswal">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+</div>
+
+</div></div>
+ 
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script>
+<script type="text/javascript"> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+
+</body> 
+
+<!-- Mirrored from www.javatpoint.com/cassandra-interview-questions-and-answers by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:26:43 GMT -->
+</html>
+    

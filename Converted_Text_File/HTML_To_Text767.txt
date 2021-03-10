@@ -1,0 +1,27 @@
+Automata Chomsky's Normal Form (CNF) - Javatpoint?HomeCompilerAutomataAWSIoTComputer FundamentalsControl SystemJavaHTMLCSSAptitudeSeleniumKotlinJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingAutomata TutorialAutomata Tutorial Theory of Automata Finite Automata Transition Diagram Transition Table DFA Examples of DFA NFA Examples of NFA Eliminating ? Transitions Conversion from NFA to DFA Conversion from NFA with ? to DFA Minimization of DFARegular ExpressionRegular Expression Examples of Regular Expression Conversion of RE to FA Arden's Theorem Moore Machine Mealy Machine Conversion from Mealy machine to Moore machine Conversion from Moore machine to Mealy machineCFGContext-free Grammar Derivation Derivation Tree Ambiguity in Grammar Unambiguous Grammar Simplification of CFG Chomsky's Normal Form (CNF) Greibach Normal Form (GNF)PDAPushdown Automata PDA Acceptance Non-deterministic Pushdown Automata CFG to PDA ConversionTuring MachineAutomata Turing Machine Basic Model of Turing machine Language accepted by Turing machine Example of TM Introduction to Undecidability Undecidable Problem about TM Post Correspondence Problem Chomsky Hierarchynext ? ? prevChomsky's Normal Form (CNF)CNF stands for Chomsky normal form. A CFG(context free grammar) is in CNF(Chomsky normal form) if all production rules satisfy one of the following conditions:Start symbol generating ?. For example, A ? ?.A non-terminal generating two non-terminals. For example, S ? AB.A non-terminal generating a terminal. For example, S ? a.For example:G1 = {S ? AB, S ? c, A ? a, B ? b}
+G2 = {S ? aA, A ? a, B ? c}The production rules of Grammar G1 satisfy the rules specified for CNF, so the grammar G1 is in CNF. However, the production rule of Grammar G2 does not satisfy the rules specified for CNF as S ? aZ contains terminal followed by non-terminal. So the grammar G2 is not in CNF.Steps for converting CFG into CNFStep 1: Eliminate start symbol from the RHS. If the start symbol T is at the right-hand side of any production, create a new production as:S1 ? SWhere S1 is the new start symbol.Step 2: In the grammar, remove the null, unit and useless productions. You can refer to the Simplification of CFG.Step 3: Eliminate terminals from the RHS of the production if they exist with other non-terminals or terminals. For example, production S ? aA can be decomposed as:S ? RA
+R ? aStep 4: Eliminate RHS with more than two non-terminals. For example, S ? ASB can be decomposed as:S ? RS
+R ? ASExample:Convert the given CFG to CNF. Consider the given grammar G1:S ? a | aA | B
+A ? aBB | ?
+B ? Aa | bSolution:Step 1: We will create a new production S1 ? S, as the start symbol S appears on the RHS. The grammar will be: S1 ? S
+S ? a | aA | B
+A ? aBB | ?
+B ? Aa | bStep 2: As grammar G1 contains A ? ? null production, its removal from the grammar yields:S1 ? S
+S ? a | aA | B
+A ? aBB
+B ? Aa | b | aNow, as grammar G1 contains Unit production S ? B, its removal yield:S1 ? S
+S ? a | aA | Aa | b
+A ? aBB
+B ? Aa | b | aAlso remove the unit production S1 ? S, its removal from the grammar yields:S0 ? a | aA | Aa | b
+S ? a | aA | Aa | b
+A ? aBB
+B ? Aa | b | aStep 3: In the production rule S0 ? aA | Aa, S ? aA | Aa, A ? aBB and B ? Aa, terminal a exists on RHS with non-terminals. So we will replace terminal a with X:S0 ? a | XA | AX | b
+S ? a | XA | AX | b
+A ? XBB
+B ? AX | b | a
+X ? aStep 4: In the production rule A ? XBB, RHS has more than two symbols, removing it from grammar yield:S0 ? a | XA | AX | b
+S ? a | XA | AX | b
+A ? RB
+B ? AX | b | a
+X ? a
+R ? XBHence, for the given grammar, this is the required CNF.Next TopicGreibach Normal Form (GNF)? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,148 @@
+Computer Graphics | Line Clipping - javatpoint?HomeComputer FundamentalsComputer GraphicsBiometricsComputer NetworkJavaHTMLCSSSeleniumjQueryProjectsInterview QCommentForumTrainingComputer GraphicsComputer Graphics Tutorial Application of Computer Graphics Interactive and Passive GraphicsGraphic SystemsDisplay Processor Cathode Ray Tube (CRT) Random Scan vs Raster Scan Color CRT Monitors Direct View Storage Tubes Flat Panel DisplayInput-Output DevicesInput Devices Trackball Light Pen Image Scanner Output Devices PlottersScan Conversion a lineScan Conversion Definition Scan Converting a Point Scan Converting a Straight Line DDA Algorithm Bresenham's Line AlgorithmScan Conversion CircleDefining a Circle Defining a Circle using Polynomial Method Defining a Circle using Polar Coordinates Method Bresenham's Circle Algorithm Midpoint Circle AlgorithmScan Converting EllipseScan converting a Ellipse Polynomial Method Trignometric Method Midpoint Ellipse AlgorithmFilled Area PrimitivesBoundary Fill Algorithm Flood Fill Algorithm Scan Line Polygon Fill Algorithm2D TransformationsIntroduction of Transformation Translation Scaling Rotation Reflection Shearing Matrix Representation Homogeneous Coordinates Composite Transformation Pivot Point Rotation2D-ViewingWindow Window to Viewport Co-ordinate Transformation Zooming PanningClipping TechniquesClipping Point Clipping Line Clipping Midpoint Subdivision Algorithm Text Clipping Polygon Sutherland-Hodgeman Polygon Clipping Weiler-Atherton Polygon ClippingPointing & PositioningPointing & Positioning Techniques Elastic or Rubber Band Techniques DraggingShadingIntroduction of Shading Constant Intensity Shading Gouraud shading Phong ShadingAnimationAnimation Application Areas of Animation Animation Functions3D Computer GraphicsThree Dimensional Graphics Three Dimensional Transformations Scaling Rotation Rotation about Arbitrary Axis Inverse Transformations Reflection ShearingHidden SurfacesHidden Surface Removal Back Face Removal Algorithm Z-Buffer Algorithm Painter's Algorithm Scan Line Algorithm Subdivision Algorithm 3D Modelling SystemProjectionProjection Perspective Projection Parallel ProjectionProgramsComputer Graphics Programsnext ? ? prevLine Clipping:It is performed by using the line clipping algorithm. The line clipping algorithms are:Cohen Sutherland Line Clipping AlgorithmMidpoint Subdivision Line Clipping AlgorithmLiang-Barsky Line Clipping AlgorithmCohen Sutherland Line Clipping Algorithm:In the algorithm, first of all, it is detected whether line lies inside the screen or it is outside the screen. All lines come under any one of the following categories:VisibleNot VisibleClipping Case1. Visible: If a line lies within the window, i.e., both endpoints of the line lies within the window. A line is visible and will be displayed as it is.2. Not Visible: If a line lies outside the window it will be invisible and rejected. Such lines will not display. If any one of the following inequalities is satisfied, then the line is considered invisible. Let A (x1,y2) and B (x2,y2) are endpoints of line.xmin,xmax are coordinates of the window.ymin,ymax are also coordinates of the window.          x1>xmax          x2>xmax          y1>ymax          y2>ymax          x1<xmin          x2<xmin          y1<ymin          y2<ymin3. Clipping Case: If the line is neither visible case nor invisible case. It is considered to be clipped case. First of all, the category of a line is found based on nine regions given below. All nine regions are assigned codes. Each code is of 4 bits. If both endpoints of the line have end bits zero, then the line is considered to be visible.The center area is having the code, 0000, i.e., region 5 is considered a rectangle window.Following figure show lines of various typesLine AB is the visible caseLine OP is an invisible caseLine PQ is an invisible lineLine IJ are clipping candidatesLine MN are clipping candidateLine CD are clipping candidateAdvantage of Cohen Sutherland Line Clipping:It calculates end-points very quickly and rejects and accepts lines quickly.It can clip pictures much large than screen size.Algorithm of Cohen Sutherland Line Clipping:Step1:Calculate positions of both endpoints of the lineStep2:Perform OR operation on both of these end-pointsStep3:If the OR operation gives 0000       Then                line is considered to be visible       else          Perform AND operation on both endpoints      If And ? 0000          then the line is invisible        else      And=0000    Line is considered the clipped case.Step4:If a line is clipped case, find an intersection with boundaries of the window                m=(y2-y1 )(x2-x1)(a) If bit 1 is "1" line intersects with left boundary of rectangle window                y3=y1+m(x-X1)                where X = Xwmin                where Xwminis the minimum value of X co-ordinate of window(b) If bit 2 is "1" line intersect with right boundary                y3=y1+m(X-X1)                where X = Xwmax                where X more is maximum value of X co-ordinate of the window(c) If bit 3 is "1" line intersects with bottom boundary                X3=X1+(y-y1)/m                      where y = ywmin                ywmin is the minimum value of Y co-ordinate of the window(d) If bit 4 is "1" line intersects with the top boundary                X3=X1+(y-y1)/m                      where y = ywmax                ywmax is the maximum value of Y co-ordinate of the windowExample of Cohen-Sutherland Line Clipping Algorithm:Let R be the rectangular window whose lower left-hand corner is at L (-3, 1) and upper right-hand corner is at R (2, 6). Find the region codes for the endpoints in fig:The region code for point (x, y) is set according to the schemeBit 1 = sign (y-ymax)=sign (y-6)         Bit 3 = sign (x-xmax)= sign (x-2)Bit 2 = sign (ymin-y)=sign(1-y)         Bit 4 = sign (xmin-x)=sign(-3-x)HereSo                A (-4, 2)? 0001         F (1, 2)? 0000                B (-1, 7) ? 1000         G (1, -2) ?0100                C (-1, 5)? 0000         H (3, 3) ? 0100                D (3, 8) ? 1010         I (-4, 7) ? 1001                E (-2, 3) ? 0000         J (-2, 10) ? 1000We place the line segments in their appropriate categories by testing the region codes found in the problem.Category1 (visible): EF since the region code for both endpoints is 0000.Category2 (not visible): IJ since (1001) AND (1000) =1000 (which is not 0000).Category 3 (candidate for clipping): AB since (0001) AND (1000) = 0000, CD since (0000) AND (1010) =0000, and GH. since (0100) AND (0010) =0000.The candidates for clipping are AB, CD, and GH.In clipping AB, the code for A is 0001. To push the 1 to 0, we clip against the boundary line xmin=-3. The resulting intersection point is I1 (-3,3). We clip (do not display) AI1 and I1 B. The code for I1is 1001. The clipping category for I1 B is 3 since (0000) AND (1000) is (0000). Now B is outside the window (i.e., its code is 1000), so we push the 1 to a 0 by clipping against the line ymax=6. The resulting intersection is l2 (-1,6). Thus I2 B is clipped. The code for I2 is 0000. The remaining segment I1 I2 is displayed since both endpoints lie in the window (i.e., their codes are 0000).For clipping CD, we start with D since it is outside the window. Its code is 1010. We push the first 1 to a 0 by clipping against the line ymax=6. The resulting intersection I3 is (,6),and its code is 0000. Thus I3 D is clipped and the remaining segment CI3 has both endpoints coded 0000 and so it is displayed.For clipping GH, we can start with either G or H since both are outside the window. The code for G is 0100, and we push the 1 to a 0 by clipping against the line ymin=1.The resulting intersection point is I4 (2,1) and its code is 0010. We clip GI4 and work on I4 H. Segment I4 H is not displaying since (0010) AND (0010) =0010.Program to perform Line Clipping using Cohen Sutherland Algorithm:#include <iostream.h>
+#include <conio.h>
+#include <graphics.h>
+#include <dos.h>
+class data
+{
+	int gd, gmode, x, y, xmin,ymin,ymax,xmax;
+	int a1,a2;
+	float x1, y1,x2,y2,x3,y3;
+	int xs, ys, xe, ye;
+	float maxx,maxy;
+	public:
+		void getdata ();
+		void find ();
+		void clip ();
+		void display (float, float,float,float);
+		void checkonof (int);
+		void showbit (int);
+};
+void data :: getdata ()
+{
+	cout<<"Enter the minimum and maximum coordinate of window (x, y) ";
+           cin >>xmin>>ymin>>xmax>>ymax;
+           cout<<"Enter the end points of the line to be clipped";
+           cin >>xs>>ys>>xe>>ye;
+           display (xs, ys, xe,ye);
+}
+void data :: display (float, xs, float, ys,float xe, float ye)
+{
+	int gd=DETECT;
+	initgraph (&gd,&gmode, "");
+	maxx=getmaxx();
+	maxy=getmaxy();
+	line (maxx/2,0,maxx/2,maxy);
+	line (0, maxy/2,maxx,maxy/2);
+	rectangle (maxx/2+xmin,maxy/2-ymax,maxx/2+xmax,maxy/2-ymin);
+	line (maxx/2+xs,maxy/2-ys,maxx/2+xe,maxy/2-ye);
+	getch();
+}
+void data :: find ()
+{
+	a1=0;
+	a2=0;
+	if ((ys-ymax)>0)
+               a1+=8;
+	if ((ymin-ys)>0)
+	    a1+=4;
+	if ((xs-xmax)>0)
+	     a1+=2;
+            if ((xmin-xs)>0)
+	     a1+=1;
+	 if ((ye-ymax)>0)
+	    a2+=8;
+           if ((ymin-ye)>0)
+              a2+=4;
+          if ((xe-xmax)>0)
+               a2+=2;
+          if ((xmin-xe)>0)
+                a2+=1;
+         cout<<"\nThe area code of Ist point is ";
+                 showbit (a1);
+         getch ();
+         cout <<"\nThe area code of 2nd point is ";
+         showbit (a2);
+         getch ();
+}
+void data :: showbit (int n)
+{
+        int i,k, and;
+        for (i=3;i>=0;i--)
+        {
+              and =1<<i;
+	   k = n?
+	   k ==0?cout<<"0": cout<<"1\"";         
+          }
+}
+void data ::clip()
+{
+         int j=a1&a2;
+         if (j==0)
+         {
+              cout<<"\nLine is perfect candidate for clipping";
+              if (a1==0)
+	   {
+                    else
+             {
+                   checkonof(a1);
+                   x2=x1;y2=y1;
+             }
+             if (a2=0)
+            {
+                 x3=xe; y3=ye;
+            }
+           else
+           {
+                   checkonof (a2);
+                   x3=x1; y3=y1;
+            }
+            xs=x2; ys=y2;xe=x3;ye=y3;
+            cout << endl;
+            display (xs,ys,xe,ye);
+            cout<<"Line after clipping";
+            getch ()
+          }
+       else if ((a1==0) && (a2=0))
+       {
+               cout <<"\n Line is in the visible region";
+               getch ();
+       }
+}
+void data :: checkonof (int i)
+{
+      int j, k,l,m;
+      1=i&1;
+      x1=0;y1=0;
+       if (1==1)
+      {
+             x1=xmin;
+             y1=ys+ ((x1-xs)/ (xe-xs))*(ye-ys);
+      }
+      j=i&8;
+   if (j>0)
+   {
+             y1=ymax;
+	  x1=xs+(y1-ys)/(ye-ys))*(xe-xs);
+    }
+    k=i & 4;
+    if (k==1)
+    {
+           y1=ymin;
+           x1=xs+((y1-ys)/(ye-ys))*(xe-xs);
+    }
+    m= i&2;
+     if (m==1)
+     {
+            x1=xmax;
+            y1=ys+ ((x1-xs)/ (xe-xs))*(ye-ys);
+      }
+      main ()
+      {
+             data s;
+             clrscr();
+             s.getdata();
+             s.find();
+             getch();
+             closegraph ();
+             return ();
+    }Output:Next TopicMidpoint Subdivision Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

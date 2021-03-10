@@ -1,0 +1,90 @@
+Bootstrap Progress Bar - JavaTpoint?HomeCJavaPHPHTMLCSSBootstrapJavaScriptjQueryjQuery UIXMLJSONAjaxQuizProjectsInterview QCommentForumTrainingBootstrap TrainingBootstrap TutorialBootstrap Introduction What is Bootstrap Bootstrap Example Bootstrap ContainerBootstrap ExamplesBootstrap Jumbotron Bootstrap Button Bootstrap Grid Bootstrap Table Bootstrap Form Bootstrap Alert Bootstrap Wells Bootstrap Badge & Label Bootstrap Panels Bootstrap Pagination Bootstrap Pager Bootstrap Image Bootstrap Glyphicon Bootstrap Carousel Bootstrap Progress Bar Bootstrap List Group Bootstrap Dropdown Bootstrap CollapseBootstrap AdvanceBootstrap Tabs/Pills Bootstrap Navbar Bootstrap Input Types Bootstrap Modals Bootstrap Popover Bootstrap ScrollspyBootstrap UtilitiesBootstrap Border Bootstrap Clearfix Bootstrap Close Icons Bootstrap Colors Bootstrap Flexbox Display property Image Replacement Invisible Content Bootstrap Position Responsive helpers Screen readers Bootstrap Sizing Bootstrap Spacing Bootstrap TypographyInterview QuestionsHTML Interview CSS Interview jQuery Interview JavaScript Interview AJAX Interviewnext ? ? prevBootstrap Progress BarThe progress bar shows how far a user is in a process. In Bootstrap, there are several types of progress bars.The class .progress within a <div> element is used to create a default progress bar in bootstrap.Bootstrap Progress Bar Example
+  Bootstrap Progress barDefault Progress Bar70% CompleteTest it NowBootstrap 4 Basic Progress BarProgress bar is used to show a user how far long he/she is in a process. To create create a default progress bar, add a .progress class to a container element and and the progress-bar class to its child element. Use the CSS width property to set the width of the progress bar.Example<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Progress Bar With Label</h2>
+  <div class="progress">
+    <div class="progress-bar" style="width:70%">70%</div>
+  </div>
+</div>
+
+</body>
+</html>Test it NowBootstrap Progress bar with LabelThe progress bar with label specifies the percentage of progress of a specific process.You have to remove the .sr-only class from the progress bar to show a visible percentage.See this example:
+  Bootstrap ExampleProgress Bar With Label76%Test it NowBootstrap Colored Progress barYou can use contextual classes to create colored progress bar.The contextual classes that are used to create colored progress bar:.progress-bar-success.progress-bar-info.progress-bar-warning.progress-bar-danger 
+  Bootstrap ExampleColored Progress BarsThe contextual classes colors the progress bars:40% Complete (success)50% Complete (info)60% Complete (warning)70% Complete (danger)Test it NowBootstrap Stripped Progress barYou can create stripped progress bar by using class .progress-bar-striped . 
+  Bootstrap ExampleStriped Progress BarsThe .progress-bar-striped class adds stripes to the progress bars:40% Complete (success)50% Complete (info)60% Complete (warning)70% Complete (danger)Test it NowBootstrap Animated progress barYou have to use class .active to create animated progress bar.
+  Bootstrap ExampleAnimated Progress BarThe .active class animates the progress bar:70%Test it NowBootstrap Stacked Progress bar (Multi-colored progress bar)You can create stacked progress bar by placing multiple bars into the same <div class="progress">  
+  Bootstrap ExampleStacked Progress BarsCreate a stacked progress bar by placing multiple bars into the same div with class .progress:Free SpaceWarningDangerTest it NowNote: Two types of new colored progress bar are added in Bootstrap 4:.progress-bar-white.progress-bar-secondary.progress-bar-light.progress-bar-darkExample:<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Colored Progress Bars Example</h2>
+  <!-- Blue -->
+  <div class="progress">
+    <div class="progress-bar" style="width:10%"></div>
+  </div><br>
+
+  <!-- Green -->
+  <div class="progress">
+    <div class="progress-bar bg-success" style="width:20%"></div>
+  </div><br>
+
+  <!-- Turquoise -->
+  <div class="progress">
+    <div class="progress-bar bg-info" style="width:30%"></div>
+  </div><br>
+
+  <!-- Orange -->
+  <div class="progress">
+     <div class="progress-bar bg-warning" style="width:40%"></div>
+  </div><br>
+
+  <!-- Red -->
+  <div class="progress">
+    <div class="progress-bar bg-danger" style="width:50%"></div>
+  </div><br>
+
+  <!-- White -->
+  <div class="progress border">
+    <div class="progress-bar bg-white" style="width:60%"></div>
+  </div><br>
+
+  <!-- Grey -->
+  <div class="progress">
+    <div class="progress-bar bg-secondary" style="width:70%"></div>
+  </div><br>
+
+  <!-- Light Grey -->
+  <div class="progress border">
+    <div class="progress-bar bg-light" style="width:80%"></div>
+  </div><br>
+
+  <!-- Dark Grey -->
+  <div class="progress">
+    <div class="progress-bar bg-dark" style="width:90%"></div>
+  </div>
+</div>
+
+</body>
+</html>Test it NowNext TopicBootstrap List Group? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

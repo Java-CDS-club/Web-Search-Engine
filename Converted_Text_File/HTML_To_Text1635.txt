@@ -1,0 +1,117 @@
+C++ algorithm fill_n() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm fill_n()C++ Algorithm fill_n() function is used to assign a new value to a specified number of elements in a range beginning with a particular element.It means in fill_n(), we specify beginning position, number of elements to be filled and value to be filled.Syntaxtemplate <class OutputIterator, class Size, class T>
+  void fill_n (OutputIterator first, Size n, const T& val);		//until C++ 11
+
+template <class OutputIterator, class Size, class T>
+  OutputIterator fill_n (OutputIterator first, Size n, const T& val);   	//since C++ 11Parameterfirst: An output iterator pointing the position of the first element in the range to be assigned the value val.val: Value which is used to fill the range.n: Number of elements to fill it may be signed or unsigned integer type.Return valueThe first version of fill_n() return none and the second version of fill_n() return an iterator pointing to the element that follows the last element to be filled.ComplexityComplexity is linear in n. And assigns a value to each element.Data racesThe first n object in the range pointed by first are modified.Exception safetyThis function throws an exception if the element assignments or the operation on an iterator throws an exception.Please note that invalid parameters cause an undefined behavior.Example 1Let's see the simple example to demonstrate the use of fill_n():#include <algorithm>
+#include <iostream>
+#include <iterator>
+
+using namespace std;
+
+int main() {
+
+  fill_n(ostream_iterator<int>(cout, ","), 10, 3);
+  return 0;
+}Output:3,3,3,3,3,3,3,3,3,3,Example 2Let's see another simple example:#include <vector>  
+#include <algorithm>  
+#include <iostream>  
+  
+int main()   
+{  
+    using namespace std;  
+    vector <int> v;  
+  
+    for ( auto i = 0 ; i < 9 ; ++i )  
+        v.push_back( 0 );  
+  
+    cout << "  vector v = ( " ;  
+    for ( const auto &w : v )  
+        cout << w << " ";  
+    cout << ")" << endl;  
+  
+    // Fill the first 3 positions with a value of 1, saving position.  
+    auto pos = fill_n( v.begin(), 3, 1 );  
+  
+    cout << "modified v = ( " ;  
+    for ( const auto &w : v )  
+        cout << w << " ";  
+    cout << ")" << endl;  
+  
+    // Fill the next 3 positions with a value of 2, using last position.  
+    fill_n( pos, 3, 2 );  
+  
+    cout << "modified v = ( " ;  
+    for ( const auto &w : v )  
+        cout << w << " ";  
+    cout << ")" << endl;  
+  
+    // Fill the last 3 positions with a value of 3, using relative math.  
+    fill_n( v.end()-3, 3, 3 );  
+  
+    cout << "modified v = ( " ;  
+    for ( const auto &w : v )  
+        cout << w << " ";  
+    cout << ")" << endl;  
+    
+    return 0;
+}  Output:  vector v =  ( 0 0 0 0 0 0 0 0 0 )
+modified v = ( 1 1 1 0 0 0 0 0 0 )
+modified v = ( 1 1 1 2 2 2 0 0 0 )
+modified v = ( 1 1 1 2 2 2 3 3 3 )Example 3Let's see another simple example:#include<iostream>
+#include<algorithm>
+#include<vector>
+
+using namespace std; 
+  
+int main() 
+{ 
+    vector<int> vect(8);   
+  
+    // calling fill to initialize first four values 
+    // to 7 
+    fill_n(vect.begin(), 3, 1); 
+  
+    for (int i=0; i<vect.size(); i++) 
+        cout << ' ' << vect[i]; 
+    cout << '\n'; 
+  
+    // calling fill to initialize 3 elements from  
+    // "begin()+3" with value 4 
+    fill_n(vect.begin() + 3, 3, 4); 
+  
+    for (int i=0; i<vect.size(); i++) 
+        cout << ' ' << vect[i]; 
+    cout << '\n'; 
+  
+    return 0; 
+}Output: 1 1 1 0 0 0 0 0
+ 1 1 1 4 4 4 0 0Example 4Let's see another simple example:#include <vector>
+#include <algorithm>
+#include <iostream>
+ 
+using namespace std;
+ 
+int main()
+{
+  vector <int> vec;
+  vector <int>::iterator Iter1;
+  int i;
+  for (i = 10; i <= 20; i++)
+    vec.push_back(i);
+  cout <<"Vector vec data: ";
+  for (Iter1 = vec.begin(); Iter1 != vec.end(); Iter1++)
+    cout <<*Iter1<<" ";
+  cout <<endl;
+  // fill the last 3 positions for 6 position with a value of 9
+  cout <<"\nOperation: fill_n(vec.begin() + 3, 6, 9)\n";
+  fill_n(vec.begin() + 3, 6, 9);
+  cout <<"Modified vec data: ";
+  for (Iter1 = vec.begin(); Iter1 != vec.end(); Iter1++)
+    cout <<*Iter1<<" ";
+   cout <<endl;
+ 
+  return 0;
+}Output:Vector vec data: 10 11 12 13 14 15 16 17 18 19 20 
+
+Operation: fill_n(vec.begin() + 3, 6, 9)
+Modified vec data: 10 11 12 9 9 9 9 9 9 19 20Next TopicC++ Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

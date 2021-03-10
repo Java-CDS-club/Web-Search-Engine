@@ -1,0 +1,63 @@
+Computer Graphics Polynomial Method - javatpoint?HomeComputer FundamentalsComputer GraphicsBiometricsComputer NetworkJavaHTMLCSSSeleniumjQueryProjectsInterview QCommentForumTrainingComputer GraphicsComputer Graphics Tutorial Application of Computer Graphics Interactive and Passive GraphicsGraphic SystemsDisplay Processor Cathode Ray Tube (CRT) Random Scan vs Raster Scan Color CRT Monitors Direct View Storage Tubes Flat Panel DisplayInput-Output DevicesInput Devices Trackball Light Pen Image Scanner Output Devices PlottersScan Conversion a lineScan Conversion Definition Scan Converting a Point Scan Converting a Straight Line DDA Algorithm Bresenham's Line AlgorithmScan Conversion CircleDefining a Circle Defining a Circle using Polynomial Method Defining a Circle using Polar Coordinates Method Bresenham's Circle Algorithm Midpoint Circle AlgorithmScan Converting EllipseScan converting a Ellipse Polynomial Method Trignometric Method Midpoint Ellipse AlgorithmFilled Area PrimitivesBoundary Fill Algorithm Flood Fill Algorithm Scan Line Polygon Fill Algorithm2D TransformationsIntroduction of Transformation Translation Scaling Rotation Reflection Shearing Matrix Representation Homogeneous Coordinates Composite Transformation Pivot Point Rotation2D-ViewingWindow Window to Viewport Co-ordinate Transformation Zooming PanningClipping TechniquesClipping Point Clipping Line Clipping Midpoint Subdivision Algorithm Text Clipping Polygon Sutherland-Hodgeman Polygon Clipping Weiler-Atherton Polygon ClippingPointing & PositioningPointing & Positioning Techniques Elastic or Rubber Band Techniques DraggingShadingIntroduction of Shading Constant Intensity Shading Gouraud shading Phong ShadingAnimationAnimation Application Areas of Animation Animation Functions3D Computer GraphicsThree Dimensional Graphics Three Dimensional Transformations Scaling Rotation Rotation about Arbitrary Axis Inverse Transformations Reflection ShearingHidden SurfacesHidden Surface Removal Back Face Removal Algorithm Z-Buffer Algorithm Painter's Algorithm Scan Line Algorithm Subdivision Algorithm 3D Modelling SystemProjectionProjection Perspective Projection Parallel ProjectionProgramsComputer Graphics Programsnext ? ? prevPolynomial Method:The ellipse has a major and minor axis. If a1 and b1are major and minor axis respectively. The centre of ellipse is (i, j). The value of x will be incremented from i to a1and value of y will be calculated using the following formulaDrawback of Polynomial Method:It requires squaring of values. So floating point calculation is required.Routines developed for such calculations are very complex and slow.Algorithm:1. Set the initial variables: a = length of major axis; b = length of minor axis; (h, k) = coordinates of ellipse center; x = 0; i = step; xend = a.2. Test to determine whether the entire ellipse has been scan-converted. If x>xend, stop.3. Compute the value of the y coordinate:4. Plot the four points, found by symmetry, at the current (x, y) coordinates:          Plot (x + h, y + k)           Plot (-x + h, -y + k)           Plot (-y - h, x + k)           Plot (y + h, -x + k)5. Increment x; x = x + i.6. Go to step 2.Program to draw an Ellipse using Polynomial Method:#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+
+class bresen
+{
+	float x, y, a, b, r, t, te, xend, h, k, step;
+	public:
+	void get ();
+	void cal ();
+};
+	void main ()
+    {
+	bresen b;
+	b.get ();
+	b.cal ();
+	getch ();
+   }
+	void bresen :: get ()
+   {
+	cout"\n ENTER CENTER OF ELLIPSE";
+	cout"\n enter (h, k) ";
+	cin>>h>>k;
+	cout"\n ENTER LENGTH OF MAJOR AND MINOR AXIS";
+	cin>>a>>b;
+	cout"\n ENTER Step Size";
+	cin>> step;
+   }
+void bresen ::cal ()
+{
+	/* request auto detection */
+	int gdriver = DETECT,gmode, errorcode;
+	int midx, midy, i;
+	/* initialize graphics and local variables */
+	initgraph (&gdriver, &gmode, " ");
+	/* read result of initialization */
+	errorcode = graphresult ();
+	if (errorcode ! = grOK)    /*an error occurred */
+	{
+ 		printf("Graphics error: %s \n", grapherrormsg (errorcode);
+		printf ("Press any key to halt:");
+		getch ();
+		exit (1); /* terminate with an error code */
+	}
+	x = 0;
+	xend=a;
+	whilex (x (a * a)));
+		if (t0)
+			te=-t;
+		else
+			te=t;
+		y=b * sqrt (te);
+		putpixel (h+x, k+y, RED);
+		putpixel (h-x, k+y, RED);
+		putpixel (h+x, y-y, RED);
+		putpixel (h-x, k-y, RED);
+		x+=step;
+	}
+	getch();
+}Output:Next TopicTrignometric Method? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

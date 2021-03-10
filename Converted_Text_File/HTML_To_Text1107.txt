@@ -1,0 +1,115 @@
+Bridge Pattern - Javatpoint?HomeCore JavaServletJSPStruts2Mail APIHibernateSpringAndroidDesign PatternQuizProjectsInterview QCommentForumDesign PatternsJava Design Patterns1) Creational PatternFactory Method Pattern Abstract Factory Pattern Singleton Pattern Prototype Pattern Builder Pattern Object Pool Pattern2) Structural PatternAdapter Pattern Bridge Pattern Composite Pattern Decorator Pattern Facade Pattern Flyweight Pattern proxy Pattern3) Behavioral PatternChain of Responsibility Command Pattern Interpreter Pattern Iterator Pattern Mediator Pattern Memento Pattern Observer Pattern State Pattern Strategy Pattern Template PatternJ2EE PatternsJEE or J2EE PatternsPresentation LayerIntercepting Filter Pattern Front Controller Patternnext ? ? prevBridge PatternBridge Design PatternAdvantage of Bridge DPUsage of Bridge DPUML of Bridge DPExample of Bridge DPA Bridge Pattern says that just "decouple the functional abstraction from the implementation so that the two can vary independently".The Bridge Pattern is also known as Handle or Body.Advantage of Bridge PatternIt enables the separation of implementation from the interface.It improves the extensibility.It allows the hiding of implementation details from the client.Usage of Bridge PatternWhen you don't want a permanent binding between the functional abstraction and its implementation.When both the functional abstraction and its implementation need to extended using sub-classes.It is mostly used in those places where changes are made in the implementation does not affect the clients.Example of Bridge PatternThe UML given below describes the example of bridge pattern.UML for Bridge Pattern:Implementation of above UML:Step 1Create a Question interface that provides the navigation from one question to another or vice-versa.// this is the Question interface.
+public interface Question {
+	public void nextQuestion();
+	public void previousQuestion();
+	public void newQuestion(String q);
+	public void deleteQuestion(String q);
+	public void displayQuestion();
+	public void displayAllQuestions();
+}
+// End of the Question interface.Step 2Create a JavaQuestions implementation class that will implement Question interface.// this is the JavaQuestions class.
+import java.util.ArrayList;
+import java.util.List;
+public class JavaQuestions implements Question {
+ private List <String> questions = new ArrayList<String>();
+ private int current = 0;
+ public JavaQuestions(){
+	questions.add("What is class? ");
+	questions.add("What is interface? ");
+	questions.add("What is abstraction? ");
+	questions.add("How multiple polymorphism is achieved in java? ");
+	questions.add("How many types of exception  handling are there in java? ");
+	questions.add("Define the keyword final for  variable, method, and class in java? ");
+	questions.add("What is abstract class? ");
+	questions.add("What is multi-threading? ");
+ }
+ public void nextQuestion() {
+	if( current <= questions.size()-1 )
+	current++;
+	System.out.print(current);
+ }
+
+ public void previousQuestion() {
+	if( current > 0 )
+	current--;
+ }
+
+ public void newQuestion(String quest) {
+	questions.add(quest);
+ }
+
+ public void deleteQuestion(String quest) {
+	questions.remove(quest);
+ }
+
+ public void displayQuestion() {
+	System.out.println( questions.get(current) );
+ }
+ public void displayAllQuestions() {
+	for (String quest : questions) {
+	System.out.println(quest);
+ }
+}
+}// End of the JavaQuestions class.Step 3Create a QuestionManager class that will use Question interface which will act as a bridge..// this is the QuestionManager class.
+public class QuestionManager  {
+	protected Question q;
+	public String catalog;
+	public QuestionManager(String catalog) {
+	this.catalog=catalog;
+	}
+	public void next() {
+	q.nextQuestion();
+	}
+	public void previous() {
+	q.previousQuestion();
+	}
+	public void newOne(String quest) {
+	q.newQuestion(quest);
+	}
+	public void delete(String quest) {
+	q.deleteQuestion(quest);
+	}
+	public void display() {
+	q.displayQuestion();
+	}
+	public void displayAll() {
+        System.out.println("Question Paper: " + catalog);
+	q.displayAllQuestions();
+	}
+}// End of the QuestionManager class.Step 4Create a QuestionFormat class that will extend the QuestionManager class// this is the QuestionFormat class.
+public class QuestionFormat extends QuestionManager {
+	public QuestionFormat(String catalog){
+		super(catalog);
+	}
+	public void displayAll() {
+		System.out.println("\n---------------------------------------------------------");
+		super.displayAll();
+		System.out.println("-----------------------------------------------------------");
+	}
+}// End of the QuestionFormat class.Step 5Create a BridgePatternDemo class.// this is the BridgePatternDemo class.
+public class BridgePatternDemo {
+	public static void main(String[] args) {
+	QuestionFormat questions = new QuestionFormat("Java Programming Language");
+	questions.q = new JavaQuestions();
+        questions.delete("what is class?");
+        questions.display();
+	questions.newOne("What is inheritance? ");
+	
+	questions.newOne("How many types of inheritance are there in java?");
+	questions.displayAll();
+	}
+}// End of the BridgePatternDemo class.download this Bridge Pattern ExampleOutputWhat is interface?
+
+--------------------------------------------------------------------
+Question Paper: Java Programming Language
+What is class?
+What is interface?
+What is abstraction?
+How multiple polymorphism is achieved in java?
+How many types of exception  handling are there in java?
+Define the keyword final for  variable, method, and class in java?
+What is abstract class?
+What is multi-threading?
+What is inheritance?
+How many types of inheritance are there in java?
+-----------------------------------------------------------------------Next TopicComposite Pattern<<prev next>>Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

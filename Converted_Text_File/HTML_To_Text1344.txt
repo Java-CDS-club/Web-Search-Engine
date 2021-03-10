@@ -1,0 +1,83 @@
+COBOL String Handling - Javatpoint?HomeCCOBOLC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternProjectsInterview QCommentForumCOBOL TutorialCOBOL Tutorial COBOL Introduction COBOL Installation COBOL Program Structure COBOL Coding Sheet COBOL Divisions COBOL Data Types COBOL Verbs COBOL Data Layout Conditional Statements Loop Statements String Handling Array/Table Processing File Handling File Access Mode File Handling Verbs Internal Sort Database Interfacenext ? ? prevCOBOL - String HandlingString handling statements are used in COBOL to perform operations of string manipulation. COBOL provides three types of statements for string handling:INSPECTSTRINGUNSTRINGINSPECTInspect verb replaces or counts a character or a group of characters in a string. On numeric, alphabetic, or alphanumeric values, we can perform string operations. Inspect operations are work from left to right.The Inspect provides two options are as follows:Tallying?Tallying is used to count the string characters.Syntax:INSPECT input-string
+TALLYING output-count FOR ALL CHARACTERSHere, input-string and output string are parameters. Input-string is the string whose characters are to be counted. And output-string is data item to hold the count of characters.Example:Let's see an example for Tallying option:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-CNT1 PIC 9(2) VALUE 0.
+           01 WS-CNT2 PIC 9(2) VALUE 0.
+           01 WS-STRING PIC X(15) VALUE 'ABCDACDADEAAAFF'.
+   
+       PROCEDURE DIVISION.
+           INSPECT WS-STRING TALLYING WS-CNT1 FOR ALL 'F'.
+             DISPLAY "WS-CNT1 : " WS-CNT1.
+           INSPECT WS-STRING TALLYING WS-CNT2 FOR ALL 'A'.
+             DISPLAY "WS-CNT2 : " WS-CNT2.
+   
+       STOP RUN.Output:ReplacingReplacing option replaces the string characters.Syntax:INSPECT input-string REPLACING ALL char1 BY char2.Here, the input-string parameter is the string whose characters are to be replaced from char1 to char2.Example:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-STRING PIC X(15) VALUE 'ABCDBCDBDEBBBBF'.
+
+       PROCEDURE DIVISION.
+           DISPLAY "OLD STRING : "WS-STRING.
+            INSPECT WS-STRING REPLACING ALL 'B' BY '$'.
+             DISPLAY "NEW STRING : "WS-STRING.
+   
+       STOP RUN. Output:STRINGThe string verb is used to concatenate the partial or full contents of two or more string or literal into one single data item. In the String verb, the 'DELIMITED BY' clause is compulsory.Syntax:STRING ws-string1 DELIMITED BY SPACE
+   ws-string2 DELIMITED BY SIZE
+   INTO ws-destination-string
+   WITH POINTER ws-count
+   ON OVERFLOW DISPLAY message1
+   NOT ON OVERFLOW DISPLAY message2
+END-STRING.Here, used parameters details are:ws-string1 and ws-string2: These are input strings to be concatenated.ws-string: This is an output string.ws-count: This is used to count the length of the new concatenated string.Delimited: used to specify the end of the string.Pointer and Overflow: These are optional.Example:Let's see an example for String verb:      IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-STRING PIC A(30).
+           01 WS-STR1 PIC A(15) VALUE 'WorldJavaTpoint'.
+           01 WS-STR2 PIC A(7) VALUE 'Welcome'.
+           01 WS-STR3 PIC A(7) VALUE 'To AND'.
+           01 WS-COUNT PIC 99 VALUE 1.
+
+       PROCEDURE DIVISION.
+           STRING WS-STR2 DELIMITED BY SIZE
+              WS-STR3 DELIMITED BY SPACE
+              WS-STR1 DELIMITED BY SIZE
+              INTO WS-STRING 
+              WITH POINTER WS-COUNT
+              ON OVERFLOW DISPLAY 'OVERFLOW!' 
+           END-STRING.
+   
+             DISPLAY 'WS-STRING : 'WS-STRING.
+             DISPLAY 'WS-COUNT : 'WS-COUNT.
+
+       STOP RUN.Output:UNSTRINGThe UNSTRING verb breaks one string into several sub-strings. The ' DELIMITED BY ' clause is mandatory in the unstring verb.Syntax:UNSTRING ws-string DELIMITED BY SPACE
+INTO ws-str1, ws-str2
+WITH POINTER ws-count
+ON OVERFLOW DISPLAY message
+NOT ON OVERFLOW DISPLAY message
+END-UNSTRING.Example:Let's see an example for Unstring verb:       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 WS-STRING PIC A(30) VALUE 'WELCOME TO JAVATPOINT'.
+       01 WS-STR1 PIC A(7).
+       01 WS-STR2 PIC A(2).
+       01 WS-STR3 PIC A(15).
+       01 WS-COUNT PIC 99 VALUE 1.
+
+       PROCEDURE DIVISION.
+           UNSTRING WS-STRING DELIMITED BY SPACE
+             INTO WS-STR1, WS-STR2, WS-STR3
+           END-UNSTRING.
+   
+           DISPLAY 'WS-STR1 : 'WS-STR1.
+           DISPLAY 'WS-STR2 : 'WS-STR2.
+           DISPLAY 'WS-STR3 : 'WS-STR3.
+   
+       STOP RUN.Output:Next TopicArray/Table Processing? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

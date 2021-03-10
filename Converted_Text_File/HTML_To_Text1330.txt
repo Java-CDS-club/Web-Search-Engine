@@ -1,0 +1,237 @@
+COBOL Conditional Statements - Javatpoint?HomeCCOBOLC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternProjectsInterview QCommentForumCOBOL TutorialCOBOL Tutorial COBOL Introduction COBOL Installation COBOL Program Structure COBOL Coding Sheet COBOL Divisions COBOL Data Types COBOL Verbs COBOL Data Layout Conditional Statements Loop Statements String Handling Array/Table Processing File Handling File Access Mode File Handling Verbs Internal Sort Database Interfacenext ? ? prevCOBOL - Conditional StatementsDepending on certain conditions specified by the programmer, conditional statements are used to change the execution flow. The output is always given in true or false by a conditional statement. COBOL contains various types of conditional statements:If condition statementRelation StatementSign StatementClass StatementCondition - Name StatementNegated ConditionCombined ConditionIf Condition StatementIf condition statement is used to check for a condition if a condition is true, the IF block is executed, and if the condition is false, the ELSE block is executed.IF statement mainly has three types based on its usage in the COBOL program:Simple IFSimple IF is mainly used to execute the condition related code. If the condition is true, then it will execute the set of statements written in the IF block. If condition is not satisfied, the control will transfer to the next statements after the IF statement terminated.Syntax:IF Condition  
+	{Statement Block}
+[END-IF].Here, END-IF is the scope terminator, which is optional in the program. The period (.) can be defined at the last statement of IF block.If we didn't specify the period, then scope terminator END-IF is mandatory.IF ELSEIF ELSE statement is used when a certain set of statements needed to be executed by two conditions. This statement is mainly used to execute the condition-specific code.In IF-ELSE, the block of statements will be executed if the specified condition is true. If the condition is false, the other set of statements will be executed, and those set will be under the ELSE block.Syntax:IF Condition-1
+	{Statement-Block-1/NEXT SENTENCE}
+[ELSE]  
+	{Statement-Block-2/NEXT SENTENCE}
+[END-IF].Nested IFLike other COBOL programming languages, COBOL also allows the nested IF statement. IF statement within the IF statement called as nested IF statement. There is no bound to the depth of nested IF statements.Syntax:IF Condition-1 THEN
+	IF Condition-2 THEN
+		Statements-block-1
+	[ELSE
+		Statements-block-2
+	END-IF]
+[ELSE
+	IF Condition-3 THEN
+		Statements-block-3
+	[ELSE
+		Statements-block-4
+	END-IF]
+END-IF.]Example 1:Let's see an example for IF condition statement in the COBOL program:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-NUM1 PIC 9(9).
+           01 WS-NUM2 PIC 9(9).
+           01 WS-NUM3 PIC 9(5).
+           01 WS-NUM4 PIC 9(6).
+
+       PROCEDURE DIVISION.
+           A000-FIRST-PARA.
+           MOVE 25 TO WS-NUM1 WS-NUM3.
+           MOVE 15 TO WS-NUM2 WS-NUM4.
+   
+       IF WS-NUM1 > WS-NUM2 THEN
+           DISPLAY 'IN LOOP 1 - IF BLOCK'
+      
+       IF WS-NUM3 = WS-NUM4 THEN
+           DISPLAY 'IN LOOP 2 - IF BLOCK'
+       ELSE
+           DISPLAY 'IN LOOP 2 - ELSE BLOCK'
+       END-IF
+      
+       ELSE
+           DISPLAY 'IN LOOP 1 - ELSE BLOCK'
+       END-IF.
+   
+       STOP RUN.Output:Example 2:Let's see another simple example for IF condition statement:      IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 CHECK-GENDER.
+                05 GENDER PIC X(1).
+                88 MALE VALUE 'M'.
+                88 FEMALE VALUE 'F'.
+
+       PROCEDURE DIVISION.
+           MAIN-PARA.
+           SET FEMALE TO TRUE.
+           IF MALE
+                DISPLAY "Gender: Male"
+           ELSE
+                DISPLAY "Gender: Female"
+           END-IF.  
+       STOP RUN.Output:Relation ConditionThe relation condition contrasts two operands. These operands can be an identifier, literal, or arithmetic expression.A comparison of algebraic numeric fields is conducted regardless of size and usage clause.For Non-numeric operandsBy comparing two non-numeric operands of equal size, the characters will be measured from the left with the corresponding positions until the end is reached. The operand with more characters is considered to be larger.While comparing two operands of different sizes, the shorter data item will be appended with spaces at the end until the operand's size is equal and then compared according to the rules stated in the preceding paragraph.The Relational operator defines the type of comparison to be made as given below:Relational OperatorWe can write asDescriptionIS EQUAL TOIS =It means, Equal toIS GREATER THANIS >It means, Greater thanIS LESS THANIS <It means, Less thanIS NOT GREATER THANIS NOT >It means, Not greater thanIS NOT LESS THANIS NOT <It means, Not less thanIS NOT EQUAL TOIS NOT =It means, Not equal toIS GREATER THAN OR EQUAL TOIS >=It means, Is greater than or equal toIS LESS THAN OR EQUAL TOIS <=It means, Is less than or equal toSyntax:[Data Name/Arithmetic Operation]
+
+   [IS] [NOT] 
+
+[Equal to (=), Greater than (>), Less than (<),
+Greater than or Equal (>=), Less than or equal (<=) ]
+
+[Data Name/Arithmetic Operation]Example:       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+           01 A PIC 9(9).
+           01 B PIC 9(9).
+
+       PROCEDURE DIVISION.
+           A000-FIRST-PARA.
+           MOVE 24 TO A.
+           MOVE 13 TO B.
+   
+       IF A IS GREATER THAN OR EQUAL TO B THEN
+            DISPLAY 'A IS GREATER THAN B'
+       ELSE
+            DISPLAY 'A IS LESS THAN B'
+       END-IF.
+   
+       STOP RUN.Output:Sign ConditionSign condition checks the sign of a numeric operand. It is used to decide if a given numerical value is greater than, lower than, equal to, or ZERO.Syntax:[Data Name/Arithmetic Operation] 
+
+   [IS] [NOT] 
+
+[Positive, Negative or Zero]
+
+[Data Name/Arithmetic Operation]Example:       IDENTIFICATION DIVISION.
+        PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 A PIC S9(9) VALUE -1234.
+           01 B PIC S9(9) VALUE 123456.
+
+       PROCEDURE DIVISION.
+           A000-FIRST-PARA.
+           IF A IS POSITIVE THEN
+               DISPLAY 'A IS POSITIVE'.
+      
+           IF A IS NEGATIVE THEN
+               DISPLAY 'A IS NEGATIVE'.
+      
+           IF A IS ZERO THEN
+               DISPLAY 'A IS ZERO'.
+      
+           IF B IS POSITIVE THEN
+               DISPLAY 'B IS POSITIVE'.
+
+       STOP RUN.Output:Class ConditionClass condition checks if an operand contains only alphabets or numeric data. Whitespaces are considered in ALPHABETIC, ALPHABETIC-LOWER, and ALPHABETIC-UPPER.Syntax:[Data Name/Arithmetic Operation>]
+
+   [IS] [NOT] 
+
+[NUMERIC, ALPHABETIC, ALPHABETIC-LOWER, ALPHABETIC-UPPER]
+
+[Data Name/Arithmetic Operation]Example:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-VAL1 PIC X(9) VALUE 'NIKITA '.
+           01 WS-VAL2 PIC 9(9) VALUE 123456789.
+
+       PROCEDURE DIVISION.
+           A000-FIRST-PARA.
+   
+           IF WS-VAL1 IS ALPHABETIC THEN
+                DISPLAY 'WS-VAL1 IS ALPHABETIC'.
+      
+           IF WS-VAL1 IS NUMERIC THEN
+                DISPLAY 'WS-VAL1 IS NUMERIC'.
+      
+           IF WS-VAL2 IS NUMERIC THEN
+                DISPLAY 'WS-VAL2 IS NUMERIC'.
+   
+       STOP RUN.Output:Condition-name ConditionCondition-name is a name defined by the user. This statement contains a set of user-defined values and acts as Boolean variables. The level-88 defines them. It won't have a PIC clause.Syntax:88 [Condition-Name] VALUE [IS, ARE] [LITERAL] [THRU LITERAL].Example:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-NUM PIC 9(3).
+           88 PASS VALUES ARE 041 THRU 100.
+           88 FAIL VALUES ARE 000 THRU 40.
+
+       PROCEDURE DIVISION.
+           A000-FIRST-PARA.
+           MOVE 85 TO WS-NUM.
+   
+           IF PASS 
+                DISPLAY 'Passed with ' WS-NUM ' marks'.
+      
+           IF FAIL 
+                DISPLAY 'FAILED with ' WS-NUM 'marks'.
+      
+       STOP RUN.Output:Negated ConditionNegated condition is given by using the keyword NOT. If a condition is satisfied and we have given NOT in front of it, its final value will be false.Syntax:IF NOT [CONDITION] 
+   COBOL Statements
+END-IF.Example:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-NUM1 PIC 9(2) VALUE 20.
+           01 WS-NUM2 PIC 9(9) VALUE 25.
+
+       PROCEDURE DIVISION.
+           A000-FIRST-PARA.
+   
+           IF NOT WS-NUM1 IS LESS THAN WS-NUM2 THEN
+                DISPLAY 'IF-BLOCK'
+           ELSE
+                DISPLAY 'ELSE-BLOCK'
+           END-IF.
+   
+       STOP RUN.Output:Combined ConditionA combined condition statement includes two or more conditions associated with OR or AND logical operators.Syntax:IF [CONDITION] AND [CONDITION]
+   COBOL Statements
+END-IF.Example:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-NUM1 PIC 9(2) VALUE 20.
+           01 WS-NUM2 PIC 9(2) VALUE 25.
+           01 WS-NUM3 PIC 9(2) VALUE 20.
+
+       PROCEDURE DIVISION.
+           A000-FIRST-PARA.
+   
+           IF WS-NUM1 IS LESS THAN WS-NUM2 AND WS-NUM1=WS-NUM3 THEN
+                  DISPLAY 'Both condition OK'
+           ELSE
+                  DISPLAY 'Error'
+           END-IF.
+   
+       STOP RUN.Output:Evaluate VerbWe can use the Evaluate verb as a replacement for a series of IF-ELSE statements. It works the same as the SWITCH statement of C programs. This verb is very useful in evaluating more than one condition.During the program execution, it offers multiple-selection control. In a single shot, it can test multiple conditions.Syntax:EVALUATE {Expression1}
+	WHEN Cond-1
+		Statement block-1
+	WHEN Cond-2
+		Statement block-2
+		.
+		.
+		.
+		.
+	WHEN Cond-n
+		Statement block-n
+	WHEN other
+		Statement block- other
+END-EVALUATE.Example:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-A PIC 9 VALUE 0.
+   
+       PROCEDURE DIVISION.
+           MOVE 3 TO WS-A.
+   
+       EVALUATE TRUE
+           WHEN WS-A > 2
+                DISPLAY 'WS-A GREATER THAN 2'
+
+           WHEN WS-A  0
+                DISPLAY 'WS-A LESS THAN 0'
+
+           WHEN OTHER
+                DISPLAY 'INVALID VALUE OF WS-A'
+       END-EVALUATE.
+   
+       STOP RUN.Output:Next TopicCOBOL Loop Statements? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

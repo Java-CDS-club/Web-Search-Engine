@@ -1,0 +1,92 @@
+Abstract Class in Java - Javatpoint?HomeJavaCC++C#ServletJSPEJBStruts2MailHibernateSpringAndroidDesign PQuizProjectsInterview QCommentForumTrainingJava TrainingBasics of Java Java Object ClassJava OOPs Concepts Naming Convention Object and Class Constructor static keyword this keywordJava InheritanceInheritance(IS-A) Aggregation(HAS-A)Java PolymorphismMethod Overloading Method Overriding Covariant Return Type super keyword Instance Initializer block final keyword Runtime Polymorphism Dynamic Binding instanceof operatorJava AbstractionAbstract class Interface Abstract vs InterfaceJava EncapsulationPackage Access Modifiers EncapsulationJava ArrayJava ArrayJava OOPs MiscObject class Object Cloning Math class Wrapper Class Java Recursion Call By Value strictfp keyword javadoc tool Command Line Arg Object vs Class Overloading vs OverridingJava String Java Regex Exception Handling Java Inner classes Java Multithreading Java I/O Java Networking Java AWT & Events Java Swing JavaFX Java Applet Java Reflection Java Date Java Conversion Java Collection Java JDBC Java New Features RMI Internationalization Interview Questionsnext ? ? prevAbstract class in JavaA class which is declared with the abstract keyword is known as an abstract class in Java. It can have abstract and non-abstract methods (method with the body).Before learning the Java abstract class, let's understand the abstraction in Java first.Abstraction in JavaAbstraction is a process of hiding the implementation details and showing only functionality to the user.Another way, it shows only essential things to the user and hides the internal details, for example, sending SMS where you type the text and send the message. You don't know the internal processing about the message delivery.Abstraction lets you focus on what the object does instead of how it does it.Ways to achieve AbstractionThere are two ways to achieve abstraction in javaAbstract class (0 to 100%)Interface (100%)Abstract class in JavaA class which is declared as abstract is known as an abstract class. It can have abstract and non-abstract methods. It needs to be extended and its method implemented. It cannot be instantiated.Points to RememberAn abstract class must be declared with an abstract keyword.It can have abstract and non-abstract methods.It cannot be instantiated.It can have constructors and static methods also.It can have final methods which will force the subclass not to change the body of the method.Example of abstract classabstract class A{}Abstract Method in JavaA method which is declared as abstract and does not have implementation is known as an abstract method.Example of abstract methodabstract void printStatus();//no method body and abstractExample of Abstract class that has an abstract methodIn this example, Bike is an abstract class that contains only one abstract method run. Its implementation is provided by the Honda class. abstract class Bike{
+   abstract void run();
+ }
+ class Honda4 extends Bike{
+ void run(){System.out.println("running safely");}
+ public static void main(String args[]){
+  Bike obj = new Honda4();
+  obj.run();
+ }
+ }Test it Nowrunning safelyUnderstanding the real scenario of Abstract classIn this example, Shape is the abstract class, and its implementation is provided by the Rectangle and Circle classes.Mostly, we don't know about the implementation class (which is hidden to the end user), and an object of the implementation class is provided by the factory method.A factory method is a method that returns the instance of the class. We will learn about the factory method later.In this example, if you create the instance of Rectangle class, draw() method of Rectangle class will be invoked.File: TestAbstraction1.javaabstract class Shape{
+abstract void draw();
+}
+//In real scenario, implementation is provided by others i.e. unknown by end user
+class Rectangle extends Shape{
+void draw(){System.out.println("drawing rectangle");}
+}
+class Circle1 extends Shape{
+void draw(){System.out.println("drawing circle");}
+}
+//In real scenario, method is called by programmer or user
+class TestAbstraction1{
+public static void main(String args[]){
+Shape s=new Circle1();//In a real scenario, object is provided through method, e.g., getShape() method
+s.draw();
+}
+}Test it Nowdrawing circleAnother example of Abstract class in javaFile: TestBank.javaabstract class Bank{  
+abstract int getRateOfInterest();  
+}  
+class SBI extends Bank{  
+int getRateOfInterest(){return 7;}  
+}  
+class PNB extends Bank{  
+int getRateOfInterest(){return 8;}  
+}  
+  
+class TestBank{  
+public static void main(String args[]){  
+Bank b;
+b=new SBI();
+System.out.println("Rate of Interest is: "+b.getRateOfInterest()+" %");  
+b=new PNB();
+System.out.println("Rate of Interest is: "+b.getRateOfInterest()+" %");  
+}}  Test it NowRate of Interest is: 7 %
+Rate of Interest is: 8 %Abstract class having constructor, data member and methodsAn abstract class can have a data member, abstract method, method body (non-abstract method), constructor, and even main() method.File: TestAbstraction2.java//Example of an abstract class that has abstract and non-abstract methods
+ abstract class Bike{
+   Bike(){System.out.println("bike is created");}
+   abstract void run();
+   void changeGear(){System.out.println("gear changed");}
+ }
+//Creating a Child class which inherits Abstract class
+ class Honda extends Bike{
+ void run(){System.out.println("running safely..");}
+ }
+//Creating a Test class which calls abstract and non-abstract methods
+ class TestAbstraction2{
+ public static void main(String args[]){
+  Bike obj = new Honda();
+  obj.run();
+  obj.changeGear();
+ }
+}Test it Now       bike is created
+       running safely..
+       gear changedRule: If there is an abstract method in a class, that class must be abstract.   class Bike12{
+   abstract void run();
+   }Test it Nowcompile time errorRule: If you are extending an abstract class that has an abstract method, you must either provide the implementation of the method or make this class abstract.Another real scenario of abstract classThe abstract class can also be used to provide some implementation of the interface. In such case, the end user may not be forced to override all the methods of the interface.Note: If you are beginner to java, learn interface first and skip this example.interface A{
+void a();
+void b();
+void c();
+void d();
+}
+
+abstract class B implements A{
+public void c(){System.out.println("I am c");}
+}
+
+class M extends B{
+public void a(){System.out.println("I am a");}
+public void b(){System.out.println("I am b");}
+public void d(){System.out.println("I am d");}
+}
+
+class Test5{
+public static void main(String args[]){
+A a=new M();
+a.a();
+a.b();
+a.c();
+a.d();
+}}Test it NowOutput:I am a
+       I am b
+       I am c
+       I am dNext TopicInterface in Java? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

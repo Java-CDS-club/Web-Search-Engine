@@ -1,0 +1,42 @@
+Bash Else If Statement - Javatpoint?HomeJavaCBashJavaScriptXMLAjaxSQLC++C#HTMLAndroidCloudDesign PatternQuizProjectsInterview QCommentForumBash TutorialBash Tutorial What is Bash History of Bash Features of Bash Bash Scripting Filesystem & File Permission Hello World! Bash Script Relative vs Absolute path Bash Comments Bash Quotes Bash Variables Read User Input Bash Date Format Bash SleepBash OperatorsBash Arithmetic OperatorsConditional StatementsBash If Statement Bash If Else Bash Else If Bash CaseBash LoopsBash For Loop Bash While Loop Bash Until LoopBash StringBash String Bash Find String Bash Split String Bash Substring Bash Concatenate StringBash FunctionBash FunctionsBash ArrayBash ArraysMiscellaneousBash Read File Bash Write File Check if file Exists Check if Variable is Set Bash Alias Git Bash Zsh vs Bash Bash Hash Commandnext ? ? prevBash Else IfIn this topic, we will understand how to use else-if (elif) statements in Bash scripts to get our automated tasks completed.Bash else-if statement is used for multiple conditions. It is just like an addition to Bash if-else statement. In Bash elif, there can be several elif blocks with a boolean expression for each one of them. In the case of the first 'if statement', if a condition goes false, then the second 'if condition' is checked.Syntax of Bash Else If (elif)The syntax of else-if statement in Bash shell scripting can be defined as:if [ condition ];
+then
+
+elif [ condition ];
+then
+
+else
+
+fiJust like if-else, we can use a set of one or more conditions joined using conditional operators. The set of commands are executed when the condition is true. If there is no true condition, then the block of commands inside the 'else statement' is executed.Following are some examples demonstrating the usage of the else-if statement:Example 1Following example consists of two different scenarios wherein the first else-if statement, the condition is true, and in the second else-if statement, the condition is false.Bash Script#!/bin/bash
+
+read -p "Enter a number of quantity:" num
+
+if [ $num -gt 100 ];
+then
+echo "Eligible for 10% discount"
+elif [ $num -lt 100 ];
+then
+echo "Eligible for 5% discount"
+else
+echo "Lucky Draw Winner"
+echo "Eligible to get the item for free"
+fiOutputIf we enter the number of quantity as 110, then the condition of 'if statement' evaluates to true and the output looks like:If we enter the number of quantity as 90 then condition of 'elif statement' evaluates to true, and the output looks like:If we enter the number of quantity as 100, then no condition will be true. In this case, the block of commands inside the 'else statement' is executed, and the output looks like:This is how basic bash else-if works.Example 2This example is demonstrating how to use multiple conditions with the else-if statement in Bash. We use bash logical operators to join multiple conditions.Bash Script#!/bin/bash
+
+read -p "Enter a number of quantity:" num
+
+if [ $num -gt 200 ];
+then
+echo "Eligible for 20% discount"
+
+elif [[ $num == 200 || $num == 100 ]];
+then
+echo "Lucky Draw Winner"
+echo "Eligible to get the item for free"
+
+elif [[ $num -gt 100 && $num -lt 200 ]];
+then
+echo "Eligible for 10% discount"
+
+elif [ $num -lt 100 ];
+then
+echo "No discount"
+fiNote: It should be noted that else block is optional.OutputIf we enter the number of quantity as 100, then the output will look like:Try this example by putting different values and check out the results.ConclusionIn this topic, we have learned about the syntax and usage of Bash else-if statement with the examples.Next TopicBash Case? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

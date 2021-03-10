@@ -1,0 +1,100 @@
+C++ set end() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set end()C++ set end() function is used to return an iterator which is next to the last entry in the set.Note:- This is a placeholder. No element exists in this location and attempting to access is undefined behavior.Syntax      iterator end();                            //until C++ 11
+const_iterator end() const;                //until C++ 11
+      iterator end() noexcept;              //since C++ 11
+const_iterator end() const noexcept;  //since C++ 11ParameterNoneReturn valueIt returns an iterator which is pointing next to the last element of the set.ComplexityConstant.Iterator validityNo changes.Data RacesConcurrently accessing the elements of a set is safe.The container is accessed neither the non-const nor the const versions modify the container.Exception SafetyThis member function never throws exception.Example 1Let's see the simple example for end() function:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<string> myset = {"Java", "C++", "SQL"};
+
+  // show content:
+  for (set<string>::iterator it=myset.begin(); it!=myset.end(); ++it)
+    cout << *it<< '\n';
+
+  return 0;
+}Output:C++
+Java
+SQLIn the above example, end() function is used to return an iterator pointing next to the last element in the myset set.Example 2Let's see a simple example to iterate over the set using for-each loop:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main()
+{
+  set<int> c;
+  c.insert(5);
+  c.insert(2);
+  c.insert(4);
+  c.insert(1);
+  c.insert(0);
+  c.insert(0);
+  c.insert(9);
+
+  set<int>::iterator i = c.begin();
+  while (i != c.end())
+    cout << *i++ << " ";
+  cout << endl;
+}Output:0 1 2 4 5 9Example 3Let's see a simple example to iterate over the set using while loop:#include <iostream>
+#include <set>
+#include <string>
+int main()
+{
+    using namespace std;
+ 
+      set<string> myset = { "Nikita","Deep","Priya","Suman","Aman" };
+
+ cout<<"Elements of myset are: "<<endl;
+    set<string>::const_iterator it; // declare an iterator
+
+    it = myset.begin(); // assign it to the start of the set
+
+    while (it != myset.end()) // while it hasn't reach the end
+    {
+cout << *it << "\n"; 
+
+// print the value of the element it points to
+
+++it; // and iterate to the next element
+    }
+ 
+    cout << endl;
+}Output:Elements of myset are: 
+Aman
+Deep
+Nikita
+Priya
+SumanIn the above example, end() function is used to return an iterator pointing next to the last element in the myset set.Example 4Let's see a simple example:#include <iostream>
+#include <string>
+#include <set>
+
+
+using namespace std;
+
+int main ()
+{
+    int val;
+    set<int> c = {10,20,30,40,50};
+ 
+    cout<<"Enter value to find: ";
+    cin>>val;
+
+    auto result = c.find(val);  
+    
+    //find until end of the set elements
+    if (result != c.end()) {  
+        cout << "Element found: "<< *result; 
+        cout << endl;  
+    } else {  
+        cout << "Element not found." << endl;  
+    }  
+    
+  return 0;
+}Output:Enter value to find: 60
+Element not found.
+
+
+Enter value to find: 30
+Element found: 30In the above example, end() function is used to return an iterator pointing next to the last element in the myset set.Next TopicSet cend() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

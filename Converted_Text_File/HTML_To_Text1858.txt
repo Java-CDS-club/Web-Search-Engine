@@ -1,0 +1,96 @@
+C++ Reference vs Pointer - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ Reference vs PointerC++ reference and pointer seem to be similar, but there are some differences that exist between them. A reference is a variable which is another name of the existing variable, while the pointer is variable that stores the address of another variable.What is Reference?A reference is a variable that is referred to as another name for an already existing variable. The reference of a variable is created by storing the address of another variable.A reference variable can be considered as a constant pointer with automatic indirection. Here, automatic indirection means that the compiler automatically applies the indirection operator (*).Example of reference:int &a = i;In the above declaration, 'a' is an alias name for 'i' variable. We can also refer to the 'i' variable through 'a' variable also.Let's understand through an example.#include <iostream>
+using namespace std;
+int main()
+{  
+   int i=8;    // variable initialization
+   int &a=i; // creating a reference variable
+   cout<<"The value of 'i' variable is :"<<a;
+   return 0;
+}In the above code, we have created a reference variable, i.e., 'a' for 'i' variable. After creating a reference variable, we can access the value of 'i' with the help of 'a' variable.What is Pointer?A pointer is a variable that contains the address of another variable. It can be dereferenced with the help of (*) operator to access the memory location to which the pointer points.Differences between Reference and PointerThe following are the differences between reference and pointer:DefinitionA reference variable is another name for an already existing variable. It is mainly used in 'pass by reference' where the reference variable is passed as a parameter to the function and the function to which this variable is passed works on the original copy of the variable.Let's understand through a simple example.#include <iostream>
+using namespace std;
+void func(int &);
+int main()
+{
+   int a=10;
+   std::cout <<"Value of 'a' is :" <<a<< std::endl;
+  func(a); 
+  std::cout << "Now value of 'a' is :" <<a<< std::endl;
+  return 0;
+}
+void func(int &m)
+{
+   m=8;
+}Output:Value of 'a' is :10                                                                                                             
+Now value of 'a' is :8  Whereas, Pointer is a variable that stores the address of another variable. It makes the programming easier as it holds the memory address of some variable.DeclarationWe can declare a reference variable by adding a '&' symbol before a variable. If this symbol is used in the expression, then it will be treated as an address operator.Before using a pointer variable, we should declare a pointer variable, and this variable is created by adding a '*' operator before a variable.ReassignmentWe cannot reassign the reference variable. Now, we take a simple example as given below:#include <iostream>
+using namespace std;
+void func(int &);
+int main()
+{
+  int i;    // variable declaration
+  int k;    // variable declaration
+  int &a=i;
+  int &a=k; // error
+  return 0;
+}The above code shows the error that multiple declarations of int &a are not allowed. Therefore, the above program concludes that reassignment operation is not valid for the reference variable.Whereas, the pointers can be re-assigned. This reassignment is useful when we are working with the data structures such as linked list, trees, etc.Memory AddressIn the case of reference, both the reference and actual variable refer to the same address. The new variable will not be assigned to the reference variable until the actual variable is either deleted or goes out of the scope.Let's understand this scenario through an example.#include <iostream>
+using namespace std;
+void func(int &);
+int main()
+{
+  int i;
+  int &a=i;
+  std::cout << "The address of 'a' variable is : " <<&a<< std::endl;
+  std::cout << "The address of 'i' variable is : " <<&i<< std::endl;
+  return 0;
+}Output:The address of 'a' variable is : 0x7fff078e7e44                                                                        The address of 'i' variable is : 0x7fff078e7e4The above output shows that both the reference variable and the actual variable have the same address.In the case of pointers, both the pointer variable and the actual variable will have different memory addresses. Let's understand this through an example.#include <iostream>
+using namespace std;
+int main()
+{
+    int k;
+    int *p;
+    p=&k;
+    cout<<"The memory address of p variable is :"<<&p;
+    cout<<"\nThe memory address of k variable is :"<<&k;
+    return 0;
+}Output:The memory address of p variable is :0x7ffcc5c164b8                                                           The memory address of k variable is :0x7ffcc5c164b4 NULL valueWe cannot assign the NULL value to the reference variable, but the pointer variable can be assigned with a NULL value.IndirectionPointers can have pointer to pointer offering more than one level of indirection.#include <iostream>
+using namespace std;
+int main()
+{
+ int *p;
+ int a=8;
+ int **q;
+ p=&a;
+ q=&p;
+std::cout << "The value of q is : " <<*q<< std::endl;
+return 0;
+}In the above code, the pointer 'p' is pointing to variable 'a' while 'q' is a double pointer which is pointing to 'p'. Therefore, we can say that the value of 'p' would be the address of 'a' variable and the value of 'q' variable would be the address of 'p' variable.Output:The value of q is : 0x7ffd104891dc  In the case of References, reference to reference is not possible. If we try to do c++ program will throw a compile-time errorLet's understand this scenario through an example.#include <iostream>
+using namespace std;
+int main()
+{
+  int a=8; // variable initialization
+ int &p=a; // creating a reference variable for ?a? variable.
+ int &&q=p;  // reference to reference is not valid, it throws an error.
+ return 0;
+}Output:main.cpp: In function 'int main()':
+main.cpp:18:10: error: cannot bind 'int' lvalue to 'int&&'
+int &&q=p;Arithmetic OperationsAs we know that arithmetic operations can be applied to the pointers named as "Pointer Arithmetic", but arithmetic operations cannot be applied on the references. There is no word, i.e., Reference Arithmetic exists in C++.Let's see a simple example of Pointers.#include <iostream>
+using namespace std;
+int main()
+{
+ int a[]={1,2,3,4,5}; // array initialization
+  int *ptr;  // pointer declaration
+  ptr=a; assigning base address to pointer ptr.
+  cout<<"The value of *ptr is :"<<*ptr;
+  ptr=ptr+1;  // incrementing the value of ptr by 1.
+  std::cout << "\nThe value of *ptr is: " <<*ptr<< std::endl;
+  return 0;
+}Output:The value of *ptr is :1                                                                                                       
+The value of *ptr is: 2Let's understand the references through an example.#include <iostream>
+using namespace std;
+int main()
+{
+ 
+ int value=90;  // variable declaration
+ int &a=value;   // assigning value to the reference
+ &a=&a+5 // arithmetic operation is not possible with reference variable, it throws an error.
+ return 0;
+}The above code will throw a compile-time error as arithmetic operations are not allowed with references.Next TopicC++ Memory Management? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

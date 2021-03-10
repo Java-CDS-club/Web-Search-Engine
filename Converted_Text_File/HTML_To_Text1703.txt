@@ -1,0 +1,150 @@
+C++ Expression - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ ExpressionC++ expression consists of operators, constants, and variables which are arranged according to the rules of the language. It can also contain function calls which return values. An expression can consist of one or more operands, zero or more operators to compute a value. Every expression produces some value which is assigned to the variable with the help of an assignment operator.Examples of C++ expression:(a+b) - c
+(x/y) -z
+4a2 - 5b +c
+(a+b) * (x+y)An expression can be of following types:Constant expressionsIntegral expressionsFloat expressionsPointer expressionsRelational expressionsLogical expressionsBitwise expressionsSpecial assignment expressionsIf the expression is a combination of the above expressions, such expressions are known as compound expressions.Constant expressionsA constant expression is an expression that consists of only constant values. It is an expression whose value is determined at the compile-time but evaluated at the run-time. It can be composed of integer, character, floating-point, and enumeration constants.Constants are used in the following situations:It is used in the subscript declarator to describe the array bound.It is used after the case keyword in the switch statement.It is used as a numeric value in an enumIt specifies a bit-field width.It is used in the pre-processor #ifIn the above scenarios, the constant expression can have integer, character, and enumeration constants. We can use the static and extern keyword with the constants to define the function-scope.The following table shows the expression containing constant value:Expression containing constantConstant valuex = (2/3) * 4(2/3) * 4extern int y = 6767int z = 4343static int a = 5656Let's see a simple program containing constant expression:#include <iostream>
+using namespace std;
+int main()
+{
+    int x;        // variable declaration.
+    x=(3/2) + 2;  // constant expression
+    cout<<"Value of x is : "<<x;  // displaying the value of x.
+    return 0;
+}In the above code, we have first declared the 'x' variable of integer type. After declaration, we assign the simple constant expression to the 'x' variable.OutputValue of x is : 3  Integral ExpressionsAn integer expression is an expression that produces the integer value as output after performing all the explicit and implicit conversions.Following are the examples of integral expression:(x * y) -5      
+x + int(9.0)
+where x and y are the integers.Let's see a simple example of integral expression:#include <iostream>
+using namespace std;
+int main()
+{
+    int x;  // variable declaration.
+    int y;  // variable declaration
+    int z;  // variable declaration
+    cout<<"Enter the values of x and y";
+    cin>>x>>y;
+    z=x+y;
+    cout<<"\n"<<"Value of z is :"<<z; //  displaying the value of z.
+    return 0;
+}In the above code, we have declared three variables, i.e., x, y, and z. After declaration, we take the user input for the values of 'x' and 'y'. Then, we add the values of 'x' and 'y' and stores their result in 'z' variable.OutputEnter the values of x and y                                                                                                     
+8                                                                                                                               
+9                                                                                                                               
+Value of z is :17     Let's see another example of integral expression.#include <iostream>
+using namespace std;
+int main()
+{
+    
+   int x;   // variable declaration
+   int y=9;    // variable initialization
+   x=y+int(10.0);    // integral expression
+  cout<<"Value of x : "<<x;   // displaying the value of x.
+  return 0;
+}In the above code, we declare two variables, i.e., x and y. We store the value of expression (y+int(10.0)) in a 'x' variable.OutputValue of x : 19       Float ExpressionsA float expression is an expression that produces floating-point value as output after performing all the explicit and implicit conversions.The following are the examples of float expressions:x+y
+(x/10) + y
+34.5
+x+float(10)Let's understand through an example.#include <iostream>
+using namespace std;
+int main()
+{
+    
+   float x=8.9;      // variable initialization
+   float y=5.6;      // variable initialization
+   float z;             // variable declaration
+   z=x+y;
+   std::cout <<"value of z is :"  << z<<std::endl;  // displaying the value of z.
+   
+
+    return 0;
+}Outputvalue of z is :14.5       Let's see another example of float expression.#include <iostream>
+using namespace std;
+int main()
+{
+   float x=6.7;    // variable initialization
+   float y;      // variable declaration
+   y=x+float(10);   // float expression
+   std::cout <<"value of y is :"  << y<<std::endl;  // displaying the value of y
+   return 0;
+}In the above code, we have declared two variables, i.e., x and y. After declaration, we store the value of expression (x+float(10)) in variable 'y'.Outputvalue of y is :16.7  Pointer ExpressionsA pointer expression is an expression that produces address value as an output.The following are the examples of pointer expression:&xptr
+ptr++
+ptr-Let's understand through an example.#include <iostream>
+using namespace std;
+int main()
+{
+    
+   int a[]={1,2,3,4,5};  // array initialization
+   int *ptr;       // pointer declaration
+   ptr=a;    // assigning base address of array to the pointer ptr
+   ptr=ptr+1;   // incrementing the value of pointer
+   std::cout <<"value of second element of an array : "  << *ptr<<std::endl;
+   return 0;
+}In the above code, we declare the array and a pointer ptr. We assign the base address to the variable 'ptr'. After assigning the address, we increment the value of pointer 'ptr'. When pointer is incremented then 'ptr' will be pointing to the second element of the array.Outputvalue of second element of an array : 2Relational ExpressionsA relational expression is an expression that produces a value of type bool, which can be either true or false. It is also known as a boolean expression. When arithmetic expressions are used on both sides of the relational operator, arithmetic expressions are evaluated first, and then their results are compared.The following are the examples of the relational expression:a>b
+a-b >= x-y
+a+b>80Let's understand through an example#include <iostream>
+using namespace std;
+int main()
+{
+    int a=45;    // variable declaration
+    int b=78;    // variable declaration
+    bool y= a>b;   // relational expression
+    cout<<"Value of y is :"<<y;  // displaying the value of y.
+    return 0;
+}In the above code, we have declared two variables, i.e., 'a' and 'b'. After declaration, we have applied the relational operator between the variables to check whether 'a' is greater than 'b' or not.OutputValue of y is :0 Let's see another example.#include <iostream>
+using namespace std;
+int main()
+{
+ int a=4;     // variable declaration
+ int b=5;     // variable declaration
+ int x=3;     // variable declaration
+ int y=6;    // variable declaration
+ cout<<((a+b)>=(x+y));   // relational expression 
+ return 0;
+}In the above code, we have declared four variables, i.e., 'a', 'b', 'x' and 'y'. Then, we apply the relational operator (>=) between these variables.Output1Logical ExpressionsA logical expression is an expression that combines two or more relational expressions and produces a bool type value. The logical operators are '&&' and '||' that combines two or more relational expressions.The following are some examples of logical expressions:a>b && x>y
+a>10 || b==5Let's see a simple example of logical expression.#include <iostream>
+using namespace std;
+int main()
+{
+ int a=2;
+ int b=7;
+ int c=4;
+cout<<((a>b)||(a>c));
+return 0;
+}Output0Bitwise ExpressionsA bitwise expression is an expression which is used to manipulate the data at a bit level. They are basically used to shift the bits.For example:x=3x>>3 // This statement means that we are shifting the three-bit position to the right.In the above example, the value of 'x' is 3 and its binary value is 0011. We are shifting the value of 'x' by three-bit position to the right. Let's understand through the diagrammatic representation.Let's see a simple example.#include <iostream>
+using namespace std;
+int main()
+{
+ int x=5;   // variable declaration
+std::cout << (x>>1) << std::endl;
+return 0;
+}In the above code, we have declared a variable 'x'. After declaration, we applied the bitwise operator, i.e., right shift operator to shift one-bit position to right.Output2Let's look at another example.#include <iostream>
+using namespace std;
+int main()
+{
+ int x=7;   // variable declaration
+std::cout << (x<<3) << std::endl;
+return 0;
+}In the above code, we have declared a variable 'x'. After declaration, we applied the left shift operator to variable 'x' to shift the three-bit position to the left.Output56Special Assignment ExpressionsSpecial assignment expressions are the expressions which can be further classified depending upon the value assigned to the variable.Chained AssignmentChained assignment expression is an expression in which the same value is assigned to more than one variable by using single statement.For example:a=b=20 
+ or 
+(a=b) = 20Let's understand through an example.#include <iostream>
+using namespace std;
+int main()
+
+ int a;   // variable declaration
+ int b;   // variable declaration
+ a=b=80;  // chained assignment
+ std::cout <<"Values of 'a' and 'b' are : " <<a<<","<<b<< std::endl;
+ return 0;
+}In the above code, we have declared two variables, i.e., 'a' and 'b'. Then, we have assigned the same value to both the variables using chained assignment expression.OutputValues of 'a' and 'b' are : 80,80  Note: Using chained assignment expression, the value cannot be assigned to the variable at the time of declaration. For example, int a=b=c=90 is an invalid statement.Embedded Assignment ExpressionAn embedded assignment expression is an assignment expression in which assignment expression is enclosed within another assignment expression.Let's understand through an example.#include <iostream>
+using namespace std;
+int main()
+{
+ int a;  // variable declaration
+ int b;  // variable declaration
+ a=10+(b=90);  // embedded assignment expression
+ std::cout <<"Values of 'a' is " <<a<< std::endl;
+ return 0;
+}In the above code, we have declared two variables, i.e., 'a' and 'b'. Then, we applied embedded assignment expression (a=10+(b=90)).OutputValues of 'a' is 100  Compound AssignmentA compound assignment expression is an expression which is a combination of an assignment operator and binary operator.For example,a+=10; In the above statement, 'a' is a variable and '+=' is a compound statement.Let's understand through an example.#include <iostream>
+using namespace std;
+int main()
+{
+  int a=10;   // variable declaration
+  a+=10;    // compound assignment
+  std::cout << "Value of a is :" <<a<< std::endl; // displaying the value of a.
+  return 0;
+}In the above code, we have declared a variable 'a' and assigns 10 value to this variable. Then, we applied compound assignment operator (+=) to 'a' variable, i.e., a+=10 which is equal to (a=a+10). This statement increments the value of 'a' by 10.OutputValue of a is :20  Next TopicC++ if-else? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

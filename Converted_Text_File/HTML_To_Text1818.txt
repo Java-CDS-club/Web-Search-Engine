@@ -1,0 +1,139 @@
+C++ multiset non member operator greater than= - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ std operator>=C++ Multiset Operator>= is a non-member overloaded function of multiset in C++. This function is used to check whether the first multiset is greater than or equal to other or not.Note: Operator >= sequentially compares the element of multiset and comparison will stop at first mismatch.Syntaxtemplate <class T, class Compare, class Allocator>
+  bool operator>= ( const multiset<T,Compare,Allocator>& lhs,
+                    const multiset<T,Compare,Allocator>& rhs );Parameterlhs: First multiset object.rhs: Second multiset object.Return valueIt returns true if the left side of the multiset container object is greater than or equal to the right side of the multiset container object otherwise false.ComplexityComplexity will be constant, if the size of lhs and rhs is different.Otherwise, up to linear in the size of lhs and rhs.Iterator validityNo changes.Data RacesContainers, lhs and rhs are accessed.Concurrently accessing the elements of unmodified multiset is always safe.Exception SafetyThis function does not throw an exception.Example 1Let's see a simple example to check whether the first multiset is greater than or equal to or not:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main() {
+   multiset<char> m1;
+   multiset<char> m2;
+
+   m1.emplace('a');
+   m2.emplace('a');
+
+   if (m1 >= m2)
+      cout << "Multiset m1 is greater than or equal to m2." << endl;
+
+   m2.emplace('b');
+
+   if (!(m1 >= m2))
+      cout << "Multiset m1 is not greater than or equal to m2." << endl;
+
+   return 0;
+}Output:Multiset m1 is greater than or equal to m2.
+Multiset m1 is not greater than or equal to m2.In the above example, there are two multisets m1 and m2. m1 and m2 contains one element. When we compare both multisets then it will display the message "multiset m1 is greater than or equal to m2" and after adding one more element to m2, it will display the message "multiset m1 is not greater than or equal to m2".Example 2Let's see a simple example:#include <set>  
+#include <iostream>  
+  
+using namespace std; 
+   
+int main( )  
+{   
+   multiset < int > m1, m2, m3, m4;  
+   int i;  
+  
+   for ( i = 1 ; i < 3 ; i++ )  
+   {  
+      m1.insert ( i );  
+      m2.insert (i * i );  
+      m3.insert ( i - 1 );  
+      m4.insert ( i );  
+   }  
+  
+   if ( m1 >= m2 )  
+      cout << "Multiset m1 is greater than or equal to multiset m2." << endl;  
+   else  
+      cout << "The multiset m1 is less than the multiset m2." << endl;  
+  
+   if ( m1 >= m3 )  
+      cout << "Multiset m1 is greater than or equal to multiset m3." << endl;  
+   else  
+      cout << "The multiset m1 is less than the multiset m3." << endl;  
+  
+   if ( m1 >= m4 )  
+      cout << "Multiset m1 is greater than or equal to multiset m4." << endl;  
+   else  
+      cout << "The multiset m1 is less than the multiset m4." << endl;  
+      
+      return 0;
+}Output:The multiset m1 is less than the multiset m2.
+Multiset m1 is greater than or equal to multiset m3.
+Multiset m1 is greater than or equal to multiset m4.Example 3Let's see a simple example:#include <iostream>
+#include <set>
+ 
+using namespace std;
+
+int  main () 
+{ 
+  multiset < int >  s1 ,  s2 ; 
+  s1 . insert ( 10 ); 
+  s1 . insert ( 20 ); 
+  s1 . insert ( 30 ); 
+  s2  =  s1 ;
+
+  cout  <<  ( s1  >=  s2 )  << endl ;
+
+  s2 . insert ( 40 );
+
+  cout  <<  ( s1  >=  s2 )  <<  endl ; 
+  
+  return 0;
+}Output:1
+0In the above example, if m1 is greater than or equal to m2, then it will return 1 otherwise 0.Example 4#include <set>  
+#include <iostream>  
+using namespace std; 
+  
+int main ()  
+{  
+   multiset<string> m2;
+   typedef multiset<string> login; 
+   
+   m2 = {"xyz@123"} ; //stored id and password
+   
+   string password;
+   login m1;
+   
+       cout<<"---------Login----------"<<endl<<endl;
+       cout<<"Enter password: \n";
+       cin>> password;       // Get value
+       m1.insert(password);   // Put them in multiset
+
+     cout<<"Password you have entered: \n";
+     for (auto it = m1.begin(); it != m1.end(); it++) {
+        cout << (*it)<< endl;
+      }
+      cout<<"Password stored in the system :\n";
+     for (auto it = m2.begin(); it != m2.end(); it++) {
+        cout << (*it)<< endl;
+     }
+
+  
+   if (m1 >= m2)  
+        cout << "\nWelcome to your Page..." << endl;
+   else  
+        cout << "\nIncorrect Password..." << endl;
+      return 0;
+}Output:1).
+---------Login----------
+
+Enter password: 
+xyz@123
+Password you have entered: 
+xyz@123
+Password stored in the system :
+xyz@123
+
+Welcome to your Page...
+
+
+2).
+---------Login----------
+
+Enter password: 
+abc@122
+Password you have entered: 
+abc@122
+Password stored in the system :
+xyz@123
+
+Incorrect Password...In the above example, there are two multisets m1 and m2. m1 contains stored password and second multiset m2 stores user's entered password. It checks whether m1 is greater than or equal to m2 or not. If password of m1 is greater than or equal to m2 then login is successful otherwise login fails.Next TopicC++ multiset? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

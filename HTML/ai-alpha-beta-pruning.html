@@ -1,0 +1,665 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/ai-alpha-beta-pruning by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:30:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Artificial Intelligence | Alpha-Beta Pruning - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png"/>
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css"/><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50"/><meta property="og:title" content="Artificial Intelligence | Alpha-Beta Pruning - Javatpoint" /><meta property="og:description" content="Artificial Intelligence | Alpha-Beta Pruning with Tutorial, Introduction, History of Artificial Intelligence, AI, Artificial Intelligence, AI Overview, Application of AI, Types of AI, What is AI, etc." />
+<meta name="keywords" content="ai, artificial intelligence tutorial, introduction, history of ai, issues, ai overview, application of ai, types of ai, what is ai, subsets of ai, types of agents, intelligent agent, agent environment, turing test in ai, robotics, intelligent systems"/><meta name="description" content="Artificial Intelligence | Alpha-Beta Pruning with Tutorial, Introduction, History of Artificial Intelligence, AI, Artificial Intelligence, AI Overview, Application of AI, Types of AI, What is AI, etc."/><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="https://www.javatpoint.com/ai-alpha-beta-pruning" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Artificial Intelligence | Alpha-Beta Pruning - Javatpoint" /><meta name="twitter:description" property="og:description" content="Artificial Intelligence | Alpha-Beta Pruning with Tutorial, Introduction, History of Artificial Intelligence, AI, Artificial Intelligence, AI Overview, Application of AI, Types of AI, What is AI, etc." /><meta property="og:url" content="https://www.javatpoint.com/ai-alpha-beta-pruning" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@pagejavatpoint"/><meta name="twitter:domain" content="www.javatpoint.com"/><meta name="twitter:creator" content="@pagejavatpoint"/>
+
+
+<link href="https://www.javatpoint.com/manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://cdn.adpushup.com/37780/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+</head> 
+<body onload="highlightlink()"> 
+ 
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#8679;</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px">
+    <tr>
+        <td>
+            <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px">
+                <a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a>
+            </div>
+            <div style="float:left;width:60%;">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+                
+            </div>
+            
+        </td>
+    </tr>
+        <!--<tr>
+        <td>
+            <div id="headerlink" style="padding:0px;margin:0px"><span style="margin-right:20px;width:45px"></span><span style="float:right;margin-right:5px;width:45%"> </span>
+                
+            </div>
+        </td>
+    </tr>-->
+
+</table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="https://www.javatpoint.com/images/menuhome64.png" alt="Go To Top" onclick="showmenu()"/></span>
+<span style="float:left"><a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+<!--<form class="navbar-search-m" method="get" action="https://www.google.com/search" target="_blank"> <input type="text" name="q" class="search-query span2-m" placeholder="Search on javatpoint..." title="Search on Javatpoint"/><input type="hidden" name="sitesearch" value="www.javatpoint.com"/></form>-->
+
+</div>
+</div>
+<div id="link" style="clear:both"> <div  class="ddsmoothmenu">
+<ul>
+<li><a href="https://www.javatpoint.com/">Home</a></li>
+<li><a href="https://www.javatpoint.com/dbms-tutorial">DBMS</a></li>
+<li><a href="https://www.javatpoint.com/artificial-intelligence-tutorial" class="selected">AI</a></li>
+<li><a href="https://www.javatpoint.com/blockchain-tutorial">Blockchain</a></li>
+<li><a href="https://www.javatpoint.com/html-tutorial">HTML</a></li>
+<li><a href="https://www.javatpoint.com/css-tutorial">CSS</a></li>
+<li><a href="https://www.javatpoint.com/javascript-tutorial">JavaScript</a></li>
+<li><a href="https://www.javatpoint.com/selenium-tutorial">Selenium</a></li>
+<li><a href="https://www.javatpoint.com/data-structure-tutorial">DS</a></li>
+<li><a href="https://www.javatpoint.com/control-system-tutorial">Control System</a></li>
+<li><a href="https://www.javatpoint.com/java-tutorial">Java</a></li>
+<li><a href="https://www.javatpoint.com/selenium-tutorial">Selenium</a></li>
+<li><a href="https://www.javatpoint.com/jquery-tutorial">jQuery</a></li>
+<li><a href="https://www.javatpoint.com/examaccess">Quiz</a></li>
+<li><a href="https://www.javatpoint.com/free-java-projects">Projects</a></li>
+<li><a href="https://www.javatpoint.com/corejava-interview-questions">Interview Q</a></li>
+<li><a href="https://www.javatpoint.com/comment.jsp">Comment</a></li>
+<li><a href="https://www.javatpoint.com/forum">Forum</a></li>
+<li><a href="https://www.javatpoint.com/training">Training</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both"> 
+<!-- Cm_300x250_Mob_14/9 -->
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+
+<div id="menu">
+
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">AI Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/artificial-intelligence-tutorial">AI Tutorial</a>
+<a href="https://www.javatpoint.com/introduction-to-artificial-intelligence">AI Introduction</a>
+<a href="https://www.javatpoint.com/application-of-ai">Application of AI</a>
+<a href="https://www.javatpoint.com/history-of-artificial-intelligence">History of AI</a>
+<a href="https://www.javatpoint.com/types-of-artificial-intelligence">Types of AI</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Intelligent Agent</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/types-of-ai-agents">Types of Agents</a>
+<a href="https://www.javatpoint.com/agents-in-ai">Intelligent Agent</a>
+<a href="https://www.javatpoint.com/agent-environment-in-ai">Agent Environment</a>
+<a href="https://www.javatpoint.com/turing-test-in-ai">Turing Test in AI</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Problem-solving</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/search-algorithms-in-ai">Search Algorithms</a>
+<a href="https://www.javatpoint.com/ai-uninformed-search-algorithms">Uninformed Search Algorithm</a>
+<a href="https://www.javatpoint.com/ai-informed-search-algorithms">Informed Search Algorithms</a>
+<a href="https://www.javatpoint.com/hill-climbing-algorithm-in-ai">Hill Climbing Algorithm</a>
+<a href="https://www.javatpoint.com/means-ends-analysis-in-ai">Means-Ends Analysis</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Adversarial Search</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/ai-adversarial-search">Adversarial search</a>
+<a href="https://www.javatpoint.com/mini-max-algorithm-in-ai">Minimax Algorithm</a>
+<a href="https://www.javatpoint.com/ai-alpha-beta-pruning">Alpha-Beta Pruning</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Knowledge Represent</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/knowledge-based-agent-in-ai">Knowledge Based Agent</a>
+<a href="https://www.javatpoint.com/knowledge-representation-in-ai">Knowledge Representation</a>
+<a href="https://www.javatpoint.com/ai-techniques-of-knowledge-representation">Knowledge Representation Techniques</a>
+<a href="https://www.javatpoint.com/propositional-logic-in-artificial-intelligence">Propositional Logic</a>
+<a href="https://www.javatpoint.com/rules-of-inference-in-artificial-intelligence">Rules of Inference</a>
+<a href="https://www.javatpoint.com/the-wumpus-world-in-artificial-intelligence">The Wumpus world</a>
+<a href="https://www.javatpoint.com/ai-knowledge-base-for-wumpus-world">knowledge-base for Wumpus World</a>
+<a href="https://www.javatpoint.com/first-order-logic-in-artificial-intelligence">First-order logic</a>
+<a href="https://www.javatpoint.com/ai-knowledge-engineering-in-first-order-logic">Knowledge Engineering in FOL</a>
+<a href="https://www.javatpoint.com/ai-inference-in-first-order-logic">Inference in First-Order Logic</a>
+<a href="https://www.javatpoint.com/ai-unification-in-first-order-logic">Unification in FOL</a>
+<a href="https://www.javatpoint.com/ai-resolution-in-first-order-logic">Resolution in FOL</a>
+<a href="https://www.javatpoint.com/forward-chaining-and-backward-chaining-in-ai">Forward Chaining and backward chaining</a>
+<a href="https://www.javatpoint.com/difference-between-backward-chaining-and-forward-chaining">Backward Chaining vs Forward Chaining</a>
+<a href="https://www.javatpoint.com/reasoning-in-artificial-intelligence">Reasoning in AI</a>
+<a href="https://www.javatpoint.com/difference-between-inductive-and-deductive-reasoning">Inductive vs. Deductive reasoning</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Uncertain Knowledge R.</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/probabilistic-reasoning-in-artifical-intelligence">Probabilistic Reasoning in AI</a>
+<a href="https://www.javatpoint.com/bayes-theorem-in-artifical-intelligence">Bayes theorem in AI</a>
+<a href="https://www.javatpoint.com/bayesian-belief-network-in-artificial-intelligence">Bayesian Belief Network</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Subsets of AI</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/subsets-of-ai">Subsets of AI</a>
+<a href="https://www.javatpoint.com/expert-systems-in-artificial-intelligence">Expert Systems</a>
+<a href="https://www.javatpoint.com/machine-learning">Machine Learning Tutorial</a>
+<a href="https://www.javatpoint.com/nlp">NLP Tutorial</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Related Tutorials</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/tensorflow">Tensorflow Tutorial</a>
+<a href="https://www.javatpoint.com/pytorch">PyTorch Tutorial</a>
+<a href="https://www.javatpoint.com/data-science">Data Science Tutorial</a>
+<a href="https://www.javatpoint.com/reinforcement-learning">Reinforcement Learning</a>
+</div>
+
+<img src="https://www.javatpoint.com/wh.JPG" alt="JavaTpoint"/>
+<br/>
+<div id="leftad" style="margin-left:20px">
+<!-- javatpointleft -->
+<ins class="adPushupAds" data-adpControl="g8drp" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBqYXZhdHBvaW50bGVmdCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lLWJsb2NrO3dpZHRoOjE2MHB4O2hlaWdodDo2MDBweCIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI0NDc2NDAxMjIyIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+</div>
+<div class="onlycontent">
+<div class="onlycontentad">
+<!-- CM_JTP_Leaderbaord -->
+<ins class="adPushupAds" data-adpControl="nuoc1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDTV9KVFBfTGVhZGVyYmFvcmQgLS0+CjxpbnMgY2xhc3M9ImFkc2J5Z29vZ2xlIgogICAgIHN0eWxlPSJkaXNwbGF5OmJsb2NrIgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjkyMDE5MDE5MTUiCiAgICAgZGF0YS1hZC1mb3JtYXQ9ImF1dG8iCiAgICAgZGF0YS1mdWxsLXdpZHRoLXJlc3BvbnNpdmU9InRydWUiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+
+<div id="bottomnextup">
+<a class="next" href="https://www.javatpoint.com/knowledge-based-agent-in-ai">next &rarr;</a>
+<a class="next" href="https://www.javatpoint.com/mini-max-algorithm-in-ai">&larr; prev</a>
+</div>
+
+<h1 class="h1">Alpha-Beta Pruning</h1>
+<ul class="points">
+<li>Alpha-beta pruning is a modified version of the minimax algorithm. It is an optimization technique for the minimax algorithm. </li>
+<li>As we have seen in the minimax search algorithm that the number of game states it has to examine are exponential in depth of the tree. Since we cannot eliminate the exponent, but we can cut it to half. Hence there is a technique by which without checking each node of the game tree we can compute the correct minimax decision, and this technique is called <strong>pruning</strong>. This involves two threshold parameter Alpha and beta for future expansion, so it is called <strong>alpha-beta pruning</strong>. It is also called as <strong>Alpha-Beta Algorithm</strong>.</li>
+<li>Alpha-beta pruning can be applied at any depth of a tree, and sometimes it not only prune the tree leaves but also entire sub-tree.</li>
+<li>The two-parameter can be defined as:
+<ol class="pointsa">
+<li><strong>Alpha:</strong> The best (highest-value) choice we have found so far at any point along the path of Maximizer. The initial value of alpha is <strong>-&infin;</strong>. </li>
+<li><strong>Beta:</strong> The best (lowest-value) choice we have found so far at any point along the path of Minimizer. The initial value of beta is <strong>+&infin;</strong>.</li>
+</ol></li>
+<li>The Alpha-beta pruning to a standard minimax algorithm returns the same move as the standard algorithm does, but it removes all the nodes which are not really affecting the final decision but making algorithm slow. Hence by pruning these nodes, it makes the algorithm fast. </li>
+</ul>
+<h4 class="n">Note: To better understand this topic, kindly study the minimax algorithm. </h4>
+<h2 class="h2">Condition for Alpha-beta pruning:</h2>
+<p>The main condition which required for alpha-beta pruning is:</p>
+<div class="codeblock"><textarea name="code" class="java">
+&alpha;>=&beta;
+</textarea></div>
+<h2 class="h2">Key points about alpha-beta pruning:</h2>
+<ul class="points">
+<li>The Max player will only update the value of alpha.</li>
+<li>The Min player will only update the value of beta.</li>
+<li>While backtracking the tree, the node values will be passed to upper nodes instead of values of alpha and beta.</li>
+<li>We will only pass the alpha, beta values to the child nodes.</li>
+</ul>
+<h2 class="h2">Pseudo-code for Alpha-beta Pruning: </h2>
+<div class="codeblock"><textarea name="code" class="java">
+function minimax(node, depth, alpha, beta, maximizingPlayer) is
+if depth ==0 or node is a terminal node then
+return static evaluation of node
+
+if MaximizingPlayer then      // for Maximizer Player
+   maxEva= -infinity          
+   for each child of node do
+   eva= minimax(child, depth-1, alpha, beta, False)
+  maxEva= max(maxEva, eva) 
+  alpha= max(alpha, maxEva)    
+   if beta<=alpha
+ break
+ return maxEva
+  
+else                         // for Minimizer player
+   minEva= +infinity 
+   for each child of node do
+   eva= minimax(child, depth-1, alpha, beta, true)
+   minEva= min(minEva, eva) 
+   beta= min(beta, eva)
+    if beta<=alpha
+  break        
+ return minEva
+</textarea></div>
+<h2 class="h2">Working of Alpha-Beta Pruning:</h2>
+<p>Let's take an example of two-player search tree to understand the working of Alpha-beta pruning</p>
+<p><strong>Step 1:</strong> At the first step the, Max player will start first move from node A where &alpha;= -&infin; and &beta;= +&infin;, these value of alpha and beta passed down to node B where again &alpha;= -&infin; and &beta;= +&infin;, and Node B passes the same value to its child D.</p>
+<img src="https://static.javatpoint.com/tutorial/ai/images/alpha-beta-pruning-step1.png" alt="Alpha-Beta Pruning"/>
+<p><strong>Step 2:</strong> At Node D, the value of &alpha; will be calculated as its turn for Max. The value of &alpha; is compared with firstly 2 and then 3, and the max (2, 3) = 3 will be the value of &alpha; at node D and node value will also 3.</p>
+<p><strong>Step 3:</strong> Now algorithm backtrack to node B, where the value of &beta; will change as this is a turn of Min, Now &beta;= +&infin;, will compare with the available subsequent nodes value, i.e. min (&infin;, 3) = 3, hence at node B now &alpha;= -&infin;, and &beta;= 3.</p>
+<img src="https://static.javatpoint.com/tutorial/ai/images/alpha-beta-pruning-step3.png" alt="Alpha-Beta Pruning"/>
+<p>In the next step, algorithm traverse the next successor of Node B which is node E, and the values of &alpha;= -&infin;, and &beta;= 3 will also be passed.</p>
+<p><strong>Step 4:</strong> At node E, Max will take its turn, and the value of alpha will change. The current value of alpha will be compared with 5, so max (-&infin;, 5) = 5, hence at node E &alpha;= 5 and &beta;= 3, where &alpha;>=&beta;, so the right successor of E will be pruned, and algorithm will not traverse it, and the value at node E will be 5. </p>
+<img src="https://static.javatpoint.com/tutorial/ai/images/alpha-beta-pruning-step4.png" alt="Alpha-Beta Pruning"/>
+<p><strong>Step 5:</strong> At next step, algorithm again backtrack the tree, from node B to node A. At node A, the value of alpha will be changed the maximum available value is 3 as max (-&infin;, 3)= 3, and &beta;= +&infin;,  these two values now passes to right successor of A which is Node C.</p>
+<p>At node C, &alpha;=3 and &beta;= +&infin;, and the same values will be passed on to node F.</p>
+<p><strong>Step 6:</strong> At node F, again the value of &alpha; will be compared with left child which is 0, and max(3,0)= 3, and then compared with right child which is 1, and max(3,1)= 3 still &alpha; remains 3, but the node value of F will become 1. </p>
+<img src="https://static.javatpoint.com/tutorial/ai/images/alpha-beta-pruning-step6.png" alt="Alpha-Beta Pruning"/>
+<p><strong>Step 7:</strong> Node F returns the node value 1 to node C, at C &alpha;= 3 and &beta;= +&infin;, here the value of beta will be changed, it will compare with 1 so min (&infin;, 1) = 1. Now at C, &alpha;=3 and &beta;= 1, and again it satisfies the condition &alpha;>=&beta;, so the next child of C which is G will be pruned, and the algorithm will not compute the entire sub-tree G.</p>
+<img src="https://static.javatpoint.com/tutorial/ai/images/alpha-beta-pruning-step7.png" alt="Alpha-Beta Pruning"/>
+<p><strong>Step 8:</strong> C now returns the value of 1 to A here the best value for A is max (3, 1) = 3. Following is the final game tree which is the showing the nodes which are computed and nodes which has never computed. Hence the optimal value for the maximizer is 3 for this example. </p>
+<img src="https://static.javatpoint.com/tutorial/ai/images/alpha-beta-pruning-step8.png" alt="Alpha-Beta Pruning"/>
+<h2 class="h2">Move Ordering in Alpha-Beta pruning: </h2>
+<p>The effectiveness of alpha-beta pruning is highly dependent on the order in which each node is examined. Move order is an important aspect of alpha-beta pruning.</p>
+<p>It can be of two types:</p>
+<ul class="points">
+<li><strong>Worst ordering:</strong> In some cases, alpha-beta pruning algorithm does not prune any of the leaves of the tree, and works exactly as minimax algorithm. In this case, it also consumes more time because of alpha-beta factors, such a move of pruning is called worst ordering. In this case, the best move occurs on the right side of the tree. The time complexity for such an order is O(b<sup>m</sup>).</li>
+<li><strong>Ideal ordering:</strong> The ideal ordering for alpha-beta pruning occurs when lots of pruning happens in the tree, and best moves occur at the left side of the tree. We apply DFS hence it first search left of the tree and go deep twice as minimax algorithm in the same amount of time. Complexity in ideal ordering is O(b<sup>m/2</sup>).</li>
+</ul>
+<h2 class="h2">Rules to find good ordering: </h2>
+<p>Following are some rules to find good ordering in alpha-beta pruning:</p>
+<ul class="points">
+<li>Occur the best move from the shallowest node.</li>
+<li>Order the nodes in the tree such that the best nodes are checked first. </li>
+<li>Use domain knowledge while finding the best move. Ex: for Chess, try order: captures first, then threats, then forward moves, backward moves.</li>
+<li>We can bookkeep the states, as there is a possibility that states may repeat.</li>
+</ul>
+
+<hr/>
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="https://www.javatpoint.com/knowledge-based-agent-in-ai">Knowledge Based Agent in AI</a></span>
+</div>
+<!-- link -->
+<br/><br/>
+<div id="bottomnext">
+<a style="float:left" class="next" href="https://www.javatpoint.com/mini-max-algorithm-in-ai">&larr; prev</a>
+<a style="float:right" class="next" href="https://www.javatpoint.com/knowledge-based-agent-in-ai">next &rarr;</a>
+</div>
+
+<br/><br/>
+</td></tr>
+</table>
+</div>
+
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/ai-alpha-beta-pruning"><img src="https://www.javatpoint.com/images/facebook32.png" alt="facebook"/></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/ai-alpha-beta-pruning"><img src="https://www.javatpoint.com/images/twitter32.png" alt="twitter"/></a>
+<!--<a rel="nofollow" title="Google+" target="_blank" href="https://plusone.google.com/_/+1/confirm?hl=en&url=https://www.javatpoint.com/ai-alpha-beta-pruning"><img src="https://www.javatpoint.com/images/google-plus32.png" alt="google plus"/></a>-->
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/ai-alpha-beta-pruning"><img src="https://www.javatpoint.com/images/pinterest32.png" alt="pinterest"/></a>
+<!--<a rel="nofollow" title="Tumblr" target="_blank" href="https://www.tumblr.com/share/link?url=https://www.javatpoint.com/ai-alpha-beta-pruning"><img src="https://www.javatpoint.com/images/tumblr32.png" alt="tumbler"/></a>-->
+<!-- contribute start-->
+
+<!-- contribute end-->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- AP_37780_300x250(0) -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4699858549023382"
+     data-ad-slot="5022809933"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+<!-- latest tutorials start --> 
+<h2 class="h2">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+
+                          <a href="https://www.javatpoint.com/python-openpyxl">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/openpyxl/images/openpyxl-home.png" alt="Openpyxl Tutorial" />
+                                <p>Openpyxl</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/tally">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/tally/images/tally-home.png" alt="Tally Tutorial" />
+                                <p>Tally</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/godot">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/godot/images/godot-home.png" alt="Godot Tutorial" />
+                                <p>Godot</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/spring-boot-tutorial"> 
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/springboot/images/spring-boot-home.jpg" alt="Spring Boot Tutorial" />
+                                <p>Spring Boot</p>  
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/gradle">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/gradle/images/gradle-home.png" alt="Gradle Tutorial" />
+                                <p>Gradle</p> 
+                            </div>    
+                        </a> 
+                           <a href="https://www.javatpoint.com/uml">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/uml/images/uml-home.png" alt="UML Tutorial" />
+                                <p>UML</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/artificial-neural-network">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/artificial-neural-network/images/ann-home.png" alt="Artificial Neural Network Tutorial" />
+                                <p>ANN</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/es6">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/es6/images/es6-home.png" alt="ES6 Tutorial" />
+                                <p>ES6</p> 
+                            </div>    
+                        </a> 
+                        <a href="https://www.javatpoint.com/flutter">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/flutter/images/flutter-home.png" alt="Flutter Tutorial" />
+                                <p>Flutter</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/selenium-python">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/selenium-python/images/selenium-python-home.png" alt="Selenium Python" />
+                                <p>Selenium Py</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/firebase">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/firebase/images/firebase-home.png" alt="Firebase Tutorial" />
+                                <p>Firebase</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/cobol">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/cobol/images/cobol-home.png" alt="Cobol Tutorial" />
+                                <p>Cobol</p>
+                            </div> 
+                        </a>  
+</div>
+<hr/>
+<!-- preparation start -->  
+<h2 class="h2">Preparation</h2>
+<div class="firsthomecontent"> 
+
+                        <a href="https://www.javatpoint.com/aptitude/quantitative">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+                                <p>Aptitude</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/reasoning">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+                                <p>Reasoning</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/verbal-ability">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+                                <p>Verbal A.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/interview-questions-and-answers">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+                                <p>Interview</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/company-interview-questions-and-recruitment-process">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+                                <p>Company</p>
+                            </div> 
+                        </a> 
+
+</div>
+<hr/>
+<!-- trending start -->  
+<h2 class="h2">Trending Technologies</h2>
+<div class="firsthomecontent">
+
+                        <a href="https://www.javatpoint.com/artificial-intelligence-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/ai/images/ai-home.png" alt="Artificial Intelligence Tutorial" />
+                                <p>AI</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/aws-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/aws/images/aws-home.png" alt="AWS Tutorial" />
+                                <p>AWS</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/selenium-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/selenium/images/selenium-home.jpg" alt="Selenium tutorial" />
+                                <p>Selenium</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/cloud-computing-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/cloudhome.png" alt="Cloud tutorial" />
+                                <p>Cloud</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/hadoop-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/hadoop.jpg" alt="Hadoop tutorial" />
+                                <p>Hadoop</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/reactjs-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/reactjs/images/reactjs-home.png" alt="ReactJS Tutorial" />
+                                <p>ReactJS</p>
+                            </div> 
+                        </a>  
+                        <a href="https://www.javatpoint.com/data-science">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/data-science/images/data-science-home.png" alt="Data Science Tutorial" />
+                                <p>D. Science</p>
+                            </div> 
+                        </a>  
+                        <a href="https://www.javatpoint.com/angular-7-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/angular7/images/angular-7-home.png" alt="Angular 7 Tutorial" />
+                                <p>Angular 7</p>
+                            </div> 
+                        </a>  
+                        <a href="https://www.javatpoint.com/blockchain-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/blockchain/images/blockchain-home.png" alt="Blockchain Tutorial" />
+                                <p>Blockchain</p>
+                            </div>  
+                        </a> 
+                        <a href="https://www.javatpoint.com/git">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/git/images/git-home.png" alt="Git Tutorial" />
+                                <p>Git</p>
+                            </div> 
+                        </a> 
+                          <a href="https://www.javatpoint.com/machine-learning">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/machine-learning/images/machine-learning-home.png" alt="Machine Learning Tutorial" />
+                                <p>ML</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/devops">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/devops/images/devops-home.png" alt="DevOps Tutorial" />
+                                <p>DevOps</p> 
+                            </div>    
+                        </a> 
+
+</div>
+ 
+<hr/>
+<!-- B.Tech / MCA -->
+                    <h2 class="h2">B.Tech / MCA</h2>
+                    <div class="firsthomecontent">
+                        <a href="https://www.javatpoint.com/dbms-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/dbms/images/dbms-home.jpg" alt="DBMS tutorial" />
+                                <p>DBMS</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/data-structure-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/ds/images/ds-home.png" alt="Data Structures tutorial" />
+                                <p>DS</p>
+                            </div>
+                        </a> 
+                        <a href="https://www.javatpoint.com/daa-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/daa/images/daa-home.png" alt="DAA tutorial" />
+                                <p>DAA</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/os-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/operating-system/images/operating-system-home.png" alt="Operating System tutorial" />
+                                <p>OS</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/computer-network-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/computer-network/images/computer-network-home.png" alt="Computer Network tutorial" />
+                                <p>C. Network</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/compiler-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/compiler/images/compiler-design-home.png" alt="Compiler Design tutorial" />
+                                <p>Compiler D.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/computer-organization-and-architecture-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/coa/images/coa-home.png" alt="Computer Organization and Architecture" />
+                                <p>COA</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/discrete-mathematics-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/dms/images/discrete-mathematics-home.png" alt="Discrete Mathematics Tutorial" />
+                                <p>D. Math.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/ethical-hacking-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/ethical-hacking/images/ethical-hacking-home.png" alt="Ethical Hacking Tutorial" />
+                                <p>E. Hacking</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/computer-graphics-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/computer-graphics/images/computer-graphics-home.png" alt="Computer Graphics Tutorial" />
+                                <p>C. Graphics</p>
+                            </div> 
+                        </a>
+                        <a href="https://www.javatpoint.com/software-engineering-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/software-engineering/images/software-engineering-home.png" alt="Software Engineering Tutorial" />
+                                <p>Software E.</p>
+                            </div> 
+                        </a> 
+
+                        <a href="https://www.javatpoint.com/html-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/html-tutorial.png" alt="html tutorial" />
+                                <p>Web Tech.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/cyber-security-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/cybersecurity/images/cyber-security-home.png" alt="Cyber Security tutorial" />
+                                <p>Cyber Sec.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/automata-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/automata/images/automata-home.jpg" alt="Automata Tutorial" />
+                                <p>Automata</p>
+                            </div> 
+                        </a>
+                        
+                        <a href="https://www.javatpoint.com/c-programming-language-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/clanguagehome.png" alt="C Language tutorial" />
+                                <p>C</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/cpp-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/cpp/images/cpp-home.png" alt="C++ tutorial" />
+                                <p>C++</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/java-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/javahome.png" alt="Java tutorial" />
+                                <p>Java</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/net-framework">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/csharp/net/images/net-home.png" alt=".Net Framework tutorial" />
+                                <p>.Net</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/python-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/pythonhome.png" alt="Python tutorial" />
+                                <p>Python</p>
+                            </div>
+                        </a>
+
+                        <a href="https://www.javatpoint.com/programs-list">
+                            <div class="homecontent"><img class="lazyload" data-src="https://www.javatpoint.com/images/programs.jpg" alt="List of Programs" />
+                                <p>Programs</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/control-system-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/control-system/images/control-system-home.jpg" alt="Control Systems tutorial" />
+                                <p>Control S.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/data-mining">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/data-mining/images/data-mining-home.png" alt="Data Mining Tutorial" />
+                                <p>Data Mining</p> 
+                            </div>    
+                        </a> 
+
+</div>
+
+ 
+</div>
+
+
+<br><br/><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+</div></div>
+<div id="right">
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+<br/><br/>
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+<br/><br/>
+
+</div>
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+<!-- right1024only -->
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+<br/><br/>
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+<br/>
+<div id="footer" style="clear:both;width:100%">
+
+<!--<div style="width:100%;float:center;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#90715c,#523b1f);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Summer Training</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers <strong>Summer Internship Training</strong> on Java, PHP, .Net, Hadoop, Data Analytics, R Programming, SAP, Android, Python, Oracle, Seleninum, Linux, C++ and many more technologies in Delhi/NCR, India. For more visit <a style="color:white" href="https://training.javatpoint.com"><img src="https://static.javatpoint.com/images/linkglobe12.png" alt="javatpoint training"/>training.javatpoint.com</a> <br>Course Fee: &#8377; 6000 Only<br>Duration: 6 Week </p></div>--><div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com. <br>Duration: 1 week to 2 week<br></p></div><!--<div class="homebox2"><h2>Our Initiatives</h2><marquee behavior="alternate"><a rel="nofollow noopener" href="https://www.hindi100.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/javatpoint.png" alt="javatpoint"/><p>Hindi100</p></div></a><a rel="nofollow noopener" href="https://www.lyricsia.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/lyrics.png" alt="lyrics"/><p>Lyricsia</p></div></a></div></a></marquee></div>--><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed"/></a> <a target="_blank"  rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts"/></a> <a  rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page"/></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page"/></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube"/></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page"/></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="https://www.javatpoint.com/java-tutorial">Learn Java</a><a href="https://www.javatpoint.com/data-structure-tutorial">Learn Data Structures</a><a href="https://www.javatpoint.com/c-programming-language-tutorial">Learn C Programming</a><a href="https://www.javatpoint.com/cpp-tutorial">Learn C++ Tutorial</a><a href="https://www.javatpoint.com/c-sharp-tutorial">Learn C# Tutorial</a><a href="https://www.javatpoint.com/php-tutorial">Learn PHP Tutorial</a><a href="https://www.javatpoint.com/html-tutorial">Learn HTML Tutorial</a><a href="https://www.javatpoint.com/javascript-tutorial">Learn JavaScript Tutorial</a><a href="https://www.javatpoint.com/jquery-tutorial">Learn jQuery Tutorial</a><a href="https://www.javatpoint.com/spring-tutorial">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="https://www.javatpoint.com/">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="https://www.javatpoint.com/contact-us">Contact Us</a> <a href="https://www.javatpoint.com/subscribe.jsp">Subscribe Us</a> <a href="https://www.javatpoint.com/privacy-policy">Privacy Policy</a><a href="https://www.javatpoint.com/sitemap.xml">Sitemap</a><br><a href="https://www.javatpoint.com/sonoo-jaiswal">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+</div></div></div> 
+ 
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/ai-alpha-beta-pruning by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:30:07 GMT -->
+</html> 

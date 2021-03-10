@@ -1,0 +1,37 @@
+CodeIgniter Login Form - javatpoint?HomeCJavaPHPMySQLWordPressCodeIgniterHTMLCSSBootstrapJavaScriptjQueryjQuery UIXMLAjaxSQLQuizProjectsInterview QCommentForumTrainingCodeIgniter TutorialCodeIgniter Tutorial What is CodeIgniter CodeIgniter License CodeIgniter versions CodeIgniter Feature CodeIgniter Installation CodeIgniter File System CodeIgniter Architecture CodeIgniter MVC Models Views ControllerCodeIgniter ExampleCodeIgniter First Example CodeIgniter URL CodeIgniter Create a site CodeIgniter Methods CodeIgniter Helper CodeIgniter Library CodeIgniter URL Routing CodeIgniter Hooks CI Passing Parameters CodeIgniter DriverCodeIgniter DatabaseCodeIgniter Database CI Database Insert CI Database select CI Login Form CI Database Login FormCodeIgniter SecurityCI Security Class CI CSRFCodeIgniter InterviewCI Interview Questionsnext ? ? prevLogin Form in CodeIgniter (without MySQL)Here, we'll make a simple login page with the help of session.Go to file autoload.php in application/config/autoload.phpSet session in library and helper.Create controller page Login.php in application/controllers folder.?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Login extends CI_Controller {
+	
+	public function index()
+	{
+		$this->load->view('login_view');
+	}
+	public function process()
+	{
+		$user = $this->input->post('user');
+		$pass = $this->input->post('pass');
+		if ($user=='juhi' && $pass=='123') 
+		{
+			//declaring session
+			$this->session->set_userdata(array('user'=>$user));
+			$this->load->view('welcome_view');
+		}
+		else{
+			$data['error'] = 'Your Account is Invalid';
+			$this->load->view('login_view', $data);
+		}
+	}
+	public function logout()
+	{
+		//removing session
+		$this->session->unset_userdata('user');
+		redirect("Login");
+	}
+
+}
+?>
+
+Look at the above snapshot, we have created a session for a single user with Username juhi and Password 123. For a valid login and logout we will use this username and password.Create view page login_view.php in application/views folder.
+	Login Page ?php echo isset($error) ? $error : ''; ?>Username:Password: Create view page welcome_view.php in application/views folder to show the successful login message.
+	Welcome ?php echo $this->session->userdata('user'); ?>?php echo anchor('Login/logout', 'Logout'); ?>OutputType URL localhost/login/index.php/LoginNow on entering wrong information we'll be see unsuccessful message which we have set in login_view page in else part.Now on entering right information, we'll see welvome_view.php message.Click on Logout, we'll be directed to Login page.download this exampleNext TopicLogin page? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

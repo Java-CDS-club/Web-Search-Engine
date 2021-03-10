@@ -1,0 +1,478 @@
+Android Web Service | Android Restful Web Service - javatpoint?HomeAndroidCore JavaServletJSPStruts2Mail APIHibernateSpringDesign PatternQuizProjectsInterview QCommentForumAndroid TrainingAndroid TutorialAndroid Introduction What is Android History and Version Android Architecture Core Building Blocks Android Emulator Install Android Setup Eclipse Hello Android example Internal Details Dalvik VM AndroidManifest.xml R.java Hide Title Bar Screen OrientationAndroid WidgetsUI Widgets Working with Button Toast Custom Toast ToggleButton CheckBox Custom CheckBox RadioButton Dynamic RadioButton Custom RadioButton AlertDialog Spinner AutoCompleteTextView ListView Custom ListView RatingBar WebView SeekBar DatePicker TimePicker Analog and Digital ProgressBar Vertical ScrollView Horizontal ScrollView ImageSwitcher ImageSlider ViewStub TabLayout TabLayout with FrameLayout SearchView SearchView on Toolbar EditText with TextWatcherActivity and IntentsActivity LifeCycle Implicit Intent Explicit Intent StartActivityForResult Share App DataAndroid FragmentsAndroid FragmentsAndroid MenuOption Menu Context Menu Popup MenuAndroid ServiceAndroid ServiceAndroid AlarmManagerAndroid AlarmManagerAndroid StorageAndroid Preferences Internal Storage External StorageAndroid SQLiteSQLite Tutorial SQLite SpinnerXML and JSONXML Parsing SAX XML Parsing DOM XMLPullParser JSON ParsingAndroid MultimediaMediaPlayer: Audio VideoView: Video Recording MediaAndroid SpeechTextToSpeech1 TextToSpeech2Android TelephonyTelephonyManager Get Call State Get Call State 2 Simple Caller Talker Phone Call Send SMS Send EmailAndroid DeviceBluetooth Tutorial List Paired Devices WIFICamera TutorialCamera TutorialSensor TutorialSensor TutorialAndroid GraphicsAndroid GraphicsAndroid AnimationAndroid AnimationAndroid Web ServiceAndroid Web ServiceGoogle MapAndroid Google Map Current Location Search LocationAdding AdsAndroid Google Admob 1) Banner Ads 2) Interstitial AdsAndroid ExamplesQR/Bar Code Scanner RSS Feed Reader Volley Fetch JSON Android Linkify Intro Slider RecyclerView List Swipe Del RecyclerView Swipe Refresh Activity Volley Library Registration Log-in Log-out Network Connectivity Services Firebase Authentication - Google Login Android Notification Using Google reCAPTCHAAndroid SocialIntegrating Google Sign-In Integrating LinkedIn Integrating TwitterAndroid MiscAndroid Device Manager Android Studio Android Auto Android File Transfer Android Messages Android Oreo Android TV Android Screenshot Android Versions Android Watch Android Pay Android Phones Android Tablets Android Find My Phone Android Marshmallow Android Nougat Android Pie Android One Android Antivirus Android Data Recovery Android Lollipop Android vs iPhone Android Wear OS Android x86 Emulator for PC Android 10 Android ad blocker Clear cache Android Root Android DeviceAndroid InterviewInterview QuestionsAndroid QuizAndroid Quiznext ? ? prevAndroid Web Service TutorialCreating web service application in android is not a difficult task. We can easily create a restful web service application in android to authenticate or save information into the external database such as oracle, mysql, postgre sql, sql server using other application developed in java, .net, php etc languages. That is what we are going to do.Android Restful Web Service TutorialBefore developing web services application, you must have basic knowledge of SOAP and Restful web services. That is why, we are going to discuss basic points about web services such as what is web service and brief information about SOAP and Restful web services.What is Web Service?A web service is a standard for exchanging information between different types of applications irrespective of language and platform. For example, an android application can interact with java or .net application using web services.Android Restful Web Service ExampleFile: activity_main.xml<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:hint="Username"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="67dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="24dp"
+        android:layout_toRightOf="@+id/button1"
+        android:text="New User" />
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_below="@+id/editText2"
+        android:layout_marginTop="22dp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_below="@+id/progressBar1"
+        android:layout_marginLeft="22dp"
+        android:text="Login" />
+
+</RelativeLayout>File: activity_register_user.xml<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Enter UserName" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="Enter Password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Resister" />
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_below="@+id/editText2"
+        android:layout_marginTop="87dp" />
+
+</RelativeLayout>MainActivity classFile: MainActivity.javapackage com.example.newrestapi;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+	EditText password,userName;
+	Button login,resister;
+	ProgressBar progressBar;
+	
+	
+	   
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		password=(EditText) findViewById(R.id.editText2);
+		userName=(EditText) findViewById(R.id.editText1);
+		login=(Button) findViewById(R.id.button1);
+		resister=(Button) findViewById(R.id.button2);
+		
+		//progess_msz.setVisibility(View.GONE);
+		progressBar=(ProgressBar) findViewById(R.id.progressBar1);
+		progressBar.setVisibility(View.GONE);
+		
+		
+		resister.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent  intent=new Intent(MainActivity.this,ResisterUser.class);
+				startActivity(intent);
+			}
+		});
+		login.setOnClickListener(new OnClickListener() {
+		
+			public void onClick(View v) {
+				progressBar.setVisibility(View.VISIBLE);
+				
+				String s1=userName.getText().toString();
+				String s2=password.getText().toString();
+				new ExecuteTask().execute(s1,s2);
+				
+			}
+		});
+		
+
+	}
+	
+	 class ExecuteTask extends AsyncTask<String, Integer, String>
+	    {
+
+			@Override
+			protected String doInBackground(String... params) {
+				
+				String res=PostData(params);
+				
+				return res;
+			}
+			
+			@Override
+			protected void onPostExecute(String result) {
+			progressBar.setVisibility(View.GONE);
+			//progess_msz.setVisibility(View.GONE);
+			Toast.makeText(getApplicationContext(), result, 3000).show();
+			}
+	    	
+	    }
+	
+	public String PostData(String[] valuse) {
+		String s="";
+    	try
+    	{
+    	HttpClient httpClient=new DefaultHttpClient();
+    	HttpPost httpPost=new HttpPost("http://10.0.0.8:7777/HttpPostServlet/servlet/Login");
+    	
+    	List<NameValuePair> list=new ArrayList<NameValuePair>();
+    	list.add(new BasicNameValuePair("name", valuse[0]));
+    	list.add(new BasicNameValuePair("pass",valuse[1]));
+    	httpPost.setEntity(new UrlEncodedFormEntity(list));
+        HttpResponse httpResponse=	httpClient.execute(httpPost);
+    
+        HttpEntity httpEntity=httpResponse.getEntity();
+        s= readResponse(httpResponse);
+  
+    	}
+    	catch(Exception exception) 	{}
+		return s;
+	
+		
+	}
+	public String readResponse(HttpResponse res) {
+		InputStream is=null; 
+		String return_text="";
+		try {
+			is=res.getEntity().getContent();
+			BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(is));
+			String line="";
+			StringBuffer sb=new StringBuffer();
+			while ((line=bufferedReader.readLine())!=null)
+			{
+			sb.append(line);
+			}
+			return_text=sb.toString();
+		} catch (Exception e)
+		{
+			
+		}
+		return return_text;
+		
+	}
+	
+}RegisterUser classFile: RegisterUser.javapackage com.example.newrestapi;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+
+public class ResisterUser extends Activity {
+	 EditText userName,passwprd;
+	   Button resister,login;
+	   ProgressBar progressBar;
+	    protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.activity_resister_user);
+	        userName=(EditText) findViewById(R.id.editText1);;
+	        passwprd=(EditText) findViewById(R.id.editText2);
+	        resister=(Button) findViewById(R.id.button1);
+	        
+	        progressBar=(ProgressBar) findViewById(R.id.progressBar1);
+	        progressBar.setVisibility(View.GONE);
+	        
+	        resister.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					
+					progressBar.setVisibility(View.VISIBLE);
+					
+					String s1=userName.getText().toString();
+					String s2=passwprd.getText().toString();
+					new ExecuteTask().execute(s1,s2);
+				}
+			});
+	        
+	       
+	        
+	        
+	    }
+	    
+	    class ExecuteTask extends AsyncTask<String, Integer, String>
+	    {
+
+			@Override
+			protected String doInBackground(String... params) {
+				
+				PostData(params);
+				return null;
+			}
+			
+			@Override
+			protected void onPostExecute(String result) {
+			progressBar.setVisibility(View.GONE);
+			}
+	    	
+	    }
+	    
+	   
+	    
+	    public void PostData(String[] valuse) {
+	    	try
+	    	{
+	    	HttpClient httpClient=new DefaultHttpClient();
+	    	HttpPost httpPost=new HttpPost(
+                                  "http://10.0.0.8:7777/HttpPostServlet/servlet/httpPostServlet");
+	    	List<NameValuePair> list=new ArrayList<NameValuePair>();
+	    	list.add(new BasicNameValuePair("name", valuse[0]));
+	    	list.add(new BasicNameValuePair("pass",valuse[1]));
+	    	httpPost.setEntity(new UrlEncodedFormEntity(list));
+	    	httpClient.execute(httpPost);
+	    	}
+	    	catch(Exception e)
+	    	{
+	    		System.out.println(e);
+	    	}
+			
+		}
+	   
+	    }File: AndroidManifest.xmlYou need to provide INTERNET permission in AndroidManifest.xml file.<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.newrestapi"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.newrestapi.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.newrestapi.ResisterUser"
+            android:label="@string/title_activity_resister_user" >
+        </activity>
+    </application>
+
+</manifest>download this android exampleOutput:Java Servlet Login and Register example using oracle databaseCreate table javatpoint_user in the oracle database having three columns id, name and password. Id must be primary key and generated through SEQUENCE.CREATE TABLE  "JAVATPOINT_USER" 
+   (	"ID" NUMBER, 
+	"NAME" VARCHAR2(4000), 
+	"PASSWORD" VARCHAR2(4000), 
+	 CONSTRAINT "JAVATPOINT_USER_PK" PRIMARY KEY ("ID") ENABLE
+   )
+/New create two servlet classes to login and register user.Login Servlet classFile: Login.javapackage server;
+
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Login extends HttpServlet {
+
+	
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		 response.setContentType("text/html");  
+		   
+		    ObjectOutputStream out=new ObjectOutputStream(response.getOutputStream());
+		         
+		    String n=request.getParameter("name");  
+		    String p=request.getParameter("pass");
+		    System.out.println(n);
+		    System.out.println(p);
+		          
+		    if(validate(n, p)){  
+		       out.writeObject("success");
+		    
+		    }  
+		    else{  
+		       out.writeObject("Sorry username or password error");
+		    			       
+		    }  
+		          
+		    out.close();  
+		    }  
+		
+	
+	public static boolean validate(String name,String pass){  
+		boolean status=false;  
+		try{  
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+	    	Connection con=DriverManager.getConnection(
+                      "jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+		      
+		PreparedStatement ps=con.prepareStatement(  
+		"select * from javatpoint_user where name=? and password=?");  
+		ps.setString(1,name);  
+		ps.setString(2,pass);  
+		      
+		ResultSet rs=ps.executeQuery();  
+		status=rs.next();  
+		          
+		}catch(Exception e){System.out.println(e);}  
+		return status;  
+		}  
+	public void doPost(HttpServletRequest request,HttpServletResponse response)
+    throws ServletException, IOException {
+doGet(request, response);
+
+}
+}httpPostServlet Servlet classFile: httpPostServlet.javapackage server;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+public class httpPostServlet extends HttpServlet {
+
+	
+	 public void doGet(HttpServletRequest request,HttpServletResponse response)
+     throws ServletException, IOException {
+ response.setContentType("text/html");
+String recived_data="";
+
+
+ String s1=request.getParameter("name");
+ String s2=request.getParameter("pass");
+ System.out.println(s1);
+ System.out.println(s2);  	
+    	
+    	try
+    	{
+    	Class.forName("oracle.jdbc.driver.OracleDriver");
+    	Connection con=DriverManager.getConnection(
+                       "jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+    	PreparedStatement ps=con.prepareStatement(
+                      "insert into javatpoint_user(name,password) values(?,?)");
+    	ps.setString(1, s1);
+    	ps.setString(2,s2);
+    	ps.executeUpdate();
+    	con.close();
+    	}
+    	catch (Exception e) {
+    		e.printStackTrace();
+		}
+    	 
+} 
+public void doPost(HttpServletRequest request,HttpServletResponse response)
+     throws ServletException, IOException {
+ doGet(request, response);
+}
+
+}index.jsp<form action="servlet/Login">
+Name:<input type="text" name="name"/><br/>
+Password:<input type="password" name="pass"/><br/>
+<input type="submit" value="login"/>
+</form>download this android web service exampledownload servlet example (developed in eclipse)Next TopicAndroid Google Map<<prev next>>Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,36 @@
+AngularJS AJAX - javatpoint?HomeAngularJSAngular 7CJavaHTMLCSSJavaScriptjQueryBootstrapPHPSQLPL/SQLPythonQuizProjectsInterview QCommentForumTrainingAngularJS TutorialAngularJS Tutorial What is AngularJS AngularJS MVC AngularJS First App AngularJS Data Binding AngularJS Expressions AngularJS Directives AngularJS Controllers AngularJS Modules AngularJS Scopes AngularJS Dependency AngularJS Filters AngularJS Tables AngularJS Select AngularJS DOM AngularJS Forms AngularJS Validation AngularJS AJAX AngularJS AnimationAngular 7 TutorialAngular 7 Tutorial Angular 7 Introduction Angular 7 Installation History & Versions Angular 7 First App Angular 7 Files Explanation Angular 7 with Bootstrap All CLI commands Angular 7 Libraries Angular 7 Architecture Angular 7 ComponentsAngular 7 DirectivesAngular 7 Directives Angular 7 ngIf Directive Angular 7 ngStyle DirectiveAngular 7 DatabindingAngular 7 Databinding Angular 7 String Interpolation Angular 7 Event Binding Angular 7 Property BindingAngular 7 PipesAngular 7 PipesError FixingAngular 7 Error FixingAngular 7 FormsAngular 7 Forms Data Flow in Angular Forms Angular Reactive Forms Template-driven FormsAngular MiscAngular vs ReactAngular + SpringCRUD Example File Upload Example Login & Logout Example Search Field ExampleInterview QuestionsAngularJS Interview JavaScript Interview jQuery Interview Backbone.js Interview Ember.js Interview Neo4j Interviewnext ? ? prevAngularJS AJAXAngularJS provides a $http service for reading data and remote servers. It is used to retrieve the desired records from a server.AngularJS requires data in JSON format. Once the data is ready, $http gets the data form server in the following manner:  function employeeController($scope,$http) {
+var url = "data.txt";
+
+   $http.get(url).success( function(response) {
+      $scope.employees = response; 
+   });
+}
+
+Here the file "data.txt" is employee's records. $http service makes an AJAX call and sets response to its property employees. This model is used to draw tables in HTML.AngularJS AJAX ExampletestAngularJS.htm
+ Angular JS Includes table, th , td { border: 1px solid grey; border-collapse: collapse; padding: 5px; } table tr:nth-child(odd) { background-color: #f2f2f2; } table tr:nth-child(even) { background-color: #ffffff; }AngularJS Sample ApplicationNameAgeSalary{{ employee.Name }}{{ employee.Age }}{{ employee.Salary }}Here the file data.txt contains the employee's record."data.txt" (employee's data in JSON format)    [
+   {
+      "Name" : "Mahesh Sharma",
+      "Age" : 25,
+      "Salary" : "20000"
+   },
+	
+   {
+      "Name" : "Rohan Malik",
+      "Age" : 20,
+      "Salary" : "22000"
+   },
+	
+   {
+      "Name" : "Robert Petro",
+      "Age" : 45,
+      "Salary" : "67000"
+   },
+	
+   {
+      "Name" : "Jullia Roberts",
+      "Age" : 21,
+      "Salary" : "55000"
+   }
+]
+
+To execute the above example, you have to deploy testAngularJS.htm and data.txt file to a web server.Open the file testAngularJS.htm using the URL of your server in a web browser and see the result.Output:The result would look like this:Table:NameAgeSalaryMahesh Sharma2520000Rohan Malik2022000Robert Petro4567000Jullia Roberts2155000HTTP Service MethodsThere are several shortcut methods of calling the $http service. In the above example, .get method of the $http service is used. Following are several other shortcut methods:.delete().get().head().jsonp().patch().post().put()PropertiesThe response from the server is an object with these properties:.config the object used to generate the request..data a string, or an object, carrying the response from the server..headers a function to use to get header information..status a number defining the HTTP status..statusText a string defining the HTTP status.Next TopicAngularJS Animation? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

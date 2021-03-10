@@ -1,0 +1,217 @@
+C++ multiset erase() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ multisetC++ multiset constructor destructor begin() end() operator= rbegin() rend() cbegin() cend() max_size() size() crbegin() crend() empty() insert() clear() emplace() erase() swap() emplace_hint() find() key_comp() value_comp() count() equal_range() lower_bound() upper_bound() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ multiset erase()C++ Multimultiset erase() function is used to remove either a single element associated with given key or a range of elements ([first, last)) from the multiset container. Hence, the size will be reduced by the number of elements removed.Syntaxvoid erase (iterator position);                       	  //until C++ 11
+size_type erase (const value_type& val);    		  //until C++ 11
+void erase (iterator first, iterator last);  		  //until C++ 11
+iterator  erase (const_iterator position);		  //since C++ 11
+size_type erase (const value_type& val);		  //since C++ 11	
+iterator  erase (const_iterator first, const_iterator last); //since C++ 11Parameterposition: Iterator pointing to an element to be removed from the container.val: Value to be removed from the multiset.first: Beginning of the range to erase.last: End of the range to erase.Return valueThe erase() function returns an iterator that point to the next element of the deleted element or returns the number of deleted elements.Complexityerase(position): Amortized constant.erase (val): Logarithmic in container size.erase(first,last): Linear in the distance between first and last of the container.Iterator validityIterators, references and the pointers pointing to elements removed by the function are invalidated.All other iterators, pointers and references keep their validity.Data RacesThe container is modified.The elements removed are modified. Iterating ranges in the container is not safe although concurrently accessing other elements is safe.Exception SafetyThis function does not throw exception.If an invalid range or position is specified, it causes undefined behavior.Example 1Let's see the simple example to erase the element by the iterator.#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  multiset<int> mymultiset;
+  multiset<int>::iterator it;
+
+  mymultiset = {10,20,30,20};
+  
+  cout<<"Before erasing the element: \n";
+   for (it=mymultiset.begin(); it!=mymultiset.end(); ++it)
+    cout << *it << '\n';
+
+  it=mymultiset.find('b');
+  mymultiset.erase (*it);                   // erasing by iterator
+
+  cout<<"\nAfter erasing the element: \n";
+  for (it=mymultiset.begin(); it!=mymultiset.end(); ++it)
+    cout << *it << '\n';
+    
+  return 0;
+}Output:Before erasing the element: 
+10
+20
+20
+30
+
+After erasing the element: 
+10
+20
+20
+30In the above example, element is erased by the iterator 'it'.Example 2Let's see a simple example to erase the element of the multiset with the given key value:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  multiset<int> mymultiset;
+  multiset<int>::iterator it;
+
+  mymultiset = {10, 20, 30, 40, 10, 30};
+  
+  cout<<"Before erasing the element: \n";
+   for (it=mymultiset.begin(); it!=mymultiset.end(); ++it)
+    cout << *it<< '\n';
+
+   mymultiset.erase (30);                  // erasing by value
+
+  cout<<"\nAfter erasing the element: \n";
+  for (it=mymultiset.begin(); it!=mymultiset.end(); ++it)
+    cout << *it<< '\n';
+  return 0;
+}Output:Before erasing the element: 
+10
+10
+20
+30
+30
+40
+
+After erasing the element: 
+10
+10
+20
+40In the above example, erase(value) function uses the value 30 from the multiset.Example 3Let's see a simple example to erase the element by the given range:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  multiset<int> mymultiset;
+  multiset<int>::iterator it;
+
+  mymultiset = {10, 20, 30, 20};
+  
+  cout<<"Before erasing the element are: \n";
+   cout<<"Size is: "<<mymultiset.size()<<'\n';
+   for (it=mymultiset.begin(); it!=mymultiset.end(); ++it)
+   cout << *it << '\n';
+
+   mymultiset.erase ( mymultiset.begin () ,  mymultiset.end () );   // erasing by range
+
+  cout<<"\nAfter erasing the element are: \n";
+  cout<<"Size is: "<<mymultiset.size();
+  for (it=mymultiset.begin(); it!=mymultiset.end(); ++it)
+  cout << *it << '\n';
+  return 0;
+}Output:Before erasing the element are: 
+Size is: 3
+10
+20
+30
+
+After erasing the element are: 
+Size is: 0In the above example, erase(first, last) function is used to erase the element with the given range i.e. begin to end.Example 4Let's see a simple example to erase all the odd numbers from the multiset:#include <set>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    multiset<int> m = {1,2,3,4,5,6,7,8,9,10,11,12,11,10,4};
+                          
+    // erase all odd numbers from m
+    cout<<"After erasing odd numbers,elements are:\n ";
+    for(auto it = m.begin(); it != m.end(); )
+        if(*it % 2 == 1)
+            it = m.erase(it);
+        else
+            ++it;
+    for(auto& p : m)
+        cout << p << ", ";
+}Output:After erasing odd numbers, elements are:
+ 2, 4, 4, 6, 8, 10, 10, 12,In the above example, all the odd numbers has been erased and displaying even numbers.Example 5Let's see another example:#include <set>  
+#include <string>  
+#include <iostream>  
+#include <iterator> // next() and prev() helper functions  
+  
+using namespace std;  
+  
+using mymultiset = multiset<string>;  
+  
+void printmultiset(const mymultiset& s) {  
+    for (const auto& iter : s) {  
+        cout << " [" << iter << "]";  
+    }  
+    cout << endl << "size() == " << s.size() << endl << endl;  
+}  
+  
+int main()  
+{  
+    mymultiset s1;  
+  
+    // Fill in some data to test with, one at a time  
+    s1.insert("Bob");  
+    s1.insert("Robert");  
+    s1.insert("Rob");  
+    s1.insert("Rob");  
+    s1.insert("Bob");  
+  
+    cout << "Starting data of multiset s1 is:" << endl;  
+    printmultiset(s1);  
+    // The 1st member function removes an element at a given position  
+    s1.erase(next(s1.begin()));  
+    cout << "After the 2nd element is deleted, the multiset s1 is:" << endl;  
+    printmultiset(s1);  
+  
+    // Fill in some data to test with, one at a time, using an intializer list  
+    mymultiset s2{ "meow", "nikita", "nikita", "growl", "yellow" };  
+  
+    cout << "Starting data of multiset s2 is:" << endl;  
+    printmultiset(s2);  
+    // The 2nd member function removes elements  
+    // in the range [First, Last)  
+    s2.erase(next(s2.begin()), prev(s2.end()));  
+    cout << "After the middle elements are deleted, the multiset s2 is:" << endl;  
+    printmultiset(s2);  
+  
+    mymultiset s3;  
+  
+    // Fill in some data to test with, one at a time, using emplace  
+    s3.emplace("C");  
+    s3.emplace("C#");  
+    s3.emplace("D");  
+    s3.emplace("D#");  
+    s3.emplace("E");  
+    s3.emplace("E#");  
+    s3.emplace("F");  
+    s3.emplace("F#");  
+    s3.emplace("G");  
+    s3.emplace("G#");  
+    s3.emplace("E");  
+    s3.emplace("E#");  
+    s3.emplace("B");  
+  
+    cout << "Starting data of multiset s3 is:" << endl;  
+    printmultiset(s3);  
+    // The 3rd member function removes elements with a given Key  
+    mymultiset::size_type count = s3.erase("E#");  
+    // The 3rd member function also returns the number of elements removed  
+    cout << "The number of elements removed from s3 is: " << count << "." << endl;  
+    cout << "After the element with a key of \"E#\" is deleted, the multiset s3 is:" << endl;  
+    printmultiset(s3);  
+}  Output:Starting data of multiset s1 is:
+ [Bob] [Bob] [Rob] [Rob] [Robert]
+size() == 5
+
+After the 2nd element is deleted, the multiset s1 is:
+ [Bob] [Rob] [Rob] [Robert]
+size() == 4
+
+Starting data of multiset s2 is:
+ [growl] [meow] [nikita] [nikita] [yellow]
+size() == 5
+
+After the middle elements are deleted, the multiset s2 is:
+ [growl] [yellow]
+size() == 2
+
+Starting data of multiset s3 is:
+ [B] [C] [C#] [D] [D#] [E] [E] [E#] [E#] [F] [F#] [G] [G#]
+size() == 13
+
+The number of elements removed from s3 is: 2.
+After the element with a key of "E#" is deleted, the multiset s3 is:
+ [B] [C] [C#] [D] [D#] [E] [E] [F] [F#] [G] [G#]
+size() == 11Next TopicC++ multiset? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

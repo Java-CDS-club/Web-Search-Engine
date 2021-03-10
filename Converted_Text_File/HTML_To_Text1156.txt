@@ -1,0 +1,34 @@
+C #ifdef - javatpoint?HomeCC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumC/C++ TrainingC TutorialWhat is C Language History of C Features of C How to install C First C Program Compilation Process in C printf scanf Variables in C Data Types in c Keywords in c C Identifiers C Operators C Comments C Format Specifier C Escape Sequence ASCII value in C Constants in C Literals in C Tokens in C C Boolean Static in C Programming Errors in C Conditional Operator in C Bitwise Operator in C 2s complement in C C Fundamental TestC Control StatementsC if-else C switch if-else vs switch C Loops C do-while loop C while loop C for loop Nested Loops in C Infinite Loop in C C break C continue C goto Type Casting C Control Statement TestC FunctionsWhat is function Call: Value & Reference Recursion in c Storage Classes C Functions TestC Array1-D Array 2-D Array Return an Array in C Array to Function C Array TestC PointersC Pointers C Pointer to Pointer C Pointer Arithmetic Dangling Pointers in C sizeof() operator in C const Pointer in C void pointer in C C Dereference Pointer Null Pointer in C C Function Pointer C Pointers TestC Dynamic MemoryDynamic memoryC StringsString in C C gets() & puts() C String Functions C strlen() C strcpy() C strcat() C strcmp() C strrev() C strlwr() C strupr() C strstr() C String TestC MathC Math FunctionsC Structure UnionC Structure typedef in C C Array of Structures C Nested Structure C Union C Structure TestC File HandlingC File Handling C fprintf() fscanf() C fputc() fgetc() C fputs() fgets() C fseek() C rewind() C ftell()C PreprocessorC Preprocessor C Macros C #include C #define C #undef C #ifdef C #ifndef C #if C #else C #error C #pragma C Preprocessor TestC Command LineCommand Line ArgumentsC MiscC Expressions Data Segments Flow of C Program Classification of Programming LanguagesC Programming TestC Programming TestC ProgramsTop 10+ C Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Count the number of digits in C Reverse Number Swap Number Print "Hello" without ; Assembly code in C C program without main Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci Triangle Hexadecimal to Binary Hexadecimal to Decimal Strong number in C Star Program in CMathPrime Numbers List Composite Numbers List Square Numbers List Binary Numbers List Fibonacci Numbers List Ounces in a Cup Ounces in a Pound Ounces in a Gallon Ounces in a Liter Ounces in a Pint Ounces in a Quart Ounces in a TablespoonC InterviewC Interview Questionsnext ? ? prevC #ifdefThe #ifdef preprocessor directive checks if macro is defined by #define. If yes, it executes the code otherwise #else code is executed, if present.Syntax:#ifdef MACRO
+//code
+#endifSyntax with #else:#ifdef MACRO
+//successful code
+#else
+//else code
+#endifC #ifdef exampleLet's see a simple example to use #ifdef preprocessor directive.#include 
+#include 
+#define NOINPUT
+void main() {
+int a=0;
+#ifdef NOINPUT
+a=2;
+#else
+printf("Enter a:");
+scanf("%d", &a);
+#endif       
+printf("Value of a: %d\n", a);
+getch();
+}Output:Value of a: 2But, if you don't define NOINPUT, it will ask user to enter a number.#include 
+#include 
+void main() {
+int a=0;
+#ifdef NOINPUT
+a=2;
+#else
+printf("Enter a:");
+scanf("%d", &a);
+#endif       
+
+printf("Value of a: %d\n", a);
+getch();
+}Output:Enter a:5
+Value of a: 5Next TopicC #ifndef? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

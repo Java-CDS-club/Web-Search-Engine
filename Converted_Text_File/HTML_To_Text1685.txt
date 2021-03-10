@@ -1,0 +1,134 @@
+C++ algorithm transform() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm transform()C++ Algorithm transform() function is used in two different ways:1.unary operation:- This method performs unary operation op on the elements in range [first1, last1] and stores the result in range starting from result.This transform() applies a function to each element of a range:2.Binary operation:- This method performs binary operation binary_op on the elements in range [first1, last1] with the elements in the range starting with iterator first2 and stores the result in range starting from result.This transform() takes two 2 ranges and applies a function that takes 2 parameters, on each couple of elements from the input ranges:Syntaxunary operation(1)template <class InputIterator, class OutputIterator, class UnaryOperation>
+OutputIterator transform (InputIterator first1, InputIterator last1,
+OutputIterator result, UnaryOperation op);Binary operation(2)template <class InputIterator1, class InputIterator2,
+class OutputIterator, class BinaryOperation>
+OutputIterator transform (InputIterator1 first1, InputIterator1 last1,
+InputIterator2 first2, OutputIterator result,
+BinaryOperation binary_op);Parameterfirst1: An input iterator pointing the position of the first element of the first range to be operated on.last1: An iterator pointing the position one past the final element of the first range to be operated on.first2: Input iterator pointing to the first element in the second range to be operated on.result: An output iterator to the initial position of the range where the operation results are stored.op: Unary function applied to each element of the range.binary_op: Binary function that two elements passed as its arguments.Return valuetransform() returns an iterator pointing to the end of the transformed range.ComplexityComplexity is linear in the distance between first1 and last1.Data racesThe objects in the range [first1, last1) are accessed where each object is accessed exactly once.The object in the range beginning at result is modified.Exception safetyThrows an exception if any of the function calls the assignments or the operations on iterators throws an exception.Please note that invalid parameters cause an undefined behavior.Example 1Let's see the simple example to demonstrate the use of transform():#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <iterator>
+
+using namespace std;
+
+int main() {
+  vector<int> v = { 3,1,4 };
+  vector<string> result;
+
+  transform(v.begin(), v.end(), back_inserter(result),
+    [](int x) { return to_string(x * 2); });
+
+  for_each(result.begin(), result.end(),
+    [](const string& s) { cout << s << endl; });
+}Output:6
+2
+8Example 2Let's see another simple example:#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <iterator>
+
+using namespace std;
+
+int main() {
+  vector<char> v1 = { 'a','b','c' };
+  vector<int> v2 = { 3,1,4 };
+  vector<string> result;
+
+  transform(v1.begin(), v1.end(), v2.begin(), back_inserter(result),
+    [](char a, int b) { return string(b, a); });
+
+  for_each(result.begin(), result.end(),
+    [](const string& s) { cout << s << endl; });
+
+return 0;
+}Output:aaa
+b
+ccccExample 3Let's see another simple example:#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <functional>
+#include <iterator>
+#include <iomanip>
+#include <cmath>
+
+using namespace std;
+ 
+typedef const vector <int>& vecref;
+ 
+int power(int a, int b)
+{
+    return pow(a, b);
+}
+ 
+void print(vecref a, vecref b, vecref c)
+{
+    cout << "b[i]   a[i]    c[i]" << endl; 
+    for(int i = 0; i < a.size(); i++)
+    {
+        cout << setw(2) << setfill(' ') << a[i] << "   ^   "
+             << setw(1) << setfill(' ') << b[i] << "   =  "
+             << setw(2) << setfill(' ') << c[i] << endl;
+    }
+}
+ 
+int main()
+{
+    vector <int> a(10), b(10), c(10);
+ 
+    for (int i = 0; i < 10 ;i++)
+    {
+        a[i] = (i % 2 + 1);
+        b[i] = (i % 3 + 1);
+    }
+    // Save the result in vector c
+    cout << "Transform operation" << endl;
+    transform(b.begin(), b.end(), a.begin(), c.begin(), power);
+    print(b, a, c);
+    
+    return 0;
+}Output:Transform operation
+b[i]   a[i]    c[i]
+ 1   ^   1   =   1
+ 2   ^   2   =   4
+ 3   ^   1   =   3
+ 1   ^   2   =   1
+ 2   ^   1   =   2
+ 3   ^   2   =   9
+ 1   ^   1   =   1
+ 2   ^   2   =   4
+ 3   ^   1   =   3
+ 1   ^   2   =   1The above example illustrates the transform() algorithm. The program creates two vectors and transforms the third vector by inserting a value equal to an element from first vector raise to the power of element in second vector. The function power is passed as a predicate to the function transform().Example 4Let's see another simple example:#include <iostream>     // cout
+#include <algorithm>    // transform
+#include <vector>       // vector
+#include <functional>   // plus
+
+using namespace std;
+
+int op_increase (int i) { return ++i; }
+
+int main () {
+  vector<int> foo;
+  vector<int> bar;
+
+  // set some values:
+  for (int i=1; i<6; i++)
+    foo.push_back (i*10);                         // foo: 10 20 30 40 50
+
+  bar.resize(foo.size());                         // allocate space
+
+  transform (foo.begin(), foo.end(), bar.begin(), op_increase);
+                                                  // bar: 11 21 31 41 51
+
+  // plus adds together its two arguments:
+  transform (foo.begin(), foo.end(), bar.begin(), foo.begin(), plus<int>());
+                                                  // foo: 21 41 61 81 101
+
+  cout << "foo contains:";
+  for (vector<int>::iterator it=foo.begin(); it!=foo.end(); ++it)
+    cout << ' ' << *it;
+  cout << '\n';
+
+  return 0;
+}Output:foo contains: 21 41 61 81 101Next TopicC++ Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

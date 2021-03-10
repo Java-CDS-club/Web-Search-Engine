@@ -1,0 +1,136 @@
+C++ set emplace_hint() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set emplace_hint()C++ set emplace_hint() function is used to extend the set container by inserting new elements into the container using hint as a position for element. Elements are built directly (neither copied nor moved).The constructor of the element is called by giving the arguments args passed to this function.Insertion takes place only if key is not present already.Syntaxtemplate <class.... Args>
+    iterator emplace_hint (const_iterator position, Args&&... args);  //since C++ 11Parameterargs: The arguments forwarded to construct an element to be inserted into the set.position: Hint for the position to insert the new elements.Return valueIt returns an iterator to the newly inserted elements. If element is already exist, insertion is failed and returns iterator to the existing element.ComplexityIf position is not specified then complexity will be logarithmic in container size.If position is given then complexity will be amortized constant.Iterator validityNo changes.Data RacesThe container is modified.Iterating ranges in the container is not safe although concurrently accessing exiting elements are safe.Exception SafetyIf an exception is thrown, there are no changes in the container.Example 1Let's see the simple example to insert the elements into the set:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   set<int> m = {60, 20, 30, 40};
+            
+   m.emplace_hint(m.end(), 50);
+   m.emplace_hint(m.begin(), 10);
+
+   cout << "Set contains following elements" << endl;
+
+   for (auto it = m.begin(); it != m.end(); ++it)
+      cout << *it<< endl;
+
+   return 0;
+} Output:Set contains following elements
+10
+20
+30
+40 
+50
+60In the above example, it simply inserts the element into the set m with the given value in the given positions.Example 2Let's see a simple example:#include <set>  
+#include <string>  
+#include <iostream>  
+  
+using namespace std;  
+  
+template <typename M> void print(const M& m) {  
+    cout << m.size() << " elements: " << endl;  
+  
+    for (const auto& p : m) {  
+        cout << p << "  " ;  
+    }  
+  
+    cout << endl;  
+}  
+  
+int main()  
+{  
+    set<string> m1;  
+  
+    // Emplace some test data  
+    m1.emplace("Ram");  
+    m1.emplace("Rakesh");  
+    m1.emplace("Sunil");  
+  
+    cout << "set starting data: ";  
+    print(m1);  
+    cout << endl;  
+  
+    // Emplace with hint  
+    // m1.end() should be the "next" element after this emplacement  
+    m1.emplace_hint(m1.end(), "Deep");  
+  
+    cout << "set modified, now contains ";  
+    print(m1);  
+    cout << endl;  
+} Output:set starting data: 3 elements: 
+Rakesh  Ram  Sunil  
+
+set modified, now contains 4 elements: 
+Deep  Rakesh  Ram  SunilExample 3Let's see a simple example to insert the elements into the set with the given position:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<char> myset;
+  auto it = myset.end();
+
+  it = myset.emplace_hint(it,'b');
+  myset.emplace_hint(it,'a');
+  myset.emplace_hint(myset.end(),'c');
+
+  cout << "myset contains:";
+  for (auto& x: myset)
+    cout << " [" << x << ']';
+    cout << '\n';
+
+  return 0;
+}Output:myset contains: [a] [b] [c]Example 4Let's see a simple example to insert the elements:#include <iostream>
+#include <set>
+#include <string>
+
+using namespace std;
+
+int main() {
+
+  typedef set<string> city;  
+   string name;
+   city fmly ;
+   int n;
+
+   cout<<"Enter the number of family members :";
+   cin>>n;
+
+   cout<<"Enter the name of each member: \n";
+   for(int i =0; i<n; i++)
+   {
+       cin>> name;      // Get key
+
+       fmly.emplace_hint(fmly.begin(),name);
+       
+   }
+   
+      cout<<"\nTotal memnbers in family are:"<< fmly.size();
+
+      cout<<"\nDetails of family members: \n";
+      cout<<"\nName \n ________________________\n";
+      city::iterator p;
+      for(p = fmly.begin(); p!=fmly.end(); p++)
+      {
+          cout<<(*p) <<" \n ";
+      }
+    
+   return 0;
+}Output:Enter the number of fmly members : 4
+Enter the name of each member: 
+Deep
+Sonu
+Ajeet
+Bob
+
+Total memnber of fmly is:4
+Details of fmly members: 
+
+Name 
+ ________________________
+ Ajeet 
+ Bob 
+ Deep 
+ SonuIn the above example, it simply inserts the elements by the user's choice in the beginning of set.Next TopicSet key_comp() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

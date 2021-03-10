@@ -1,0 +1,827 @@
+Angular + Spring Boot CRUD Example - javatpoint?HomeCore JavaServletJSPStruts2Mail APIHibernateSpringAndroidDesign PatternQuizProjectsInterview QCommentForumSpring TutorialWhat is Spring Spring Modules Spring ApplicationSpring in IDESpring in Myeclipse Spring in EclipseDependency InjectionIOC container Dependency Injection Constructor Injection CI Dependent Object CI with collection CI with collection 2 CI with Map CI with Map2 CI Inheriting Bean Setter Injection SI Dependent Object SI with Collection SI with Collection 2 SI with Map SI with Map 2 CI vs SI Autowiring Factory MethodSpring AOPAOP Concepts Spring1.2 AOP DTD SP AspectJ Annotation SP AspectJ XMLSpring JdbcTemplateJdbcTemplate Example PreparedStatement ResultSetExtractor RowMapper NamedParameter SimpleJdbcTemplateSpring ORMSpring with ORM Spring with Hibernate Spring with JPASPELSpEL Examples Operators in SpEL variable in SpELSpring MVCMVC Introduction Multiple View Page Multiple Controller Model Interface RequestParam AnnotationMVC Form Tag LibraryForm Tag Library Form Text Field Form Radio Button Form Check Box Form Drop-Down ListMVC ApplicationsMVC CRUD Example MVC Pagination Example File Upload ExampleSpring MVC ValidationSpring MVC Validation Regular Expression Validation Number Validation Custom ValidationMVC TilesSpring MVC TilesSpring RemotingRemoting with Spring Spring with RMI Http Invoker Hessian Burlap Spring with JMSSpring OXMSpring with JAXB Spring with Xstream Spring with CastorSpring Java MailSpring Java MailSpring WebSpring with Struts2 Login ExampleSpring Security TutorialSp Security Tutorial Sp Security Introduction Sp Security Features Security Project Modules Sp Security XML Example Sp Security Java Example Sp Security Login Logout Sp Security Custom Login Form-Based Authentication Sp Security Remember Me Security at Method Level Sp Security Tag LibrarySpring + AngularCRUD Example File Upload Example Login & Logout Example Search Field ExampleSpring BootSpring Boot (15+)Spring InterviewInterview QuestionsSpring QuizSpring Quiznext ? ? prevSpring Angular CRUD ApplicationIn this section, we are going to develop a CRUD (create-read-update-delete) web application. This application contains the student form that includes the CRUD features like add, view, delete, and update student. In this integration, we are using Spring Boot to handle the backend part and Angular to handle the frontend part.Working of ApplicationOnce we deployed our application on the server, a student form generates at the web browser.The form facilitates to add and view students.On clicking add student link, the page redirects to create student form where we can add a student by filling the required details and submit them.Using view student link, we can fetch the details of the existing student. Here, each student also contains update and delete link.So, we can update the details of the student and also delete them from the database.Once completed, provide the URL http://localhost:4200/ at the web browser.Tools to be usedUse any IDE to develop the Spring and Hibernate project. It may be STS/Eclipse/Netbeans. Here, we are using STS (Spring Tool Suite).MySQL for the database.Use any IDE to develop the Angular project. It may be Visual Studio Code/Sublime. Here, we are using Visual Studio Code.Server: Apache Tomcat/JBoss/Glassfish/Weblogic/Websphere.Technologies we usedHere, we are using the following technologies:SpringBoot 2Hibernate 5Angular 6MYSQLCreate DatabaseLet's create a database indigo. There is no need to create a table as Hibernate automatically created it.Spring ModuleLet's see the directory structure of Spring Boot we need to follow:To develop a CRUD application, follow the below steps: -Add dependencies to pom.xml file.<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.4.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.main</groupId>
+	<artifactId>Student</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Student</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+	
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+		</dependency>
+	
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>Create the configuration classInstead of XML, we perform annotation-based configuration. So, we create a class Config.java and specify the required configuration in it. However, there is one more configuration class StudentApplication.java. This class is provided by Spring Boot automatically.qConfig.javapackage config;
+
+import java.util.Properties;
+import javax.sql.DataSource;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+
+@Configuration
+@EnableTransactionManagement
+@EnableAutoConfiguration(exclude = { HibernateJpaAutoConfiguration.class})
+@ComponentScans(value = { @ComponentScan("boot.entry"),
+	      @ComponentScan("Model"),
+	      @ComponentScan("Controller"),
+	      @ComponentScan("DAO"),
+	      @ComponentScan("Miscallaneous"),
+	      @ComponentScan("Service")})
+public class Config {
+
+	 @Value("${db.driver}")
+	    private String DB_DRIVER;
+
+	    @Value("${db.password}")
+	    private String DB_PASSWORD;
+
+	    @Value("${db.url}")
+	    private String DB_URL;
+
+	    @Value("${db.username}")
+	    private String DB_USERNAME;
+
+	    @Value("${hibernate.dialect}")
+	    private String HIBERNATE_DIALECT;
+
+	    @Value("${hibernate.show_sql}")
+	    private String HIBERNATE_SHOW_SQL;
+
+	    @Value("${hibernate.hbm2ddl.auto}")
+	    private String HIBERNATE_HBM2DDL_AUTO;
+
+	    @Value("${entitymanager.packagesToScan}")
+	    private String ENTITYMANAGER_PACKAGES_TO_SCAN;
+
+	    @Bean
+	    public LocalSessionFactoryBean sessionFactory() {
+	        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+	        sessionFactory.setDataSource(dataSource());
+	        sessionFactory.setPackagesToScan(ENTITYMANAGER_PACKAGES_TO_SCAN);
+	        Properties hibernateProperties = new Properties();
+	        hibernateProperties.put("hibernate.dialect", HIBERNATE_DIALECT);
+	        hibernateProperties.put("hibernate.show_sql", HIBERNATE_SHOW_SQL);
+	        hibernateProperties.put("hibernate.hbm2ddl.auto", HIBERNATE_HBM2DDL_AUTO);
+	        sessionFactory.setHibernateProperties(hibernateProperties);
+	        return sessionFactory;
+	    }
+
+	    @Bean
+	    public DataSource dataSource() {
+	        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+	        dataSource.setDriverClassName(DB_DRIVER);
+	        dataSource.setUrl(DB_URL);
+	        dataSource.setUsername(DB_USERNAME);
+	        dataSource.setPassword(DB_PASSWORD);
+	        return dataSource;
+	    }
+
+	    @Bean
+	    public HibernateTransactionManager transactionManager() {
+	        HibernateTransactionManager txManager = new HibernateTransactionManager();
+	        txManager.setSessionFactory(sessionFactory().getObject());
+	        return txManager;
+	    }
+	    
+	    @Bean
+	    public InternalResourceViewResolver jspViewResolver() {
+	        InternalResourceViewResolver resolver= new InternalResourceViewResolver();
+	        resolver.setPrefix("/views/");
+	        resolver.setSuffix(".jsp");
+	        return resolver;
+	    } 
+	   
+	   
+	   
+	}StudentApplication.javapackage config;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class StudentApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(StudentApplication.class, args);
+	}
+
+}Create the entity classHere, we are creating an Entity/POJO (Plain Old Java Object) class.Student.javapackage Model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="student")
+public class Student {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int student_id;
+	private String student_name;
+	private String student_email;
+	private String student_branch;
+	public int getStudent_id() {
+		return student_id;
+	}
+	public void setStudent_id(int student_id) {
+		this.student_id = student_id;
+	}
+	public String getStudent_name() {
+		return student_name;
+	}
+	public void setStudent_name(String student_name) {
+		this.student_name = student_name;
+	}
+	public String getStudent_email() {
+		return student_email;
+	}
+	public void setStudent_email(String student_email) {
+		this.student_email = student_email;
+	}
+	public String getStudent_branch() {
+		return student_branch;
+	}
+	public void setStudent_branch(String student_branch) {
+		this.student_branch = student_branch;
+	}
+
+	
+}Create the DAO interfaceHere, we are creating the DAO interface to perform database related operations.Student_DAO.java package DAO;
+
+import java.util.List;
+
+import Model.Student;
+
+public interface Student_DAO {
+
+	public boolean saveStudent(Student student);
+	public List getStudents();
+	public boolean deleteStudent(Student student);
+	public List getStudentByID(Student student);
+	public boolean updateStudent(Student student);
+}Create the DAO interface implementation classStudent_DAO_Imp.javapackage DAO;
+
+import java.util.List;
+
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+
+import Model.Student;
+
+@Repository
+public class Student_DAO_Imp  implements Student_DAO{
+
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	@Override
+	public boolean saveStudent(Student student) {
+		boolean status=false;
+		try {
+			sessionFactory.getCurrentSession().save(student);
+			status=true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return status;
+	}
+
+	@Override
+	public List<Student> getStudents() {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query<Student> query=currentSession.createQuery("from Student", Student.class);
+		List<Student> list=query.getResultList();
+		return list;
+	}
+
+	@Override
+	public boolean deleteStudent(Student student) {
+		boolean status=false;
+		try {
+			sessionFactory.getCurrentSession().delete(student);
+			status=true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return status;
+	}
+
+	@Override
+	public List<Student> getStudentByID(Student student) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query<Student> query=currentSession.createQuery("from Student where student_id=:student_id", Student.class);
+		query.setParameter("student_id", student.getStudent_id());
+		List<Student> list=query.getResultList();
+		return list;
+	}
+
+	@Override
+	public boolean updateStudent(Student student) {
+		boolean status=false;
+		try {
+			sessionFactory.getCurrentSession().update(student);
+			status=true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return status;
+	}
+	
+	
+
+}Create the service layer interfaceHere, we are creating a service layer interface that acts as a bridge between DAO and Entity classes.Student_Service.javapackage Service;
+
+import java.util.List;
+import Model.Student;
+
+public interface Student_Service {
+
+	
+	public boolean saveStudent(Student student);
+	public List getStudents();
+	public boolean deleteStudent(Student student);
+	public List getStudentByID(Student student);
+	public boolean updateStudent(Student student);
+}Create the service layer implementation classStudent_Service_Imp.javapackage Service;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import DAO.Student_DAO;
+import Model.Student;
+
+@Service
+@Transactional
+public class Student_Service_Imp implements Student_Service {
+ 
+	@Autowired
+	private Student_DAO studentdao;
+	
+	@Override
+	public boolean saveStudent(Student student) {
+		return studentdao.saveStudent(student);
+	}
+
+	@Override
+	public List<Student> getStudents() {
+		return studentdao.getStudents();
+	}
+
+	@Override
+	public boolean deleteStudent(Student student) {
+		return studentdao.deleteStudent(student);
+	}
+
+	@Override
+	public List<Student> getStudentByID(Student student) {
+		return studentdao.getStudentByID(student);
+	}
+
+	@Override
+	public boolean updateStudent(Student student) {
+		return studentdao.updateStudent(student);
+	}
+
+}Create the controller classController.javapackage Controller;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import Model.Student;
+import Service.Student_Service;
+
+@RestController
+@CrossOrigin(origins="http://localhost:4200")
+@RequestMapping(value="/api")
+public class Controller {
+	
+	@Autowired
+	private Student_Service studentservice;
+	
+	@PostMapping("save-student")
+	public boolean saveStudent(@RequestBody Student student) {
+		 return studentservice.saveStudent(student);
+		
+	}
+	
+	@GetMapping("students-list")
+	public List<Student> allstudents() {
+		 return studentservice.getStudents();
+		
+	}
+	
+	@DeleteMapping("delete-student/{student_id}")
+	public boolean deleteStudent(@PathVariable("student_id") int student_id,Student student) {
+		student.setStudent_id(student_id);
+		return studentservice.deleteStudent(student);
+	}
+
+	@GetMapping("student/{student_id}")
+	public List<Student> allstudentByID(@PathVariable("student_id") int student_id,Student student) {
+		 student.setStudent_id(student_id);
+		 return studentservice.getStudentByID(student);
+		
+	}
+	
+	@PostMapping("update-student/{student_id}")
+	public boolean updateStudent(@RequestBody Student student,@PathVariable("student_id") int student_id) {
+		student.setStudent_id(student_id);
+		return studentservice.updateStudent(student);
+	}
+}Edit application.properties fileHere, we are editing the application.properties file present inside the src/main/resources folder. The following file contains the configuration properties.application.properties# Database
+db.driver= com.mysql.jdbc.Driver
+db.url= jdbc:mysql://localhost:3306/indigo
+db.username=root
+db.password=
+
+# Hibernate
+hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+hibernate.show_sql=true
+hibernate.hbm2ddl.auto=update
+entitymanager.packagesToScan=ModelAngular ModuleLet's see the directory structure of Angular we need to follow:Create an Angular projectLet's create an Angular project by using the following command:ng new AngularHere, Angular is the name of the project.Install Bootstrap CSS frameworkUse the following command to install bootstrap in the project.npm install bootstrap@3.3.7 --saveNow, include the following code in the style.css file.@import "~bootstrap/dist/css/bootstrap.css";Install Angular-DataTableUse the following command to install angular datatable in the project.npm install angular-datatable --saveIt is required to include DataTableModule in imports array of app.module.ts file.Generate ComponentsOpen the project in visual studio and then use the following command to generate Angular components:ng g c AddStudentng g c StudentListLet's also create a service class by using the following command: -ng g s StudentEdit the app.module.ts fileImport Routing - Here, we are importing routing file (app-routing.module.ts) and include it in imports array.Import ReactiveFormsModule - Here, we are importing ReactiveFormsModule for reactive forms and specify it in imports array.Import HttpModule - Here, we are importing HttpModule for server requests and specifying it in imports array.Register Service class - Here, we are mentioning the service class in provider's array.import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import {DataTablesModule} from 'angular-datatables';
+import { StudentListComponent } from './student-list/student-list.component';
+import { AddStudentComponent } from './add-student/add-student.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    StudentListComponent,
+    AddStudentComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    DataTablesModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }Edit the app-routing.module.ts fileimport { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { StudentListComponent } from './student-list/student-list.component';
+import { AddStudentComponent } from './add-student/add-student.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: 'view-student', pathMatch: 'full' },
+  { path: 'view-student', component: StudentListComponent },
+  { path: 'add-student', component: AddStudentComponent },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }Edit the app.component.html file    <div  class="container-fluid">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+          <li class="nav-item ">
+            <a routerLink="view-student" class="nav-link" class="btn btn-primary active" role="button" >View Student</a>
+          </li> 
+          <li class="nav-item">
+            <a  routerLink="add-student" class="nav-link" class="btn btn-primary active" role="button" >Add Student</a>
+          </li>          
+        </ul>
+      </nav>   
+        <router-outlet></router-outlet>
+    </div>Create the Student.ts classLet's create a class by using the following command: -ng g class StudentNow, specify the required fields within the Student class.export class Student {
+
+    student_id:number;
+    student_name:String;
+    student_email:String;
+    student_branch:String;
+}The purpose of this class is to map the specified fields with the fields of Spring entity class.Edit the student.service.ts fileimport { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class StudentService {
+
+  private baseUrl = 'http://localhost:8080/api/';
+
+  constructor(private http:HttpClient) { }
+
+  getStudentList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`+'students-list');
+  }
+
+  createStudent(student: object): Observable<object> {
+    return this.http.post(`${this.baseUrl}`+'save-student', student);
+  }
+
+  deleteStudent(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/delete-student/${id}`, { responseType: 'text' });
+  }
+
+  getStudent(id: number): Observable<Object> {
+    return this.http.get(`${this.baseUrl}/student/${id}`);
+  }
+
+  updateStudent(id: number, value: any): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/update-student/${id}`, value);
+  }
+  
+}Edit the add-student.component.ts fileimport { Component, OnInit } from '@angular/core';
+import { StudentService } from '../student.service';
+import {FormControl,FormGroup,Validators} from '@angular/forms';
+import { Student } from '../student';
+@Component({
+  selector: 'app-add-student',
+  templateUrl: './add-student.component.html',
+  styleUrls: ['./add-student.component.css']
+})
+export class AddStudentComponent implements OnInit {
+
+  constructor(private studentservice:StudentService) { }
+
+  student : Student=new Student();
+  submitted = false;
+
+  ngOnInit() {
+    this.submitted=false;
+  }
+
+  studentsaveform=new FormGroup({
+    student_name:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),
+    student_email:new FormControl('',[Validators.required,Validators.email]),
+    student_branch:new FormControl()
+  });
+
+  saveStudent(saveStudent){
+    this.student=new Student();   
+    this.student.student_name=this.StudentName.value;
+    this.student.student_email=this.StudentEmail.value;
+    this.student.student_branch=this.StudentBranch.value;
+    this.submitted = true;
+    this.save();
+  }
+
+  
+
+  save() {
+    this.studentservice.createStudent(this.student)
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.student = new Student();
+  }
+
+  get StudentName(){
+    return this.studentsaveform.get('student_name');
+  }
+
+  get StudentEmail(){
+    return this.studentsaveform.get('student_email');
+  }
+
+  get StudentBranch(){
+    return this.studentsaveform.get('student_branch');
+  }
+
+  addStudentForm(){
+    this.submitted=false;
+    this.studentsaveform.reset();
+  }
+}Edit the add-student.component.html file<h3>Create Student</h3>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4" >
+    <div [hidden]="submitted" style="width: 400px;">
+      <form [formGroup]="studentsaveform" #savestudent (ngSubmit)="saveStudent(saveStudent)">
+          <div class="form-group">
+              <label for="name">Student Name</label>
+              <input type="text" class="form-control"  formControlName="student_name" data-toggle="tooltip" 
+                 data-placement="right" title="Enter Student Name" >
+              <div class="alert alert-danger" *ngIf = "(StudentName.touched) && (StudentName.invalid)" 
+                style="margin-top: 5px;">
+                  <span *ngIf="StudentName.errors.required">Student Name is Required</span>
+                    <span *ngIf = "StudentName.errors.minlength"> 
+                        MinLength Error 
+                    </span>                   
+                </div>
+          </div>
+  
+          <div class="form-group">
+              <label for="name">Student Email</label>
+              <input type="text" class="form-control" formControlName="student_email" 
+                data-toggle="tooltip" data-placement="right" title="Enter Student Email">
+                <div class="alert alert-danger" *ngIf = "(StudentEmail.touched) && (StudentEmail.invalid)" 
+                style="margin-top: 5px;">
+                  <span *ngIf="StudentEmail.errors.required">Student Email is Required</span>
+                    <span *ngIf = "StudentEmail.errors.email"> 
+                        Invalid Email Format 
+                    </span>                   
+                </div>
+          </div>
+  
+          <div class="form-group">
+              <label for="branch">Student Branch</label>
+                <select class="form-control" formControlName="student_branch" data-toggle="tooltip" 
+                      data-placement="right" title="Select Student Branch">
+                    <option value="null">--Select Branch--</option>
+                  <option value="B-Tech">B-Tech</option>
+                  <option value="BCA">BCA</option>
+                  <option value="MCA">MCA</option>
+                  <option value="M-Tech">M-Tech</option>
+                </select>
+          </div>
+  
+          <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+  </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+      <div [hidden]="!submitted">
+         <h4>Student Added SuccessFully!</h4>
+         <button (click)="addStudentForm()" class='btn btn-primary'>Add More Student</button>
+      </div>      
+  </div>
+  <div class="col-sm-4"></div>
+</div>On clicking Add Student, the following page generates:Now, fill the required details and submit them to add student.Edit the student-list.component.ts fileimport { Component, OnInit } from '@angular/core';
+import { StudentService } from '../student.service';
+import { Student } from '../student';
+import { Observable,Subject } from "rxjs";
+
+import {FormControl,FormGroup,Validators} from '@angular/forms';
+
+@Component({
+  selector: 'app-student-list',
+  templateUrl: './student-list.component.html',
+  styleUrls: ['./student-list.component.css']
+})
+export class StudentListComponent implements OnInit {
+
+ constructor(private studentservice:StudentService) { }
+
+  studentsArray: any[] = [];
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject= new Subject();
+
+  students: Observable;
+  student : Student=new Student();
+  deleteMessage=false;
+  studentlist:any;
+  isupdated = false;    
+ 
+
+  ngOnInit() {
+    this.isupdated=false;
+    this.dtOptions = {
+      pageLength: 6,
+      stateSave:true,
+      lengthMenu:[[6, 16, 20, -1], [6, 16, 20, "All"]],
+      processing: true
+    };   
+    this.studentservice.getStudentList().subscribe(data =>{
+    this.students =data;
+    this.dtTrigger.next();
+    })
+  }
+  
+  deleteStudent(id: number) {
+    this.studentservice.deleteStudent(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.deleteMessage=true;
+          this.studentservice.getStudentList().subscribe(data =>{
+            this.students =data
+            })
+        },
+        error => console.log(error));
+  }
+
+  updateStudent(id: number){
+    this.studentservice.getStudent(id)
+      .subscribe(
+        data => {
+          this.studentlist=data           
+        },
+        error => console.log(error));
+  }
+
+  studentupdateform=new FormGroup({
+    student_id:new FormControl(),
+    student_name:new FormControl(),
+    student_email:new FormControl(),
+    student_branch:new FormControl()
+  });
+
+  updateStu(updstu){
+    this.student=new Student(); 
+   this.student.student_id=this.StudentId.value;
+   this.student.student_name=this.StudentName.value;
+   this.student.student_email=this.StudentEmail.value;
+   this.student.student_branch=this.StudentBranch.value;
+   console.log(this.StudentBranch.value);
+   
+
+   this.studentservice.updateStudent(this.student.student_id,this.student).subscribe(
+    data => {     
+      this.isupdated=true;
+      this.studentservice.getStudentList().subscribe(data =>{
+        this.students =data
+        })
+    },
+    error => console.log(error));
+  }
+
+  get StudentName(){
+    return this.studentupdateform.get('student_name');
+  }
+
+  get StudentEmail(){
+    return this.studentupdateform.get('student_email');
+  }
+
+  get StudentBranch(){
+    return this.studentupdateform.get('student_branch');
+  }
+
+  get StudentId(){
+    return this.studentupdateform.get('student_id');
+  }
+
+  changeisUpdate(){
+    this.isupdated=false;
+  }
+}Edit the student-list.component.html file<div class="panel panel-default">
+  <div class="panel-heading">
+      <h1 style="text-align: center">Students</h1><br>
+      <div class="row" [hidden]="!deleteMessage">
+           
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                        <div class="alert alert-info alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>Student Data Deleted</strong>
+                        </div>
+                </div>
+                <div class="col-sm-4"></div>
+        </div>           
+    </div>
+
+  
+  <div class="panel-body">
+      <table  class="table table-hover table-sm" datatable [dtOptions]="dtOptions"
+      [dtTrigger]="dtTrigger"  >
+          <thead class="thead-light">
+              <tr>
+                  <th>Student Name</th>
+                  <th>Student Email</th>
+                  <th>Student Branch</th>
+                  <th>Action</th>
+                  
+              </tr>
+          </thead>
+          <tbody>
+               <tr *ngFor="let student of students ">
+                  <td>{{student.student_name}}</td>
+                  <td>{{student.student_email}}</td>
+                  <td>{{student.student_branch}}</td>
+                  <td><button (click)="deleteStudent(student.student_id)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button> 
+                    <button (click)="updateStudent(student.student_id)" class='btn btn-info'
+                    data-toggle="modal" data-target="#myModal">Update</button>
+                  </td>
+                </tr> 
+          </tbody><br>
+      </table>
+  </div>
+</div> 
+
+<div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+                <form [formGroup]="studentupdateform" #updstu (ngSubmit)="updateStu(updstu)">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title" style="text-align: center">Update Student</h4>
+              
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body" *ngFor="let student of studentlist " >
+                <div [hidden]="isupdated">
+
+                    <input type="hidden" class="form-control"  formControlName="student_id" [(ngModel)]="student.student_id">
+                            <div class="form-group">
+                                <label for="name">Student Name</label>
+                                <input type="text" class="form-control"  formControlName="student_name" [(ngModel)]="student.student_name"  >
+                            </div>
+                    
+                            <div class="form-group">
+                                <label for="name">Student Email</label>
+                                <input type="text" class="form-control" formControlName="student_email" [(ngModel)]="student.student_email">
+                            </div>
+                    
+                            <div class="form-group">
+                                <label for="name">Student Branch</label>
+                                  <select class="form-control" formControlName="student_branch" required>                                   
+                                    <option value="B-Tech" [selected]="'B-Tech' == student.student_branch">B-Tech</option>
+                                    <option value="BCA" [selected]="'BCA' == student.student_branch">BCA</option>
+                                    <option value="MCA" [selected]="'MCA' == student.student_branch" >MCA</option>
+                                    <option value="M-Tech" [selected]="'M-Tech' == student.student_branch">M-Tech</option>
+                                  </select>                               
+                            </div>                   
+                  </div>  
+                  <div [hidden]="!isupdated">
+                      <h4>Student Detail Updated!</h4>
+                  </div>        
+                    
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="modal-footer" >
+              <button type="submit" class="btn btn-success" [hidden]="isupdated">Update</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeisUpdate()">Close</button>
+            </div>
+            
+        </form>
+          </div>
+        </div>
+      </div>On clicking View Student, the following page generates:On clicking Update Student, the following bootstrap modal appears:Here, we can update the details of the existing student.On clicking Delete, the existing student is deleted from the database. Let's see the result after deleting the particular student.Download this exampleNext TopicFile Upload Example? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

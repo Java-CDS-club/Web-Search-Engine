@@ -1,0 +1,168 @@
+Android XMLPullParser Tutorial - javatpoint?HomeAndroidCore JavaServletJSPStruts2Mail APIHibernateSpringDesign PatternQuizProjectsInterview QCommentForumAndroid TrainingAndroid TutorialAndroid Introduction What is Android History and Version Android Architecture Core Building Blocks Android Emulator Install Android Setup Eclipse Hello Android example Internal Details Dalvik VM AndroidManifest.xml R.java Hide Title Bar Screen OrientationAndroid WidgetsUI Widgets Working with Button Toast Custom Toast ToggleButton CheckBox Custom CheckBox RadioButton Dynamic RadioButton Custom RadioButton AlertDialog Spinner AutoCompleteTextView ListView Custom ListView RatingBar WebView SeekBar DatePicker TimePicker Analog and Digital ProgressBar Vertical ScrollView Horizontal ScrollView ImageSwitcher ImageSlider ViewStub TabLayout TabLayout with FrameLayout SearchView SearchView on Toolbar EditText with TextWatcherActivity and IntentsActivity LifeCycle Implicit Intent Explicit Intent StartActivityForResult Share App DataAndroid FragmentsAndroid FragmentsAndroid MenuOption Menu Context Menu Popup MenuAndroid ServiceAndroid ServiceAndroid AlarmManagerAndroid AlarmManagerAndroid StorageAndroid Preferences Internal Storage External StorageAndroid SQLiteSQLite Tutorial SQLite SpinnerXML and JSONXML Parsing SAX XML Parsing DOM XMLPullParser JSON ParsingAndroid MultimediaMediaPlayer: Audio VideoView: Video Recording MediaAndroid SpeechTextToSpeech1 TextToSpeech2Android TelephonyTelephonyManager Get Call State Get Call State 2 Simple Caller Talker Phone Call Send SMS Send EmailAndroid DeviceBluetooth Tutorial List Paired Devices WIFICamera TutorialCamera TutorialSensor TutorialSensor TutorialAndroid GraphicsAndroid GraphicsAndroid AnimationAndroid AnimationAndroid Web ServiceAndroid Web ServiceGoogle MapAndroid Google Map Current Location Search LocationAdding AdsAndroid Google Admob 1) Banner Ads 2) Interstitial AdsAndroid ExamplesQR/Bar Code Scanner RSS Feed Reader Volley Fetch JSON Android Linkify Intro Slider RecyclerView List Swipe Del RecyclerView Swipe Refresh Activity Volley Library Registration Log-in Log-out Network Connectivity Services Firebase Authentication - Google Login Android Notification Using Google reCAPTCHAAndroid SocialIntegrating Google Sign-In Integrating LinkedIn Integrating TwitterAndroid MiscAndroid Device Manager Android Studio Android Auto Android File Transfer Android Messages Android Oreo Android TV Android Screenshot Android Versions Android Watch Android Pay Android Phones Android Tablets Android Find My Phone Android Marshmallow Android Nougat Android Pie Android One Android Antivirus Android Data Recovery Android Lollipop Android vs iPhone Android Wear OS Android x86 Emulator for PC Android 10 Android ad blocker Clear cache Android Root Android DeviceAndroid InterviewInterview QuestionsAndroid QuizAndroid Quiznext ? ? prevAndroid XMLPullParser TutorialAndroid recommends to use XMLPullParser to parse the xml file than SAX and DOM because it is fast.The org.xmlpull.v1.XmlPullParser interface provides the functionality to parse the XML document using XMLPullParser.Events of XmlPullParserThe next() method of XMLPullParser moves the cursor pointer to the next event. Generally, we use four constants (works as the event) defined in the XMLPullParser interface.START_TAG :An XML start tag was read.TEXT :Text content was read; the text content can be retrieved using the getText() method.END_TAG : An end tag was read.END_DOCUMENT :No more events are availableExample of android XMLPullParseractivity_main.xmlDrag the one listview from the pallete. Now the activity_main.xml file will look like this:File: activity_main.xml<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+    </ListView>
+
+</RelativeLayout>xml documentCreate an xml file named employees.xml inside the assets directory of your project.File: employees.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+    <employee>
+        <id>1</id>
+        <name>Sachin</name>
+        <salary>50000</salary>      
+    </employee>
+    <employee>
+        <id>2</id>
+        <name>Nikhil</name>
+        <salary>60000</salary>  
+    </employee>
+    
+</employees>
+
+Employee classNow create the Employee class that corresponds to the xml file.File: Employee.javapackage com.example.xmlpullparsing;
+public class Employee {
+	 private int id;
+	 private String name;
+	 private float salary;
+    	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public float getSalary() {
+		return salary;
+	}
+	public void setSalary(float salary) {
+		this.salary = salary;
+	}
+
+	@Override
+    public String toString() {
+        return " Id= "+id + "\n Name= " + name + "\n Salary= " + salary;
+    }
+}XMLPullParserHandler classNow write the code to parse the xml file using XMLPullParser. Here, we are returning all the employee in list.File: XMLPullParserHandler.javapackage com.example.xmlpullparsing;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+ 
+
+public class XmlPullParserHandler {
+    private List<Employee> employees= new ArrayList<Employee>();
+    private Employee employee;
+    private String text;
+ 
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+ 
+    public List<Employee> parse(InputStream is) {
+           try {
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+            factory.setNamespaceAware(true);
+            XmlPullParser  parser = factory.newPullParser();
+ 
+            parser.setInput(is, null);
+ 
+            int eventType = parser.getEventType();
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                String tagname = parser.getName();
+                switch (eventType) {
+                case XmlPullParser.START_TAG:
+                    if (tagname.equalsIgnoreCase("employee")) {
+                        // create a new instance of employee
+                        employee = new Employee();
+                    }
+                    break;
+ 
+                case XmlPullParser.TEXT:
+                    text = parser.getText();
+                    break;
+ 
+                case XmlPullParser.END_TAG:
+                    if (tagname.equalsIgnoreCase("employee")) {
+                        // add employee object to list
+                        employees.add(employee);
+                    }else if (tagname.equalsIgnoreCase("id")) {
+                        employee.setId(Integer.parseInt(text));
+                    }  else if (tagname.equalsIgnoreCase("name")) {
+                        employee.setName(text);
+                    } else if (tagname.equalsIgnoreCase("salary")) {
+                        employee.setSalary(Float.parseFloat(text));
+                    } 
+                    break;
+ 
+                default:
+                    break;
+                }
+                eventType = parser.next();
+            }
+ 
+        } catch (XmlPullParserException e) {e.printStackTrace();} 
+        catch (IOException e) {e.printStackTrace();}
+ 
+        return employees;
+    }
+}MainActivity classNow, write the code to display the list data in the ListView.File: MainActivity.javapackage com.example.xmlpullparsing;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+       ListView listView = (ListView) findViewById(R.id.listView1);
+        
+        List<Employee> employees = null;
+        try {
+            XmlPullParserHandler parser = new XmlPullParserHandler();
+            InputStream is=getAssets().open("employees.xml");
+            employees = parser.parse(is);
+            
+            ArrayAdapter<Employee> adapter =new ArrayAdapter<Employee>
+	(this,android.R.layout.simple_list_item_1, employees);
+            listView.setAdapter(adapter);
+            
+        } catch (IOException e) {e.printStackTrace();}
+        
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        return true;
+    }
+    
+}
+
+download this exampleOutput:Next TopicAndroid Json Parsing Tutorial? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

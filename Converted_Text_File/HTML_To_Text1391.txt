@@ -1,0 +1,50 @@
+Command Pattern - Javatpoint?HomeCore JavaServletJSPStruts2Mail APIHibernateSpringAndroidDesign PatternQuizProjectsInterview QCommentForumDesign PatternsJava Design Patterns1) Creational PatternFactory Method Pattern Abstract Factory Pattern Singleton Pattern Prototype Pattern Builder Pattern Object Pool Pattern2) Structural PatternAdapter Pattern Bridge Pattern Composite Pattern Decorator Pattern Facade Pattern Flyweight Pattern proxy Pattern3) Behavioral PatternChain of Responsibility Command Pattern Interpreter Pattern Iterator Pattern Mediator Pattern Memento Pattern Observer Pattern State Pattern Strategy Pattern Template PatternJ2EE PatternsJEE or J2EE PatternsPresentation LayerIntercepting Filter Pattern Front Controller Patternnext ? ? prevCommand PatternCommand Design PatternAdvantage of Command DPUsage of Command DPUML of Command DPExample of Command DPA Command Pattern says that "encapsulate a request under an object as a command and pass it to invoker object. Invoker object looks for the appropriate object which can handle this command and pass the command to the corresponding object and that object executes the command".It is also known as Action or Transaction.Advantage of command patternIt separates the object that invokes the operation from the object that actually performs the operation.It makes easy to add new commands, because existing classes remain unchanged.Usage of command pattern:It is used:When you need parameterize objects according to an action perform.When you need to create and execute requests at different times.When you need to support rollback, logging or transaction functionality.Example of command patternLet's understand the example of adapter design pattern by the above UML diagram.UML for command pattern:These are the following participants of the Command Design pattern:Command This is an interface for executing an operation.ConcreteCommand This class extends the Command interface and implements the execute method. This class creates a binding between the action and the receiver.Client This class creates the ConcreteCommand class and associates it with the receiver.Invoker This class asks the command to carry out the request.Receiver This class knows to perform the operation.Implementation of above UML:Step 1Create a ActionListernerCommand interface that will act as a Command.public interface ActionListenerCommand {
+	public void execute();
+}Step 2Create a Document class that will act as a Receiver.File: Document.javapublic class Document {
+          public void open(){
+	       System.out.println("Document Opened");
+	   }
+	   public void save(){
+	       System.out.println("Document Saved");
+	   }
+}Step 3Create a ActionOpen class that will act as an ConcreteCommand.File: ActionOpen.javapublic class ActionOpen implements ActionListenerCommand{
+    private Document doc;
+    public ActionOpen(Document doc) {
+        this.doc = doc;
+    }
+    @Override
+    public void execute() {
+        doc.open();
+    }
+}Step 4Create a ActionSave class that will act as an ConcreteCommand.File: AdapterPatternDemo.javapublic class ActionSave implements ActionListenerCommand{
+   private Document doc;
+   public ActionSave(Document doc) {
+        this.doc = doc;
+    }
+    @Override
+    public void execute() {
+        doc.save();
+    }
+}Step 5Create a MenuOptions class that will act as an Invoker.File: ActionSave.javapublic class ActionSave implements ActionListenerCommand{
+   private Document doc;
+    public ActionSave(Document doc) {
+        this.doc = doc;
+    }
+    @Override
+    public void execute() {
+        doc.save();
+    }
+}Step 6Create a CommanPatternClient class that will act as a Client.File: AdapterPatternDemo.javapublic class CommandPatternClient {
+	public static void main(String[] args) {
+        Document doc = new Document();
+        
+        ActionListenerCommand clickOpen = new ActionOpen(doc);
+        ActionListenerCommand clickSave = new ActionSave(doc);
+        
+        MenuOptions menu = new MenuOptions(clickOpen, clickSave);
+        
+        menu.clickOpen();
+        menu.clickSave();
+   }
+}download this exampleOutputDocument Opened
+Document SavedNext TopicInterpreter Design Pattern in Java? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

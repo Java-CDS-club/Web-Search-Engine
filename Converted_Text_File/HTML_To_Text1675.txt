@@ -1,0 +1,165 @@
+C++ algorithm rotate_copy() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm rotate_copy()C++ Algorithm rotate_copy() function is used to make a rotated copy of the elements in the range [first, last).The sequence will start at the element in the middle of the source sequence and the last element will be followed by first.It appends the element between the first and the middle to the elements between the middle and the last element.Syntaxtemplate <class ForwardIterator, class OutputIterator>
+OutputIterator rotate_copy (ForwardIterator first, ForwardIterator middle,
+ForwardIterator last, OutputIterator result);Parameterfirst: A forward iterator pointing the position of the first element in the range to be rotated.middle: A forward iterator addressing to the element within the range [first, last) that is moved to the first position in the range.last: A forward iterator pointing the position one past the final element in the range in which the elements are being reversed.result: An output iterator pointing the position of the first element in the destination range.Return valuerotate_copy() function returns an output iterator addressing to the end of the copied range.ComplexityComplexity is linear in the range [first, last): performs an assignment for each element.Data racesThe object in the range [first, last) are accessed.The object in the range between result and the returned value are changed.ExceptionsThis function throws an exception if either an element assignment or an operation on iterator throws an exception.Note: The invalid parameters cause an undefined behavior.Example 1Let's see the simple example to rotate the given string:#include <algorithm>
+#include <iostream>
+#include <string>
+#include <iterator>
+
+using namespace std;
+
+int main() {
+  string str = " N I K I T A";
+  string result;
+ cout << "Before Rotate : "<< str << endl;
+  rotate_copy(str.begin(), str.begin() + 2, str.end(),
+    back_inserter(result));
+
+  cout <<"After Rotate  : " << result << endl;
+  
+  return 0;
+}Output:Before Rotate :  N I K I T A
+After Rotate   :  I K I T A NExample 2Let's see another simple example:#include <algorithm>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+ 
+int main()
+{
+    vector<int> src = {1, 2, 3, 4, 5}; 
+    auto pivot = find(src.begin(), src.end(), 3); 
+    vector<int> dest(src.size());                                          
+ 
+    rotate_copy(src.begin(), pivot, src.end(), dest.begin());
+ 
+    for (const auto &i : dest) {
+        cout << i << ' ';
+    }   
+    cout << '\n';
+    
+    return 0;
+}Output:3 4 5 1 2Example 3Let's see another simple example:#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <iomanip>
+using namespace std;
+ 
+void print(char a[], int N)
+{   
+    for(int i = 0; i < N; i++)
+    {
+        cout << (i + 1) << ". " << setw(1)
+             << left << a[i] << "  ";
+    }
+    cout << endl;
+}
+ 
+int main()
+{
+    char s[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
+    int slen = sizeof(s) / sizeof(char), tlen = slen;
+    char t[tlen];
+ 
+    cout << "Character array s[] : ";
+    print(s, slen);
+    cout << "Rotate s[] with \'C\' as middle element and copy in t[]" << endl;
+    rotate_copy(s, s + 2, s + slen, t);
+    cout << "Character array t[] : ";
+    print(t, tlen);
+    cout << "Rotate t[] with \'A\' as middle element and copy in s[]" << endl;
+    rotate_copy(t, t + 6, t + tlen, s);
+    cout << "Character array s[] : ";
+    print(s, slen);
+    cout << "Character array t[] : ";
+    print(t, tlen);
+    
+    return 0;
+}Output:Character array s[] : 1. A  2. B  3. C  4. D  5. E  6. F  7. G  8. H  
+Rotate s[] with 'C' as middle element and copy in t[]
+Character array t[] : 1. C  2. D  3. E  4. F  5. G  6. H  7. A  8. B  
+Rotate t[] with 'A' as middle element and copy in s[]
+Character array s[] : 1. A  2. B  3. C  4. D  5. E  6. F  7. G  8. H  
+Character array t[] : 1. C  2. D  3. E  4. F  5. G  6. H  7. A  8. B  Example 4Let's see another simple example:#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <functional>
+
+using namespace std ;
+
+int main()
+{
+    const int VECTOR_SIZE = 8 ;
+
+    // Define a template class vector of strings
+    typedef vector<string> StrVector ;
+
+    //Define an iterator for template class vector of strings
+    typedef StrVector::iterator StrVectorIt ;
+
+    StrVector Tongue_Twister(VECTOR_SIZE) ;
+    StrVector Rotated_Twister(VECTOR_SIZE) ;
+
+    StrVectorIt start, middle, end, it, RTstart, RTend ;
+
+    start = Tongue_Twister.begin() ;    // location of first
+                                        // element of Tongue_Twister
+
+    end = Tongue_Twister.end() ;        // one past the location last
+                                        // element of Tongue_Twister
+
+    middle = start + 3 ;                // start position for
+                                        // rotating elements
+
+    RTstart = Rotated_Twister.begin() ; // location of first
+                                        // element of Rotated_Twister
+
+    RTend = Rotated_Twister.end() ;     // one past the location last
+                                        // element of Rotated_Twister
+
+    //Initialize vector Tongue_Twister
+    Tongue_Twister[0] = "she" ;
+    Tongue_Twister[1] = "sells" ;
+    Tongue_Twister[2] = "sea" ;
+    Tongue_Twister[3] = "shells" ;
+    Tongue_Twister[4] = "by";
+    Tongue_Twister[5] = "the";
+    Tongue_Twister[6] = "sea" ;
+    Tongue_Twister[7] = "shore" ;
+
+    cout << "Before calling rotate_copy:\n" << endl ;
+
+    // print content of Tongue_Twister
+    cout << "Try this Tongue Twister: " ;
+    for(it = start; it != end; it++)
+        cout << *it << " " ;
+    cout << "\n\n" ;
+
+    // rotate the items in the vector Tongue_Twist to the right by
+    // 3 positions and copy the results to Rotated_Twister
+    rotate_copy(start, middle, end, RTstart) ;
+
+    cout << "After calling rotate_copy:\n" << endl ;
+
+    // print content of Tongue_Twister
+    cout << "Tongue_Twister: " ;
+    for(it = start; it != end; it++)
+        cout << *it << " " ;
+    cout << "\n\n" ;
+
+    // print content of Rotated_Twister
+    cout << "Now try the rotated Tongue Twister: " ;
+    for(it = RTstart; it != RTend; it++)
+        cout << *it << " " ;
+    cout << "\n\n" ;
+    
+    return 0;
+}Output:Before calling rotate_copy:
+
+Try this Tongue Twister: she sells sea shells by the sea shore 
+
+After calling rotate_copy:
+
+Tongue_Twister: she sells sea shells by the sea shore 
+
+Now try the rotated Tongue Twister: shells by the sea shore she sells seaNext TopicC++ Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

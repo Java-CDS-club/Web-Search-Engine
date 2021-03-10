@@ -1,0 +1,83 @@
+Bootstrap Button - JavaTpoint?HomeCJavaPHPHTMLCSSBootstrapJavaScriptjQueryjQuery UIXMLJSONAjaxQuizProjectsInterview QCommentForumTrainingBootstrap TrainingBootstrap TutorialBootstrap Introduction What is Bootstrap Bootstrap Example Bootstrap ContainerBootstrap ExamplesBootstrap Jumbotron Bootstrap Button Bootstrap Grid Bootstrap Table Bootstrap Form Bootstrap Alert Bootstrap Wells Bootstrap Badge & Label Bootstrap Panels Bootstrap Pagination Bootstrap Pager Bootstrap Image Bootstrap Glyphicon Bootstrap Carousel Bootstrap Progress Bar Bootstrap List Group Bootstrap Dropdown Bootstrap CollapseBootstrap AdvanceBootstrap Tabs/Pills Bootstrap Navbar Bootstrap Input Types Bootstrap Modals Bootstrap Popover Bootstrap ScrollspyBootstrap UtilitiesBootstrap Border Bootstrap Clearfix Bootstrap Close Icons Bootstrap Colors Bootstrap Flexbox Display property Image Replacement Invisible Content Bootstrap Position Responsive helpers Screen readers Bootstrap Sizing Bootstrap Spacing Bootstrap TypographyInterview QuestionsHTML Interview CSS Interview jQuery Interview JavaScript Interview AJAX Interviewnext ? ? prevBootstrap ButtonsThere are seven styles to add a button in Bootstrap. Use the following classes to achieve the different button styles:.btn-default.btn-primary.btn-success.btn-info.btn-warning.btn-danger.btn-linkBootstrap Button Example: specifying seven styles  
+       JobButton Example! default primary danger success info warning Link Test it NowThere are 3 types of new buttons added in Bootstrap 4 along with 7 buttons given in Bootstrap 3.These 3 buttons are:SecondaryDarkLightThe following classes are used to specify them respectively:<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-dark">Dark</button>
+<button type="button" class="btn btn-light">Light</button>Example:Let's see all buttons supported in Bootstrap 4.<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Button Styles</h2>
+  <button type="button" class="btn">Basic</button>
+  <button type="button" class="btn btn-primary">Primary</button>
+  <button type="button" class="btn btn-secondary">Secondary</button>
+  <button type="button" class="btn btn-success">Success</button>
+  <button type="button" class="btn btn-info">Info</button>
+  <button type="button" class="btn btn-warning">Warning</button>
+  <button type="button" class="btn btn-danger">Danger</button>
+  <button type="button" class="btn btn-dark">Dark</button>
+  <button type="button" class="btn btn-light">Light</button>
+  <button type="button" class="btn btn-link">Link</button>      
+</div>
+
+</body>
+</html>Test it NowBootstrap Button SizeIn Bootstrap, you can choose a button according to your requirement. It provides four button sizes.The following classes define the different sizes:.btn-lg.btn-md.btn-sm.btn-xsExample:
+  Bootstrap ExampleButton Sizes Large Medium Small XSmall Test it NowBootstrap Enable/Disable ButtonsYou can set a button disable or unclickable state.The .active class is used to make a button appear pressed, and the class .disabled makes a button unclickable:Example:
+  Bootstrap ExampleButton States Primary Button Active Primary Disabled Primary Test it NowBootstrap Block level buttonsThe block level button covers the entire width of the parent element.The .btn-block class is used to create a block level button:Example:
+  Bootstrap ExampleBlock Level Buttons Button 1 Button 2Large Block Level ButtonsButton 1 Button 2Small Block Level ButtonsButton 1 Button 2 Test it NowButton Classes with other elementsYou can use button classes with other tags i.e. <a>, <button>, or <input> element etc.Example:<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Button Classes with other Elements</h2>
+  <a href="#" class="btn btn-info" role="button">Link Button</a>
+  <button type="button" class="btn btn-info">Button</button>
+  <input type="button" class="btn btn-info" value="Input Button">
+  <input type="submit" class="btn btn-info" value="Submit Button">
+</div>
+
+</body>
+</html>Test it NowButton Outline/ Bordered buttonsBootstrap 4 provides eight outline/bordered buttons:Example<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Button Outline/ Bordered Buttons</h2>
+  <button type="button" class="btn btn-outline-primary">Primary</button>
+  <button type="button" class="btn btn-outline-secondary">Secondary</button>
+  <button type="button" class="btn btn-outline-success">Success</button>
+  <button type="button" class="btn btn-outline-info">Info</button>
+  <button type="button" class="btn btn-outline-warning">Warning</button>
+  <button type="button" class="btn btn-outline-danger">Danger</button>
+  <button type="button" class="btn btn-outline-dark">Dark</button>
+  <button type="button" class="btn btn-outline-light text-dark">Light</button>
+</div>
+
+</body>
+</html>Test it NowNext TopicBootstrap Grid? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

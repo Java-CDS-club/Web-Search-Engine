@@ -1,0 +1,949 @@
+Android Volley Library - Registration, Log-in, and Log-out - javatpoint?HomeAndroidCore JavaServletJSPStruts2Mail APIHibernateSpringDesign PatternQuizProjectsInterview QCommentForumAndroid TrainingAndroid TutorialAndroid Introduction What is Android History and Version Android Architecture Core Building Blocks Android Emulator Install Android Setup Eclipse Hello Android example Internal Details Dalvik VM AndroidManifest.xml R.java Hide Title Bar Screen OrientationAndroid WidgetsUI Widgets Working with Button Toast Custom Toast ToggleButton CheckBox Custom CheckBox RadioButton Dynamic RadioButton Custom RadioButton AlertDialog Spinner AutoCompleteTextView ListView Custom ListView RatingBar WebView SeekBar DatePicker TimePicker Analog and Digital ProgressBar Vertical ScrollView Horizontal ScrollView ImageSwitcher ImageSlider ViewStub TabLayout TabLayout with FrameLayout SearchView SearchView on Toolbar EditText with TextWatcherActivity and IntentsActivity LifeCycle Implicit Intent Explicit Intent StartActivityForResult Share App DataAndroid FragmentsAndroid FragmentsAndroid MenuOption Menu Context Menu Popup MenuAndroid ServiceAndroid ServiceAndroid AlarmManagerAndroid AlarmManagerAndroid StorageAndroid Preferences Internal Storage External StorageAndroid SQLiteSQLite Tutorial SQLite SpinnerXML and JSONXML Parsing SAX XML Parsing DOM XMLPullParser JSON ParsingAndroid MultimediaMediaPlayer: Audio VideoView: Video Recording MediaAndroid SpeechTextToSpeech1 TextToSpeech2Android TelephonyTelephonyManager Get Call State Get Call State 2 Simple Caller Talker Phone Call Send SMS Send EmailAndroid DeviceBluetooth Tutorial List Paired Devices WIFICamera TutorialCamera TutorialSensor TutorialSensor TutorialAndroid GraphicsAndroid GraphicsAndroid AnimationAndroid AnimationAndroid Web ServiceAndroid Web ServiceGoogle MapAndroid Google Map Current Location Search LocationAdding AdsAndroid Google Admob 1) Banner Ads 2) Interstitial AdsAndroid ExamplesQR/Bar Code Scanner RSS Feed Reader Volley Fetch JSON Android Linkify Intro Slider RecyclerView List Swipe Del RecyclerView Swipe Refresh Activity Volley Library Registration Log-in Log-out Network Connectivity Services Firebase Authentication - Google Login Android Notification Using Google reCAPTCHAAndroid SocialIntegrating Google Sign-In Integrating LinkedIn Integrating TwitterAndroid MiscAndroid Device Manager Android Studio Android Auto Android File Transfer Android Messages Android Oreo Android TV Android Screenshot Android Versions Android Watch Android Pay Android Phones Android Tablets Android Find My Phone Android Marshmallow Android Nougat Android Pie Android One Android Antivirus Android Data Recovery Android Lollipop Android vs iPhone Android Wear OS Android x86 Emulator for PC Android 10 Android ad blocker Clear cache Android Root Android DeviceAndroid InterviewInterview QuestionsAndroid QuizAndroid Quiznext ? ? prevVolley Library - Registration, Log-in, and Log-outIn this tutorial, we will create the basic user registration and log-in module using Volley library and JSON. Volley is a HTTP Library which provides the facilities for network connectivity for our app.The advantages of using the Volley library are as follows:Easier and faster request management.Provide efficient network management.For the server-side data handling, we are using the PHP with XAMPP server and MySQL for data manipulation.Before creating the Android application module, let's first create the server-side data handling API code for registration and log-in in PHP and MySQL.1. Create a database with the name registerlogin and table users which contains the following fields.2. Write the following connection establishment code with PHP and database inside C:\xampp\htdocs\androidphpmysql directory.In the androidphpmysql (your project location) directory, create a connection.php file and write the following code.connection.php<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "registerlogin";
+$conn = new mysqli($servername, $username, $password, $database);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>3. Create a registrationapi.php file in androidphpmysql directory and write the following code. This file handles the request coming from an Android application and generates a response in the form of JSON array to the android application.registrationapi.php<?php 
+  require_once 'connection.php';
+  $response = array();
+  if(isset($_GET['apicall'])){
+  switch($_GET['apicall']){
+  case 'signup':
+ 	if(isTheseParametersAvailable(array('username','email','password','gender'))){
+ 	$username = $_POST['username']; 
+ 	$email = $_POST['email']; 
+ 	$password = md5($_POST['password']);
+ 	$gender = $_POST['gender']; 
+ 
+ 	$stmt = $conn->prepare("SELECT id FROM users WHERE username = ? OR email = ?");
+ 	$stmt->bind_param("ss", $username, $email);
+ 	$stmt->execute();
+ 	$stmt->store_result();
+ 
+ 	if($stmt->num_rows > 0){
+ 		$response['error'] = true;
+ 		$response['message'] = 'User already registered';
+ 		$stmt->close();
+ 	}
+ 	else{
+ 		$stmt = $conn->prepare("INSERT INTO users (username, email, password, gender) VALUES (?, ?, ?, ?)");
+ 		$stmt->bind_param("ssss", $username, $email, $password, $gender);
+ 
+ 		if($stmt->execute()){
+ 			$stmt = $conn->prepare("SELECT id, id, username, email, gender FROM users WHERE username = ?"); 
+ 			$stmt->bind_param("s",$username);
+ 			$stmt->execute();
+ 			$stmt->bind_result($userid, $id, $username, $email, $gender);
+ 			$stmt->fetch();
+ 
+ 			$user = array(
+ 			'id'=>$id, 
+ 			'username'=>$username, 
+ 			'email'=>$email,
+ 			'gender'=>$gender
+ 			);
+ 
+ 			$stmt->close();
+ 
+ 			$response['error'] = false; 
+ 			$response['message'] = 'User registered successfully'; 
+ 			$response['user'] = $user; 
+ 		}
+ 	}
+ 
+}
+else{
+ 	$response['error'] = true; 
+ 	$response['message'] = 'required parameters are not available'; 
+}
+break; 
+case 'login':
+  if(isTheseParametersAvailable(array('username', 'password'))){
+ 	$username = $_POST['username'];
+  	$password = md5($_POST['password']); 
+ 
+	$stmt = $conn->prepare("SELECT id, username, email, gender FROM users WHERE username = ? AND password = ?");
+ 	$stmt->bind_param("ss",$username, $password);
+  	$stmt->execute();
+ 	$stmt->store_result();
+ 	if($stmt->num_rows > 0){
+ 	$stmt->bind_result($id, $username, $email, $gender);
+ 	$stmt->fetch();
+ 	$user = array(
+ 	'id'=>$id, 
+ 	'username'=>$username, 
+ 	'email'=>$email,
+ 	'gender'=>$gender
+ 	);
+ 
+ 	$response['error'] = false; 
+ 	$response['message'] = 'Login successfull'; 
+ 	$response['user'] = $user; 
+ }
+ else{
+ 	$response['error'] = false; 
+ 	$response['message'] = 'Invalid username or password';
+ }
+}
+break; 
+default: 
+ $response['error'] = true; 
+ $response['message'] = 'Invalid Operation Called';
+}
+}
+else{
+ $response['error'] = true; 
+ $response['message'] = 'Invalid API Call';
+}
+echo json_encode($response);
+function isTheseParametersAvailable($params){
+foreach($params as $param){
+ if(!isset($_POST[$param])){
+	 return false; 
+  }
+}
+return true; 
+}
+?>To check your PHP API whether it is working fine or not, you can use the REST client such as Postman tool.To check the registration code of API, you can pass the URL of registration with  parameters.Similarly, you can check the log-in action by passing log-in URL with valid  parameters.Now, in the Android application, we will create the three activity class for user registration, user log-in and display the user detail in main activity (as a profile).Create an activity_main.xml in layout and add the below code. This activity is used for displaying the detail of the user as a profile.activity_main.xml<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="example.javatpoint.com.volleyregistrationloginsystem.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Welcome to Profile"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Id"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+                <TextView
+                    android:id="@+id/textViewId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="id"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Username"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+                <TextView
+                    android:id="@+id/textViewUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="username"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Email"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+                <TextView
+                    android:id="@+id/textViewEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="useremail"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Gender"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+                <TextView
+                    android:id="@+id/textViewGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="gender"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            </TableRow>
+
+
+        </TableLayout>
+
+        <Button
+            android:id="@+id/buttonLogout"
+            android:layout_width="210dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginLeft="75dp"
+            android:text="Logout" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>Now, create an activity_login.xml file in layout directory with following code. This activity is used for user log-in UI.activity_login.xml<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="example.javatpoint.com.volleyregistrationloginsystem.LoginActivity">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Login"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etUserName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="user name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <EditText
+        android:id="@+id/etUserPassword"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="password"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUserName" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="210dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUserName"
+        app:layout_constraintVertical_bias="0.754" />
+
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Create New Account\n Register Here"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintVertical_bias="0.405" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.456" />
+
+</android.support.constraint.ConstraintLayout>Create an activity_register.xml file in layout directory with following code. This activity is used for user registration UI.activity_register.xml<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="example.javatpoint.com.volleyregistrationloginsystem.RegisterActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="519dp"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:gravity="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="20dp"
+            android:hint="Username"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <RadioGroup
+            android:id="@+id/radioGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButtonMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Male" />
+
+
+            <RadioButton
+                android:id="@+id/radioButtonFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/buttonRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="90dp"
+            android:text="Register" />
+
+        <TextView
+            android:id="@+id/textViewLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Already Registered?\nLogin Here"
+            android:textAlignment="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+</android.support.constraint.ConstraintLayout>Add the volley library dependency in build.gradle file.build.gradleimplementation 'com.android.volley:volley:1.0.0'Create a data model class named as User.java with the following code.User.javapackage example.javatpoint.com.volleyregistrationloginsystem;
+
+
+public class User {
+    private int id;
+    private String name, email, gender;
+
+    public User(int id, String name, String email, String gender) {
+        this.id = id;
+        this.email = email;
+        this.gender = gender;
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+}We need to define our URL that call the API of server-side.Create an URLs.java class and define the URL.URLs.javapackage example.javatpoint.com.volleyregistrationloginsystem;
+
+public class URLs {
+    private static final String ROOT_URL = "http://192.168.1.35/androidphpmysql/registrationapi.php?apicall=";
+    public static final String URL_REGISTER = ROOT_URL + "signup";
+    public static final String URL_LOGIN= ROOT_URL + "login";
+}VolleySingleton.javapackage example.javatpoint.com.volleyregistrationloginsystem;
+
+import android.content.Context;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
+public class VolleySingleton {
+    private static VolleySingleton mInstance;
+    private RequestQueue mRequestQueue;
+    private static Context mCtx;
+
+    private VolleySingleton(Context context) {
+        mCtx = context;
+        mRequestQueue = getRequestQueue();
+    }
+
+    public static synchronized VolleySingleton getInstance(Context context) {
+        if (mInstance == null) {
+            mInstance = new VolleySingleton(context);
+        }
+        return mInstance;
+    }
+
+    public RequestQueue getRequestQueue() {
+        if (mRequestQueue == null) {
+            // getApplicationContext() is key, it keeps you from leaking the
+            // Activity or BroadcastReceiver if someone passes one in.
+            mRequestQueue = Volley.newRequestQueue(mCtx.getApplicationContext());
+        }
+        return mRequestQueue;
+    }
+
+    public <T> void addToRequestQueue(Request<T> req) {
+        getRequestQueue().add(req);
+    }
+}Create a class named as SharedPreferences.java. In this class, we use the SharedPreferences class to store the user detail. The SharedPreferences class contains four methods with the following functionalities:userLogin(): This method is used to store the user information in SharedPreferences after log-in.isLoggedIn(): This method checks whether the user is already log-in or not.getUser(): This method get the user information if log-in.logout(): This method clear the SharedPreferences data and makes user log-out.SharedPrefManager.javapackage example.javatpoint.com.volleyregistrationloginsystem;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+
+public class SharedPrefManager {
+
+    private static final String SHARED_PREF_NAME = "volleyregisterlogin";
+    private static final String KEY_USERNAME = "keyusername";
+    private static final String KEY_EMAIL = "keyemail";
+    private static final String KEY_GENDER = "keygender";
+    private static final String KEY_ID = "keyid";
+    private static SharedPrefManager mInstance;
+    private static Context ctx;
+
+    private SharedPrefManager(Context context) {
+        ctx = context;
+    }
+    public static synchronized SharedPrefManager getInstance(Context context) {
+        if (mInstance == null) {
+            mInstance = new SharedPrefManager(context);
+        }
+        return mInstance;
+    }
+
+    //this method will store the user data in shared preferences
+    public void userLogin(User user) {
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(KEY_ID, user.getId());
+        editor.putString(KEY_USERNAME, user.getName());
+        editor.putString(KEY_EMAIL, user.getEmail());
+        editor.putString(KEY_GENDER, user.getGender());
+        editor.apply();
+    }
+
+    //this method will checker whether user is already logged in or not
+    public boolean isLoggedIn() {
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USERNAME, null) != null;
+    }
+
+    //this method will give the logged in user
+    public User getUser() {
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return new User(
+                sharedPreferences.getInt(KEY_ID, -1),
+                sharedPreferences.getString(KEY_USERNAME, null),
+                sharedPreferences.getString(KEY_EMAIL, null),
+                sharedPreferences.getString(KEY_GENDER, null)
+        );
+    }
+
+    //this method will logout the user
+    public void logout() {
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+        ctx.startActivity(new Intent(ctx, LoginActivity.class));
+    }
+}Now, in the MainActivity.java class, we will display the user information if the user is log-in otherwise, it redirects to LoginActivity.java class. The onClick() method is used to log-out the user when clicking on the button.MainActivity.javapackage example.javatpoint.com.volleyregistrationloginsystem;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    TextView id,userName,userEmail,gender;
+    Button btnLogout;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        if(SharedPrefManager.getInstance(this).isLoggedIn()){
+            id = findViewById(R.id.textViewId);
+            userName = findViewById(R.id.textViewUsername);
+            userEmail = findViewById(R.id.textViewEmail);
+            gender = findViewById(R.id.textViewGender);
+            btnLogout = findViewById(R.id.buttonLogout);
+            User user = SharedPrefManager.getInstance(this).getUser();
+
+            id.setText(String.valueOf(user.getId()));
+            userEmail.setText(user.getEmail());
+            gender.setText(user.getGender());
+            userName.setText(user.getName());
+
+            btnLogout.setOnClickListener(this);
+        }
+        else{
+            Intent  intent = new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+    public void onClick(View view){
+        if(view.equals(btnLogout)){
+            SharedPrefManager.getInstance(getApplicationContext()).logout();
+        }
+    }
+}In the LoginActivity.java class, we check if the user is already log-in or not, if true then redirect to MainActivity.java class otherwise, allow a user to log-in.StringRequest class of Volley library is used for network module. The object of StringReuest class takes the parameters of the request method type, URL, and the response.LoginActivity.javapackage example.javatpoint.com.volleyregistrationloginsystem;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
+
+public class LoginActivity extends AppCompatActivity {
+    EditText etName, etPassword;
+    ProgressBar progressBar;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
+        if (SharedPrefManager.getInstance(this).isLoggedIn()) {
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
+        }
+
+        progressBar = findViewById(R.id.progressBar);
+        etName = findViewById(R.id.etUserName);
+        etPassword = findViewById(R.id.etUserPassword);
+
+
+        
+        //calling the method userLogin() for login the user
+        findViewById(R.id.btnLogin).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userLogin();
+            }
+        });
+
+        //if user presses on textview not register calling RegisterActivity
+        findViewById(R.id.tvRegister).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+            }
+        });
+    }
+
+    private void userLogin() {
+        //first getting the values
+        final String username = etName.getText().toString();
+        final String password = etPassword.getText().toString();
+        //validating inputs
+        if (TextUtils.isEmpty(username)) {
+            etName.setError("Please enter your username");
+            etName.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)) {
+            etPassword.setError("Please enter your password");
+            etPassword.requestFocus();
+            return;
+        }
+
+        //if everything is fine
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URLs.URL_LOGIN,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        progressBar.setVisibility(View.GONE);
+
+                        try {
+                            //converting response to json object
+                            JSONObject obj = new JSONObject(response);
+
+                            //if no error in response
+                            if (!obj.getBoolean("error")) {
+                                Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+
+                                //getting the user from the response
+                                JSONObject userJson = obj.getJSONObject("user");
+
+                                //creating a new user object
+                                User user = new User(
+                                        userJson.getInt("id"),
+                                        userJson.getString("username"),
+                                        userJson.getString("email"),
+                                        userJson.getString("gender")
+                                );
+
+                                //storing the user in shared preferences
+                                SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+                                //starting the profile activity
+                                finish();
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            } else {
+                                Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("username", username);
+                params.put("password", password);
+                return params;
+            }
+        };
+
+        VolleySingleton.getInstance(this).addToRequestQueue(stringRequest);
+    }
+}The RegisterActivity.java class is used to register the user. This class initially checks the user log-in if it is true, then redirect to MainActivity.java class otherwise, allow user for registration.Similar to LoginActivity.java class, we use the StringRequest class of Volley library for network connection and pass the parameters of the type request method, URL, and the response. The Response.Listener<String>() method handles the response generated by the server.RegisterActivity.javapackage example.javatpoint.com.volleyregistrationloginsystem;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
+
+public class RegisterActivity extends AppCompatActivity {
+    EditText editTextUsername, editTextEmail, editTextPassword;
+    RadioGroup radioGroupGender;
+    ProgressBar progressBar;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
+        progressBar = findViewById(R.id.progressBar);
+
+        //if the user is already logged in we will directly start the MainActivity (profile) activity
+        if (SharedPrefManager.getInstance(this).isLoggedIn()) {
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
+            return;
+        }
+
+        editTextUsername = findViewById(R.id.editTextUsername);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextPassword = findViewById(R.id.editTextPassword);
+        radioGroupGender = findViewById(R.id.radioGender);
+
+
+        findViewById(R.id.buttonRegister).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //if user pressed on button register
+                //here we will register the user to server
+                registerUser();
+            }
+        });
+
+        findViewById(R.id.textViewLogin).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //if user pressed on textview that already register open LoginActivity
+                finish();
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+            }
+        });
+
+    }
+
+    private void registerUser() {
+        final String username = editTextUsername.getText().toString().trim();
+        final String email = editTextEmail.getText().toString().trim();
+        final String password = editTextPassword.getText().toString().trim();
+
+        final String gender = ((RadioButton) findViewById(radioGroupGender.getCheckedRadioButtonId())).getText().toString();
+
+        //first we will do the validations
+        if (TextUtils.isEmpty(username)) {
+            editTextUsername.setError("Please enter username");
+            editTextUsername.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(email)) {
+            editTextEmail.setError("Please enter your email");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            editTextEmail.setError("Enter a valid email");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)) {
+            editTextPassword.setError("Enter a password");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URLs.URL_REGISTER,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        progressBar.setVisibility(View.GONE);
+
+                        try {
+                            //converting response to json object
+                            JSONObject obj = new JSONObject(response);
+                            //if no error in response
+                            if (!obj.getBoolean("error")) {
+                                Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+
+                                //getting the user from the response
+                                JSONObject userJson = obj.getJSONObject("user");
+
+                                //creating a new user object
+                                User user = new User(
+                                        userJson.getInt("id"),
+                                        userJson.getString("username"),
+                                        userJson.getString("email"),
+                                        userJson.getString("gender")
+                                );
+
+                                //storing the user in shared preferences
+                                SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+
+                                //starting the profile activity
+                                finish();
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            } else {
+                                Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("username", username);
+                params.put("email", email);
+                params.put("password", password);
+                params.put("gender", gender);
+                return params;
+            }
+        };
+
+        VolleySingleton.getInstance(this).addToRequestQueue(stringRequest);
+    }
+}Add the following permission in AndroidManifest.xml file    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>AndroidManifest.xml<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="example.javatpoint.com.volleyregistrationloginsystem">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity"></activity>
+    </application>
+
+</manifest>Output:Next Topic#? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

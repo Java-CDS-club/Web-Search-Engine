@@ -1,0 +1,31 @@
+Check Constraints in Oracle - javatpoint?HomeCJavaPHPHTMLSQLPL/SQLOracleMongoDBPythonWeb ServicesQuizProjectsInterview QCommentForumTrainingOracle TrainingOracle TutorialOracle Tutorial What is OracleOracle TablesCreate Table Create Table As Alter Table Drop Table Global Temp Tables Local Temp TablesOracle ViewsCreate ViewOracle QueryOracle Queries Oracle Select Oracle Insert Oracle Insert All Oracle Update Oracle Delete Truncate TableOracle ClausesOracle DISTINCT Oracle FROM Oracle ORDER BY Oracle GROUP BY Oracle HAVINGOracle OperatorsOracle Union Oracle Union All Oracle Intersect Oracle MinusOracle JoinsOracle Joins Inner Join Outer Join Equi Join Self Join Cross Join Anti Join Semi JoinOracle AdvanceOracle Procedure Oracle Function Oracle Cursor Oracle Trigger Oracle BEFORE Trigger Oracle AFTER Trigger Oracle DROP Trigger Oracle DISABLE Trigger Oracle ENABLE TriggerOracle MiscALIASES AND AND & OR BETWEEN COMPARISON OPERATORS EXISTS IN INTERSECT IS NOT NULL IS NULL LIKE NOT OR SUBQUERY TRUNCATE WHERE Change Password Check Constraints Comments Primary KeyInterview QuestionsOracle Interview SQL Interview PL/SQL Interview MongoDB Interviewnext ? ? prevCheck ConstraintsIn Oracle, Check Constraints have the specific condition for each row of the table.Using a CREATE TABLE statementSyntax:CREATE TABLE table_name
+(
+  column1 datatype null/not null,
+  column2 datatype null/not null,
+  ?
+  CONSTRAINT constraint_name CHECK (column_name condition) [DISABLE]
+);Example 1CREATE TABLE student (id numeric(4), name varchar2(50), CONSTRAINT check_id CHECK(id  BETWEEN 1 and 10))Note : During creating the table we have applied a constraint, in which only 1 to 10 rows can be inserted. So, in below query 12 fields are inserted. If will generate an error message.  INSERT ALL
+  INTO student(id, name) VALUES (1, 'shristee')
+  INTO student(id, name) VALUES (2, 'heena')
+  INTO student(id, name) VALUES (3, 'mohit')
+  INTO student(id, name) VALUES (4, 'shashank')
+  INTO student(id, name) VALUES (5, 'avinash')
+  INTO student(id, name) VALUES (6, 'shweta')
+  INTO student(id, name) VALUES (7, 'suman')
+  INTO student(id, name) VALUES (8, 'rohan')
+  INTO student(id, name) VALUES (9, 'ali')
+  INTO student(id, name) VALUES (10, 'dolly')
+  INTO student(id, name) VALUES (11,?mona?)
+  INTO student(id, name) VALUES (12, 'kiran')
+  SELECT * FROM dual;  INSERT ALL
+  INTO student(id, name) VALUES (1, 'shristee')
+  INTO student(id, name) VALUES (2, 'heena')
+  INTO student(id, name) VALUES (3, 'mohit')
+  INTO student(id, name) VALUES (4, 'shashank')
+  INTO student(id, name) VALUES (5, 'avinash')
+  INTO student(id, name) VALUES (6, 'shweta')
+  INTO student(id, name) VALUES (7, 'suman')
+  INTO student(id, name) VALUES (8, 'rohan')
+  INTO student(id, name) VALUES (9, 'ali')
+  INTO student(id, name) VALUES (10, 'dolly')
+  SELECT * FROM dual;Next TopicComments? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

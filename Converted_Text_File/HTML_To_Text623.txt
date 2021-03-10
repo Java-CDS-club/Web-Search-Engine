@@ -1,0 +1,215 @@
+ASP.Net MVC Entity Framework - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevASP.NET MVC Entity FrameworkIt is a data access framework which used to create and test data in the visual studio. It is part of .NET Framework and Visual Studio. The latest package is shipped as Entity Framework NuGet Package. The latest version is Entity Framework 6.0.We are using it in our ASP.NET MVC application. First, we will create a project then adding models to it.This example required the following tools and technologies:Visual Studio 2017.NET 4.5Entity Framework 6.0Create a MVC ProjectSelect file menu from menu bar and select new project.Provide name to the project and hit ok.Select template for the project and click ok.After clicking ok, visual studio creates a project that has following structure. In our case project structure looks like this:Now, create a model for table in the database. Right click on the Models folder and add new class by setting name as Student.cs. Modify this class with the following code.Model// Student.csusing System;
+namespace MvcEntityDemo.Models
+{
+    public class Student
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Course { get; set; }
+        public string Contact { get; set; }
+    }
+}Create a database context class that is used to coordinate with Entity Framework for a given data model. Place this class in Models folder. Right click on the Models folder and add a class. Provide a name RecordContext.cs to the class. Modify your class with the following code.// RecordContext.csusing MvcEntityDemo.Models;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+namespace MvcEntityDemo.Models
+{
+    public class RecordContext : DbContext
+    {
+        public RecordContext() : base("RecordContext")
+        {
+        }
+        public DbSet<Student> Students { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        }
+    }
+}Create migrationTo create migration, open Package Manager Console by going through view->other windows->Package Manager Console . In Package Manager Console run the following command.enable-migrations -ContextTypeName MvcEntityDemo.Models.RecordContextWe are executing this command in the following screenshot.After executing this command, framework creates a Migration folder in the project and a Configuration.cs file.We are updating this file with the following code.// Configuration.csnamespace MvcEntityDemo.Migrations
+{
+    using MvcEntityDemo.Models;
+    using System.Collections.Generic;
+    using System.Data.Entity.Migrations;
+    internal sealed class Configuration : DbMigrationsConfiguration<MvcEntityDemo.Models.RecordContext>
+    {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = false;
+        }
+        protected override void Seed(MvcEntityDemo.Models.RecordContext context)
+        {
+            var students = new List<Student>
+            {
+            new Student{Name="Mohan",Email="Samuai@example.com",Course="Java Technology", Contact="+25-258628"},
+            new Student{Name="Rohan",Email="Sam@example.com",Course=".NET Technology", Contact="+25-258694"},
+            new Student{Name="John",Email="Max@example.com",Course="Java Technology", Contact="+25-258999"},
+            new Student{Name="Saba",Email="saba@example.com",Course="Linux Administration", Contact="+25-258111"},
+            };
+            students.ForEach(s => context.Students.Add(s));
+            context.SaveChanges();
+        }
+
+        }
+    }
+}Save this file and run both the following commands in Package Manager Console.PM> add-migration initial After it, run this alsoPM> update-database.This command will create initials for the project inside migration folder.Create scaffolding to display data on the web page.Select and add scaffold.Add controller and provide details to create view as well.ControllerA new StudentsController has added that contains some auto generated code as given below.// StudentsController.csusing System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using MvcEntityDemo.Models;
+namespace MvcEntityDemo.Controllers
+{
+    public class StudentsController : Controller
+    {
+        private RecordContext db = new RecordContext();
+        // GET: Students
+        public ActionResult Index()
+        {
+            return View(db.Students.ToList());
+        }
+
+        // GET: Students/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Student student = db.Students.Find(id);
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
+            return View(student);
+        }
+        // GET: Students/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+        // POST: Students/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "ID,Name,Email,Course,Contact")] Student student)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Students.Add(student);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(student);
+        }
+        // GET: Students/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Student student = db.Students.Find(id);
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
+            return View(student);
+        }
+        // POST: Students/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "ID,Name,Email,Course,Contact")] Student student)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(student).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(student);
+        }
+        // GET: Students/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Student student = db.Students.Find(id);
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
+            return View(student);
+        }
+        // POST: Students/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Student student = db.Students.Find(id);
+            db.Students.Remove(student);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}A Student folder created inside the View folder. This folder contains some auto generated files like Index, Create, Delete etc. The index file contains the following code.// Index.cshtml@model IEnumerable<MvcEntityDemo.Models.Student>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th></th>
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+</table>Press Ctrl+F5 to run this file then this will produce the following output.Next TopicASP.NET MVC Authentication? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

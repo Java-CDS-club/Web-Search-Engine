@@ -1,0 +1,40 @@
+Ansible Inventory - javatpoint?HomeJavaAnsibleTableauVBAJenkinsSoftware TestingSeleniumControl SystemHTMLCSSJavaScriptjQueryQuizProjectsInterview QAnsible TutorialAnsible Tutorial Ansible Workflow Ansible Architecture Installation in Linux ad-hoc Commands Ansible Playbooks Ansible Tower Ansible Roles Ansible Variables Ansible Tags Ansible Galaxy Commands Cheat Sheets Ansible Modules Ansible Shell Ansible Templates Ansible YAML Ansible Inventory Ansible Debug Ansible Apt Ansible Lineinfile Ansible Copy Ansible Command Ansible File Ansible Vault Ansible Windows Ansible Yum Ansible AWX Ansible Unarchive Ansible Pip Ansible vs Chef Ansible vs PuppetInterview QuestionsAnsible Interviewnext ? ? prevAnsible InventoryAnsible works against multiple managed hosts in your infrastructure at the same time, using a list or group of lists is known as the inventory.Once an inventory is defined, you use patterns to select the hosts or groups you want to run against to Ansible.The default location for inventory is a file called /etc/ansible/hosts. You can also specify a different inventory file at the command line using the -i <path> option. You can pull the inventory file from dynamic or cloud sources or different formats (YAML, ini). Ansible has inventory plugins to make it flexible and customize.Hosts and groupThe format is /etc/ansible/ hosts are in INI like format, such as:mail.example.com
+
+[webservers]
+foo.example.com
+bar.example.com
+
+[dbservers]
+one.example.com
+two.example.com
+three.example.comHeading in the brackets is a group name, which is used in classifying the systems. And deciding what policy you are controlling at what time and for what purpose. You can put the systems in more than one group.For example, a server could be both a dbserver and a webserver.If you have hosts that run on a non-standard SSH port, then you can put the port number after the hostname with the colon. The Ports listed in the SSH configuration file that can be used with the OpenSSH connection but not use with the paramiko connection.To makes things explicit, it is suggested that you set them if items are not running on the default ports:badwolf.example.com:5309Suppose you have static IPs and want to set up some aliases that live in your host file, or you can connect through tunnels. Also, you can describe the hosts like the below example:Jumper ansible_port=5555 ansible_host=192.0.2.50In the above example, trying to Ansible against the host alias "jumper" will connect 192.0.2.50 on port 5555. It is using features of the inventory file to define the special variables.Hosts VariablesYou can assign the variables to the hosts that will be used in playbooks, such as:[atlanta]
+host1 http_port=80 maxRequestsPerChild=808
+host2 http_port=303 maxRequestsPerChild=909Group VariablesThe variables can be applied to an entire group at once, such as:[atlanta]
+host1
+host2
+
+[atlanta:vars]
+ntp_server=ntp.atlanta.example.com
+proxy=proxy.atlanta.example.comGroups of Groups and Group VariablesIt is possible to make groups of the group using the :children's suffix. And you can apply variables using :vars.[atlanta]
+host1
+host2
+
+[raleigh]
+host2
+host3
+
+[southeast: children]
+Atlanta
+Raleigh
+
+[southeast:vars]
+some_server=foo.southeast.example.com
+halon_system_timeout=30
+self_destruct_countdown=60
+escape_pods=2
+
+[usa: children]
+southeast
+northeast
+southwest
+northwestNext TopicAnsible Debug? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

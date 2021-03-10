@@ -1,0 +1,29 @@
+Automata Greibach Normal Form (GNF) - Javatpoint?HomeCompilerAutomataAWSIoTComputer FundamentalsControl SystemJavaHTMLCSSAptitudeSeleniumKotlinJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingAutomata TutorialAutomata Tutorial Theory of Automata Finite Automata Transition Diagram Transition Table DFA Examples of DFA NFA Examples of NFA Eliminating ? Transitions Conversion from NFA to DFA Conversion from NFA with ? to DFA Minimization of DFARegular ExpressionRegular Expression Examples of Regular Expression Conversion of RE to FA Arden's Theorem Moore Machine Mealy Machine Conversion from Mealy machine to Moore machine Conversion from Moore machine to Mealy machineCFGContext-free Grammar Derivation Derivation Tree Ambiguity in Grammar Unambiguous Grammar Simplification of CFG Chomsky's Normal Form (CNF) Greibach Normal Form (GNF)PDAPushdown Automata PDA Acceptance Non-deterministic Pushdown Automata CFG to PDA ConversionTuring MachineAutomata Turing Machine Basic Model of Turing machine Language accepted by Turing machine Example of TM Introduction to Undecidability Undecidable Problem about TM Post Correspondence Problem Chomsky Hierarchynext ? ? prevGreibach Normal Form (GNF)GNF stands for Greibach normal form. A CFG(context free grammar) is in GNF(Greibach normal form) if all the production rules satisfy one of the following conditions:A start symbol generating ?. For example, S ? ?.A non-terminal generating a terminal. For example, A ? a.A non-terminal generating a terminal which is followed by any number of non-terminals. For example, S ? aASB.For example:G1 = {S ? aAB | aB, A ? aA| a, B ? bB | b}
+G2 = {S ? aAB | aB, A ? aA | ?, B ? bB | ?}The production rules of Grammar G1 satisfy the rules specified for GNF, so the grammar G1 is in GNF. However, the production rule of Grammar G2 does not satisfy the rules specified for GNF as A ? ? and B ? ? contains ?(only start symbol can generate ?). So the grammar G2 is not in GNF.Steps for converting CFG into GNFStep 1: Convert the grammar into CNF.If the given grammar is not in CNF, convert it into CNF. You can refer the following topic to convert the CFG into CNF: Chomsky normal formStep 2: If the grammar exists left recursion, eliminate it.If the context free grammar contains left recursion, eliminate it. You can refer the following topic to eliminate left recursion: Left RecursionStep 3: In the grammar, convert the given production rule into GNF form.If any production rule in the grammar is not in GNF form, convert it.Example:S ? XB | AA
+A ? a | SA
+B ? b
+X ? aSolution:As the given grammar G is already in CNF and there is no left recursion, so we can skip step 1 and step 2 and directly go to step 3.The production rule A ? SA is not in GNF, so we substitute S ? XB | AA in the production rule A ? SA as:S ? XB | AA
+A ? a | XBA | AAA
+B ? b
+X ? aThe production rule S ? XB and B ? XBA is not in GNF, so we substitute X ? a in the production rule S ? XB and B ? XBA as:S ? aB | AA
+A ? a | aBA | AAA
+B ? b
+X ? aNow we will remove left recursion (A ? AAA), we get:S ? aB | AA
+A ? aC | aBAC
+C ? AAC |  ?
+B ? b
+X ? aNow we will remove null production C ? ?, we get:S ? aB | AA
+A ? aC | aBAC | a | aBA
+C ? AAC |  AA
+B ? b
+X ? aThe production rule S ? AA is not in GNF, so we substitute A ? aC | aBAC | a | aBA in production rule S ? AA as:S ? aB | aCA | aBACA | aA | aBAA
+A ? aC | aBAC | a | aBA
+C ? AAC
+C ? aCA | aBACA | aA | aBAA
+B ? b
+X ? aThe production rule C ? AAC is not in GNF, so we substitute A ? aC | aBAC | a | aBA in production rule C ? AAC as:S ? aB | aCA | aBACA | aA | aBAA
+A ? aC | aBAC | a | aBA
+C ?  aCAC | aBACAC | aAC | aBAAC
+C ? aCA | aBACA | aA | aBAA
+B ? b
+X ? aHence, this is the GNF form for the grammar G.Next TopicPushdown Automata? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

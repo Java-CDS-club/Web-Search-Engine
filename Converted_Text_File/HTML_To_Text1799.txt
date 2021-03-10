@@ -1,0 +1,114 @@
+C++ multiset constructor - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ multisetC++ multiset constructor destructor begin() end() operator= rbegin() rend() cbegin() cend() max_size() size() crbegin() crend() empty() insert() clear() emplace() erase() swap() emplace_hint() find() key_comp() value_comp() count() equal_range() lower_bound() upper_bound() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ multiset constructorThere are following five uses of multiset constructor:default (empty) constructor: This is used to construct an empty multiset container with zero elements.range constructor: This is used to construct a container with the contents of range [first, last).copy constructor: This is used to construct a multiset with a copy of the elements of existing container.move constructor: This is used to construct the container with the elements of other with the use of move semantics.initializer list constructor: This is used to construct the multiset with the content of the initializer list.SyntaxDefault constructorexplicit multiset (const key_compare& comp = key_compare(),
+              const allocator_type& alloc = allocator_type());	            //until C++ 11
+
+explicit multiset (const key_compare& comp = key_compare(),
+              const allocator_type& alloc = allocator_type());
+explicit multiset (const allocator_type& alloc);			//until C++ 14	
+
+mutiset();
+explicit multiset (const key_compare& comp,
+                   const allocator_type& alloc = allocator_type());		//since C++ 14
+explicit multiset (const allocator_type& alloc);range constructortemplate <class InputIterator>
+  multiset (InputIterator first, InputIterator last,
+       const key_compare& comp = key_compare(),
+       const allocator_type& alloc = allocator_type());		//until C++ 11
+
+template <class InputIterator>
+  multiset (InputIterator first, InputIterator last,
+       const key_compare& comp = key_compare(),
+       const allocator_type& = allocator_type());			//until C++ 14	
+
+template <class InputIterator>
+  multiset (InputIterator first, InputIterator last,
+            const key_compare& comp = key_compare(),
+            const allocator_type& = allocator_type());
+template <class InputIterator>
+  multiset (InputIterator first, InputIterator last,
+            const allocator_type& = allocator_type());		//since C++ 14copy constructormultiset (const multiset& x);						//until C++ 11
+	
+multiset (const multiset& x);
+multiset (const multiset& x, const allocator_type& alloc);			//since C++ 11move constructormultiset (multiset&& x);
+multiset (multiset&& x, const allocator_type& alloc);			//since C++ 11initializer list constructormultiset (initializer_list<value_type> il,
+     const key_compare& comp = key_compare(),
+     const allocator_type& alloc = allocator_type());		//until C++ 14
+
+multiset (initializer_list<value_type> il,
+          const key_compare& comp = key_compare(),        
+          const allocator_type& alloc = allocator_type());
+multiset (initializer_list<value_type> il,
+          const allocator_type& alloc = allocator_type());		//since C++ 14Parametercomp: A comparison function object which takes two key arguments and returns true if first argument goes before the second argument otherwise, it returns false. By default, it uses less<key_type> predicate.alloc: An allocator object use for all memory allocations of this container.first: Input iterator to the first position in a range.last: Input iterator to the last position in a range.x: Another multiset object of the same type.il: An initializer list object from which the elements are to be copied.Return valueConstructor never returns any value.ComplexityFor empty constructors and move constructors, complexity will be constant.For all other cases, complexity will be linear in the distance between the iterators if the elements are already sorted.Iterator validityInvalidate all pointers, iterators, and references related to x if the elements of multiset container are moved in the move constructor.Data RacesAll copied elements are accessed.Exception SafetyNo effects in case an exception is thrown.Example 1Let's see the simple example for default constructor:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   // Default constructor
+   multiset<char> s;
+  
+   int size = s.size(); 
+
+   cout << "Size of multiset s = " << size;
+   return 0;
+}Output:Size of multiset = 0In the above example, s is an empty multiset therefore, size is 0.Example 2Let's see a simple example for range constructor:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   int evens[] = {2,6,6,8,10};
+  
+   // Range Constructor
+   multiset<int> mymultiset (evens, evens+5);  
+
+   cout << "Size of multiset container mymultiset is : " << mymultiset.size();
+   return 0;
+}Output:Size of multiset container mymultiset is: 5In the above example, multiset mymultiset is constructed with the elements of evens.Example 3Let's see a simple example for copy constructor:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   //Default Constructor
+   multiset<int> s1;
+   s1.insert(5);
+   s1.insert(5);
+
+   cout << "Size of multiset container s1 is : " << s1.size();
+  
+   // Copy constructor
+   multiset<int> s2(s1);
+   cout << "\nSize of new multiset container s2 is : " << s2.size();
+   return 0;
+}Output:Size of multiset container s1 is: 2
+Size of new multiset container s2 is: 2In the above example, s2 is a copy of s1 multiset.Example 4Let's see a simple example for move constructor:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   // Default constructor
+   multiset<char> s1;
+   s1.insert('x');
+   s1.insert('y');
+   s1.insert('y');
+
+   cout << "Size of multiset container s1 is : " << s1.size();
+
+   // Move constructor
+   multiset<char> s2(move(s1));
+   cout << "\nSize of new multiset container s2 is : " << s2.size();
+   return 0;
+}Output:Size of multiset container s1 is: 3
+Size of new multiset container s2 is: 3In the above example, contents of s1 are moved to s2 multiset.Example 5Let's see a simple example for initializer list constructor:#include <iostream>
+#include <set>
+#include <string>
+
+using namespace std;
+
+int main() {
+   // Initializer list constructor
+   multiset<string> fruit {"orange", "apple", "mango", "apple", "grape"};
+
+   cout << "Size of multiset container fruit is: " << fruit.size();
+   return 0;
+}Output:Size of multiset container fruit is: 5The above example creates a multiset fruit with string as key and initializes it with initializer_list.Next TopicC++ multiset? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

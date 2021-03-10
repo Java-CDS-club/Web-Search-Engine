@@ -1,0 +1,156 @@
+C++ set clear() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set clear()C++ set clear() function is used to remove all the elements of the set container. It clears the set and converts its size to 0.Syntaxvoid clear();                 //until C++ 11
+void clear() noexcept;      //since C++ 11ParameterNoneReturn valueNoneComplexityLinear in size.Iterator validityAll iterator, references and pointers related to this container are invalidated.Data RacesThe container is modified.All contained elements are modified.Exception SafetyThis function never throws exception.Example 1Let's see the simple example to calculate the size of set before and after clear operation:#include <iostream>
+#include <set>
+using namespace std;
+
+int main() {
+
+   set<int> myset = {10,20,30,40}; 
+
+   cout << "Initial size of set before clear operation = " << myset.size() << endl;
+
+   myset.clear();
+
+   cout << "Size of set after clear operation = " << myset.size() << endl;
+
+   return 0;
+}Output:Initial size of set before clear operation = 4
+Size of set after clear operation = 0In the above example, a set is initialized with 4 elements therefore, the size is 4 but after the clear operation, size becomes 0.Example 2Let's see a simple example to clear the elements of the set:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<string> myset;
+
+  myset = {"Nikita","Deep","Aman"};
+
+  cout << "myset contains:\n";
+  for (set<string>::iterator it=myset.begin(); it!=myset.end(); ++it)
+    cout << *it<< '\n';
+
+  myset.clear();
+  
+  myset= {"Divya", "Raaz"};
+
+  cout << "\nmyset contains:\n";
+  for (set<string>::iterator it=myset.begin(); it!=myset.end(); ++it)
+    cout << *it<< '\n';
+
+  return 0;
+}Output:myset contains:
+Aman
+Deep
+Nikita
+
+myset contains:
+Divya
+RaazIn the above example, after clear the set, we can add the new elements without initialization.Example 3Let's see a simple example to clear the elements of the set:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  int n;
+  set<string> m1,m2,m3;
+  
+  m1 = {"Hello", "World"};
+  m2 = {"Java", "Program"};
+  m3 = {"C++", "Coding"};
+
+  cout << "m1 group has following members:\n";
+  for (set<string>::iterator it=m1.begin(); it!=m1.end(); ++it)
+    cout << *it << ' ';
+  
+
+  cout << "\n\nm2 group has following members:\n";
+  for (set<string>::iterator it=m2.begin(); it!=m2.end(); ++it)
+    cout << *it<< ' ';
+
+  cout << "\n\nm3 group has following members:\n";
+  for (set<string>::iterator it=m3.begin(); it!=m3.end(); ++it)
+    cout << *it<< ' ';
+  
+  cout<<"\n\nWhich group do you want to delete?\n 1.m1\n 2.m2\n 3.m3\n Please enter your choice: ";
+  cin>>n;
+  
+  if(n==1){
+  m1.clear();
+  cout<<"\nGroup m1 has been cleared.";
+  }
+  else if(n==2){
+  m2.clear();
+  cout<<"\nGroup m2 has been cleared.";
+  }
+  else if(n==3){
+  m3.clear();
+  cout<<"\nGroup m3 has been cleared.";
+  }
+  else
+  cout<<"Invalid option!";
+  
+  return 0;
+}Output:m1 group has following members:
+Hello World 
+
+m2 group has following members:
+Java Program 
+
+m3 group has following members:
+C++ Coding 
+
+Which group do you want to delete?
+ 1.m1
+ 2.m2
+ 3.m3
+ Please enter your choice: 2
+
+Group m2 has been cleared.In the above example, there are three groups of set and according to the user's choice one group has been deleted.Example 4Let's see a simple example:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main() {
+    
+   int n;
+   
+   set<string> fruit = {"Banana","Apple","Orange"};
+
+   cout << "Fruit bucket has following fruits = \n";
+   for (set<string>::iterator it=fruit.begin(); it!=fruit.end(); ++it)
+    cout << *it<< '\n';
+
+   cout<<"\nDo you want to clear your fruit bucket?\nPress 1 for Yes and 0 for No: ";
+   cin>>n;
+   
+   if( n==1){
+   fruit.clear();
+   cout<<fruit.size()<<" fruits in bucket \n";  
+   }
+   else if(n==0)
+   cout <<fruit.size() << " fruits in bucket \n" ;
+    
+   
+   return 0;
+}Output:1.
+Fruit bucket has following fruits = 
+Apple
+Banana
+Orange
+
+Do you want to clear your fruit bucket?
+Press 1 for Yes and 0 for No: 1
+0 fruits in bucket 
+
+
+2. 
+Fruit bucket has following fruits = 
+Apple 
+Banana 
+Orange
+
+Do you want to clear your fruit bucket?
+Press 1 for Yes and 0 for No: 1
+3 fruits in bucketIn the above example, a fruit set is initialized with three fruits. Asking for clear the set if you enter 0 then fruit bucket has 3 elements or if you enter 1 then it will clear the fruit set and the size becomes 0.Next TopicSet emplace() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

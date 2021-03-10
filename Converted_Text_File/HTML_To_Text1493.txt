@@ -1,0 +1,79 @@
+Computer Graphics Trignometric Method - javatpoint?HomeComputer FundamentalsComputer GraphicsBiometricsComputer NetworkJavaHTMLCSSSeleniumjQueryProjectsInterview QCommentForumTrainingComputer GraphicsComputer Graphics Tutorial Application of Computer Graphics Interactive and Passive GraphicsGraphic SystemsDisplay Processor Cathode Ray Tube (CRT) Random Scan vs Raster Scan Color CRT Monitors Direct View Storage Tubes Flat Panel DisplayInput-Output DevicesInput Devices Trackball Light Pen Image Scanner Output Devices PlottersScan Conversion a lineScan Conversion Definition Scan Converting a Point Scan Converting a Straight Line DDA Algorithm Bresenham's Line AlgorithmScan Conversion CircleDefining a Circle Defining a Circle using Polynomial Method Defining a Circle using Polar Coordinates Method Bresenham's Circle Algorithm Midpoint Circle AlgorithmScan Converting EllipseScan converting a Ellipse Polynomial Method Trignometric Method Midpoint Ellipse AlgorithmFilled Area PrimitivesBoundary Fill Algorithm Flood Fill Algorithm Scan Line Polygon Fill Algorithm2D TransformationsIntroduction of Transformation Translation Scaling Rotation Reflection Shearing Matrix Representation Homogeneous Coordinates Composite Transformation Pivot Point Rotation2D-ViewingWindow Window to Viewport Co-ordinate Transformation Zooming PanningClipping TechniquesClipping Point Clipping Line Clipping Midpoint Subdivision Algorithm Text Clipping Polygon Sutherland-Hodgeman Polygon Clipping Weiler-Atherton Polygon ClippingPointing & PositioningPointing & Positioning Techniques Elastic or Rubber Band Techniques DraggingShadingIntroduction of Shading Constant Intensity Shading Gouraud shading Phong ShadingAnimationAnimation Application Areas of Animation Animation Functions3D Computer GraphicsThree Dimensional Graphics Three Dimensional Transformations Scaling Rotation Rotation about Arbitrary Axis Inverse Transformations Reflection ShearingHidden SurfacesHidden Surface Removal Back Face Removal Algorithm Z-Buffer Algorithm Painter's Algorithm Scan Line Algorithm Subdivision Algorithm 3D Modelling SystemProjectionProjection Perspective Projection Parallel ProjectionProgramsComputer Graphics Programsnext ? ? prevTrignometric Method:The following equation defines an ellipse trigonometrically as shown in fig:x = a * cos (?) +h andy = b * sin (?)+kwhere (x, y) = the current coordinatesa = length of major axisb = length of minor axis?= current angle(h, k) = ellipse centerIn this method, the value of ? is varied from 0 to  radians. The remaining points are found by symmetry.Drawback:This is an inefficient method.It is not an interactive method for generating ellipse.The table is required to see the trigonometric value.Memory is required to store the value of ?.Algorithm:Step1: Start AlgorithmStep2: Declare variable x1,y1,aa1,bb1,aa2,bb2,fx,fy,p1,a1,b1Step3: Initialize x1=0 and y1=b/* values of starting point of circle */Step4: Calculate aa1=a1*a1          Calculate bb1=b1* b1          Calculate aa2=aa1*2          Calculate bb2=bb1*2Step5: Initialize fx = 0Step6: Initialize fy = aa_2* b1Step7: Calculate the value of p1and round if it is integer          p1=bb1-aa1* b1+0.25* aa1/Step8:While (fx  fy)
+	{
+		Set pixel (x1,y1)
+                      Increment x i.e., x = x + 1
+                      Calculate fx = fx + bb2
+                       If (p1  0)
+                                 Calculate p1 = p1 + fx + bb1/
+                       else
+		{
+			Decrement y i.e., y = y-1
+	                      Calculate fy = fy - 992;
+				p1=p1 + fx + bb1-fy
+                        }
+                }Step9: Setpixel (x1,y1)Step10: Calculate p1=bb1 (x+.5)(x+.5)+aa(y-1)(y-1)-aa1*bb1Step 11:While (y1>0)
+                {
+                          Decrement y i.e., y = y-1
+                           fy=fx-aa2/
+                         if (p1>=0)
+		   p1=p1 - fx +  aa1/
+                        else
+                 {
+                        Increment x i.e., x = x + 1
+                        fx= fx+bb_2
+                        p1=p1+fx-fy-aa1
+                  }
+        }
+       Set pixel (x1,y1)Step12: Stop AlgorithmProgram to draw a circle using Trigonometric method:#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+# define pi 3.14
+
+class bresen
+{
+	float a, b, h, k, thetaend,step,x,y;
+	int i;
+	public:
+	void get ();
+	void cal ();
+};
+	void main ()
+    {
+	bresen b;
+	b.get ();
+	b.cal ();
+	getch ();
+   }
+	void bresen :: get ()
+   {
+	cout"\n ENTER CENTER OF ELLIPSE";
+	cin>>h>>k;
+	cout"\n ENTER LENGTH OF MAJOR AND MINOR AXIS";
+	cin>>a>>b;
+	cout"\n ENTER STEP SIZE";
+	cin>> step;
+   }
+void bresen ::cal ()
+{
+	/* request auto detection */
+	int gdriver = DETECT,gmode, errorcode;
+	int midx, midy, i;
+	/* initialize graphics and local variables */
+	initgraph (&gdriver, &gmode, " ");
+	/* read result of initialization */
+	errorcode = graphresult ();
+	if (errorcode ! = grOK)    /*an error occurred */
+	{
+ 		printf("Graphics error: %s \n", grapherrormsg (errorcode);
+		printf ("Press any key to halt:");
+		getch ();
+		exit (1); /* terminate with an error code */
+	}
+	theta= 0;
+	thetaend=(pi*90)/180;
+	whilex (theta	}
+		getch();
+}Output:Ellipse Axis Rotation:Since the ellipse shows four-way symmetry, it can easily be rotated. The new equation is found by trading a and b, the values which describe the major and minor axes. When the polynomial method is used, the equations used to describe the ellipse becomewhere (h, k) = ellipse centera = length of the major axisb = length of the minor axisIn the trigonometric method, the equations arex = b cos (?)+h       and       y=a sin(?)+kWhere (x, y) = current coordinatesa = length of the major axisb = length of the minor axis? = current angle(h, k) = ellipse centerAssume that you would like to rotate the ellipse through an angle other than 90 degrees. The rotation of the ellipse may be accomplished by rotating the x &y axis ? degrees.          x = a cos (0) - b sin (0+ ?) + h y= b (sin 0) + a cos (0+?) + kNext TopicMidpoint Ellipse Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

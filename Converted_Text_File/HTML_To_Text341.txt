@@ -1,0 +1,35 @@
+Ansible Pip - javatpoint?HomeJavaAnsibleTableauVBAJenkinsSoftware TestingSeleniumControl SystemHTMLCSSJavaScriptjQueryQuizProjectsInterview QAnsible TutorialAnsible Tutorial Ansible Workflow Ansible Architecture Installation in Linux ad-hoc Commands Ansible Playbooks Ansible Tower Ansible Roles Ansible Variables Ansible Tags Ansible Galaxy Commands Cheat Sheets Ansible Modules Ansible Shell Ansible Templates Ansible YAML Ansible Inventory Ansible Debug Ansible Apt Ansible Lineinfile Ansible Copy Ansible Command Ansible File Ansible Vault Ansible Windows Ansible Yum Ansible AWX Ansible Unarchive Ansible Pip Ansible vs Chef Ansible vs PuppetInterview QuestionsAnsible Interviewnext ? ? prevAnsible PipAnsible pip module is used when you need to manage python libraries on the remote servers.There are two prerequisites if you need to use all the features in the pip module.The pip package should already be installed on the remote server.Virtualenv package should be installed on the remote server already if you need to manage the packages in the python virtual environment.NOTE: If you get the error "unable to find any of pip2, pip to use. Pip needs to be installed". The pip module is not available on the remote server during the execution.Installing a Pip ModuleTo install a new python library, you need to set the name of the package against the "name" parameter. By default, the "state" parameter is "present", the module will try to install the library.If the library is already installed, then nothing will be done. And if a new version of the library exists, it will not be upgraded.- hosts: all
+  tasks:
+  - name: Installing NumPy python library using pip module
+    pip:
+      name: NumPyInstalling Using a Requirement FileAnother way to install the libraries is via the requirements file. If you have any requirements file with all the libraries in the remote servers, give it as input to the "requirements" parameters.Also, you can use the copy module beforehand to copy the requirements file to every remote server. In the following code, install the requirements file in the location/tmp/req.txt.- hosts: all
+  tasks:
+  - name: Installing python libraries using requirements file
+    pip:
+      requirements: req.txt
+      chdir: /tmp
+
+req.txt
+-------
+nltk==3.0.0
+numpy<2.0.0 scipy>=1.0.0Installing Multiple Python LibrariesTo install the multiple packages, set all the libraries against the "name" parameter, separated by a comma.- hosts: all
+  tasks:
+  - name: Installing multiple python packages
+    pip:
+      name: NumPy,SciPyInstalling a Particular Version of Pip LibraryThere is a "version" parameter, which can be used to install only the mentioned version of a library. In the following code, install the version of nltk library.- hosts: all
+  tasks:
+  - name: Installing a required version of python library 
+    pip:
+      name: nltk
+      version: '3.0.0'Reinstall a Python LibraryYou can reinstall the python library by using the "forcereinstall" value for the "state" parameter.This will reinstall the latest version of the library. You can use the "version" parameter along with it. The following code will install the version 3.0.0 of the nltk library.- hosts: all
+  tasks:
+  - name: Reinstalling a python library 
+    pip:
+      name: nltk
+      version: 3.0.0
+      state: forcereinstallRemoving a Python LibraryYou can delete a python library by changing the state to "absent". In the following code, we will remove the "NumPy" and "SciPy" python libraries from the remote servers.- hosts: all
+  tasks:
+  - name: Removing Python libraries
+    pip:
+      name: NumPy,SciPy
+      state: absentNext TopicAnsible vs Chef? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,92 @@
+ASP.Net DataList - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevASP.NET DataListThe ASP.NET DataList control is a light weight server side control that works as a container for data items. It is used to display data into a list format to the web pages.It displays data from the data source. The data source can be either a DataTable or a table from database.Here, first, we are creating DataList that gets data from a DataTable. This example includes the following files.ASP.NET DataList Example with DataTable// DataListExample2.aspx <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DataListExample2.aspx.cs" 
+Inherits="DataListExample.DataListExample2" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <p>The DataList shows data of DataTable</p>
+        </div>
+        <asp:DataList ID="DataList1" runat="server">
+            <ItemTemplate>
+                <table cellpadding="2" cellspacing="0" border="1" style="width: 300px; height: 100px; 
+				border: dashed 2px #04AFEF; background-color: #FFFFFF">
+                    <tr>
+                        <td>
+                            <b>ID: </b><span class="city"><%# Eval("ID") %></span><br />
+                            <b>Name: </b><span class="postal"><%# Eval("Name") %></span><br />
+                            <b>Email: </b><span class="country"><%# Eval("Email")%></span><br />
+                        </td>
+                    </tr>
+                </table>
+            </ItemTemplate>
+        </asp:DataList>
+    </form>
+</body>
+</html>CodeBehind// DataListExample2.aspx.csusing System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+namespace DataListExample
+{
+    public partial class DataListExample2 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("ID");
+            table.Columns.Add("Name");
+            table.Columns.Add("Email");
+            table.Rows.Add("101", "Sachin Kumar", "sachin@example.com");
+            table.Rows.Add("102", "Peter", "peter@example.com");
+            table.Rows.Add("103", "Ravi Kumar", "ravi@example.com");
+            table.Rows.Add("104", "Irfan", "irfan@example.com");
+            DataList1.DataSource = table;
+            DataList1.DataBind();   
+        }
+    }
+}Output:It produces the following output to the browser.ASP.NET DataList Example with databaseThis example gets data from the database table and includes the following steps.1) Add a Web FormAdd a web form to drag the DataList over it as we did in the following screen shot.Select DataList from the data category of the toolbox.Drag the DataList to the form. After dragging, it looks like the following.Now, we need to configure database connection. Click on it and set new data source.It will pop up a new window with various Data Sources. Select SQL database and click ok.After selecting Data Source, now, we need to select data connection. But before proceeding further add connection string to the web.config file.// web.config<connectionStrings>
+    <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;
+	AttachDbFilename=|DataDirectory|\aspnet-AdoNetExample-20170712102014.mdf;
+	Initial Catalog=aspnet-AdoNetExample-20170712102014;Integrated Security=True"
+      providerName="System.Data.SqlClient" />
+    <add name="StudentConnectionString" 
+	connectionString="Data Source=DESKTOP-EDFPJEL;Initial Catalog=Student;Integrated Security=True"
+      providerName="System.Data.SqlClient" />
+  </connectionStrings>Data Source is the name of the connection that is required to connect SQL Server. It can be different for other computer systems.After clicking next, it asks to configure select statement.It allows us to select number of columns to fetch custom record. It also provides &ast; option to select all columns records.Now, test the configured query, is it working or not, as we did in the below screenshot.After finishing configuration, our DataList looks like this:This "DataListExample.aspx" file contains the following code.<%@ Page Language="C#" AutoEventWireup="true" 
+CodeBehind="DataListExample.aspx.cs" Inherits="AdoNetExample.DataListExample" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+        </div>
+        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1">
+            <ItemTemplate>
+                name:
+                <asp:Label ID="nameLabel" runat="server" Text='<%# Eval("name") %>' />
+                <br />
+                email:
+                <asp:Label ID="emailLabel" runat="server" Text='<%# Eval("email") %>' />
+                <br />
+                contact:
+                <asp:Label ID="contactLabel" runat="server" Text='<%# Eval("contact") %>' />
+                <br />
+<br />
+            </ItemTemplate>
+        </asp:DataList>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ 
+        ConnectionStrings:StudentConnectionString %>" 
+		SelectCommand="SELECT * FROM [student]"></asp:SqlDataSource>
+    </form>
+</body>
+</html>Output:This application produces the following output.Next TopicASP.NET DataGrid? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

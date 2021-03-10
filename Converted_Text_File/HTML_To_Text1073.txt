@@ -1,0 +1,91 @@
+Bootstrap Inputs - JavaTpoint?HomeCJavaPHPHTMLCSSBootstrapJavaScriptjQueryjQuery UIXMLJSONAjaxQuizProjectsInterview QCommentForumTrainingBootstrap TrainingBootstrap TutorialBootstrap Introduction What is Bootstrap Bootstrap Example Bootstrap ContainerBootstrap ExamplesBootstrap Jumbotron Bootstrap Button Bootstrap Grid Bootstrap Table Bootstrap Form Bootstrap Alert Bootstrap Wells Bootstrap Badge & Label Bootstrap Panels Bootstrap Pagination Bootstrap Pager Bootstrap Image Bootstrap Glyphicon Bootstrap Carousel Bootstrap Progress Bar Bootstrap List Group Bootstrap Dropdown Bootstrap CollapseBootstrap AdvanceBootstrap Tabs/Pills Bootstrap Navbar Bootstrap Input Types Bootstrap Modals Bootstrap Popover Bootstrap ScrollspyBootstrap UtilitiesBootstrap Border Bootstrap Clearfix Bootstrap Close Icons Bootstrap Colors Bootstrap Flexbox Display property Image Replacement Invisible Content Bootstrap Position Responsive helpers Screen readers Bootstrap Sizing Bootstrap Spacing Bootstrap TypographyInterview QuestionsHTML Interview CSS Interview jQuery Interview JavaScript Interview AJAX Interviewnext ? ? prevBootstrap InputsBootstrap Input TypesInput type: checkboxInput type: radio buttonBootstrap CheckboxCheckbox facilitates you to select any number of options from a list of present options.See this example: 
+  Bootstrap ExampleInput type: checkboxOption 1Option 2Test it NowUse the .checkbox-inline class if you want the checkboxes to appear on the same line:See this example:
+  Bootstrap ExampleInline checkboxThe following checkboxes appear in the same line :Option 1   Option 2 Test it NowBootstrap Radio ButtonsRadio buttons also facilitates you to select any number of options from a list of present options.See this example:
+  Bootstrap ExampleInput type: Radio buttonsOption 1Option 2Test it NowUse the .radio-inline class if you want the radio buttons to appear on the same line:See this example:
+  Bootstrap ExampleInline radio buttonsThe following radio boxes appear in the same line:Option 1   Option 2 Test it NowBootstrap 4 InputsBootstrap 4 supports following types of form controls:inputtextareacheckboxradioselectBootstrap InputBootstrap supports all the HTML5 input types: text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color.Note: Inputs will NOT be fully styled if their type is not properly declared!Example:<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h2>Form control: input example</h2>
+  <form>
+    <div class="form-group">
+      <label for="usr">Name:</label>
+      <input type="text" class="form-control" id="usr">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd">
+    </div>
+  </form>
+</div>
+</body>
+</html>Test it NowBootstrap TextareaUse textarea with "form-control" to create a Bootstrap textarea.Example:<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h2>Form control: textarea</h2>
+  <p>The form below contains a textarea for comments:</p>
+  <form>
+    <div class="form-group">
+      <label for="comment">Comment:</label>
+      <textarea class="form-control" rows="5" id="comment"></textarea>
+    </div>
+  </form>
+</div>
+</body>
+</html>Test it NowBootstrap Select ListBootstrap Select List is used to select single or multiple list. Select list is used if you want to allow the user to pick form multiple options.Example:<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h2>Form control: select</h2>
+  <p>The form below contains two dropdown menus (select lists):</p>
+  <form>
+    <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+      <br>
+      <label for="sel2">Mutiple select list (hold shift to select more than one):</label>
+      <select multiple class="form-control" id="sel2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+  </form>
+</div>
+</body>
+</html>Test it NowNext TopicBootstrap Modals? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

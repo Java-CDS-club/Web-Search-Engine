@@ -1,0 +1,54 @@
+Bash Concatenate String - Javatpoint?HomeJavaCBashJavaScriptXMLAjaxSQLC++C#HTMLAndroidCloudDesign PatternQuizProjectsInterview QCommentForumBash TutorialBash Tutorial What is Bash History of Bash Features of Bash Bash Scripting Filesystem & File Permission Hello World! Bash Script Relative vs Absolute path Bash Comments Bash Quotes Bash Variables Read User Input Bash Date Format Bash SleepBash OperatorsBash Arithmetic OperatorsConditional StatementsBash If Statement Bash If Else Bash Else If Bash CaseBash LoopsBash For Loop Bash While Loop Bash Until LoopBash StringBash String Bash Find String Bash Split String Bash Substring Bash Concatenate StringBash FunctionBash FunctionsBash ArrayBash ArraysMiscellaneousBash Read File Bash Write File Check if file Exists Check if Variable is Set Bash Alias Git Bash Zsh vs Bash Bash Hash Commandnext ? ? prevBash Concatenate StringIn this topic, we have explained how to add or concatenate strings in Bash Shell Scripting.In bash scripting, we can add or join two or more strings together, which is known as string concatenation. It is one of the common requirement for any programming language. A special character or built-in function is applied to perform string concatenation. However, Bash does not contain any built-in function to combine string data or variables. The easiest method to perform string concatenation in bash is to write variables side by side.For example, assume that we have two strings (i.e., "welcome" & "to javatpoint"), and we join both the strings together and a new string ("welcome to javatpoint") is created. This concept is referred to as String Concatenation.CommandThe example command for concatenating the strings can be defined as:str3="$str1$str2"Note: Observe the above command; there should not be any space before or after the assignment (=) operator. 'str' is used to indicate strings.This command will concatenate the values of str1 and str2 and store it in a third variable str3.Following are some examples demonstrating the different ways of string concatenation:Example 1: Write Variables Side by SideThis is the basic example of String Concatenation, and we do not need any extra operator or function in this method.Bash Script#!/bin/bash
+#Script to Concatenate Strings
+
+#Declaring the first String 
+str1="We welcome you"
+
+#Declaring the Second String
+str2=" on Javatpoint."
+
+#Combining first and second string
+str3="$str1$str2"
+
+#Printing a new string by combining both 
+echo $str3OutputWe welcome you on Javatpoint.Example 2: Using Double QuotesAnother easy method is to use variables inside the string, which is defined with double-quotes. The string variable can be applied in any position of the string data.Bash Script#!/bin/bash
+#Script to Concatenate Strings
+
+#Declaring String Variable
+str="We welcome you"
+
+#Add the variable within the string
+echo "$str on Javatpoint."OutputWe welcome you on Javatpoint.Example 3: Using Append Operator with LoopMost of the popular programming languages provide support for append operator (+=) which is the combination of the plus and equal sign. It will add new strings to the end of the string variable.Bash Script#!/bin/bash
+echo "Printing the name of the programming languages"
+#Initializing the variable before combining
+lang=""
+#for loop for reading the list
+for value in 'java''python''C''C++';
+do
+lang+="$value "  #Combining the list values using append operator
+done
+#Printing the combined values
+echo "$lang"OutputExample 4: Using the Printf FunctionIn bash, printf is a function which is used to print and concatenate the strings.Bash Script#!/bin/bash
+
+str="Welcome"
+printf -v new_str "$str to Javatpoint."
+echo $new_strOutputWelcome to Javatpoint.Example 5: Using Literal StringsString concatenation can also be performed with a literal string by using curly braces{}. They should be used in such a way that the variable does not mix up with the literal string.Bash Script#!/bin/bash
+
+str="Welcome to"
+
+newstr="${str} Javatpoint."
+echo "$newstr"OutputWelcome to Javatpoint.Example 6: Using UnderscoreUsing underscore for concatenating the string in bash shell is one of the common tasks. It is mostly used for assigning a name to the files.Bash Script#!/bin/bash
+
+str1="Hello"
+str2="World!"
+
+echo "${str1}_${str2}"OutputHello_World!Example 7: Using any CharacterBash Script#!/bin/bash
+#String Concatenation by Character (,) with User Input
+
+read -p "Enter First Name: " name
+read -p "Enter State: " state
+read -p "Enter Age: " age
+
+combine="$name,$state,$age"
+
+echo "Name, State, Age: $combine"OutputConclusionString Concatenation is one of the required features in the programming languages to generate meaningful output. Almost all the possible ways of joining the strings in bash are explained in this topic.Next TopicBash Functions? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

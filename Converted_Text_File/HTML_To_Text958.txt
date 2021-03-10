@@ -1,0 +1,27 @@
+Bash Substring - Javatpoint?HomeJavaCBashJavaScriptXMLAjaxSQLC++C#HTMLAndroidCloudDesign PatternQuizProjectsInterview QCommentForumBash TutorialBash Tutorial What is Bash History of Bash Features of Bash Bash Scripting Filesystem & File Permission Hello World! Bash Script Relative vs Absolute path Bash Comments Bash Quotes Bash Variables Read User Input Bash Date Format Bash SleepBash OperatorsBash Arithmetic OperatorsConditional StatementsBash If Statement Bash If Else Bash Else If Bash CaseBash LoopsBash For Loop Bash While Loop Bash Until LoopBash StringBash String Bash Find String Bash Split String Bash Substring Bash Concatenate StringBash FunctionBash FunctionsBash ArrayBash ArraysMiscellaneousBash Read File Bash Write File Check if file Exists Check if Variable is Set Bash Alias Git Bash Zsh vs Bash Bash Hash Commandnext ? ? prevBash SubstringIn this topic, we have explained how to compute substring of a given string.A substring is a sequence of characters within a string. Bash provides an option to extract the information from a string itself. You can extract the digits or a given string using several methods.For example, "welcome you on Javatpoint." is a substring of "We welcome you on Javatpoint."SyntaxThe command for the extraction of substring is a build-in bash command, and so it is very good to use for performance perspective.The syntax of the substring extraction can be defined as:${variable:offset:length}where,Variable is the variable name that contains a string.Offset is used to specify the position from where to start the extraction of a string.Length is used to specify the range of the characters to be executed from the offset.Note: Assigning length is optional. If length is not provided, then end of the string will be considered as the end of the substring.Let's understand the concept of extracting a substring from the string with the help of some examples:Example 1: To Extract till Specific Characters from Starting#!/bin/bash
+#Script to extract first 10 characters of a string
+
+echo "String: We welcome you on Javatpoint."
+str="We welcome you on Javatpoint."
+
+echo "Total characters in a String: ${#str} "
+
+substr="${str:0:10}"
+
+echo "Substring: $substr"
+echo "Total characters in Substring: ${#substr} "OutputExample 2: To Extract from Specific Character onwards#!/bin/bash
+#Script to print from 11th character onwards
+
+str="We welcome you on Javatpoint."
+substr="${str:11}"
+echo "$substr"Outputyou on Javatpoint.Here, end of the string is considered as the end of the substring.Example 3: To Extract a Single Character#!/bin/bash
+#Script to print 11th character of a String
+
+str="We welcome you on Javatpoint."
+substr="${str:11:1}"
+echo "$substr"OutputyExample 4: To Extract the specific characters from last#!/bin/bash
+#Script to extract 11 characters from last
+
+str="We welcome you on Javatpoint."
+substr="${str:(-11)}"
+echo "$substr"OutputJavatpoint.ConclusionIn this topic, we demonstrated how to extract a substring from a string in bash scripting with different types of scenarios and examples.Next TopicBash Concatenate String? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

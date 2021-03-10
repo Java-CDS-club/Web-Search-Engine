@@ -1,0 +1,112 @@
+C++ set upper_bound() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set upper_bound()C++ set upper_bound() function is used to return an iterator pointing to the value in the set container which is larger to val passed in the parameter.Syntax      iterator upper_bound (const value_type& val) const;            //until C++ 11
+
+      iterator upper_bound (const value_type& val);                    //since C++ 11
+const_iterator upper_bound (const value_type& val) const;        //since C++ 11Parameterval: value to be searched in the set container.Return valueIt returns an iterator pointing to the value in the set container which is larger to val passed in the parameter. If there is no such element return end().ComplexityLogarithmic in size.Iterator validityNo changes.Data RacesThe container is accessed (neither the const nor the non-const versions modify the container).Concurrently accessing the elements of a set is safe.ExceptionIf an exception is thrown, there are no changes in the container.Example 1Let's see the simple example to get the upper bound of given value:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   set<char> m = {'a', 'b', 'c', 'd'};
+           
+   auto it = m.upper_bound('b');
+
+   cout << "Upper bound of b is(>): " << *it << endl;
+
+   return 0;
+}Output:Upper bound of b is(>): cIn the above example, when we try to find the upper bound of element b then it will return greater element of b i.e. cExample 2Let's see a simple example to erase the elements of set from lower bound to upper bound:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<int> myset;
+  set<int>::iterator itlow,itup;
+
+  for (int i=1; i<10; i++) myset.insert(i*10); // 10 20 30 40 50 60 70 80 90
+
+  itlow=myset.lower_bound (30);                //       ^
+  itup=myset.upper_bound (60);                 //                   ^
+
+  myset.erase(itlow,itup);                     // 10 20 70 80 90
+
+  std::cout << "myset contains:";
+  for (set<int>::iterator it=myset.begin(); it!=myset.end(); ++it)
+    cout << ' ' << *it;
+  cout << '\n';
+
+  return 0;
+}Output:myset contains: 10 20 70 80 90In the above example, erase() function erased the element of set from lower bound(=) to upper bound(>) and print the remaining content.Example 3Let's see a simple example:#include<iostream>
+#include<set>
+using namespace std;
+ 
+int main()
+{
+    // initialize container
+    set<int> mp;
+ 
+    // insert elements in random order
+    mp.insert( 12 );
+    mp.insert( 11 );
+    mp.insert( 15 );
+    mp.insert( 14 );
+ 
+    // when 11 is present
+    auto it = mp.upper_bound(11);
+    cout << "The upper bound of key 11 is ";
+    cout << (*it)<< endl;
+ 
+    // when 13 is not present
+    it = mp.upper_bound(13);
+    cout << "The upper bound of key 13 is ";
+    cout << (*it)<< endl;
+ 
+    // when 17 is exceeds the maximum key, so size
+        // of mp is returned as key and value as 0.
+    it = mp.upper_bound(17);
+    cout << "The upper bound of key 17 is ";
+    cout << (*it);
+    return 0;
+}Output:The upper bound of key 11 is 12
+The upper bound of key 13 is 14
+The upper bound of key 17 is 4In the above example, when we try to find the upper bound of a value which is not present in the set container but does not exceeds the maximum value then it will return greater value i.e. when we trying to find upper bound of 13 then it will return 14 and when we trying to find upper bound of a value which is not present in the set and exceeds the maximum value of container then it will return to the end().Example 4Let's see a simple example:#include <set>  
+#include <iostream>  
+  
+int main( )  
+{  
+   using namespace std;     
+   set <int> s1;  
+   set <int> :: const_iterator s1_AcIter, s1_RcIter;  
+  
+   s1.insert( 10 );  
+   s1.insert( 20 );  
+   s1.insert( 30 );  
+  
+   s1_RcIter = s1.upper_bound( 20 );  
+   cout << "The first element of set s1 with a key greater "  
+        << "than 20 is: " << *s1_RcIter << "." << endl;  
+  
+   s1_RcIter = s1.upper_bound( 30 );  
+  
+   // If no match is found for the key, end( ) is returned  
+   if ( s1_RcIter == s1.end( ) )  
+      cout << "The set s1 doesn't have an element "  
+           << "with a key greater than 30." << endl;  
+   else  
+      cout << "The element of set s1 with a key > 40 is: "  
+           << *s1_RcIter << "." << endl;  
+  
+   // The element at a specific location in the set can be found   
+   // by using a dereferenced iterator addressing the location  
+   s1_AcIter = s1.begin( );  
+   s1_RcIter = s1.upper_bound( *s1_AcIter );  
+   cout << "The first element of s1 with a key greater than"  
+        << endl << "that of the initial element of s1 is: "  
+        << *s1_RcIter << "." << endl;  
+        
+        return 0;
+}  Output:The first element of set s1 with a key greater than 20 is: 30.
+The set s1 doesn't have an element with a key greater than 30.
+The first element of s1 with a key greater than
+that of the initial element of s1 is: 20.Next TopicSet equal_range() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

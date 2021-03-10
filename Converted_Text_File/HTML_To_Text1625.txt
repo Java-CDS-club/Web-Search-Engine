@@ -1,0 +1,121 @@
+C++ algorithm binary_search() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm binary_search()C++ Algorithm binary_search() function is used check whether the element in the range [first, last) is equivalent to val (or a binary predicate) and false otherwise.The range [first, last) must satisfy all of the following conditions:Partitioned with respect to element < val or comp (element, val).Partitioned with respect to !(val < element) or !comp(value, element)For all elements, if element < val or comp (element, val) is true then !(val < element) or !comp(val, element) is also true.The first version uses operator< to compare the elements and the second version uses the given comparison function i.e. comp.Syntaxdefault (1)       template <class ForwardIterator, class T>
+                        bool binary_search (ForwardIterator first, ForwardIterator last,
+                             const T& val);
+
+custom (2)      template <class ForwardIterator, class T, class Compare>
+                       bool binary_search (ForwardIterator first, ForwardIterator last,
+                             const T& val, Compare comp);Parameterfirst: A forward iterator pointing to the first element in the range to be searched.last: A forward iterator pointing to the past last element in the range to be searched.comp: A user-defined binary predicate function that accepts two arguments and returns true if the two arguments are in order and false otherwise. It follows the strict weak ordering to order the elements.val: A value of the upper bound to compare the elements in the range.Return valueIt returns true if an element equivalent to val is found otherwise, it returns false.ComplexityOn average, complexity is logarithmic in the distance between first and last: performs up to log2 (N) + 2 element comparisons Where N = last - first.Data racesThe object in the range [first, last) are accessed.ExceptionsThis function throws an exception if either an element comparison or an operation on iterator throws an exception.Please note that invalid parameters cause an undefined behavior.Example 1Let's see the simple example to demonstrate the use of binary_search():#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+  vector<int> v = {3, 1, 4, 6, 5};
+
+  if (binary_search(v.begin(), v.end(), 4)) {
+    cout << "4 found" << endl;
+  }
+  else {
+    cout << "4 not found" << endl;
+  }
+  
+  return 0;
+}Output:4 foundExample 2Let's see another simple example:#include <iostream>     // std::cout
+#include <algorithm>    // std::binary_search, std::sort
+#include <vector>       // std::vector
+
+using namespace std;
+
+bool myfunction (int i,int j) { return (i<j); }
+
+int main () {
+  int myints[] = {1,2,3,4,5,4,3,2,1};
+  vector<int> v(myints,myints+9);                         // 1 2 3 4 5 4 3 2 1
+
+  // using default comparison:
+  sort (v.begin(), v.end());
+
+  cout << "looking for a 3... ";
+  if (binary_search (v.begin(), v.end(), 3))
+    cout << "found!\n"; else cout << "not found.\n";
+
+  // using myfunction as comp:
+  sort (v.begin(), v.end(), myfunction);
+
+  cout << "looking for a 6... ";
+  if (binary_search (v.begin(), v.end(), 6, myfunction))
+    cout << "found!\n"; else std::cout << "not found.\n";
+
+  return 0;
+}Output:looking for a 3... found!
+looking for a 6... not found.Example 3Let's see another simple example to compare the elements using comparison function:#include <iostream>
+#include <vector>
+#include <algorithm>
+ 
+using namespace std;
+ 
+int main()
+{
+  int a[] = {1, 2, 3, 4, 5, 6, 7, 9, 10};
+  vector<int> v(a, a+9);
+  cout <<"\nHere are the values in the vector:\n";
+  for (vector<int>::size_type i=0; i<v.size(); i++)
+    cout <<v.at(i)<<" ";
+ 
+  if (binary_search(v.begin(), v.end(), 3))
+    cout <<"\nThe value 3 was found.";
+  else
+    cout <<"\nThe value 3 was not found.";
+ 
+  if (binary_search(v.begin(), v.end(), 8))
+    cout <<"\nThe value 8 was found.";
+  else
+    cout <<"\nThe value 8 was not found.";
+ 
+  return 0;
+}Output:Here are the values in the vector:
+1 2 3 4 5 6 7 9 10 
+The value 3 was found.
+The value 8 was not found.Example 4Let's see another simple example:#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <functional>  
+#include <iomanip>     
+using namespace std;
+ 
+void print(vector <int> vs)
+{   
+    vector <int>::iterator i;
+    for(i = vs.begin(); i != vs.end(); i++)
+    {
+        cout << left << setw(2) << *i;
+    }
+    cout << endl;
+}
+ 
+int main () {
+    int arr[] = {1, 5, 2, 9, 8, 4, 3, 7, 6};
+    int alen = sizeof(arr) / sizeof(int);
+    vector <int> v(arr, arr + alen); 
+ 
+    sort (v.begin(), v.end());
+    cout << "Sorted vector elements : ";
+    print(v);
+    // Searching without using predicate
+    cout << "Searching for 4 : ";
+    if (binary_search (v.begin(), v.end(), 4))
+        cout << "found!" << endl;
+    else
+        cout << "not found." << endl;
+    // Searching using predicate
+    cout << "Searching for element greater than 9 : ";
+    if (binary_search(v.begin(), v.end(), 9, greater<int>()))
+        cout << "found!" << endl;
+    else
+        cout << "not found." << endl;
+    return 0;
+}Output:Sorted vector elements : 1 2 3 4 5 6 7 8 9 
+Searching for 4 : found!
+Searching for element greater than 9 : not found.Next TopicC++ Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

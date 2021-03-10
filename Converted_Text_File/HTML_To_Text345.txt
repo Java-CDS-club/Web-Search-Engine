@@ -1,0 +1,48 @@
+Ansible Tags - javatpoint?HomeJavaAnsibleTableauVBAJenkinsSoftware TestingSeleniumControl SystemHTMLCSSJavaScriptjQueryQuizProjectsInterview QAnsible TutorialAnsible Tutorial Ansible Workflow Ansible Architecture Installation in Linux ad-hoc Commands Ansible Playbooks Ansible Tower Ansible Roles Ansible Variables Ansible Tags Ansible Galaxy Commands Cheat Sheets Ansible Modules Ansible Shell Ansible Templates Ansible YAML Ansible Inventory Ansible Debug Ansible Apt Ansible Lineinfile Ansible Copy Ansible Command Ansible File Ansible Vault Ansible Windows Ansible Yum Ansible AWX Ansible Unarchive Ansible Pip Ansible vs Chef Ansible vs PuppetInterview QuestionsAnsible Interviewnext ? ? prevAnsible TagsIf you have a large playbook, it becomes useful to be able to run only a specific part of it rather than running everything in the playbook. Ansible supports a tag attribute for this reason.When you apply tags on things, then you can control whether they are executed by adding command-line options.When you execute a playbook, you can filter tasks based on the tags in two ways, such as:On the command line, with the -tags or -skip-tags options.In Ansible configuration settings, with the TAGS_RUN and TAGS_SKIP options.In Ansible, tags can be applied to many structures, but its simplest use is with individual tasks. Let's see an example that tags two tasks with different tags, such as:tasks:
+- yum:
+    name: "{{ item }}"
+    state: present
+  loop:
+  - httpd
+  - memcached
+  tags:
+  - packages
+
+- template:
+    src: templates/src.j2
+    dest: /etc/foo.conf
+  tags:
+  - configurationIf you want to run the configuration and packages part of a very long playbook, then you can use the -tags option on the command line.ansible-playbook example.yml --tags "configuration,packages"And if you want to run a playbook without certain tagged tasks, then you can use the -skip-tags command-line option.ansible-playbook example.yml --skip-tags "packages"Tag ReuseWe can apply the same tag to more than one task. By using the "--tags" command line options, all tasks with that tag name will be run.For example: In below example, we use one tag "ntp" for several tasks, such as:---
+# file: roles/common/tasks/main.yml
+
+- name: be sure ntp is installed
+  yum:
+    name: ntp
+    state: present
+  tags: ntp
+
+- name: be sure ntp is configured
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+  notify:
+  - restart ntpd
+  tags: ntp
+
+- name: be sure ntpd is running and enabled
+  service:
+    name: ntpd
+    state: started
+    enabled: yes
+  tags: ntpSpecial Tags"always" is a unique tag that will always run a task, unless specifically skipped (--skip-tags always)For example:tasks:
+- debug:
+    msg: "Always runs"
+  tags:
+  - always
+
+- debug:
+    msg: "runs when you use tag1"
+  tags:
+  - tag1New in version 2.5Here is another unique tag that is "never" which prevents a task from running unless a tag is specifically requested.For example:tasks:
+  - debug: msg="{{ showmevar }}"
+    tags: [ never, debug ]In the above example, the task will only run when the "never" or "debug" tag is explicitly requested.Here are another three special keywords for tags:"tagged" which run only tagged,"untagged" which run only untagged, and"all" which run all tasks respectively.By default, Ansible runs as if "--tags" all had been specified.Next TopicAnsible Galaxy? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

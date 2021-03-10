@@ -1,0 +1,76 @@
+C++ set find() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set find()C++ set find() function is used to find an element with the given value val. If it finds the element then it returns an iterator pointing to the element otherwise, it returns an iterator pointing to the end of the set i.e. set::end().Syntax         iterator find (const value_type& val) const;                  // until C++ 11
+
+   const_iterator find (const value_type& val) const;              //since C++ 11
+         iterator       find (const value_type& val);                    //since C++ 11Parameterval: specifies the value to be searched in the set container.Return valueIf it finds the element then it returns an iterator pointing to the element otherwise, it returns an iterator pointing to the end of the set i.e. set::end().ComplexityLogarithmic in size.Iterator validityNo changes.Data RacesThe container is accessed (neither the const nor the non-const versions modify the container.No mapped values are accessed: concurrently accessing and modifying the elements is safe.Exception SafetyIf an exception is thrown, there are no changes in the container.Example 1Let's see the simple example to find the element with the given key value:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   set<int> m = {100,200,300,400};
+
+   auto it = m.find(300);
+
+   cout << "Iterator points to " << *it << endl;
+
+   return 0;
+}Output:Iterator points to 300Example 2Let's see a simple example to find the element:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   set<char> m = {'a', 'b', 'c', 'd'};
+
+            
+    auto it = m.find('e');
+   
+    if ( it == m.end() ) {
+    // not found
+     cout<<"Element not found";
+    } 
+    else {
+        // found
+        cout << "Iterator points to " << *it<< endl;
+    }
+    
+   return 0;
+}Output:Element not foundIn the above example, find() function finds the key value e in the set m, if it is not found in the set then it will return a not found message otherwise, it will display the set.Example 3Let's see a simple example:#include <iostream>
+#include <set>
+ 
+using namespace std;
+
+int main()
+{
+    char n;
+    set<char> example = {'a','b','c','d','e'};
+    
+    cout<<"Enter the element which you want to search: ";
+    cin>>n;
+ 
+    auto search = example.find(n);
+    if (search != example.end()) {
+        cout << n<<" found and the value is " << *search << '\n';
+    } else {
+        cout << n<<" not found\n";
+    }
+}Output:Enter the element which you want to search: b
+b found and the value is bIn the above example, find() function is used to find the element according to user's given value.Example 4Let's see a simple example:#include <iostream>
+#include <set>
+
+int main () {
+   std::set<int> myset;
+   std::set<int>::iterator it;
+
+   for (int i = 1; i <= 10; i++) myset.insert(i*10);    
+   it = myset.find(40);
+   myset.erase (it);
+   myset.erase (myset.find(60));
+
+   std::cout << "myset contains:";
+   for (it = myset.begin(); it!=myset.end(); ++it)
+      std::cout << ' ' << *it;
+   std::cout << '\n';
+
+   return 0;
+}Output:myset contains: 10 20 30 50 70 80 90 100Next TopicSet count() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

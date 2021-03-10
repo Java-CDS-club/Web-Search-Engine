@@ -1,0 +1,173 @@
+Java Abstract Keyword - Javatpoint?HomeJavaCC++C#ServletJSPEJBStruts2MailHibernateSpringAndroidDesign PQuizProjectsInterview QCommentForumTrainingJava TrainingJava TutorialWhat is Java History of Java Features of Java C++ vs Java Hello Java Program Program Internal How to set path? JDK, JRE and JVM JVM: Java Virtual Machine Java Variables Java Data Types Unicode System Operators Keywords Control StatementsJava If-else Java Switch Java For Loop Java While Loop Java Do While Loop Java Break Java Continue Java Comments Java Programs Java Object ClassJava OOPs Concepts Naming Convention Object and Class Constructor static keyword this keywordJava InheritanceInheritance(IS-A) Aggregation(HAS-A)Java PolymorphismMethod Overloading Method Overriding Covariant Return Type super keyword Instance Initializer block final keyword Runtime Polymorphism Dynamic Binding instanceof operatorJava AbstractionAbstract class Interface Abstract vs InterfaceJava EncapsulationPackage Access Modifiers EncapsulationJava ArrayJava ArrayJava OOPs MiscObject class Object Cloning Math class Wrapper Class Java Recursion Call By Value strictfp keyword javadoc tool Command Line Arg Object vs Class Overloading vs OverridingJava String Java Regex Exception Handling Java Inner classes Java Multithreading Java I/O Java Networking Java AWT & Events Java Swing JavaFX Java Applet Java Reflection Java Date Java Conversion Java Collection Java JDBC Java Misc Java New Features RMI Internationalization Interview Questions Java MCQnext ? ? prevJava abstract KeywordThe abstract keyword is used to achieve abstraction in Java. It is a non-access modifier which is used to create abstract class and method.The role of an abstract class is to contain abstract methods. However, it may also contain non-abstract methods. The method which is declared with abstract keyword and doesn't have any implementation is known as an abstract method.Syntax:-abstract class Employee
+{
+abstract void work();
+} Note - We cannot declare abstract methods in non abstract class.Rules of abstract keywordDon'tsAn abstract keyword cannot be used with variables and constructors.If a class is abstract, it cannot be instantiated.If a method is abstract, it doesn't contain the body.We cannot use the abstract keyword with the final.We cannot declare abstract methods as private.We cannot declare abstract methods as static.An abstract method can't be synchronized.Do'sAn abstract keyword can only be used with class and method.An abstract class can contain constructors and static methods.If a class extends the abstract class, it must also implement at least one of the abstract method.An abstract class can contain the main method and the final method.An abstract class can contain overloaded abstract methods.We can declare the local inner class as abstract.We can declare the abstract method with a throw clause.Examples of abstract KeywordExample 1: Abstract class containing the abstract methodabstract class Vehicle
+{
+	abstract void bike();
+	
+}
+class Honda extends Vehicle
+{
+
+	@Override
+	void bike() {
+		System.out.println("Bike is running");
+	
+	}
+	
+}
+
+public class AbstractExample1 {
+
+	public static void main(String[] args) {
+
+	Honda obj=new Honda();
+	obj.bike();
+	}		
+}Test it NowOutput:Bike is runningExample 2: Abstract class containing the abstract and non-abstract methodabstract class Vehicle
+{
+	abstract void bike();
+	
+	void car()
+	{
+		System.out.println("Car is running");
+	}
+	
+}
+class Honda extends Vehicle
+{
+
+	@Override
+	void bike() {
+		System.out.println("Bike is running");
+	
+	}
+	
+}
+
+public class AbstractExample2 {
+
+	public static void main(String[] args) {
+
+	Honda obj=new Honda();
+	obj.bike();
+	obj.car();
+	
+	}	
+	
+}Test it NowOutput:Bike is running
+Car is runningExample 3: Abstract class containing the constructorabstract class Vehicle
+{
+	String msg;
+	
+	Vehicle(String msg)
+	{
+	this.msg=msg;
+	}
+	
+	void display()
+	{
+		System.out.println(msg);
+	}
+	
+}
+class Honda extends Vehicle
+{
+
+	Honda(String msg) {
+		super(msg);
+		
+	}
+
+}
+
+public class AbstractExample3 {
+
+	public static void main(String[] args) {
+
+	Honda obj=new Honda("Constructor is invoked");
+	obj.display();
+	
+	}		
+}Test it NowOutput:Constructor is invokedExample 4: Abstract class containing overloaded abstract methodsabstract class Vehicle
+{
+	
+		abstract void display();
+		abstract void display(String msg);
+	
+}
+class Honda extends Vehicle
+{
+
+	@Override
+	void display() {
+		
+		System.out.println("abstract method is invoked");
+	}
+
+	@Override
+	void display(String msg) {
+		
+		System.out.println(msg);
+	}
+	
+}
+public class AbstractExample4 {
+
+	public static void main(String[] args) {
+	 Honda obj=new Honda();
+	 obj.display();
+	 obj.display("overloaded abstract method is invoked");
+	}		
+}Test it NowOutput:abstract method is invoked
+overloaded abstract method is invokedExample 5: Inner abstract classclass Vehicle
+{
+	abstract class Car 
+	{
+		abstract void display();
+	}
+
+class Honda extends Car
+{
+
+	@Override
+	void display() {
+		
+		System.out.println("inner abstract class is invoked");
+	}   
+}
+}
+public class AbstractExample5 {
+
+	public static void main(String[] args) {
+	Vehicle obj=new Vehicle();
+     Vehicle.Car c=obj.new Honda();
+     c.display();
+	}		
+}Test it NowOutput:inner abstract class is invokedExample 6: Nested abstract classabstract class Vehicle
+{
+	abstract class Car 
+	{
+		abstract void display();
+	}
+}
+class Honda extends Vehicle
+{
+	class FourWheller extends Car
+	{
+	@Override
+	void display() {
+		
+		System.out.println("nested abstract class is invoked");
+	}   
+}
+}
+public class AbstractExample6 {
+
+	public static void main(String[] args) {
+	 Vehicle obj=new Honda();
+     Honda h=(Honda)obj;
+     Honda.FourWheller fw=h.new FourWheller();
+      fw.display();
+	}		
+}Test it NowOutput:nested abstract class is invokedNext TopicJava Boolean Keyword? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

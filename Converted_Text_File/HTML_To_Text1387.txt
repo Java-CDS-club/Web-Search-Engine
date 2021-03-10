@@ -1,0 +1,60 @@
+Comb Sort - javatpoint?HomeData StructureCC++C#JavaSQLHTMLCSSJavaScriptAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumDS TutorialDS Tutorial DS Introduction DS Algorithm Asymptotic Analysis DS Pointer DS StructureDS ArrayDS Array 2D ArrayDS Linked ListLinked List Doubly Linked List Circular Linked List Circular Doubly ListDS StackDS Stack Array Implementation Linked List ImplementationDS QueueDS Queue Array Representation Linked List Representation Circular QueueDS TreeDS Tree Binary Tree Binary Search Tree AVL Tree B Tree B+ TreeDS GraphDS Graph Graph Implementation BFS Algorithm DFS Algorithm Spanning TreeDS SearchingLinear Search Binary SearchDS SortingBubble Sort Bucket Sort Comb Sort Counting Sort Heap Sort Insertion Sort Merge Sort Quick Sort Radix Sort Selection Sort Shell Sort Bitonic Sort Cocktail Sort Cycle Sort Tim Sortnext ? ? prevCOMB SORTComb Sort is the advance form of Bubble Sort. Bubble Sort compares all the adjacent values while comb sort removes all the turtle values or small values near the end of the list.Factors affecting comb sort are:It improves on bubble sort by using gap of size more than 1.Gap starts with large value and shrinks by the factor of 1.3.Gap shrinks till value reaches 1.ComplexityAlgorithmComplexityWorst Case ComplexityO(n2)Best Case Complexity?(n log n)Average Case Complexity?(n2/2p) where p is number of increments.Worst Case Space ComplexityO(1)AlgorithmSTEP 1 STARTSTEP 2 Calculate the gap value if gap value==1 goto step 5 else goto step 3STEP 3 Iterate over data set and compare each item with gap item then goto step 4.STEP 4 Swap the element if require else goto step 2STEP 5 Print the sorted array.STEP 6 STOPProgram#include <stdio.h>
+#include <stdlib.h>
+ int newgap(int gap)
+{
+    gap = (gap * 10) / 13;
+    if (gap == 9 || gap == 10)
+        gap = 11;
+    if (gap < 1)
+        gap = 1;
+    return gap;
+}
+ 
+void combsort(int a[], int aSize)
+{
+    int gap = aSize;
+    int temp, i;
+    for (;;)
+    {
+        gap = newgap(gap);
+        int swapped = 0;
+        for (i = 0; i < aSize - gap; i++) 
+        {
+            int j = i + gap;
+            if (a[i] > a[j])
+            {
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+                swapped  =  1;
+            }
+        }
+        if (gap  ==  1 && !swapped)
+            break;
+    }
+}
+int main ()
+{
+    int n, i;
+    int *a;
+    printf("Please insert the number of elements to be sorted: ");
+    scanf("%d", &n);       // The total number of elements
+    a  =  (int *)calloc(n, sizeof(int));
+    for (i = 0;i< n;i++)
+    {
+        printf("Input element %d :", i);
+        scanf("%d", &a[i]); // Adding the elements to the array
+    }
+    printf("unsorted list");       // Displaying the unsorted array
+    for(i = 0;i < n;i++)
+    {
+         printf("%d", a[i]);
+    }
+    combsort(a, n);
+    printf("Sorted list:\n"); // Display the sorted array
+    for(i = 0;i < n;i++)
+    {
+        printf("%d ", (a[i]));
+    }
+    return 0;
+}Next TopicCounting Sort? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,48 @@
+ADO.Net Dataset - javatpoint?HomeC#ADO.NETASP.NETJavaPHPHTMLCSSJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingADO.NET TutorialADO.NET Tutorial ADO.NET Introduction ADO.NET Data Providers ADO.NET SQL Server ADO.NET Connection ADO.NET Command ADO.NET DataReader ADO.NET DataSet ADO.NET DataAdapter ADO.NET DataTables ADO.NET WF Example ADO.NET MVC ExampleInterview QuestionsADO.NET InterviewC# TutorialC# Tutorial (100+)ASP.NET TutorialASP.NET Tutorial (50+)next ? ? prevADO.NET DataSetIt is a collection of data tables that contain the data. It is used to fetch data without interacting with a Data Source that's why, it also known as disconnected data access method. It is an in-memory data store that can hold more than one table at the same time. We can use DataRelation object to relate these tables. The DataSet can also be used to read and write data as XML document.ADO.NET provides a DataSet class that can be used to create DataSet object. It contains constructors and methods to perform data related operations.DataSet Class Signaturepublic class DataSet : System.ComponentModel.MarshalByValueComponent, System.ComponentModel.IListSource, 
+System.ComponentModel.ISupportInitializeNotification, System.Runtime.Serialization.ISerializable, 
+System.Xml.Serialization.IXmlSerializableDataSet ConstructorsConstructorDescriptionDataSet()It is used to initialize a new instance of the DataSet class.DataSet(String)It is used to initialize a new instance of a DataSet class with the given name.DataSet(SerializationInfo, StreamingContext)It is used to initialize a new instance of a DataSet class that has the given serialization information and context.DataSet(SerializationInfo, StreamingContext, Boolean)It is used to initialize a new instance of the DataSet class.DataSet PropertiesPropertiesDescriptionCaseSensitiveIt is used to check whether DataTable objects are case-sensitive or not.DataSetNameIt is used to get or set name of the current DataSet.DefaultViewManagerIt is used to get a custom view of the data contained in the DataSet to allow filtering and searching.HasErrorsIt is used to check whether there are errors in any of the DataTable objects within this DataSet.IsInitializedIt is used to check whether the DataSet is initialized or not.LocaleIt is used to get or set the locale information used to compare strings within the table.NamespaceIt is used to get or set the namespace of the DataSet.SiteIt is used to get or set an ISite for the DataSet.TablesIt is used to get the collection of tables contained in the DataSet.DataSet MethodsThe following table contains some commonly used methods of DataSet.MethodDescriptionBeginInit()It is used to begin the initialization of a DataSet that is used on a form.Clear()It is used to clear the DataSet of any data by removing all rows in all tables.Clone()It is used to copy the structure of the DataSet.Copy()It is used to copy both the structure and data for this DataSet.CreateDataReader(DataTable[])It returns a DataTableReader with one result set per DataTable.CreateDataReader()It returns a DataTableReader with one result set per DataTable.EndInit()It ends the initialization of a DataSet that is used on a form.GetXml()It returns the XML representation of the data stored in the DataSet.GetXmlSchema()It returns the XML Schema for the XML representation of the data stored in the DataSet.Load(IDataReader, LoadOption, DataTable[])It is used to fill a DataSet with values from a data source using the supplied IDataReader.Merge(DataSet)It is used to merge a specified DataSet and its schema into the current DataSet.Merge(DataTable)It is used to merge a specified DataTable and its schema into the current DataSet.ReadXml(XmlReader, XmlReadMode)It is used to read XML schema and data into the DataSet using the specified XmlReader and XmlReadMode.Reset()It is used to clear all tables and removes all relations, foreign constraints, and tables from the DataSet.WriteXml(XmlWriter, XmlWriteMode)It is used to write the current data and optionally the schema for the DataSet using the specified XmlWriter and XmlWriteMode.Example:Here, in this example, we are implementing DataSet and displaying data into a gridview. Create a web form and drag a gridview from the toolbox to the form. We can find it inside the data category.// DataSetDemo.aspx<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DataSetDemo.aspx.cs" 
+Inherits="DataSetExample.DataSetDemo" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+        </div>
+        <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <AlternatingRowStyle BackColor="White" />
+            <EditRowStyle BackColor="#2461BF" />
+            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EFF3FB" />
+            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+        </asp:GridView>
+    </form>
+</body>
+</html>CodeBehind// DataSetDemo.aspx.csusing System;
+using System.Data.SqlClient;
+using System.Data;
+namespace DataSetExample
+{
+    public partial class DataSetDemo : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection("data source=.; database=student; integrated security=SSPI"))
+            {
+                SqlDataAdapter sde = new SqlDataAdapter("Select * from student", con);
+                DataSet ds = new DataSet();
+                sde.Fill(ds);
+                GridView1.DataSource = ds;
+                GridView1.DataBind();
+            }
+        }
+    }
+}Output:Execute this code by the combination of Ctrl+F5. It will produce the following output.Next TopicADO.NET DataAdapter? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,42 @@
+Ansible Yum - javatpoint?HomeJavaAnsibleTableauVBAJenkinsSoftware TestingSeleniumControl SystemHTMLCSSJavaScriptjQueryQuizProjectsInterview QAnsible TutorialAnsible Tutorial Ansible Workflow Ansible Architecture Installation in Linux ad-hoc Commands Ansible Playbooks Ansible Tower Ansible Roles Ansible Variables Ansible Tags Ansible Galaxy Commands Cheat Sheets Ansible Modules Ansible Shell Ansible Templates Ansible YAML Ansible Inventory Ansible Debug Ansible Apt Ansible Lineinfile Ansible Copy Ansible Command Ansible File Ansible Vault Ansible Windows Ansible Yum Ansible AWX Ansible Unarchive Ansible Pip Ansible vs Chef Ansible vs PuppetInterview QuestionsAnsible Interviewnext ? ? prevAnsible YumAnsible has a specific module for managing the Yum packages. You can install, remove, upgrade or downgrade versions and many more by using this module.The Yum module also requires two parameters for the primary command, like other package management modules in Ansible.Name: provides the name of the package which you want to install.State: maintains the state of the packages, like what should be the state of the package after the task is completed (present or absent). By default, the value of the parameter is "present".Installing a PackageLet's install the git package using the Yum module. Set the name parameter to "git" and the state parameter to "present".- hosts: all
+  tasks:
+  - name: Install yum package in Ansible example
+    yum:
+      name: git
+      state: presentIf the package was not on the remote server, then the latest version will be installed.And if the package was already installed on the remote server, then it will not be updated to a new version because the "state" is already "present".NOTE: Both the "present" and "installed" parameters have the same behavior.Installing the latest VersionIf you want to install the newest version, then you can set the state parameter to "latest". It will install the newest package, whether the package is present or not.- hosts: all
+  tasks:
+  - name: Install the latest yum package example.
+    yum:
+      name: git
+      state: latestInstalling a Specific VersionSometimes you want to install a particular version of the packages. You can do this by appending the version with the package name.<packagename>-<package version>For example git-1.8.3.1-6.el7Let's install the git package with version and release, 1.8.3.1-6.el7, on the remote server.- hosts: all
+  tasks:
+  - name: Install a specific version of a package in Ansible.
+    yum:
+      name: git-1.8.3.1-6.el7
+      state: presentOutput------
+[root@rpm ~]# yum info git
+Installed Packages
+Name: git
+Arch: x86_64
+Version: 1.8.3.1
+Release: 6.el7Installing Multiple PackagesIf you want to install various packages, you can do this by using the "with_items" statement to loop through a list of the packages.Let's execute three Yum packages such as MySQL, git, and httpd.- hosts: all
+  tasks:
+  - name: yum
+    yum:
+      name: "{{ item }}"
+      state: present
+    with_items:
+    - git
+    - httpd
+    - mysqlNOTE: The above code will not be executed as a single package installation in each loop instance. Instead, all the modules are installed in one go. This optimized form is the behavior since 1.9.2.Update all PackagesYou can update all the yum packages, like giving the command yum -y update. You can use the wildcard "*" in the name.- hosts: all
+  tasks:
+  - name: Upgrade all yum packages ansible.
+    yum:
+      name: "*"
+      state: latestAlso, you can use the exclude parameter so that some packages should not be upgraded. The following task will not update the git package.- hosts: all
+  tasks:
+  - name: Exclude some packages from an upgrade in Ansible.
+    yum:
+      name: "*"
+      state: latest
+      exclude: git*Next TopicAnsible AWX? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,44 @@
+Apache Ant Custom Components - javatpoint?HomeApache POIApache AntJMeterJavaCC#ServletJSPEJBStruts2MailHibernateSpringAndroidDesign PQuizProjectsInterview QCommentForumTrainingApache Ant TutorialApache Ant Tutorial Apache Ant Features Apache Ant Installation Apache Ant Hello World Apache Ant Projects Apache Ant Targets Apache Ant Tasks Apache Ant Properties Ant Token Filters Ant Command Line Args Ant If and Unless Attributes Apache Ant Types Ant Custom Components Ant Listeners and Loggers Apache Ant IDE Integration Apache Ant InputHandler Ant Tasks Outside Ant Ant Argument Processor Apache Ant API Apache Ant JARApache Ant TasksApache Ant AntStructure Apache Ant Basename Apache Ant Gzip Apache Ant Chmod Apache Ant Concat Apache Ant Condition Apache Ant Copy Apache Ant CVS Apache Ant Delete Apache Ant EAR Apache Ant Fail Apache Ant Filter Apache Ant Import Apache Ant Java Apache Ant Javac Apache Ant Length Apache Ant LoadFile Apache Ant Mkdir Apache Ant Move Apache Ant Sleep Apache Ant War Apache Ant Zip Apache Ant JUnit Apache Ant Telnetnext ? ? prevApache Ant Custom ComponentsAnt allows us to create custom components according to our requirement. The custom components can be condition, filter, selector etc, and are defined outside the ant core api.The custom components behave like Ant core components.The custom components are the normal Java classes which can implement classes and interface. It looks like writing a custom task which defines attributes by setter and getter methods.The <typedef> element is used to implement the custom components into the Ant core.Creating Custom ComponentIt is a three phase process. First create a Java class then define <typedef> element and after that use it within build file.ExampleCreate a Java class for condition.package com.javatpoint;
+import org.apache.tools.ant.BuildException;
+import org.apache.tools.ant.taskdefs.condition.Condition;
+public class AllUpperCaseCondition implements Condition {
+    private String value;
+    // The setter for the "value" attribute
+    public void setValue(String value) {
+        this.value = value;
+    }
+    // This method evaluates the condition
+    public boolean eval() {
+        if (value == null) {
+            throw new BuildException("value attribute is not set");
+        }
+        return value.toUpperCase().equals(value);
+    }
+}Now define <typedef> by specifying Java class.<typedef name="alluppercase" classname="com.javatpoint.AllUpperCaseCondition"
+			     classpath="test.com.javatpoint"/>By doing this, we have successfully created a custom element <alluppercase> which further can be used in our project. See the build.xml file.// build.xml<project name="java-ant project" default="abc">	
+	<typedef name="alluppercase" classname="com.javatpoint.AllUpperCaseCondition"
+			     classpath="test.com.javatpoint"/>
+	<target name="abc" >
+		<condition property="allupper">
+    		<alluppercase value="THIS IS ALL UPPER CASE"/>
+		</condition>	
+	</target>
+</project>Custom SelectorIn the above example, we created a custom condition element.Now we will create a custom selector.Selectors are datatypes and to create custom selector, it must implementorg.apache.tools.ant.types.selectors.FileSelector interface. This interface has a single method isSeletected(File basedir, String filename, File file) which must be overridden. An example of custom selector is given below.// Java Classpackage com.javatpoint;
+import java.io.File;
+import org.apache.tools.ant.types.selectors.FileSelector;
+public class JavaSelector implements FileSelector {
+    public boolean isSelected(File b, String filename, File f) {
+        return filename.toLowerCase().endsWith(".java");
+    }
+}// Type Defining<typedef name="javaselector" classname="com.javatpoint.JavaSelector"
+    		classpath="test"/>// build.xml<project name="java-ant project" default="abc">	
+	<target name="abc">
+		<typedef name="javaselector" classname="com.javatpoint.JavaSelector"
+    		classpath="test"/>
+    	<copy todir="destdir">
+    		<fileset dir="src">
+        		<javaselector/>
+    		</fileset>
+		</copy>
+    </target>
+</project>Same like, we can create custom filters as well.Next TopicAnt Listeners and Loggers? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,120 @@
+C++ set rend() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set rend()C++ set rend() function is used to return an iterator to the end of the set (not the last element but the past last element) in reverse order. This is similar to the element preceding the first element of the non-reversed container.Note:- This is a placeholder. No element exists in this location and attempting to access is undefined behavior.Syntax      reverse_iterator rend();                             //until C++ 11
+const_reverse_iterator rend() const;                 //until C++ 11
+      reverse_iterator rend() noexcept;               //since C++ 11
+const_reverse_iterator rend() const noexcept;   //since C++ 11ParameterNoneReturn valueIt returns a reverse iterator to the element following the last element of the reversed container.ComplexityConstant.Iterator validityNo changes.Data RacesThe container is accessed. Neither the const nor the non-const versions modify the container.Concurrently accessing the elements of a set is safe.Exception SafetyThis function never throws exception.Example 1Let's see the simple example for rend() function:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main () {
+   set<int> myset = {40,50,20,10,30};
+
+   cout << "Elements are :";
+   for (auto rit = myset.rbegin(); rit != myset.rend(); ++rit)
+      cout << ' ' << *rit;
+      cout << '\n';
+
+   return 0;
+}Output:Elements are : 50 40 30 20 10In the above example, rend() function is used to return a reverse iterator to the element following the last element of the reversed container.Because set stores the elements in sorted order of keys therefore, iterating over a set will result in above order i.e. sorted order of keys.Example 2Let's see a simple example to iterate over the set in reverse order using while loop:#include <iostream>
+#include <set>
+#include <string>
+#include <iterator>
+
+using namespace std;
+ 
+int main() {
+ 
+	// Creating & Initializing a set of String & Ints
+	set<string> setEx = {"aaa", "bbb", "ccc", "ddd"};
+ 
+	// Create a set iterator and point to the end of set
+	set<string>::reverse_iterator it = setEx.rbegin();
+ 
+	// Iterate over the set using Iterator till beginning.
+	while (it != setEx.rend()) {
+		// Accessing KEY from element pointed by it.
+		string word = *it;
+ 
+		cout << word << endl;
+ 
+		// Increment the Iterator to point to next entry
+		it++;
+	}
+	return 0;
+}Output:ddd
+ccc
+bbb
+aaaIn the above example, we are using while loop to iterate over the set in reverse order.Because set stores the elements in sorted order of keys therefore, iterating over a set will result in above order i.e. sorted order of keys.Example 3Let's see a simple example:#include <set>  
+#include <iostream>  
+  
+int main() {  
+   using namespace std;     
+   set <int> s1;  
+   set <int>::iterator s1_Iter;  
+   set <int>::reverse_iterator s1_rIter;  
+
+   s1.insert( 10 );  
+   s1.insert( 20 );  
+   s1.insert( 30 );  
+  
+   s1_rIter = s1.rend( );  
+   s1_rIter--;  
+   cout << "The last element in the reversed set is "  
+        << *s1_rIter << "." << endl;  
+  
+   // end can be used to terminate an iteration   
+   // throught a set in a forward order  
+   cout << "The set is: ";  
+   for ( s1_Iter = s1.begin( ) ; s1_Iter != s1.end( ); s1_Iter++ )  
+      cout << *s1_Iter << " ";  
+   cout << "." << endl;  
+  
+   // rend can be used to terminate an iteration   
+   // throught a set in a reverse order  
+   cout << "The reversed set is: ";  
+   for ( s1_rIter = s1.rbegin( ) ; s1_rIter != s1.rend( ); s1_rIter++ )  
+      cout << *s1_rIter << " ";  
+   cout << "." << endl;  
+  
+   s1_rIter = s1.rend( );  
+   s1_rIter--;  
+   s1.erase ( *s1_rIter );  
+  
+   s1_rIter = s1.rend( );  
+   --s1_rIter;  
+   cout << "After erase, the last element in the "  
+        << "reversed set is " << *s1_rIter << "." << endl;  
+}  Output:The last element in the reversed set is 10.
+The set is: 10 20 30 .
+The reversed set is: 30 20 10 .
+After erase, the last element in the reversed set is 20.In the above example, elements of set returned in reverse order.Example 4Let's see a simple example to sort and calculate the highest marks:#include <iostream>
+#include <string>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<int> emp = {1000,2500,4500,5000,3000};
+
+   cout << "Salary" << '\n';
+   cout<<"______________________\n";
+   
+  set<int>::reverse_iterator rit;
+    for (rit=emp.rbegin(); rit!=emp.rend(); ++rit)
+    cout << *rit<< '\n';
+
+    auto ite = emp.rbegin();
+ 
+    cout << "\nHighest salary: "<< *ite <<" \n";
+
+  return 0;
+  }Output:Salary
+______________________
+5000
+4500
+3000
+2500
+1000
+
+Highest salary: 5000In the above example, a set emp is implemented where the ID is being stored as value and salary as key. This enables us to take advantage of the auto sorting in sets and lets us to identify the ID of the element with the highest salary.Next TopicSet crbegin() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

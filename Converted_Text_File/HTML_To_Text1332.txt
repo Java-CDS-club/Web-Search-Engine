@@ -1,0 +1,50 @@
+COBOL Data Types - Javatpoint?HomeCCOBOLC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternProjectsInterview QCommentForumCOBOL TutorialCOBOL Tutorial COBOL Introduction COBOL Installation COBOL Program Structure COBOL Coding Sheet COBOL Divisions COBOL Data Types COBOL Verbs COBOL Data Layout Conditional Statements Loop Statements String Handling Array/Table Processing File Handling File Access Mode File Handling Verbs Internal Sort Database Interfacenext ? ? prevCOBOL - Data TypesAs we know, Data types are used to define the type of variables used in a program.In COBOL, data division defines the variables used in the program. Let's see the following terms. These terms are used to describe data in the COBOL.Data NameLevel NumberPicture ClauseValue ClauseLevel NumberA level number defines in which position or level, we can define a data in the record.Level NumberDescription01Record description Entry02 to 49Group and Elementary Items66Rename Clause Items77Items which cannot be sub-divided88Condition name entryElementary ItemsElementary items are the indivisible items. An elementary item contains a level number, picture clause, data name, and value clause (optional).Group ItemsIt is a set of one or more elementary items. A group item contains a level number, data name, and value clause (optional). The level number for group items is always 01.Example:      DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-NAME    PIC X(25).                               ---> ELEMENTARY ITEM 
+           01 WS-CLASS   PIC 9(2)  VALUE  '10'.                   ---> ELEMENTARY ITEM
+
+        01 WS-ADDRESS.                                         ---> GROUP ITEM   
+           05 WS-HOUSE-NUMBER    PIC 9(3).                     ---> ELEMENTARY ITEM
+           05 WS-STREET          PIC X(15).                    ---> ELEMENTARY ITEM
+           05 WS-CITY            PIC X(15).                    ---> ELEMENTARY ITEM
+           05 WS-COUNTRY         PIC X(15)  VALUE 'INDIA'.     ---> ELEMENTARY ITEMData NameIn the data division section, data names must be specified before they are used in the procedure division.Data names must have a name specified by the user; the reserved words cannot be used. Data names refer to the memory locations where the actual data is stored. There can be elementary items or group items.Example:Valid:
+   WS-NAME
+   TOTAL-STUDENTS
+   A100
+   100B
+
+Invalid:
+   MOVE               (Reserved Words)
+   COMPUTE         (Reserved Words)
+   100                  (No Alphabet)
+   100+B              (+ is not allowed) Picture ClausePicture Clause defines the following items:Data Type: It may be of any type like numeric, alphanumeric, or alphabetic.Data TypeDescriptionNumeric0 to 9AlphabeticA to Z/a-zAlpha-numericA-Z/a-z/0-9Sign: With numeric data, this can be used. It can either be - or +.Decimal Point Position: With numerical data, this can be used. The assumed decimal point enables the decimal values to store the period or dot (.).Length: Length is used to describe the amount of bytes that the data item will use.SymbolDescription9Numeric.Maximum Length of Numeric data type is 18.AAlphabetic.The maximum length of the alphabetic data type is 255.XAlphanumericThe maximum length of the Alphanumeric data type is 255.SSignPAssumed DecimalExample:Let's see one example to show the PIC Clause:	   IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-NUM1 PIC S9(3)V9(2).
+           01 WS-NUM2 PIC PPP999.
+           01 WS-NUM3 PIC S9(3)V9(2) VALUE -123.45.
+           01 WS-NAME PIC A(6) VALUE 'Nikita'.
+           01 WS-ID PIC X(5) VALUE 'N001'.
+
+       PROCEDURE DIVISION.
+           DISPLAY "WS-NUM1 : "WS-NUM1.
+           DISPLAY "WS-NUM2 : "WS-NUM2.
+           DISPLAY "WS-NUM3 : "WS-NUM3.
+           DISPLAY "WS-NAME : "WS-NAME.
+           DISPLAY "WS-ID : "WS-ID.
+       STOP RUN.Output:Value ClauseThe value clause is an optional clause for initializing data objects. The values may be numeric literal, figurative constant, or alphanumeric literal. The value clause can be used with elementary items as well as group items.Example:Let's see the example for VALUE Clause:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-NUM1 PIC 99V9 VALUE IS 2.4.
+           01 WS-NAME PIC A(6) VALUE 'JTP'.
+           01 WS-ID PIC 99 VALUE ZERO.
+
+       PROCEDURE DIVISION.
+           DISPLAY "WS-NUM1 : "WS-NUM1.
+           DISPLAY "WS-NAME : "WS-NAME.
+           DISPLAY "WS-ID   : "WS-ID.
+       STOP RUN.Output:Next TopicCOBOL Verbs? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,40 @@
+Counting Sort - javatpoint?HomeData StructureCC++C#JavaSQLHTMLCSSJavaScriptAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumDS TutorialDS Tutorial DS Introduction DS Algorithm Asymptotic Analysis DS Pointer DS StructureDS ArrayDS Array 2D ArrayDS Linked ListLinked List Doubly Linked List Circular Linked List Circular Doubly ListDS StackDS Stack Array Implementation Linked List ImplementationDS QueueDS Queue Array Representation Linked List Representation Circular QueueDS TreeDS Tree Binary Tree Binary Search Tree AVL Tree B Tree B+ TreeDS GraphDS Graph Graph Implementation BFS Algorithm DFS Algorithm Spanning TreeDS SearchingLinear Search Binary SearchDS SortingBubble Sort Bucket Sort Comb Sort Counting Sort Heap Sort Insertion Sort Merge Sort Quick Sort Radix Sort Selection Sort Shell Sort Bitonic Sort Cocktail Sort Cycle Sort Tim Sortnext ? ? prevCounting SortIt is a sorting technique based on the keys i.e. objects are collected according to keys which are small integers. Counting sort calculates the number of occurrence of objects and stores its key values. New array is formed by adding previous key elements and assigning to objects.ComplexityTime Complexity: O(n+k) is worst case where n is the number of element and k is the range of input.Space Complexity: O(k) k is the range of input.ComplexityBest CaseAverage CaseWorst CaseTime Complexity?(n+k)?(n+k)O(n+k)Space ComplexityO(k)Limitation of Counting SortIt is effective when range is not greater than number of object.It is not comparison based complexity.It is also used as sub-algorithm for different algorithm.It uses partial hashing technique to count the occurrence.It is also used for negative inputs.AlgorithmSTEP 1 STARTSTEP 2 Store the input arraySTEP 3 Count the key values by number of occurrence of objectSTEP 4 Update the array by adding previous key elements and assigning to objectsSTEP 5 Sort by replacing the object into new array and key= key-1STEP 6 STOPProgram#include <stdio.h>
+void counting_sort(int A[], int k, int n)
+{
+    int i, j;
+    int B[15], C[100];
+    for (i = 0; i <= k; i++)
+        C[i] = 0;
+    for (j = 1; j <= n; j++)
+        C[A[j]] = C[A[j]] + 1;
+    for (i = 1; i <= k; i++)
+        C[i] = C[i] + C[i-1];
+    for (j = n; j >= 1; j--)
+    {
+        B[C[A[j]]] = A[j];
+        C[A[j]] = C[A[j]] - 1;
+    }
+    printf("The Sorted array is : ");
+    for (i = 1; i <= n; i++)
+        printf("%d ", B[i]);
+}
+/*  End of counting_sort()  */
+ 
+/*  The main() begins  */
+int main()
+{
+    int n, k = 0, A[15], i;
+    printf("Enter the number of input : ");
+    scanf("%d", &n);
+    printf("\nEnter the elements to be sorted :\n");
+    for (i = 1; i <= n; i++)
+    {
+        scanf("%d", &A[i]);
+        if (A[i] > k) {
+            k = A[i];
+        }
+    }
+    counting_sort(A, k, n);
+    printf("\n");
+    return 0;
+}Next TopicHeap Sort? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

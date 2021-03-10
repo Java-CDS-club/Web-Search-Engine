@@ -1,0 +1,35 @@
+Bash Find String - Javatpoint?HomeJavaCBashJavaScriptXMLAjaxSQLC++C#HTMLAndroidCloudDesign PatternQuizProjectsInterview QCommentForumBash TutorialBash Tutorial What is Bash History of Bash Features of Bash Bash Scripting Filesystem & File Permission Hello World! Bash Script Relative vs Absolute path Bash Comments Bash Quotes Bash Variables Read User Input Bash Date Format Bash SleepBash OperatorsBash Arithmetic OperatorsConditional StatementsBash If Statement Bash If Else Bash Else If Bash CaseBash LoopsBash For Loop Bash While Loop Bash Until LoopBash StringBash String Bash Find String Bash Split String Bash Substring Bash Concatenate StringBash FunctionBash FunctionsBash ArrayBash ArraysMiscellaneousBash Read File Bash Write File Check if file Exists Check if Variable is Set Bash Alias Git Bash Zsh vs Bash Bash Hash Commandnext ? ? prevBash FindIn this topic, we have demonstrated about finding the length of a string in Bash Scripting.The total number of characters in any string indicates the length of a string. In some cases, we might need to know about the length of a string to perform some specific tasks. Most of the programming languages have their own built-in functions to calculate the number of characters. However, Bash does not contain such type of built-in functions. But there are several ways that we can use to find the length of a string in Bash Scripting.Bash StringLengthTo calculate the length of a string, we can use any of the following syntax:1.	${#string}
+2.	expr length "$string"
+3.	expr "$string" :'.*'
+4.	$str | wc -c
+5.	$str |awk '{print length}'Note: Observe the double quotes used around $string. If a string has spaces in it, then double quotes are very important. Otherwise, it can be ignored. We recommend to always use double quotes around $string to be on the safe side.The above syntax defines that we can find the length of a string with or without bash command. Using '#' sign, we can calculate the length of a string without applying any bash command. Let's understand it more clearly with the help of some examples:Examples to find String Length in BashThere are some examples given below illustrating the different ways to find a string length in bash shell scripting:Example 1The simplest way to calculate the length of a string is to use '#' symbol. In this example, we have used $[#string_variable_name} to find the length of a string.Bash Script#!/bin/bash
+#Bash program to find the length of a string
+
+str="Welcome to Javatpoint"
+length=${#str}
+
+echo "Length of '$str' is $length"OutputLength of 'Welcome to Javatpoint' is 21Example 2Another way to calculate the length of a string is to use `expr` command with the 'length' keyword. In this example, we have used `expr length "$str"` to find the length of a string.Bash Script#!/bin/bash
+#Bash script to find the length of a string
+
+str="Welcome to Javatpoint"
+length=`expr length "$str"`
+
+echo "Length of '$str' is $length"OutputLength of 'Welcome to Javatpoint' is 21Example 3In this example, we have used `expr "$str": ' .*'`to find the length of a string. Here, str is a string variable.Bash Script#!/bin/bash
+#Bash script to find the length of a string
+
+str="Welcome to Javatpoint"
+length=`expr "$str" : '.*'`
+
+echo "Length of '$str' is $length"OutputLength of 'Welcome to Javatpoint' is 21Example 4In this example, we have used `wc` command to find the length of a string.Bash Script#!/bin/bash
+#Bash script to find the length of a string
+
+str="Welcome to Javatpoint"
+length=`echo $str | wc -c`
+
+echo "Length of '$str' is $length"OutputLength of 'Welcome to Javatpoint' is 22Example 5In this example, we have used `awk` command to find the length of a string.Bash Script#!/bin/bash
+#Bash script to find the length of a string
+
+str="Welcome to Javatpoint"
+length=`echo $str |awk '{print length}'`
+
+echo "Length of '$str' is $length"OutputLength of 'Welcome to Javatpoint' is 21ConclusionIn this topic, we have learned about the syntax to find the length of a string with the examples.Next TopicBash Split String? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

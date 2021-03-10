@@ -1,0 +1,29 @@
+Bootstrap Jumbotron - JavaTpoint?HomeCJavaPHPHTMLCSSBootstrapJavaScriptjQueryjQuery UIXMLJSONAjaxQuizProjectsInterview QCommentForumTrainingBootstrap TrainingBootstrap TutorialBootstrap Introduction What is Bootstrap Bootstrap Example Bootstrap ContainerBootstrap ExamplesBootstrap Jumbotron Bootstrap Button Bootstrap Grid Bootstrap Table Bootstrap Form Bootstrap Alert Bootstrap Wells Bootstrap Badge & Label Bootstrap Panels Bootstrap Pagination Bootstrap Pager Bootstrap Image Bootstrap Glyphicon Bootstrap Carousel Bootstrap Progress Bar Bootstrap List Group Bootstrap Dropdown Bootstrap CollapseBootstrap AdvanceBootstrap Tabs/Pills Bootstrap Navbar Bootstrap Input Types Bootstrap Modals Bootstrap Popover Bootstrap ScrollspyBootstrap UtilitiesBootstrap Border Bootstrap Clearfix Bootstrap Close Icons Bootstrap Colors Bootstrap Flexbox Display property Image Replacement Invisible Content Bootstrap Position Responsive helpers Screen readers Bootstrap Sizing Bootstrap Spacing Bootstrap TypographyInterview QuestionsHTML Interview CSS Interview jQuery Interview JavaScript Interview AJAX Interviewnext ? ? prevBootstrap JumbotronA Bootstrap jumbotron specifies a big box for getting extra attention to some special content or information. It is displayed as a grey box with rounded corners. It can also enlarge the font sizes of the text inside it.You can put any valid HTML or other Bootstrap elements/ classes inside a jumbotron.The class .jumbotron within the <div> element is used to create a jumbotron.Jumbotron Inside ContainerThe Inside container is used in jumbotron, if you want the jumbotron to not extend to the edge of the screen.Put the jumbotron inside the <div class="container">.Example:
+  Bootstrap ExampleThis is Jumbotron inside container!Jumbotron specifies a big box for getting extra attention to some special content or information.This is some text.This is another text.Test it NowJumbotron Outside ContainerIt is used when you want the jumbotron to extend to the screen edges.Put the jumbotron outside the <div class="container">.Example:
+  Bootstrap ExampleThis is Jumbotron outside container!Jumbotron specifies a big box for getting extra attention to some special content or information.This is some text.This is another text.Test it NowFull-width JumbotronTo get a jumbotron without rounded borders, you have to add the .jumbotron-fluid class and a .container or .container-fluid inside it.Example:<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>Full-width Jumbotron</h1>        
+  <p>Jumbotron specifies a big box for getting extra attention to some special content or information.</p>
+</div>
+
+<div class="container">
+  <p>This is some text.</p>      
+  <p>This is another text.</p>      
+</div>
+
+</body>
+</html>Test it NowBootstrap Page HeaderA page header is like a section divider. It adds a horizontal line under the heading.The .page-header class is used to create a page header.Example:
+  Bootstrap ExampleExample Page HeaderThis is some text.This is another text.Test it NowNext TopicBootstrap Button? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

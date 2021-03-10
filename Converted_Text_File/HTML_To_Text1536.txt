@@ -1,0 +1,86 @@
+Concatenate Multiple Data sets in SAS - Javatpoint?HomeRSASPythonSQLJavaHTMLCSSSeleniumJavaScriptjQueryServletJSPStruts2SpringQuizProjectsInterview QForumTrainingSAS TutorialSAS Tutorial SAS Introduction SAS Features SAS Architecture Advantage & Disadvantage SAS Terminology SAS vs R vs Python SAS vs R SAS Applications Use SAS without Download & InstallData Set OperationsPROC Sorting in SAS Multiple Variable Sorting Merge Data Sets Read Raw Data Set Write Data Set Concatenate Multiple Data Set Sub-setting of data set Format Data Sets SQL Operations Output Delivery SystemSAS ProgrammingSAS User Interface SAS Program Structure SAS Data Set SAS Variables SAS String SAS Array SAS Operators Numeric Data Format SAS Loops SAS Decision Making SAS Functions SAS MacroStatistical OperationsFrequency Distribution Standard Deviation Arithmetic Mean Cross Tabulationnext ? ? prevConcatenate Multiple Data setsIn the previous topic, we have learned to write SAS data-sets in different file formats. Now, in this topic, we are going to learn how to concatenate multiple data sets into a single data-set in the SAS programming language.Suppose, you have many observations in different data sets, and you need to collect all the observations in a single data set, then what will you do. To do so, SAS facilitates you to concatenate different data sets into a single data set.The SET statement is used to concatenate different data sets into a single data set. Concatenated data set stores sum of all the observations of original data sets. All the observations in concatenated data set follow a proper storing sequence like this, on the first place, all the observations of the first data set, on the second place, all the observations of the second data set, and so on.Ideally, all the combining data sets should have the same number of variables, but if they have the different number of variables, then all the variables will appear in the result, with the missing value for the small data set.Syntax:SET data-set 1 data-set 2 data-set 3 data-set 4........;Where,Set: It is a statement that is used to concatenate different data sets into a single data set.Data-set 1 data-set 2: These are the names of the data sets that are being concatenated.Now, let's understand through an example, how we can concatenate data sets:Let's consider the data of employees of an organization that is available in two separate data sets, one for the Training department and another for the Non- Training department. To get the full details of all employees, we need to concatenate both the data sets. To do so, we are using the SET statement.DATA Training_Dept; 
+   INPUT empid name $ salary; 
+DATALINES; 
+101 Avinash 20000 
+103 Meera 25000 
+106 Tushar 27000 
+; 
+RUN; 
+DATA NON_Training_Dept; 
+   INPUT empid name $ salary; 
+DATALINES; 
+102 Mitali 23000
+104 Rohan 40000 
+105 Akanksha 45000 
+107 Prabhat 49000
+108 Mohan 62000 
+RUN; 
+DATA All_Dept; 
+   SET Training_Dept NON_Training_Dept; 
+RUN; 
+PROC PRINT DATA = All_Dept; 
+RUN; Now, execute the above code in SAS studio:Output:As we can see in the output, both data sets have concatenated in a single table.Different CasesThere are some cases when data sets have variations in the variables. In such type of different cases, the total number of observations in the concatenated data set is always equal to the sum of the observations in each data set. Let's see the different cases when data sets variables have variations.1. When Different Number of VariablesIf all data sets do not have an equal number of variables, then data sets still get concatenated, but values of extra variables disappear in small data sets. Let's understand through an example.For Example:There are two data sets to concatenate. One is training_department, which has five variables, i.e. empid, name, salary, address and course, and another is non_training_department, which has three variables, i.e. empid, name, and salary. In the output, values of address and course will disappear for data set non_training_department.DATA Training_Dept; 
+   INPUT empid name $ salary address$ course$; 
+DATALINES; 
+101 Avinash 20000 delhi msoffice
+103 Meera 25000 bhopal internet
+106 Tushar 27000 indore database 
+; 
+RUN; 
+DATA NON_Training_Dept; 
+   INPUT empid name $ salary; 
+DATALINES; 
+102 Mitali 23000
+104 Rohan 40000 
+105 Akanksha 45000 
+107 Prabhat 49000
+108 Mohan 62000 
+RUN; 
+DATA All_Dept; 
+   SET Training_Dept NON_Training_Dept; 
+RUN; 
+PROC PRINT DATA = All_Dept; 
+RUN;  Now, execute the above code in SAS studio:Output:As you can see in the output, values of address, and course are missing for data set non_training_department.2. When Different Variable NamesWhen all the data sets contain the same number of variables, but different names, in that case, we can concatenate datasets by applying Rename Statement. If we don't use Rename statement then still SAS will concatenate data sets, but it will produce a missing result for the different name variables. We can apply the Rename Statement with the data set which we create for concatenation. Let's understand through an example.For Example:In the below example, we have two data sets one is Training_Dept, and another is Non_Training_Dept. Both data sets have a variable that refers to the same value, i.e. name, but it declared by different names in both data sets. In data set Training_Dept the variable is declared by name whereas in the data set Non_Training_Dept by ename. To concatenate them, we are applying the RENAME statement on the concatenated data set All_Dept.DATA Training_Dept; 
+   INPUT empid name $ salary; 
+DATALINES; 
+101 Avinash 20000
+103 Meera 25000
+106 Tushar 27000
+; 
+RUN; 
+DATA NON_Training_Dept; 
+   INPUT empid ename $ salary  ; 
+DATALINES; 
+102 Mitali 23000
+104 Rohan 40000 
+105 Akanksha 45000 
+107 Prabhat 49000
+108 Mohan 62000 
+RUN;  
+DATA All_Dept; 
+   SET Training_Dept(RENAME =(name = Employee) ) NON_Training_Dept(RENAME =(ename = Employee) ); 
+RUN; 
+PROC PRINT DATA = All_Dept; 
+RUN; Now, execute the above code in SAS studio:Output:As we can see in the output, the employee name is concatenated by variable Employee.3. When the length of the variable is differentIf the length of variables in the data sets is different, then we can concatenate them by applying the Length statement. We should consider a higher length when applying the Length statement in the concatenated data set rather than smaller because SAS will generate higher length container that can easily accept small length values.For Example:In the below example, the variable name has length 5 in the Training_Dept data set and 7 in the Non_Training_Dept data set. When concatenating, we are applying a higher length that is 8.DATA Training_Dept; 
+   INPUT empid 1-2 name $ 3-7 salary 8-14  ; 
+DATALINES; 
+1 Richa  632.3 
+3 Micha  521.5 
+6 Tusha 548.6 
+; 
+RUN;
+DATA NON_Training_Dept; 
+   INPUT  empid 1-2 name $ 3-9  salary 10-16 ; 
+DATALINES; 
+2 Dany    515.2 
+4 Rian   629.1 
+5 Gury   743.25
+7 Pranab 532.8 
+8 Rasmi  522.5 
+RUN; 
+DATA All_Dept; 
+   LENGTH name $ 8   ;
+   SET Training_Dept  NON_Training_Dept ; 
+RUN; 
+PROC PRINT DATA = All_Dept; 
+RUN;  Execute the above code in SAS studio:Output:As we can see in the output, the variable name is concatenated by higher character length, i.e. 8Next TopicSub-setting of data set? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

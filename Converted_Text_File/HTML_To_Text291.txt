@@ -1,0 +1,79 @@
+Angular 7 Pipes - Javatpoint?HomeAngularJSAngular 7JavaAWSIoTComputer FundamentalsControl SystemHTMLCSSAptitudeSeleniumKotlinJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingAngular 7 TutorialAngular 7 Tutorial Angular 7 Introduction Angular 7 Features Angular 7 Installation History & Versions Angular 7 First App Angular 7 Files Explanation Angular 7 with Bootstrap All CLI commands Angular 7 Libraries Angular 7 Architecture Angular 7 ComponentsAngular 7 DirectivesAngular 7 Directives Angular 7 ngIf Directive Angular 7 ngStyle DirectiveAngular 7 DatabindingAngular 7 Databinding Angular 7 String Interpolation Angular 7 Event Binding Angular 7 Property BindingAngular 7 PipesAngular 7 PipesError FixingAngular 7 Error FixingAngular 7 FormsAngular 7 Forms Data Flow in Angular Forms Angular Reactive Forms Template-driven FormsAngular MiscAngular vs ReactAngular + SpringCRUD Example File Upload Example Login & Logout Example Search Field Examplenext ? ? prevAngular 7 PipesIn Angular 1, filters are used which are later called Pipes onwards Angular2. In Angular 7, it is known as pipe and used to transform data. It is denoted by symbol |Syntax:{{title | uppercase}} Pipe takes integers, strings, arrays, and date as input separated with |. It transforms the data in the format as required and displays the same in the browser.Let's see an example using pipes. Here, we display the title text in upper and lower case by using pipes.Example:Define a variable named "title" in component.ts file.import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'my-first-app';
+}Use the pipe symbol in component.html file:<h1>
+   {{ title | uppercase }} <br/></h1>
+<h1>
+  {{ title | lowercase }} <br/></h1>Output:Run ng serve and see the result. You will see the following result.Here, you can see that pipes have changed the tittle in upper and lowercase.Angular 7 Built-in PipesAngular 7 provides some built-in pipes:LowercasepipeUppercasepipeDatepipeCurrencypipeJsonpipePercentpipeDecimalpipeSlicepipeYou have seen the lowercasepipe and uppercasepipe examples. Now, let's take some examples to see how the other pipes work.Example:Define the required variables in component.ts file.component.ts file:import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'my-first-app';
+  todaydate = new Date();
+  jsonval = {name: 'Alex', age: '25', address:{a1: 'Paris', a2: 'France'}};
+  months = ['Jan', 'Feb', 'Mar', 'April', 'May', 'Jun',
+    'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+}Use the different built-in pipe symbols in component.html file:component.html file:<div style = "width:100%;">
+  <div style = "width:40%;float:left;border:solid 1px black;">
+    <h1>Uppercase Pipe</h1>
+    <b>{{title | uppercase}}</b><br/>
+    <h1>Lowercase Pipe</h1>
+    <b>{{title | lowercase}}</b>
+    <h1>Currency Pipe</h1>
+    <b>{{6589.23 | currency:"USD"}}</b><br/>
+    <b>{{6589.23 | currency:"USD":true}}</b> //Boolean true is used to get the sign of the currency.
+    <h1>Date pipe</h1>
+    <b>{{todaydate | date:'d/M/y'}}</b><br/>
+    <b>{{todaydate | date:'shortTime'}}</b>
+    <h1>Decimal Pipe</h1>
+    <b>{{ 454.78787814 | number: '3.4-4' }}</b> // 3 is for main integer, 4 -4 are for integers to be displayed.
+  </div>
+  <div style = "width:40%;float:left;border:solid 1px black;">
+    <h1>Json Pipe</h1>
+    <b>{{ jsonval | json }}</b>
+    <h1>Percent Pipe</h1>
+    <b>{{00.54565 | percent}}</b>
+    <h1>Slice Pipe</h1>
+    <b>{{months | slice:2:6}}</b>
+    // here 2 and 6 refers to the start and the end index
+  </div>
+</div> Output:You can see the use of all built-in pipes here:How to create a custom pipe?To create a custom pipe, create a new ts file and use the code according to the work you have to do. You have to import Pipe, PipeTransform from Angular/Core. Let's create a sqrt custom pipe.component.ts file:import {Pipe, PipeTransform} from '@angular/core';
+@Pipe ({
+  name : 'sqrt'
+})
+export class SqrtPipe implements PipeTransform {
+  transform(val : number) : number {
+    return Math.sqrt(val);
+  }
+}Now, it's turn to make changes in the app.module.ts. Create a class named as SqrtPipe. This class will implement the PipeTransform. The transform method defined in the class will take argument as the number and will return the number after taking the square root.As, we have created a new file so, we need to add the same in app.module.ts.Module.ts file: import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+import { NewCmpComponent } from './new-cmp/new-cmp.component';
+import { ChangeTextDirective } from './change-text.directive';
+import { SqrtPipe } from './app.sqrt';
+@NgModule({
+   declarations: [
+      SqrtPipe,
+      AppComponent,
+      NewCmpComponent,
+      ChangeTextDirective
+   ],
+   imports: [
+      BrowserModule
+   ],
+   providers: [],
+   bootstrap: [AppComponent]
+})
+export class AppModule { }Now, use sqrt pipe in component.html file.component.html file: <h1>Example of Custom Pipe</h1>
+<h2>Square root of 625 is: {{625 | sqrt}}</h2><br/>
+<h2>Square root of 169 is: {{169 | sqrt}}</h2> Output:Example of Custom PipeSquare root of 625 is: {{625 | sqrt}}Square root of 169 is: {{169 | sqrt}}Next TopicAngular 7 Forms? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

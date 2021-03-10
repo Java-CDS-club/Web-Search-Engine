@@ -1,0 +1,115 @@
+Bash If Statement - Javatpoint?HomeJavaCBashJavaScriptXMLAjaxSQLC++C#HTMLAndroidCloudDesign PatternQuizProjectsInterview QCommentForumBash TutorialBash Tutorial What is Bash History of Bash Features of Bash Bash Scripting Filesystem & File Permission Hello World! Bash Script Relative vs Absolute path Bash Comments Bash Quotes Bash Variables Read User Input Bash Date Format Bash SleepBash OperatorsBash Arithmetic OperatorsConditional StatementsBash If Statement Bash If Else Bash Else If Bash CaseBash LoopsBash For Loop Bash While Loop Bash Until LoopBash StringBash String Bash Find String Bash Split String Bash Substring Bash Concatenate StringBash FunctionBash FunctionsBash ArrayBash ArraysMiscellaneousBash Read File Bash Write File Check if file Exists Check if Variable is Set Bash Alias Git Bash Zsh vs Bash Bash Hash Commandnext ? ? prevBash IfIn this topic, we will understand how to use if statements in Bash scripts to get our automated tasks completed.Bash if statements are beneficial. They are used to perform conditional tasks in the sequential flow of execution of statements. If statements usually allow us to make decisions in our Bash scripts. They help us to decide whether or not to run a piece of codes based upon the condition that we may set.Basic if StatementsA basic if statement commands that if a particular condition is true, then only execute a given set of actions. If it is not true, then do not execute those actions. If statement is based on the following format:Syntaxif [ expression ];
+then
+statements
+fiThe statement between then and fi (If backwards) will be executed only if the expression (between the square brackets) is true.Note: Observe the spaces used in the first line and a semicolon at the end of the first line; both are mandatory to use. If conditional statement ends with fi.For using multiple conditions with AND operator:if [ expression_1 ] && [ expression_2 ];
+then
+statements
+fiFor using multiple conditions with OR operator:if [ expression_1 ] || [ expression_2 ];
+then
+statements
+fiFor compound expressions with AND & OR operators, we can use the following syntax:if [ expression_1 && expression_2 || expression_3 ];
+then
+statements
+fiFollowing are some examples demonstrating the usage of if statement:Example 1In this example, take a user-input of any number and check if the value is greater than 125.#!/bin/bash
+
+read -p " Enter number : " number
+
+if [ $number -gt 125 ]
+then
+echo "Value is greater than 125"
+fiOutputIf we enter the number 159, then the output will look like:Example 2In this example, we demonstrate the usage of if statement with a simple scenario of comparing two strings:#!/bin/bash
+
+# if condition is true
+if [ "myfile" == "myfile" ];
+then
+echo "true condition"
+fi
+
+# if condition is false
+if [ "myfile" == "yourfile" ];
+then
+echo "false condition"
+fiOutputExample 3In this example, we demonstrate how to compare numbers by using the if statement:#!/bin/bash
+
+#if condition (greater than) is true
+if [ 10 -gt 3 ];
+then
+echo "10 is greater than 3."
+fi
+
+#if condition (greater than) is false
+if [ 3 -gt 10 ];
+then
+echo "3 is not greater than 10."
+fi
+
+#if condition (lesser than) is true
+if [ 3 -lt 10 ];
+then
+echo "3 is less than 10."
+fi
+
+#if condition (lesser than) is false
+if [ 10 -lt 3 ];
+then
+echo "10 is not less than 3."
+fi
+
+#if condition (equal to) is true
+if [ 10 -eq 10 ];
+then
+echo "10 is equal to 10."
+fi
+
+#if condition (equal to) is false
+if [ 10 -eq 9 ];
+then
+echo "10 is not equal to 9"
+fiOutputExample 4In this example, we will define how to use AND operator to include multiple conditions in the if expression:#!/bin/bash
+
+# TRUE && TRUE
+if [ 8 -gt 6 ] && [ 10 -eq 10 ];
+then
+echo "Conditions are true"
+fi
+
+# TRUE && FALSE
+if [ "mylife" == "mylife" ] && [ 3 -gt 10 ];
+then
+echo "Conditions are false"
+fiOutputExample 5In this example, we will define how to use OR operator to include multiple conditions in the if expression:#!/bin/bash
+
+# TRUE || FALSE
+if [ 8 -gt 7 ] || [ 10 -eq 3 ];
+then 
+echo " Condition is true. "
+fi
+
+# FALSE || FALSE
+if [ "mylife" == "yourlife" ] || [ 3 -gt 10 ];
+then
+echo " Condition is false. "
+fiOutputExample 6In this example, we will define how to use AND and OR to include multiple conditions in the if expression:#!/bin/bash
+
+# TRUE && FALSE || FALSE || TRUE
+if [[ 10 -eq 10 && 5 -gt 4 || 3 -eq 4 || 3 -lt 6 ]];
+then
+echo "Condition is true."
+fi
+
+# TRUE && FALSE || FALSE
+if [[ 8 -eq 8 && 8 -gt 10 || 9 -lt 5 ]];
+then
+echo "Condition is false"
+fiOutputOptions for If statement in Bash ScriptingIf statement contains many options to perform a specific task. These options can be used for file operations, string operations, etc. Following are the some mostly used options:Options (Operators)Description! EXPRESSIONTo check if EXPRESSION is false.-n STRINGTo check if the length of STRING is greater than zero.-z STRINGTo check if the length of STRING is zero (i.e., it is empty)STRING1 == STRING2To check if STRING1 is equal to STRING2.STRING1 != STRING2To check if STRING1 is not equal to STRING2.INTEGER1 -eq INTEGER2To check if INTEGER1 is numerically equal to INTEGER2.INTEGER1 -gt INTEGER2To check if INTEGER1 is numerically greater than INTEGER2.INTEGER1 -lt INTEGER2To check if INTEGER1 is numerically less than INTEGER2.-d FILETo check if FILE exists and it is a directory.-e FILETo check if FILE exists.-r FILETo check if FILE exists and the read permission is granted.-s FILETo check if FILE exists and its size is greater than zero (which means that it is not empty).-w FILETo check if FILE exists and the write permission is granted.-x FILETo check if FILE exists and the execute permission is granted.Nested IfYou can apply as many 'if statements' as required inside your bash script. It is also possible to use an if statement inside another 'if statement'. It is known as Nested If Statement.ExampleIn this example, we will find "if a given number is greater than 50 and if it is an even number" by using nested if expression.#!/bin/bash
+#Nested if statement
+
+if [ $1 -gt 50 ]
+then
+  echo "Number is greater than 50."
+
+  if (( $1 % 2 == 0 ))
+  then
+    echo "and it is an even number."
+  fi
+fiOutputIf we input an argument value as 100, then the output will look like:ConclusionIn this topic, we discussed how we could use conditional branching in the sequential flow of execution of statements with bash if statement.Next TopicBash If Else Statement? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

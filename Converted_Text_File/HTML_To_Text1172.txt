@@ -1,0 +1,25 @@
+C Programs - javatpoint?HomeCC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumC Tutorial C Control Statements C Functions C Array C Pointers Dynamic Memory Allocation C Strings C Structure Union C File Handling C Preprocessor Command Line ArgumentsC ProgramsTop 10+ C Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Print "Hello" without ; Assembly code in C C program without main Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleC InterviewC Interview Questionsnext ? ? prevC ProgramsC programs are frequently asked in the interview. These programs can be asked from basics, array, string, pointer, linked list, file handling etc. Let's see the list of c programs.1) Fibonacci SeriesWrite a c program to print fibonacci series without using recursion and using recursion.Input: 10Output: 0 1 1 2 3 5 8 13 21 342) Prime numberWrite a c program to check prime number.Input: 44Output: not prime numberInput: 7Output: prime number3) Palindrome numberWrite a c program to check palindrome number.Input: 329Output: not palindrome numberInput: 12321Output: palindrome number4) FactorialWrite a c program to print factorial of a number.Input: 5Output: 120Input: 6Output: 7205) Armstrong numberWrite a c program to check armstrong number.Input: 153Output: armstrongInput: 22Output: not armstrong6) Sum of DigitsWrite a c program to print sum of digits.Input: 234Output: 9Input: 12345Output: 157) Reverse NumberWrite a c program to reverse given number.Input: 123Output: 3218) Swap two numbers without using third variableWrite a c program to swap two numbers without using third variable.Input: a=10 b=20Output: a=20 b=109) Print "hello" without using semicolonWrite a c program to print "hello" without using semicolon10) Assembly Program in CWrite a c program to add two numbers using assembly code.11) C Program without main() functionWrite a c program to print "Hello" without using main() function.12) Matrix MultiplicationWrite a c program to print multiplication of 2 matrices.Input:first matrix elements:
+1 1 1
+2 2 2
+3 3 3
+second matrix elements
+1 1 1
+2 2 2
+3 3 3Output:multiplication of the matrix:
+6 6 6
+12 12 12
+18 18 1813) Decimal to BinaryWrite a c program to convert decimal number to binary.Input: 5Output: 101Input: 20Output: 1010014) Alphabet TriangleWrite a c program to print alphabet triangle.Output:     A
+    ABA
+   ABCBA
+  ABCDCBA
+ ABCDEDCBA15) Number TriangleWrite a c program to print number triangle.Input: 7Output:enter the range= 6
+      1
+     121
+    12321
+   1234321
+  123454321
+ 1234565432116) Fibonacci TriangleWrite a c program to generate fibonacci triangle.Input: 5Output:1
+1	1	
+1	1	2	
+1	1	2	3	
+1	1	2	3	5		17) Number in CharactersWrite a c program to convert number in characters.Input: 5Output: fiveInput: 203Output: two zero threeNext TopicFibonacci Series in C? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,29 @@
+Apache Ant Tasks Outside Ant - javatpoint?HomeApache POIApache AntJMeterJavaCC#ServletJSPEJBStruts2MailHibernateSpringAndroidDesign PQuizProjectsInterview QCommentForumTrainingApache Ant TutorialApache Ant Tutorial Apache Ant Features Apache Ant Installation Apache Ant Hello World Apache Ant Projects Apache Ant Targets Apache Ant Tasks Apache Ant Properties Ant Token Filters Ant Command Line Args Ant If and Unless Attributes Apache Ant Types Ant Custom Components Ant Listeners and Loggers Apache Ant IDE Integration Apache Ant InputHandler Ant Tasks Outside Ant Ant Argument Processor Apache Ant API Apache Ant JARApache Ant TasksApache Ant AntStructure Apache Ant Basename Apache Ant Gzip Apache Ant Chmod Apache Ant Concat Apache Ant Condition Apache Ant Copy Apache Ant CVS Apache Ant Delete Apache Ant EAR Apache Ant Fail Apache Ant Filter Apache Ant Import Apache Ant Java Apache Ant Javac Apache Ant Length Apache Ant LoadFile Apache Ant Mkdir Apache Ant Move Apache Ant Sleep Apache Ant War Apache Ant Zip Apache Ant JUnit Apache Ant Telnetnext ? ? prevApache Ant Tasks Outside AntApache Ant provides rich set of tasks to perform buildfile operations therefore allows us to implement these tasks outside the Ant. It means we can execute tasks using Java programs too. Implementing Ant using Java is pretty easy. We just need to import Project, Target and Task name packages in Java source file. For example:import org.apache.tools.ant.Project;
+import org.apache.tools.ant.Target;Creating outside Ant has it?s advantage and disadvantages given below.AdvantagesRobustness is a biggest advantage of Ant. Ant tasks can obscure errors and provides great boundary conditions. The Ant tasks are used in various context and are able to handle the exceptions and control flow.Cross platform is the another advantage which allows to execute on all the platforms whether UNIX, Windows, or MacOS.Ant?s community is allows us to share and understanding to the open world. Ant code is supported by the entire Apache Ant community.DisadvantagesWe need to include Ant?s library if Java source is implementing it. The ant.jar file need to be located into lib path.Not easy to modify, it requires lots of time and effort. Although being an open source and having world class community it will help to resolve, but code written in Java is not easy to alter after a long time.Ant Java ExampleSuppose we want to implement a Task unzip using Java code which requires zipfilepath and destinationDir attributes/parameters.To implement unzip task we need to import org.apache.tools.ant.taskdefs.Expand package in source file. Look at the source of the example given below.import org.apache.tools.ant.Project;
+import org.apache.tools.ant.Target;
+import org.apache.tools.ant.taskdefs.Expand;
+import java.io.File;
+public class JavaTaskExample{
+public static void main(String[] args){
+	unzip(zipFilepath, destinationDir);
+}
+static public void unzip(String zipFilepath, String destinationDir) {
+try{
+    final class Expander extends Expand {
+        public Expander() {
+            project = new Project();
+            project.init();
+            taskType = "unzip";
+            taskName = "unzip";
+            target = new Target();
+        }
+    }
+    Expander expander = new Expander();
+    expander.setSrc(new File(zipfile));
+    expander.setDest(new File(destdir));
+    expander.execute();
+}
+}catch(BuildException e){
+	System.out.println(e);	
+}
+}Next TopicApache Ant Argument Processor? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

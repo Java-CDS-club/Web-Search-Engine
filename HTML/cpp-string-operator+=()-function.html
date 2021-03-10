@@ -1,0 +1,759 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/cpp-string-operator+=()-function by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:15:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>C++ String operator+=() function - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png"/>
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css"/><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50"/><meta property="og:title" content="C++ String operator+=() function - javatpoint" /><meta property="og:description" content="C++ String operator+=() function tutorial for beginners and professionals with examples on constructor, if-else, switch, break, continue, comments, arrays, object and class, exception, static, structs, inheritance, aggregation etc." />
+<meta name="keywords" content="C++, tutorial, beginners, professionals, introduction, if-else, switch, break, continue, comments, arrays, object and class, exception"/><meta name="description" content="C++ String operator+=() function tutorial for beginners and professionals with examples on constructor, if-else, switch, break, continue, comments, arrays, object and class, exception, static, structs, inheritance, aggregation etc."/><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="https://www.javatpoint.com/cpp-string-operator+=()-function" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="C++ String operator+=() function - javatpoint" /><meta name="twitter:description" property="og:description" content="C++ String operator+=() function tutorial for beginners and professionals with examples on constructor, if-else, switch, break, continue, comments, arrays, object and class, exception, static, structs, inheritance, aggregation etc." /><meta property="og:url" content="https://www.javatpoint.com/cpp-string-operator+=()-function" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@pagejavatpoint"/><meta name="twitter:domain" content="www.javatpoint.com"/><meta name="twitter:creator" content="@pagejavatpoint"/>
+
+
+<link href="https://www.javatpoint.com/manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://cdn.adpushup.com/37780/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+</head> 
+<body onload="highlightlink()"> 
+ 
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#8679;</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px">
+    <tr>
+        <td>
+            <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px">
+                <a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a>
+            </div>
+            <div style="float:left;width:60%;">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+                
+            </div>
+            
+        </td>
+    </tr>
+        <!--<tr>
+        <td>
+            <div id="headerlink" style="padding:0px;margin:0px"><span style="margin-right:20px;width:45px"></span><span style="float:right;margin-right:5px;width:45%"> </span>
+                
+            </div>
+        </td>
+    </tr>-->
+
+</table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="https://www.javatpoint.com/images/menuhome64.png" alt="Go To Top" onclick="showmenu()"/></span>
+<span style="float:left"><a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+<!--<form class="navbar-search-m" method="get" action="https://www.google.com/search" target="_blank"> <input type="text" name="q" class="search-query span2-m" placeholder="Search on javatpoint..." title="Search on Javatpoint"/><input type="hidden" name="sitesearch" value="www.javatpoint.com"/></form>-->
+
+</div>
+</div>
+<div id="link" style="clear:both">  <div  class="ddsmoothmenu">
+<ul>
+<li><a href="http://www.javatpoint.com/">Home</a></li>
+<li><a href="https://www.javatpoint.com/c-programming-language-tutorial">C</a></li>
+<li><a href="https://www.javatpoint.com/cpp-tutorial" class="selected">C++</a></li>
+<li><a href="https://www.javatpoint.com/c-sharp-tutorial">C#</a></li>
+<li><a href="https://www.javatpoint.com/java-tutorial">Java</a></li>
+<li><a href="https://www.javatpoint.com/php-tutorial">PHP</a></li>
+<li><a href="https://www.javatpoint.com/html-tutorial">HTML</a></li>
+<li><a href="https://www.javatpoint.com/css-tutorial" >CSS</a></li>
+<li><a href="https://www.javatpoint.com/javascript-tutorial">JavaScript</a></li>
+<li><a href="https://www.javatpoint.com/jquery-tutorial">jQuery</a></li>
+<li><a href="https://www.javatpoint.com/xml-tutorial">XML</a></li>
+<li><a href="https://www.javatpoint.com/json-tutorial">JSON</a></li>
+<li><a href="https://www.javatpoint.com/ajax-tutorial">Ajax</a></li>
+<li><a href="https://www.javatpoint.com/nodejs-tutorial">Node.js</a></li>
+<li><a href="https://www.javatpoint.com/sql-tutorial">SQL</a></li>
+<li><a href="https://www.javatpoint.com/examaccess">Quiz</a></li>
+<li><a href="https://www.javatpoint.com/free-java-projects">Projects</a></li>
+<li><a href="https://www.javatpoint.com/corejava-interview-questions">Interview Q</a></li>
+<li><a href="https://www.javatpoint.com/comment.jsp">Comment</a></li>
+<li><a href="https://www.javatpoint.com/forum">Forum</a></li>
+<li><a href="https://www.javatpoint.com/training">Training</a></li>
+
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both"> 
+<!-- Cm_300x250_Mob_14/9 -->
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+
+<div id="menu">
+ <div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Tutorial</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/cpp-tutorial">C++ Tutorial</a>
+<a href="https://www.javatpoint.com/c-vs-cpp">C vs C++</a>
+<a href="https://www.javatpoint.com/cpp-history">C++ History</a>
+<a href="https://www.javatpoint.com/cpp-features">C++ Features</a>
+<a href="https://www.javatpoint.com/cpp-installation">C++ Installation </a>
+<a href="https://www.javatpoint.com/cpp-program">C++ Program</a>
+<a href="https://www.javatpoint.com/cpp-basic-input-output">C++ cout, cin, endl</a>
+
+<a href="https://www.javatpoint.com/cpp-variable">C++ Variable</a>
+<a href="https://www.javatpoint.com/cpp-data-types">C++ Data types</a>
+<a href="https://www.javatpoint.com/cpp-keywords">C++ Keywords</a>
+<a href="https://www.javatpoint.com/cpp-operators">C++ Operators</a>
+<a href="https://www.javatpoint.com/cpp-identifiers">C++ Identifiers</a>
+<a href="https://www.javatpoint.com/cpp-expression">C++ Expression</a>
+</div>
+ <div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Control Statement</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/cpp-if-else">C++ if-else</a>
+<a href="https://www.javatpoint.com/cpp-switch">C++ switch</a>
+<a href="https://www.javatpoint.com/cpp-for-loop">C++ For Loop</a>
+<a href="https://www.javatpoint.com/cpp-while-loop">C++ While Loop</a>
+<a href="https://www.javatpoint.com/cpp-do-while-loop">C++ Do-While Loop</a>
+<a href="https://www.javatpoint.com/cpp-break-statement">C++ Break Statement</a>
+<a href="https://www.javatpoint.com/cpp-continue-statement">C++ Continue Statement</a>
+<a href="https://www.javatpoint.com/cpp-goto-statement">C++ Goto Statement</a>
+<a href="https://www.javatpoint.com/cpp-comments">C++ Comments</a>
+</div>
+ <div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Functions</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/cpp-functions">C++ Functions</a>
+<a href="https://www.javatpoint.com/call-by-value-and-call-by-reference-in-cpp">Call by value & reference</a>
+<a href="https://www.javatpoint.com/cpp-recursion">C++ Recursion</a>
+<a href="https://www.javatpoint.com/cpp-storage-classes">C++ Storage Classes</a>
+</div>
+
+ <div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Arrays</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/cpp-arrays">C++ Arrays</a>
+<a href="https://www.javatpoint.com/cpp-passing-array-to-function">C++  Array to Function</a>
+<a href="https://www.javatpoint.com/cpp-multidimensional-array">Multidimensional Arrays</a>
+</div>
+ <div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Pointers</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/cpp-pointers">C++ Pointers</a>
+<a href="https://www.javatpoint.com/cpp-references">C++ References</a>
+<a href="https://www.javatpoint.com/cpp-reference-vs-pointer">Reference vs Pointer</a>
+<a href="https://www.javatpoint.com/cpp-memory-management">C++ Memory Management</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Object Class</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/cpp-oops-concepts">C++ OOPs Concepts</a>
+<a href="https://www.javatpoint.com/cpp-object-and-class">C++ Object Class</a>
+<a href="https://www.javatpoint.com/cpp-constructor">C++ Constructor</a>
+<a href="https://www.javatpoint.com/cpp-copy-constructor">C++ Copy Constructor</a>
+
+<a href="https://www.javatpoint.com/cpp-destructor">C++ Destructor</a>
+<a href="https://www.javatpoint.com/cpp-this-pointer">C++ this Pointer</a>
+<a href="https://www.javatpoint.com/cpp-static">C++ static</a>
+<a href="https://www.javatpoint.com/cpp-structs">C++ Structs</a>
+<a href="https://www.javatpoint.com/cpp-enumeration">C++ Enumeration</a>
+<a href="https://www.javatpoint.com/cpp-friend-function">C++ Friend Function</a>
+<a href="https://www.javatpoint.com/cpp-math-functions">C++ Math Functions</a>
+ </div>
+ <div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Inheritance</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/cpp-inheritance">C++ Inheritance</a>
+<a href="https://www.javatpoint.com/cpp-aggregation">C++ Aggregation</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Polymorphism</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/cpp-polymorphism">C++ Polymorphism</a>
+<a href="https://www.javatpoint.com/cpp-overloading">C++  Overloading</a>
+<a href="https://www.javatpoint.com/cpp-function-overriding">C++  Overriding</a>
+<a href="https://www.javatpoint.com/cpp-virtual-function">C++ Virtual Function</a>
+ 
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Abstraction</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/interfaces-in-cpp">C++ Interfaces</a>
+<a href="https://www.javatpoint.com/data-abstraction-in-cpp">C++ Data Abstraction</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Namespaces</span></h2>
+</div>
+<div class="leftmenu" >
+ <a href="https://www.javatpoint.com/cpp-namespaces">C++ Namespaces</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Strings</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/cpp-strings">C++ Strings</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Exceptions</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/cpp-exception-handling">C++ Exception Handling</a>
+<a href="https://www.javatpoint.com/cpp-try-catch">C++ try/catch</a>
+<a href="https://www.javatpoint.com/cpp-user-defined-exceptions">C++ User-Defined</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Templates</span></h2>
+</div>
+<div class="leftmenu" >
+ <a href="https://www.javatpoint.com/cpp-templates">C++ Templates</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Signal Handling</span></h2>
+</div>
+<div class="leftmenu" >
+ <a href="https://www.javatpoint.com/cpp-signal-handling">C++ Signal Handling</a>
+</div>
+
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ File & Stream</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/cpp-files-and-streams">C++ File & Stream</a>
+<a href="https://www.javatpoint.com/cpp-getline">C++ getline()</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Misc</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/cpp-vs-csharp">C++ vs C#</a>
+<a href="https://www.javatpoint.com/cpp-int-to-string">C++ int to string</a>
+
+</div>
+
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ STL Tutorial</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/cpp-stl-components">C++ STL Components</a>
+<a href="https://www.javatpoint.com/cpp-vector">C++ Vector</a>
+<a href="https://www.javatpoint.com/post/cpp-deque">C++ Deque</a>
+<a href="https://www.javatpoint.com/post/cpp-list">C++ List</a>
+<a href="https://www.javatpoint.com/cpp-set">C++ Set</a>
+<a href="https://www.javatpoint.com/cpp-stack">C++ Stack</a>
+<a href="https://www.javatpoint.com/cpp-queue">C++ Queue</a>
+<a href="https://www.javatpoint.com/priority-queue-in-cpp">C++ Priority Queue</a>
+<a href="https://www.javatpoint.com/post/cpp-map">C++ Map</a>
+<a href="https://www.javatpoint.com/post/cpp-multimap">C++ Multimap</a>
+<a href="https://www.javatpoint.com/post/cpp-map">C++ Map</a>
+<a href="https://www.javatpoint.com/post/cpp-bitset">C++ Bitset</a>
+<a href="https://www.javatpoint.com/cpp-algorithm">C++ Algorithm</a>
+
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Iterators</span></h2>
+</div>
+<div class="leftmenu" >
+ <a href="https://www.javatpoint.com/cpp-iterators">C++ Iterators</a>
+ <a href="https://www.javatpoint.com/cpp-bidirectional-iterator">C++ Bidirectional Iterator</a>
+ <a href="https://www.javatpoint.com/cpp-forward-iterator">C++ Forward Iterator</a>
+ <a href="https://www.javatpoint.com/cpp-input-iterator">C++ Input Iterator</a>
+ <a href="https://www.javatpoint.com/cpp-output-iterator">C++ Output Iterator</a>
+</div>
+
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">C++ Programs</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/cpp-programs">C++Programs</a>
+<a href="https://www.javatpoint.com/fibonacci-series-in-cpp"><span>Fibonacci Series</span></a>
+<a href="https://www.javatpoint.com/prime-number-program-in-cpp"><span>Prime Number</span></a>
+<a href="https://www.javatpoint.com/palindrome-program-in-cpp"><span>Palindrome Number</span></a>
+<a href="https://www.javatpoint.com/factorial-program-in-cpp"><span>Factorial</span></a>
+<a href="https://www.javatpoint.com/armstrong-number-in-cpp"><span>Armstrong Number</span></a>
+<a href="https://www.javatpoint.com/sum-of-digits-program-in-cpp"><span>Sum of digits</span></a>
+<a href="https://www.javatpoint.com/cpp-program-to-reverse-number"><span>Reverse Number</span></a>
+<a href="https://www.javatpoint.com/cpp-program-to-swap-two-numbers-without-third-variable"><span>Swap Number</span></a>
+<a href="https://www.javatpoint.com/matrix-multiplication-in-cpp"><span>Matrix Multiplication</span></a>
+<a href="https://www.javatpoint.com/cpp-program-to-convert-decimal-to-binary"><span>Decimal to Binary</span></a>
+<a href="https://www.javatpoint.com/cpp-program-to-convert-number-in-characters"><span>Number in Characters</span></a>
+<a href="https://www.javatpoint.com/cpp-program-to-print-alphabet-triangle"><span>Alphabet Triangle</span></a>
+<a href="https://www.javatpoint.com/cpp-program-to-print-number-triangle"><span>Number Triangle</span></a>
+<a href="https://www.javatpoint.com/cpp-program-to-generate-fibonacci-triangle"><span>Fibonacci Triangle</span></a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Interview Question</span></h2>
+</div>
+<div class="leftmenu" >
+<a href="https://www.javatpoint.com/cpp-interview-questions">Interview Question</a>
+</div>
+<img src="https://www.javatpoint.com/wh.JPG" alt="JavaTpoint"/>
+<br/>
+<div id="leftad" style="margin-left:20px">
+<!-- javatpointleft -->
+<ins class="adPushupAds" data-adpControl="g8drp" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBqYXZhdHBvaW50bGVmdCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lLWJsb2NrO3dpZHRoOjE2MHB4O2hlaWdodDo2MDBweCIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI0NDc2NDAxMjIyIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+</div>
+<div class="onlycontent">
+<div class="onlycontentad">
+<!-- CM_JTP_Leaderbaord -->
+<ins class="adPushupAds" data-adpControl="nuoc1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDTV9KVFBfTGVhZGVyYmFvcmQgLS0+CjxpbnMgY2xhc3M9ImFkc2J5Z29vZ2xlIgogICAgIHN0eWxlPSJkaXNwbGF5OmJsb2NrIgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjkyMDE5MDE5MTUiCiAgICAgZGF0YS1hZC1mb3JtYXQ9ImF1dG8iCiAgICAgZGF0YS1mdWxsLXdpZHRoLXJlc3BvbnNpdmU9InRydWUiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+</div>
+<div class="onlycontentinner">
+<html>
+<head>
+    <title>Struts Problem Report</title>
+    <style>
+    	pre {
+	    	margin: 0;
+	        padding: 0;
+	    }    
+    </style>
+</head>
+<body>
+    <h2>Struts Problem Report</h2>
+    <p>
+    Struts has detected an unhandled exception:
+    </p>
+
+
+<div id="exception-info">
+<table>
+    <tr>
+        <td><strong>Messages</strong>:</td>
+        <td>
+            <ol>
+                        <li>The requested resource [/cpp/string/cpp-string-operator-+-=-function.html] is not available</li>
+                        <li>javax.servlet.jsp.JspException: IO Error executing tag: The requested resource [/cpp/string/cpp-string-operator-+-=-function.html] is not available</li>
+                        <li>ServletException including path '/mylayout.jsp'.</li>
+                        <li>ServletException including path '/mylayout.jsp'.</li>
+            </ol>
+        </td>
+    </tr>
+    <tr>
+        <td><strong>File</strong>:</td>
+        <td>org/apache/catalina/servlets/DefaultServlet.java</td>
+    </tr>
+    <tr>
+        <td><strong>Line number</strong>:</td>
+        <td>797</td>
+    </tr>
+    
+</table>
+</div>
+
+
+<div id="stacktraces">
+<hr />
+<h3>Stacktraces</h3>
+<div class="stacktrace" style="padding-left: 0em">
+    <strong>org.apache.tiles.TilesException: ServletException including path '/mylayout.jsp'.</strong>
+    <div>
+    <pre>
+    org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:614)
+    org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:246)
+    org.apache.struts2.views.tiles.TilesResult.doExecute(TilesResult.java:105)
+    org.apache.struts2.dispatcher.StrutsResultSupport.execute(StrutsResultSupport.java:186)
+    com.opensymphony.xwork2.DefaultActionInvocation.executeResult(DefaultActionInvocation.java:362)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:266)
+    com.opensymphony.xwork2.interceptor.DefaultWorkflowInterceptor.doIntercept(DefaultWorkflowInterceptor.java:165)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.validator.ValidationInterceptor.doIntercept(ValidationInterceptor.java:252)
+    org.apache.struts2.interceptor.validation.AnnotationValidationInterceptor.doIntercept(AnnotationValidationInterceptor.java:68)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ConversionErrorInterceptor.intercept(ConversionErrorInterceptor.java:122)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:195)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:195)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.StaticParametersInterceptor.intercept(StaticParametersInterceptor.java:179)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.MultiselectInterceptor.intercept(MultiselectInterceptor.java:75)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.CheckboxInterceptor.intercept(CheckboxInterceptor.java:94)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.FileUploadInterceptor.intercept(FileUploadInterceptor.java:235)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ModelDrivenInterceptor.intercept(ModelDrivenInterceptor.java:89)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ScopedModelDrivenInterceptor.intercept(ScopedModelDrivenInterceptor.java:130)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.debugging.DebuggingInterceptor.intercept(DebuggingInterceptor.java:267)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ChainingInterceptor.intercept(ChainingInterceptor.java:126)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.PrepareInterceptor.doIntercept(PrepareInterceptor.java:138)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.I18nInterceptor.intercept(I18nInterceptor.java:165)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.ServletConfigInterceptor.intercept(ServletConfigInterceptor.java:164)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.AliasInterceptor.intercept(AliasInterceptor.java:179)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor.intercept(ExceptionMappingInterceptor.java:176)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.impl.StrutsActionProxy.execute(StrutsActionProxy.java:52)
+    org.apache.struts2.dispatcher.Dispatcher.serviceAction(Dispatcher.java:488)
+    org.apache.struts2.dispatcher.ng.ExecuteOperations.executeAction(ExecuteOperations.java:77)
+    org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter.doFilter(StrutsPrepareAndExecuteFilter.java:91)
+    org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+    org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+    org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+    org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+    org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:494)
+    org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+    org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+    org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+    org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+    org.apache.coyote.ajp.AjpProcessor.service(AjpProcessor.java:394)
+    org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+    org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:754)
+    org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1385)
+    org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+    java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+    java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+    org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+    java.lang.Thread.run(Thread.java:748)
+    </pre>
+    </div>
+</div>
+<div class="stacktrace" style="padding-left: 2em">
+    <strong>org.apache.tiles.util.TilesIOException: ServletException including path '/mylayout.jsp'.</strong>
+    <div>
+    <pre>
+    org.apache.tiles.servlet.context.ServletTilesRequestContext.wrapServletException(ServletTilesRequestContext.java:298)
+    org.apache.tiles.servlet.context.ServletTilesRequestContext.forward(ServletTilesRequestContext.java:200)
+    org.apache.tiles.servlet.context.ServletTilesRequestContext.dispatch(ServletTilesRequestContext.java:179)
+    org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:606)
+    org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:246)
+    org.apache.struts2.views.tiles.TilesResult.doExecute(TilesResult.java:105)
+    org.apache.struts2.dispatcher.StrutsResultSupport.execute(StrutsResultSupport.java:186)
+    com.opensymphony.xwork2.DefaultActionInvocation.executeResult(DefaultActionInvocation.java:362)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:266)
+    com.opensymphony.xwork2.interceptor.DefaultWorkflowInterceptor.doIntercept(DefaultWorkflowInterceptor.java:165)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.validator.ValidationInterceptor.doIntercept(ValidationInterceptor.java:252)
+    org.apache.struts2.interceptor.validation.AnnotationValidationInterceptor.doIntercept(AnnotationValidationInterceptor.java:68)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ConversionErrorInterceptor.intercept(ConversionErrorInterceptor.java:122)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:195)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:195)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.StaticParametersInterceptor.intercept(StaticParametersInterceptor.java:179)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.MultiselectInterceptor.intercept(MultiselectInterceptor.java:75)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.CheckboxInterceptor.intercept(CheckboxInterceptor.java:94)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.FileUploadInterceptor.intercept(FileUploadInterceptor.java:235)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ModelDrivenInterceptor.intercept(ModelDrivenInterceptor.java:89)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ScopedModelDrivenInterceptor.intercept(ScopedModelDrivenInterceptor.java:130)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.debugging.DebuggingInterceptor.intercept(DebuggingInterceptor.java:267)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ChainingInterceptor.intercept(ChainingInterceptor.java:126)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.PrepareInterceptor.doIntercept(PrepareInterceptor.java:138)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.I18nInterceptor.intercept(I18nInterceptor.java:165)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.ServletConfigInterceptor.intercept(ServletConfigInterceptor.java:164)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.AliasInterceptor.intercept(AliasInterceptor.java:179)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor.intercept(ExceptionMappingInterceptor.java:176)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.impl.StrutsActionProxy.execute(StrutsActionProxy.java:52)
+    org.apache.struts2.dispatcher.Dispatcher.serviceAction(Dispatcher.java:488)
+    org.apache.struts2.dispatcher.ng.ExecuteOperations.executeAction(ExecuteOperations.java:77)
+    org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter.doFilter(StrutsPrepareAndExecuteFilter.java:91)
+    org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+    org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+    org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+    org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+    org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:494)
+    org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+    org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+    org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+    org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+    org.apache.coyote.ajp.AjpProcessor.service(AjpProcessor.java:394)
+    org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+    org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:754)
+    org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1385)
+    org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+    java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+    java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+    org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+    java.lang.Thread.run(Thread.java:748)
+    </pre>
+    </div>
+</div>
+<div class="stacktrace" style="padding-left: 4em">
+    <strong>javax.servlet.ServletException: javax.servlet.jsp.JspException: IO Error executing tag: The requested resource [/cpp/string/cpp-string-operator-+-=-function.html] is not available</strong>
+    <div>
+    <pre>
+    org.apache.jasper.runtime.PageContextImpl.handlePageException(PageContextImpl.java:664)
+    org.apache.jsp.mylayout_jsp._jspService(mylayout_jsp.java:598)
+    org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+    javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+    org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:444)
+    org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+    org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+    javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+    org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+    org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+    org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+    org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+    org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+    org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+    org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+    org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+    org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+    org.apache.tiles.servlet.context.ServletTilesRequestContext.forward(ServletTilesRequestContext.java:198)
+    org.apache.tiles.servlet.context.ServletTilesRequestContext.dispatch(ServletTilesRequestContext.java:179)
+    org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:606)
+    org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:246)
+    org.apache.struts2.views.tiles.TilesResult.doExecute(TilesResult.java:105)
+    org.apache.struts2.dispatcher.StrutsResultSupport.execute(StrutsResultSupport.java:186)
+    com.opensymphony.xwork2.DefaultActionInvocation.executeResult(DefaultActionInvocation.java:362)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:266)
+    com.opensymphony.xwork2.interceptor.DefaultWorkflowInterceptor.doIntercept(DefaultWorkflowInterceptor.java:165)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.validator.ValidationInterceptor.doIntercept(ValidationInterceptor.java:252)
+    org.apache.struts2.interceptor.validation.AnnotationValidationInterceptor.doIntercept(AnnotationValidationInterceptor.java:68)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ConversionErrorInterceptor.intercept(ConversionErrorInterceptor.java:122)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:195)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:195)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.StaticParametersInterceptor.intercept(StaticParametersInterceptor.java:179)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.MultiselectInterceptor.intercept(MultiselectInterceptor.java:75)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.CheckboxInterceptor.intercept(CheckboxInterceptor.java:94)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.FileUploadInterceptor.intercept(FileUploadInterceptor.java:235)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ModelDrivenInterceptor.intercept(ModelDrivenInterceptor.java:89)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ScopedModelDrivenInterceptor.intercept(ScopedModelDrivenInterceptor.java:130)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.debugging.DebuggingInterceptor.intercept(DebuggingInterceptor.java:267)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ChainingInterceptor.intercept(ChainingInterceptor.java:126)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.PrepareInterceptor.doIntercept(PrepareInterceptor.java:138)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.I18nInterceptor.intercept(I18nInterceptor.java:165)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.ServletConfigInterceptor.intercept(ServletConfigInterceptor.java:164)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.AliasInterceptor.intercept(AliasInterceptor.java:179)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor.intercept(ExceptionMappingInterceptor.java:176)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.impl.StrutsActionProxy.execute(StrutsActionProxy.java:52)
+    org.apache.struts2.dispatcher.Dispatcher.serviceAction(Dispatcher.java:488)
+    org.apache.struts2.dispatcher.ng.ExecuteOperations.executeAction(ExecuteOperations.java:77)
+    org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter.doFilter(StrutsPrepareAndExecuteFilter.java:91)
+    org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+    org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+    org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+    org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+    org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:494)
+    org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+    org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+    org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+    org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+    org.apache.coyote.ajp.AjpProcessor.service(AjpProcessor.java:394)
+    org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+    org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:754)
+    org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1385)
+    org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+    java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+    java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+    org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+    java.lang.Thread.run(Thread.java:748)
+    </pre>
+    </div>
+</div>
+<div class="stacktrace" style="padding-left: 6em">
+    <strong>java.io.FileNotFoundException: The requested resource [/cpp/string/cpp-string-operator-+-=-function.html] is not available</strong>
+    <div>
+    <pre>
+    org.apache.catalina.servlets.DefaultServlet.serveResource(DefaultServlet.java:797)
+    org.apache.catalina.servlets.DefaultServlet.doGet(DefaultServlet.java:454)
+    javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+    org.apache.catalina.servlets.DefaultServlet.service(DefaultServlet.java:434)
+    javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+    org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+    org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+    org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+    org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:580)
+    org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:516)
+    org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:894)
+    org.apache.jasper.runtime.PageContextImpl.include(PageContextImpl.java:497)
+    org.apache.tiles.jsp.context.JspTilesRequestContext.include(JspTilesRequestContext.java:80)
+    org.apache.tiles.jsp.context.JspTilesRequestContext.dispatch(JspTilesRequestContext.java:73)
+    org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:283)
+    org.apache.tiles.jsp.taglib.InsertAttributeTag.render(InsertAttributeTag.java:140)
+    org.apache.tiles.jsp.taglib.InsertAttributeTag.render(InsertAttributeTag.java:117)
+    org.apache.tiles.jsp.taglib.RenderTagSupport.execute(RenderTagSupport.java:154)
+    org.apache.tiles.jsp.taglib.RoleSecurityTagSupport.doEndTag(RoleSecurityTagSupport.java:75)
+    org.apache.tiles.jsp.taglib.ContainerTagSupport.doEndTag(ContainerTagSupport.java:80)
+    org.apache.jsp.mylayout_jsp._jspx_meth_tiles_005finsertAttribute_005f2(mylayout_jsp.java:835)
+    org.apache.jsp.mylayout_jsp._jspService(mylayout_jsp.java:222)
+    org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+    javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+    org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:444)
+    org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+    org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+    javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+    org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+    org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+    org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+    org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+    org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+    org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+    org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+    org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+    org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+    org.apache.tiles.servlet.context.ServletTilesRequestContext.forward(ServletTilesRequestContext.java:198)
+    org.apache.tiles.servlet.context.ServletTilesRequestContext.dispatch(ServletTilesRequestContext.java:179)
+    org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:606)
+    org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:246)
+    org.apache.struts2.views.tiles.TilesResult.doExecute(TilesResult.java:105)
+    org.apache.struts2.dispatcher.StrutsResultSupport.execute(StrutsResultSupport.java:186)
+    com.opensymphony.xwork2.DefaultActionInvocation.executeResult(DefaultActionInvocation.java:362)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:266)
+    com.opensymphony.xwork2.interceptor.DefaultWorkflowInterceptor.doIntercept(DefaultWorkflowInterceptor.java:165)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.validator.ValidationInterceptor.doIntercept(ValidationInterceptor.java:252)
+    org.apache.struts2.interceptor.validation.AnnotationValidationInterceptor.doIntercept(AnnotationValidationInterceptor.java:68)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ConversionErrorInterceptor.intercept(ConversionErrorInterceptor.java:122)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:195)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:195)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.StaticParametersInterceptor.intercept(StaticParametersInterceptor.java:179)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.MultiselectInterceptor.intercept(MultiselectInterceptor.java:75)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.CheckboxInterceptor.intercept(CheckboxInterceptor.java:94)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.FileUploadInterceptor.intercept(FileUploadInterceptor.java:235)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ModelDrivenInterceptor.intercept(ModelDrivenInterceptor.java:89)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ScopedModelDrivenInterceptor.intercept(ScopedModelDrivenInterceptor.java:130)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.debugging.DebuggingInterceptor.intercept(DebuggingInterceptor.java:267)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ChainingInterceptor.intercept(ChainingInterceptor.java:126)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.PrepareInterceptor.doIntercept(PrepareInterceptor.java:138)
+    com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:87)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.I18nInterceptor.intercept(I18nInterceptor.java:165)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.interceptor.ServletConfigInterceptor.intercept(ServletConfigInterceptor.java:164)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.AliasInterceptor.intercept(AliasInterceptor.java:179)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor.intercept(ExceptionMappingInterceptor.java:176)
+    com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:237)
+    org.apache.struts2.impl.StrutsActionProxy.execute(StrutsActionProxy.java:52)
+    org.apache.struts2.dispatcher.Dispatcher.serviceAction(Dispatcher.java:488)
+    org.apache.struts2.dispatcher.ng.ExecuteOperations.executeAction(ExecuteOperations.java:77)
+    org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter.doFilter(StrutsPrepareAndExecuteFilter.java:91)
+    org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+    org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+    org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+    org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+    org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:494)
+    org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+    org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+    org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+    org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+    org.apache.coyote.ajp.AjpProcessor.service(AjpProcessor.java:394)
+    org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+    org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:754)
+    org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1385)
+    org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+    java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+    java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+    org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+    java.lang.Thread.run(Thread.java:748)
+    </pre>
+    </div>
+</div>
+</div>
+
+<div class="footer">
+<hr />
+<p>
+You are seeing this page because development mode is enabled.  Development mode, or devMode, enables extra
+debugging behaviors and reports to assist developers.  To disable this mode, set:
+<pre>
+  struts.devMode=false
+</pre>
+in your <code>WEB-INF/classes/struts.properties</code> file.
+</p>
+</div>
+</body>
+
+<!-- Mirrored from www.javatpoint.com/cpp-string-operator+=()-function by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:15:17 GMT -->
+</html>

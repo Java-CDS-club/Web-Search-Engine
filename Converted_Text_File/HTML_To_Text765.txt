@@ -1,0 +1,38 @@
+Automata CFG to PDA Conversion - Javatpoint?HomeCompilerAutomataAWSIoTComputer FundamentalsControl SystemJavaHTMLCSSAptitudeSeleniumKotlinJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingAutomata TutorialAutomata Tutorial Theory of Automata Finite Automata Transition Diagram Transition Table DFA Examples of DFA NFA Examples of NFA Eliminating ? Transitions Conversion from NFA to DFA Conversion from NFA with ? to DFA Minimization of DFARegular ExpressionRegular Expression Examples of Regular Expression Conversion of RE to FA Arden's Theorem Moore Machine Mealy Machine Conversion from Mealy machine to Moore machine Conversion from Moore machine to Mealy machineCFGContext-free Grammar Derivation Derivation Tree Ambiguity in Grammar Unambiguous Grammar Simplification of CFG Chomsky's Normal Form (CNF) Greibach Normal Form (GNF)PDAPushdown Automata PDA Acceptance Non-deterministic Pushdown Automata CFG to PDA ConversionTuring MachineAutomata Turing Machine Basic Model of Turing machine Language accepted by Turing machine Example of TM Introduction to Undecidability Undecidable Problem about TM Post Correspondence Problem Chomsky Hierarchynext ? ? prevCFG to PDA ConversionThe first symbol on R.H.S. production must be a terminal symbol. The following steps are used to obtain PDA from CFG is:Step 1: Convert the given productions of CFG into GNF.Step 2: The PDA will only have one state {q}.Step 3: The initial symbol of CFG will be the initial symbol in the PDA.Step 4: For non-terminal symbol, add the following rule:?(q, ?, A) = (q, ?)Where the production rule is A ? ?Step 5: For each terminal symbols, add the following rule:?(q, a, a) = (q, ?) for every terminal symbolExample 1:Convert the following grammar to a PDA that accepts the same language.S ? 0S1 | A
+A ? 1A0 | S | ?Solution:The CFG can be first simplified by eliminating unit productions:S ? 0S1 | 1S0 |  ?Now we will convert this CFG to GNF:S ? 0SX | 1SY |  ?
+X ? 1
+Y ? 0The PDA can be:R1: ?(q, ?, S) = {(q, 0SX) | (q, 1SY) | (q, ?)}
+R2: ?(q, ?, X) = {(q, 1)}
+R3: ?(q, ?, Y) = {(q, 0)}
+R4: ?(q, 0, 0) = {(q, ?)}
+R5: ?(q, 1, 1) = {(q, ?)}Example 2:Construct PDA for the given CFG, and test whether 0104 is acceptable by this PDA.S ? 0BB
+B ? 0S | 1S | 0Solution:The PDA can be given as:A = {(q), (0, 1), (S, B, 0, 1), ?, q, S, ?}The production rule ? can be:R1: ?(q, ?, S) = {(q, 0BB)}
+R2: ?(q, ?, B) = {(q, 0S) | (q, 1S) | (q, 0)}
+R3: ?(q, 0, 0) = {(q, ?)}
+R4: ?(q, 1, 1) = {(q, ?)}Testing 0104 i.e. 010000 against PDA:?(q, 010000, S) ? ?(q, 010000, 0BB)
+                ? ?(q, 10000, BB)              R1
+                ? ?(q, 10000,1SB)              R3  
+                ? ?(q, 0000, SB)               R2      
+                ? ?(q, 0000, 0BBB)             R1   
+                ? ?(q, 000, BBB)               R3      
+                ? ?(q, 000, 0BB)               R2    
+                ? ?(q, 00, BB)                 R3   
+                ? ?(q, 00, 0B)                 R2  
+                ? ?(q, 0, B)                   R3  
+                ? ?(q, 0, 0)                   R2
+                ? ?(q, ?)                      R3  
+                  ACCEPTThus 0104 is accepted by the PDA.Example 3:Draw a PDA for the CFG given below:S ? aSb
+S ? a | b | ?Solution:The PDA can be given as:P = {(q), (a, b), (S, a, b, z0), ?, q, z0, q}The mapping function ? will be:R1: ?(q, ?, S) = {(q, aSb)}
+R2: ?(q, ?, S) = {(q, a) | (q, b) | (q, ?)}
+R3: ?(q, a, a) = {(q, ?)}
+R4: ?(q, b, b) = {(q, ?)}
+R5: ?(q, ?, z0) = {(q, ?)}Simulation: Consider the string aaabb?(q, ?aaabb, S) ? ?(q, aaabb, aSb)             R3
+                ? ?(q, ?aabb, Sb)              R1                               
+                ? ?(q, aabb, aSbb)             R3
+                ? ?(q, ?abb, Sbb)              R2
+                ? ?(q, abb, abb)               R3
+                ? ?(q, bb, bb)                 R4
+                ? ?(q, b, b)                   R4
+                ? ?(q, ?, z0)                  R5
+                ? ?(q, ?)
+                ACCEPTNext TopicTuring Machine? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

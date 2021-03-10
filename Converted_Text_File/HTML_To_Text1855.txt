@@ -1,0 +1,31 @@
+C++ Queue size() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ Queue FunctionC++ Queue back() emplace() empty() front() pop() push() size()next ? ? prevC++ Queue size() FunctionC++ Queue size() function returns the number of queue elements. The number of elements in the queue is an actual representation of the size, and the size value is given by this function.Syntaxsize_type size() const;ParametersThe function does not take any parameter, and it just returns the queue size.Return valueThe number of elements in the queue is returned. In other words, the size of the queue is given.Example 1#include <iostream>
+#include <queue>
+int main()
+{
+	std::queue<int> newqueue;
+	std::cout<< "0. size: "<< newqueue.size();
+	for(int j=0; j<5; j++)
+	newqueue.push(j);
+	std::cout<<"\n";
+	std::cout << "1. size: " << newqueue.size();
+	newqueue.pop();
+	std::cout<<"\n";
+	std::cout << "2. size: "<< newqueue.size();
+	return 0;
+}Output:0.size: 0
+1.size: 5
+2.size: 4Example 2#include <iostream>
+#include <queue>
+using namespace std;
+int main()
+{
+	int result = 0;
+	queue<int> newqueue;
+	newqueue.push(12);
+	newqueue.push(24);
+	newqueue.push(36);
+	newqueue.push(48);
+	cout<<"Size of the queue is ";
+	cout<<newqueue.size();
+	return 0;
+}Output:Size of queue is 4ComplexityThe complexity is constant.Data racesThe function accesses the container. By accessing the container the size of the queue is evaluates.Exception SafetyGuarantee as equivalent to the operations that are performed on the underlying container object is provided.Next TopicC++ Queue? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

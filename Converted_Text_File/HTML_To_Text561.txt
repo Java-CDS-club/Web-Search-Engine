@@ -1,0 +1,35 @@
+Armstrong Number in C - javatpoint?HomeCC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumC Tutorial C Control Statements C Functions C Array C Pointers Dynamic Memory Allocation C Strings C Structure Union C File Handling C Preprocessor Command Line ArgumentsC ProgramsTop 10+ C Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Print "Hello" without ; Assembly code in C C program without main Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleC InterviewC Interview Questionsnext ? ? prevArmstrong Number in CBefore going to write the c program to check whether the number is Armstrong or not, let's understand what is Armstrong number.Armstrong number is a number that is equal to the sum of cubes of its digits. For example 0, 1, 153, 370, 371 and 407 are the Armstrong numbers.Let's try to understand why 153 is an Armstrong number.153 = (1*1*1)+(5*5*5)+(3*3*3)
+where:
+(1*1*1)=1
+(5*5*5)=125
+(3*3*3)=27
+So:
+1+125+27=153Let's try to understand why 371 is an Armstrong number.371 = (3*3*3)+(7*7*7)+(1*1*1)
+where:
+(3*3*3)=27
+(7*7*7)=343
+(1*1*1)=1
+So:
+27+343+1=371Let's see the c program to check Armstrong Number in C.#include
+ int main()  
+{  
+int n,r,sum=0,temp;  
+printf("enter the number=");  
+scanf("%d",&n);  
+temp=n;  
+while(n>0)  
+{  
+r=n%10;  
+sum=sum+(r*r*r);  
+n=n/10;  
+}  
+if(temp==sum)  
+printf("armstrong  number ");  
+else  
+printf("not armstrong number");  
+return 0;
+} Output:enter the number=153
+armstrong number
+
+enter the number=5
+not armstrong numberNext TopicSum of digits program in C? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

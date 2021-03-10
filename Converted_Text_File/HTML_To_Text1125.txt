@@ -1,0 +1,779 @@
+Builder Design Pattern - Javatpoint?HomeCore JavaServletJSPStruts2Mail APIHibernateSpringAndroidDesign PatternQuizProjectsInterview QCommentForumDesign PatternsJava Design Patterns1) Creational PatternFactory Method Pattern Abstract Factory Pattern Singleton Pattern Prototype Pattern Builder Pattern Object Pool Pattern2) Structural PatternAdapter Pattern Bridge Pattern Composite Pattern Decorator Pattern Facade Pattern Flyweight Pattern proxy Pattern3) Behavioral PatternChain of Responsibility Command Pattern Interpreter Pattern Iterator Pattern Mediator Pattern Memento Pattern Observer Pattern State Pattern Strategy Pattern Template PatternJ2EE PatternsJEE or J2EE PatternsPresentation LayerIntercepting Filter Pattern Front Controller Patternnext ? ? prevBuilder Design PatternBuilder Design PatternAdvantage of Builder DPUsage of Builder DPUML of Builder DPExample of Builder DPBuilder Pattern says that "construct a complex object from simple objects using step-by-step approach"It is mostly used when object can't be created in single step like in the de-serialization of a complex object.Advantage of Builder Design PatternThe main advantages of Builder Pattern are as follows:It provides clear separation between the construction and representation of an object.It provides better control over construction process.It supports to change the internal representation of objects.UML for Builder Pattern ExampleExample of Builder Design PatternTo create simple example of builder design pattern, you need to follow 6 following steps.Create Packing interfaceCreate 2 abstract classes CD and CompanyCreate 2 implementation classes of Company: Sony and SamsungCreate the CDType classCreate the CDBuilder classCreate the BuilderDemo class1) Create Packing interfaceFile: Packing.javapublic interface Packing {
+            public String pack();
+            public int price();
+}2) Create 2 abstract classes CD and CompanyCreate an abstract class CD which will implement Packing interface.File: CD.javapublic abstract class CD implements Packing{
+public abstract String pack();
+}File: Company.javapublic abstract class Company extends CD{
+   public abstract int price();
+}3) Create 2 implementation classes of Company: Sony and SamsungFile: Sony.javapublic class Sony extends Company{
+	@Override
+        public int price(){ 
+                        return 20;
+	  }
+	@Override
+	public String pack(){
+	         return "Sony CD";
+     	}		
+}//End of the Sony class.File: Samsung.javapublic class Samsung extends Company {
+	@Override
+        public int price(){ 
+                        return 15;
+	}
+	@Override
+	public String pack(){
+	         return "Samsung CD";
+        }		
+}//End of the Samsung class.4) Create the CDType classFile: CDType.javaimport java.util.ArrayList;
+import java.util.List;
+public class CDType {
+             private List<Packing> items=new ArrayList<Packing>();
+             public void addItem(Packing packs) {  
+                    items.add(packs);
+             }
+             public void getCost(){
+              for (Packing packs : items) {
+                        packs.price();
+              }	
+             }
+             public void showItems(){
+              for (Packing packing : items){
+	         System.out.print("CD name : "+packing.pack());
+	         System.out.println(", Price : "+packing.price());
+	      }		
+            }	
+}//End of the CDType class.5) Create the CDBuilder classFile: CDBuilder.javapublic class CDBuilder {
+                  public CDType buildSonyCD(){ 
+                     CDType cds=new CDType();
+                     cds.addItem(new Sony());
+                     return cds;
+	          }
+	          public CDType buildSamsungCD(){
+		     CDType cds=new CDType();
+		     cds.addItem(new Samsung());
+		     return cds;
+	          }
+}// End of the CDBuilder class.6) Create the BuilderDemo classFile: BuilderDemo.javapublic class BuilderDemo{
+ public static void main(String args[]){
+   CDBuilder cdBuilder=new CDBuilder();
+   CDType cdType1=cdBuilder.buildSonyCD();
+   cdType1.showItems();
+
+   CDType cdType2=cdBuilder.buildSamsungCD();
+   cdType2.showItems();
+ }
+}download this builder pattern exampleOutput of the above exampleCD name : Sony CD, Price : 20
+CD name : Samsung CD, Price : 15Another Real world example of Builder PatternUML for Builder Pattern:We are considering a business case of pizza-hut where we can get different varieties of pizza and cold-drink.Pizza can be either a Veg pizza or Non-Veg pizza of several types (like cheese pizza, onion pizza, masala-pizza etc) and will be of 4 sizes i.e. small, medium, large, extra-large.Cold-drink can be of several types (like Pepsi, Coke, Dew, Sprite, Fanta, Maaza, Limca, Thums-up etc.) and will be of 3 sizes small, medium, large.Real world example of builder patternLet's see the step by step real world example of Builder Design Pattern.Step 1:Create an interface Item that represents the Pizza and Cold-drink.File: Item.javapublic  interface  Item 
+{
+   public String name();
+    public String size();
+    public float price();
+}// End of the interface Item.
+
+Step 2:Create an abstract class Pizza that will implement to the interface Item.File: Pizza.javapublic abstract class Pizza implements Item{
+        @Override
+        public abstract float price();
+} Step 3:Create an abstract class ColdDrink that will implement to the interface Item.File: ColdDrink.java       public abstract class ColdDrink implements Item{
+        @Override
+        public abstract float price();
+   } Step 4:Create an abstract class VegPizza that will extend to the abstract class Pizza.File: VegPizza.javapublic abstract class VegPizza extends Pizza{
+    @Override
+    public abstract float price();
+    @Override
+    public abstract  String name();
+    @Override
+    public abstract  String size();
+}// End of the abstract class VegPizza.Step 5:Create an abstract class NonVegPizza that will extend to the abstract class Pizza.File: NonVegPizza.javapublic abstract class NonVegPizza extends Pizza{
+    @Override
+    public abstract float price();
+    @Override
+    public abstract String name();
+    @Override
+    public abstract String size();
+}// End of the abstract class NonVegPizza.Step 6:Now, create concrete sub-classes SmallCheezePizza, MediumCheezePizza, LargeCheezePizza, ExtraLargeCheezePizza that will extend to the abstract class VegPizza.File: SmallCheezePizza.javapublic class SmallCheezePizza extends VegPizza{
+    @Override
+    public float price() {
+        return 170.0f;
+    }
+    @Override
+    public String name() {
+        return "Cheeze Pizza";
+    }
+    @Override
+    public String size() {
+       return "Small size";
+    }  
+}// End of the SmallCheezePizza class.File: MediumCheezePizza.javapublic class MediumCheezePizza extends VegPizza{
+    @Override
+    public float price() {
+       return  220.f;
+    }
+    @Override
+    public String name() {
+        return "Cheeze Pizza";
+    }
+    @Override
+    public String size() {
+     return "Medium Size";
+ }
+}// End of the MediumCheezePizza class.File: LargeCheezePizza.javapublic class LargeCheezePizza extends VegPizza{
+    @Override
+    public float price() {
+        return 260.0f;
+    }
+    @Override
+    public String name() {
+        return "Cheeze Pizza";
+    }
+    @Override
+    public String size() {
+        return "Large Size";
+    }
+}// End of the LargeCheezePizza class.File: ExtraLargeCheezePizza.javapublic class ExtraLargeCheezePizza extends VegPizza{
+    @Override
+    public float price() {
+        return 300.f;
+    }
+    @Override
+    public String name() {
+        return  "Cheeze Pizza";
+    }
+    @Override
+    public String size() {
+        return "Extra-Large Size";
+    }
+}// End of the ExtraLargeCheezePizza class.Step 7:Now, similarly create concrete sub-classes SmallOnionPizza, MediumOnionPizza, LargeOnionPizza, ExtraLargeOnionPizza that will extend to the abstract class VegPizza.File: SmallOnionPizza.javapublic class SmallOnionPizza extends VegPizza {
+    @Override
+    public float price() {
+        return 120.0f;
+    }
+    @Override
+    public String name() {
+        return  "Onion Pizza";
+    }
+    @Override
+    public String size() {
+       return  "Small Size";
+    }  
+}// End of the SmallOnionPizza class.File: MediumOnionPizza.javapublic class MediumOnionPizza extends VegPizza {
+    @Override
+    public float price() {
+        return 150.0f;
+    }
+   @Override
+    public String name() {
+        return  "Onion Pizza";
+    }
+   @Override
+    public String size() {
+       return  "Medium Size";
+    }  
+}// End of the MediumOnionPizza class.File: LargeOnionPizza.javapublic class LargeOnionPizza extends  VegPizza{
+    @Override
+    public float price() {
+        return 180.0f;
+    }
+    @Override
+    public String name() {
+         return "Onion Pizza";
+    }
+    @Override
+    public String size() {
+       return  "Large size";
+    }
+}// End of the LargeOnionPizza class.File: ExtraLargeOnionPizza.javapublic class ExtraLargeOnionPizza extends VegPizza {
+    @Override
+    public float price() {
+        return 200.0f;
+    }
+    @Override
+    public String name() {
+         return  "Onion Pizza";
+    }
+    @Override
+    public String size() {
+       return  "Extra-Large Size";
+    }
+}// End of the ExtraLargeOnionPizza classStep 8:Now, similarly create concrete sub-classes SmallMasalaPizza, MediumMasalaPizza, LargeMasalaPizza, ExtraLargeMasalaPizza that will extend to the abstract class VegPizza.File: SmallMasalaPizza.javapublic class SmallMasalaPizza extends VegPizza{
+    @Override
+    public float price() {
+        return 100.0f;
+    }
+    @Override
+    public String name() {
+        return  "Masala Pizza";
+    }
+    @Override
+    public String size() {
+       return  "Samll Size";
+    }
+}// End of the SmallMasalaPizza classFile: MediumMasalaPizza.javapublic class MediumMasalaPizza extends VegPizza {
+    
+    @Override
+    public float price() {
+        return 120.0f;
+    }
+
+    @Override
+    public String name() {
+    
+        return  "Masala Pizza";
+    
+    }
+
+    @Override
+    public String size() {
+       return  "Medium Size";
+    }
+
+File: LargeMasalaPizza.javapublic class LargeMasalaPizza extends  VegPizza{
+    @Override
+    public float price() {
+        return 150.0f;
+    }
+
+    @Override
+    public String name() {
+    
+        return  "Masala Pizza";
+    
+    }
+
+    @Override
+    public String size() {
+       return  "Large Size";
+    }
+} //End of the LargeMasalaPizza class
+
+File: ExtraLargeMasalaPizza.javapublic class ExtraLargeMasalaPizza extends VegPizza {
+    @Override
+    public float price() {
+        return 180.0f;
+    }
+
+    @Override
+    public String name() {
+    
+        return  "Masala Pizza";
+    
+    }
+
+    @Override
+    public String size() {
+       return  "Extra-Large Size";
+    }
+}// End of the ExtraLargeMasalaPizza class 
+
+Step 9:Now, create concrete sub-classes SmallNonVegPizza, MediumNonVegPizza, LargeNonVegPizza, ExtraLargeNonVegPizza that will extend to the abstract class NonVegPizza.File: SmallNonVegPizza.javapublic class SmallNonVegPizza extends NonVegPizza {
+
+    @Override
+    public float price() {
+        return 180.0f;
+    }
+
+    @Override
+    public String name() {
+       return "Non-Veg Pizza";
+    }
+
+    @Override
+    public String size() {
+        return "Samll Size";
+    }
+    
+}// End of the SmallNonVegPizza class
+
+File: MediumNonVegPizza.javapublic class MediumNonVegPizza extends NonVegPizza{
+    
+    @Override
+    public float price() {
+        return 200.0f;
+    }
+
+    @Override
+    public String name() {
+       return "Non-Veg Pizza";
+    }
+
+    @Override
+    public String size() {
+        return "Medium Size";
+    }
+
+File: LargeNonVegPizza.javapublic class LargeNonVegPizza extends NonVegPizza{
+    
+    @Override
+    public float price() {
+        return 220.0f;
+    }
+
+    @Override
+    public String name() {
+       return "Non-Veg Pizza";
+    }
+
+    @Override
+    public String size() {
+        return "Large Size";
+    }
+    
+}// End of the LargeNonVegPizza class
+
+File: ExtraLargeNonVegPizza.javapublic class ExtraLargeNonVegPizza extends NonVegPizza {
+    @Override
+    public float price() {
+        return 250.0f;
+    }
+
+    @Override
+    public String name() {
+       return "Non-Veg Pizza";
+    }
+
+    @Override
+    public String size() {
+        return "Extra-Large Size";
+    }
+    
+}
+
+ // End of the ExtraLargeNonVegPizza class
+
+Step 10:Now, create two abstract classes Pepsi and Coke that will extend abstract class ColdDrink. File: Pepsi.javapublic abstract class Pepsi extends ColdDrink {
+
+    @Override
+    public abstract  String name();
+
+    @Override
+    public abstract  String size();
+    
+    @Override
+    public abstract  float price(); 
+    
+}// End of the Pepsi class
+
+File: Coke.javapublic abstract class Coke  extends ColdDrink {
+
+    @Override
+    public abstract  String name();
+
+    @Override
+    public abstract  String size();
+    
+    @Override
+    public abstract  float price(); 
+    
+}// End of the Coke classStep 11:Now, create concrete sub-classes SmallPepsi, MediumPepsi, LargePepsi that will extend to the abstract class Pepsi.File: SmallPepsi.javapublic class SmallPepsi  extends Pepsi{
+
+    @Override
+    public String name() {
+       return "300 ml Pepsi";
+    }
+
+    @Override
+    public float price() {
+        return 25.0f;
+    }
+
+    @Override
+    public String size() {
+        return "Small Size";
+    }   
+}// End of the SmallPepsi class
+
+File: MediumPepsi.javapublic class MediumPepsi extends Pepsi {
+    
+    @Override
+    public String name() {
+       return "500 ml Pepsi";
+    }
+
+    @Override
+    public String size() {
+        return "Medium Size";
+    }
+
+    @Override
+    public float price() {
+        return 35.0f;
+    }    
+}// End of the MediumPepsi class
+
+File: LargePepsi.javapublic class LargePepsi extends Pepsi{
+    @Override
+    public String name() {
+       return "750 ml Pepsi";
+    }
+
+    @Override
+    public String size() {
+        return "Large Size";
+    }
+
+    @Override
+    public float price() {
+        return 50.0f;
+    }
+}// End of the LargePepsi class
+
+Step 12:Now, create concrete sub-classes SmallCoke, MediumCoke, LargeCoke that will extend to the abstract class Coke.File: SmallCoke.javapublic class SmallCoke extends Coke{
+   
+    @Override
+    public String name() {
+         return "300 ml Coke";  
+    }
+
+    @Override
+    public String size() {
+       
+        return "Small Size";
+    }
+
+    @Override
+    public float price() {
+    
+        return  25.0f;
+    }
+ }// End of the SmallCoke class
+
+File: MediumCoke.javapublic class MediumCoke extends Coke{
+    
+    @Override
+    public String name() {
+         return "500 ml Coke";  
+    }
+
+    @Override
+    public String size() {
+       
+        return "Medium Size";
+    }
+
+    @Override
+    public float price() {
+    
+        return  35.0f;
+   }
+}// End of the MediumCoke class
+
+File: LargeCoke.javapublic class LargeCoke extends Coke {
+     @Override
+    public String name() {
+         return "750 ml Coke";  
+    }
+
+    @Override
+    public String size() {
+       
+        return "Large Size";
+    }
+
+    @Override
+    public float price() {
+    
+        return  50.0f;
+    }    
+}// End of the LargeCoke classStep 13:Create an OrderedItems class that are having Item objects defined above.File: OrderedItems.javaimport java.util.ArrayList;
+import java.util.List;
+public class OrderedItems {
+   
+    List<Item> items=new ArrayList<Item>();
+    
+    public void addItems(Item item){
+        
+        items.add(item);
+    }
+    public float getCost(){
+        
+        float cost=0.0f;
+            for (Item item : items) {
+                cost+=item.price();
+             }
+        return cost;
+    }
+    public void showItems(){
+        
+        for (Item item : items) {
+            System.out.println("Item is:" +item.name());
+            System.out.println("Size is:" +item.size());
+            System.out.println("Price is: " +item.price());
+            
+        }
+    }
+   
+}// End of the OrderedItems class
+
+Step 14:Create an OrderBuilder class that will be responsible to create the objects of OrderedItems class.File: OrdereBuilder.javaimport java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class OrderBuilder {
+    public OrderedItems preparePizza() throws IOException{
+        
+        OrderedItems itemsOrder=new OrderedItems();
+         BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+        
+        System.out.println(" Enter the choice of Pizza ");
+        System.out.println("============================");
+        System.out.println("        1. Veg-Pizza       ");
+        System.out.println("        2. Non-Veg Pizza   ");
+        System.out.println("        3. Exit            ");
+        System.out.println("============================");
+        
+        int pizzaandcolddrinkchoice=Integer.parseInt(br.readLine());
+        switch(pizzaandcolddrinkchoice)
+        {
+           case 1:{
+                     
+                     System.out.println("You ordered Veg Pizza");
+                     System.out.println("\n\n");
+                     System.out.println(" Enter the types of Veg-Pizza ");
+                     System.out.println("------------------------------");
+                     System.out.println("        1.Cheeze Pizza        ");
+                     System.out.println("        2.Onion Pizza        ");
+                     System.out.println("        3.Masala Pizza        ");
+                     System.out.println("        4.Exit            ");
+                     System.out.println("------------------------------");
+                                  int vegpizzachoice=Integer.parseInt(br.readLine());
+                     switch(vegpizzachoice)
+                     {
+                          case 1:
+                                {
+                                    System.out.println("You ordered Cheeze Pizza");
+                                    
+                                    System.out.println("Enter the cheeze pizza size");
+                                    System.out.println("------------------------------------");
+                                    System.out.println("    1. Small Cheeze Pizza ");
+                                    System.out.println("    2. Medium Cheeze Pizza ");
+                                    System.out.println("    3. Large Cheeze Pizza ");
+                                    System.out.println("    4. Extra-Large Cheeze Pizza ");
+                                    System.out.println("------------------------------------");
+                                    int cheezepizzasize=Integer.parseInt(br.readLine());
+                                    switch(cheezepizzasize)
+                                        {
+                                              case 1:
+                                                   itemsOrder.addItems(new SmallCheezePizza());
+                                                   break;
+                                             case 2:
+                                                   itemsOrder.addItems(new MediumCheezePizza());
+                                                   break;  
+                                             case 3:
+                                                   itemsOrder.addItems(new LargeCheezePizza());
+                                                   break;  
+                                             case 4:
+                                                   itemsOrder.addItems(new ExtraLargeCheezePizza());
+                                                   break;    
+                          case 2:
+                                {
+                                    System.out.println("You ordered Onion Pizza");
+                                    System.out.println("Enter the Onion pizza size");
+                                    System.out.println("----------------------------------");
+                                    System.out.println("    1. Small Onion Pizza ");
+                                    System.out.println("    2. Medium Onion Pizza ");
+                                    System.out.println("    3. Large Onion Pizza ");
+                                    System.out.println("    4. Extra-Large Onion Pizza ");
+                                    System.out.println("----------------------------------");
+                                    int onionpizzasize=Integer.parseInt(br.readLine());
+                                    switch(onionpizzasize)
+                                              {
+                                                  case 1:
+                                                   itemsOrder.addItems(new SmallOnionPizza());
+                                                   break;
+                                                    
+                                                  case 2:
+                                                   itemsOrder.addItems(new MediumOnionPizza());
+                                                   break;  
+                                                   
+                                                  case 3:
+                                                   itemsOrder.addItems(new LargeOnionPizza());
+                                                   break;  
+                                                      
+                                                  case 4:
+                                                   itemsOrder.addItems(new ExtraLargeOnionPizza());
+                                                   break;      
+                                                      
+                                              }     
+                                   }
+                                break;
+                          case 3:
+                                {
+                                    System.out.println("You ordered Masala Pizza");
+                                    System.out.println("Enter the Masala pizza size");
+                                    System.out.println("------------------------------------");
+                                    System.out.println("    1. Small Masala Pizza ");
+                                    System.out.println("    2. Medium Masala Pizza "); 
+                                    System.out.println("    3. Large Masala Pizza ");
+                                    System.out.println("    4. Extra-Large Masala Pizza ");
+                                    System.out.println("------------------------------------");
+                                                  int masalapizzasize=Integer.parseInt(br.readLine());
+                                        switch(masalapizzasize)
+                                              {
+                                                  case 1:
+                                                   itemsOrder.addItems(new SmallMasalaPizza());
+                                                   break;
+                                                    
+                                                  case 2:
+                                                   itemsOrder.addItems(new MediumMasalaPizza());
+                                                   break;  
+                                                   
+                                                  case 3:
+                                                   itemsOrder.addItems(new LargeMasalaPizza());
+                                                   break;  
+                                                      
+                                                  case 4:
+                                                   itemsOrder.addItems(new ExtraLargeMasalaPizza());
+                                                   break;      
+                                                      
+                                              }     
+                                 
+                                }
+                                break;    
+                         
+                     }    
+                
+                   }
+                   break;// Veg- pizza choice completed.
+                
+            case 2:
+                   {
+                       System.out.println("You ordered Non-Veg Pizza");
+                       System.out.println("\n\n");
+                       
+                                    System.out.println("Enter the Non-Veg pizza size");
+                                    System.out.println("------------------------------------");
+                                    System.out.println("    1. Small Non-Veg  Pizza ");
+                                    System.out.println("    2. Medium Non-Veg  Pizza ");
+                                    System.out.println("    3. Large Non-Veg  Pizza ");
+                                    System.out.println("    4. Extra-Large Non-Veg  Pizza ");
+                                    System.out.println("------------------------------------");
+                                    
+                       
+                       int nonvegpizzasize=Integer.parseInt(br.readLine()); 
+                      
+                        switch(nonvegpizzasize)
+                             {
+                               
+                                  case 1:
+                                      itemsOrder.addItems(new SmallNonVegPizza());
+                                      break;
+                                                    
+                                  case 2:
+                                      itemsOrder.addItems(new MediumNonVegPizza());
+                                      break;  
+                                                   
+                                  case 3:
+                                      itemsOrder.addItems(new LargeNonVegPizza());
+                                      break;  
+                                                      
+                                  case 4:
+                                      itemsOrder.addItems(new ExtraLargeNonVegPizza());
+                                      break;      
+                              }
+                                    
+                       }  
+                        break;
+            default:
+            {
+                  break;
+                
+            }
+                
+ }//end of main Switch
+
+                    //continued?..
+        System.out.println(" Enter the choice of ColdDrink ");
+        System.out.println("============================");
+        System.out.println("        1. Pepsi            ");
+        System.out.println("        2. Coke             ");
+        System.out.println("        3. Exit             ");
+        System.out.println("============================");  
+                    int coldDrink=Integer.parseInt(br.readLine());
+        switch (coldDrink) 
+            {
+               case 1:
+                                {
+                                    System.out.println("You ordered Pepsi ");
+                                    System.out.println("Enter the  Pepsi Size ");
+                                    System.out.println("------------------------");
+                                    System.out.println("    1. Small Pepsi ");
+                                    System.out.println("    2. Medium Pepsi ");
+                                    System.out.println("    3. Large Pepsi ");
+                                    System.out.println("------------------------");
+                                              int pepsisize=Integer.parseInt(br.readLine());
+                                    switch(pepsisize)
+                                              {
+                                                  case 1:
+                                                   itemsOrder.addItems(new SmallPepsi());
+                                                   break;
+                                                    
+                                                  case 2:
+                                                   itemsOrder.addItems(new MediumPepsi());
+                                                   break;  
+                                                   
+                                                  case 3:
+                                                   itemsOrder.addItems(new LargePepsi());
+                                                   break;  
+                                                      
+                                                }
+                                 }  
+                                break;
+                         case 2:
+                                {
+                                    System.out.println("You ordered Coke");
+                                    System.out.println("Enter the Coke Size");
+                                    System.out.println("------------------------");
+                                    System.out.println("    1. Small Coke ");
+                                    System.out.println("    2. Medium Coke  ");
+                                    System.out.println("    3. Large Coke  ");
+                                    System.out.println("    4. Extra-Large Coke ");
+                                    System.out.println("------------------------");
+                                    
+                                    int cokesize=Integer.parseInt(br.readLine());
+                                    switch(cokesize)
+                                              {
+                                                  case 1:
+                                                   itemsOrder.addItems(new SmallCoke());
+                                                   break;
+                                                    
+                                                  case 2:
+                                                   itemsOrder.addItems(new MediumCoke());
+                                                   break;  
+                                                   
+                                                  case 3:
+                                                   itemsOrder.addItems(new LargeCoke());
+                                                   break;  
+                                                      
+                                                  
+                                              }     
+                                 
+                                }
+                                break;
+                     default:
+                                      {
+                                                   break;
+                
+                                      }        
+                         
+                               }//End of the Cold-Drink switch
+                  return itemsOrder;
+
+          } //End of the preparePizza() method 
+
+Step 15:Create a BuilderDemo class that will use the OrderBuilder class.File: Prototype.javaimport java.io.IOException;
+public class BuilderDemo {
+
+    public static void main(String[] args) throws IOException {
+        // TODO code application logic here
+        
+        OrderBuilder builder=new OrderBuilder();
+        
+        OrderedItems orderedItems=builder.preparePizza();
+        
+        orderedItems.showItems();
+        
+        System.out.println("\n");
+        System.out.println("Total Cost : "+ orderedItems.getCost());
+        
+    }
+}// End of the BuilderDemo class
+
+
+download this Builder Pattern ExampleOutputNext TopicObject Pool Pattern? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

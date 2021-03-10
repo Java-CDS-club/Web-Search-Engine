@@ -1,0 +1,24 @@
+Basic Block - javatpoint?HomeCompilerData StructureCC++C#JavaSQLHTMLCSSJavaScriptAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentCompiler TutorialCompiler Tutorial Compiler Introduction Compiler Phases Compiler Passes Bootstrapping Finite State machine Regular expression Optimization of DFA LEX Formal Grammar BNF Notation YACC Context free Grammars Capabilities of CFG Derivation Parse Tree AmbiguityBasic ParsingParser Shift Reduce Parsing Operator PrecedencePredictive ParsersLR parser LR(0) Items SLR(1) Parsing CLR(1) Parsing LALR(1) Parsing Parser GeneratorSDTSyntax Directed Translation SDT Translation scheme SDT ImplementationIntermediate Code Postfix Notation Parse and syntax trees Three address code Quadruples Triples Assignment statements Boolean expressions Flow altering statements Postfix translation Array references Procedures call Declarations Case StatementsSymbol TablesSymbol Table DS for symbols tables Scope InformationAdministrationStorage Organization Activation Record Storage AllocationError DetectionLexical Error Syntax Error Semantic ErrorCode GenerationCode Generation Design Issues Target Machine Run Time Storage Basic Block Flow Graph Block Optimization Code GeneratorCode OptimizationMachine Independent Loop optimization DAG Representation Data-Flow Analysisnext ? ? prevBasic BlockBasic block contains a sequence of statement. The flow of control enters at the beginning of the statement and leave at the end without any halt (except may be the last instruction of the block).The following sequence of three address statements forms a basic block:t1:= x * x
+t2:= x * y
+t3:= 2 * t2
+t4:= t1 + t3
+t5:= y * y
+t6:= t4 + t5Basic block construction:Algorithm: Partition into basic blocksInput: It contains the sequence of three address statementsOutput: it contains a list of basic blocks with each three address statement in exactly one blockMethod: First identify the leader in the code. The rules for finding leaders are as follows:The first statement is a leader.Statement L is a leader if there is an conditional or unconditional goto statement like: if....goto L or goto LInstruction L is a leader if it immediately follows a goto or conditional goto statement like: if goto B or goto BFor each leader, its basic block consists of the leader and all statement up to. It doesn't include the next leader or end of the program.Consider the following source code for dot product of two vectors a and b of length 10:begin 
+           prod :=0; 
+i:=1; 
+do begin 
+prod :=prod+ a[i] * b[i]; 
+i :=i+1; 
+end 
+while i <= 10 
+endThe three address code for the above source program is given below:B1(1)	prod := 0 
+(2)	i := 1B2(3)	t1 := 4* i 
+(4)	t2 := a[t1] 
+(5)	t3 := 4* i 
+(6)	t4 := b[t3] 
+(7)	t5 := t2*t4 
+(8)	t6 := prod+t5 
+(9)	prod := t6 
+(10)	t7 := i+1 
+(11)	i := t7 
+(12)	if i<=10 goto (3)	Basic block B1 contains the statement (1) to (2)Basic block B2 contains the statement (3) to (12)Next TopicFlow Graph? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,180 @@
+C++ algorithm equal_range() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm equal_range()C++ Algorithm equal_range() function is the version of binary search. This function is used to return the lower bound and upper bound of the sub range that includes all the elements equivalent to val in the range [first, last).Where sub range is defined by two iterators, one pointing to the first element that is not less than val and another pointing to the first element greater than val.The first version uses operator < to compare the elements and the second version uses the given comparison function i.e. comp.The range [first, last) must be partitioned with respect to comparison with val, i.e. it must satisfy all of the following conditions:partitioned with respect to element < val or comp(element, val)partitioned with respect to !(val < element) or !comp(val, element)for all elements, if element < val or comp(element, val) is true then !(val < element) or !comp(val, element) is also true.Syntaxdefault (1)      template <class ForwardIterator, class T>
+                       pair<ForwardIterator,ForwardIterator>
+                         equal_range (ForwardIterator first, ForwardIterator last, const T& val);
+
+custom (2)     template <class ForwardIterator, class T, class Compare>
+                      pair<ForwardIterator,ForwardIterator>
+                       equal_range (ForwardIterator first, ForwardIterator last, const T& val,
+                          Compare comp); Parameterfirst: A forward iterator pointing to the first element in the range to be searched.last: A forward iterator pointing to the past last element in the range to be searched.comp: A user-defined binary predicate function that accepts two arguments and returns true if the two arguments are in order otherwise, it returns false. It follows the strict weak ordering to order the elements.val: A value of the upper bound to compare the elements in the range.Return valueIt returns two iterators, one pointing to the first element that is not less than val and another pointing to the first element greater than val.If no such element is found then it returns last.ComplexityOn average, complexity is logarithmic in the distance between first and last: performs up to 2*log2 (N) + 1 element comparisons Where N = last - first.Data racesThe object in the range [first, last) are accessed.ExceptionsThis function throws an exception if either an element comparison or an operation on iterator throws an exception.Please note that invalid parameters cause an undefined behavior.Example 1Let's see the simple example to demonstrate the use of equal_range():#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+  vector<int> v = {3, 1, 4, 2, 5};
+
+  sort(v.begin(), v.end());
+
+  auto result = equal_range(v.begin(), v.end(), 3);
+
+  cout << "Lower Bound of 3 is: "<<*result.first << endl;
+  cout << "Upper Bound of 3 is: "<<*result.second << endl;
+  
+  return 0;
+}Output:Lower Bound of 3 is: 3
+Upper Bound of 3 is: 4Example 2Let's see another simple example to compare the elements using operator<:#include <algorithm>
+#include <vector>
+#include <iostream>
+ 
+using namespace std;
+ 
+struct S
+{
+    int number;
+    char name;
+ 
+    S ( int number, char name  )
+        : number ( number ), name ( name )
+    {}
+ 
+    // only the number is relevant with this comparison
+    bool operator< ( const S& s ) const
+    {
+        return number < s.number;
+    }
+};
+ 
+ 
+int main()
+{
+    // note: not ordered, only partitioned w.r.t. S defined below
+    vector<S> vec = { {1,'A'}, {2,'B'}, {2,'C'}, {2,'D'}, {4,'G'}, {3,'F'} };
+ 
+    S value ( 2, '?' );
+ 
+    auto p = equal_range(vec.begin(),vec.end(),value);
+ 
+    for ( auto i = p.first; i != p.second; ++i )
+        cout << i->name << ' ';
+        
+        return 0;
+}Output:B C DIn the above example, operator < is used to compare the elements and returns all the elements in the range which is equal to 2.Example 3Let's see another simple example to compare the elements using comparison function:#include <algorithm>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+ 
+struct S
+{
+    int number;
+    char name;
+ 
+    S ( int number, char name  )
+        : number ( number ), name ( name )
+    {}
+ 
+    // only the number is relevant with this comparison
+    bool operator< ( const S& s ) const
+    {
+        return number < s.number;
+    }
+};
+ 
+struct Comp
+{
+    bool operator() ( const S& s, int i )
+    {
+        return s.number < i;
+    }
+ 
+    bool operator() ( int i, const S& s )
+    {
+        return i < s.number;
+    }
+};
+ 
+int main()
+{
+    // note: not ordered, only partitioned w.r.t. S defined below
+    vector<S> vec = { {1,'A'}, {2,'B'}, {2,'C'}, {2,'D'}, {4,'G'}, {3,'F'} };
+ 
+    auto p = equal_range(vec.begin(),vec.end(),2,Comp());
+ 
+    for ( auto i = p.first; i != p.second; ++i )
+        cout << i->name << ' ';
+        
+        return 0;
+}Output:B C DExample 4Let's see another simple example:#include <iostream>
+#include <vector>
+#include <algorithm>
+ 
+using namespace std;
+ 
+int main()
+{
+  int a[] = {2, 3, 5, 6, 7, 7, 7,  8, 9, 10};
+  vector<int> v(a, a+10);
+  cout <<"\nHere are the contents of v:\n";
+  for (vector<int>::size_type i=0; i<v.size(); i++)
+    cout <<v.at(i)<<" ";
+ 
+  pair<vector<int>::iterator, vector<int>::iterator> bounds;
+ 
+  bounds = equal_range(v.begin(), v.end(), 3);
+  if (bounds.first != v.end())
+    cout <<"\nLower bound of 3 in v = "<<*bounds.first;
+  if (bounds.first != v.end())
+    cout <<"\nUpper bound of 3 in v = "<<*bounds.second;
+ 
+  bounds = equal_range(v.begin(), v.end(), 4);
+  if (bounds.first != v.end())
+    cout <<"\nLower bound of 4 in v = "<<*bounds.first;
+  if (bounds.first != v.end())
+    cout <<"\nUpper bound of 4 in v = "<<*bounds.second;
+ 
+  bounds = equal_range(v.begin(), v.end(), 5);
+  if (bounds.first != v.end())
+    cout <<"\nLower bound of 5 in v = "<<*bounds.first;
+  if (bounds.first != v.end())
+    cout <<"\nUpper bound of 5 in v = "<<*bounds.second;
+ 
+  bounds = equal_range(v.begin(), v.end(), 7);
+  if (bounds.first != v.end())
+    cout <<"\nLower bound of 7 in v = "<<*bounds.first;
+  cout <<"\nThis is the first of the three 7's, since the value "
+         "before this 7 is "<<*(bounds.first-1)<<".";
+  if (bounds.first != v.end())
+    cout <<"\nUpper bound of 7 in v = "<<*bounds.second;
+ 
+  bounds = equal_range(v.begin(), v.end(), 0);
+  if (bounds.first != v.end())
+    cout <<"\nLower bound of 0 in v = "<<*bounds.first;
+  if (bounds.first != v.end())
+    cout <<"\nUpper bound of 0 in v = "<<*bounds.second;
+ 
+  bounds = equal_range(v.begin(), v.end(), 15);
+  if (bounds.first != v.end())
+    cout <<"\nLower bound of 15 in v = "<<*bounds.first;
+  if (bounds.first != v.end())
+    cout <<"\nUpper bound of 15 in v = "<<*bounds.second;
+  cout <<"\nNote that both the lower and upper bound locations "
+         "\nof 15 are the end (one-past-the-last) vector position.";
+ 
+  return 0;
+}Output:Here are the contents of v:
+2 3 5 6 7 7 7 8 9 10 
+Lower bound of 3 in v = 3
+Upper bound of 3 in v = 5
+Lower bound of 4 in v = 5
+Upper bound of 4 in v = 5
+Lower bound of 5 in v = 5
+Upper bound of 5 in v = 6
+Lower bound of 7 in v = 7
+This is the first of the three 7's, since the value before this 7 is 6.
+Upper bound of 7 in v = 8
+Lower bound of 0 in v = 2
+Upper bound of 0 in v = 2
+Note that both the lower and upper bound locations 
+of 15 are the end (one-past-the-last) vector position. Next TopicC++ Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

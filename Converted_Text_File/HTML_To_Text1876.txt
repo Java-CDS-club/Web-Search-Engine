@@ -1,0 +1,115 @@
+C++ set get_allocator() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set get_allocator()C++ set get_allocator() function is used to return the copy of allocator object which helps to construct the set container.Syntax           allocator_type get_allocator() const; 		//until C++ 11
+allocator_type get_allocator() const noexcept; 	//since C++ 11ParameterNoneReturn valueReturns an allocator associated with set container.ComplexityConstant.Iterator validityNo changes.Data RacesThe container is accessed.Concurrently accessing the elements of set is safe.Exception SafetyThis function never throws exceptions.Example 1Let's see the simple example:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   set<double> m;   
+   double *p;
+
+   p = m.get_allocator().allocate(3);
+
+   //size of double is 8
+   cout << "Allocated size = " <<  sizeof(*p) * 4 << endl;
+
+   return 0;
+}Output:Allocated size = 32Example 2Let's see a simple example:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<int> myset;
+  int * p;
+  unsigned int i;
+
+  // allocate an array of 5 elements using myset's allocator:
+  p=myset.get_allocator().allocate(5);
+
+  // assign some values to array
+  for (i=0; i<5; i++) p[i]=(i+1)*10;
+
+  cout << "The allocated array contains:";
+  for (i=0; i<5; i++) cout << ' ' << p[i];
+  cout << '\n';
+
+  myset.get_allocator().deallocate(p,5);
+
+  return 0;
+}Output:The allocated array contains: 10 20 30 40 50Example 3Let's see a simple example to check whether the allocators are interchangeable or not:#include <set>  
+#include <iostream>  
+  
+int main( )  
+{  
+   using namespace std;  
+   set <int>::allocator_type s1_Alloc;  
+   set <int>::allocator_type s2_Alloc;  
+   set <double>::allocator_type s3_Alloc;  
+   set <int>::allocator_type s4_Alloc;  
+  
+   // The following lines declare objects  
+   // that use the default allocator.  
+   set <int> s1;  
+   set <int, allocator<int> > s2;  
+   set <double, allocator<double> > s3;  
+  
+   s1_Alloc = s1.get_allocator( );  
+   s2_Alloc = s2.get_allocator( );  
+   s3_Alloc = s3.get_allocator( );  
+  
+   cout << "The number of integers that can be allocated"  
+        << endl << "before free memory is exhausted: "  
+        << s2.max_size( ) << "." << endl;  
+  
+   cout << "\nThe number of doubles that can be allocated"  
+        << endl << "before free memory is exhausted: "  
+        << s3.max_size( ) <<  "." << endl;  
+  
+   // The following line creates a set s4  
+   // with the allocator of multiset s1.  
+   set <int> s4( less<int>( ), s1_Alloc );  
+  
+   s4_Alloc = s4.get_allocator( );  
+  
+   // Two allocators are interchangeable if  
+   // storage allocated from each can be  
+   // deallocated by the other  
+   if( s1_Alloc == s4_Alloc )  
+   {  
+      cout << "\nThe allocators are interchangeable."  
+           << endl;  
+   }  
+   else  
+   {  
+      cout << "\nThe allocators are not interchangeable."  
+           << endl;  
+   }
+   
+   return 0;
+}Output:The number of integers that can be allocated
+before free memory is exhausted: 461168601842738790.
+
+The number of doubles that can be allocated
+before free memory is exhausted: 461168601842738790.
+
+The allocators are interchangeable.Example 4Let's see a simple example:#include <iostream>
+ #include <set>
+
+using namespace std;
+
+int  main () 
+{ 
+  set < int >  c ; 
+  int *  p ;
+
+  p  =  c . get_allocator () . allocate ( 2 );
+
+  p [ 0 ]  =  42 ; 
+  p [ 1 ]  =  43 ;
+
+  cout  <<  p [ 0 ]  <<  ", "  <<  p [ 1 ]  <<  endl ;
+
+  c . get_allocator () . deallocate ( p ,  2 ); 
+}Output:42, 43Next TopicSet operator==? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

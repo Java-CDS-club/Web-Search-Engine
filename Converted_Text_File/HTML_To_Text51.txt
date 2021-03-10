@@ -1,0 +1,68 @@
+ADO.Net Datatables - javatpoint?HomeC#ADO.NETASP.NETJavaPHPHTMLCSSJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingADO.NET TutorialADO.NET Tutorial ADO.NET Introduction ADO.NET Data Providers ADO.NET SQL Server ADO.NET Connection ADO.NET Command ADO.NET DataReader ADO.NET DataSet ADO.NET DataAdapter ADO.NET DataTables ADO.NET WF Example ADO.NET MVC ExampleInterview QuestionsADO.NET InterviewC# TutorialC# Tutorial (100+)ASP.NET TutorialASP.NET Tutorial (50+)next ? ? prevADO.NET DataTableDataTable represents relational data into tabular form. ADO.NET provides a DataTable class to create and use data table independently. It can also be used with DataSet also. Initially, when we create DataTable, it does not have table schema. We can create table schema by adding columns and constraints to the table. After defining table schema, we can add rows to the table.We must include System.Data namespace before creating DataTable.DataTable Class Signaturepublic class DataTable : System.ComponentModel.MarshalByValueComponent, System.ComponentModel.IListSource,
+System.ComponentModel.ISupportInitializeNotification, System.Runtime.Serialization.ISerializable,
+System.Xml.Serialization.IXmlSerializableDataTable ConstructorsThe following table contains the DataTable class constructors.ConstructorsDescriptionDataTable()It is used to initialize a new instance of the DataTable class with no arguments.DataTable(String)It is used to initialize a new instance of the DataTable class with the specified table name.DataTable(SerializationInfo, StreamingContext)It is used to initialize a new instance of the DataTable class with the SerializationInfo and the StreamingContext.DataTable(String, String)It is used to initialize a new instance of the DataTable class using the specified table name and namespace.DataTable PropertiesThe following table contains the DataTable class properties.PropertyDescriptionColumnsIt is used to get the collection of columns that belong to this table.ConstraintsIt is used to get the collection of constraints maintained by this table.DataSetIt is used to get the DataSet to which this table belongs.DefaultViewIt is used to get a customized view of the table that may include a filtered view.HasErrorsIt is used to get a value indicating whether there are errors in any of the rows in the table of the DataSet.MinimumCapacityIt is used to get or set the initial starting size for this table.PrimaryKeyIt is used to get or set an array of columns that function as primary keys for the data table.RowsIt is used to get the collection of rows that belong to this table.TableNameIt is used to get or set the name of the DataTable.DataTable MethodsThe following table contains the DataTable class methods.MethodDescriptionAcceptChanges()It is used to commit all the changes made to this table.Clear()It is used to clear the DataTable of all data.Clone()It is used to clone the structure of the DataTable.Copy()It is used to copy both the structure and data of the DataTable.CreateDataReader()It is used to returns a DataTableReader corresponding to the data within this DataTable.CreateInstance()It is used to create a new instance of DataTable.GetRowType()It is used to get the row type.GetSchema()It is used to get schema of the table.ImportRow(DataRow)It is used to copy a DataRow into a DataTable.Load(IDataReader)It is used to fill a DataTable with values from a data source using the supplied IDataReader.Merge(DataTable, Boolean)It is used to merge the specified DataTable with the current DataTable.NewRow()It is used to create a new DataRow with the same schema as the table.Select()It is used to get an array of all DataRow objects.WriteXml(String)It is used to write the current contents of the DataTable as XML using the specified file.DataTable ExampleHere, in the following example, we are creating a data table that populates data to the browser. This example contains the following files.// DataTableForm.aspx<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DataTableForm.aspx.cs" 
+Inherits="DataTableDemo.DataTableForm" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+        </div>
+        <asp:GridView ID="GridView1" runat="server">
+        </asp:GridView>
+    </form>
+</body>
+</html>CodeBehind// DataTableForm.aspx.csusing System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+namespace DataTableDemo
+{
+    public partial class DataTableForm : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("ID");
+            table.Columns.Add("Name");
+            table.Columns.Add("Email");
+            table.Rows.Add("101", "Rameez","rameez@example.com");
+            table.Rows.Add("102", "Sam Nicolus", "sam@example.com");
+            table.Rows.Add("103", "Subramanium", "subramanium@example.com");
+            table.Rows.Add("104", "Ankur Kumar", "ankur@example.com");
+            GridView1.DataSource = table;
+            GridView1.DataBind();
+        }
+    }
+}Output:C# Public Access Specifier Exampleusing System;
+
+namespace AccessSpecifiers
+{
+    class PublicTest
+    {
+        public string name = "Santosh Singh";
+        public void Msg(string msg)
+        {
+            Console.WriteLine("Hello "+ msg);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            PublicTest publicTest = new PublicTest();
+            // Accessing public variable
+            Console.WriteLine("Hello "+publicTest.name);
+            // Accessing public method
+            publicTest.Msg("Peter Dicosta");
+        }
+    }
+}Output:Hello Santosh Singh
+Hello Peter DicostaNext TopicADO.NET Web Form Example? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

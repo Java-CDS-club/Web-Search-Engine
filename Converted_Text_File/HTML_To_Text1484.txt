@@ -1,0 +1,71 @@
+Computer Graphics Scan converting a Ellipse - javatpoint?HomeComputer FundamentalsComputer GraphicsBiometricsComputer NetworkJavaHTMLCSSSeleniumjQueryProjectsInterview QCommentForumTrainingComputer GraphicsComputer Graphics Tutorial Application of Computer Graphics Interactive and Passive GraphicsGraphic SystemsDisplay Processor Cathode Ray Tube (CRT) Random Scan vs Raster Scan Color CRT Monitors Direct View Storage Tubes Flat Panel DisplayInput-Output DevicesInput Devices Trackball Light Pen Image Scanner Output Devices PlottersScan Conversion a lineScan Conversion Definition Scan Converting a Point Scan Converting a Straight Line DDA Algorithm Bresenham's Line AlgorithmScan Conversion CircleDefining a Circle Defining a Circle using Polynomial Method Defining a Circle using Polar Coordinates Method Bresenham's Circle Algorithm Midpoint Circle AlgorithmScan Converting EllipseScan converting a Ellipse Polynomial Method Trignometric Method Midpoint Ellipse AlgorithmFilled Area PrimitivesBoundary Fill Algorithm Flood Fill Algorithm Scan Line Polygon Fill Algorithm2D TransformationsIntroduction of Transformation Translation Scaling Rotation Reflection Shearing Matrix Representation Homogeneous Coordinates Composite Transformation Pivot Point Rotation2D-ViewingWindow Window to Viewport Co-ordinate Transformation Zooming PanningClipping TechniquesClipping Point Clipping Line Clipping Midpoint Subdivision Algorithm Text Clipping Polygon Sutherland-Hodgeman Polygon Clipping Weiler-Atherton Polygon ClippingPointing & PositioningPointing & Positioning Techniques Elastic or Rubber Band Techniques DraggingShadingIntroduction of Shading Constant Intensity Shading Gouraud shading Phong ShadingAnimationAnimation Application Areas of Animation Animation Functions3D Computer GraphicsThree Dimensional Graphics Three Dimensional Transformations Scaling Rotation Rotation about Arbitrary Axis Inverse Transformations Reflection ShearingHidden SurfacesHidden Surface Removal Back Face Removal Algorithm Z-Buffer Algorithm Painter's Algorithm Scan Line Algorithm Subdivision Algorithm 3D Modelling SystemProjectionProjection Perspective Projection Parallel ProjectionProgramsComputer Graphics Programsnext ? ? prevScan Converting a Ellipse:The ellipse is also a symmetric figure like a circle but is four-way symmetry rather than eight-way.Program to Implement Ellipse Drawing Algorithm:#include
+#include
+#include
+#include
+void disp();
+float x,y;
+intxc,yc;
+void main()
+{
+                intgd=DETECT,gm,a,b;
+                float p1,p2;
+                clrscr();
+                initgraph(&gd,&gm,"c:\\turboc3\\bgi");
+                printf("*** Ellipse Generating Algorithm ***\n");
+                printf("Enter the value of Xc\t");
+                scanf("%d",&xc);
+                printf("Enter the value of yc\t");
+                scanf("%d",&yc);
+                printf("Enter X axis length\t");
+                scanf("%d",&a);
+                printf("Enter Y axis length\t");
+                scanf("%d",&b);
+                x=0;y=b;
+                disp();
+                p1=(b*b)-(a*a*b)+(a*a)/4;
+                while((2.0*b*b*x)=(2.0*a*a*y))
+                {
+                                x++;
+                                if(p1=0)
+                                p1=p1+(2.0*b*b*x)+(b*b);
+                                else
+		{
+                                                y--;
+                                                p1=p1+(2.0*b*b*x)+(b*b)-(2.0*a*a*y);
+		 }
+                               disp();
+                               x=-x;
+                               disp();
+                               x=-x;
+                               delay(50);
+                 }
+                 x=a;
+                 y=0;
+                 disp();
+                 p2=(a*a)+2.0*(b*b*a)+(b*b)/4;
+                 while((2.0*b*b*x)>(2.0*a*a*y))
+                {
+                                y++;
+                                if(p2>0)
+                                p2=p2+(a*a)-(2.0*a*a*y);
+                                else
+		{
+                                                x--;
+                                                p2=p2+(2.0*b*b*x)-(2.0*a*a*y)+(a*a);
+		 }
+                                disp();
+                                y=-y;
+                                disp();
+                                y=-y;
+                                delay(50);   
+            }
+                getch();
+                closegraph();
+}
+ void disp()
+{
+              putpixel(xc+x,yc+y,7);
+               putpixel(xc-x,yc+y,7);
+               putpixel(xc+x,yc-y,7);
+          putpixel(xc+x,yc-y,7);
+  }Output:There two methods of defining an Ellipse:Polynomial Method of defining an EllipseTrigonometric method of defining an EllipseNext TopicPolynomial Method? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

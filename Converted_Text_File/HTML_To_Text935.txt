@@ -1,0 +1,126 @@
+Bash Arrays - Javatpoint?HomeJavaCBashJavaScriptXMLAjaxSQLC++C#HTMLAndroidCloudDesign PatternQuizProjectsInterview QCommentForumBash TutorialBash Tutorial What is Bash History of Bash Features of Bash Bash Scripting Filesystem & File Permission Hello World! Bash Script Relative vs Absolute path Bash Comments Bash Quotes Bash Variables Read User Input Bash Date Format Bash SleepBash OperatorsBash Arithmetic OperatorsConditional StatementsBash If Statement Bash If Else Bash Else If Bash CaseBash LoopsBash For Loop Bash While Loop Bash Until LoopBash StringBash String Bash Find String Bash Split String Bash Substring Bash Concatenate StringBash FunctionBash FunctionsBash ArrayBash ArraysMiscellaneousBash Read File Bash Write File Check if file Exists Check if Variable is Set Bash Alias Git Bash Zsh vs Bash Bash Hash Commandnext ? ? prevBash ArrayIn this topic, we will demonstrate the basics of bash array and how they are used in bash shell scripting.An array can be defined as a collection of similar type of elements. Unlike most of the programming languages, arrays in bash scripting need not be the collection of similar elements. Since Bash does not discriminate the string from a number, an array may contain both strings and numbers.Bash does not provide support for the multidimensional arrays; we cannot have the elements which are arrays in themself. Bash provides support for one-dimensional numerically indexed arrays as well as associative arrays. To access the numerically indexed array from the last, we can use negative indices. The index of '-1' will be considered as a reference for the last element. We can use several elements in an array.Bash Array DeclarationArrays in Bash can be declared in the following ways:Creating Numerically Indexed ArraysWe can use any variable as an indexed array without declaring it.To explicitly declare a variable as a Bash Array, use the keyword 'declare' and the syntax can be defined as:declare -a ARRAY_NAMEwhere,ARRAY_NAME indicates the name that we would assign to the array.Note: Rules of naming a variable in Bash are the same for naming an array.A general method to create an indexed array can be defined in the following form:ARRAY_NAME[index_1]=value_1
+ARRAY_NAME[index_2]=value_2
+ARRAY_NAME[index_n]=value_nwhere keyword 'index' is used to define positive integers.Creating Associative ArraysUnlike numerically indexed arrays, the associative arrays are firstly declared. We can use the keyword 'declare' and the -A (uppercase) option to declare the associative arrays. The syntax can be defined as:declare -A ARRAY_NAMEA general method to create an associative array can be defined in the following form:declare -A ARRAY_NAME
+ARRAY_NAME[index_foo]=value_foo
+ARRAY_NAME[index_bar]=value_bar
+ARRAY_NAME[index_xyz]=value_xyzwhere index_ is used to define any string.We can also write the above form in the following way:declare -A ARRAY_NAME
+
+ARRAY_NAME=(
+	[index_foo]=value_foo
+	[index_bar]=value_bar
+	[index_xyz]=value_xyz
+)Bash Array InitializationTo initialize a Bash Array, we can use assignment operator (=), by specifying the list of the elements within parentheses, separated by spaces like below:ARRAY_NAME=(element_1st element_2nd element_Nth)Note: Here, the first element will have an index 0. Also, there should be no space around the assignment operator (=).Access Elements of Bash ArrayTo access the elements of a Bash Array, we can use the following syntax:echo ${ARRAY_NAME[2]}Print Bash ArrayWe can use the keyword 'declare' with a '-p' option to print all the elements of a Bash Array with all the indexes and details. The syntax to print the Bash Array can be defined as:declare -p ARRAY_NAMEArray OperationsOnce an array is assigned, we can perform some useful operations on it. We can display its keys and values as well as modify it by appending or removing the elements:Reference ElementsTo reference a single element, we are required to know the index number of the element. We can reference or print any element using the following syntax:${ARRAY_NAME[index]}Note: Curly braces ${} are required to avoid shell's filename expansion operators.For example, let's print an element of an array with an index of 2:Bash Script#!/bin/bash
+#Script to print an element of an array with an index of 2
+
+#declaring the array
+declare -a example_array=( "Welcome""To""Javatpoint" )
+
+#printing the element with index of 2
+echo ${example_array[2]}OutputJavatpointIf we use @ or * in the place of a specified index, it will expand to all members of the array. To print all the elements, we can use the following form:Bash Script#!/bin/bash
+#Script to print all the elements of the array
+
+#declaring the array
+declare -a example_array=( "Welcome""To""Javatpoint" )
+
+#Printing all the elements
+echo "${example_array[@]}"OutputWelcome to JavatpointThe only difference between using @ and * is that the form is surrounded with double quotes while using @. In the first case (while using @), the expansion provides a result in a word for each element of the array. It can be better described with the help of "for loop". Assume we have an array with three elements, "Welcome", "To" and "Javatpoint":$ example_array= (Welcome to Javatpoint)Applying a loop with @:for i in "${example_array[@]}"; do echo "$i"; doneIt will produce the following result:Welcome
+To
+JavatpointApplying a loop with *,a single result will be produced holding all the elements of the array as a single word:Welcome To JavatpointIt is important to understand the usage of @ and * because it is useful while using the form to iterate through array elements.Printing the Keys of an ArrayWe can also retrieve and print the keys used in indexed or associative arrays, instead of their respective values. It can be performed by adding the ! operator before the array name as below:${!ARRAY_NAME[index]}Example#!/bin/bash
+#Script to print the keys of the array
+
+#Declaring the Array
+declare -a example_array=( "Welcome""To""Javatpoint" )
+
+#Printing the Keys
+echo "${!example_array[@]}"Output0  1  2Finding Array LengthWe can count the number of elements contained in the array by using the following form:${#ARRAY_NAME[@]}Example#!/bin/bash
+
+#Declaring the Array
+declare -a example_array=( "Welcome""To""Javatpoint" )
+
+#Printing Array Length
+echo "The array contains ${#example_array[@]} elements"OutputThe array contains 3 elementsLoop through the ArrayThe general method to iterate over each item in an array is by using the 'for loop'.Example#!/bin/bash
+#Script to print all keys and values using loop through the array
+
+declare -a example_array=( "Welcome""To""Javatpoint" )
+
+#Array Loop
+for i in "${!example_array[@]}"
+do
+echo The key value of element "${example_array[$i]}" is "$i"
+doneOutputAnother common method to loop through an array is to retrieve the length of the array and use the C-style loop:Bash Script#!/bin/bash
+#Script to loop through an array in C-style
+
+declare -a example_array=( "Welcome""To""Javatpoint" )
+
+#Length of the Array
+length=${#example_array[@]}
+
+#Array Loop
+for (( i=0; i  ${length}; i++ ))
+do 
+echo $i ${example_array[$i]}
+doneOutputAdding Elements to an ArrayWe have an option to add elements to an indexed or associative array by specifying their index or associative key respectively. To add the new element to an array in bash, we can use the following form:ARRAY_NAME[index_n]="New Element"Example#!/bin/bash
+
+#Declaring an array
+declare -a example_array=( "Java""Python""PHP""HTML" )
+
+#Adding new element
+example_array[4]="JavaScript"
+
+#Printing all the elements
+echo "${example_array[@]}"OutputJava Python PHP HTML JavaScriptAnother method for adding a new element to an array is by using the += operator. There is no need to specify the index in this method. We can add one or multiple elements in the array by using the following way:Example#!/bin/bash
+
+#Declaring the Array
+declare -a example_array=( "Java""Python""PHP" )
+
+#Adding new elements
+example_array+=( JavaScript CSS SQL )
+
+#Printing all the elements
+echo "${example_array[@]}"OutputJava Python PHP JavaScript CSS SQLUpdating Array ElementWe can update the array element by assigning a new value to the existing array by its index value. Let's change the array element at index 4 with an element 'Javatpoint'.Example#!/bin/bash
+#Script to update array element
+
+#Declaring the array
+declare -a example_array=( "We""welcome""you""on""SSSIT" )
+
+#Updating the Array Element
+example_array[4]=Javatpoint
+
+#Printig all the elements of the Array
+echo ${example_array[@]}OutputWe welcome you on JavatpointDeleting an Element from an ArrayIf we want to delete the element from the array, we have to know its index or key in case of an associative array. An element can be removed by using the 'unset' command:unset ARRAY_NAME[index]An example is shown below to provide you a better understanding of this concept:Example#!/bin/bash
+#Script to delete the element from the array
+
+#Declaring the array
+declare -a example_array=( "Java""Python""HTML""CSS""JavaScript" )
+
+#Removing the element
+unset example_array[1]
+
+#Printing all the elements after deletion
+echo "${example_array[@]}"OutputJava HTML CSS JavaScriptHere, we have created a simple array consisting of five elements, "Java", "Python", "HTML", "CSS" and "JavaScript". Then we removed the element "Python" from the array by using "unset" and referencing the index of it. The index of element "Python" was '1', since bash arrays start from 0. If we check the indexes of the array after removing the element, we can see that the index for the removed element is missing. We can check the indexes by adding the following command into the script:echo ${!example_array[@]}The output will look like:0 2 3 4This concept also works for the associative arrays.Deleting the Entire ArrayDeleting an entire array is a very simple task. It can be performed by passing the array name as an argument to the 'unset' command without specifying the index or key.Example#!/bin/bash
+#Script to delete the entire Array
+
+#Declaring the Array
+declare -a example_array=( "Java""Python""HTML""CSS""JavaScript" )
+
+#Deleting Entire Array
+unset example_array
+
+#Printing the Array Elements
+echo ${!example_array[@]}
+
+#Printing the keys
+echo ${!example_array[@]}OutputThere will be no output if we try to print the content of the above script. An empty result is returned because the array doesn't exist anymore.Slice Array ElementsBash arrays can also be sliced from a given starting index to the ending index.To slice an array from starting index 'm' to an ending index 'n', we can use the following syntax:SLICED_ARRAY=(${ARRAY_NAME[@]:m:n}")Example#!/bin/bash
+#Script to slice Array Element from index 1 to index 3
+
+#Declaring the Array
+example_array=( "Java""Python""HTML""CSS""JavaScript" )
+
+#Slicing the Array 
+sliced_array=("${example_array[@]:1:3}")
+
+#Applying for loop to iterate over each element in Array
+for i in "${sliced_array[@]}"
+do
+echo $i
+doneOutputNext TopicBash Read File? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

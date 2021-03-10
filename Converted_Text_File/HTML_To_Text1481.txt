@@ -1,0 +1,67 @@
+Computer Graphics Rotation - javatpoint?HomeComputer FundamentalsComputer GraphicsBiometricsComputer NetworkJavaHTMLCSSSeleniumjQueryProjectsInterview QCommentForumTrainingComputer GraphicsComputer Graphics Tutorial Application of Computer Graphics Interactive and Passive GraphicsGraphic SystemsDisplay Processor Cathode Ray Tube (CRT) Random Scan vs Raster Scan Color CRT Monitors Direct View Storage Tubes Flat Panel DisplayInput-Output DevicesInput Devices Trackball Light Pen Image Scanner Output Devices PlottersScan Conversion a lineScan Conversion Definition Scan Converting a Point Scan Converting a Straight Line DDA Algorithm Bresenham's Line AlgorithmScan Conversion CircleDefining a Circle Defining a Circle using Polynomial Method Defining a Circle using Polar Coordinates Method Bresenham's Circle Algorithm Midpoint Circle AlgorithmScan Converting EllipseScan converting a Ellipse Polynomial Method Trignometric Method Midpoint Ellipse AlgorithmFilled Area PrimitivesBoundary Fill Algorithm Flood Fill Algorithm Scan Line Polygon Fill Algorithm2D TransformationsIntroduction of Transformation Translation Scaling Rotation Reflection Shearing Matrix Representation Homogeneous Coordinates Composite Transformation Pivot Point Rotation2D-ViewingWindow Window to Viewport Co-ordinate Transformation Zooming PanningClipping TechniquesClipping Point Clipping Line Clipping Midpoint Subdivision Algorithm Text Clipping Polygon Sutherland-Hodgeman Polygon Clipping Weiler-Atherton Polygon ClippingPointing & PositioningPointing & Positioning Techniques Elastic or Rubber Band Techniques DraggingShadingIntroduction of Shading Constant Intensity Shading Gouraud shading Phong ShadingAnimationAnimation Application Areas of Animation Animation Functions3D Computer GraphicsThree Dimensional Graphics Three Dimensional Transformations Scaling Rotation Rotation about Arbitrary Axis Inverse Transformations Reflection ShearingHidden SurfacesHidden Surface Removal Back Face Removal Algorithm Z-Buffer Algorithm Painter's Algorithm Scan Line Algorithm Subdivision Algorithm 3D Modelling SystemProjectionProjection Perspective Projection Parallel ProjectionProgramsComputer Graphics Programsnext ? ? prevRotation:It is a process of changing the angle of the object. Rotation can be clockwise or anticlockwise. For rotation, we have to specify the angle of rotation and rotation point. Rotation point is also called a pivot point. It is print about which object is rotated.Types of Rotation:AnticlockwiseCounterclockwiseThe positive value of the pivot point (rotation angle) rotates an object in a counter-clockwise (anti-clockwise) direction.The negative value of the pivot point (rotation angle) rotates an object in a clockwise direction.When the object is rotated, then every point of the object is rotated by the same angle.Straight Line: Straight Line is rotated by the endpoints with the same angle and redrawing the line between new endpoints.Polygon: Polygon is rotated by shifting every vertex using the same rotational angle.Curved Lines: Curved Lines are rotated by repositioning of all points and drawing of the curve at new positions.Circle: It can be obtained by center position by the specified angle.Ellipse: Its rotation can be obtained by rotating major and minor axis of an ellipse by the desired angle.Matrix for rotation is a clockwise direction.Matrix for rotation is an anticlockwise direction.Matrix for homogeneous co-ordinate rotation (clockwise)Matrix for homogeneous co-ordinate rotation (anticlockwise)Rotation about an arbitrary point: If we want to rotate an object or point about an arbitrary point, first of all, we translate the point about which we want to rotate to the origin. Then rotate point or object about the origin, and at the end, we again translate it to the original place. We get rotation about an arbitrary point.Example: The point (x, y) is to be rotatedThe (xc yc) is a point about which counterclockwise rotation is doneStep1: Translate point (xc yc) to originStep2: Rotation of (x, y) about the originStep3: Translation of center of rotation back to its original positionExample1: Prove that 2D rotations about the origin are commutative i.e. R1 R2=R2 R1.Solution: R1 and R2are rotation matricesExample2: Rotate a line CD whose endpoints are (3, 4) and (12, 15) about origin through a 45° anticlockwise direction.Solution: The point C (3, 4)Example3: Rotate line AB whose endpoints are A (2, 5) and B (6, 12) about origin through a 30° clockwise direction.Solution: For rotation in the clockwise direction. The matrix isStep1: Rotation of point A (2, 5). Take angle 30°Step2: Rotation of point B (6, 12)Program to rotate a line:#include
+#include
+#include
+int main()
+{
+	intgd=0,gm,x1,y1,x2,y2;
+	double s,c, angle;
+	initgraph(&gd, &gm, "C:\\TC\\BGI");
+	setcolor(RED);
+	printf("Enter coordinates of line: ");
+	scanf("%d%d%d%d",&x1,&y1,&x2,&y2);
+	cleardevice();
+	setbkcolor(WHITE);
+	line(x1,y1,x2,y2);
+	getch();
+	setbkcolor(BLACK);
+	printf("Enter rotation angle: ");
+	scanf("%lf", &angle);
+	setbkcolor(WHITE);
+	c = cos(angle *3.14/180);
+	s = sin(angle *3.14/180);
+	x1 = floor(x1 * c + y1 * s);
+	y1 = floor(-x1 * s + y1 * c);
+	x2 = floor(x2 * c + y2 * s);
+	y2 = floor(-x2 * s + y2 * c);
+	cleardevice();
+	line(x1, y1 ,x2, y2);
+	getch();
+	closegraph();
+return 0;
+}Output:Before rotationAfter rotationProgram to rotate a Triangle:#include
+#include
+#include
+main()
+{
+	intgd=0,gm,x1,y1,x2,y2,x3,y3;
+	double s,c, angle;
+	initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
+	setcolor(RED);
+	printf("Enter coordinates of triangle: ");
+	scanf("%d%d%d%d%d%d",&x1,&y1,&x2,&y2, &x3, &y3);
+	setbkcolor(WHITE);
+	cleardevice();
+	line(x1,y1,x2,y2);
+	line(x2,y2, x3,y3);
+	line(x3, y3, x1, y1);
+	getch();
+	setbkcolor(BLACK);
+	printf("Enter rotation angle: ");
+	scanf("%lf", &angle);
+	setbkcolor(WHITE);
+	c = cos(angle *M_PI/180);
+	s = sin(angle *M_PI/180);
+	x1 = floor(x1 * c + y1 * s);
+	y1 = floor(-x1 * s + y1 * c);
+	x2 = floor(x2 * c + y2 * s);
+	y2 = floor(-x2 * s + y2 * c);
+	x3 = floor(x3 * c + y3 * s);
+	y3 = floor(-x3 * s + y3 * c);
+	cleardevice();
+	line(x1, y1 ,x2, y2);
+	line(x2,y2, x3,y3);
+	line(x3, y3, x1, y1);
+	getch();
+	closegraph();
+	return 0;
+}Output:Before rotationAfter rotationNext TopicReflection? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

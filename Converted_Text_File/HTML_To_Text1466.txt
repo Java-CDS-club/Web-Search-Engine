@@ -1,0 +1,114 @@
+Computer Graphics Midpoint Ellipse Algorithm - javatpoint?HomeComputer FundamentalsComputer GraphicsBiometricsComputer NetworkJavaHTMLCSSSeleniumjQueryProjectsInterview QCommentForumTrainingComputer GraphicsComputer Graphics Tutorial Application of Computer Graphics Interactive and Passive GraphicsGraphic SystemsDisplay Processor Cathode Ray Tube (CRT) Random Scan vs Raster Scan Color CRT Monitors Direct View Storage Tubes Flat Panel DisplayInput-Output DevicesInput Devices Trackball Light Pen Image Scanner Output Devices PlottersScan Conversion a lineScan Conversion Definition Scan Converting a Point Scan Converting a Straight Line DDA Algorithm Bresenham's Line AlgorithmScan Conversion CircleDefining a Circle Defining a Circle using Polynomial Method Defining a Circle using Polar Coordinates Method Bresenham's Circle Algorithm Midpoint Circle AlgorithmScan Converting EllipseScan converting a Ellipse Polynomial Method Trignometric Method Midpoint Ellipse AlgorithmFilled Area PrimitivesBoundary Fill Algorithm Flood Fill Algorithm Scan Line Polygon Fill Algorithm2D TransformationsIntroduction of Transformation Translation Scaling Rotation Reflection Shearing Matrix Representation Homogeneous Coordinates Composite Transformation Pivot Point Rotation2D-ViewingWindow Window to Viewport Co-ordinate Transformation Zooming PanningClipping TechniquesClipping Point Clipping Line Clipping Midpoint Subdivision Algorithm Text Clipping Polygon Sutherland-Hodgeman Polygon Clipping Weiler-Atherton Polygon ClippingPointing & PositioningPointing & Positioning Techniques Elastic or Rubber Band Techniques DraggingShadingIntroduction of Shading Constant Intensity Shading Gouraud shading Phong ShadingAnimationAnimation Application Areas of Animation Animation Functions3D Computer GraphicsThree Dimensional Graphics Three Dimensional Transformations Scaling Rotation Rotation about Arbitrary Axis Inverse Transformations Reflection ShearingHidden SurfacesHidden Surface Removal Back Face Removal Algorithm Z-Buffer Algorithm Painter's Algorithm Scan Line Algorithm Subdivision Algorithm 3D Modelling SystemProjectionProjection Perspective Projection Parallel ProjectionProgramsComputer Graphics Programsnext ? ? prevMidpoint Ellipse Algorithm:This is an incremental method for scan converting an ellipse that is centered at the origin in standard position i.e., with the major and minor axis parallel to coordinate system axis. It is very similar to the midpoint circle algorithm. Because of the four-way symmetry property we need to consider the entire elliptical curve in the first quadrant.Let's first rewrite the ellipse equation and define the function f that can be used to decide if the midpoint between two candidate pixels is inside or outside the ellipse:Now divide the elliptical curve from (0, b) to (a, 0) into two parts at point Q where the slope of the curve is -1.Slope of the curve is defined by the f(x, y) = 0 iswhere fx & fy are partial derivatives of f(x, y) with respect to x & y.We have fx = 2b2 x, fy=2a2 y &  Hence we can monitor the slope value during the scan conversion process to detect Q. Our starting point is (0, b)Suppose that the coordinates of the last scan converted pixel upon entering step i are (xi,yi). We are to select either T (xi+1),yi) or S (xi+1,yi-1) to be the next pixel. The midpoint of T & S is used to define the following decision parameter.pi = f(xi+1),yi-)pi=b2 (xi+1)2+a2 (yi-)2-a2 b2If pi0, the midpoint is inside the curve and we choose pixel T.If pi>0, the midpoint is outside or on the curve and we choose pixel S.Decision parameter for the next step is:pi+1=f(xi+1+1,yi+1-)          = b2 (xi+1+1)2+a2 (yi+1-)2-a2 b2Since xi+1=xi+1,we have          pi+1-pi=b2[((xi+1+1)2+a2 (yi+1-)2-(yi -)2]          pi+1= pi+2b2 xi+1+b2+a2 [(yi+1-)2-(yi -)2]If T is chosen pixel (pi0), we have yi+1=yi.If S is chosen pixel (pi>0) we have yi+1=yi-1. Thus we can express          pi+1in terms of pi and (xi+1,yi+1):           pi+1= pi+2b2 xi+1+b2          if pi0           = pi+2b2 xi+1+b2-2a2 yi+1 if pi>0The initial value for the recursive expression can be obtained by the evaluating the original definition of pi with (0, b):p1 = (b2+a2 (b-)2-a2 b2= b2-a2 b+a2/4Suppose the pixel (xj yj) has just been scan converted upon entering step j. The next pixel is either U (xj ,yj-1) or V (xj+1,yj-1). The midpoint of the horizontal line connecting U & V is used to define the decision parameter:qj=f(xj+,yj-1)qj=b2 (xj+)2+a2 (yj -1)2-a2 b2If qj0, the midpoint is inside the curve and we choose pixel V.If qj?0, the midpoint is outside the curve and we choose pixel U.Decision parameter for the next step is:qj+1=f(xj+1+,yj+1-1)          = b2 (xj+1+)2+ a2 (yj+1-1)2- a2 b2Since yj+1=yj-1,we haveqj+1-qj=b2 [(xj+1+)2-(xj +)2 ]+a2 (yj+1-1)2-( yj+1)2 ]qj+1=qj+b2 [(xj+1+)2-(xj +)2]-2a2 yj+1+a2If V is chosen pixel (qj0), we have xj+1=xj.If U is chosen pixel (pi>0) we have xj+1=xj. Thus we can expressqj+1in terms of qj and (xj+1,yj+1 ):qj+1=qj+2b2 xj+1-2a2 yj+1+a2          if qj 0=qj-2a2 yj+1+a2          if qj>0The initial value for the recursive expression is computed using the original definition of qj. And the coordinates of (xk yk) of the last pixel choosen for the part 1 of the curve:q1 = f(xk+,yk-1)=b2 (xk+)2-a2 (yk-1)2- a2 b2Algorithm:int x=0, y=b; [starting point]
+int fx=0, fy=2a2 b [initial partial derivatives]
+int p = b2-a2 b+a2/4
+while (fx* slope  1
+{
+	set pixel (x, y)
+	x++;
+	fx=fx + 2b2;
+	if (p0)
+	p = p + fx +b2;
+	else
+	{
+		y--;
+		fy=fy-2a2
+		p = p + fx +b2-fy;
+	}
+}
+Setpixel (x, y);
+p=b2(x+0.5)2+ a2 (y-1)2- a2 b2
+while (y>0)
+{
+	y--;
+	fy=fy-2a2;
+	if (p>=0)
+	p=p-fy+a2
+           else
+	{
+		x++;
+		fx=fx+2b2
+		p=p+fx-fy+a2;
+	}
+	Setpixel (x,y);
+}Program to draw an ellipse using Midpoint Ellipse Algorithm:#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+
+class bresen
+{
+	float x,y,a, b,r,p,h,k,p1,p2;
+	public:
+	void get ();
+	void cal ();
+};
+	void main ()
+    {
+	bresen b;
+	b.get ();
+	b.cal ();
+	getch ();
+   }
+	void bresen :: get ()
+   {
+	cout"\n ENTER CENTER OF ELLIPSE";
+	cout"\n ENTER (h, k) ";	
+           cin>>h>>k;
+	cout"\n ENTER LENGTH OF MAJOR AND MINOR AXIS";
+	cin>>a>>b;
+  }
+void bresen ::cal ()
+{
+	/* request auto detection */
+	int gdriver = DETECT,gmode, errorcode;
+	int midx, midy, i;
+	/* initialize graphics and local variables */
+	initgraph (&gdriver, &gmode, " ");
+	/* read result of initialization */
+	errorcode = graphresult ();
+	if (errorcode ! = grOK)    /*an error occurred */
+	{
+ 		printf("Graphics error: %s \n", grapherrormsg (errorcode);
+		printf ("Press any key to halt:");
+		getch ();
+		exit (1); /* terminate with an error code */
+	}
+	x=0;
+	y=b;
+	// REGION 1
+	p1 =(b * b)-(a * a * b) + (a * a)/4);
+	{
+		putpixel (x+h, y+k, RED);
+		putpixel (-x+h, -y+k, RED);
+		putpixel (x+h, -y+k, RED);
+		putpixel (-x+h, y+k, RED);
+		if (p1  0)
+			p1 += ((2 *b * b) *(x+1))-((2 * a * a)*(y-1)) + (b * b);
+		else
+		{
+			p1+= ((2 *b * b) *(x+1))-((2 * a * a)*(y-1))-(b * b);
+			y--;		
+		}
+		x++;
+	}
+	//REGION 2
+	p2 =((b * b)* (x + 0.5))+((a * a)*(y-1) * (y-1))-(a * a *b * b);
+	while (y>=0)
+	{
+		If (p2>0)
+		p2=p2-((2 * a * a)* (y-1))+(a *a);
+		else
+		{
+		p2=p2-((2 * a * a)* (y-1))+((2 * b * b)*(x+1))+(a * a);
+		x++;
+		}
+		y--;
+		putpixel (x+h, y+k, RED);
+		putpixel (-x+h, -y+k, RED);
+		putpixel (x+h, -y+k, RED);
+		putpixel (-x+h, y+k, RED);
+	}
+	getch();
+}Output:Next TopicBoundary Fill Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,121 @@
+C++ set insert() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set insert()C++ set insert() is used for inserting new element in the set.Because element keys are unique in a set, the insertion operation first checks that whether the given key is already present in the set or not, if the key is present in the set then it is not inserted in the set and the iterator to the existing key is returned otherwise new element is inserted in the set.Syntaxsingle element (1)     pair<iterator,bool> insert (const value_type& val);   //until C++ 11
+
+with hint (2)	iterator insert (iterator position, const value_type& val);   //until C++ 11
+
+range (3)	  template <class InputIterator>
+  		   void insert (InputIterator first, InputIterator last);        //until C++ 11
+
+single element (1)  pair<iterator,bool> insert (const value_type& val);
+                                pair<iterator,bool> insert (value_type&& val);           //since C++ 11
+            
+with hint (2)	iterator insert (const_iterator position, const value_type& val);
+                          iterator insert (const_iterator position, value_type&& val); //since C++ 11
+
+range (3)	template <class InputIterator>
+                          void insert (InputIterator first, InputIterator last);            //since C++ 11
+
+initializer list (4)       void insert (initializer_list<value_type> il);              //since C++ 11Parameterval: value to insert in the set.position: Hint for the position to insert element in the set.first: Beginning of range to insert.last: End of range to insert.il: An initializer list.Return valueReturns a bool pair to indicate whether insertion is happened or not and returns an iterator pointing to the newly inserted element.ComplexityIf a single element is inserted complexity will be logarithmic in size.If a hint is given and the position given is the optimal then the complexity will be amortized constant.Iterator validityNo changes.Data RacesThe container is modified.Exception SafetyThis function does not throw exception.Example 1Let's see the simple example to insert the elements into the set:#include <iostream>
+#include <set>
+
+using namespace std;
+int main()
+{
+    set<int> s;
+ 
+    // Function to insert elements
+    // in the set container
+    s.insert(1);
+    s.insert(4);
+    s.insert(2);
+    s.insert(5);
+    s.insert(3);
+ 
+    cout << "The elements in set are: ";
+    for (auto it = s.begin(); it != s.end(); it++)
+        cout << *it << " ";
+ 
+    return 0;
+}Output:The elements in set are: 1 2 3 4 5In the above example, it simply inserts the element with the given key.Example 2Let's see a simple example to insert the element in the specified position:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main()
+{ 
+    set<int> s;
+ 
+    // Function to insert elements
+    // in the set container
+    auto itr = s.insert(s.begin(), 1);
+ 
+    // the time taken to insertion
+    // is very less as the correct
+    // position for insertion is given
+    itr = s.insert(itr, 4);
+    itr = s.insert(itr, 2);
+    itr = s.insert(itr, 5);
+    itr = s.insert(itr, 3);
+ 
+    cout << "The elements in set are: ";
+    for (auto it = s.begin(); it != s.end(); it++)
+        cout << *it << " ";
+ 
+    return 0;
+}Output:The elements in set are: 1 2 3 4 5  In the above example, elements are inserted in the defined position.Example 3Let's see a simple example to insert the elements of one set to another in a given range:#include <iostream>
+# include<iostream>
+# include<set>
+
+using namespace std;
+
+int main()
+{ 
+    set<int> s1;
+ 
+    // Function to insert elements
+    // in the set container
+    s1.insert(1);
+    s1.insert(4);
+    s1.insert(2);
+    s1.insert(5);
+    s1.insert(3);
+ 
+    cout << "The elements in set1 are: ";
+    for (auto it = s1.begin(); it != s1.end(); it++)
+        cout << *it << " ";
+ 
+    set<int> s2;
+ 
+    // Function to insert one set to another
+    // all elements from where 3 is to end is
+    // inserted to set2
+    s2.insert(s1.find(3), s1.end());
+ 
+    cout << "\nThe elements in set2 are: ";
+    for (auto it = s2.begin(); it != s2.end(); it++)
+        cout << *it << " ";
+ 
+    return 0;
+}Output:The elements in set1 are: 1 2 3 4 5 
+The elements in set2 are: 3 4 5  Example 4Let's see a simple example to insert the elements from the initializer list:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   set<string> m = {"Java", "C++", "SQL"};
+   
+  // Insert the elements from an initializer_list 
+   m.insert({"VB", "Oracle"});
+
+   cout << "Set contains following elements" << endl;
+
+   for (auto it = m.begin(); it != m.end(); ++it)
+      cout << *it<< endl;
+
+   return 0;
+}Output:Set contains following elements
+C++
+Java
+Oracle
+SQL
+VBIn the above example, elements are inserted from an initializer list.Next TopicSet erase() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

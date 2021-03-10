@@ -1,0 +1,71 @@
+Box-shadow CSS - javatpoint?HomeCJavaPHPHTMLCSSSassLessBootstrapJavaScriptjQueryjQuery UIXMLJSONAjaxNode.jsQuizProjectsInterview QCommentForumTrainingWeb Designing TrainingCSS TutorialIntroduction to CSS What is CSS CSS Syntax CSS Selector How to Add CSS Inline CSS Internal CSS External CSS CSS CommentsCSS PropertiesCSS Background CSS Border CSS Display CSS Float CSS Font CSS Font-size CSS Colors CSS Hover CSS Important CSS Background-color CSS Line Height CSS Margin CSS Opacity CSS filter CSS Images CSS Overflow CSS Padding CSS Position CSS Vertical Align CSS White Space CSS Width CSS Word Wrap Box-shadow CSS CSS Text-shadow CSS text-transform CSS Outline CSS Visibility CSS CounterCSS AdvanceCSS Animation CSS Gradient CSS z-index CSS minify CSS Loader CSS Transition CSS Tooltips CSS Tooltip Animation CSS Arrow CSS FlexBox CSS @Media Query CSS 2D Transforms CSS 3D Transforms CSS Aural Media CSS User Interface CSS PaginationCSS DesignCSS Grid CSS Layout CSS TableInterview QuestionsCSS Interview Questionsnext ? ? prevBox-shadow CSSIt is used to add shadow-like effects around the frame of an element.Syntaxbox-shadow: h-offset v-offset blur spread color |inset|inherit|initial|none;Let's understand property values.h-offset: It horizontally sets the shadow position. Its positive value will set the shadow to the right side of the box. Its negative value is used to set the shadow on the left side of the box.v-offset: Unlike the h-offset, it is used to set the shadow position vertically. The positive value in it sets the shadow below the box, and the negative value sets the shadow above of the box.blur: As its name implies, it is used to blur the box-shadow. This attribute is optional.spread: It sets the shadow size. The spread size depends upon the spread value.color: As its name implies, this attribute is used to set the color of the shadow. It is an optional attribute.inset: Normally, the shadow generates outside of the box, but by using inset, the shadow can be created within the box.initial: It is used to set the property of the box-shadow to its default value.inherit: it is inherited from its parent.none: It is the default value that does not include any shadow property.Let's understand the above attributes by using an illustration.Example<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>CSS box-shadow Property</title> 
+      
+        <style> 
+            div
+            {
+            border: 1px solid; 
+            padding: 10px; 
+            }
+            #hvb 
+            { 
+                /* box-shadow: h-offset v-offset blur */ 
+                box-shadow: 5px 10px 10px; 
+            } 
+            #spr
+            {
+                /* box-shadow: h-offset v-offset blur spread */
+                box-shadow: 5px 10px 10px 10px; 
+            }
+            #col
+            {
+               /* box-shadow: h-offset v-offset blur spread color */ 
+                box-shadow: 5px 10px 10px 10px orange; 
+            }
+            #ins
+            {
+                  /* box-shadow: h-offset v-offset blur spread color inset */ 
+                box-shadow: 5px 10px 10px 10px orange inset; 
+            }
+            #init
+            {
+                  /* box-shadow: initial */ 
+               box-shadow: initial;
+            
+            }
+            #non
+            {              
+                /* box-shadow: none */ 
+                box-shadow: none;
+            }
+        </style> 
+    </head> 
+      
+    <body> 
+        <div id = "hvb"> 
+            <h1>It is a shadow box that has h-offset, v-offset and blur attributes.</h1> 
+       </div>
+<br><br> 
+        <div id = "spr"> 
+            <h1>It is a box that includes the spread attribute.</h1>
+        </div> 
+<br><br> 
+        <div id = "col"> 
+        <h1>It is a box that includes the color attribute.</h1>
+     </div> 
+<br><br> 
+     <div id = "ins"> 
+      <h1>It is a box that includes the inset attribute.</h1>
+   </div> 
+<br><br> 
+   <div id = "init"> 
+      <h1>It is a box that includes the initial attribute.</h1>
+   </div> 
+<br><br>
+   <div id = "non"> 
+      <h1>It is a box that includes the default attribute i.e. none.</h1>
+  </div> 
+    </body> 
+</html>Test it NowNext TopicCSS Text-shadow? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

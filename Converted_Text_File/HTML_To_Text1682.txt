@@ -1,0 +1,211 @@
+C++ algorithm stable_sort() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm stable_sort()C++ Algorithm stable_sort() function is used to sort the elements in the range [first, last) into ascending order like sort but keeps the order of equivalent elements.The elements are compared using operator for the first version, and comp for the second version.Syntaxtemplate <class RandomAccessIterator>
+  void stable_sort ( RandomAccessIterator first, RandomAccessIterator last );
+
+template <class RandomAccessIterator, class Compare>
+  void stable_sort ( RandomAccessIterator first, RandomAccessIterator last,
+                     Compare comp );Parameterfirst: A bidirectional iterator pointing to the first element in the range to be sorted.last: A bidirectional iterator pointing to the past last element in the range to be sorted.comp: A user defined binary predicate function that accepts two arguments and returns true if the two arguments are in order and false otherwise. It follows the strict weak ordering to order the elements.Return valueNoneComplexityThe run time complexity depends on the amount of available memory.If enough extra memory is available, then the complexity is linear in the distance between first and last. Performs up to N*log2 (N) element comparisons where N = last - first.If no extra memory is available then the complexity is polylinear in the distance between first and last. Performs up to N*log22 (N) element comparisons where N = last - first.Data racesThe object in the range [first, last) are modified.ExceptionsThis function throws an exception if any of element comparisons, the element swaps or an operation on iterator throws an exception.Please note that invalid parameters cause an undefined behavior.Example 1Let's see the simple example to demonstrate the use of stable_sort():#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+  vector<int> v = {3, 1, 4, 2, 5};
+  
+    cout<<"Before sorting: ";
+    for_each(v.begin(), v.end(), [](int x) {
+    cout << x << " ";
+  });
+
+  stable_sort(v.begin(), v.end());
+  
+  cout<<"\nAfter sorting:  ";
+  for_each(v.begin(), v.end(), [](int x) {
+    cout << x << " ";
+  });
+  
+  return 0;
+}Output:Before sorting: 3 1 4 2 5 
+After sorting:  1 2 3 4 5Example 2Let's see another simple example:#include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
+ 
+using namespace std;
+ 
+struct Employee {
+    Employee(int age, string name) : age(age), name(name) { } 
+    int age;
+    string name;  // Does not particpate in comparisons
+};
+ 
+bool operator<(const Employee &lhs, const Employee &rhs) {
+    return lhs.age < rhs.age;
+}
+ 
+int main()
+{
+    vector<Employee> v = { 
+        Employee(58, "Robin"),
+        Employee(23, "Bob"),
+        Employee(60, "Devid"),
+    };  
+ 
+    stable_sort(v.begin(), v.end());
+    
+    cout<<"Age : Name "<<endl<<"-----------\n";
+    for (const Employee &e : v) {
+        cout << e.age << " : " << e.name << '\n';
+    }
+    
+    return 0;
+}Output:Age : Name 
+-----------
+23 : Bob
+58 : Robin
+60 : DevidExample 3Let's see another simple example:#include <iostream>
+#include <algorithm>
+#include <string>
+#include <vector>
+
+using namespace std;
+ 
+struct Student {
+    string name;
+    int sec;
+    char group;
+};
+ 
+bool compBySec(Student a, Student b)
+{
+    return a.sec < b.sec;
+}
+ 
+bool compByGroup(Student a, Student b)
+{
+    return a.group < b.group;
+}
+ 
+bool compByName(Student a, Student b)
+{
+    return a.name < b.name;
+}
+ 
+void print(const vector <Student>& v)
+{
+    cout << "Name  \tSec\tGroup" << "\n-------------------------"<<endl;
+    for (unsigned int i = 0; i < v.size(); i++)
+    {   
+        cout << v[i].name << "\t" << v[i].sec<< "\t"
+                  << v[i].group << endl;
+    }
+}
+ 
+int main()
+{
+    vector <Student> Students;
+    string name[] = {"Anjali", "Bob", "Chinu  ", "Faizal ",
+                          "Nikita ", "Deep ", "Aman", "Rohit "};
+    int sec[] = {3, 4, 3, 3, 1, 4, 3, 2};
+    int group[] = {'A', 'C', 'A', 'A', 'A', 'B', 'B', 'A'};
+ 
+    for (int i = 0; i < 8; i++)
+    {
+        Student p;   
+        p.name =  name[i];
+        p.sec = sec[i];
+        p.group = group[i];
+        Students.push_back(p);
+    }
+    stable_sort(Students.begin(), Students.end(), compByName);
+    cout << "Stable Sort by name" << endl;
+    print(Students);
+    cout << endl;
+    stable_sort(Students.begin(), Students.end(), compBySec);
+    cout << "Stable Sort by section" << endl;
+    print(Students);
+    
+    return 0;
+}Output:Stable Sort by name
+Name  	Sec	Group
+-------------------------
+Aman	3	B
+Anjali	3	A
+Bob	4	C
+Chinu  	3	A
+Deep 	4	B
+Faizal 	3	A
+Nikita 	1	A
+Rohit 	2	A
+
+Stable Sort by section
+Name  	Sec	Group
+-------------------------
+Nikita 	1	A
+Rohit 	2	A
+Aman	3	B
+Anjali	3	A
+Chinu  	3	A
+Faizal 	3	A
+Bob	4	C
+Deep 	4	B
+
+Example 4Let's see another simple example:#include <vector>  
+#include <algorithm>  
+#include <functional>      // For greater<int>( )  
+#include <iostream>  
+  
+// Return whether first element is greater than the second  
+bool UDgreater (int elem1, int elem2 )  
+{  
+   return elem1 > elem2;  
+}  
+  
+int main( )  
+{  
+   using namespace std;  
+   vector <int> v1;  
+   vector <int>::iterator Iter1;  
+  
+   int i;  
+   for ( i = 0 ; i <= 5 ; i++ )  
+   {  
+      v1.push_back( 2 * i );  
+   }  
+  
+   for ( i = 0 ; i <= 5 ; i++ )  
+   {  
+      v1.push_back( 2 * i  );  
+   }  
+  
+   cout << "Original vector v1 = ( " ;  
+   for ( Iter1 = v1.begin( ) ; Iter1 != v1.end( ) ; Iter1++ )  
+      cout << *Iter1 << " ";  
+   cout << ")" << endl;  
+  
+   stable_sort(v1.begin( ), v1.end( ) );  
+   cout << "Sorted vector v1 = ( " ;  
+   for ( Iter1 = v1.begin( ) ; Iter1 != v1.end( ) ; Iter1++ )  
+      cout << *Iter1 << " ";  
+   cout << ")" << endl;  
+  
+   // To sort in descending order, specify binary predicate  
+   stable_sort(v1.begin( ), v1.end( ), greater<int>( ) );  
+   cout << "Resorted (greater) vector v1 = ( " ;  
+   for ( Iter1 = v1.begin( ) ; Iter1 != v1.end( ) ; Iter1++ )  
+      cout << *Iter1 << " ";  
+   cout << ")" << endl;  
+  
+   // A user-defined (UD) binary predicate can also be used  
+   stable_sort(v1.begin( ), v1.end( ), UDgreater );  
+   cout << "Resorted (UDgreater) vector v1 = ( " ;  
+   for ( Iter1 = v1.begin( ) ; Iter1 != v1.end( ) ; Iter1++ )  
+      cout << *Iter1 << " ";  
+   cout << ")" << endl;  
+   
+   return 0;
+}Output:Original vector v1 = ( 0 2 4 6 8 10 0 2 4 6 8 10 )
+Sorted vector v1 = ( 0 0 2 2 4 4 6 6 8 8 10 10 )
+Resorted (greater) vector v1 = ( 10 10 8 8 6 6 4 4 2 2 0 0 )
+Resorted (UDgreater) vector v1 = ( 10 10 8 8 6 6 4 4 2 2 0 0 )Next TopicC++ Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

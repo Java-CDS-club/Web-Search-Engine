@@ -1,0 +1,102 @@
+C++ multiset empty() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ multisetC++ multiset constructor destructor begin() end() operator= rbegin() rend() cbegin() cend() max_size() size() crbegin() crend() empty() insert() clear() emplace() erase() swap() emplace_hint() find() key_comp() value_comp() count() equal_range() lower_bound() upper_bound() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ multiset empty()C++ Multiset empty() function is used to check whether the multiset container is empty or not. It returns true if the multiset container is empty (size is 0) otherwise, it returns false.Syntaxbool empty() const;               // until C++ 11
+
+bool empty const noexcept;    //since C++ 11ParameterNoneReturn valueThe empty() function returns true if the multiset container is empty (size is 0) otherwise, it returns false.ComplexityConstant.Iterator validityNo changes.Data RacesThe container is accessed.Concurrently accessing the elements of multiset is safe.Exception SafetyThis function never throws exception.Example 1Let's see the simple example to check if a multiset contains any element or not:#include <set>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    multiset<int> numbers;
+    cout << " Initially, numbers.empty(): " << numbers.empty() << "\n";
+    numbers = {100, 200, 300, 200};
+    cout << "\n After adding elements, numbers.empty(): " << numbers.empty() << "\n";
+}Output: Initially, numbers.empty(): 1
+
+ After adding elements, numbers.empty(): 0
+
+In the above example, initially size of multiset is 0 hence, empty() function returns 1 (true) and after adding elements it returns 0 (false).Example 2Let's see a simple example to check whether multiset is empty or not:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+
+   multiset<char> s;
+
+   if (s.empty())
+      cout << "Multiset is empty." << endl;
+
+   s = {100};
+
+   if (!s.empty())
+      cout << "Multiset is not empty." << endl;
+
+   return 0;
+}Output:Multiset is empty
+Multiset is not emptyIn the above example, if condition statement is used. If multiset is empty it will return multiset is empty after adding elements it will return multiset is not empty.Example 3Le's see a simple example:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  multiset<int> mymultiset;
+
+  mymultiset = {100, 300, 300, 200, 400, 400};
+
+  while (!mymultiset.empty())
+  {
+    cout << *mymultiset.begin()<< '\n';
+    mymultiset.erase(*mymultiset.begin());
+  }
+
+  return 0;
+}Output:100
+200
+300
+400In the above example, It simply uses the empty() function in while loop and prints the elements of multiset until the multiset is not empty.Example 4Let's see a simple example:#include 
+#include 
+#include 
+
+using namespace std;
+
+int main() {
+
+  typedef multiset phoneMultiset;
+   
+   int number;
+   phoneMultiset phone;
+   
+   if (phone.empty())
+      cout  "Multiset is empty. Please insert content! \n "  endl;
+   
+   cout"Enter three sets of number: \n";
+   
+   for(int i =0; i3; i++)
+   {
+       cin>> number;    // Get value
+       phone.insert(number);   // Put them in multiset
+   }
+
+   if (!phone.empty())
+   {
+      cout"\nList of telephone numbers: \n";
+      phoneMultiset::iterator p;
+      for(p = phone.begin(); p!=phone.end(); p++)
+      {
+          cout(*p)" \n ";
+      }
+   }
+   return 0;
+}Output:Multiset is empty. Please insert content! 
+ 
+Enter three sets of number: 
+10002
+10002
+10003
+
+List of telephone numbers: 
+10002 
+10002 
+10003 In the above example, the program first creates phone multiset interactively with three multiset of numbers. Then it checks if the multiset is empty or not. If multiset is empty, then it displays a message otherwise, it displays all the telephone numbers available in the multiset.Next TopicC++ multiset? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

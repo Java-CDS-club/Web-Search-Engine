@@ -1,0 +1,203 @@
+COBOL Verbs - Javatpoint?HomeCCOBOLC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternProjectsInterview QCommentForumCOBOL TutorialCOBOL Tutorial COBOL Introduction COBOL Installation COBOL Program Structure COBOL Coding Sheet COBOL Divisions COBOL Data Types COBOL Verbs COBOL Data Layout Conditional Statements Loop Statements String Handling Array/Table Processing File Handling File Access Mode File Handling Verbs Internal Sort Database Interfacenext ? ? prevCOBOL - VerbsThe Procedure division contains the code used to perform the manipulation of the data described in the Data Division. The procedure division uses COBOL verbs for data processing. A statement always initiates with a COBOL verb. In COBOL, there are several verbs with different types of actions.Input/output VerbsACCEPTDISPLAYData Manipulation/Arithmetic VerbsINITIALIZEMOVEADDSUBTRACTMULTIPLYDIVIDECOMPUTEString Handling VerbsSTRINGUNSTRINGINSPECTFile Handling VerbsOPENCLOSEREADWRITEREWRITESTARTDELETEProgram Branching VerbsCALLEXITEXIT PROGRAMGO TOPERFORMSTOPSTOP RUNLet's discuss these verbs in detail:Input/output VerbsInput/output verbs are used to obtain the user data and display the output of COBOL programs. For this process, the following two verbs are used:ACCEPTAccept verb obtains data from the OS or the user. It gets data like day, date, time.If a program accepts user data, it needs to be passed by the user. We can use the FROM option when extracting data from the operating system, as shown in the example below:ACCEPT JT-SUBJECT-NAME.
+ACCEPT JT-DATE FROM SYSTEM-DATE.DISPLAYThis verb displays a COBOL program's output.DISPLAY JT-SUBJECT-NAME.
+DISPLAY "System date is : " WS-DATE.Example:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+             01 JT-SUBJECT-NAME PIC X(25).
+             01 JT-USER-DATE PIC X(10).
+             01 JT-DATE PIC X(6).
+
+       PROCEDURE DIVISION.
+           ACCEPT JT-SUBJECT-NAME.
+           ACCEPT JT-USER-DATE.
+           ACCEPT JT-DATE FROM DATE.
+              DISPLAY "Name :  " JT-SUBJECT-NAME.
+              DISPLAY "Date Entered by the User: " JT-USER-DATE.
+              DISPLAY "System Date : " JT-DATE.
+       STOP RUN.After compiling and running the program, the program will prompt you to enter the name and date. Enter the subject name and date.And press Enter. It will display the following output:Output:Data Manipulation/Arithmetic VerbsThese verbs are used for data processing and to perform arithmetic operations.INITIALIZEThis verb is used to initialize a specific item or group item. ZEROES replace numeric data items. It is not possible to initialize data names with the RENAME clause.Alphanumeric or alphabetic data objects are replaced by SPACES. If we include the term REPLACING, the data items can be initialized to the replacement value. As shown in the given example:Example:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+            01 WS-NAME PIC A(30) VALUE 'ABCDEF'.
+            01 WS-ID PIC 9(5).
+            01 WS-ADDRESS. 
+            05 WS-HOUSE-NUMBER PIC 9(3).
+            05 WS-COUNTRY PIC X(15).
+            05 WS-PINCODE PIC 9(6) VALUE 123456.
+
+       PROCEDURE DIVISION.
+           A000-FIRST-PARA.
+           INITIALIZE WS-NAME, WS-ADDRESS.
+           INITIALIZE WS-ID REPLACING NUMERIC DATA BY 00011.
+             DISPLAY "My name is   : "WS-NAME.
+             DISPLAY "My ID is     : "WS-ID.
+             DISPLAY "Address      : "WS-ADDRESS.
+             DISPLAY "House Number : "WS-HOUSE-NUMBER.
+             DISPLAY "Country      : "WS-COUNTRY.
+             DISPLAY "Pincode      : "WS-PINCODE.
+       STOP RUN.Output:MOVEMove verb is used to copy data from source to destination data. We can use it for both group and elementary data items. For group items, MOVE CORRESPONDING / CORR is used.Use the MOVE(x: l) where x is the starting position, and l is the length to transfer data from a string. The data will be truncated if the PIC clause for the destination data item is less than the PIC clause for the source data item. If the PIC clause for the destination data item is above, then the PIC clause for the source data item, the additional bytes will include ZEROS or SPACES.Example:Let's see one example to make all the things clear:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+            01 WS-NUM1 PIC 9(9).
+            01 WS-NUM2 PIC 9(9).
+            01 WS-NUM3 PIC 9(5).
+            01 WS-NUM4 PIC 9(6).
+            01 WS-ADDRESS. 
+            05 WS-HOUSE-NUMBER PIC 9(3).
+            05 WS-COUNTRY PIC X(5).
+            05 WS-PINCODE PIC 9(6).
+            01 WS-ADDRESS1. 
+            05 WS-HOUSE-NUMBER1 PIC 9(3).
+            05 WS-COUNTRY1 PIC X(5).
+            05 WS-PINCODE1 PIC 9(6).
+
+       PROCEDURE DIVISION.
+           A000-FIRST-PARA.
+           MOVE 123456789 TO WS-NUM1.
+           MOVE WS-NUM1 TO WS-NUM2 WS-NUM3.
+           MOVE WS-NUM1(3:6) TO WS-NUM4.
+           MOVE 123 TO WS-HOUSE-NUMBER.
+           MOVE 'INDIA' TO WS-COUNTRY.
+           MOVE 112233 TO WS-PINCODE.
+           MOVE WS-ADDRESS TO WS-ADDRESS1.
+
+           DISPLAY "WS-NUM1     : " WS-NUM1
+           DISPLAY "WS-NUM2     : " WS-NUM2
+           DISPLAY "WS-NUM3     : " WS-NUM3
+           DISPLAY "WS-NUM4     : " WS-NUM4
+           DISPLAY "WS-ADDRESS  : " WS-ADDRESS
+           DISPLAY "WS-ADDRESS1 : " WS-ADDRESS1
+
+       STOP RUN.Output:The following are the legal moves:AlphabeticAlphanumericNumericAlphabeticPossiblePossibleNot PossibleAlphanumericPossiblePossiblePossibleNumericNot PossiblePossiblePossibleADDThis verb adds two or more numbers and stores the result in the destination operand.Syntax:ADD   {  literal-1 / data-item-1 } ..   TO   target-data-item-1 ..
+ADD   {  literal-1 / data-item-1 } ..  GIVING   target-data-item-1 ..Let's see some examples:Example 1:ADD   10  TO A.Here, suppose the value of A is 5; after the execution of the above statement, a will be 15. Means, (10 + A).Example 2:ADD A B C TO D GIVING EHere, A, B, C, D are added and the result is stored in E (E = A + B + C + D).Example 3:ADD CORR WS-A TO WS-BHere, subgroup items within A and B are added, and the results are added, and the result is stored in B.Example:Now, let's see one example through the program in COBOL:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-NUM1 PIC 9(9) VALUE 10 .
+           01 WS-NUM2 PIC 9(9) VALUE 10.
+           01 WS-NUM3 PIC 9(9) VALUE 10.
+           01 WS-NUM4 PIC 9(9) VALUE 10.
+           01 WS-NUMA PIC 9(9) VALUE 10.
+           01 WS-NUMB PIC 9(9) VALUE 10.
+           01 WS-NUMC PIC 9(9) VALUE 10.
+           01 WS-NUMD PIC 9(9) VALUE 10.
+           01 WS-NUME PIC 9(9) VALUE 10.
+
+       PROCEDURE DIVISION.
+           ADD WS-NUM1 WS-NUM2 TO WS-NUM3 WS-NUM4.
+           ADD WS-NUMA WS-NUMB WS-NUMC TO WS-NUMD GIVING WS-NUME.
+           DISPLAY "WS-NUM1     : " WS-NUM1
+           DISPLAY "WS-NUM2     : " WS-NUM2
+           DISPLAY "WS-NUM3     : " WS-NUM3
+           DISPLAY "WS-NUM4     : " WS-NUM4
+           DISPLAY "WS-NUMA     : " WS-NUMA
+           DISPLAY "WS-NUMB     : " WS-NUMB
+           DISPLAY "WS-NUMC     : " WS-NUMC
+           DISPLAY "WS-NUMD     : " WS-NUMD
+           DISPLAY "WS-NUME     : " WS-NUME
+
+       STOP RUN.Output:SUBTRACTThis verb is used to perform subtraction operations.Syntax:SUBTRACT  data-item1/constant FROM data-item2.
+SUBTRACT  data-item1/constant FROM data-item2 GIVING data-item3 ROUNDED.Here, ROUNDED is optional. Before using the SUBTRACT verb, there are some rules: All the values before the word FROM summed up and subtracted from each data-item/constant after the word FROM.The result will be stored in the data items given after the word GIVING when using the GIVING option.When the GIVING option is not used, the result will be stored in the data items given after FROM.Example 1:SUBTRACT 10 FROM AHere, 10 will be subtracted from A, and the result will be stored in A., i.e. (10 + A).Example 2:SUBTRACT A B C FROM GIVING EHere, A, B, C are added and subtracted from D. The result is stored in E (E = D-(A+B+C)).Example 3:SUBTRACT CORR WS-GROUP1 TO WS-GROUP2Here, sub-group items within WS-GROUP1 and WS-GROUP2 are subtracted, and the result is stored in WS-GROUP2.Example:Now, let's see one example through the program in COBOL:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-NUM1 PIC 9(9) VALUE 10 .
+           01 WS-NUM2 PIC 9(9) VALUE 10.
+           01 WS-NUM3 PIC 9(9) VALUE 100.
+           01 WS-NUM4 PIC 9(9) VALUE 100.
+           01 WS-NUMA PIC 9(9) VALUE 10.
+           01 WS-NUMB PIC 9(9) VALUE 10.
+           01 WS-NUMC PIC 9(9) VALUE 10.
+           01 WS-NUMD PIC 9(9) VALUE 100.
+           01 WS-NUME PIC 9(9) VALUE 10.
+
+       PROCEDURE DIVISION.
+           SUBTRACT WS-NUM1 WS-NUM2 FROM WS-NUM3 WS-NUM4.
+           SUBTRACT WS-NUMA WS-NUMB WS-NUMC FROM WS-NUMD GIVING WS-NUME.
+
+           DISPLAY "WS-NUM1     : " WS-NUM1
+           DISPLAY "WS-NUM2     : " WS-NUM2
+           DISPLAY "WS-NUM3     : " WS-NUM3
+           DISPLAY "WS-NUM4     : " WS-NUM4
+           DISPLAY "WS-NUMA     : " WS-NUMA
+           DISPLAY "WS-NUMB     : " WS-NUMB
+           DISPLAY "WS-NUMC     : " WS-NUMC
+           DISPLAY "WS-NUMD     : " WS-NUMD
+           DISPLAY "WS-NUME     : " WS-NUME
+
+       STOP RUN.Output:MULTIPLYA multiply verb is used to perform multiplication operations.Syntax:MULTIPLY  data-item1 or constant BY data-item2.
+MULTIPLY  data-item1 or constant BY data-item2 GIVING data-item3 ROUNDED.Here, ROUNDED is optional.Example 1:MULTIPLY A BY BHere, values in A and B will be multiplied, and the result will be stored in B. (B = A * B).Example 2:MULTIPLY A BY B CHere, values in A and B will be multiplied, and the result is stored in B (B = A * B). Values in A and C are multiplied, and the result is stored in C (C = A * C).Example 3:MULTIPLY A BY B GIVING EHere, values in A and B are multiplied, and the result is stored in E (E=A * B).Example:Now, let's see one example through the program in COBOL:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-NUM1 PIC 9(9) VALUE 10 .
+           01 WS-NUM2 PIC 9(9) VALUE 10.
+           01 WS-NUM3 PIC 9(9) VALUE 10.
+           01 WS-NUMA PIC 9(9) VALUE 10.
+           01 WS-NUMB PIC 9(9) VALUE 10.
+           01 WS-NUMC PIC 9(9) VALUE 10.
+
+       PROCEDURE DIVISION.
+           MULTIPLY WS-NUM1 BY WS-NUM2 WS-NUM3.
+           MULTIPLY WS-NUMA BY WS-NUMB GIVING WS-NUMC.
+   
+           DISPLAY "WS-NUM1     : " WS-NUM1
+           DISPLAY "WS-NUM2     : " WS-NUM2
+           DISPLAY "WS-NUM3     : " WS-NUM3
+           DISPLAY "WS-NUMA     : " WS-NUMA
+           DISPLAY "WS-NUMB     : " WS-NUMB
+           DISPLAY "WS-NUMC     : " WS-NUMC
+   
+       STOP RUN.Output:DIVIDEDIVIDE verb is used to perform a division operation.Syntax:DIVIDE  data-item1/constant INTO data-item2.
+DIVIDE  data-item1/constant BY (or INTO) data-item2 GIVING data-item3 ROUNDED? REMAINDER data-item4.Example 1:DIVIDE A INTO BHere, the value of B is divided by the value of A, and the result is stored in B (B = B/A).DIVIDE A BY B GIVING C REMAINDER RHere, the value of A is divided by the value of B, and the result is stored in C (C = A/B), and the Remainder is stored in R.Example:Now, let's see one example through the program in COBOL:      IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-NUM1 PIC 9(9) VALUE 5.
+           01 WS-NUM2 PIC 9(9) VALUE 250.
+           01 WS-NUMA PIC 9(9) VALUE 100.
+           01 WS-NUMB PIC 9(9) VALUE 15.
+           01 WS-NUMC PIC 9(9).
+           01 WS-REM PIC 9(9). 
+
+       PROCEDURE DIVISION.
+           DIVIDE WS-NUM1 INTO WS-NUM2.
+           DIVIDE WS-NUMA BY WS-NUMB GIVING WS-NUMC REMAINDER WS-REM.
+           DISPLAY "WS-NUM1     : " WS-NUM1
+           DISPLAY "WS-NUM2     : " WS-NUM2
+           DISPLAY "WS-NUMA     : " WS-NUMA
+           DISPLAY "WS-NUMB     : " WS-NUMB
+           DISPLAY "WS-NUMC     : " WS-NUMC
+           DISPLAY "WS-REM      : " WS-REM
+   
+       STOP RUN.Output:COMPUTECOMPUTE verb in COBOL writes arithmetic expressions. Compute verb is a substitute for Add, subtract, multiply, and divide verbs.Example:       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-NUM1 PIC 9(9) VALUE 10 .
+           01 WS-NUM2 PIC 9(9) VALUE 10.
+           01 WS-NUM3 PIC 9(9) VALUE 10.
+           01 WS-NUMA PIC 9(9) VALUE 50.
+           01 WS-NUMB PIC 9(9) VALUE 10.
+           01 WS-NUMC PIC 9(9).
+
+       PROCEDURE DIVISION.
+       COMPUTE WS-NUMC= (WS-NUM1 * WS-NUM2)-(WS-NUMA / WS-NUMB)+WS-NUM3.
+           DISPLAY "WS-NUM1     : " WS-NUM1
+           DISPLAY "WS-NUM2     : " WS-NUM2
+           DISPLAY "WS-NUM3     : " WS-NUM3
+           DISPLAY "WS-NUMA     : " WS-NUMA
+           DISPLAY "WS-NUMB     : " WS-NUMB
+           DISPLAY "WS-NUMC     : " WS-NUMC
+
+       STOP RUN.Output:Next TopicCOBOL Data Layout? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

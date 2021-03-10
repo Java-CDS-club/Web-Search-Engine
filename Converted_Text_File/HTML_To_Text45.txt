@@ -1,0 +1,40 @@
+ADO.Net Command - javatpoint?HomeC#ADO.NETASP.NETJavaPHPHTMLCSSJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingADO.NET TutorialADO.NET Tutorial ADO.NET Introduction ADO.NET Data Providers ADO.NET SQL Server ADO.NET Connection ADO.NET Command ADO.NET DataReader ADO.NET DataSet ADO.NET DataAdapter ADO.NET DataTables ADO.NET WF Example ADO.NET MVC ExampleInterview QuestionsADO.NET InterviewC# TutorialC# Tutorial (100+)ASP.NET TutorialASP.NET Tutorial (50+)next ? ? prevADO.NET SqlCommand ClassThis class is used to store and execute SQL statement for SQL Server database. It is a sealed class so that cannot be inherited.SqlCommand Signaturepublic sealed class SqlCommand : System.Data.Common.DbCommand, ICloneable, IDisposableConstructorsThis class provides the following constructors.ConstructorDescriptionSqlCommand()It is used to initialize a new instance of the SqlCommand class.SqlCommand(String)It is used to initialize a new instance of the SqlCommand class with a string parameter.SqlCommand(String, SqlConnection)It is used to initialize a new instance of the SqlCommand class. It takes two parameters, first is query string and second is connection string.SqlCommand(String, SqlConnection, SqlTransaction)It is used to initialize a new instance of the SqlCommand class. It takes three parameters query, connection and transaction string respectively.SqlCommand(String, SqlConnection, SqlTransaction, SqlCommandColumnEncryptionSetting)It Initializes a new instance of the SqlCommand class with specified command text, connection, transaction, and encryption setting.MethodsMethodDescriptionBeginExecuteNonQuery()It is used to Initiate the asynchronous execution of the SQL statement described by this SqlCommand.Cancel()It tries to cancel the execution of a SqlCommand.Clone()It creates a new SqlCommand object that is a copy of the current instance.CreateParameter()It creates a new instance of a SqlParameter object.ExecuteReader()It is used to send the CommandText to the Connection and builds a SqlDataReader.ExecuteXmlReader()It is used to send the CommandText to the Connection and builds an XmlReader object.ExecuteScalar()It executes the query and returns the first column of the first row in the result set. Additional columns or rows are ignored.Prepare()It is used to create a prepared version of the command by using the instance of SQL Server.ResetCommandTimeout()It is used to reset the CommandTimeout property to its default value.ExampleIn this example, we are creating a SqlCommand instance and executing a SQL statement.// Program.csusing System;
+using System.Data.SqlClient;
+namespace AdoNetConsoleApplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            new Program().CreateTable();
+        }
+        public void CreateTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                // Creating Connection
+                con = new SqlConnection("data source=.; database=student; integrated security=SSPI");
+                // writing sql query
+                SqlCommand cm = new SqlCommand("select * from student", con);
+                // Opening Connection
+                con.Open();
+                // Executing the SQL query
+                SqlDataReader sdr = cm.ExecuteReader();
+                while (sdr.Read())
+                {
+                    Console.WriteLine(sdr["name"]+" "+ sdr["email"]);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("OOPs, something went wrong." + e);
+            }
+            // Closing the connection
+            finally
+            {
+                con.Close();
+            }
+        }
+    }
+}Output:Execute this program by combination of Ctrl+F5 and it will produce the following output.It prints name and email of the student.Next TopicADO.NET DataReader? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

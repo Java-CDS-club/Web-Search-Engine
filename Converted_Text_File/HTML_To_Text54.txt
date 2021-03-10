@@ -1,0 +1,153 @@
+ADO Net Sql Server Connectivity - javatpoint?HomeC#ADO.NETASP.NETJavaPHPHTMLCSSJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingADO.NET TutorialADO.NET Tutorial ADO.NET Introduction ADO.NET Data Providers ADO.NET SQL Server ADO.NET Connection ADO.NET Command ADO.NET DataReader ADO.NET DataSet ADO.NET DataAdapter ADO.NET DataTables ADO.NET WF Example ADO.NET MVC ExampleInterview QuestionsADO.NET InterviewC# TutorialC# Tutorial (100+)ASP.NET TutorialASP.NET Tutorial (50+)next ? ? prevADO.NET SQL Server ConnectionTo connect with SQL Server, we must have it installed in our system. We are using Microsoft SQL Server Management Tool to connect with the SQL Server. We can use this tool to handle database. Now, follow the following steps to connect with SQL Server.Open Microsoft SQL Server Management ToolIt will prompt for database connection. Provide the server name and authentication.After successful connection, it displays the following window.Creating DatabaseNow, create database by selecting database option then right click on it. It pops up an option menu and provides couple of options.Click on the New Database then it will ask for the database name. Here, we have created a Student database.Click on the Ok button then it will create a database that we can see in the left window of the below screenshot.Establish connection and create a tableAfter creating database, now, let's create a table by using the following C# code. In this source code, we are using created student database to connect.In visual studio 2017, we created a .NET console application project that contains the following C# code.// Program.csusing System;
+using System.Data.SqlClient;
+namespace AdoNetConsoleApplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            new Program().CreateTable();
+        }
+        public void CreateTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                // Creating Connection
+                con = new SqlConnection("data source=.; database=student; integrated security=SSPI");
+                // writing sql query
+                SqlCommand cm = new SqlCommand("create table student(id int not null, 
+				name varchar(100), email varchar(50), join_date date)", con);
+                // Opening Connection
+                con.Open();
+                // Executing the SQL query
+                cm.ExecuteNonQuery();
+                // Displaying a message
+                Console.WriteLine("Table created Successfully");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("OOPs, something went wrong."+e);
+            }
+            // Closing the connection
+            finally
+            {
+                con.Close();
+            }
+        }
+    }
+}Execute this code using Ctrl+F5. After executing, it displays a message to the console as below.We can see the created table in Microsoft SQL Server Management Studio also. It shows the created table as shown below.See, we have a table here. Initially, this table is empty so we need to insert data into it.Insert Data into the Table// Program.csusing System;
+using System.Data.SqlClient;
+namespace AdoNetConsoleApplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            new Program().CreateTable();
+        }
+        public void CreateTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                // Creating Connection
+                con = new SqlConnection("data source=.; database=student; integrated security=SSPI");
+                // writing sql query
+                SqlCommand cm = new SqlCommand("insert into student
+				(id, name, email, join_date)values('101','Ronald Trump','ronald@example.com','1/12/2017')", con);
+                // Opening Connection
+                con.Open();
+                // Executing the SQL query
+                cm.ExecuteNonQuery();
+                // Displaying a message
+                Console.WriteLine("Record Inserted Successfully");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("OOPs, something went wrong."+e);
+            }
+            // Closing the connection
+            finally
+            {
+                con.Close();
+            }
+        }
+    }
+}Execute this code by using Ctrl+F5 and it will display the following output.Retrieve RecordHere, we will retrieve the inserted data. Look at the following C# code.// Program.csusing System;
+using System.Data.SqlClient;
+namespace AdoNetConsoleApplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            new Program().CreateTable();
+        }
+        public void CreateTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                // Creating Connection
+                con = new SqlConnection("data source=.; database=student; integrated security=SSPI");
+                // writing sql query
+                SqlCommand cm = new SqlCommand("Select * from student", con);
+                // Opening Connection
+                con.Open();
+                // Executing the SQL query
+                SqlDataReader sdr = cm.ExecuteReader();
+                // Iterating Data
+                while (sdr.Read())
+                {
+                    Console.WriteLine(sdr["id"] + " " + sdr["name"]+" "+sdr["email"]); // Displaying Record
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("OOPs, something went wrong.\n"+e);
+            }
+            // Closing the connection
+            finally
+            {
+                con.Close();
+            }
+        }
+    }
+}Execute this code by Ctrl+F5 and it will produce the following result. This displays two records, one we inserted manually.Output:Deleting RecordThis time student table contains two records. The following C# code delete one row from the table.// Program.csusing System;
+using System.Data.SqlClient;
+namespace AdoNetConsoleApplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            new Program().CreateTable();
+        }
+        public void CreateTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                // Creating Connection
+                con = new SqlConnection("data source=.; database=student; integrated security=SSPI");
+                // writing sql query
+                SqlCommand cm = new SqlCommand("delete from student where id = '101'", con);
+                // Opening Connection
+                con.Open();
+                // Executing the SQL query
+                cm.ExecuteNonQuery();
+                Console.WriteLine("Record Deleted Successfully");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("OOPs, something went wrong.\n"+e);
+            }
+            // Closing the connection
+            finally
+            {
+                con.Close();
+            }
+        }
+    }
+}Output:It displays the following output.We can verify it by retrieving data back by using SqlDataReader.Next TopicADO.NET Connection? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

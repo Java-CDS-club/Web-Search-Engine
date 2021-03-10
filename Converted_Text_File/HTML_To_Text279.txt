@@ -1,0 +1,58 @@
+Angular 7 Event Binding - Javatpoint?HomeAngularJSAngular 7JavaAWSIoTComputer FundamentalsControl SystemHTMLCSSAptitudeSeleniumKotlinJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingAngular 7 TutorialAngular 7 Tutorial Angular 7 Introduction Angular 7 Features Angular 7 Installation History & Versions Angular 7 First App Angular 7 Files Explanation Angular 7 with Bootstrap All CLI commands Angular 7 Libraries Angular 7 Architecture Angular 7 ComponentsAngular 7 DirectivesAngular 7 Directives Angular 7 ngIf Directive Angular 7 ngStyle DirectiveAngular 7 DatabindingAngular 7 Databinding Angular 7 String Interpolation Angular 7 Event Binding Angular 7 Property BindingAngular 7 PipesAngular 7 PipesError FixingAngular 7 Error FixingAngular 7 FormsAngular 7 Forms Data Flow in Angular Forms Angular Reactive Forms Template-driven FormsAngular MiscAngular vs ReactAngular + SpringCRUD Example File Upload Example Login & Logout Example Search Field Examplenext ? ? prevAngular 7 Event BindingAngular facilitates us to bind the events along with the methods. This process is known as event binding. Event binding is used with parenthesis ().Let's see it by an example:@Component({
+  selector: 'app-server2',
+  templateUrl: './server2.component.html',
+  styleUrls: ['./server2.component.css']
+})
+export class Server2Component implements OnInit {
+ allowNewServer = false;
+ serverCreationStatus= 'No Server is created.';
+  constructor() {
+    setTimeout(() =>{
+      this.allowNewServer = true;
+    }, 5000);
+  }
+
+  ngOnInit() {
+  }
+
+}component.html file:<p>
+  Server2 is also working fine.
+</p>
+<button class="btn btn-primary"
+        [disabled]="!allowNewServer" >Add Server</button>
+<!--<h3 [innerText]= "allowNewServer"></h3>-->
+
+{{serverCreationStatus}}It will give an output that "No Server is created".Now, we are going to bind an event with button.Add another method onCreateServer() in component.ts file which will call the event.component.html file:<p>
+  Server2 is also working fine.
+</p>
+<button class="btn btn-primary"
+        [disabled]="!allowNewServer"
+(click)="onCreateServer()">Add Server</button>
+<!--<h3 [innerText]= "allowNewServer"></h3>-->
+
+{{serverCreationStatus}}Output:Now, after clicking on the button, you will see that it is showing server is created. This is an example of event binding.How to use data with Event Binding?Let's understand it by an example. Here, we will create a method named "onUpdateServerName" and add an event with it.component.html file: <label>Server Name</label>
+<input type="text"
+       class="form-control"
+       (input)="OnUpdateServerName($event)">
+<p>{{serverName}}</p>component.ts file: import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-server2',
+  templateUrl: './server2.component.html',
+  styleUrls: ['./server2.component.css']
+})
+export class Server2Component implements OnInit {
+ allowNewServer = false;
+  serverName = '';
+  constructor() {
+    setTimeout(() =>{
+      this.allowNewServer = true;
+    }, 5000);
+  }
+
+  ngOnInit() {
+  }
+  OnUpdateServerName(event: Event) {
+    this.serverName = (<HTMLInputElement>event.target).value;
+  }
+}Output:You can see that when you type anything in the block, it dynamically updates it below the input. This is how we can use $event to fetch the event's data.Next TopicAngular 7 Property Binding? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

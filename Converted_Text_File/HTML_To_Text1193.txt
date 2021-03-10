@@ -1,0 +1,41 @@
+Java CardLayout - javatpoint?HomeJavaCC++C#ServletJSPEJBStruts2MailHibernateSpringAndroidDesign PQuizProjectsInterview QCommentForumTrainingBasics of Java OOPs Concepts Java String Java Regex Exception Handling Java Inner classes Java Multithreading Java I/O Java Networking Java AWT Java SwingLayout ManagerBorderLayout GridLayout FlowLayout BoxLayout CardLayout GridBagLayout GroupLayout SpringLayout ScrollPaneLayoutJavaFX Java Applet Java Reflection Java Date Java Conversion Java Collection Java JDBC Java New Features RMI Internationalization Interview Questionsnext ? ? prevJava CardLayoutThe CardLayout class manages the components in such a manner that only one component is visible at a time. It treats each component as a card that is why it is known as CardLayout.Constructors of CardLayout classCardLayout(): creates a card layout with zero horizontal and vertical gap.CardLayout(int hgap, int vgap): creates a card layout with the given horizontal and vertical gap.Commonly used methods of CardLayout classpublic void next(Container parent): is used to flip to the next card of the given container.public void previous(Container parent): is used to flip to the previous card of the given container.public void first(Container parent): is used to flip to the first card of the given container.public void last(Container parent): is used to flip to the last card of the given container.public void show(Container parent, String name): is used to flip to the specified card with the given name.Example of CardLayout class
+import java.awt.*;
+import java.awt.event.*;
+
+import javax.swing.*;
+
+public class CardLayoutExample extends JFrame implements ActionListener{
+CardLayout card;
+JButton b1,b2,b3;
+Container c;
+	CardLayoutExample(){
+		
+		c=getContentPane();
+		card=new CardLayout(40,30);
+//create CardLayout object with 40 hor space and 30 ver space
+		c.setLayout(card);
+		
+		b1=new JButton("Apple");
+		b2=new JButton("Boy");
+		b3=new JButton("Cat");
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		b3.addActionListener(this);
+			
+		c.add("a",b1);c.add("b",b2);c.add("c",b3);
+						
+	}
+	public void actionPerformed(ActionEvent e) {
+	card.next(c);
+	}
+
+	public static void main(String[] args) {
+		CardLayoutExample cl=new CardLayoutExample();
+		cl.setSize(400,400);
+		cl.setVisible(true);
+		cl.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+}
+
+
+download this exampleNext TopicJava GridBagLayout? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,204 @@
+Android Sqlite Tutorial - Javatpoint?HomeAndroidCore JavaServletJSPStruts2Mail APIHibernateSpringDesign PatternQuizProjectsInterview QCommentForumAndroid TrainingAndroid TutorialAndroid Introduction What is Android History and Version Android Architecture Core Building Blocks Android Emulator Install Android Setup Eclipse Hello Android example Internal Details Dalvik VM AndroidManifest.xml R.java Hide Title Bar Screen OrientationAndroid WidgetsUI Widgets Working with Button Toast Custom Toast ToggleButton CheckBox Custom CheckBox RadioButton Dynamic RadioButton Custom RadioButton AlertDialog Spinner AutoCompleteTextView ListView Custom ListView RatingBar WebView SeekBar DatePicker TimePicker Analog and Digital ProgressBar Vertical ScrollView Horizontal ScrollView ImageSwitcher ImageSlider ViewStub TabLayout TabLayout with FrameLayout SearchView SearchView on Toolbar EditText with TextWatcherActivity and IntentsActivity LifeCycle Implicit Intent Explicit Intent StartActivityForResult Share App DataAndroid FragmentsAndroid FragmentsAndroid MenuOption Menu Context Menu Popup MenuAndroid ServiceAndroid ServiceAndroid AlarmManagerAndroid AlarmManagerAndroid StorageAndroid Preferences Internal Storage External StorageAndroid SQLiteSQLite Tutorial SQLite SpinnerXML and JSONXML Parsing SAX XML Parsing DOM XMLPullParser JSON ParsingAndroid MultimediaMediaPlayer: Audio VideoView: Video Recording MediaAndroid SpeechTextToSpeech1 TextToSpeech2Android TelephonyTelephonyManager Get Call State Get Call State 2 Simple Caller Talker Phone Call Send SMS Send EmailAndroid DeviceBluetooth Tutorial List Paired Devices WIFICamera TutorialCamera TutorialSensor TutorialSensor TutorialAndroid GraphicsAndroid GraphicsAndroid AnimationAndroid AnimationAndroid Web ServiceAndroid Web ServiceGoogle MapAndroid Google Map Current Location Search LocationAdding AdsAndroid Google Admob 1) Banner Ads 2) Interstitial AdsAndroid ExamplesQR/Bar Code Scanner RSS Feed Reader Volley Fetch JSON Android Linkify Intro Slider RecyclerView List Swipe Del RecyclerView Swipe Refresh Activity Volley Library Registration Log-in Log-out Network Connectivity Services Firebase Authentication - Google Login Android Notification Using Google reCAPTCHAAndroid SocialIntegrating Google Sign-In Integrating LinkedIn Integrating TwitterAndroid MiscAndroid Device Manager Android Studio Android Auto Android File Transfer Android Messages Android Oreo Android TV Android Screenshot Android Versions Android Watch Android Pay Android Phones Android Tablets Android Find My Phone Android Marshmallow Android Nougat Android Pie Android One Android Antivirus Android Data Recovery Android Lollipop Android vs iPhone Android Wear OS Android x86 Emulator for PC Android 10 Android ad blocker Clear cache Android Root Android DeviceAndroid InterviewInterview QuestionsAndroid QuizAndroid Quiznext ? ? prevAndroid SQLite TutorialSQLite is an open-source relational database i.e. used to perform database operations on android devices such as storing, manipulating or retrieving persistent data from the database.It is embedded in android bydefault. So, there is no need to perform any database setup or administration task.Here, we are going to see the example of sqlite to store and fetch the data. Data is displayed in the logcat. For displaying data on the spinner or listview, move to the next page.SQLiteOpenHelper class provides the functionality to use the SQLite database.SQLiteOpenHelper classThe android.database.sqlite.SQLiteOpenHelper class is used for database creation and version management. For performing any database operation, you have to provide the implementation of onCreate() and onUpgrade() methods of SQLiteOpenHelper class.Constructors of SQLiteOpenHelper classThere are two constructors of SQLiteOpenHelper class.ConstructorDescriptionSQLiteOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version)creates an object for creating, opening and managing the database.SQLiteOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler)creates an object for creating, opening and managing the database. It specifies the error handler.Methods of SQLiteOpenHelper classThere are many methods in SQLiteOpenHelper class. Some of them are as follows:MethodDescriptionpublic abstract void onCreate(SQLiteDatabase db)called only once when database is created for the first time.public abstract void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)called when database needs to be upgraded.public synchronized void close ()closes the database object.public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion)called when database needs to be downgraded.SQLiteDatabase classIt contains methods to be performed on sqlite database such as create, update, delete, select etc.Methods of SQLiteDatabase classThere are many methods in SQLiteDatabase class. Some of them are as follows:MethodDescriptionvoid execSQL(String sql)executes the sql query not select query.long insert(String table, String nullColumnHack, ContentValues values)inserts a record on the database. The table specifies the table name, nullColumnHack doesn't allow completely null values. If second argument is null, android will store null values if values are empty. The third argument specifies the values to be stored.int update(String table, ContentValues values, String whereClause, String[] whereArgs)updates a row.Cursor query(String table, String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy)returns a cursor over the resultset.Example of android SQLite databaseLet's see the simple example of android sqlite database.File: Contact.javapackage example.javatpoint.com.sqlitetutorial;
+
+public class Contact {
+    int _id;
+    String _name;
+    String _phone_number;
+    public Contact(){   }
+    public Contact(int id, String name, String _phone_number){
+        this._id = id;
+        this._name = name;
+        this._phone_number = _phone_number;
+    }
+
+    public Contact(String name, String _phone_number){
+        this._name = name;
+        this._phone_number = _phone_number;
+    }
+    public int getID(){
+        return this._id;
+    }
+
+    public void setID(int id){
+        this._id = id;
+    }
+
+    public String getName(){
+        return this._name;
+    }
+
+    public void setName(String name){
+        this._name = name;
+    }
+
+    public String getPhoneNumber(){
+        return this._phone_number;
+    }
+
+    public void setPhoneNumber(String phone_number){
+        this._phone_number = phone_number;
+    }
+}File: DatabaseHandler.javaNow, let's create the database handler class that extends SQLiteOpenHelper class and provides the implementation of its methods.package example.javatpoint.com.sqlitetutorial;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class DatabaseHandler extends SQLiteOpenHelper {
+    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "contactsManager";
+    private static final String TABLE_CONTACTS = "contacts";
+    private static final String KEY_ID = "id";
+    private static final String KEY_NAME = "name";
+    private static final String KEY_PH_NO = "phone_number";
+
+    public DatabaseHandler(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        //3rd argument to be passed is CursorFactory instance
+    }
+
+    // Creating Tables
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
+                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
+                + KEY_PH_NO + " TEXT" + ")";
+        db.execSQL(CREATE_CONTACTS_TABLE);
+    }
+
+    // Upgrading database
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Drop older table if existed
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTACTS);
+
+        // Create tables again
+        onCreate(db);
+    }
+
+    // code to add the new contact
+    void addContact(Contact contact) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, contact.getName()); // Contact Name
+        values.put(KEY_PH_NO, contact.getPhoneNumber()); // Contact Phone
+
+        // Inserting Row
+        db.insert(TABLE_CONTACTS, null, values);
+        //2nd argument is String containing nullColumnHack
+        db.close(); // Closing database connection
+    }
+
+    // code to get the single contact
+    Contact getContact(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID,
+                        KEY_NAME, KEY_PH_NO }, KEY_ID + "=?",
+                new String[] { String.valueOf(id) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        Contact contact = new Contact(Integer.parseInt(cursor.getString(0)),
+                cursor.getString(1), cursor.getString(2));
+        // return contact
+        return contact;
+    }
+
+    // code to get all contacts in a list view
+    public List getAllContacts() {
+        List contactList = new ArrayList();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Contact contact = new Contact();
+                contact.setID(Integer.parseInt(cursor.getString(0)));
+                contact.setName(cursor.getString(1));
+                contact.setPhoneNumber(cursor.getString(2));
+                // Adding contact to list
+                contactList.add(contact);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return contactList;
+    }
+
+    // code to update the single contact
+    public int updateContact(Contact contact) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, contact.getName());
+        values.put(KEY_PH_NO, contact.getPhoneNumber());
+
+        // updating row
+        return db.update(TABLE_CONTACTS, values, KEY_ID + " = ?",
+                new String[] { String.valueOf(contact.getID()) });
+    }
+
+    // Deleting single contact
+    public void deleteContact(Contact contact) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_CONTACTS, KEY_ID + " = ?",
+                new String[] { String.valueOf(contact.getID()) });
+        db.close();
+    }
+
+    // Getting contacts Count
+    public int getContactsCount() {
+        String countQuery = "SELECT  * FROM " + TABLE_CONTACTS;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        cursor.close();
+
+        // return count
+        return cursor.getCount();
+    }
+
+}File: MainActivity.javapackage example.javatpoint.com.sqlitetutorial;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        DatabaseHandler db = new DatabaseHandler(this);
+
+        // Inserting Contacts
+        Log.d("Insert: ", "Inserting ..");
+        db.addContact(new Contact("Ravi", "9100000000"));
+        db.addContact(new Contact("Srinivas", "9199999999"));
+        db.addContact(new Contact("Tommy", "9522222222"));
+        db.addContact(new Contact("Karthik", "9533333333"));
+
+        // Reading all contacts
+        Log.d("Reading: ", "Reading all contacts..");
+        List contacts = db.getAllContacts();
+
+        for (Contact cn : contacts) {
+            String log = "Id: " + cn.getID() + " ,Name: " + cn.getName() + " ,Phone: " +
+                    cn.getPhoneNumber();
+            // Writing Contacts to log
+            Log.d("Name: ", log);
+        }
+    }
+}Output:How to view the data stored in sqlite in android studio?Follow the following steps to view the database and its data stored in android sqlite:Open File Explorer.Go to data directory inside data directory.Search for your application package name.Inside your application package go to databases where you will found your database (contactsManager).Save your database (contactsManager) anywhere you like.Download any SqLite browser plugins or tool (in my case DB Browser for SQLite).Launch DB Browser for SQLite and open your database (contactsManager).Go to Browse Data -> select your table (contacts) you will see the data stored.Next TopicAndroid Sqlite Example With Spinner<<prev next>>Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

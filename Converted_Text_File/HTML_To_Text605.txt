@@ -1,0 +1,104 @@
+ASP.Net Cookie - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevASP.NET CookieASP.NET Cookie is a small bit of text that is used to store user-specific information. This information can be read by the web application whenever user visits the site.When a user requests for a web page, web server sends not just a page, but also a cookie containing the date and time. This cookie stores in a folder on the user's hard disk.When the user requests for the web page again, browser looks on the hard drive for the cookie associated with the web page. Browser stores separate cookie for each different sites user visited.Note: The Cookie is limited to small size and can be used to store only 4 KB (4096 Bytes) text.There are two ways to store cookies in ASP.NET application.Cookies collectionHttpCookieWe can add Cookie either to Cookies collection or by creating instance of HttpCookie class. both work same except that HttpCookie require Cookie name as part of the constructor.HttpCookie ExampleIn the following example, we are creating and adding cookie with the help of HttpCookie class.// CookieExample.aspx<%@ Page Language="C#" AutoEventWireup="true" 
+CodeBehind="CookieExample.aspx.cs" Inherits="CoockieExample.CookieExample" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        </div>
+    </form>
+</body>
+</html>Code// CookieExample.aspx.csusing System;
+using System.Web;
+namespace WebFormsControlls
+{
+    public partial class CookieExample : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            //-------------- Creating Cookie --------------------------//
+            // Creating HttpCookie instance by specifying name "student"
+                HttpCookie cokie = new HttpCookie("student");
+            // Assigning value to the created cookie
+                cokie.Value = "Rahul Kumar";
+            // Adding Cookie to the response instance
+                Response.Cookies.Add(cokie);
+            //--------------- Fetching Cookie -------------------------//
+            var co_val  = Response.Cookies["student"].Value;
+            Label1.Text = co_val;
+        }
+    }
+}Cookie Collection ExampleIn the following example, we are adding cookie directly to the Cookies collection.// Default.aspx<%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs"
+Inherits="CoockieExample._Default" %>
+<form id="form1" runat="server">
+    <asp:Label ID="Label1" runat="server" Text="Select Brand Preferences"></asp:Label>
+    <br />
+    <br />
+    <asp:CheckBox ID="apple" runat="server" Text="Apple" />
+    <br />
+    <asp:CheckBox ID="dell" runat="server" Text="Dell" />
+    <br />
+    <asp:CheckBox ID="lenevo" runat="server" Text="Lenevo" />
+    <br />
+    <asp:CheckBox ID="acer" runat="server" Text="Acer" />
+    <br />
+    <asp:CheckBox ID="sony" runat="server" Text="Sony" />
+    <br />
+    <asp:CheckBox ID="wipro" runat="server" Text="Wipro" />
+    <br />
+    <br />
+    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+    <p>
+        <asp:Label ID="Label2" runat="server"></asp:Label>
+    </p>
+</form>CodeBehind// Default.aspx.csusing System;
+using System.Web.UI;
+namespace CoockieExample
+{
+    public partial class _Default : Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            // Setting expiring date and time of the cookies
+            Response.Cookies["computer"].Expires = DateTime.Now.AddDays(-1);
+        }
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Label2.Text = "";
+            // --------------- Adding Coockies ---------------------//
+            if (apple.Checked)
+                Response.Cookies["computer"]["apple"]  = "apple";
+            if (dell.Checked)
+                Response.Cookies["computer"]["dell"]   = "dell";
+            if (lenevo.Checked)
+                Response.Cookies["computer"]["lenevo"] = "lenevo";
+            if (acer.Checked)
+                Response.Cookies["computer"]["acer"]   = "acer";
+            if (sony.Checked)
+                Response.Cookies["computer"]["sony"]   = "sony";
+            if (wipro.Checked)
+                Response.Cookies["computer"]["wipro"]  = "wipro";
+            // --------------- Fetching Cookies -----------------------//
+            if (Request.Cookies["computer"].Values.ToString() != null)
+            {
+                if (Request.Cookies["computer"]["apple"] != null)
+                    Label2.Text += Request.Cookies["computer"]["apple"] + " ";
+                if (Request.Cookies["computer"]["dell"] != null)
+                    Label2.Text += Request.Cookies["computer"]["dell"] + " ";
+                if (Request.Cookies["computer"]["lenevo"] != null)
+                    Label2.Text += Request.Cookies["computer"]["lenevo"] + " ";
+                if (Request.Cookies["computer"]["acer"] != null)
+                    Label2.Text += Request.Cookies["computer"]["acer"] + " ";
+                if (Request.Cookies["computer"]["sony"] != null)
+                    Label2.Text += Request.Cookies["computer"]["sony"] + " ";
+                if (Request.Cookies["computer"]["wipro"] != null)
+                    Label2.Text += Request.Cookies["computer"]["wipro"] + " ";
+            }else Label2.Text = "Please select your choice";
+            Response.Cookies["computer"].Expires = DateTime.Now.AddDays(-1);
+        }
+    }
+}Output:This example will store selected values as cookie.Next TopicASP.NET Session? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

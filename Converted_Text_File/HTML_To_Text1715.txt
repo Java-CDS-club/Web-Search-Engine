@@ -1,0 +1,95 @@
+C++ if-else - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ if-elseIn C++ programming, if statement is used to test the condition. There are various types of if statements in C++.if statementif-else statementnested if statementif-else-if ladderC++ IF StatementThe C++ if statement tests the condition. It is executed if condition is true.if(condition){  
+//code to be executed  
+}C++ If Example#include <iostream>
+using namespace std;
+ 
+int main () {
+   int num = 10;  
+            if (num % 2 == 0)  
+            {  
+                cout<<"It is even number";  
+            } 
+   return 0;
+}Output:/p>It is even numberC++ IF-else StatementThe C++ if-else statement also tests the condition. It executes if block if condition is true otherwise else block is executed.if(condition){  
+//code if condition is true  
+}else{  
+//code if condition is false  
+}  C++ If-else Example#include <iostream>
+using namespace std;
+int main () {
+   int num = 11;  
+            if (num % 2 == 0)  
+            {  
+                cout<<"It is even number";  
+            } 
+            else
+            {  
+                cout<<"It is odd number";  
+            }
+   return 0;
+}Output:It is odd numberC++ If-else Example: with input from user#include 
+using namespace std;
+int main () {
+    int num;
+    cout<<"Enter a Number: ";
+    cin>>num;
+            if (num % 2 == 0)  
+            {  
+                cout<<"It is even number"<<endl;  
+            } 
+            else
+            {  
+                cout<<"It is odd number"<<endl;  
+            }
+   return 0;
+}Output:Enter a number:11
+It is odd numberOutput:Enter a number:12
+It is even numberC++ IF-else-if ladder StatementThe C++ if-else-if ladder statement executes one condition from multiple statements.if(condition1){  
+//code to be executed if condition1 is true  
+}else if(condition2){  
+//code to be executed if condition2 is true  
+}  
+else if(condition3){  
+//code to be executed if condition3 is true  
+}  
+...  
+else{  
+//code to be executed if all the conditions are false  
+}  C++ If else-if Example#include <iostream>
+using namespace std;
+int main () {
+       int num;
+       cout<<"Enter a number to check grade:";  
+       cin>>num;
+            if (num 0 || num >100)  
+            {  
+                cout<<"wrong number";  
+            }  
+            else if(num >= 0 && num < 50){  
+                cout<<"Fail";  
+            }  
+            else if (num >= 50 && num < 60)  
+            {  
+                cout<<"D Grade";  
+            }  
+            else if (num >= 60 && num < 70)  
+            {  
+                cout<<"C Grade";  
+            }  
+            else if (num >= 70 && num < 80)  
+            {  
+                cout<<"B Grade";  
+            }  
+            else if (num >= 80 && num < 90)  
+            {  
+                cout<<"A Grade";  
+            }  
+            else if (num >= 90 && num <= 100)  
+            {  
+                cout<<"A+ Grade";
+            }  
+    }  
+
+Output:Enter a number to check grade:66
+C GradeOutput:Enter a number to check grade:-2
+wrong numberNext TopicC++ switch? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,177 @@
+Cordova Plugin Camera - javatpoint?HomeCordovaJavaScriptHTMLCSSReact NativeReactJSTypeScriptFramework7COASeleniumServletJSPjQueryProjectsInterview QCommentApache CordovaApache Cordova Tutorial Cordova Architecture Cordova PhoneGap Cordova Installation Creating first Application Config.xml file Top Cordova Frameworks for Hybrid Mobile App Development Cordova App TemplatesCordova Plugin APIsCordova Plugins Cordova Plugin Cameranext ? ? prevCordova Plugin CameraA Plugin Camera is required to access the camera functionality of a device. This plugin enables a user to take any picture from the device and accessthe files from the image gallery. If you want to show a picture to the user, you can use FILEURI or DATAURI object.It consists of a code script that makes your app capable of using device camera and its related hardware functionality. To enable the camera functionality of a device, we need to set a global navigator.camera object that performs tasks of taking pictures and selecting images from the device gallery. But we cannot use this object until the deviceready event is not conducted.We can use this plugin in the following cases:It is used for accessing the image gallery of a device.It enables a user to access the camera functionality of a device.It can access a local path of an image.InstallationTo add a camera plugin in your Cordova app, type the below command:cordova plugin add cordova-plugin-cameraThis command is only applicable for Cordova 5.0+ versions. Older versions can use deprecate id for installing the plugins.Cordova plugin add org.apache.cordova.cameraMethodsThere are two methods that are used in the plugin camera. These methods are listed below:camera.getPicture( cameraSuccess, cameraError, [ cameraOptions ])camera.cleanup(onSuccess, onFail)1. navigator.camera.getPictureThis method is used to enable the functionality of a camera where we can capture an image from camera and access the images from the local device gallery. After that, this particular image is being passed to the success callback function as a base64-encoded string. We can also pass an image as the URI of the image file. You will also get an object in return i.e., CameraPopoverHandle. This object is used for repositioning an image file.WorkingWhen this method is invoked, it opens the default camera application of the device and allows the user to capture images.This action is performed in a default manner if Camera.sourceType equals to Camera.PictureSourceType.CAMERA. After capturing the photo,camera will get closed, and the application will also get restored.For accessing an image from the existing device gallery, Camera.sourceType should be equal to Camera.PictureSourceType.PHOTOLIBRARY or Camera.PictureSourceType.SAVEDPHOTOALBUM. You will also get an object in return, i.e., CameraPopoverHandle. This object is used for repositioning an image file.Thenceforth, the returned value will be sent to the cameraSuccess callback function in a specified format. It mainly depends on the specified object, i.e., cameraOptions. There are two available formatsof a returned value which are as follows:It is a default format that consists of a String object. This string object represents the path of an image file in local storage.It is a String object that consists ofa base64-encoded image.This method is supported in different platforms like Android, iOS,Tizen, Windows 8, etc.2. camera.cleanup(onSuccess, onFail)A static method of camera that mainly works for removing the intermediate image files stored in temporary device storage after calling the camera.getPicture method. To apply this function, Camera.sourceType should be equal to Camera.PictureSourceType.CAMERA and Camera.destinationType object should also be equal to Camera.DestinationType.FILE_URI.Note:This method is only supported for the iOS platform.Example:navigator.camera.cleanup(onSuccess, onFail);
+functiononSuccess() {
+console.log("success cleanup image")
+}
+functiononFail(message) {
+alert('cleanup can't be done because: ' + message);
+}camera.onSuccessA static typedef method of camera that mainly works for providing image data.Parameter:imageData: It is a string type object that mainly provides a Base64 encoding of image data or the image file URI.camera.onErrorIt is also a static typedef method of camera that is used for providing an error message.Parameter:message: It is a string type object in which a message is provided by device native code.camera.CameraOptionsIt is an optional parameter that is used for customizing the camera settings of a device.PropertiesNameDefaultTypeExplanationencodingTypeJPEGEncodingTypeIt selects the returned encoding of an image file.mediaTypePICTUREMediaTypeIt mainly used for selecting the type of media. It applies only when PictureSourceType is PHOTOLIBRARY or SAVEDPHOTOALBUM.sourceTypeCAMERAPictureSourceTypeIts main task is to set the source of an image.destinationTypeFILE_URIDestinationTypeIt is used to select the format of the returned value.quality50numberIt represents the quality of the saved image that is expressed in a range between 0 to 100, where 100 represents a full resolution screen with no loss from file compression.allowEditfalseBooleanIt allows a user to simply edit the image before selection.targetWidthnumberIt represents the width of an image in pixels for scaling the image. It must be applied with the targetHeight object.targetHeightnumberIt represents the height of an image in pixels for scaling an image.correctOrientationBooleanIt is used for rotating an image.saveToPhotoAlbumBooleanAfter capturing an image, his object saves an image in the existing photo gallery.cameraDirectionBACKDirectionIt is used for selecting the camera(front- or back-facing).popoverOptionsCameraPopoverOptionsIt is applicable only for the iOS platform that mainly specifiesthe popover location on the iPad.Code:HTML:<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Cordova Project</title>
+</head>
+<body>
+    <div class="app">
+        <h1>Camera</h1>
+        <p>
+            <button id="btn">Capture Image</button>
+        </p>
+        <p><img src="" alt="" id="pic" /></p>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>CSS:* {
+    -webkit-tap-highlight-color: rgba(0,0,4,1); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, rgb(211, 28, 28) 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'Lucida Sans-Light', 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, Arial, sans-serif;
+    font-size:15px;
+    height:70%;
+    margin:20px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+}
+}
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+} 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}JavaScript:// BatteryManager.
+var battery = navigator.battery || navigator.mozBattery || navigator.webkitBattery;
+var alert = document.getElementById('alert');
+// battery meter.
+var batteryMeter = document.getElementById('battery-meter');
+// data cells in the table.
+var batteryLevel = document.getElementById('battery-level');
+var batteryStatus = document.getElementById('battery-status');
+var batteryCharging = document.getElementById('battery-charging');
+var batteryDischarging = document.getElementById('battery-discharging');
+// Updating battery level meter and table value.
+function updateBatteryLevel() {
+  batteryMeter.value = battery.level;
+  batteryLevel.innerHTML = (battery.level * 70) + '%';
+}
+// Updating battery charging status.
+function updateBatteryStatus() {
+  if (battery.charging) {
+    batteryStatus.innerHTML = 'Charging';
+  } else {
+    batteryStatus.innerHTML = 'Not Charging';
+  }
+}
+// Updating battery charging time value.
+function updateBatteryChargingTime() {
+  if (battery.chargingTime === Infinity) {
+    // Not charging.
+    batteryCharging.innerHTML = '-';
+  } else {
+    // Charging.
+    batteryCharging.innerHTML = (battery.chargingTime / 60) + ' minutes';
+  }
+}
+// Updating battery discharging time value.
+function updateBatteryDischargingTime() {
+  if (battery.dischargingTime === Infinity) {
+    // Not discharging.
+    batteryDischarging.innerHTML = '-';
+  } else {
+    // Discharging.
+    batteryDischarging.innerHTML = (battery.dischargingTime / 60) + ' minutes';
+  }
+}
+// Set event listeners and initial values.
+function init() {
+  // Set initial values.
+  updateBatteryLevel();
+  updateBatteryStatus();
+  updateBatteryChargingTime();
+  updateBatteryDischargingTime();
+  // Set up event listeners.
+  battery.onlevelchange = updateBatteryLevel;
+  battery.onchargingchange = updateBatteryStatus;
+  battery.onchargingtimechange = updateBatteryChargingTime;
+  battery.ondischargingtimechange = updateBatteryDischargingTime;
+}
+// Checking browser compatibility.
+if (battery) {
+  // Support Battery Status API!
+  msg.innerHTML = 'Your browser supports the Battery Status API.';
+  // Initializing an app.
+  init();
+} else {
+  // Does not supoort Battery Status API.
+  msg.innerHTML = 'Your browser does not support the Battery Status API :(';
+}Output:Next Topic#? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

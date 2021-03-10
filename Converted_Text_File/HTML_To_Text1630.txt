@@ -1,0 +1,25 @@
+C++ algorithm count() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm Function count()C++ Algorithm count()function accepts 'val' as argument and compares for the occurrence of element 'val' in the range. The number of occurrence of that element is returned.Syntaxtemplate <class InputIterator, class T>
+
+typename iterator_traits<InputIterator>::difference_type count (InputIterator first, InputIterator last, const T& val);Parameterfirst: It is an input iterator to the first element in the range.last: It is an input iterator to the last element in the range.val: It is the element whose occurrence is being searched in the range.Return valueThe function returns the number of occurrence of the element 'val' in the range [first,last).Example 1#include<iostream>
+#include<algorithm>
+#include<vector>
+using namespace  std;
+int main()
+{
+	int newints[]={50,60,70,70,60,50,50,60};
+	int newcount=std::count(newints, newints+8, 50);
+	std::cout<<"50 appear "<<newcount<<"times.\n";
+	std::vector<int> newvector(newints, newints+8);
+	newcount=std::count(newvector.begin(),newvector.end(),70);
+	std::cout<<"70 appear "<<newcount<<"times.\n";
+	return 0;
+}Output:50 appear 3 times.
+70 appear 2 times.Example 2#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int ar[]={6,4,2,6,6,10,6};
+	int n = sizeof(ar)/sizeof(ar[0]);
+	cout<<"The number of times 6 appear is:"<<count(ar,ar+n,6);
+	return 0;
+}Output:The number of times 6 appear is: 4ComplexityThe complexity of the function is linear up to a distance between first and last element.Data racesSome or all of the elements of the range are accessedExceptionsThe function throws an exception if any of the argument throws one.Next TopicC++ Algorithm count_if Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

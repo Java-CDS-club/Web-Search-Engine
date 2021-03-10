@@ -1,0 +1,64 @@
+C++ Math frexp() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ Math frexp()This function breaks the floating point number into the binary significand and an integral exponent.Let the floating point number be x then,x = (significand)*2ewhere, 'e' is the exponent and 'significand' is the binary significandSyntaxSuppose a floating point number be 'x' and pointer be 'exp':float frexp(float x, int* exp);
+double frexp(double x, int* exp);
+long double frexp(long double x, int* exp);
+double frexp(integral x, int* exp);Parameterx: The value which is to be decomposed into the binary significand.exp: It is a pointer to an int, where the value of exponent is stored.Return valueIt returns the binary significand which is the absolute value lies between 0.5(included) and 1(excluded).ParameterSignificandexponentx=0zerozerox>=1positive numberpositive numberx>= -1negative numberpositive number-1<x<0negative numbernegative number0<x<1positive numbernegative numberExample 1Let's see a simple example when the value of x is greater than 1.#include <iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+    double x=2;
+    int* e;
+    cout<<"Value of x is : "<<x<<'\n';
+    double significand = frexp(x,e);
+    std::cout <<x<<"="<<significand<<" * "<<"2^"<<*e;
+    return 0;
+}Output:Value of x is : 2
+2=0.5 * 2^2In this example, frexp() function calculates the binary significand of a floating point number when the value of x is greater than 1.Example 2Let's see a simple example when the value of x is zero#include <iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+    double x=0;
+    int* e;
+    cout<<"Value of x is : "<<x<<'\n';
+    double significand = frexp(x,e);
+    std::cout <<x<<"="<<significand<<" * "<<"2^"<<*e;
+    return 0;
+}Output:Value of x is : 0
+0=0 * 2^0In this example, frexp() function calculates the binary significand of a floating point number when the value of x is zero.Example 3Let's see a simple example when the value of x lies between 0 and 1.#include <iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+    double x=0.4;
+    int* e;
+    cout<<"Value of x is : "<<x<<'\n';
+    double significand = frexp(x,e);
+    std::cout <<x<<"="<<significand<<" * "<<"2^"<<*e;
+    return 0;
+}Output:Value of x is : 0.4
+0.4=0.8 * 2^-1In this example, frexp() function calculates the binary significand of a floating point number when the value of x lies between 0 and 1.Example 4Let's see a simple example when the value of x lies between -1 and 0.#include <iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+    double x= -0.1;
+    int* e;
+    cout<<"Value of x is : "<<x<<'\n';
+    double significand = frexp(x,e);
+    std::cout <<x<<"="<<significand<<" * "<<"2^"<<*e;
+    return 0;
+}Output:Value of x is : -0.1
+-0.1=-0.8 * 2^-3In this example, frexp() function calculates the binary significand of a floating point number when the value of x lies between -1 and 0.Example 5Let's see the simple example when the value of x is less than -1.#include <iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+    double x= -5;
+    int* e;
+    cout<<"Value of x is : "<<x<<'\n';
+    double significand = frexp(x,e);
+    std::cout <<x<<"="<<significand<<" * "<<"2^"<<*e;
+    return 0;
+}Output:Value of x is : -5
+-5=-0.625 * 2^3In this example, frexp() function calculates the binary significand of a floating point nmber when the value of x is less than -1.Next TopicC++ Math Functions? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

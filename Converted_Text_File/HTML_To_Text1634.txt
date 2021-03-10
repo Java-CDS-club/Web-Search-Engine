@@ -1,0 +1,95 @@
+C++ algorithm fill() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm fill()C++ Algorithm fill() function is used to assign the same new value to every element in a specified range[first, end) by using operator=.Note: Range [first, last) means first is included in the range but last is not included.Syntaxtemplate <class ForwardIterator, class T>
+  void fill (ForwardIterator first, ForwardIterator last, const T& val);Parameterfirst: A forward iterator pointing the position of the first element in a specified range.last: A forward iterator pointing the position one past the final element in the range to be traversed.val: Value to be assigned to elements in the range [first, last).Return valueNoneComplexityComplexity is linear in the distance within first and last and assignment for each element.Data racesThe objects in the range [first1, last1) are modified where each object is accessed exactly once.Exception safetyThis function throws an exception the element assignments or the operation on an iterator throws an exception.Please note that invalid parameters cause an undefined behavior.Example 1Let's see the simple example to demonstrate the use of fill():#include <algorithm>
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+  vector<int> v(5);
+
+  fill(v.begin(), v.end(), 2);
+
+  for_each(v.begin(), v.end(), [](int x) { cout << x << ","; });
+  
+  return 0;
+}Output:2,2,2,2,2,Example 2Let's see another simple example:#include <iostream>     // std::cout
+#include <algorithm>    // std::fill
+#include <vector>       // std::vector
+
+using namespace std;
+
+int main () {
+  vector<int> myvector (8);                       // myvector: 0 0 0 0 0 0 0 0
+
+  fill (myvector.begin(),myvector.begin()+4,5);   // myvector: 5 5 5 5 0 0 0 0
+  fill (myvector.begin()+3,myvector.end()-2,8);   // myvector: 5 5 5 8 8 8 0 0
+
+  cout << "myvector contains:";
+  for (vector<int>::iterator it=myvector.begin(); it!=myvector.end(); ++it)
+    cout << ' ' << *it;
+  cout << '\n';
+
+  return 0;
+}Output:myvector contains: 5 5 5 8 8 8 0 0Example 3Let's see another simple example:#include <vector>  
+#include <algorithm>  
+#include <iostream>  
+  
+int main( )   
+{  
+   using namespace std;  
+   vector <int> v1;  
+   vector <int>::iterator Iter1;  
+  
+   int i;  
+   for ( i = 0 ; i <= 9 ; i++ )  
+   {  
+      v1.push_back( 5 * i );  
+   }  
+  
+   cout << "Vector v1 = ( " ;  
+   for ( Iter1 = v1.begin( ) ; Iter1 != v1.end( ) ; Iter1++ )  
+      cout << *Iter1 << " ";  
+   cout << ")" << endl;  
+  
+   // Fill the last 5 positions with a value of 2  
+   fill( v1.begin( ) + 5, v1.end( ), 2 );  
+  
+   cout << "Modified v1 = ( " ;  
+   for ( Iter1 = v1.begin( ) ; Iter1 != v1.end( ) ; Iter1++ )  
+      cout << *Iter1 << " ";  
+   cout << ")" << endl;  
+   
+   return 0;
+}Output:Vector v1 = ( 0 5 10 15 20 25 30 35 40 45 )
+Modified v1 = ( 0 5 10 15 20 2 2 2 2 2 )Example 4Let's see another simple example:#include <algorithm>
+#include <vector>
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+ 
+void print(const vector <int>& v)
+{
+    vector <int>::const_iterator i;
+    for(i = v.begin(); i != v.end(); i++)
+    {
+        cout << setw(2) <<  *i << " ";
+    }
+    cout << endl;
+}
+ 
+int main()
+{
+    int arr[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    vector <int> v(arr, arr + sizeof(arr) / sizeof(int));
+ 
+    cout << "Vector before fill" << endl;
+    print(v);
+    fill(v.begin() + 4, v.end() - 3, -1);
+    cout << "Vector after fill" << endl;
+    print(v);
+}Output:Vector before fill
+ 0  1  2  3  4  5  6  7  8  9 
+Vector after fill
+ 0  1  2  3 -1 -1 -1  7  8  9Next TopicC++ Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

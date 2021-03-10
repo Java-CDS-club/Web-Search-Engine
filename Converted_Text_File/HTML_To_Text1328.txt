@@ -1,0 +1,134 @@
+COBOL Array/Table Processing - Javatpoint?HomeCCOBOLC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternProjectsInterview QCommentForumCOBOL TutorialCOBOL Tutorial COBOL Introduction COBOL Installation COBOL Program Structure COBOL Coding Sheet COBOL Divisions COBOL Data Types COBOL Verbs COBOL Data Layout Conditional Statements Loop Statements String Handling Array/Table Processing File Handling File Access Mode File Handling Verbs Internal Sort Database Interfacenext ? ? prevCOBOL - Array/Table ProcessingArrays are referred to as tables in COBOL. An array is a linear data structure, which is a collection of individual data items of the same data type.The data items of a table are internally sorted.Table DeclarationIn the Data Division, we can declare the table, and we have to use the 'Occurs' clause to define a table. The Occurs clause is used to indicate the repetition of the data-name definition. It can only be used with level numbers starting from 02 to 49. For the Redefines, we can't use the Occurs clause.Description for the one-dimensional and two-dimensional table is given below:One-Dimensional TableIn a one-dimensional table, the ' Occurs ' clause should be specified only once in the declaration.Syntax:01 WS-TABLE.
+   05 WS-A PIC A(10) OCCURS 10 TIMES.Here, WS-TABLE is the group item that contains the table, and WS-A names the table elements that occur ten times.Example:Let's see an example for a single dimensional table:       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+            01 WS-TABLE.
+               05 WS-A PIC A(12) VALUE 'JavaTPoint' OCCURS 5 TIMES.     
+
+       PROCEDURE DIVISION.
+              DISPLAY "ONE-D TABLE : "WS-TABLE.
+       STOP RUN.Output:Two-Dimensional TableA two-dimensional table is generated with the variable length of both data elements.Syntax:01 WS-TABLE.
+   05 WS-A OCCURS 10 TIMES.
+      10 WS-B PIC A(10).
+      10 WS-C OCCURS 5 TIMES.
+         15 WS-D PIC X(6).Here, the first WS-A array may occur 1 to 10 times, and the inner WS-C array may occur 1 to 5 times. Means, there will be 5 WS-C entries for each WS-A entry.Example:Let's see an example for a two-dimensional table:       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+       01 WS-TABLE.
+         05 WS-A OCCURS 2 TIMES.
+           10 WS-B PIC A(6) VALUE ' JAVAT'.
+             10 WS-C OCCURS 2 TIMES.
+               15 WS-D PIC X(6) VALUE ' POINT'.
+
+       PROCEDURE DIVISION.
+           DISPLAY "TWO-D TABLE : "WS-TABLE.
+
+       STOP RUN.Output:SubscriptBy using the subscript, we can retrieve the table's individual elements. The values of subscript will vary from 1 to the number of times that the table/array occurs. Any +ve number can be a subscript value. In the data division, there is no need for any subscript declaration. It is formed automatically with the Occurs clause.Example:Let's see an example to understand the subscript:       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 WS-TABLE.
+        05 WS-A OCCURS 3 TIMES.
+         10 WS-B PIC A(2).
+           10 WS-C OCCURS 2 TIMES.
+            15 WS-D PIC X(3).
+
+       PROCEDURE DIVISION.
+         MOVE '12ABCDEF13DEEP24NIKITA24' TO WS-TABLE.
+           DISPLAY 'WS-TABLE  : ' WS-TABLE.
+           DISPLAY 'WS-A(1)   : ' WS-A(1).
+           DISPLAY 'WS-C(1,1) : ' WS-C(1,1).
+           DISPLAY 'WS-C(1,2) : ' WS-C(1,2).
+           DISPLAY 'WS-A(2)   : ' WS-A(2).
+           DISPLAY 'WS-C(2,1) : ' WS-C(2,1).
+           DISPLAY 'WS-C(2,2) : ' WS-C(2,2).
+           DISPLAY 'WS-A(3)   : ' WS-A(3).
+           DISPLAY 'WS-C(3,1) : ' WS-C(3,1).
+           DISPLAY 'WS-C(3,2) : ' WS-C(3,2).
+   
+       STOP RUN.Output:IndexWe may also use the index to access the table elements. An index is an element that moves from the beginning of the table. We need to describe the INDEXED BY clause with the Occurs clause to declare the index.Use the SET statement and the PERFORM VARYING option to change the index value.Syntax:01 WS-TABLE.
+   05 WS-A PIC A(10) OCCURS 10 TIMES INDEXED BY I.Example:Let's see an example to understand the index in the table:       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+             01 WS-TABLE.
+               05 WS-A OCCURS 3 TIMES INDEXED BY I.
+                 10 WS-B PIC A(2).
+                 10 WS-C OCCURS 2 TIMES INDEXED BY J.
+                    15 WS-D PIC X(3).
+
+       PROCEDURE DIVISION.
+           MOVE '12ABCDEF34GHIJKL56MNOPQR' TO WS-TABLE.
+           PERFORM A-PARA VARYING I FROM 1 BY 1 UNTIL I >3 
+       STOP RUN.
+   
+       A-PARA.
+           PERFORM C-PARA VARYING J FROM 1 BY 1 UNTIL J>2.
+   
+       C-PARA.
+           DISPLAY WS-C(I,J).Output:Set StatementThe set statement changes the index value. It is used to initialize, increment, or decrement the index value. This statement can be used with search and search all to locate elements in the table.Syntax:SET I J TO positive-number
+SET I TO J
+SET I TO 5
+SET I J UP BY 1
+SET J DOWN BY 5Example:Let's see an example for a set statement:       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+            01 WS-TABLE.
+              05 WS-A OCCURS 3 TIMES INDEXED BY I.
+                10 WS-B PIC A(2).
+                10 WS-C OCCURS 2 TIMES INDEXED BY J.
+                   15 WS-D PIC X(3).
+
+       PROCEDURE DIVISION.
+           MOVE '12ABCDEF34GHIJKL56MNOPQR' TO WS-TABLE.
+           SET I J TO 1.
+           DISPLAY WS-C(I,J).
+           SET I J UP BY 1.
+           DISPLAY WS-C(I,J).
+   
+       STOP RUN.Output:SearchIt is a linear method of searching. This is used for locating table elements. We can perform the search on a sorted or unsorted table. Search is used only for tables declared by index phrase. This begins with the index's initial value. If the searched item is not available, the index will be automatically incremented by one and will continue until the end of the table.Example:Let's see an example for Search:       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 WS-TABLE.
+           05 WS-A PIC X(1) OCCURS 18 TIMES INDEXED BY I.
+       01 WS-SRCH PIC A(1) VALUE 'N'.
+
+       PROCEDURE DIVISION.
+           MOVE 'ABCDEFGHIJKLMNOPQR' TO WS-TABLE.
+             SET I TO 1.
+           SEARCH WS-A
+              AT END DISPLAY 'N NOT FOUND IN TABLE'
+              WHEN WS-A(I) = WS-SRCH
+              DISPLAY 'LETTER N FOUND IN TABLE'
+           END-SEARCH.  
+
+       STOP RUN.Output:Search AllSearch All is a binary search method. This is used to find elements inside the table. The table must be in sorted order in Search All. The index does not need to be initialized.As we know, in the binary search method, the table is divided into two half sections, and it determines in which half the searched element is present. This process repeats until the element is found or the end is reached.Example:Let's see an example for Search All:       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+           01 WS-TABLE.
+       05 WS-RECORD OCCURS 10 TIMES ASCENDING KEY IS WS-N INDEXED BY I.
+             10 WS-N PIC 9(2).
+             10 WS-NAME PIC A(3).
+
+       PROCEDURE DIVISION.
+           MOVE '12ABC56DEF34GHI78JKL93MNO11PQR' TO WS-TABLE.
+           SEARCH ALL WS-RECORD
+           AT END DISPLAY 'RECORD NOT FOUND'
+           WHEN WS-N(I) = 93
+        DISPLAY 'RECORD FOUND '
+        DISPLAY WS-N(I)
+        DISPLAY WS-NAME(I)
+
+       END-SEARCH.Output:Next TopicCOBOL File Handling? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

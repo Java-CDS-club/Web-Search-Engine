@@ -1,0 +1,101 @@
+C++ set max_size() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set max_size()C++ max_size() function is used to get the maximum number of size a set container can hold.SyntaxMember type size_type is an unsigned integral type.size_type max_size() const;               // until C++ 11
+size_type max_size() const noexcept;    //since C++ 11ParameterNoneReturn valueIt returns the maximum allowed length of the set container.ComplexityConstant.Iterator validityNo changes.Data RacesThe container is accessed.Concurrently accessing the elements of a set is safe.Exception SafetyThis member function never throws exception.Example 1Let's see the simple example to calculate the maximum size of the set:#include <iostream>
+#include <set>
+
+using namespace std;
+ 
+int main()
+{
+    set<char,char> s;
+    cout << "Maximum size of a 'set' is " << s.max_size() << "\n";
+    return 0;
+}Output: Maximum size of a 'set' is 461168601842738790In the above example, max_size() function returns the maximum size of the set.Example 2Let's see a simple example:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  int i;
+  set<int> myset;
+
+  if (myset.max_size()>1000)
+  {
+    for (i=0; i<1000; i++) myset.insert(0);
+    cout << "The set contains 1000 elements.\n";
+  }
+  else cout << "The set could not hold 1000 elements.\n";
+
+  return 0;
+}Output:The set contains 1000 elements.In the above example, member max_size is used to check beforehand whether the set will allow for 1000 elements to be inserted.Example 3Let's see a simple example to find the max size of an empty set and a non-empty set:#include <set>
+#include <iostream>
+
+using namespace std;
+ 
+int main()
+{
+ 
+    // initialize container
+    set<int> mp1, mp2;
+    mp1 = {1111};
+ 
+    // max size of Non-empty set
+    cout << "The max size of mp1 is " << mp1.max_size();
+ 
+    // max size of Empty-set
+    cout << "\nThe max size of mp2 is " << mp2.max_size();
+    return 0;
+}Output:The max size of mp1 is 461168601842738790
+The max size of mp2 is 461168601842738790In the above example, there are two sets i.e. m1 and m2. m1 is a non-empty set and m2 is an empty set. But the maximum size of both sets is the same.Example 4Let's see a simple example:#include <iostream>
+#include <set>
+#include <string>
+using namespace std;
+
+int main() {
+
+  typedef set<string> city;  
+   string name;
+   city fmly ;
+   int n;
+
+   cout<<"Enter the number of family members :";
+   cin>>n;
+
+   cout<<"Enter the name of each member: \n";
+   for(int i =0; i<n; i++)
+   {
+       cin>> name;      // Get key
+       fmly.insert(name);   // Put them in set
+   }
+   
+      cout<<"\nTotal number of population of city set: "<<fmly.max_size();
+      cout<<"\nTotal member of family is:"<< fmly.size();
+
+      cout<<"\nName of family members: \n";
+      cout<<"\nName \n ________________________\n";
+      city::iterator p;
+      for(p = fmly.begin(); p!=fmly.end(); p++)
+      {
+          cout<<(*p)<<" \n ";
+      }
+    
+   return 0;
+}Output:Enter the number of family members: 5
+Enter the name of each member: 
+Aman
+Nikita
+Divya
+Amita
+Kashish
+
+Total number of population of city set: 461168601842738790
+Total member of family is:5
+Name of family members: 
+
+Name 
+ ________________________
+Aman 
+ Amita 
+ Divya 
+ Kashish 
+ NikitaIn the above example, the program first creates city set interactively with given number of size. Then it displays the total size a city set can contain, total size of a fmly and all the names and their age available in the set.Next TopicSet insert() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

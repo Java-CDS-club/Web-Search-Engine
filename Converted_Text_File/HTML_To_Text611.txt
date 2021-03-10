@@ -1,0 +1,30 @@
+ASP.Net HTML Server Controls - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevASP.NET HTML Server ControlsHTML server controls are HTML elements that contain attributes to accessible at server side. By default, HTML elements on an ASP.NET Web page are not available to the server. These components are treated as simple text and pass through to the browser. We can convert an HTML element to server control by adding a runat="server" and an id attribute to the component.Now, we can easily access it at code behind.Example<input id="UserName" type="text" size="50"runat="server" />All the HTML Server controls can be accessed through the Request object.HTML ComponentsThe following table contains commonly used HTML components.Controls NameDescriptionButtonIt is used to create HTML button.Reset ButtonIt is used to reset all HTML form elements.Submit ButtonIt is used to submit form data to the server.Text FieldIt is used to create text input.Text AreaIt is used to create a text area in the html form.FileIt is used to create a input type = "file" component which is used to upload file to the server.PasswordIt is a password field which is used to get password from the user.CheckBoxIt creates a check box that user can select or clear.Radio ButtonA radio field which is used to get user choice.TableIt allows us to present information in a tabular format.ImageIt displays an image on an HTML formListBoxIt displays a list of items to the user. You can set the size from two or more to specify how many items you wish to show.DropdownIt displays a list of items to the user in a dropdown list.Horizontal RuleIt displays a horizontal line across the HTML page.ExampleHere, we are implementing an HTML server control in the form.// htmlcontrolsexample.aspx<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="htmlcontrolsexample.aspx.cs" 
+Inherits="asp.netexample.htmlcontrolsexample" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title></title>
+</head>
+<body>
+<form id="form1" runat="server">
+<div>
+<input id="Text1" type="text" runat="server"/>
+<asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click"/>
+</div>
+</form>
+</body>
+</html>This application contains a code behind file.// htmlcontrolsexample.aspx.csusing System;
+namespace asp.netexample
+{
+public partial class htmlcontrolsexample : System.Web.UI.Page
+    {
+protected void Page_Load(object sender, EventArgs e)
+        {
+        }
+protected void Button1_Click(object sender, EventArgs e)
+        {
+string a = Request.Form["Text1"];
+            Response.Write(a);
+        }
+    }
+}Output:When we click the button after entering text, it responses back to client.Next TopicASP.NET CompareValidator? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

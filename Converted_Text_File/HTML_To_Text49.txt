@@ -1,0 +1,40 @@
+ADO.Net Datareader - javatpoint?HomeC#ADO.NETASP.NETJavaPHPHTMLCSSJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingADO.NET TutorialADO.NET Tutorial ADO.NET Introduction ADO.NET Data Providers ADO.NET SQL Server ADO.NET Connection ADO.NET Command ADO.NET DataReader ADO.NET DataSet ADO.NET DataAdapter ADO.NET DataTables ADO.NET WF Example ADO.NET MVC ExampleInterview QuestionsADO.NET InterviewC# TutorialC# Tutorial (100+)ASP.NET TutorialASP.NET Tutorial (50+)next ? ? prevADO.NET SqlDataReader ClassThis class is used to read data from SQL Server database. It reads data in forward-only stream of rows from a SQL Server database. it is sealed class so that cannot be inherited. It inherits DbDataReader class and implements IDisposable interface.SqlDataReader Signaturepublic class SqlDataReader : System.Data.Common.DbDataReader, IDisposableSqlDataReader PropertiesPropertyDescriptionConnectionIt is used to get the SqlConnection associated with the SqlDataReader.DepthIt is used to get a value that indicates the depth of nesting for the current row.FieldCountIt is used to get the number of columns in the current row.HasRowsIt is used to get a value that indicates whether the SqlDataReader contains one or more rows.IsClosedIt is used to retrieve a boolean value that indicates whether the specified SqlDataReader instance has been closed.Item[String]It is used to get the value of the specified column in its native format given the column name.Item[Int32]It is used to get the value of the specified column in its native format given the column ordinal.RecordsAffectedIt is used to get the number of rows changed, inserted or deleted by execution of the Transact-SQL statement.VisibleFieldCountIt is used to get the number of fields in the SqlDataReader that are not hidden.MethodsMethodDescriptionClose()It is used to closes the SqlDataReader object.GetBoolean(Int32)It is used to get the value of the specified column as a Boolean.GetByte(Int32)It is used to get the value of the specified column as a byte.GetChar(Int32)It is used to get the value of the specified column as a single character.GetDateTime(Int32)It is used to get the value of the specified column as a DateTime object.GetDecimal(Int32)It is used to get the value of the specified column as a Decimal object.GetDouble(Int32)It is used to get the value of the specified column as a double-precision floating point number.GetFloat(Int32)It is used to get the value of the specified column as a single-precision floating point number.GetName(Int32)It is used to get the name of the specified column.GetSchemaTable()It is used to get a DataTable that describes the column metadata of the SqlDataReader.GetValue(Int32)It is used to get the value of the specified column in its native format.GetValues(Object[])It is used to populate an array of objects with the column values of the current row.NextResult()It is used to get the next result, when reading the results of SQL statements.Read()It is used to read record from the SQL Server database.To create a SqlDataReader instance, we must call the ExecuteReader method of the SqlCommand object.ExampleIn the following program, we are using SqlDataReader to get data from the SQL Server. A C# code is given below.// Program.csusing System;
+using System.Data.SqlClient;
+namespace AdoNetConsoleApplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            new Program().GetData();
+        }
+        public void GetData()
+        {
+            SqlConnection con = null;
+            try
+            {
+                // Creating Connection
+                con = new SqlConnection("data source=.; database=student; integrated security=SSPI");
+                // writing sql query
+                SqlCommand cm = new SqlCommand("select * from student", con);
+                // Opening Connection
+                con.Open();
+                // Executing the SQL query
+                SqlDataReader sdr = cm.ExecuteReader();
+                while (sdr.Read())
+                {
+                    Console.WriteLine(sdr["name"]+" "+ sdr["email"]);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("OOPs, something went wrong." + e);
+            }
+            // Closing the connection
+            finally
+            {
+                con.Close();
+            }
+        }
+    }
+}Output:Execute this program by combination of Ctrl+F5 and it will produce the following output.Next TopicADO.NET DataSet? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

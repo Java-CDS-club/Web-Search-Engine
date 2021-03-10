@@ -1,0 +1,152 @@
+C++ set emplace() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set emplace()C++ set emplace() function is used to extend the set container by inserting new elements into the container. Elements are built directly (neither copied nor moved).The constructor of the element is called by giving the arguments args passed to this function.Insertion takes place only if key is not present already.Syntaxtemplate <class.... Args>
+    pair<iterator, bool> emplace (Args&&... args);    //since C++ 11Parameterargs: The arguments forwarded to construct an element to be inserted into the set.Return valueThe emplace() function returns a bool pair that will indicate if the insertion is occurred or not and returns an iterator pointing to the newly inserted element.ComplexityLogarithmic in the container size.Iterator validityNo changes.Data RacesThe container is modified.Iterating ranges in the container is not safe although concurrently accessing exiting elements is safe.Exception SafetyIf an exception is thrown, there are no changes in the container.Example 1Let's see the simple example to insert the elements into the set:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   
+   set<char> m;
+
+   m.emplace('a');
+   m.emplace('b');
+   m.emplace('c');
+   m.emplace('d');
+   m.emplace('e');
+
+   cout << "Set contains following elements" << endl;
+
+   for (auto it = m.begin(); it != m.end(); ++it)
+      cout << *it<< ", ";
+
+   return 0;
+}Output:Set contains following elements
+a, b, c, d, e,In the above example, it simply insert the element into the set m with the given key value pairs.Example 2Let's see a simple example to insert the element and check for the duplicate key:#include <set>  
+#include <string>  
+#include <iostream>  
+  
+using namespace std;  
+  
+template <typename S> void print(const S& s) {  
+    cout << s.size() << " elements: ";  
+  
+    for (const auto& p : s) {  
+        cout << "(" << p << ") ";  
+    }  
+  
+    cout << endl;  
+}  
+  
+int main()  
+{  
+    set<string> s1;  
+  
+    auto ret = s1.emplace("ten");  
+  
+    if (!ret.second){  
+        cout << "Emplace failed, element with value \"ten\" already exists."  
+            << endl << "  The existing element is (" << *ret.first << ")"  
+            << endl;  
+        cout << "set not modified" << endl;  
+    }  
+    else{  
+        cout << "set modified, now contains ";  
+        print(s1);  
+    }  
+    cout << endl;  
+  
+    ret = s1.emplace("ten");  
+  
+    if (!ret.second){  
+        cout << "Emplace failed, element with value \"ten\" already exists."  
+            << endl << "  The existing element is (" << *ret.first << ")"  
+            << endl;  
+    }  
+    else{  
+        cout << "set modified, now contains ";  
+        print(s1);  
+    }  
+    cout << endl;  
+}  Output:  set modified, now contains 1 elements: (ten) 
+
+Emplace failed, element with value "ten" already exists.
+  The existing element is (ten)In the above example, elements are inserted in the set and when you try to use the same key "ten" then it will display an error message that key "ten" is already exist.Example 3Let's see a simple example to find the sum of the inserted elements:#include <iostream>
+#include <set>
+using namespace std;
+ 
+int main()
+{
+    // sum variable declaration
+    int sum = 0;
+ 
+    // set declaration
+    set<int> myset{};
+    myset.emplace(1);
+    myset.emplace(7);
+    myset.emplace(4);
+    myset.emplace(8);
+    myset.emplace(2);
+    myset.emplace(5);
+    myset.emplace(3);
+ 
+    // iterator declaration
+    set<int>::iterator it;
+ 
+    // finding sum of elements
+    while (!myset.empty()) {
+        it = myset.begin();
+        sum = sum + *it;
+        myset.erase(it);
+    }
+ 
+    // printing the sum
+    cout << "Sum of elements is: "<<sum;
+    return 0;
+}Output:Sum of elements is: 30Example 4Let's see a simple example to insert the element:#include <iostream>
+#include <set>
+#include <string>
+using namespace std;
+
+int main() {
+
+  typedef set<string> city;  
+   string name;
+   city fmly ;
+   int n;
+
+   cout<<"Enter the number of family members :";
+   cin>>n;
+
+   cout<<"Enter the name of each member: \n";
+   for(int i =0; i<n; i++)
+   {
+       cin>> name;      // Get key
+       fmly.emplace(name);
+       
+   }
+   
+      cout<<"\nTotal member of family is:"<< fmly.size();
+
+      cout<<"\nDetails of family members: \n";
+      cout<<"\nName \n ________________________\n";
+      city::iterator p;
+      for(p = fmly.begin(); p!=fmly.end(); p++)
+      {
+          cout<<(*p)<<" \n ";
+      }
+    
+   return 0;
+}Output:Enter the number of family members: 3
+Enter the name of each member: 
+Bob
+Robin
+David
+
+Total member of family is: 3
+Details of family members: 
+
+Name 
+ ________________________
+Bob 
+David 
+RobinIn the above example, it simply inserts the elements by the user's choice.Next TopicSet emplace_hint() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

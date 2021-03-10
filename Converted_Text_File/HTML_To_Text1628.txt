@@ -1,0 +1,27 @@
+C++ algorithm copy_if() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm Function copy_if()C++ Algorithm copy_if() function is used to copy the elements of the container [first,last] into a different container starting from result for which the value of pred is true.Syntaxtemplate<class InputIterator, class OutputIterator, class UnaryPredicate>
+OutputIterator copy_if(InputIterator first, InputIterator last, OutputIterator result,UnaryPredicate pred);Parameterfirst: It is an input iterator to the first element of the range, where the element itself is included in the range.last: It is an input iterator to the last element of the range, where the element itself is not included in the range.result: It is an output iterator to the first element of the new container in which the elements are copied.pred: It is a Unary function that accepts one element as argument and checks for the condition specified.Return valueAn iterator to the last element of the new range beginning with the result is returned.Example 1#include<iostream>
+#include<algorithm>
+#include<vector>
+int main()
+{
+	std::vector<int> a = {20,10, 4,-4,-10};
+	std::vector<int> b (a.size());
+	auto ti = std::copy_if(a.begin(),a.end(),b.begin(),[](int j){ return !(j<0);});
+	b.resize(std::distance(b.begin(),ti));
+	std::cout<<"b contains:";
+	for (int& x:b) std::cout<<" "<<x;
+	std::cout<<"\n";
+	return 0;
+}Output:b contains: 20 10 4Example 2#include<iostream>
+#include<algorithm>
+#include<vector>
+using namespace std;
+int main()
+{
+	vector<int> u1={2,6,7,4,9,4};
+	vector<int> u2(6);
+	copy_if(u1.begin(),  u1.end(), u2.begin(), [](int j){return j%2!=0;});
+	cout<<"The new vector using copy_if contains:";
+	for(int k=0; k<u2.size(); k++)
+	cout<<u2[k]<<" ";
+}Output:The new vector using copy_if contains:7 9 0 0 0 0ComplexityThe complexity of the function is linear starting from the first element to the last one.Data racesSome or all of the container objects are accessed.ExceptionsThe function throws an exception if any of the container elements throws one.Next TopicC++ Algorithm count Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

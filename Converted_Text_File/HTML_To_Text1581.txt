@@ -1,0 +1,27 @@
+Convert Pandas DataFrame to Numpy array - javatpoint?HomePandasPythonJavaSQLAndroidCloudJavaScriptServletJSPStruts2SpringQuizProjectsInterview QCommentForumTrainingPandas TutorialPandas TutorialPandas SeriesPandas Series Pandas Series.map() Pandas Series.std() Series.to_frame() Series.unique() Series.value_counts()Pandas DataFramePandas DataFrame DataFrame.append() DataFrame.apply() DataFrame.aggregate() DataFrame.assign() DataFrame.astype() DataFrame.count() DataFrame.cut() DataFrame.describe() DataFrame.drop_duplicates() DataFrame.groupby() DataFrame.head() DataFrame.hist() DataFrame.iterrows() DataFrame.join() DataFrame.mean() DataFrame.melt() DataFrame.merge() DataFrame.pivot_table() DataFrame.query() DataFrame.rename() DataFrame.sample() DataFrame.shift() DataFrame.sort() DataFrame.sum() DataFrame.to_excel() DataFrame.transform() DataFrame.transpose() DataFrame.where()Pandas OperationAdd column to DataFrame columns DataFrame to Numpy Array Pandas DataFrame to CSV Pandas Reading Files Pandas ConcatenationData operationsData Operations Data Processing DataFrame.corr() DataFrame.dropna() DataFrame.fillna() DataFrame.replace() DataFrame.iloc[] DataFrame.isin() DataFrame.loc[] loc vs ilocPandas Cheat SheetPandas Cheat SheetPandas IndexPandas Index Multiple Index Pandas Reindex Reset Index Set IndexPandas NumPyPandas NumPy Boolean indexing Concatenating data Pandas vs NumPyPandas Time SeriesPandas Time Series Pandas Datetime Pandas Time Offset Pandas Time Periods Convert string to datePandas PlotPandas PlotInterview QuestionsPandas Interviewnext ? ? prevConvert Pandas DataFrame to Numpy arrayFor performing some high-level mathematical functions, we can convert Pandas DataFrame to numpy arrays. It uses the DataFrame.to_numpy() function.The DataFrame.to_numpy() function is applied on the DataFrame that returns the numpy ndarray.SyntaxDataFrame.to_numpy(dtype=None, copy=False)Parametersdtype: It is an optional parameter that pass the dtype to numpy.asarray().copy: It returns the boolean value that has the default value False.It ensures that the returned value is not a view on another array.ReturnsIt returns the numpy.ndarray as an output.Example1import pandas as pd
+pd.DataFrame({"P": [2, 3], "Q": [4, 5]}).to_numpy()
+info = pd.DataFrame({"P": [2, 3], "Q": [4.0, 5.8]})
+info.to_numpy()
+info['R'] = pd.date_range('2000', periods=2)
+info.to_numpy()Outputarray([[2, 4.0, Timestamp('2000-01-01 00:00:00')],
+       [3, 5.8, Timestamp('2000-01-02 00:00:00')]], dtype=object)Example2import pandas as pd
+#initializing the dataframe
+info = pd.DataFrame([[17, 62, 35],[25, 36, 54],[42, 20, 15],[48, 62, 76]],
+columns=['x', 'y', 'z'])
+print('DataFrame\n----------\n', info)
+#convert the dataframe to a numpy array
+arr = info.to_numpy()
+print('\nNumpy Array\n----------\n', arr)OutputDataFrame
+----------
+   x    y   z
+0  17  62  35
+1  25  36  54
+2  42  20  15
+3  48  62  76
+
+Numpy Array
+----------
+ [[17 62 35]
+ [25 36 54]
+ [42 20 15]
+ [48 62 76]]Next TopicConvert Pandas DataFrame to CSV? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

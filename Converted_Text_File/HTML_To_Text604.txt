@@ -1,0 +1,56 @@
+ASP.Net Checkbox - javatpoint?HomeASP.NETC#ADO.NETJavaPHPHTMLCSSJavaScriptjQueryXMLXSLTQuizProjectsInterview QCommentForumTrainingASP .NET TutorialASP .NET Tutorial ASP .NET Introduction ASP.NET Life CycleASP.NET Web FormsASP.NET WF Introduction ASP.NET WF Features ASP.NET WF Project ASP.NET WF Example ASP.NET Server Controls ASP.NET Label ASP.NET TextBox ASP.NET Button ASP.NET HyperLink ASP.NET RadioButton ASP.NET Calender ASP.NET CheckBox ASP.NET LinkButton ASP.NET FileUpload Multiple FileUpload ASP.NET Download File ASP.NET Cookie ASP.NET Session ASP.NET DropDownList ASP.NET DataList ASP.NET DataGrid WF User Registration WF Events Handling WF Authentication WF Model Binding HTML Server ControlsASP.NET ValidationCompareValidator RangeValidator RegularExpressionValidator RequiredFieldValidator ValidationSummaryMVC TutorialASP.NET MVC MVC Project MVC Controller MVC Actions MVC Action Selectors MVC Action Filters MVC Model MVC Model Binding MVC View MVC Validation MVC Entity Framework MVC Authentication MVC Bootstrap MVC Routing MVC Scaffolding MVC ViewBagASP.NET RazorASP.NET Razor Razor Code Expressions Razor Code Blocks Razor Control Structures Razor HTML Helpers Razor Partial ViewsInterview QuestionsASP.NET Interviewnext ? ? prevASP.NET Web Forms CheckBoxIt is used to get multiple inputs from the user. It allows user to select choices from the set of choices.It takes user input in yes or no format. It is useful when we want multiple choices from the user.To create CheckBox we can drag it from the toolbox in visual studio.This is a server side control and ASP.NET provides own tag to create it. The example is given below.< asp:CheckBox ID="CheckBox2" runat="server" Text="J2EE"/>Server renders it as the HTML control and produces the following code to the browser.< input id="CheckBox2" type="checkbox" name="CheckBox2" /><label for="CheckBox2">J2EE</label>This control has its own properties that are tabled below.PropertyDescriptionAccessKeyIt is used to set keyboard shortcut for the control.TabIndexThe tab order of the control.BackColorIt is used to set background color of the control.BorderColorIt is used to set border color of the control.BorderWidthIt is used to set width of border of the control.FontIt is used to set font for the control text.ForeColorIt is used to set color of the control text.TextIt is used to set text to be shown for the control.ToolTipIt displays the text when mouse is over the control.VisibleTo set visibility of control on the form.HeightIt is used to set height of the control.WidthIt is used to set width of the control.CheckedIt is used to set check state of the control either true or false.Example// WebControls.aspx<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebControls.aspx.cs" 
+Inherits="WebFormsControlls.WebControls" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <h2>Select Courses</h2>
+            <asp:CheckBox ID="CheckBox1" runat="server" Text="J2SE" />
+            <asp:CheckBox ID="CheckBox2" runat="server" Text="J2EE" />
+            <asp:CheckBox ID="CheckBox3" runat="server" Text="Spring" />
+        </div>
+        <p>
+            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+        </p>
+    </form>
+    <p>
+        Courses Selected: <asp:Label runat="server" ID="ShowCourses"></asp:Label>
+    </p>
+</body>
+</html>Code Behind// WebControls.aspx.csusing System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+namespace WebFormsControlls
+{
+    public partial class WebControls : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            ShowCourses.Text = "None";
+        }
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            var message = "" ;
+            if (CheckBox1.Checked)
+            {
+                message = CheckBox1.Text+" ";
+            }
+            if (CheckBox2.Checked)
+            {
+                message += CheckBox2.Text + " ";
+            }
+            if (CheckBox3.Checked)
+            {
+                message += CheckBox3.Text;
+            }
+            ShowCourses.Text = message;
+        }
+    }
+}Initially, there is no course selected then it shows none. It displays user selection as shown in the following screenshot.Next TopicASP.NET LinkButton? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

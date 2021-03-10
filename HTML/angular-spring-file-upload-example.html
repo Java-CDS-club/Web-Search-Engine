@@ -1,0 +1,1704 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/angular-spring-file-upload-example by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:32:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Angular + Spring File Upload Example - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png"/>
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css"/><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50"/><meta property="og:title" content="Angular + Spring File Upload Example - javatpoint" /><meta property="og:description" content="Angular + Spring File Upload Example with examples, spring aop tutorial, spring dependency injection, spring mvc tutorial, spring jdbctemplate, spring hibernate, spring data jpa, spring remoting, spring mvs, multiple view page, model interface, form tag library, text field, form check box, applications, crud example, file upload example, mvc tiles, drop-down list, radio button etc." />
+<meta name="keywords" content="spring tutorial, spring mvs, multiple view page, model interface, form tag library, text field, form check box, applications, crud example, file upload example, mvc tiles, drop-down list, radio button, ide, aop, orm, web, java mail, jdbctemplate, hibernate, remoting"/><meta name="description" content="Angular + Spring File Upload Example with examples, spring aop tutorial, spring dependency injection, spring mvc tutorial, spring jdbctemplate, spring hibernate, spring data jpa, spring remoting, spring mvs, multiple view page, model interface, form tag library, text field, form check box, applications, crud example, file upload example, mvc tiles, drop-down list, radio button etc."/><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="https://www.javatpoint.com/angular-spring-file-upload-example" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Angular + Spring File Upload Example - javatpoint" /><meta name="twitter:description" property="og:description" content="Angular + Spring File Upload Example with examples, spring aop tutorial, spring dependency injection, spring mvc tutorial, spring jdbctemplate, spring hibernate, spring data jpa, spring remoting, spring mvs, multiple view page, model interface, form tag library, text field, form check box, applications, crud example, file upload example, mvc tiles, drop-down list, radio button etc." /><meta property="og:url" content="https://www.javatpoint.com/angular-spring-file-upload-example" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@pagejavatpoint"/><meta name="twitter:domain" content="www.javatpoint.com"/><meta name="twitter:creator" content="@pagejavatpoint"/>
+
+
+<link href="https://www.javatpoint.com/manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://cdn.adpushup.com/37780/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+</head> 
+<body onload="highlightlink()"> 
+ 
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#8679;</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px">
+    <tr>
+        <td>
+            <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px">
+                <a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a>
+            </div>
+            <div style="float:left;width:60%;">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+                
+            </div>
+            
+        </td>
+    </tr>
+        <!--<tr>
+        <td>
+            <div id="headerlink" style="padding:0px;margin:0px"><span style="margin-right:20px;width:45px"></span><span style="float:right;margin-right:5px;width:45%"> </span>
+                
+            </div>
+        </td>
+    </tr>-->
+
+</table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="https://www.javatpoint.com/images/menuhome64.png" alt="Go To Top" onclick="showmenu()"/></span>
+<span style="float:left"><a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+<!--<form class="navbar-search-m" method="get" action="https://www.google.com/search" target="_blank"> <input type="text" name="q" class="search-query span2-m" placeholder="Search on javatpoint..." title="Search on Javatpoint"/><input type="hidden" name="sitesearch" value="www.javatpoint.com"/></form>-->
+
+</div>
+</div>
+<div id="link" style="clear:both"> <div id="smoothmenu1" class="ddsmoothmenu">
+<ul>
+<li><a href="https://www.javatpoint.com/" >Home</a></li>
+<li><a href="https://www.javatpoint.com/java-tutorial">Core Java</a></li>
+<li><a href="https://www.javatpoint.com/servlet-tutorial">Servlet</a></li>
+<li><a href="https://www.javatpoint.com/jsp-tutorial">JSP</a></li>
+<li><a href="https://www.javatpoint.com/struts-2-tutorial">Struts2</a></li>
+
+<li><a href="https://www.javatpoint.com/java-mail-api-tutorial">Mail API</a></li>
+<li><a href="https://www.javatpoint.com/hibernate-tutorial">Hibernate</a></li>
+<li><a href="https://www.javatpoint.com/spring-tutorial"  class="selected">Spring</a></li>
+<li><a href="https://www.javatpoint.com/android-tutorial">Android</a></li>
+<li><a href="https://www.javatpoint.com/design-patterns-in-java">Design Pattern</a></li>
+<li><a href="https://www.javatpoint.com/examaccess">Quiz</a></li>
+
+<li><a href="https://www.javatpoint.com/free-java-projects">Projects</a></li>
+<li><a href="https://www.javatpoint.com/corejava-interview-questions">Interview Q</a>
+<li><a href="https://www.javatpoint.com/comment.jsp">Comment</a>
+<li><a href="https://www.javatpoint.com/forum">Forum</a>
+</li>
+</ul>
+<br style="clear: left" />
+</div>
+
+</div>
+<div class="mobilemenu" style="clear:both"> 
+<!-- Cm_300x250_Mob_14/9 -->
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Spring Tutorial</span></h2>
+</div>
+
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/spring-tutorial" >What is Spring</a>
+<a href="https://www.javatpoint.com/spring-modules" >Spring Modules</a>
+<a href="https://www.javatpoint.com/steps-to-create-spring-application" >Spring Application</a>
+</div>
+
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Spring in IDE</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/example-of-spring-application-in-myeclipse" >Spring  in Myeclipse</a>
+<a href="https://www.javatpoint.com/example-of-spring-application-in-eclipse" >Spring  in Eclipse</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Dependency Injection</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/ioc-container"><span>IOC container</span></a>
+<a href="https://www.javatpoint.com/dependency-injection-in-spring"><span>Dependency Injection</span></a>
+<a href="https://www.javatpoint.com/spring-tutorial-dependency-injection-by-constructor" >Constructor Injection</a>
+<a href="https://www.javatpoint.com/spring-tutorial-constructor-injection-with-dependent-object" >CI Dependent Object</a>
+<a href="https://www.javatpoint.com/spring-tutorial-constructor-injection-with-collection" >CI with collection</a>
+<a href="https://www.javatpoint.com/spring-tutorial-constructor-injection-with-non-string-collection" >CI with collection 2</a>
+<a href="https://www.javatpoint.com/spring-tutorial-constructor-injection-with-map" >CI with Map</a>
+<a href="https://www.javatpoint.com/spring-tutorial-constructor-injection-with-non-string-map" >CI with Map2</a>
+<a href="https://www.javatpoint.com/spring-tutorial-inheriting-bean-in-spring" >CI Inheriting Bean</a>
+<a href="https://www.javatpoint.com/spring-tutorial-dependency-injection-by-setter-method" >Setter Injection</a>
+<a href="https://www.javatpoint.com/spring-tutorial-setter-injection-with-dependent-object" >SI Dependent Object</a>
+<a href="https://www.javatpoint.com/spring-tutorial-setter-injection-with-collection" >SI with Collection</a>
+<a href="https://www.javatpoint.com/spring-tutorial-setter-injection-with-non-string-collection" >SI with Collection 2</a>
+<a href="https://www.javatpoint.com/spring-tutorial-setter-injection-with-map" >SI with Map</a>
+<a href="https://www.javatpoint.com/spring-tutorial-setter-injection-with-non-string-map" >SI with Map 2</a>
+<a href="https://www.javatpoint.com/difference-between-constructor-and-setter-injection" >CI vs SI</a>
+<a href="https://www.javatpoint.com/autowiring-in-spring" >Autowiring</a>
+<a href="https://www.javatpoint.com/dependency-injection-with-factory-method" >Factory Method</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Spring AOP</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/spring-aop-tutorial" >AOP Concepts</a>
+<a href="https://www.javatpoint.com/spring-aop-example" >Spring1.2 AOP DTD</a>
+<a href="https://www.javatpoint.com/spring-aop-aspectj-annotation-example" >SP AspectJ Annotation</a>
+<a href="https://www.javatpoint.com/spring-aop-aspectj-xml-configuration-example" >SP AspectJ XML</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Spring JdbcTemplate</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/spring-JdbcTemplate-tutorial" >JdbcTemplate Example</a>
+<a href="https://www.javatpoint.com/example-of-PreparedStatement-in-Spring-JdbcTemplate" >PreparedStatement</a>
+<a href="https://www.javatpoint.com/ResultSetExtractor-example" >ResultSetExtractor</a>
+<a href="https://www.javatpoint.com/RowMapper-example" >RowMapper</a>
+<a href="https://www.javatpoint.com/spring-NamedParameterJdbcTemplate-example" >NamedParameter</a>
+<a href="https://www.javatpoint.com/spring-SimpleJdbcTemplate-example" >SimpleJdbcTemplate</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Spring ORM</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/spring-with-orm-frameworks"><span>Spring with ORM</span></a>
+<a href="https://www.javatpoint.com/hibernate-and-spring-integration" >Spring with Hibernate</a>
+<a href="https://www.javatpoint.com/spring-and-jpa-integration" >Spring with JPA</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SPEL</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/spring-expression-language-tutorial" >SpEL Examples</a>
+<a href="https://www.javatpoint.com/operators-in-spel" >Operators in SpEL</a>
+<a href="https://www.javatpoint.com/using-variable-in-spel" >variable in SpEL</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Spring MVC</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/spring-mvc-tutorial">MVC Introduction</a>
+<a href="https://www.javatpoint.com/spring-mvc-multiple-view-page-example">Multiple View Page</a>
+<a href="https://www.javatpoint.com/spring-mvc-multiple-controller-example">Multiple Controller</a>
+<a href="https://www.javatpoint.com/spring-mvc-model-interface">Model Interface</a>
+<a href="https://www.javatpoint.com/spring-mvc-requestparam-annotation">RequestParam Annotation</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">MVC Form Tag Library</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/spring-mvc-form-tag-library">Form Tag Library</a>
+<a href="https://www.javatpoint.com/spring-mvc-form-text-field">Form Text Field</a>
+<a href="https://www.javatpoint.com/spring-mvc-form-radio-button">Form Radio Button</a>
+<a href="https://www.javatpoint.com/spring-mvc-form-checkbox">Form Check Box</a>
+<a href="https://www.javatpoint.com/spring-mvc-form-drop-down-list">Form Drop-Down List</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">MVC Applications</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/spring-mvc-crud-example">MVC CRUD Example</a>
+<a href="https://www.javatpoint.com/spring-mvc-pagination-example">MVC Pagination Example</a>
+<a href="https://www.javatpoint.com/spring-mvc-file-upload">File Upload Example</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Spring MVC Validation</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/spring-mvc-validation">Spring MVC Validation</a>
+<a href="https://www.javatpoint.com/spring-mvc-regular-expression-validation">Regular Expression Validation</a>
+<a href="https://www.javatpoint.com/spring-mvc-number-validation">Number Validation</a>
+<a href="https://www.javatpoint.com/spring-mvc-custom-validation">Custom Validation</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">MVC Tiles</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/spring-mvc-tiles-example">Spring MVC Tiles</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Spring Remoting</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/remoting-in-spring-framework"><span>Remoting with Spring</span></a>
+<a href="https://www.javatpoint.com/spring-and-rmi-integration" >Spring with RMI</a>
+<a href="https://www.javatpoint.com/spring-remoting-by-http-invoker-example" >Http Invoker</a>
+<a href="https://www.javatpoint.com/spring-remoting-by-hessian-example" >Hessian</a>
+<a href="https://www.javatpoint.com/spring-remoting-by-burlap-example" >Burlap</a>
+<a href="https://www.javatpoint.com/spring-and-jms-integration" >Spring with JMS</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Spring OXM</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/spring-and-jaxb-integration-example" >Spring with JAXB</a>
+<a href="https://www.javatpoint.com/spring-with-xstream-example" >Spring with Xstream</a>
+<a href="https://www.javatpoint.com/spring-with-castor-example" >Spring with Castor</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Spring Java Mail</span></h2>
+</div>
+<div class="leftmenu"  >
+<a href="https://www.javatpoint.com/spring-java-mail-tutorial"><span>Spring Java Mail</span></a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Spring Web</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/spring-and-struts2-integration" >Spring with Struts2</a>
+<a href="https://www.javatpoint.com/login-example-with-struts-2-and-spring-integration" >Login Example</a>
+</div>
+<div class="leftmenu2">
+ <h2 class="spanh2"><span class="spanh2">Spring Security Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/spring-security-tutorial">Sp Security Tutorial</a>
+<a href="https://www.javatpoint.com/spring-security-introduction">Sp Security Introduction</a>
+<a href="https://www.javatpoint.com/spring-security-features">Sp Security Features</a>
+<a href="https://www.javatpoint.com/spring-security-project-modules">Security Project Modules</a>
+<a href="https://www.javatpoint.com/spring-security-xml-example">Sp Security XML Example</a>
+<a href="https://www.javatpoint.com/spring-security-java-example">Sp Security Java Example</a>
+<a href="https://www.javatpoint.com/spring-security-login-logout">Sp Security Login Logout</a>
+<a href="https://www.javatpoint.com/spring-security-custom-login">Sp Security Custom Login</a>
+<a href="https://www.javatpoint.com/spring-security-form-based-authentication">Form-Based Authentication</a>
+<a href="https://www.javatpoint.com/spring-security-remember-me">Sp Security Remember Me</a>
+<a href="https://www.javatpoint.com/spring-security-at-method-level">Security at Method Level</a>
+<a href="https://www.javatpoint.com/spring-security-jsp-tag-library">Sp Security Tag Library</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Spring + Angular</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/angular-spring-crud-example">CRUD Example</a>
+<a href="https://www.javatpoint.com/angular-spring-file-upload-example">File Upload Example</a>
+<a href="https://www.javatpoint.com/angular-spring-login-and-logout-example">Login &amp; Logout Example</a>
+<a href="https://www.javatpoint.com/angular-spring-search-field-example">Search Field Example</a>
+</div>
+
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Spring Boot</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/spring-boot-tutorial" >Spring Boot (15+)</a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Spring Interview</span></h2>
+</div>
+<div class="leftmenu"  >
+<a href="https://www.javatpoint.com/spring-interview-questions"><span>Interview Questions</span></a>
+</div>
+<div class="leftmenu2"  >
+<h2 class="spanh2"><span class="spanh2">Spring Quiz</span></h2>
+</div>
+<div class="leftmenu"  >
+<a href="https://www.javatpoint.com/spring-quiz"><span>Spring Quiz</span></a>
+</div>
+<img src="https://www.javatpoint.com/wh.JPG" alt="JavaTpoint"/>
+<br/>
+<div id="leftad" style="margin-left:20px">
+<!-- javatpointleft -->
+<ins class="adPushupAds" data-adpControl="g8drp" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBqYXZhdHBvaW50bGVmdCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lLWJsb2NrO3dpZHRoOjE2MHB4O2hlaWdodDo2MDBweCIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI0NDc2NDAxMjIyIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+</div>
+<div class="onlycontent">
+<div class="onlycontentad">
+<!-- CM_JTP_Leaderbaord -->
+<ins class="adPushupAds" data-adpControl="nuoc1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDTV9KVFBfTGVhZGVyYmFvcmQgLS0+CjxpbnMgY2xhc3M9ImFkc2J5Z29vZ2xlIgogICAgIHN0eWxlPSJkaXNwbGF5OmJsb2NrIgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjkyMDE5MDE5MTUiCiAgICAgZGF0YS1hZC1mb3JtYXQ9ImF1dG8iCiAgICAgZGF0YS1mdWxsLXdpZHRoLXJlc3BvbnNpdmU9InRydWUiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+
+<div id="bottomnextup">
+<a class="next" href="https://www.javatpoint.com/angular-spring-login-and-logout-example">next &rarr;</a>
+<a class="next" href="https://www.javatpoint.com/angular-spring-crud-example">&larr; prev</a>
+</div>
+
+<h1 class="h1">Spring Angular File Upload Application</h1>
+<p>In this section, we are going to create a File Upload web application. This application includes a registration form. In this integration, we are using Spring to handle the backend part and Angular to handle the frontend part.</p>
+<h2 class="h2">Working of Application</h2>
+<ul class="points">
+<li>Once we deployed our application on the server, a registration page generates. </li>
+<li>A user can fill the required information and upload the image.</li>
+<li>Remember, the image size must not exceed 1 MB.</li>
+</ul>
+<h2 class="h2">Tools to be used</h2>
+<ul class="points">
+<li>Use any IDE to develop the Spring and Hibernate project. It may be MyEclipse/Eclipse/Netbeans. Here, we are using Eclipse.</li> 
+<li>MySQL for the database.</li>
+<li>Use any IDE to develop the Angular project. It may be Visual Studio Code/Sublime. Here, we are using Visual Studio Code.</li>
+<li>Server: Apache Tomcat/JBoss/Glassfish/Weblogic/Websphere.</li>
+</ul>
+<h2 class="h2">Technologies we used</h2>
+<p>Here, we use the following technologies:</p>
+<ul class="points">
+<li>Spring 5</li>
+<li>Hibernate 5</li>
+<li>Angular 6</li>
+<li>MYSQL</li>
+</ul>
+<h2 class="h2">Create Database</h2>
+<p>Let's create a database <strong>fileuploadexample</strong>. There is no need to create a table as Hibernate automatically created it.</p>
+<h2 class="h2">Spring Module</h2>
+<p>Let's see the directory structure of Spring we need to follow: </p>
+<img src="https://static.javatpoint.com/sppages/angular/images/spring-angular-file-upload-application.png" alt="Spring Angular File Upload Application"/>
+<p>To develop a file upload application, follow the below steps: -</p>
+<ul class="points">
+<li>Add dependencies to pom.xml file.</li>
+</ul>
+<p><strong>pom.xml</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;com.javatpoint&lt;/groupId&gt;
+  &lt;artifactId&gt;FileUploadExample&lt;/artifactId&gt;
+  &lt;packaging&gt;war&lt;/packaging&gt;
+  &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+  &lt;name&gt;FileUploadExample Maven Webapp&lt;/name&gt;
+  &lt;url&gt;http://maven.apache.org&lt;/url&gt;
+  
+  &lt;properties&gt;
+		&lt;springframework.version&gt;5.0.6.RELEASE&lt;/springframework.version&gt;
+		&lt;hibernate.version&gt;5.2.16.Final&lt;/hibernate.version&gt;
+		&lt;mysql.connector.version&gt;5.1.45&lt;/mysql.connector.version&gt;
+		&lt;c3po.version&gt;0.9.5.2&lt;/c3po.version&gt;
+
+		&lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+		&lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+	&lt;/properties&gt;
+	
+	
+  &lt;dependencies&gt;
+  
+   &lt;!-- Spring --&gt;
+	&lt;dependency&gt;
+		&lt;groupId&gt;org.springframework&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+		&lt;version&gt;${springframework.version}&lt;/version&gt;
+	&lt;/dependency&gt;
+
+	&lt;dependency&gt;
+		&lt;groupId&gt;org.springframework&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-tx&lt;/artifactId&gt;
+		&lt;version&gt;${springframework.version}&lt;/version&gt;
+	&lt;/dependency&gt;
+		
+	&lt;dependency&gt;
+		&lt;groupId&gt;org.springframework&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-orm&lt;/artifactId&gt;
+		&lt;version&gt;${springframework.version}&lt;/version&gt;
+	&lt;/dependency&gt;
+
+	&lt;!-- Add Jackson for JSON converters --&gt;
+	&lt;dependency&gt;
+		&lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+		&lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+		&lt;version&gt;2.9.5&lt;/version&gt;
+	&lt;/dependency&gt;
+
+	&lt;!-- Hibernate --&gt;
+	&lt;dependency&gt;
+		&lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+		&lt;artifactId&gt;hibernate-core&lt;/artifactId&gt;
+		&lt;version&gt;${hibernate.version}&lt;/version&gt;
+	&lt;/dependency&gt;
+
+	&lt;!-- MySQL --&gt;
+	&lt;dependency&gt;
+		&lt;groupId&gt;mysql&lt;/groupId&gt;
+		&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+		&lt;version&gt;${mysql.connector.version}&lt;/version&gt;
+	&lt;/dependency&gt;
+
+	&lt;!-- C3PO --&gt;
+	&lt;dependency&gt;
+		&lt;groupId&gt;com.mchange&lt;/groupId&gt;
+		&lt;artifactId&gt;c3p0&lt;/artifactId&gt;
+		&lt;version&gt;${c3po.version}&lt;/version&gt;
+	&lt;/dependency&gt;
+
+	&lt;!-- Servlet+JSP+JSTL --&gt;
+	&lt;dependency&gt;
+		&lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+		&lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+		&lt;version&gt;3.1.0&lt;/version&gt;
+	&lt;/dependency&gt;
+
+	&lt;dependency&gt;
+		&lt;groupId&gt;javax.servlet.jsp&lt;/groupId&gt;
+		&lt;artifactId&gt;javax.servlet.jsp-api&lt;/artifactId&gt;
+		&lt;version&gt;2.3.1&lt;/version&gt;
+	&lt;/dependency&gt;
+
+	&lt;dependency&gt;
+		&lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+		&lt;artifactId&gt;jstl&lt;/artifactId&gt;
+		&lt;version&gt;1.2&lt;/version&gt;
+	&lt;/dependency&gt;
+
+
+	&lt;!-- to compensate for java 9 not including jaxb --&gt;
+	&lt;dependency&gt;
+		&lt;groupId&gt;javax.xml.bind&lt;/groupId&gt;
+		&lt;artifactId&gt;jaxb-api&lt;/artifactId&gt;
+		&lt;version&gt;2.3.0&lt;/version&gt;
+	&lt;/dependency&gt;
+ 	
+ 	&lt;!--  JUnit dependency --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;junit&lt;/groupId&gt;
+        &lt;artifactId&gt;junit&lt;/artifactId&gt;
+        &lt;version&gt;3.8.1&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+    
+         &lt;!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload --&gt;
+	&lt;dependency&gt;
+	    &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;
+	    &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;
+	    &lt;version&gt;1.3&lt;/version&gt;
+	&lt;/dependency&gt;
+	
+	&lt;!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 --&gt;
+	&lt;dependency&gt;
+	    &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
+	    &lt;artifactId&gt;commons-dbcp2&lt;/artifactId&gt;
+	    &lt;version&gt;2.0&lt;/version&gt;
+	&lt;/dependency&gt; 
+    
+    
+    
+  &lt;/dependencies&gt;
+  &lt;build&gt;
+    &lt;finalName&gt;FileUploadExample&lt;/finalName&gt;
+  &lt;/build&gt;
+&lt;/project&gt;
+</textarea></div>
+<ul class="points">
+<li>Create the configuration classes<br>
+Instead of XML, we perform annotation-based configuration. So, we create two classes and specify the required configuration in it.</li>
+</ul>
+<p><strong>DemoAppConfig.java</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+package com.javatpoint.FileUploadExample.config;
+
+import java.beans.PropertyVetoException;
+import java.io.IOException;
+import java.util.Properties;
+import javax.sql.DataSource;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
+@Configuration
+@EnableWebMvc
+@EnableTransactionManagement
+@ComponentScan("com.javatpoint.FileUploadExample")
+@PropertySource(value = { "classpath:persistence-mysql.properties" })
+@PropertySource(value = { "classpath:persistence-mysql.properties" })
+@PropertySource(value = { "classpath:application.properties" })
+public class DemoAppConfig implements WebMvcConfigurer {
+	
+	@Autowired
+	private Environment env;
+	
+	@Bean
+	public DataSource myDataSource() {
+		
+		// create connection pool
+		ComboPooledDataSource myDataSource = new ComboPooledDataSource();
+
+		// set the jdbc driver
+		try {
+			myDataSource.setDriverClass("com.mysql.jdbc.Driver");		
+		}
+		catch (PropertyVetoException exc) {
+			throw new RuntimeException(exc);
+		}
+		
+		// set database connection props
+		myDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
+		myDataSource.setUser(env.getProperty("jdbc.user"));
+		myDataSource.setPassword(env.getProperty("jdbc.password"));
+		
+		// set connection pool props
+		myDataSource.setInitialPoolSize(getIntProperty("connection.pool.initialPoolSize"));
+		myDataSource.setMinPoolSize(getIntProperty("connection.pool.minPoolSize"));
+		myDataSource.setMaxPoolSize(getIntProperty("connection.pool.maxPoolSize"));		
+		myDataSource.setMaxIdleTime(getIntProperty("connection.pool.maxIdleTime"));
+
+		return myDataSource;
+	}
+	
+	private Properties getHibernateProperties() {
+
+		// set hibernate properties
+		Properties props = new Properties();
+		props.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
+		props.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+		props.setProperty("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
+		props.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl"));
+		return props;				
+	}
+
+	
+	// need a helper method 
+	// read environment property and convert to int
+	
+	private int getIntProperty(String propName) {
+		
+		String propVal = env.getProperty(propName);
+		
+		// now convert to int
+		int intPropVal = Integer.parseInt(propVal);
+		return intPropVal;
+	}	
+	
+	@Bean
+	public LocalSessionFactoryBean sessionFactory(){
+		
+		// create session factorys
+		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+		
+		// set the properties
+		sessionFactory.setDataSource(myDataSource());
+		sessionFactory.setPackagesToScan(env.getProperty("hibernate.packagesToScan"));
+		sessionFactory.setHibernateProperties(getHibernateProperties());
+		
+		return sessionFactory;
+	}
+	
+	@Bean
+	@Autowired
+	public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+		
+		// setup transaction manager based on session factory
+		HibernateTransactionManager txManager = new HibernateTransactionManager();
+		txManager.setSessionFactory(sessionFactory);
+
+		return txManager;
+	}	
+	
+	@Bean(name="multipartResolver")
+    public CommonsMultipartResolver getResolver() throws IOException{
+        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+         
+        //Set the maximum allowed size (in bytes) for each individual file.
+       // resolver.setMaxUploadSize(5242880);//5MB
+        
+        resolver.setMaxUploadSize(524288);//0.5MB
+        
+        //You may also set other available properties.  
+        return resolver;
+    }
+	
+}
+</textarea></div>
+<p><strong>MySpringMvcDispatcherServletInitializer.java</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+package com.javatpoint.FileUploadExample.config;
+
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+	@Override
+	protected Class&lt;?&gt;[] getRootConfigClasses() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Class&lt;?&gt;[] getServletConfigClasses() {
+		return new Class[] { DemoAppConfig.class };
+	}
+
+	@Override
+	protected String[] getServletMappings() {
+		return new String[] { "/" };
+	}
+
+}
+</textarea></div>
+<ul class="p;oints">
+<li>Create the entity class<br>
+Here, we are creating an Entity/POJO (Plain Old Java Object) class.</li>
+</ul>
+<p><strong>UserDetail.java</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+package com.javatpoint.FileUploadExample.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user_detail")
+public class UserDetail {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="user_id")
+	private int userId;
+	
+	@Column(name="email_id")
+	public String emailId;
+	
+	@Column(name="name")
+	public String name;
+	
+	@Column(name="profile_image")
+	public String profileImage;
+	
+	public UserDetail() { }
+
+	public UserDetail(int userId, String emailId, String name, String profileImage) {
+		super();
+		this.userId = userId;
+		this.emailId = emailId;
+		this.name = name;
+		this.profileImage = profileImage;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getProfileImage() {
+		return profileImage;
+	}
+
+	public void setProfileImage(String profileImage) {
+		this.profileImage = profileImage;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDetail [userId=" + userId + ", emailId=" + emailId + ", name=" + name + ", profileImage="
+				+ profileImage + "]";
+	}
+
+	
+}
+</textarea></div>
+<ul class="points">
+<li>Create the DAO interface<br>
+Here, we are creating a DAO interface to perform database related operations.</li>
+</ul>
+<p><strong>UserDAO.java </strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+package com.javatpoint.FileUploadExample.DAO.interfaces;
+
+import com.javatpoint.FileUploadExample.entity.UserDetail;
+
+public interface UserDAO {
+	
+	public int saveUser(UserDetail userDetail);
+	
+	public UserDetail getUserDetail(int userId);
+	
+	public int updateProfileImage(String profileImage , int userID);
+	
+
+}
+</textarea></div>
+<ul class="points">
+<li>Create the DAO interface implementation class</li>
+</ul>
+<p><strong>UserDAOImpl.java</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+package com.javatpoint.FileUploadExample.DAO.implementation;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.javatpoint.FileUploadExample.DAO.interfaces.UserDAO;
+import com.javatpoint.FileUploadExample.entity.UserDetail;
+
+@Repository("userDAO")
+public class UserDAOImpl implements UserDAO {
+
+	@Autowired
+	SessionFactory sessionFactory;
+	
+	public int saveUser(UserDetail userDetail) {
+		
+		Session session = null;
+		try
+		{
+			session = sessionFactory.getCurrentSession();
+			int status = (Integer) session.save(userDetail);
+			return status;
+		}
+		catch(Exception exception)
+		{
+			System.out.println("Exception in saving data into the database" + exception);
+			return 0;
+		}
+		finally
+		{
+			session.flush();
+		}
+	}
+
+	public UserDetail getUserDetail(int userId) {
+		Session session = null;
+		try
+		{
+			session = sessionFactory.getCurrentSession();
+			UserDetail userDetail = session.get(UserDetail.class, userId);
+			return userDetail;
+		}
+		catch(Exception exception)
+		{
+			System.out.println("Exception in saving data into the database " + exception);
+			return null;
+		}
+		finally
+		{
+			session.flush();
+		}
+	}
+
+	public int updateProfileImage(String profileImage, int userID) {
+		Session session= sessionFactory.getCurrentSession();
+		int result;
+		
+		try
+		{
+			Query&lt;UserDetail&gt; query = session.createQuery("update UserDetail set profileImage = :profileImage where userId=:userID ");
+			query.setParameter("profileImage", profileImage);
+			query.setParameter("userID", userID);
+			result = query.executeUpdate();
+			if(result &gt; 0)
+			{
+				return result;
+			}
+			else return -5;
+		}
+		catch(Exception exception)
+		{
+			System.out.println("Error while updating profileImage from DAO :: " + exception.getMessage());
+			return -5;
+		}
+		finally
+		{
+			session.flush();
+		}
+		
+		
+	}
+}
+</textarea></div>
+<ul class="points">
+<li>Create the service layer interface</li>
+</ul>
+<p>Here, we are creating a service layer interface that acts as a bridge between DAO and Entity classes.</p>
+<p><strong>UserService.java</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+package com.javatpoint.FileUploadExample.service.interfaces;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.javatpoint.FileUploadExample.entity.UserDetail;
+
+public interface UserService {
+	
+	public int saveUser(UserDetail userDetail);
+	
+	public UserDetail getUserDetail(int userId);
+	
+	public int store(MultipartFile file, int userID ,  HttpSession session);
+	
+	
+
+}
+</textarea></div>
+<ul class="poinsts">
+<li>Create the service layer implementation class</li>
+</ul>
+<p><strong>UserServiceImpl.java</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+package com.javatpoint.FileUploadExample.service.implementation;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.javatpoint.FileUploadExample.DAO.interfaces.UserDAO;
+import com.javatpoint.FileUploadExample.entity.UserDetail;
+import com.javatpoint.FileUploadExample.service.interfaces.UserService;
+
+@Service("userService")
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserDAO userDAO;
+	
+	@Transactional
+	public int saveUser(UserDetail userDetail) {
+		return userDAO.saveUser(userDetail);
+	}
+	
+	@Transactional
+	public UserDetail getUserDetail(int userId) {
+		return userDAO.getUserDetail(userId);
+	}
+
+	@Transactional
+	public int store(MultipartFile file, int userID, HttpSession session) {
+		
+		Path rootLocation = Paths.get(session.getServletContext().getRealPath("/resources/images"));
+		
+		System.out.println("rootLocation  ==  " + rootLocation);
+		
+		UserDetail userDetail = this.getUserDetail(userID);
+		 
+		 String nameExtension[] = file.getContentType().split("/");
+
+		 String profileImage = userID + "." + nameExtension[1];
+		 	
+		 System.out.println("ProfileImage  :: " + profileImage);
+		 
+		 if(userDetail.getUserId() &gt; 0 )
+		 {
+			 
+			if(userDetail.getProfileImage() == null || userDetail.getProfileImage() == " " || userDetail.getProfileImage() == "" )
+			{
+				try
+				{
+					Files.copy(file.getInputStream(),rootLocation.resolve(profileImage));
+					int result = userDAO.updateProfileImage(profileImage, userID);	
+					if(result &gt; 0)
+						return result;
+					else
+						return -5;
+				}
+				catch(Exception exception)
+				{
+					System.out.println("error while uploading image catch:: " + exception.getMessage());
+					return -5;
+				}
+			}
+			else
+			{
+				try
+				{
+					//Files.delete(rootLocation.resolve(profileImage));
+					
+					Files.delete(rootLocation.resolve(userDetail.getProfileImage()));
+					
+					Files.copy(file.getInputStream(),rootLocation.resolve(profileImage));
+					int result = userDAO.updateProfileImage(profileImage, userID);	
+					if(result &gt; 0)
+						return result;
+					else
+						return -5;
+				}
+				catch(Exception exception)
+				{
+					System.out.println("Error while uploading image when image is already Exists :: " + exception.getMessage());
+					return -5;
+				}
+			}
+		}
+		else {
+			return 0;
+		}
+	}
+
+	
+
+}
+</textarea></div>
+<ul class="points">
+<li>Create the controller class</li>
+</ul>
+<p><strong>UserController.java</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+package com.javatpoint.FileUploadExample.restController;
+
+import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.javatpoint.FileUploadExample.entity.UserDetail;
+import com.javatpoint.FileUploadExample.service.interfaces.UserService;
+
+@RestController
+@RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
+public class UserController {
+	
+	@Autowired
+	private UserService userService;
+	
+	@PostMapping("/saveUser")
+	public int saveUser(@RequestBody UserDetail userDetail)
+	{
+		return userService.saveUser(userDetail);
+	}
+	
+	@PostMapping("/uploadImage/{userId}")
+	public int handleFileUpload(@PathVariable int userId , @RequestParam("file") MultipartFile file, HttpSession session) {
+		return userService.store(file, userId, session);		
+	}
+	
+}
+</textarea></div>
+<ul class="points">
+<li>Create the properties file<br>
+Here, we are creating properties file inside the <strong>src/main/resources</strong> in the project.</li<>
+</ul>
+<p><strong>application.properties</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+spring.http.multipart.max-file-size=1024KB
+spring.http.multipart.max-request-size=1024KB
+</textarea></div>
+<p><strong>persistence-mysql.properties</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+#
+# JDBC connection properties
+#
+jdbc.driver=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/fileuploadexample?useSSL=false
+jdbc.user=root
+jdbc.password=
+
+#
+# Connection pool properties
+#
+connection.pool.initialPoolSize=5
+connection.pool.minPoolSize=5
+connection.pool.maxPoolSize=20
+connection.pool.maxIdleTime=3000
+
+#
+# Hibernate properties
+#
+<!-- hibernate.dialect=org.hibernate.dialect.MySQLDialect -->
+hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+hibernate.show_sql=true
+hibernate.format_sql=true
+hibernate.hbm2ddl=update
+hibernate.packagesToScan=com.javatpoint.FileUploadExample.entity
+</textarea></div>
+<h2 class="h2">Angular Module</h2>
+<p>Let's see the directory structure of Angular we need to follow: </p>
+<img src="https://static.javatpoint.com/sppages/angular/images/spring-angular-file-upload-application2.png" alt="Spring Angular File Upload Application"/>
+<ul class="points">
+<li>Create an Angular project</li>
+</ul>
+<p>Let's create an Angular project by using the following command:</p>
+<p><em>ng new FileUploadExample</em></p>
+<img src="https://static.javatpoint.com/sppages/angular/images/spring-angular-file-upload-application3.png" alt="Spring Angular File Upload Application"/>
+<br>
+<img src="https://static.javatpoint.com/sppages/angular/images/spring-angular-file-upload-application4.png" alt="Spring Angular File Upload Application"/>
+<p>Here, <strong>FileUploadExample</strong> is the name of the project.</p>
+<h2 class="h2">Install Bootstrap CSS framework</h2>
+<p>Use the following command to install bootstrap in the project.</p>
+<div class="codeblock"><textarea name="code" class="java">
+npm install bootstrap@3.3.7 --save  
+</textarea></div>
+<p>Now, include the following code in the style.css file.</p>
+<div class="codeblock"><textarea name="code" class="java">
+@import "~bootstrap/dist/css/bootstrap.css";
+</textarea></div>
+<ul class="points">
+<li>Generate Component<br>
+Open the project in visual studio and then use the following command to generate Angular component:
+<br>ng g c Register</li>
+</ul>
+<img src="https://static.javatpoint.com/sppages/angular/images/spring-angular-file-upload-application5.png" alt="Spring Angular File Upload Application"/>
+<p>Let's also create a service class by using the following command: -</p>
+<p><em>ng g s services/UserDetail</em></p>
+<img src="https://static.javatpoint.com/sppages/angular/images/spring-angular-file-upload-application6.png" alt="Spring Angular File Upload Application"/>
+<ul class="points">
+<li>Edit the <strong>app.module.ts</strong> file
+<ul class="points">
+<li><strong>Import ReactiveFormsModule</strong> - Here, we are importing the <strong>ReactiveFormsModule</strong> for reactive forms and specifying it in imports array.</li>
+<li><strong>Import HttpModule</strong> - Here, we are importing the <strong>HttpModule</strong> for server requests and specifying it in the imports array.</li>
+<li><strong>Register Service class</strong> - Here, we are mentioning the service class in the provider's array. </li>
+</ul></li>
+</ul>
+<div class="codeblock"><textarea name="code" class="java">
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+// import ReactiveFormsModule for reactive form
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { RegisterComponent } from './register/register.component';
+
+import { HttpModule } from '@angular/http';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    RegisterComponent
+  ],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    HttpModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+</textarea></div>
+<ul class="points">
+<li>Edit the <strong>app.component.html</strong> file</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="java">
+&lt;app-register&gt;&lt;/app-register&gt;
+</textarea></div>
+<ul class="points">
+<li>Create the <strong>UserDetail.ts</strong> class</li>
+</ul>
+<p>Let's create a class by using the following command: -</p>
+<p><em>ng g class classes/UserDetail</em></p>
+<img src="https://static.javatpoint.com/sppages/angular/images/spring-angular-file-upload-application7.png" alt="Spring Angular File Upload Application"/>
+<p>Now, specify the required fields within the <strong>UserDetail</strong> class. </p>
+<div class="codeblock"><textarea name="code" class="java">
+export class UserDetail {
+
+    emailId : string;
+    name : string;
+    profileImage : string;
+
+}
+</textarea></div>
+<p>The purpose of this class is to map the specified fields with the fields of the Spring entity class.</p>
+<ul class="points">
+<li>Edit the <strong>user-detail.service.ts</strong> file</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="java">
+import { Injectable } from '@angular/core';
+import { UserDetail } from '../classes/user-detail';
+import { Observable } from 'rxjs';
+import { Http, RequestOptions , Headers } from '@angular/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserDetailService {
+
+  // Base URL
+  private  baseUrl = "http://localhost:8080/FileUploadExample/api/";
+
+  constructor(private http: Http) { }
+
+  saveData(userDetail : UserDetail) : Observable<any>
+  {
+      let url = this.baseUrl + "saveUser";
+      return this.http.post(url,userDetail);
+  }
+
+  uploadFile( file: File , id : number ) : Observable<any>
+  {
+    let url = this.baseUrl + "uploadImage/" + id ;
+
+    const formdata: FormData = new FormData();
+  
+    formdata.append('file', file);
+ 
+    return this.http.post(url , formdata);
+  }
+}
+</textarea></div>
+<ul class="points">
+<li>Edit the <strong>register.component.ts</strong> file</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="java">
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserDetail } from '../classes/user-detail';
+import { UserDetailService } from '../services/user-detail.service';
+import { jsonpFactory } from '@angular/http/src/http_module';
+
+@Component({
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
+})
+export class RegisterComponent implements OnInit {
+
+  selectedFiles: FileList;
+  currentFileUpload: File;
+
+  private userDetail = new UserDetail(); 
+  
+  constructor(private userDetailService : UserDetailService) { }
+
+  ngOnInit() {
+  }
+
+  selectFile(event) {
+    const file = event.target.files.item(0);
+ 
+    if (file.type.match('image.*')) {
+      var size = event.target.files[0].size;
+      if(size > 1000000)
+      {
+          alert("size must not exceeds 1 MB");
+          this.form.get('profileImage').setValue("");
+      }
+      else
+      {
+        this.selectedFiles = event.target.files;
+      }
+    } else {
+      alert('invalid format!');
+    }
+
+  }   
+
+  // create the form object.
+  form = new FormGroup({
+    fullName : new FormControl('' , Validators.required),
+    email : new FormControl('' , Validators.required),
+    profileImage : new FormControl()
+  });
+
+  AdminForm(AdminInformation)
+  {
+    this.userDetail.name = this.FullName.value;
+    this.userDetail.emailId = this.Email.value;
+
+    console.log(this.userDetail);
+
+    this.userDetailService.saveData(this.userDetail).subscribe(
+      response => {
+          let result = response.json();
+          console.log(result);
+          if(result > 0 )
+          {
+            if(this.selectedFiles != null)
+            {
+              this.currentFileUpload = this.selectedFiles.item(0);
+              console.log(this.currentFileUpload);
+
+              this.userDetailService.uploadFile(this.currentFileUpload , result).subscribe(
+                  res => {
+
+                    let re = res.json();
+                     if(re > 0)
+                     {
+                        alert("file upload successfully ");
+                        this.form.get('fullName').setValue("");
+                        this.form.get('email').setValue("");
+                        this.form.get('profileImage').setValue("");
+                     }
+                     else{
+                        alert("error while uploading fie details");
+                     }
+                  },
+                  err => {
+                      alert("error while uploading fie details");
+                  }
+              );
+
+            }
+          }
+      },
+      error => {
+        console.log("error while saving data in the DB");
+      }
+    );
+
+  }
+
+    get FullName(){
+      return this.form.get('fullName');
+    }
+
+    get Email(){
+        return this.form.get('email');
+    } 
+
+
+
+     
+}
+</textarea></div>
+<ul class="points">
+<li>Edit the <strong>register.component.html</strong> file</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="java">
+&lt;h2&gt;Registration form&lt;/h2&gt;
+
+&lt;form [formGroup]="form" #AdminInformation (ngSubmit)="AdminForm(AdminInformation)"&gt;
+
+  &lt;div class="row"&gt;
+    &lt;div class=" col-md-offset-1 col-md-4"&gt;
+        &lt;label for="fullName"&gt; Name &lt;/label&gt;
+        &lt;input formControlName="fullName" class="form-control" type="text"&gt; 
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="row"&gt;
+    &lt;div class=" col-md-offset-1 col-md-4"&gt;
+        &lt;label for="email"&gt; Email &lt;/label&gt;
+        &lt;input formControlName="email" class="form-control" type="text"&gt; 
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  
+  &lt;div class="row"&gt;
+    &lt;div class=" col-md-offset-1 col-md-4"&gt;
+        
+      &lt;label for="profileImage"&gt;Upload Image&lt;/label&gt;
+        &lt;input formControlName="profileImage" class="form-control" type="file" (change)="selectFile($event)"&gt; 
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="row" style="margin-top: 40px;"&gt;
+    &lt;div class="col-md-offset-1 col-md-4"&gt;
+        &lt;button class="btn btn-md btn-primary btn-style"  &gt;Save&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/form&gt;
+</textarea></div>
+<p>Once completed, provide the URL <a href="http://localhost:4200/" rel="nofollow" target="_blank">http://localhost:4200/</a> at the web browser. The following web page occurs: </p>
+<img src="https://static.javatpoint.com/sppages/angular/images/spring-angular-file-upload-application8.png" alt="Spring Angular File Upload Application"/>
+<p>Now, we can fill the required information and choose the file need to be uploaded. </p>
+<img src="https://static.javatpoint.com/sppages/angular/images/spring-angular-file-upload-application9.png" alt="Spring Angular File Upload Application"/>
+
+<div class="download">
+<a href="https://static.javatpoint.com/sppages/download/angular/AngularSpringFileUpload.zip">Download this example</a>
+</div>
+
+<hr/>
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="https://www.javatpoint.com/angular-spring-login-and-logout-example">Login &amp; Logout Example</a></span>
+</div>
+<!-- link -->
+<br/><br/>
+
+<div id="bottomnext">
+<a style="float:left" class="next" href="https://www.javatpoint.com/angular-spring-crud-example">&larr; prev</a>
+<a style="float:right" class="next" href="https://www.javatpoint.com/angular-spring-login-and-logout-example">next &rarr;</a>
+</div>
+
+<br/><br/>
+
+</td></tr>
+</table>
+</div>
+
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/angular-spring-file-upload-example"><img src="https://www.javatpoint.com/images/facebook32.png" alt="facebook"/></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/angular-spring-file-upload-example"><img src="https://www.javatpoint.com/images/twitter32.png" alt="twitter"/></a>
+<!--<a rel="nofollow" title="Google+" target="_blank" href="https://plusone.google.com/_/+1/confirm?hl=en&url=https://www.javatpoint.com/angular-spring-file-upload-example"><img src="https://www.javatpoint.com/images/google-plus32.png" alt="google plus"/></a>-->
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/angular-spring-file-upload-example"><img src="https://www.javatpoint.com/images/pinterest32.png" alt="pinterest"/></a>
+<!--<a rel="nofollow" title="Tumblr" target="_blank" href="https://www.tumblr.com/share/link?url=https://www.javatpoint.com/angular-spring-file-upload-example"><img src="https://www.javatpoint.com/images/tumblr32.png" alt="tumbler"/></a>-->
+<!-- contribute start-->
+
+<!-- contribute end-->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- AP_37780_300x250(0) -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4699858549023382"
+     data-ad-slot="5022809933"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+<!-- latest tutorials start --> 
+<h2 class="h2">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+
+                          <a href="https://www.javatpoint.com/python-openpyxl">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/openpyxl/images/openpyxl-home.png" alt="Openpyxl Tutorial" />
+                                <p>Openpyxl</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/tally">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/tally/images/tally-home.png" alt="Tally Tutorial" />
+                                <p>Tally</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/godot">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/godot/images/godot-home.png" alt="Godot Tutorial" />
+                                <p>Godot</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/spring-boot-tutorial"> 
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/springboot/images/spring-boot-home.jpg" alt="Spring Boot Tutorial" />
+                                <p>Spring Boot</p>  
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/gradle">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/gradle/images/gradle-home.png" alt="Gradle Tutorial" />
+                                <p>Gradle</p> 
+                            </div>    
+                        </a> 
+                           <a href="https://www.javatpoint.com/uml">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/uml/images/uml-home.png" alt="UML Tutorial" />
+                                <p>UML</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/artificial-neural-network">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/artificial-neural-network/images/ann-home.png" alt="Artificial Neural Network Tutorial" />
+                                <p>ANN</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/es6">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/es6/images/es6-home.png" alt="ES6 Tutorial" />
+                                <p>ES6</p> 
+                            </div>    
+                        </a> 
+                        <a href="https://www.javatpoint.com/flutter">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/flutter/images/flutter-home.png" alt="Flutter Tutorial" />
+                                <p>Flutter</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/selenium-python">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/selenium-python/images/selenium-python-home.png" alt="Selenium Python" />
+                                <p>Selenium Py</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/firebase">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/firebase/images/firebase-home.png" alt="Firebase Tutorial" />
+                                <p>Firebase</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/cobol">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/cobol/images/cobol-home.png" alt="Cobol Tutorial" />
+                                <p>Cobol</p>
+                            </div> 
+                        </a>  
+</div>
+<hr/>
+<!-- preparation start -->  
+<h2 class="h2">Preparation</h2>
+<div class="firsthomecontent"> 
+
+                        <a href="https://www.javatpoint.com/aptitude/quantitative">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+                                <p>Aptitude</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/reasoning">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+                                <p>Reasoning</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/verbal-ability">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+                                <p>Verbal A.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/interview-questions-and-answers">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+                                <p>Interview</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/company-interview-questions-and-recruitment-process">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+                                <p>Company</p>
+                            </div> 
+                        </a> 
+
+</div>
+<hr/>
+<!-- trending start -->  
+<h2 class="h2">Trending Technologies</h2>
+<div class="firsthomecontent">
+
+                        <a href="https://www.javatpoint.com/artificial-intelligence-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/ai/images/ai-home.png" alt="Artificial Intelligence Tutorial" />
+                                <p>AI</p>
+                            </div> 
+                        </a> 
+                        <a href="https://www.javatpoint.com/aws-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/aws/images/aws-home.png" alt="AWS Tutorial" />
+                                <p>AWS</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/selenium-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/selenium/images/selenium-home.jpg" alt="Selenium tutorial" />
+                                <p>Selenium</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/cloud-computing-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/cloudhome.png" alt="Cloud tutorial" />
+                                <p>Cloud</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/hadoop-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/hadoop.jpg" alt="Hadoop tutorial" />
+                                <p>Hadoop</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/reactjs-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/reactjs/images/reactjs-home.png" alt="ReactJS Tutorial" />
+                                <p>ReactJS</p>
+                            </div> 
+                        </a>  
+                        <a href="https://www.javatpoint.com/data-science">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/data-science/images/data-science-home.png" alt="Data Science Tutorial" />
+                                <p>D. Science</p>
+                            </div> 
+                        </a>  
+                        <a href="https://www.javatpoint.com/angular-7-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/angular7/images/angular-7-home.png" alt="Angular 7 Tutorial" />
+                                <p>Angular 7</p>
+                            </div> 
+                        </a>  
+                        <a href="https://www.javatpoint.com/blockchain-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/blockchain/images/blockchain-home.png" alt="Blockchain Tutorial" />
+                                <p>Blockchain</p>
+                            </div>  
+                        </a> 
+                        <a href="https://www.javatpoint.com/git">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/git/images/git-home.png" alt="Git Tutorial" />
+                                <p>Git</p>
+                            </div> 
+                        </a> 
+                          <a href="https://www.javatpoint.com/machine-learning">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/machine-learning/images/machine-learning-home.png" alt="Machine Learning Tutorial" />
+                                <p>ML</p> 
+                            </div>    
+                        </a> 
+                          <a href="https://www.javatpoint.com/devops">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/devops/images/devops-home.png" alt="DevOps Tutorial" />
+                                <p>DevOps</p> 
+                            </div>    
+                        </a> 
+
+</div>
+ 
+<hr/>
+<!-- B.Tech / MCA -->
+                    <h2 class="h2">B.Tech / MCA</h2>
+                    <div class="firsthomecontent">
+                        <a href="https://www.javatpoint.com/dbms-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/dbms/images/dbms-home.jpg" alt="DBMS tutorial" />
+                                <p>DBMS</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/data-structure-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/ds/images/ds-home.png" alt="Data Structures tutorial" />
+                                <p>DS</p>
+                            </div>
+                        </a> 
+                        <a href="https://www.javatpoint.com/daa-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/daa/images/daa-home.png" alt="DAA tutorial" />
+                                <p>DAA</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/os-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/operating-system/images/operating-system-home.png" alt="Operating System tutorial" />
+                                <p>OS</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/computer-network-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/computer-network/images/computer-network-home.png" alt="Computer Network tutorial" />
+                                <p>C. Network</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/compiler-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/compiler/images/compiler-design-home.png" alt="Compiler Design tutorial" />
+                                <p>Compiler D.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/computer-organization-and-architecture-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/coa/images/coa-home.png" alt="Computer Organization and Architecture" />
+                                <p>COA</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/discrete-mathematics-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/dms/images/discrete-mathematics-home.png" alt="Discrete Mathematics Tutorial" />
+                                <p>D. Math.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/ethical-hacking-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/ethical-hacking/images/ethical-hacking-home.png" alt="Ethical Hacking Tutorial" />
+                                <p>E. Hacking</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/computer-graphics-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/computer-graphics/images/computer-graphics-home.png" alt="Computer Graphics Tutorial" />
+                                <p>C. Graphics</p>
+                            </div> 
+                        </a>
+                        <a href="https://www.javatpoint.com/software-engineering-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/software-engineering/images/software-engineering-home.png" alt="Software Engineering Tutorial" />
+                                <p>Software E.</p>
+                            </div> 
+                        </a> 
+
+                        <a href="https://www.javatpoint.com/html-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/html-tutorial.png" alt="html tutorial" />
+                                <p>Web Tech.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/cyber-security-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/cybersecurity/images/cyber-security-home.png" alt="Cyber Security tutorial" />
+                                <p>Cyber Sec.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/automata-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/automata/images/automata-home.jpg" alt="Automata Tutorial" />
+                                <p>Automata</p>
+                            </div> 
+                        </a>
+                        
+                        <a href="https://www.javatpoint.com/c-programming-language-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/clanguagehome.png" alt="C Language tutorial" />
+                                <p>C</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/cpp-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/cpp/images/cpp-home.png" alt="C++ tutorial" />
+                                <p>C++</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/java-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/javahome.png" alt="Java tutorial" />
+                                <p>Java</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/net-framework">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/csharp/net/images/net-home.png" alt=".Net Framework tutorial" />
+                                <p>.Net</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/python-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/pythonhome.png" alt="Python tutorial" />
+                                <p>Python</p>
+                            </div>
+                        </a>
+
+                        <a href="https://www.javatpoint.com/programs-list">
+                            <div class="homecontent"><img class="lazyload" data-src="https://www.javatpoint.com/images/programs.jpg" alt="List of Programs" />
+                                <p>Programs</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/control-system-tutorial">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/control-system/images/control-system-home.jpg" alt="Control Systems tutorial" />
+                                <p>Control S.</p>
+                            </div>
+                        </a>
+                        <a href="https://www.javatpoint.com/data-mining">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/tutorial/data-mining/images/data-mining-home.png" alt="Data Mining Tutorial" />
+                                <p>Data Mining</p> 
+                            </div>    
+                        </a> 
+
+</div>
+
+ 
+</div>
+
+
+<br><br/><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+</div></div>
+<div id="right">
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+<br/><br/>
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+<br/><br/>
+
+</div>
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+<!-- right1024only -->
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+<br/><br/>
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+<br/>
+<div id="footer" style="clear:both;width:100%">
+
+<!--<div style="width:100%;float:center;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#90715c,#523b1f);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Summer Training</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers <strong>Summer Internship Training</strong> on Java, PHP, .Net, Hadoop, Data Analytics, R Programming, SAP, Android, Python, Oracle, Seleninum, Linux, C++ and many more technologies in Delhi/NCR, India. For more visit <a style="color:white" href="https://training.javatpoint.com"><img src="https://static.javatpoint.com/images/linkglobe12.png" alt="javatpoint training"/>training.javatpoint.com</a> <br>Course Fee: &#8377; 6000 Only<br>Duration: 6 Week </p></div>--><div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com. <br>Duration: 1 week to 2 week<br></p></div><!--<div class="homebox2"><h2>Our Initiatives</h2><marquee behavior="alternate"><a rel="nofollow noopener" href="https://www.hindi100.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/javatpoint.png" alt="javatpoint"/><p>Hindi100</p></div></a><a rel="nofollow noopener" href="https://www.lyricsia.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/lyrics.png" alt="lyrics"/><p>Lyricsia</p></div></a></div></a></marquee></div>--><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed"/></a> <a target="_blank"  rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts"/></a> <a  rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page"/></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page"/></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube"/></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page"/></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="https://www.javatpoint.com/java-tutorial">Learn Java</a><a href="https://www.javatpoint.com/data-structure-tutorial">Learn Data Structures</a><a href="https://www.javatpoint.com/c-programming-language-tutorial">Learn C Programming</a><a href="https://www.javatpoint.com/cpp-tutorial">Learn C++ Tutorial</a><a href="https://www.javatpoint.com/c-sharp-tutorial">Learn C# Tutorial</a><a href="https://www.javatpoint.com/php-tutorial">Learn PHP Tutorial</a><a href="https://www.javatpoint.com/html-tutorial">Learn HTML Tutorial</a><a href="https://www.javatpoint.com/javascript-tutorial">Learn JavaScript Tutorial</a><a href="https://www.javatpoint.com/jquery-tutorial">Learn jQuery Tutorial</a><a href="https://www.javatpoint.com/spring-tutorial">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="https://www.javatpoint.com/">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="https://www.javatpoint.com/contact-us">Contact Us</a> <a href="https://www.javatpoint.com/subscribe.jsp">Subscribe Us</a> <a href="https://www.javatpoint.com/privacy-policy">Privacy Policy</a><a href="https://www.javatpoint.com/sitemap.xml">Sitemap</a><br><a href="https://www.javatpoint.com/sonoo-jaiswal">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+</div></div></div> 
+ 
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/angular-spring-file-upload-example by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:32:29 GMT -->
+</html> 

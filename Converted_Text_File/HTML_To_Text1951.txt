@@ -1,0 +1,175 @@
+C++ Templates - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ TemplatesA C++ template is a powerful feature added to C++. It allows you to define the generic classes and generic functions and thus provides support for generic programming. Generic programming is a technique where generic types are used as parameters in algorithms so that they can work for a variety of data types.Templates can be represented in two ways:Function templatesClass templatesFunction Templates:We can define a template for a function. For example, if we have an add() function, we can create versions of the add function for adding the int, float or double type values.Class Template:We can define a template for a class. For example, a class template can be created for the array class that can accept the array of various types such as int array, float array or double array.Function TemplateGeneric functions use the concept of a function template. Generic functions define a set of operations that can be applied to the various types of data.The type of the data that the function will operate on depends on the type of the data passed as a parameter.For example, Quick sorting algorithm is implemented using a generic function, it can be implemented to an array of integers or array of floats.A Generic function is created by using the keyword template. The template defines what function will do.Syntax of Function Templatetemplate < class Ttype> ret_type func_name(parameter_list)
+{
+    // body of function.
+}Where Ttype: It is a placeholder name for a data type used by the function. It is used within the function definition. It is only a placeholder that the compiler will automatically replace this placeholder with the actual data type.class: A class keyword is used to specify a generic type in a template declaration.Let's see a simple example of a function template: #include <iostream>
+using namespace std;
+template<class T> T add(T &a,T &b)
+{
+    T result = a+b;
+    return result;
+    
+}
+int main()
+{
+  int i =2;
+  int j =3;
+  float m = 2.3;
+  float n = 1.2;
+  cout<<"Addition of i and j is :"<<add(i,j);
+  cout<<'\n';
+  cout<<"Addition of m and n is :"<<add(m,n);
+  return 0;
+}Output:Addition of i and j is :5
+Addition of m and n is :3.5In the above example, we create the function template which can perform the addition operation on any type either it can be integer, float or double.Function Templates with Multiple ParametersWe can use more than one generic type in the template function by using the comma to separate the list.Syntax template<class T1, class T2,.....>
+return_type function_name (arguments of type T1, T2....)
+{
+    // body of function.
+}In the above syntax, we have seen that the template function can accept any number of arguments of a different type.Let's see a simple example:#include <iostream>
+using namespace std;
+template<class X,class Y> void fun(X a,Y b)
+{
+    std::cout << "Value of a is : " <<a<< std::endl;
+    std::cout << "Value of b is : " <<b<< std::endl;
+}
+
+int main()
+{
+   fun(15,12.3);
+ 
+   return 0;
+}Output:Value of a is : 15
+Value of b is : 12.3In the above example, we use two generic types in the template function, i.e., X and Y.Overloading a Function TemplateWe can overload the generic function means that the overloaded template functions can differ in the parameter list.Let's understand this through a simple example:#include <iostream>
+using namespace std;
+template<class X> void fun(X a)
+{
+    std::cout << "Value of a is : " <<a<< std::endl;
+}
+template<class X,class Y> void fun(X b ,Y c)
+{
+    std::cout << "Value of b is : " <<b<< std::endl;
+    std::cout << "Value of c is : " <<c<< std::endl;
+}
+int main()
+{
+   fun(10);
+   fun(20,30.5);
+   return 0;
+}Output:Value of a is : 10
+Value of b is : 20
+Value of c is : 30.5In the above example, template of fun() function is overloaded.Restrictions of Generic FunctionsGeneric functions perform the same operation for all the versions of a function except the data type differs. Let's see a simple example of an overloaded function which cannot be replaced by the generic function as both the functions have different functionalities.Let's understand this through a simple example:#include <iostream>
+using namespace std;
+void fun(double a)
+{
+    cout<<"value of a is : "<<a<<'\n';
+}
+
+void fun(int b)
+{
+    if(b%2==0)
+    {
+        cout<<"Number is even";
+    }
+    else
+    {
+        cout<<"Number is odd";
+    }
+
+}
+
+int main()
+{
+   fun(4.6);
+   fun(6);
+   return 0;
+}Output:value of a is : 4.6
+Number is evenIn the above example, we overload the ordinary functions. We cannot overload the generic functions as both the functions have different functionalities. First one is displaying the value and the second one determines whether the number is even or not.CLASS TEMPLATEClass Template can also be defined similarly to the Function Template. When a class uses the concept of Template, then the class is known as generic class.Syntaxtemplate<class Ttype>
+class class_name
+{
+  .
+  .
+}Ttype is a placeholder name which will be determined when the class is instantiated. We can define more than one generic data type using a comma-separated list. The Ttype can be used inside the class body.Now, we create an instance of a classclass_name<type> ob;where class_name: It is the name of the class.type: It is the type of the data that the class is operating on.ob: It is the name of the object.Let's see a simple example:#include <iostream>
+using namespace std;
+template<class T>
+class A 
+{
+    public:
+    T num1 = 5;
+    T num2 = 6;
+    void add()
+    {
+        std::cout << "Addition of num1 and num2 : " << num1+num2<<std::endl;
+    }
+    
+};
+
+int main()
+{
+    A<int> d;
+    d.add();
+    return 0;
+}Output:Addition of num1 and num2 : 11In the above example, we create a template for class A. Inside the main() method, we create the instance of class A named as, 'd'.CLASS TEMPLATE WITH MULTIPLE PARAMETERSWe can use more than one generic data type in a class template, and each generic data type is separated by the comma.Syntaxtemplate<class T1, class T2, ......> 
+class class_name
+{
+   // Body of the class.
+}Let's see a simple example when class template contains two generic data types.#include <iostream>
+     using namespace std;
+     template<class T1, class T2>
+    class A 
+    {
+         T1 a;
+         T2 b;
+         public:
+        A(T1 x,T2 y)
+       {
+           a = x;
+           b = y;
+        }
+           void display()
+          {
+                 std::cout << "Values of a and b are : " << a<<" ,"<<b<<std::endl;
+           }
+      };
+
+      int main()
+     {
+           A<int,float> d(5,6.5);
+           d.display();
+           return 0;
+     }Output:Values of a and b are : 5,6.5Nontype Template ArgumentsThe template can contain multiple arguments, and we can also use the non-type arguments In addition to the type T argument, we can also use other types of arguments such as strings, function names, constant expression and built-in types. Let' s see the following example:template<class T, int size>
+class array
+{
+    	T arr[size];           // automatic array initialization.
+};In the above case, the nontype template argument is size and therefore, template supplies the size of the array as an argument.Arguments are specified when the objects of a class are created:array<int, 15> t1;                        // array of 15 integers.
+array<float, 10> t2;                    // array of 10 floats. 
+array<char, 4> t3;                      // array of 4 chars.              Let's see a simple example of nontype template arguments.#include <iostream>
+using namespace std;
+template<class T, int size>
+class A 
+{
+    public:
+    T arr[size];
+    void insert()
+    {
+        int i =1;
+        for (int j=0;j<size;j++)
+        {
+            arr[j] = i;
+            i++;
+        }
+    }
+    
+    void display()
+    {
+        for(int i=0;i<size;i++)
+        {
+            std::cout << arr[i] << " ";
+        }
+    }
+};
+int main()
+{
+    A<int,10> t1;
+    t1.insert();
+    t1.display();
+    return 0;
+}Output:1 2 3 4 5 6 7 8 9 10In the above example, the class template is created which contains the nontype template argument, i.e., size. It is specified when the object of class 'A' is created.Points to RememberC++ supports a powerful feature known as a template to implement the concept of generic programming.A template allows us to create a family of classes or family of functions to handle different data types.Template classes and functions eliminate the code duplication of different data types and thus makes the development easier and faster.Multiple parameters can be used in both class and function template.Template functions can also be overloaded.We can also use nontype arguments such as built-in or derived data types as template arguments.Next TopicC++ Tutorial? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

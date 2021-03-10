@@ -1,0 +1,53 @@
+Angular 7 String Interpolation - Javatpoint?HomeAngularJSAngular 7JavaAWSIoTComputer FundamentalsControl SystemHTMLCSSAptitudeSeleniumKotlinJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingAngular 7 TutorialAngular 7 Tutorial Angular 7 Introduction Angular 7 Features Angular 7 Installation History & Versions Angular 7 First App Angular 7 Files Explanation Angular 7 with Bootstrap All CLI commands Angular 7 Libraries Angular 7 Architecture Angular 7 ComponentsAngular 7 DirectivesAngular 7 Directives Angular 7 ngIf Directive Angular 7 ngStyle DirectiveAngular 7 DatabindingAngular 7 Databinding Angular 7 String Interpolation Angular 7 Event Binding Angular 7 Property BindingAngular 7 PipesAngular 7 PipesError FixingAngular 7 Error FixingAngular 7 FormsAngular 7 Forms Data Flow in Angular Forms Angular Reactive Forms Template-driven FormsAngular MiscAngular vs ReactAngular + SpringCRUD Example File Upload Example Login & Logout Example Search Field Examplenext ? ? prevAngular 7 String InterpolationIn Angular, String interpolation is used to display dynamic data on HTML template (at user end). It facilitates you to make changes on component.ts file and fetch data from there to HTML template (component.html file).For example:component.ts file:import {Component} from '@angular/core';
+@Component(
+  {selector: 'app-server',
+ templateUrl: 'server.component.html'})
+export class ServerComponent {
+  serverID: number = 10;
+    serverStatus: string = 'Online';
+}Here, we have specified serverID and serverStatus with some values. Let's use this in "component.html" file.component.html file:<p>Server with ID {{serverID}} is {{serverStatus}}. </p>Output:String Interpolation vs Property BindingString Interpolation and Property binding both are used for same purpose i.e. one-way databinding. But the problem is how to know which one is best suited for your application.Here, we compare both in the terms of Similarities, Difference, Security and the output you receive.Similarities b/w String Interpolation and Property BindingString Interpolation and Property Binding doth are about one-way data binding. They both flow a value in one direction from our components to HTML elements.String Interpolationimport { Component } from '@angular/core';
+@Component({
+    selector: 'my-app',
+    template: `
+                <h1>{{ fullName }}</h1>
+              `
+})
+export class AppComponent {
+    fullName: string = 'Robert Junior';
+}You can see in the above example, Angular takes value of the fullName property from the component and inserts it between the opening and closing <h1> element using curly braces used to specify interpolation.Property Bindingimport { Component } from '@angular/core';
+@Component({
+    selector: 'my-app',
+    template: `
+                <h1 [innerHtml]='fullName'></h1>
+              `
+})
+export class AppComponent {
+    fullName: string = 'Robert Junior';
+}In Property binding, see how Angular pulls the value from fullName property from the component and inserts it using the html property innerHtml of <h1> element.Both examples for string interpolation and property binding will provide the same result.Difference between String interpolation and Property BindingString Interpolation is a special syntax which is converted to property binding by Angular. It's a convenient alternative to property binding.When you need to concatenate strings, you must use interpolation instead of property binding.Example:@Component({
+    selector: 'my-app',
+    template: `<div>
+                    <h1>{{citedExample}}</h1>
+                </div>`
+})
+export class AppComponent {
+    citedExample: string = 'Interpolation foe string only';
+
+}Property Binding is used when you have to set an element property to a non-string data value.Example:In the following example, we disable a button by binding to the Boolean property isDisabled.import { Component } from '@angular/core';
+@Component({
+    selector: 'my-app',
+    template: `<div>
+    <button [disabled]='isDisabled'>Disable me</button>
+                     </div>`
+})
+export class AppComponent {
+isDisabled: boolean = true;
+}If you use interpolation instead of property binding, the button will always be disabled regardless isDisabled class property value is true or false.import { Component } from '@angular/core';
+@Component({
+    selector: 'my-app',
+    template: `<div>
+    <button disabled='{{isDisabled}}'>Disable Me</button>
+                     </div>`
+})
+export class AppComponent {
+isDisabled: boolean = true/false;
+}Next TopicAngular 7 Event Binding? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

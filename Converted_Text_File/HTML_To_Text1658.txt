@@ -1,0 +1,180 @@
+C++ algorithm partial_sort() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm partial_sort()C++ Algorithm partial_sort() function is used to rearrange the elements in the range[first, last), in such a way that the elements between the first and middle will be sorted and the elements between the middle and last will be in an unspecified order.The elements are compared using operator for the first version, and comp for the second version.Syntaxdefault (1)       template <class RandomAccessIterator>
+  	         void partial_sort (RandomAccessIterator first, RandomAccessIterator middle,
+                         RandomAccessIterator last);
+
+custom (2)      template <class RandomAccessIterator, class Compare>
+                      void partial_sort (RandomAccessIterator first, RandomAccessIterator middle,
+                           RandomAccessIterator last, Compare comp);Parameterfirst: A random access iterator pointing to the first element in the range to be partially sorted.last: A random access iterator pointing to the past last element in the range to be partially sorted.middle: A random access iterator pointing to the one past the final element in the sub-range to be sorted.comp: A user-defined binary predicate function that accepts two arguments and returns true if the two arguments are in order and false otherwise. It follows the strict weak ordering to order the elements.Return valueNoneComplexityAverage Complexity is less than linearithmic in the distance between first and last. Performs up to N*log (M) element comparisons where N = last - first and M = middle - first.Data racesThe objects in the range [first, last) are altered.ExceptionsThis function throws an exception if any of element comparisons, the element swaps (or moves) or an operation on iterator throws an exception.Note: The invalid parameters cause an undefined behavior.Example 1Let's see the simple example to demonstrate the use of partial_sort():#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+  vector<int> v = {3, 1, 4, 2, 5};
+  
+    cout<<"Before sorting: ";
+    for_each(v.begin(), v.end(), [](int x) {
+    cout << x << " ";
+  });
+
+    partial_sort(v.begin(), v.begin() + 2, v.end());
+  
+  cout<<"\nAfter sorting:  ";
+  for_each(v.begin(), v.end(), [](int x) {
+    cout << x << " ";
+  });
+  
+  return 0;
+}Output:Before sorting: 3 1 4 2 5 
+After sorting:  1 2 4 3 5Example 2Let's see another simple example:#include <iostream>     // std::cout
+#include <algorithm>    // std::partial_sort
+#include <vector>       // std::vector
+
+using namespace std;
+
+bool myfunction (int i,int j) { return (i<j); }
+
+int main () {
+  int myints[] = {9,8,7,6,5,4,3,2,1};
+  vector<int> myvector (myints, myints+9);
+
+  // using default comparison (operator <):
+  partial_sort (myvector.begin(), myvector.begin()+5, myvector.end());
+
+  // using function as comp
+  partial_sort (myvector.begin(), myvector.begin()+5, myvector.end(),myfunction);
+
+  // print out content:
+  cout << "myvector contains:";
+  for (vector<int>::iterator it=myvector.begin(); it!=myvector.end(); ++it)
+    cout << ' ' << *it;
+  cout << '\n';
+
+  return 0;
+}Output:myvector contains: 1 2 3 4 5 9 8 7 6Example 3Let's see a simple example for default version:#include <iostream>
+#include <algorithm>
+#include <functional>
+#include <vector>
+
+using namespace std ;
+
+int main()
+{
+    const int VECTOR_SIZE = 8 ;
+
+    // Define a template class vector of int
+    typedef vector<int> IntVector ;
+
+    //Define an iterator for template class vector of strings
+    typedef IntVector::iterator IntVectorIt ;
+
+    IntVector Numbers(VECTOR_SIZE) ;
+
+    IntVectorIt start, end, it ;
+
+    // Initialize vector Numbers
+    Numbers[0] = 4 ;
+    Numbers[1] = 10;
+    Numbers[2] = 70 ;
+    Numbers[3] = 30 ;
+    Numbers[4] = 10;
+    Numbers[5] = 69 ;
+    Numbers[6] = 96 ;
+    Numbers[7] = 7;
+
+    start = Numbers.begin() ;   // location of first
+                                // element of Numbers
+
+    end = Numbers.end() ;       // one past the location
+                                // last element of Numbers
+
+    cout << "Before calling partial_sort\n" << endl ;
+
+    // print content of Numbers
+    cout << "Numbers { " ;
+    for(it = start; it != end; it++)
+        cout << *it << " " ;
+    cout << " }\n" << endl ;
+
+    // sort the smallest 4 elements in the sequence
+    partial_sort(start, start+4, end) ;
+
+    cout << "After calling partial_sort\n" << endl ;
+
+    cout << "Numbers { " ;
+    for(it = start; it != end; it++)
+        cout << *it << " " ;
+    cout << " }\n" << endl ;
+   
+   return 0; 
+}Output:Before calling partial_sort
+
+Numbers { 4 10 70 30 10 69 96 7  }
+
+After calling partial_sort
+
+Numbers { 4 7 10 10 70 69 96 30  }Example 4Let's see a simple example for custom (predicate) version:#include <iostream>
+#include <algorithm>
+#include <functional>
+#include <vector>
+
+using namespace std ;
+
+int main()
+{
+    const int VECTOR_SIZE = 8 ;
+
+    // Define a template class vector of int
+    typedef vector<int> IntVector ;
+
+    //Define an iterator for template class vector of strings
+    typedef IntVector::iterator IntVectorIt ;
+
+    IntVector Numbers(VECTOR_SIZE) ;
+
+    IntVectorIt start, end, it ;
+
+    // Initialize vector Numbers
+    Numbers[0] = 4 ;
+    Numbers[1] = 10;
+    Numbers[2] = 70 ;
+    Numbers[3] = 30 ;
+    Numbers[4] = 10;
+    Numbers[5] = 69 ;
+    Numbers[6] = 96 ;
+    Numbers[7] = 7;
+
+    start = Numbers.begin() ;   // location of first
+                                // element of Numbers
+
+    end = Numbers.end() ;       // one past the location
+                                // last element of Numbers
+
+    cout << "Before calling partial_sort\n" << endl ;
+
+    // print content of Numbers
+    cout << "Numbers { " ;
+    for(it = start; it != end; it++)
+        cout << *it << " " ;
+    cout << " }\n" << endl ;
+
+    // sort the smallest 4 elements in the sequence
+    partial_sort(start, start+4, end, less<int>()) ;
+
+    cout << "After calling partial_sort\n" << endl ;
+
+    cout << "Numbers { " ;
+    for(it = start; it != end; it++)
+        cout << *it << " " ;
+    cout << " }\n" << endl ;
+    
+    return 0;
+}Output:Before calling partial_sort
+
+Numbers { 4 10 70 30 10 69 96 7  }
+
+After calling partial_sort
+
+Numbers { 4 7 10 10 70 69 96 30  }Next TopicC++ Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,58 @@
+Angular Template-driven Forms - Javatpoint?HomeAngularJSAngular 7JavaAWSIoTComputer FundamentalsControl SystemHTMLCSSAptitudeSeleniumKotlinJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingAngular 7 TutorialAngular 7 Tutorial Angular 7 Introduction Angular 7 Features Angular 7 Installation History & Versions Angular 7 First App Angular 7 Files Explanation Angular 7 with Bootstrap All CLI commands Angular 7 Libraries Angular 7 Architecture Angular 7 ComponentsAngular 7 DirectivesAngular 7 Directives Angular 7 ngIf Directive Angular 7 ngStyle DirectiveAngular 7 DatabindingAngular 7 Databinding Angular 7 String Interpolation Angular 7 Event Binding Angular 7 Property BindingAngular 7 PipesAngular 7 PipesError FixingAngular 7 Error FixingAngular 7 FormsAngular 7 Forms Data Flow in Angular Forms Angular Reactive Forms Template-driven FormsAngular MiscAngular vs ReactAngular + SpringCRUD Example File Upload Example Login & Logout Example Search Field Examplenext ? ? prevTemplate-driven FormsTemplate-driven forms can be used for many applications i.e. log in, submit a request, place an order, data entry etc.Now, let's create the form. Follow these steps: Create a projectFirst, create a new project named angular-forms by using the following command:ng new angular-forms Now, go to the project folder by using the following command.cd angular-formsNow, use the Angular CLI command ng generate class Hero to generate a new class named Hero:ng generate class HeroGo to your project folder angular-forms and open the hero.ts file under the app module. Write the following code:export class Hero {
+  constructor(
+    public id: number,
+    public name: string,
+    public power: string,
+    public alterEgo?: string
+  ) {  }
+}The TypeScript compiler generates a public field for each public constructor parameter and when you create new heroes, it automatically assign the parameter's value to that field.Here, alterEgo is optional and the constructor can omit it.Create a Form componentAn Angular form consists of two parts:HTML based templateA component class to handle data and usersNow, generate a new component named HeroForm by using the following command:ng generate component HeroForm Write down the following code in hero-form.component.tsimport { Component } from '@angular/core';
+import { Hero }    from '../hero';
+@Component({
+  selector: 'app-hero-form',
+  templateUrl: './hero-form.component.html',
+  styleUrls: ['./hero-form.component.css']
+})
+export class HeroFormComponent {
+  powers = ['Really Smart', 'Super Flexible',
+            'Super Hot', 'Weather Changer'];
+  model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
+  submitted = false;
+  onSubmit() { this.submitted = true; }
+  // TODO: Remove this when we're done
+  get diagnostic() { return JSON.stringify(this.model); }
+}Revise app.module.ts fileThe app.module.ts file is used to define the application's root module. The template-driven forms reside in their own module. You need to add the FormsModule to the array of imports for the application module before using forms.Use the following code inside app.module.ts file:import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }   from '@angular/forms';
+import { AppComponent }  from './app.component';
+import { HeroFormComponent } from './hero-form/hero-form.component';
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule
+  ],
+  declarations: [
+    AppComponent,
+    HeroFormComponent
+  ],
+  providers: [],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule { }Here, we have imported FormsModule and added the FormsModule to the list of imports defined in the @NgModule decorator. This is used to access the application to all of the template-driven forms features, including ngModel.Revise app.component.html fileThe app.component.html is used to host the new HeroFormComponent. It is the application's root component. Write the following code in app.component.html<app-hero-form></app-hero-form> Create an initial HTML form templateUse the following code in hero-form.component.html<div class="container">
+    <h1>Hero Form</h1>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" class="form-control" id="alterEgo">
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>Style the formOpen style.css and use the following code to import the bootstrap file.@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');Add power list by using *ngForThe hero form can choose power lists from a fixed list of agency-approved powers. Use the following HTML code immediately below the Alter Ego group in hero-form.component.html<div class="form-group">
+  <label for="power">Hero Power</label>
+  <select class="form-control" id="power" required>
+    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+  </select>
+</div>The basic template-driven form is completed now. You can use the ng serve command to run the project.Output:You can check here Hero's power.Next Topic#? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

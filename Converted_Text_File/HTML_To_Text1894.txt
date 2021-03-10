@@ -1,0 +1,107 @@
+C++ set value_comp() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set value_comp()C++ set value_comp() function returns a comparison object. This function is used to compare two elements to check whether the key of the first one goes before the second.It takes two arguments of the same type and returns true if the first argument precedes the second argument according to the narrower weak order, and false otherwise.E.g.: - For a set m, if two elements e1(k1, d1) and e2( k2, d2) are objects of type value_type, where k1 and k2 are their keys of type key_type and d1 and d2 are their data of type setped_type, then m value_comp( e1 , e2 ) is equivalent to m key_comp(k1, k2).Syntaxvalue_compare value_comp() const;Note: A stored object defines a member function:bool-operator (value_type &left, value_type &right);It returns true if the value of the left key precedes and does not equal the value of the key from right in the sort order.ParameterNoneReturn valueIt returns a value comparison function object.ComplexityConstant.Iterator validityNo changes.Data RacesThe container is accessed.No contained elements are accessed: Concurrently accessing the elements of a set is safe.Exception SafetyIf an exception is thrown, there are no changes in the container.Example 1Let's see the simple example to compare values of elements:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main()
+{
+  set<int> c;
+  set<int>::value_compare comp = c.value_comp();
+
+  cout << "Compare 2 to 5 (1 is true and 0 is false): "<<comp(2, 5) << endl;
+  cout << "Compare 8 to 5 (1 is true and 0 is false): "<<comp(8, 5) << endl;
+}Output:Compare 2 to 5 (1 is true and 0 is false): 1
+Compare 8 to 5 (1 is true and 0 is false): 0In the above example, comp(2, 5) returns true because 2 is less than 5. And comp(8, 5) returns false because 8 is not less than 5.Example 2Let's see a simple example:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<int> myset;
+
+  set<int>::value_compare mycomp = myset.value_comp();
+
+  for (int i=0; i<=5; i++) myset.insert(i);
+
+  cout << "myset contains:";
+
+  int highest=*myset.rbegin();
+  set<int>::iterator it=myset.begin();
+  do {
+    cout << ' ' << *it;
+  } while ( mycomp(*(++it),highest) );
+
+  cout << '\n';
+
+  return 0;
+}Output:myset contains: 0 1 2 3 4In the above example, highest variable stores the last element of the myset set and iterator initialized with first element of the set (in sorted order). Do-while loop is used to print the element of the set where the loop will run until first key is less than last key (for this it is using key_comp() function named as mycomp).Example 3Let's see a simple example:#include <set>
+#include <iostream>
+
+int main( )
+{
+   using namespace std;
+
+   set <int, less<int> > s1;
+   set <int, less<int> >::value_compare vc1 = s1.value_comp( );
+   bool result1 = vc1( 2, 3 );
+   if( result1 == true )   
+   {
+      cout << "vc1( 2,3 ) returns value of true, "
+           << "where vc1 is the function object of s1."
+           << endl;
+   }
+   else   
+   {
+      cout << "vc1( 2,3 ) returns value of false, "
+           << "where vc1 is the function object of s1."
+           << endl;
+   }
+
+   set <int, greater<int> > s2;
+   set<int, greater<int> >::value_compare vc2 = s2.value_comp( );
+   bool result2 = vc2( 2, 3 );
+   if( result2 == true )   
+   {
+      cout << "vc2( 2,3 ) returns value of true, "
+           << "where vc2 is the function object of s2."
+           << endl;
+   }
+   else   
+   {
+      cout << "vc2( 2,3 ) returns value of false, "
+           << "where vc2 is the function object of s2."
+           << endl;
+   }
+}Output:vc1( 2,3 ) returns value of true, where vc1 is the function object of s1.
+vc2( 2,3 ) returns value of false, where vc2 is the function object of s2.Example 4Let's see a simple example to show the difference between key_comp() and value_comp():#include <set>
+#include <iostream>
+#include<map>
+
+using namespace std;
+
+int main(){
+
+set<int> myset;
+int highest1, highest2;
+
+set<int>::key_compare   myCompKeyForSet = myset.key_comp();
+set<int>::value_compare myCompValForSet = myset.value_comp();
+
+for (int i=0; i<=5; i++) {
+  myset.insert(i);
+}
+
+highest1=*myset.rbegin();
+set<int>::iterator it=myset.begin();
+while ( myCompKeyForSet(*it, highest1) ) it++;
+cout << "\nhighest1 is " << highest1;  // prints 5
+
+highest2 = *myset.rbegin();
+it=myset.begin();
+while ( myCompValForSet(*it, highest2) ) it++;
+cout << "\nhighest2 is " << highest2;   // prints 5
+
+return 0;
+}Output:highest1 is 5
+highest2 is 5In the above example, when we compare key_comp() and value_comp() then for such set containers these two words are the same. For both type of functions it will return the same value.Next TopicSet find() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

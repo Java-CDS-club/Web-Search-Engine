@@ -1,0 +1,113 @@
+Android Caller talker example - javatpoint?HomeAndroidCore JavaServletJSPStruts2Mail APIHibernateSpringDesign PatternQuizProjectsInterview QCommentForumAndroid TrainingAndroid TutorialAndroid Introduction What is Android History and Version Android Architecture Core Building Blocks Android Emulator Install Android Setup Eclipse Hello Android example Internal Details Dalvik VM AndroidManifest.xml R.java Hide Title Bar Screen OrientationAndroid WidgetsUI Widgets Working with Button Toast Custom Toast ToggleButton CheckBox Custom CheckBox RadioButton Dynamic RadioButton Custom RadioButton AlertDialog Spinner AutoCompleteTextView ListView Custom ListView RatingBar WebView SeekBar DatePicker TimePicker Analog and Digital ProgressBar Vertical ScrollView Horizontal ScrollView ImageSwitcher ImageSlider ViewStub TabLayout TabLayout with FrameLayout SearchView SearchView on Toolbar EditText with TextWatcherActivity and IntentsActivity LifeCycle Implicit Intent Explicit Intent StartActivityForResult Share App DataAndroid FragmentsAndroid FragmentsAndroid MenuOption Menu Context Menu Popup MenuAndroid ServiceAndroid ServiceAndroid AlarmManagerAndroid AlarmManagerAndroid StorageAndroid Preferences Internal Storage External StorageAndroid SQLiteSQLite Tutorial SQLite SpinnerXML and JSONXML Parsing SAX XML Parsing DOM XMLPullParser JSON ParsingAndroid MultimediaMediaPlayer: Audio VideoView: Video Recording MediaAndroid SpeechTextToSpeech1 TextToSpeech2Android TelephonyTelephonyManager Get Call State Get Call State 2 Simple Caller Talker Phone Call Send SMS Send EmailAndroid DeviceBluetooth Tutorial List Paired Devices WIFICamera TutorialCamera TutorialSensor TutorialSensor TutorialAndroid GraphicsAndroid GraphicsAndroid AnimationAndroid AnimationAndroid Web ServiceAndroid Web ServiceGoogle MapAndroid Google Map Current Location Search LocationAdding AdsAndroid Google Admob 1) Banner Ads 2) Interstitial AdsAndroid ExamplesQR/Bar Code Scanner RSS Feed Reader Volley Fetch JSON Android Linkify Intro Slider RecyclerView List Swipe Del RecyclerView Swipe Refresh Activity Volley Library Registration Log-in Log-out Network Connectivity Services Firebase Authentication - Google Login Android Notification Using Google reCAPTCHAAndroid SocialIntegrating Google Sign-In Integrating LinkedIn Integrating TwitterAndroid MiscAndroid Device Manager Android Studio Android Auto Android File Transfer Android Messages Android Oreo Android TV Android Screenshot Android Versions Android Watch Android Pay Android Phones Android Tablets Android Find My Phone Android Marshmallow Android Nougat Android Pie Android One Android Antivirus Android Data Recovery Android Lollipop Android vs iPhone Android Wear OS Android x86 Emulator for PC Android 10 Android ad blocker Clear cache Android Root Android DeviceAndroid InterviewInterview QuestionsAndroid QuizAndroid Quiznext ? ? prevAndroid Simple Caller Talker ExampleAndroid provides the facility to know the incoming number and speak it by the help of android speech api and telephony manager.Here, we are going to develop a basic android app that speaks the incoming number while phone is in ringing mode.In the next page, we will see the full version of this app that speaks the caller name and provides the setting option to change the speed rate and pitch. Additionaly, it provides option to add text before and after the incoming number or caller name.activity_main.xmlWe have not done anything special here. It has the simple textview.File: activity_main.xml<RelativeLayout xmlns:androclass="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
+
+</RelativeLayout>
+
+Activity classIn this activity, we have written the code to know the phone state, and speak the incoming number by the help of TextToSpeech class.File: MainActivity.javapackage com.example.callertalker;
+import java.util.Locale;
+import android.media.AudioManager;
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Context;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
+import android.util.Log;
+import android.widget.Toast;
+import android.speech.tts.TextToSpeech;
+
+public class MainActivity extends Activity implements TextToSpeech.OnInitListener {
+	private TextToSpeech tts;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		tts = new TextToSpeech(this, this);
+		  
+        TelephonyManager telephonyManager = (TelephonyManager)getSystemService(
+                                                                         Context.TELEPHONY_SERVICE);
+        
+        PhoneStateListener callStateListener = new PhoneStateListener() {
+        public void onCallStateChanged(int state, String incomingNumber){
+              if(state==TelephonyManager.CALL_STATE_RINGING){
+            	  tts.speak(incomingNumber+" calling", TextToSpeech.QUEUE_FLUSH, null);
+                  Toast.makeText(getApplicationContext(),"Phone is Ringing : "+incomingNumber, 
+                                                                               Toast.LENGTH_LONG).show();
+                 }
+              if(state==TelephonyManager.CALL_STATE_OFFHOOK){
+                    Toast.makeText(getApplicationContext(),"Phone in a call or call picked", 
+                                                                                  Toast.LENGTH_LONG).show();
+              }
+              if(state==TelephonyManager.CALL_STATE_IDLE){
+                    //phone is neither ringing nor in a call
+              }
+        }
+        };
+        telephonyManager.listen(callStateListener,PhoneStateListener.LISTEN_CALL_STATE);
+	}
+
+	@Override
+	public void onInit(int status) {
+		if (status == TextToSpeech.SUCCESS) {
+			int result = tts.setLanguage(Locale.US);
+		    if (result == TextToSpeech.LANG_MISSING_DATA
+		            || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+		        Log.e("TTS", "This Language is not supported");
+		    } else {    	
+		    }
+
+		} else {
+		    Log.e("TTS", "Initilization Failed!");
+		}
+	}
+	
+	@Override
+	public void onDestroy() {
+	// Don't forget to shutdown tts!
+	if (tts != null) {
+	    tts.stop();
+	    tts.shutdown();
+	}
+	super.onDestroy();
+	}
+}AndroidManifest.xmlYou need to add READ_PHONE_STATE uses permission in this xml file. Let's see the full code.File: AndroidManifest.xml<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:androclass="http://schemas.android.com/apk/res/android"
+    package="com.example.callertalker"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+   <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+     
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.callertalker.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>download this android exampleOutput:Run it on the actual device like mobile phone and make call to this from another mobile, then you will listen the incoming number.Next TopicHow To Make A Phone Call In Android? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

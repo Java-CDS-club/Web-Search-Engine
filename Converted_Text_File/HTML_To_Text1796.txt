@@ -1,0 +1,106 @@
+C++ multiset cbegin() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ multisetC++ multiset constructor destructor begin() end() operator= rbegin() rend() cbegin() cend() max_size() size() crbegin() crend() empty() insert() clear() emplace() erase() swap() emplace_hint() find() key_comp() value_comp() count() equal_range() lower_bound() upper_bound() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ multiset cbegin()C++ multiset cbegin() function is used to return a constant iterator pointing to the first element of the multiset container.Syntaxconst_iterator cbegin() const noexcept;  //since C++ 11A const_iterator is an iterator that points to constant content.ParameterNoneReturn valueThe cbegin() funtion returns a const_iterator pointing to the first element of the multiset.ComplexityConstantIterator validityNo changes.Data RacesThe container is accessed.Concurrently accessing the elements of a multiset container is safe.Exception SafetyThis member function never throws exception.Example 1Let's see the simple example for cbegin() function:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  multiset<string> mymultiset= {"Java", "C","SQL","C++" };
+
+  // show content
+
+  for (auto it = mymultiset.cbegin(); it != mymultiset.cend(); ++it)
+    cout <<*it << '\n';
+    
+  return 0;
+} Output:C
+C++
+Java
+SQLIn the above example, cbegin() function is used to return a constant iterator pointing to the first element in the mymultiset multiset.Example 2Let's see a simple example:#include <set>  
+#include <iostream>  
+  
+int main( )  
+{  
+   using namespace std;  
+   multiset <int> s1;  
+   multiset <int>::iterator s1_Iter;  
+   multiset <int>::const_iterator s1_cIter;  
+  
+   s1.insert( 1 );  
+   s1.insert( 2 );  
+   s1.insert( 3 );  
+   s1.insert( 2 );
+   
+   s1_Iter = s1.begin( );  
+   cout << "The first element of s1 is " << *s1_Iter << endl;  
+  
+   s1_Iter = s1.begin( );  
+   s1.erase( s1_Iter );  
+  
+   // The following 2 lines would err because the iterator is const  
+   // s1_cIter = s1.begin( );  
+   // s1.erase( s1_cIter );  
+  
+   s1_cIter = s1.begin( );  
+   cout << "The first element of s1 is now " << *s1_cIter << endl;  
+}  Output:The first element of s1 is 1
+The first element of s1 is now 2Example 3Let's see a simple example to iterate over the multiset using while loop:#include <iostream>
+#include <set>
+#include <string>
+
+int main()
+{
+    using namespace std;
+ 
+      multiset<string> mymultiset = {"Robin","Dolly", "John","Nikita","Nikita"};
+
+    multiset<string>::const_iterator it; // declare an iterator
+
+    it = mymultiset.cbegin(); // assign it to the start of the vector
+
+    while (it != mymultiset.cend()) // while it hasn't reach the end
+    {
+        cout << *it<< "\n"; 
+    // print the value of the element it points to
+        ++it; // and iterate to the next element
+    }
+    cout << endl;
+}Output:Dolly
+John
+Nikita
+Nikita
+RobinIn the above example, cbegin() function is used to return an iterator pointing to the first element in the mymultiset multiset.Example 4Let's see another simple example:#include <iostream>
+#include <string>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  multiset<int> number = {400, 350, 465, 290, 410, 400};
+
+   cout << "Increasing order: " << '\n';
+   cout<<"______________________\n";
+   
+  multiset<int>::const_iterator cit;
+  for (cit=number.cbegin(); cit!=number.cend(); ++cit)
+    cout << *cit<< '\n';
+
+    auto low = number.cbegin();
+    auto high = number.rbegin();
+    
+    cout << "\nSmallest Number is: "<< *low <<endl;
+    cout<< "Biggest Number is: "<<*high <<endl;
+
+  return 0;
+  }  Output:Increasing order: 
+______________________
+290
+350
+400
+400
+410
+465
+
+Smallest Number is: 290
+Biggest Number is: 465In the above example, cbegin() function is used to return an iterator pointing to the first element in the mymultiset multiset.Next TopicC++ multiset? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

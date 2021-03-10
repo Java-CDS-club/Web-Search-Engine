@@ -1,0 +1,76 @@
+Hibernate Collection Mapping Tutorial - javatpoint?HomeCore JavaServletJSPStruts2Mail APIHibernateSpringAndroidDesign PatternQuizProjectsInterview QCommentForumHibernate TutorialHB Introduction HB Architecture First Hibernate ExampleHibernate with EclipseHB using XML HB using AnnotationHibernate ExampleHB Web application HB Generator classes HB DialectsHibernate Log4jHB with Log4j 1 HB with Log4j 2Inheritance MappingInheritance Mapping Table Per Hierarchy TPH using Annotation Table Per Concrete TPC using Annotation Table Per Subclass TPS using AnnotationHibernate MappingCollection Mapping Mapping List Mapping Bag Mapping Set Mapping Map One To Many XML One To Many Annotation Many To Many XML Many To Many Annotation One To One XML One To One Annotation Many To One XML Many To One Annotation Bidirectional Lazy Collection Component MappingTx ManagementTx ManagementHQLHQLHCQLHCQLNamed QueryNamed QueryHibernate CachingHibernate CachingSecond Level CacheSecond Level CacheIntegrationHibernate and Struts Hibernate and SpringMiscHibernate Configuration JPA vs. Hibernate Hibernate LifecycleHibernate InterviewInterview Questionsnext ? ? prevCollection Mapping in HibernateCollection Mapping in HibernateMapping collection in mapping fileUnderstanding key elementIndexed collectionsCollection ElementsWe can map collection elements of Persistent class in Hibernate. You need to declare the type of collection in Persistent class from one of the following types:java.util.Listjava.util.Setjava.util.SortedSetjava.util.Mapjava.util.SortedMapjava.util.Collectionor write the implementation of org.hibernate.usertype.UserCollectionTypeThe persistent class should be defined like this for collection element.
+package com.javatpoint;
+
+import java.util.List;
+
+public class Question {
+private int id;
+private String qname;
+private List<String> answers;//List can be of any type
+
+//getters and setters
+
+}
+
+
+Mapping collection in mapping fileThere are many subelements of <class> elements to map the collection. They are <list>, <bag>, <set> and <map>. Let's see how we implement the list for the above class:<class name="com.javatpoint.Question" table="q100">
+          <id name="id">
+          <generator class="increment"></generator>
+          </id>
+          <property name="qname"></property>
+          
+          <list name="answers" table="ans100">
+          <key column="qid"></key>
+          <index column="type"></index>
+          <element column="answer" type="string"></element>
+          </list>
+          
+          </class>
+
+There are three subelements used in the list:<key> element is used to define the foreign key in this table based on the Question class identifier.<index> element is used to identify the type. List and Map are indexed collection.<element> is used to define the element of the collection.This is the mapping of collection if collection stores string objects. But if collection stores entity reference (another class objects), we need to define <one-to-many> or <many-to-many> element. Now the Persistent class will look like:package com.javatpoint;
+
+import java.util.List;
+
+public class Question {
+private int id;
+private String qname;
+private List<Answer> answers;//Here, List stores the objects of Answer class
+
+//getters and setters
+
+}package com.javatpoint;
+import java.util.List;
+public class Answer {
+private int id;
+private String answer;
+private String posterName;
+//getters and setters
+}Now the mapping file will be:
+<class name="com.javatpoint.Question" table="q100">
+          <id name="id">
+          <generator class="increment"></generator>
+          </id>
+          <property name="qname"></property>
+          
+          <list name="answers" >
+          <key column="qid"></key>
+          <index column="type"></index>
+          <one-to-many class="com.javatpoint.Answer" />
+          </list>
+          
+          </class>
+
+Here, List is mapped by one-to-many relation. In this scenario, there can be many answers for one question.Understanding key elementThe key element is used to define the foreign key in the joined table based on the original identity. The foreign key element is nullable by default. So for non-nullable foreign key, we need to specify not-null attribute such as:
+<key column="qid" not-null="true" ></key>
+
+The attributes of the key element are column, on-delete, property-ref, not-null, update and unique.
+<key
+column="columnname"
+on-delete="noaction|cascade"
+not-null="true|false"
+property-ref="propertyName"
+update="true|false"
+unique="true|false"
+/>
+
+Indexed collectionsThe collection elements can be categorized in two forms:indexed ,andnon-indexedThe List and Map collection are indexed whereas set and bag collections are non-indexed. Here, indexed collection means List and Map requires an additional element <index>.Collection ElementsThe collection elements can have value or entity reference (another class object). We can use one of the 4 elementselementcomponent-elementone-to-many, ormany-to-manyThe element and component-element are used for normal value such as string, int etc. whereas one-to-many and many-to-many are used to map entity reference.Upcoming topics in Collection MappingMapping ListIn this example, we are going to map the List element.Mapping BagIn this example, we are going to use the bag collection of Hibernate framework.Mapping SetHere, we will map the set element of collection.Next TopicMapping List In Collection Mapping? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,29 @@
+Case Statements - javatpoint?HomeCompilerData StructureCC++C#JavaSQLHTMLCSSJavaScriptAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentCompiler TutorialCompiler Tutorial Compiler Introduction Compiler Phases Compiler Passes Bootstrapping Finite State machine Regular expression Optimization of DFA LEX Formal Grammar BNF Notation YACC Context free Grammars Capabilities of CFG Derivation Parse Tree AmbiguityBasic ParsingParser Shift Reduce Parsing Operator PrecedencePredictive ParsersLR parser LR(0) Items SLR(1) Parsing CLR(1) Parsing LALR(1) Parsing Parser GeneratorSDTSyntax Directed Translation SDT Translation scheme SDT ImplementationIntermediate Code Postfix Notation Parse and syntax trees Three address code Quadruples Triples Assignment statements Boolean expressions Flow altering statements Postfix translation Array references Procedures call Declarations Case StatementsSymbol TablesSymbol Table DS for symbols tables Scope InformationAdministrationStorage Organization Activation Record Storage AllocationError DetectionLexical Error Syntax Error Semantic ErrorCode GenerationCode Generation Design Issues Target Machine Run Time Storage Basic Block Flow Graph Block Optimization Code GeneratorCode OptimizationMachine Independent Loop optimization DAG Representation Data-Flow Analysisnext ? ? prevCase StatementsSwitch and case statement is available in a variety of languages. The syntax of case statement is as follows:    switch E
+                begin 
+                             case V1: S1
+                             case V2: S2
+                             .
+                             .
+	                         .
+case Vn-1: Sn-1
+default: Sn
+                endThe translation scheme for this shown below:Code to evaluate E into Tgoto TEST
+                L1:         code for S1
+                              goto NEXT
+                L2:         code for S2
+                              goto NEXT
+                              .
+                              .
+                              .
+                Ln-1:      code for Sn-1
+                              goto NEXT
+                Ln:         code for Sn
+goto NEXT
+                TEST:      if T = V1 goto L1     
+                               if T = V2goto L2
+                               .
+                               .
+                               .
+                               if T = Vn-1 goto Ln-1
+                               goto 
+NEXT:When switch keyword is seen then a new temporary T and two new labels test and next are generated.When the case keyword occurs then for each case keyword, a new label Li is created and entered into the symbol table. The value of Vi of each case constant and a pointer to this symbol-table entry are placed on a stack.Next TopicSymbol Table? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

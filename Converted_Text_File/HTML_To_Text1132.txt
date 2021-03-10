@@ -1,0 +1,87 @@
+C Array - javatpoint?HomeCC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumC/C++ TrainingC TutorialWhat is C Language History of C Features of C How to install C First C Program Compilation Process in C printf scanf Variables in C Data Types in c Keywords in c C Identifiers C Operators C Comments C Format Specifier C Escape Sequence ASCII value in C Constants in C Literals in C Tokens in C C Boolean Static in C Programming Errors in C Conditional Operator in C Bitwise Operator in C 2s complement in C C Fundamental TestC Control StatementsC if-else C switch if-else vs switch C Loops C do-while loop C while loop C for loop Nested Loops in C Infinite Loop in C C break C continue C goto Type Casting C Control Statement TestC FunctionsWhat is function Call: Value & Reference Recursion in c Storage Classes C Functions TestC Array1-D Array 2-D Array Return an Array in C Array to Function C Array TestC PointersC Pointers C Pointer to Pointer C Pointer Arithmetic Dangling Pointers in C sizeof() operator in C const Pointer in C void pointer in C C Dereference Pointer Null Pointer in C C Function Pointer C Pointers TestC Dynamic MemoryDynamic memoryC StringsString in C C gets() & puts() C String Functions C strlen() C strcpy() C strcat() C strcmp() C strrev() C strlwr() C strupr() C strstr() C String TestC MathC Math FunctionsC Structure UnionC Structure typedef in C C Array of Structures C Nested Structure C Union C Structure TestC File HandlingC File Handling C fprintf() fscanf() C fputc() fgetc() C fputs() fgets() C fseek() C rewind() C ftell()C PreprocessorC Preprocessor C Macros C #include C #define C #undef C #ifdef C #ifndef C #if C #else C #error C #pragma C Preprocessor TestC Command LineCommand Line ArgumentsC MiscC Expressions Data Segments Flow of C Program Classification of Programming LanguagesC Programming TestC Programming TestC ProgramsTop 10+ C Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Count the number of digits in C Reverse Number Swap Number Print "Hello" without ; Assembly code in C C program without main Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci Triangle Hexadecimal to Binary Hexadecimal to Decimal Strong number in C Star Program in CMathPrime Numbers List Composite Numbers List Square Numbers List Binary Numbers List Fibonacci Numbers List Ounces in a Cup Ounces in a Pound Ounces in a Gallon Ounces in a Liter Ounces in a Pint Ounces in a Quart Ounces in a TablespoonC InterviewC Interview Questionsnext ? ? prevC ArrayAn array is defined as the collection of similar type of data items stored at contiguous memory locations. Arrays are the derived data type in C programming language which can store the primitive type of data such as int, char, double, float, etc. It also has the capability to store the collection of derived data types, such as pointers, structure, etc. The array is the simplest data structure where each data element can be randomly accessed by using its index number.C array is beneficial if you have to store similar elements. For example, if we want to store the marks of a student in 6 subjects, then we don't need to define different variables for the marks in the different subject. Instead of that, we can define an array which can store the marks in each subject at the contiguous memory locations.By using the array, we can access the elements easily. Only a few lines of code are required to access the elements of the array.Properties of ArrayThe array contains the following properties.Each element of an array is of same data type and carries the same size, i.e., int = 4 bytes.Elements of the array are stored at contiguous memory locations where the first element is stored at the smallest memory location.Elements of the array can be randomly accessed since we can calculate the address of each element of the array with the given base address and the size of the data element.Advantage of C Array1) Code Optimization: Less code to the access the data.2) Ease of traversing: By using the for loop, we can retrieve the elements of an array easily.3) Ease of sorting: To sort the elements of the array, we need a few lines of code only.4) Random Access: We can access any element randomly using the array.Disadvantage of C Array1) Fixed Size: Whatever size, we define at the time of declaration of the array, we can't exceed the limit. So, it doesn't grow the size dynamically like LinkedList which we will learn later.Declaration of C ArrayWe can declare an array in the c language in the following way.data_type array_name[array_size];Now, let us see the example to declare the array.int marks[5];Here, int is the data_type, marks are the array_name, and 5 is the array_size.Initialization of C ArrayThe simplest way to initialize an array is by using the index of each element. We can initialize each element of the array by using the index. Consider the following example.marks[0]=80;//initialization of array
+marks[1]=60;
+marks[2]=70;
+marks[3]=85;
+marks[4]=75;C array example#include<stdio.h>
+int main(){    
+int i=0;  
+int marks[5];//declaration of array     
+marks[0]=80;//initialization of array  
+marks[1]=60;  
+marks[2]=70;  
+marks[3]=85;  
+marks[4]=75;  
+//traversal of array  
+for(i=0;i<5;i++){    
+printf("%d \n",marks[i]);  
+}//end of for loop   
+return 0;
+}  Output80
+60
+70
+85
+75C Array: Declaration with InitializationWe can initialize the c array at the time of declaration. Let's see the code.int marks[5]={20,30,40,50,60};In such case, there is no requirement to define the size. So it may also be written as the following code.int marks[]={20,30,40,50,60};Let's see the C program to declare and initialize the array in C.#include
+int main(){    
+int i=0;  
+int marks[5]={20,30,40,50,60};//declaration and initialization of array  
+ //traversal of array  
+for(i=0;i5;i++){    
+printf("%d \n",marks[i]);  
+}  
+return 0;
+}  
+
+Output20
+30
+40
+50
+60C Array Example: Sorting an arrayIn the following program, we are using bubble sort method to sort the array in ascending order.#include<stdio.h>  
+void main ()  
+{  
+    int i, j,temp;   
+    int a[10] = { 10, 9, 7, 101, 23, 44, 12, 78, 34, 23};   
+    for(i = 0; i<10; i++)  
+    {  
+        for(j = i+1; j<10; j++)  
+        {  
+            if(a[j] > a[i])  
+            {  
+                temp = a[i];  
+                a[i] = a[j];  
+                a[j] = temp;   
+            }   
+        }   
+    }   
+    printf("Printing Sorted Element List ...\n");  
+    for(i = 0; i<10; i++)  
+    {  
+        printf("%d\n",a[i]);  
+    }  
+}   Program to print the largest and second largest element of the array.#include<stdio.h>
+void main ()
+{
+    int arr[100],i,n,largest,sec_largest;
+    printf("Enter the size of the array?");
+    scanf("%d",&n);
+    printf("Enter the elements of the array?");
+    for(i = 0; i<n; i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    largest = arr[0];
+    sec_largest = arr[1];
+    for(i=0;i<n;i++)
+    {
+        if(arr[i]>largest)
+        {
+            sec_largest = largest;
+            largest = arr[i];
+        }
+        else if (arr[i]>sec_largest && arr[i]!=largest)
+        {
+            sec_largest=arr[i];
+        }
+    }
+    printf("largest = %d, second largest = %d",largest,sec_largest);
+    
+}Next TopicTwo Dimensional Array in C? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

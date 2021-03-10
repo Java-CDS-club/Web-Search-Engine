@@ -1,0 +1,65 @@
+C++ Strings - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ StringsIn C++, string is an object of std::string class that represents sequence of characters. We can perform many operations on strings such as concatenation, comparison, conversion etc.C++ String ExampleLet's see the simple example of C++ string.#include <iostream>
+using namespace std;
+int main( ) {
+    string s1 = "Hello";  
+        char ch[] = { 'C', '+', '+'};  
+        string s2 = string(ch);  
+        cout<<s1<<endl;  
+        cout<<s2<<endl;  
+}Output:Hello
+C++C++ String Compare ExampleLet's see the simple example of string comparison using strcmp() function.#include 
+#include <cstring>
+using namespace std;
+int main ()
+{
+  char key[] = "mango";
+  char buffer[50];
+  do {
+     cout<<"What is my favourite fruit? ";
+     cin>>buffer;
+  } while (strcmp (key,buffer) != 0);
+ cout<<"Answer is correct!!"<<endl;
+  return 0;
+}Output:What is my favourite fruit? apple
+What is my favourite fruit? banana
+What is my favourite fruit? mango
+Answer is correct!!C++ String Concat ExampleLet's see the simple example of string concatenation using strcat() function.#include <iostream>
+#include <cstring>
+using namespace std;
+int main()
+{
+    char key[25], buffer[25];
+    cout << "Enter the key string: ";
+    cin.getline(key, 25);
+    cout << "Enter the buffer string: ";
+     cin.getline(buffer, 25);
+    strcat(key, buffer); 
+    cout << "Key = " << key << endl;
+    cout << "Buffer = " << buffer<<endl;
+    return 0;
+}Output:Enter the key string: Welcome to
+Enter the buffer string:  C++ Programming.
+Key = Welcome to C++ Programming.
+Buffer =  C++ Programming.C++ String Copy ExampleLet's see the simple example of copy the string using strcpy() function.#include <iostream>
+#include <cstring>
+using namespace std;
+int main()
+{
+    char key[25], buffer[25];
+    cout << "Enter the key string: ";
+    cin.getline(key, 25);
+    strcpy(buffer, key);
+    cout << "Key = "<< key << endl;
+    cout << "Buffer = "<< buffer<<endl;
+    return 0;
+}Output:Enter the key string: C++ Tutorial
+Key = C++ Tutorial
+Buffer = C++ TutorialC++ String Length ExampleLet's see the simple example of finding the string length using strlen() function.#include <iostream>
+#include <cstring>
+using namespace std;
+int main()
+{
+    char ary[] = "Welcome to C++ Programming";
+    cout << "Length of String = " << strlen(ary)<<endl;
+    return 0;
+}Output:Length of String = 26C++ String FunctionsFunctionDescriptionint compare(const string& str)It is used to compare two string objects.int length()It is used to find the length of the string.void swap(string& str)It is used to swap the values of two string objects.string substr(int pos,int n)It creates a new string object of n characters.int size()It returns the length of the string in terms of bytes.void resize(int n)It is used to resize the length of the string up to n characters.string& replace(int pos,int len,string& str)It replaces portion of the string that begins at character position pos and spans len characters.string& append(const string& str)It adds new characters at the end of another string object.char& at(int pos)It is used to access an individual character at specified position pos.int find(string& str,int pos,int n)It is used to find the string specified in the parameter.int find_first_of(string& str,int pos,int n)It is used to find the first occurrence of the specified sequence.int find_first_not_of(string& str,int pos,int n )It is used to search the string for the first character that does not match with any of the characters specified in the string.int find_last_of(string& str,int pos,int n)It is used to search the string for the last character of specified sequence.int find_last_not_of(string& str,int pos)It searches for the last character that does not match with the specified sequence.string& insert()It inserts a new character before the character indicated by the position pos.int max_size()It finds the maximum length of the string.void push_back(char ch)It adds a new character ch at the end of the string.void pop_back()It removes a last character of the string.string& assign()It assigns new value to the string.int copy(string& str)It copies the contents of string into another.char& back()It returns the reference of last character.Iterator begin()It returns the reference of first character.int capacity()It returns the allocated space for the string.const_iterator cbegin()It points to the first element of the string.const_iterator cend()It points to the last element of the string.void clear()It removes all the elements from the string.const_reverse_iterator crbegin()It points to the last character of the string.const_char* data()It copies the characters of string into an array.bool empty()It checks whether the string is empty or not.string& erase()It removes the characters as specified.char& front()It returns a reference of the first character.string&  operator+=()It appends a new character at the end of the string.string& operator=()It assigns a new value to the string.char operator[](pos)It retrieves a character at specified position pos.int rfind()It searches for the last occurrence of the string.iterator end()It references the last character of the string.reverse_iterator rend()It points to the first character of the string.void shrink_to_fit()It reduces the capacity and makes it equal to the size of the string.char* c_str()It returns pointer to an array that contains null terminated sequence of characters.const_reverse_iterator crend()It references the first character of the string.reverse_iterator rbegin()It reference the last character of the string.void reserve(inr len)It requests a change in capacity.allocator_type get_allocator();It returns the allocated object associated with the string.Next TopicC++ Exception Handling? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,49 @@
+Conversion from Moore machine to Mealy machine - Javatpoint?HomeCompilerAutomataAWSIoTComputer FundamentalsControl SystemJavaHTMLCSSAptitudeSeleniumKotlinJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingAutomata TutorialAutomata Tutorial Theory of Automata Finite Automata Transition Diagram Transition Table DFA Examples of DFA NFA Examples of NFA Eliminating ? Transitions Conversion from NFA to DFA Conversion from NFA with ? to DFA Minimization of DFARegular ExpressionRegular Expression Examples of Regular Expression Conversion of RE to FA Arden's Theorem Moore Machine Mealy Machine Conversion from Mealy machine to Moore machine Conversion from Moore machine to Mealy machineCFGContext-free Grammar Derivation Derivation Tree Ambiguity in Grammar Unambiguous Grammar Simplification of CFG Chomsky's Normal Form (CNF) Greibach Normal Form (GNF)PDAPushdown Automata PDA Acceptance Non-deterministic Pushdown Automata CFG to PDA ConversionTuring MachineAutomata Turing Machine Basic Model of Turing machine Language accepted by Turing machine Example of TM Introduction to Undecidability Undecidable Problem about TM Post Correspondence Problem Chomsky Hierarchynext ? ? prevConversion from Moore machine to Mealy MachineIn the Moore machine, the output is associated with every state, and in the mealy machine, the output is given along the edge with input symbol. The equivalence of the Moore machine and Mealy machine means both the machines generate the same output string for same input string.We cannot directly convert Moore machine to its equivalent Mealy machine because the length of the Moore machine is one longer than the Mealy machine for the given input. To convert Moore machine to Mealy machine, state output symbols are distributed into input symbol paths. We are going to use the following method to convert the Moore machine to Mealy machine.Method for conversion of Moore machine to Mealy machineLet M = (Q, ?, ?, ?, q0) be a Moore machine. The equivalent Mealy machine can be represented by M' = (Q, ?, ?, ?', q0). The output function ?' can be obtained as:?' (q, a) = ?(?(q, a))Example 1:Convert the following Moore machine into its equivalent Mealy machine.Solution:The transition table of given Moore machine is as follows:QabOutput(?)q0q0q10q1q0q11The equivalent Mealy machine can be obtained as follows:?' (q0, a) = ?(?(q0, a))
+                = ?(q0)
+                = 0
+
+?' (q0, b) = ?(?(q0, b))
+                = ?(q1)
+                = 1The ? for state q1 is as follows:?' (q1, a) = ?(?(q1, a))
+                = ?(q0)
+                = 0
+
+?' (q1, b) = ?(?(q1, b))
+                = ?(q1)
+                = 1Hence the transition table for the Mealy machine can be drawn as follows:The equivalent Mealy machine will be,Note: The length of output sequence is 'n+1' in Moore machine and is 'n' in the Mealy machine.Example 2:Convert the given Moore machine into its equivalent Mealy machine.Solution:The transition table of given Moore machine is as follows:QabOutput(?)q0q1q00q1q1q20q2q1q01The equivalent Mealy machine can be obtained as follows:?' (q0, a) = ?(?(q0, a))
+                = ?(q1)
+                = 0
+
+?' (q0, b) = ?(?(q0, b))
+                = ?(q0)
+                = 0The ? for state q1 is as follows:?' (q1, a) = ?(?(q1, a))
+                = ?(q1)
+                = 0
+
+?' (q1, b) = ?(?(q1, b))
+                = ?(q2)
+                = 1The ? for state q2 is as follows:?' (q2, a) = ?(?(q2, a))
+                = ?(q1)
+                = 0
+
+?' (q2, b) = ?(?(q2, b))
+                = ?(q0)
+                = 0Hence the transition table for the Mealy machine can be drawn as follows:The equivalent Mealy machine will be,Example 3:Convert the given Moore machine into its equivalent Mealy machine.QabOutput(?)q0q0q10q1q2q01q2q1q22Solution:The transaction diagram for the given problem can be drawn as:The equivalent Mealy machine can be obtained as follows:?' (q0, a) = ?(?(q0, a))
+                = ?(q0)
+                = 0
+
+?' (q0, b) = ?(?(q0, b))
+                = ?(q1)
+                = 1The ? for state q1 is as follows:?' (q1, a) = ?(?(q1, a))
+                = ?(q2)
+                = 2
+
+?' (q1, b) = ?(?(q1, b))
+                = ?(q0)
+                = 0The ? for state q2 is as follows:?' (q2, a) = ?(?(q2, a))
+                = ?(q1)
+                = 1
+
+?' (q2, b) = ?(?(q2, b))
+                = ?(q2)
+                = 2Hence the transition table for the Mealy machine can be drawn as follows:The equivalent Mealy machine will be,Next Topic context-free grammar (CFG)? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

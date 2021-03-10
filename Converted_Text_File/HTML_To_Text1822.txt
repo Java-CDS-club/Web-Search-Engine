@@ -1,0 +1,125 @@
+C++ multiset swap() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ std swap(multiset)C++ Multiset swap(multiset) is a non-member function of multiset in C++. This is used to swap (or exchange) the contents of two multisets (i.e. x and y) but both the multisets must be of same type although sizes may differ.Syntaxtemplate <class T, class Compare, class Allocator>
+void swap (multiset<T,Compare,Allocator>& x, multiset<T,Compare,Allocator>& y);Parameterx: First multiset object.y: Second multiset object of the same type.Return valueNoneComplexityConstant.Iterator validityAll iterators, references and pointers referring to elements in both containers remain valid.Note that the end iterators do not refer to elements and may be invalidated.Data RacesBoth containers x and y are modified.No contained elements are accessed by the call.Exception SafetyThis function does not throw an exception.Example 1Let's see the simple example to swap the element of one multiset to another:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   multiset<char> m1 = {'a','b','b','d'};
+
+   multiset<char> m2;
+
+   swap(m1, m2);
+
+   cout << "Multiset contains following elements" << endl;
+
+   for (auto it = m2.begin(); it != m2.end(); ++it)
+      cout << *it<< endl;
+
+   return 0;
+}Output:Multiset contains following elements
+a
+b
+b
+dIn the above example, multiset m1 has five elements and m2 is empty. When you swap m1 to m2 then all the elements of m1 is swapped to m2.Example 2Let's see a simple example to exchange the contents of two multisets:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  multiset<int> multiset1,multiset2;
+
+  multiset1= {100,200,100};
+
+  multiset2 = {110, 220, 330};
+
+  swap(multiset1,multiset2);
+
+  cout << "multiset1 contains:\n";
+  for (multiset<int>::iterator it=multiset1.begin(); it!=multiset1.end(); ++it)
+    cout << *it<< '\n';
+
+  cout << "multiset2 contains:\n";
+  for (multiset<int>::iterator it=multiset2.begin(); it!=multiset2.end(); ++it)
+    cout << *it<< '\n';
+
+  return 0;
+}Output:multiset1 contains:
+110
+220
+330
+multiset2 contains:
+100
+100
+200In the above example, contents of two multisets i.e. multiset1 and multiset2 are exchanged to each other.Example 3Let's see a simple example to swap the contents of two multisets:#include <iostream>
+#include <set>
+
+using namespace std;
+
+ int main ()
+{
+  int myints[]={12,75,10,17,20,17};
+  multiset<int> first (myints,myints+3);     
+  multiset<int> second (myints+3,myints+6);  
+
+  swap(first,second);
+
+  cout << "first contains:";
+  for (multiset<int>::iterator it=first.begin(); it!=first.end(); ++it)
+    cout << ' ' << *it;
+  cout << '\n';
+
+  cout << "second contains:";
+  for (multiset<int>::iterator it=second.begin(); it!=second.end(); ++it)
+    cout << ' ' << *it;
+  cout << '\n';
+
+  return 0;
+}Output:first contains: 17 17 20
+second contains: 10 12 75Example 4Let's see a simple example:#include <iostream>
+#include <string>
+#include <set>
+
+using namespace std;
+
+void show(const char *msg, multiset<int> mp);
+
+int main() {
+  multiset<int> m1, m2;
+
+  m1.insert(100);
+  m1.insert(300);
+  m1.insert(100);
+
+  // Exchange the contents of m1 and m2.
+  cout << "Exchange m1 and m2.\n";
+  swap(m1,m2);
+  show("Contents of m2: ", m2);
+  show("Contents of m1: ", m1);
+
+ // Clear m1.
+  m1.clear();
+  if(m1.empty()) cout << "m1 is now empty.";
+
+  return 0;
+}
+
+// Display the contents of a multiset<string, int> by using an iterator.
+void show(const char *msg, multiset<int> mp) {
+  multiset<int>::iterator itr;
+
+  cout << msg << endl;
+  for(itr=mp.begin(); itr != mp.end(); ++itr)
+    cout << "  " << *itr<< endl;
+  cout << endl;
+  
+}Output:Exchange m1 and m2.
+Contents of m2: 
+  100
+  100
+  300
+
+Contents of m1: 
+
+m1 is now empty.In the above example, contents of multiset m1 are swapped to multiset m2 and after swapping m1 multiset have been cleared.Next TopicC++ multiset? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

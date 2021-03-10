@@ -1,0 +1,51 @@
+C++ Stack pop() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ StackC++ Stack emplace() empty() pop() push() size() top()next ? ? prevC++ Stack pop() FunctionC++ Stack pop() function is used for removing the topmost element of the stack. This function performs the deletion operation. Deletion in a stack is done from the top. The element which was most recently inserted is deleted first.The stack follows the LIFO principle which is Last In First Out and hence the pop operation follows the order as mentioned above.Syntaxvoid pop()ParametersThe function takes no parameter and is used only for the deletion of the top element. Also since the stack follows LIFO principle we do not need to specify which element is to be deleted as it is by default understood that the top most element will be removed first.Return valueThe function is used only for the removal of elements from the stack and has no return value. Hence we can say that the return type of the function is void.Example 1//The program is used to demonstrate the use of the pop() function of the stack by insertion of simple integer values.#include <iostream>
+#include <stack>
+int main()
+{
+	std::stack<int> newstack; 
+	for(int j=0; j<5; j++)
+	newstack.push(j);
+	std::cout <<"Popping out elements?";
+	while (!newstack.empty () )
+	{
+		std::cout <<" " << newstack.top();
+		newstack.pop();
+	}
+	std::cout<<"\n";
+	return 0;
+}Output:Popping out elements... 4 3 2 1 0Example 2//The program is used to demonstrate the use of the pop() function of the stack by insertion of simple integer values.#include <iostream>
+#include <stack>
+int main()
+{
+	std::stack<int> newstack; 
+	newstack.push(11);
+	newstack.push(22);
+	newstack.push(33);
+	newstack.push(44);
+	std::cout << "Popping out elements?";
+	newstack.pop();
+	newstack.pop();
+	while (!newstack.empty () )
+	{
+		std::cout << " "<< newstack.top();
+		newstack.pop();
+	}
+	std::cout<<"\n";
+	return 0;
+}Output:Popping out elements... 22 11Example 3//The program is used to demonstrate the use of the pop() function of the stack by insertion of simple integer values.#include <iostream>
+#include <stack>
+int main()
+{
+                      std::stack<int> newstack;
+		newstack.push(69);
+		newstack.push(79);
+		newstack.push(80);
+		newstack.push(85);
+		newstack.push(90);
+		while (!newstack.empty () )
+		{
+			std::cout<< " " << newstack.top ();
+			newstack.pop();
+		}
+		return 0;
+}Output:90 85 80 79 69ComplexityThe complexity of the function is constant, the function only performs the pop or delete operation on the top of the stack and does not make any add on the complexity.Data racesThe modification is made to the container and the elements contained. By the deletion operation change is reflected at the element in the top position, the top position is shifted to one unit downwards. It can be demonstrated as top=top--.Exception SafetyGuarantee as equivalent to the operations that are performed on the underlying container object is provided.Next TopicC++ Stack? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

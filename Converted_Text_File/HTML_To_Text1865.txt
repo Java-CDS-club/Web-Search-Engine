@@ -1,0 +1,100 @@
+C++ set count() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set count()C++ set count() function is used to return the number of elements found in the container. Since, the set container does not contain any duplicate element, this function actually returns 1 if the element with value val is present in the set container or 0 otherwise.Syntaxsize_type count (const value_type& val) const; Parameterval: Value to be searched in the set container.Return valueIt returns 1 if the element with value val is present in the set container otherwise, returns 0.ComplexityLogarithmic in size.Iterator validityNo changes.Data RacesThe container is accessed.Concurrently accessing the elements of a set is safe.Exception SafetyIf an exception is thrown, there are no changes in the container.Example 1Let's see the simple example to search the element with the given key value:#include <iostream>
+#include <set>
+
+using namespace std;
+ 
+int main()
+{
+    // initialize container
+    set<int> mp;
+ 
+    // insert elements in random order
+    mp.insert(30);
+    mp.insert( 40 );
+    mp.insert( 60 );
+    mp.insert( 20);
+    mp.insert( 50 );
+ 
+    // checks if key 30 is present or not
+    if (mp.count(30))
+        cout << "The key 30 is present\n";
+    else
+        cout << "The key 30 is not present\n";
+ 
+    // checks if key 100 is present or not
+    if (mp.count(100))
+        cout << "The key 100 is present\n";
+    else
+        cout << "The key 100 is not present\n";
+ 
+    return 0;
+}Output:The key 30 is present
+The key 100 is not presentIn the above example, count() function checks for the given value. If the element is present in the set container then it will display the message that element is present otherwise not present.Example 2Let's see a simple example to search for the elements of the set:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<char> myset;
+  char c;
+
+  myset = {'a', 'c', 'f'};
+
+  for (c='a'; c<'h'; c++)
+  {
+    cout << c;
+    if (myset.count(c)>0)
+      cout << " is an element of myset.\n";
+    else 
+      cout << " is not an element of myset.\n";
+  }
+
+  return 0;
+}Output:a is an element of myset.
+b is not an element of myset.
+c is an element of myset.
+d is not an element of myset.
+e is not an element of myset.
+f is an element of myset.
+g is not an element of myset.In the above example, count() function is used to search for the 'a' to 'h' elements in the set.Example 3Let's see a simple example to search keys in the set:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+
+   set<char> m = {'a','b','c','d'};
+            
+   if (m.count('a') == 1) {
+       cout<< " 'a' is present in the set \n";
+   }
+
+   if (m.count('z') == 0) {
+      cout << " 'z' is not present in the set" << endl;
+   }
+
+   return 0;
+}Output:'a' is present in the set 
+'z' is not present in the setIn the above example, key 'a' is present in the set m so, it will be the value of 'a' and key 'z' is not present in the set so, there is no value of 'z'.Example 4Let's see a simple example:#include <set>  
+#include <iostream>  
+  
+int main()  
+{  
+    using namespace std;  
+    set<int> s1;  
+    set<int>::size_type i;  
+  
+    s1.insert(1);  
+    s1.insert(1);  
+  
+    // Keys must be unique in set, so duplicates are ignored  
+    i = s1.count(1);  
+    cout << "The number of elements in s1 with a sort key of 1 is: "  
+         << i << "." << endl;  
+  
+    i = s1.count(2);  
+    cout << "The number of elements in s1 with a sort key of 2 is: "  
+         << i << "." << endl;  
+}Output:The number of elements in s1 with a sort key of 1 is: 1.
+The number of elements in s1 with a sort key of 2 is: 0.Next TopicSet lower_bound() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

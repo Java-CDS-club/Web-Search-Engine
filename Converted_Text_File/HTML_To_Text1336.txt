@@ -1,0 +1,90 @@
+COBOL File Handling Verbs - Javatpoint?HomeCCOBOLC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternProjectsInterview QCommentForumCOBOL TutorialCOBOL Tutorial COBOL Introduction COBOL Installation COBOL Program Structure COBOL Coding Sheet COBOL Divisions COBOL Data Types COBOL Verbs COBOL Data Layout Conditional Statements Loop Statements String Handling Array/Table Processing File Handling File Access Mode File Handling Verbs Internal Sort Database Interfacenext ? ? prevCOBOL - File Handling VerbsFile handling verbs are used to perform multiple file operations. The file handling terms are as follows. Processing a file means doing all file operations such as reading, writing, opening, closing, etc.Following are the list of file handling verbs, or we can say file processing orations:OPENREADWRITEREWRITEDELETESTARTCLOSEREAD NEXTREAD PREVOPENBefore you start working with files, first you need to open the file. Open is the first file operation need to perform before performing other tasks. If open is successful, then only we can perform other file operations like read, write, close, etc. Only after opening a file, the variables in the file structure are available for processing.No data is transferred to the record buffer by opening a file; it simply provides access.We can check the status by using the FILE STATUS variable after each file operation.Syntax:OPEN <mode> file-name.The file can be opened in any of the following modes:INPUTThis mode is only used for existing files. To read from the file, we need to use this mode. We cannot perform other operations on the file through this mode. When a file is opened for INPUT, the next record pointer points to the file at the beginning of the file.OutputOutput mode is used to write the records in files. In a sequential file of the record already exists, then the file will be overwritten. But in the case of indexed file and relative file, it will not happen.EXTENDThis mode appends the records in a sequential file. In this mode, the record will be inserted at the end. When the file is opened for Extend mode, the next record pointer is positioned at the last record in the file.We cannot use extend mode in the case of Random and Dynamic file.I-OI-O is the input and output mode. This mode reads and rewrites (update) the records of a file.READOnce the file has been opened in INPUT or I-O mode, one record at a time can be read using the READ verb. This verb copies a record occurrence or instance from the file and places it in the record buffer defined using FD, and then we can access it.Syntax:Following is the syntax for read verb when the file access mode is sequential:READ FILE-NAME [NEXT/PREVIOUS] RECORD [INTO identifier1]  
+[AT END {imperative statement}]  
+[NOT AT END {imperative statement}]  
+[END-READ]Following are the parameters defined in the above syntax:NEXT RECORD: This is optional and is used for sequential reading of an indexed sequential file.INTO: This clause is also optional.AT END: This condition becomes true when the end of the file reached.Example:Let's see one example which will read the existing file using a sequential organization. This will display all the records written in the file. Here we will use file.txt file. The file is available in the same directory where our COBOL program is available.       IDENTIFICATION DIVISION.
+           PROGRAM-ID. HELLO.
+
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+           FILE-CONTROL.
+           SELECT Employee ASSIGN TO 'file.txtThe file'
+           ORGANIZATION IS LINE SEQUENTIAL.            
+
+       DATA DIVISION.
+           FILE SECTION.
+           FD Employee.
+             01 Employee-FILE.
+                05 Employee-ID PIC 9(5).
+                05 NAME PIC A(25).
+
+             WORKING-STORAGE SECTION.
+             01 WS-Employee.
+                 05 WS-Employee-ID PIC 9(5).
+                 05 WS-NAME PIC A(25).
+             01 WS-EOF PIC A(1). 
+
+             PROCEDURE DIVISION.
+             OPEN INPUT Employee.
+             PERFORM UNTIL WS-EOF='Y'
+              READ Employee INTO WS-Employee
+                 AT END MOVE 'Y' TO WS-EOF
+                 NOT AT END DISPLAY WS-Employee
+             END-READ
+           END-PERFORM.
+         CLOSE Employee.
+       STOP RUN.file.txt file contains the following content in the C:\JTP\Cobol Tutorial\bin directory:101 Nikita Kesharwani
+102 Deep Ghosh
+103 Naina Kukreja
+104 Akash SinghOutput:When you compile and execute the above program, it will display the following output:Syntax:Following is the syntax of read verb when the file access mode is random:READ FILE-NAME RECORD [INTO identifier1][KEY IS key-1]       
+[INVALID KEY {imperative statement}]   
+[NOT INVALID KEY {imperative statement}]   
+[AT END {imperative statement}]   
+[NOT AT END {imperative statement}]   
+[END-READ]WRITEThis verb is used to write the content to a file. To insert data into a file, we must move the data to the record buffer (declared in the FD entry) and then write the contents of record buffer to the file.Write statement is used to write records directly from the working storage variables by FROM (an optional clause).Writing operation into the file can be done in two ways based on the file opening mode:The access mode will be sequential if the file is opened in OUTPUT mode. From the first record, the records will be written. If, before opening in OUTPUT mode, the file has some data that can be refreshed and start writing from the start.If the file is opened in EXTEND mode, from the last record, the records will be added to the file.In short, we can say that if the file is opened in OUTPUT mode, then the write operation overwrites the existing file. If the file is opened in EXTEND mode, and then the write verb adds the record to the existing file.Syntax:Following is the syntax to write a record when the file organization is sequential:WRITE record-buffer [FROM ws-file-structure]
+END-WRITE.And following is the syntax to write a record when the file organization is indexed or relative:WRITE record-buffer [FROM ws-file-structure]
+   INVALID KEY DISPLAY 'Invalid Key'
+   NOT INVALID KEY DISPLAY 'Record Inserted'
+END-WRITE.Example:Let's see an example which shows how to insert a record in a new file when the organization is sequential:       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+       SELECT EMPLOYEE ASSIGN TO 'file2.txt'
+           ORGANIZATION IS SEQUENTIAL
+           ACCESS IS SEQUENTIAL.
+
+       DATA DIVISION.
+           FILE SECTION.
+            FD EMPLOYEE.
+            01 EMPLOYEE-FILE.
+               05 EMPLOYEE-ID PIC X(5).
+               05 NAME PIC A(10).
+               05 RANK PIC X(3).
+
+       WORKING-STORAGE SECTION.
+           01 WS-EMPLOYEE.
+             05 WS-EMPLOYEE-ID PIC 9(5).
+             05 WS-NAME PIC A(25).
+             05 WS-RANK PIC X(3).
+
+       PROCEDURE DIVISION.
+        DISPLAY 'WRITING TO A SEQUENTIAL FILE..'
+           OPEN EXTEND EMPLOYEE.
+           MOVE '100' TO EMPLOYEE-ID.
+           MOVE 'NIKITA' TO NAME.
+           MOVE '5' TO RANK.
+              WRITE EMPLOYEE-FILE
+              END-WRITE.	
+       CLOSE EMPLOYEE.
+       STOP RUN.Output:When you compile and execute this program, it will display the following output:And when you open your file 'file2.txt', it will add a new record:REWRITERewrite verb updates the records, but the file must be opened in I-O mode to do the rewrite operation. We can perform the rewrite operation only after a successful reading operation.Rewrite verb overwrites the last record read. For this, we need to read the record using the READ verb, then change the contents of the record and then perform the REWRITE operation to update the record.Syntax:Following is the syntax to write a record when the file organization is sequential:REWRITE record-buffer [FROM ws-file-structure]
+END-REWRITE.Following is the syntax to write a record when the file organization is indexed or relative:REWRITE record-buffer [FROM ws-file-structure]
+   INVALID KEY DISPLAY 'Invalid Key'
+   NOT INVALID KEY DISPLAY 'Record Updated'
+END-REWRITE.DELETEDelete verb is used to delete the record, which is read in the latest read of the file. We can use the Delete verb only on indexed and relatives files. And the file must be opened in I-O mode.Specific deletion of records in sequential files is not possible.In case of sequential access mode, the record last read by the Read statement will be deleted. And you need to define the record key in random access mode to perform the deletion process.Syntax:DELETE file-name RECORD
+   INVALID KEY DISPLAY 'Invalid Key'
+   NOT INVALID KEY DISPLAY 'Record Deleted'
+END-DELETE.STARTWe can only perform the start operation on indexed and relative files. The start verb is used to place the file pointer at a specific record. This access mode must be sequential or dynamic. The file must be opened in the I-O input mode. The start is not used for retrieving any record, and it only sets the pointer to the next read for reading the record.Syntax:Following is the syntax is used to place the pointer at a specific record:START file-name KEY IS [=, >, <, NOT, <= or >=] rec-key
+   INVALID KEY DISPLAY 'Invalid Key'
+   NOT INVALID KEY DISPLAY 'File Pointer Updated'
+END-START.CLOSEThis verb is used to close a file explicitly. When you close a file, then the variables in the file structure will not be available for processing. And the connection between program and file is lost.Syntax:Syntax to close a file:CLOSE file-name.Next TopicCOBOL Internal Sort? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

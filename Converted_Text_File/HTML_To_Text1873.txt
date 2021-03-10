@@ -1,0 +1,108 @@
+C++ set equal_range() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set equal_range()C++ set equal_range() function is used to return the boundary of the range containing all elements in the container that are equal to val. Since there is no duplication of values in the set container, this range includes at most one element.If val does not match any value in the container, the return value range will be length 0 and both iterators will point to the nearest value greater than val. Otherwise, if val is greater than all elements in the container, it points to end.Syntaxpair<const_iterator,const_iterator> equal_range (const value_type& val) const;
+pair<iterator,iterator>                    equal_range (const value_type& val);The range is defined by two iterators, one points to the first element that is not less than value val and another points to the first element greater than value val.Parameterval: value to be searched in the set container.Return valueThis function returns pair. Where pair:: first is at the lower boundary of the range with the same value that lower_bound (val) would return, pair :: second is the same value as the upper_bound (val) would return, upper bound of the range it corresponds to.ComplexityLogarithmic in size.Iterator validityNo changes.Data RacesThe container is accessed (neither the const not non-const versions modify the container).Concurrently accessing the elements of a set is safe.Exception SafetyIf an exception is thrown, there are no changes in the container.Example 1Let's see the simple example:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   set<char> m = {'a','b','c','d'};
+
+   auto ret = m.equal_range('b');
+
+   cout << "Lower bound of b is: " << *ret.first<< endl;
+
+   cout << "Upper bound of b is: " << *ret.second<< endl;
+
+   return 0;
+}Output:Lower bound of b is: b
+Upper bound of b is: cIn the above example, lower bound of b is b and upper bound of b is c.Example 2Let's see a simple example:#include <iostream>
+#include <set>
+
+using namespace std;
+ 
+int main()
+{
+     // initialize container
+    set<int> mp;
+ 
+    // insert elements in random order
+    mp.insert( 4 );
+    mp.insert( 1 );
+    mp.insert( 6 );
+ 
+    pair<set<int>::const_iterator,set<int>::const_iterator> ret;
+ 
+    ret = mp.equal_range(10);
+    cout << "The lower bound is: " << *ret.first;
+    cout << "\nThe upper bound is: " << *ret.second;
+ 
+    return 0;
+}Output:The lower bound is 3
+The upper bound is 3In the above example, equal_range() function returns to the end() i.e. 3 because it tries to find 10 which is not present in the set mp.Example 3Let's see a simple example:#include <set>  
+#include <iostream>  
+  
+int main( )  
+{  
+   using namespace std;  
+   typedef set<int, less< int > > IntSet;  
+   IntSet s1;  
+   set <int, less< int > > :: const_iterator s1_RcIter;  
+  
+   s1.insert( 10 );  
+   s1.insert( 20 );  
+   s1.insert( 30 );  
+  
+   pair <IntSet::const_iterator, IntSet::const_iterator> p1, p2;  
+   p1 = s1.equal_range( 20 );  
+  
+   cout << "The upper bound of the element with "  
+        << "a key of 20 in the set s1 is: "  
+        << *(p1.second) << "." << endl;  
+  
+   cout << "The lower bound of the element with "  
+        << "a key of 20 in the set s1 is: "  
+        << *(p1.first) << "." << endl;  
+  
+   // Compare the upper_bound called directly   
+   s1_RcIter = s1.upper_bound( 20 );  
+   cout << "A direct call of upper_bound( 20 ) gives "  
+        << *s1_RcIter << "," << endl  
+        << "matching the 2nd element of the pair"  
+        << " returned by equal_range( 20 )." << endl;  
+  
+   p2 = s1.equal_range( 40 );  
+  
+   // If no match is found for the key,  
+   // both elements of the pair return end( )  
+   if ( ( p2.first == s1.end( ) ) && ( p2.second == s1.end( ) ) )  
+      cout << "The set s1 doesn't have an element "  
+           << "with a key less than 40." << endl;  
+   else  
+      cout << "The element of set s1 with a key >= 40 is: "  
+           << *(p1.first) << "." << endl; 
+           
+           return 0;
+}  Output:The upper bound of the element with a key of 20 in the set s1 is: 30.
+The lower bound of the element with a key of 20 in the set s1 is: 20.
+A direct call of upper_bound( 20 ) gives 30,
+matching the 2nd element of the pair returned by equal_range( 20 ).
+The set s1 doesn't have an element with a key less than 40.Example 4Let's see a simple example:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  std::set<int> myset;
+
+  for (int i=1; i<=5; i++) myset.insert(i*10);   // myset: 10 20 30 40 50
+
+  pair<std::set<int>::const_iterator,set<int>::const_iterator> ret;
+  ret = myset.equal_range(30);
+
+  cout << "The lower bound points to: " << *ret.first << '\n';
+  cout << "The upper bound points to: " << *ret.second << '\n';
+
+  return 0;
+}Output:The lower bound points to: 30
+The upper bound points to: 40Next TopicC++ Set? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

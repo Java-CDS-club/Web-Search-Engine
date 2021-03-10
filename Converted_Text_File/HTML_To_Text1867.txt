@@ -1,0 +1,91 @@
+C++ set crend() Function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ set FunctionC++ set constructor destructor operator=() begin() cbegin() end() cend() rbegin() rend() crbegin() crend() empty() Size() max_size() insert() erase() Swap() clear() emplace() emplace_hint() key_comp() value_comp() find() count() lower_bound() upper_bound() equal_range() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ set crend()C++ set crend() function is used to return a constant iterator to the end of the set (not the last element but the past last element) in reverse order. This is similar to the element preceding the first element of the non-reversed container.Note:- This is a placeholder. No element exists in this location and attempting to access is undefined behavior.A constant iterator is an iterator that points to the constant content.Syntaxconst_reverse_iterator crend() const noexcept;       //since C++ 11ParameterNoneReturn valueIt returns a const_reverse_iterator to the element following the last element of the reversed container.ComplexityConstant.Iterator validityNo changes.Data RacesThe container is accessed.Concurrently accessing the elements of a set is safe.Exception SafetyThis function never throws exception.Example 1Let's see the simple example for crend() function:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<int> myset = {40,20,50,10,30};
+
+  cout << "myset in reverse order:";
+  for (auto rit=myset.crbegin(); rit != myset.crend(); ++rit)
+    cout << ' ' << *rit;
+
+  cout << '\n';
+
+  return 0;
+}Output:myset in reverse order: 50 40 30 20 10In the above example, crend() function is used to return a constant reverse iterator to the element following the last element of the reversed container.Because set stores the elements in sorted order of keys therefore, iterating over a set will result in above order i.e. sorted order of keys.Example 2Let's see a simple example to iterate over the set in reverse order using while loop:#include <iostream>
+#include <set>
+#include <string>
+#include <iterator>
+
+using namespace std;
+ 
+int main() {
+ 
+	// Creating & Initializing a set of String & Ints
+	set<string> setEx = {"ccc", "ddd", "aaa", "bbb"};
+ 
+	// Create a set iterator and point to the end of set
+	set<string>::const_reverse_iterator it = setEx.crbegin();
+ 
+	// Iterate over the set using Iterator till beginning.
+	while (it != setEx.crend()) {
+		// Accessing KEY from element pointed by it.
+		string word = *it;
+ 
+		cout << word << endl;
+ 
+		// Increment the Iterator to point to next entry
+		it++;
+	}
+	return 0;
+}Output:ddd
+ccc
+bbb
+aaaIn the above example, we are using while loop to const_iterate over the set in reverse order.Because set stores the elements in sorted order of keys therefore, iterating over a set will result in above order i.e. sorted order of keys.Example 3Let's see a simple example:#include <iostream>
+#include <set>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+  set<int> c = {3, 1, 2};
+
+  for_each(c.crbegin(), c.crend(), [](const int& x) {
+    cout << x << endl;
+  });
+}Output:3
+2
+1In the above example, elements of set returned in reverse order.Example 4Let's see a simple example to sort and calculate the highest marks:#include <iostream>
+#include <string>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  set<int> emp = {1000,2500,4500,1200,3000};
+
+   cout << "Salary"<< '\n';
+   cout<<"______________________\n";
+   
+  set<int>::const_reverse_iterator rit;
+  for (rit=emp.crbegin(); rit!=emp.crend(); ++rit)
+    cout << *rit<< '\n';
+
+    auto ite = emp.crbegin();
+ 
+    cout << "\nHighest salary: "<< *ite <<" \n";
+
+  return 0;
+  }Output:Salary
+______________________
+4500
+3000
+2500
+1200
+1000
+
+Highest salary: 4500 In the above example, a set emp is implemented where salary is stored as key. This enables us to take advantage of the auto sorting of salary in set and lets us to identify the highest salary.Next TopicSet empty() Function? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

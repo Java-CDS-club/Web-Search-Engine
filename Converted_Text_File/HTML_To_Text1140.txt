@@ -1,0 +1,88 @@
+C function Pointer - javatpoint?HomeCC++C#JavaSQLHTMLCSSJavaScriptXMLAjaxAndroidCloudDesign PatternQuizProjectsInterview QCommentForumC/C++ TrainingC TutorialWhat is C Language History of C Features of C How to install C First C Program Compilation Process in C printf scanf Variables in C Data Types in c Keywords in c C Identifiers C Operators C Comments C Format Specifier C Escape Sequence ASCII value in C Constants in C Literals in C Tokens in C C Boolean Static in C Programming Errors in C Conditional Operator in C Bitwise Operator in C 2s complement in C C Fundamental TestC Control StatementsC if-else C switch if-else vs switch C Loops C do-while loop C while loop C for loop Nested Loops in C Infinite Loop in C C break C continue C goto Type Casting C Control Statement TestC FunctionsWhat is function Call: Value & Reference Recursion in c Storage Classes C Functions TestC Array1-D Array 2-D Array Return an Array in C Array to Function C Array TestC PointersC Pointers C Pointer to Pointer C Pointer Arithmetic Dangling Pointers in C sizeof() operator in C const Pointer in C void pointer in C C Dereference Pointer Null Pointer in C C Function Pointer C Pointers TestC Dynamic MemoryDynamic memoryC StringsString in C C gets() & puts() C String Functions C strlen() C strcpy() C strcat() C strcmp() C strrev() C strlwr() C strupr() C strstr() C String TestC MathC Math FunctionsC Structure UnionC Structure typedef in C C Array of Structures C Nested Structure C Union C Structure TestC File HandlingC File Handling C fprintf() fscanf() C fputc() fgetc() C fputs() fgets() C fseek() C rewind() C ftell()C PreprocessorC Preprocessor C Macros C #include C #define C #undef C #ifdef C #ifndef C #if C #else C #error C #pragma C Preprocessor TestC Command LineCommand Line ArgumentsC MiscC Expressions Data Segments Flow of C Program Classification of Programming LanguagesC Programming TestC Programming TestC ProgramsTop 10+ C Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Count the number of digits in C Reverse Number Swap Number Print "Hello" without ; Assembly code in C C program without main Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci Triangle Hexadecimal to Binary Hexadecimal to Decimal Strong number in C Star Program in CMathPrime Numbers List Composite Numbers List Square Numbers List Binary Numbers List Fibonacci Numbers List Ounces in a Cup Ounces in a Pound Ounces in a Gallon Ounces in a Liter Ounces in a Pint Ounces in a Quart Ounces in a TablespoonC InterviewC Interview Questionsnext ? ? prevC Function PointerAs we know that we can create a pointer of any data type such as int, char, float, we can also create a pointer pointing to a function. The code of a function always resides in memory, which means that the function has some address. We can get the address of memory by using the function pointer.Let's see a simple example.#include <stdio.h>
+int main()
+{
+    printf("Address of main() function is %p",main);
+    return 0;
+}The above code prints the address of main() function.OutputIn the above output, we observe that the main() function has some address. Therefore, we conclude that every function has some address.Declaration of a function pointerTill now, we have seen that the functions have addresses, so we can create pointers that can contain these addresses, and hence can point them.Syntax of function pointerreturn type (*ptr_name)(type1, type2…);For example:int (*ip) (int);In the above declaration, *ip is a pointer that points to a function which returns an int value and accepts an integer value as an argument.float (*fp) (float);In the above declaration, *fp is a pointer that points to a function that returns a float value and accepts a float value as an argument.We can observe that the declaration of a function is similar to the declaration of a function pointer except that the pointer is preceded by a '*'. So, in the above declaration, fp is declared as a function rather than a pointer.Till now, we have learnt how to declare the function pointer. Our next step is to assign the address of a function to the function pointer.float (*fp) (int , int);    // Declaration of a function pointer.
+float func( int , int );    // Declaration of  function.
+fp = func;                     // Assigning address of func to the fp pointer.In the above declaration, 'fp' pointer contains the address of the 'func' function.Note: Declaration of a function is necessary before assigning the address of a function to the function pointer.Calling a function through a function pointerWe already know how to call a function in the usual way. Now, we will see how to call a function using a function pointer.Suppose we declare a function as given below:float func(int , int);      // Declaration of a function.Calling an above function using a usual way is given below:result = func(a , b);     // Calling a function using usual ways.Calling a function using a function pointer is given below:result = (*fp)( a , b);    // Calling a function using function pointer.Orresult = fp(a , b);         // Calling a function using function pointer, and indirection             operator can be removed.The effect of calling a function by its name or function pointer is the same. If we are using the function pointer, we can omit the indirection operator as we did in the second case. Still, we use the indirection operator as it makes it clear to the user that we are using a function pointer.Let's understand the function pointer through an example.#include <stdio.h>
+int add(int,int);
+int main()
+{
+   int a,b;
+   int (*ip)(int,int);
+   int result;
+   printf("Enter the values of a and b : ");
+   scanf("%d %d",&a,&b);
+   ip=add;
+   result=(*ip)(a,b);
+   printf("Value after addition is : %d",result);
+    return 0;
+}
+int add(int a,int b)
+{
+    int c=a+b;
+    return c;
+}OutputPassing a function's address as an argument to other functionWe can pass the function's address as an argument to other functions in the same way we send other arguments to the function.Let's understand through an example.include <stdio.h>
+void func1(void (*ptr)());
+void func2();
+int main()
+{
+    func1(func2);
+     return 0;
+}
+void func1(void (*ptr)())
+{
+    printf("Function1 is called");
+    (*ptr)();
+}
+void func2()
+{
+    printf("\nFunction2 is called");
+}In the above code, we have created two functions, i.e., func1() and func2(). The func1() function contains the function pointer as an argument. In the main() method, the func1() method is called in which we pass the address of func2. When func1() function is called, 'ptr' contains the address of 'func2'. Inside the func1() function, we call the func2() function by dereferencing the pointer 'ptr' as it contains the address of func2.OutputArray of Function PointersFunction pointers are used in those applications where we do not know in advance which function will be called. In an array of function pointers, array takes the addresses of different functions, and the appropriate function will be called based on the index number.Let's understand through an example.#include <stdio.h>
+float add(float,int);
+float sub(float,int);
+float mul(float,int);
+float div(float,int);
+int main()
+{
+    float x;              // variable declaration.
+    int y;
+    float (*fp[4]) (float,int);        // function pointer declaration.
+    fp[0]=add;              // assigning addresses to the elements of an array of a function   pointer.
+    fp[1]=sub;
+    fp[2]=mul;
+    fp[3]=div;
+    printf("Enter the values of x and y :");
+    scanf("%f %d",&x,&y);
+  float r=(*fp[0]) (x,y);        // Calling add() function.
+    printf("\nSum of two values is : %f",r);
+     r=(*fp[1]) (x,y);             // Calling sub() function.
+    printf("\nDifference of two values is : %f",r);
+      r=(*fp[2]) (x,y);            // Calliung sub() function.
+    printf("\nMultiplication of two values is : %f",r);
+     r=(*fp[3]) (x,y);           // Calling div() function.
+    printf("\nDivision of two values is : %f",r);
+    return 0;
+}
+
+float add(float x,int y)
+{
+    float a=x+y;
+    return a;
+}
+float sub(float x,int y)
+{
+    float a=x-y;
+    return a;
+}
+float mul(float x,int y)
+{
+    float a=x*y;
+    return a;
+}
+float div(float x,int y)
+{
+    float a=x/y;
+    return a;
+}In the above code, we have created an array of function pointers that contain the addresses of four functions. After storing the addresses of functions in an array of function pointers, we call the functions using the function pointer.OutputNext TopicDynamic Memory Allocation? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

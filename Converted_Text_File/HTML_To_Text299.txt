@@ -1,0 +1,822 @@
+Angular + Spring File Upload Example - javatpoint?HomeCore JavaServletJSPStruts2Mail APIHibernateSpringAndroidDesign PatternQuizProjectsInterview QCommentForumSpring TutorialWhat is Spring Spring Modules Spring ApplicationSpring in IDESpring in Myeclipse Spring in EclipseDependency InjectionIOC container Dependency Injection Constructor Injection CI Dependent Object CI with collection CI with collection 2 CI with Map CI with Map2 CI Inheriting Bean Setter Injection SI Dependent Object SI with Collection SI with Collection 2 SI with Map SI with Map 2 CI vs SI Autowiring Factory MethodSpring AOPAOP Concepts Spring1.2 AOP DTD SP AspectJ Annotation SP AspectJ XMLSpring JdbcTemplateJdbcTemplate Example PreparedStatement ResultSetExtractor RowMapper NamedParameter SimpleJdbcTemplateSpring ORMSpring with ORM Spring with Hibernate Spring with JPASPELSpEL Examples Operators in SpEL variable in SpELSpring MVCMVC Introduction Multiple View Page Multiple Controller Model Interface RequestParam AnnotationMVC Form Tag LibraryForm Tag Library Form Text Field Form Radio Button Form Check Box Form Drop-Down ListMVC ApplicationsMVC CRUD Example MVC Pagination Example File Upload ExampleSpring MVC ValidationSpring MVC Validation Regular Expression Validation Number Validation Custom ValidationMVC TilesSpring MVC TilesSpring RemotingRemoting with Spring Spring with RMI Http Invoker Hessian Burlap Spring with JMSSpring OXMSpring with JAXB Spring with Xstream Spring with CastorSpring Java MailSpring Java MailSpring WebSpring with Struts2 Login ExampleSpring Security TutorialSp Security Tutorial Sp Security Introduction Sp Security Features Security Project Modules Sp Security XML Example Sp Security Java Example Sp Security Login Logout Sp Security Custom Login Form-Based Authentication Sp Security Remember Me Security at Method Level Sp Security Tag LibrarySpring + AngularCRUD Example File Upload Example Login & Logout Example Search Field ExampleSpring BootSpring Boot (15+)Spring InterviewInterview QuestionsSpring QuizSpring Quiznext ? ? prevSpring Angular File Upload ApplicationIn this section, we are going to create a File Upload web application. This application includes a registration form. In this integration, we are using Spring to handle the backend part and Angular to handle the frontend part.Working of ApplicationOnce we deployed our application on the server, a registration page generates.A user can fill the required information and upload the image.Remember, the image size must not exceed 1 MB.Tools to be usedUse any IDE to develop the Spring and Hibernate project. It may be MyEclipse/Eclipse/Netbeans. Here, we are using Eclipse.MySQL for the database.Use any IDE to develop the Angular project. It may be Visual Studio Code/Sublime. Here, we are using Visual Studio Code.Server: Apache Tomcat/JBoss/Glassfish/Weblogic/Websphere.Technologies we usedHere, we use the following technologies:Spring 5Hibernate 5Angular 6MYSQLCreate DatabaseLet's create a database fileuploadexample. There is no need to create a table as Hibernate automatically created it.Spring ModuleLet's see the directory structure of Spring we need to follow:To develop a file upload application, follow the below steps: -Add dependencies to pom.xml file.pom.xml<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.javatpoint</groupId>
+  <artifactId>FileUploadExample</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>FileUploadExample Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+		<springframework.version>5.0.6.RELEASE</springframework.version>
+		<hibernate.version>5.2.16.Final</hibernate.version>
+		<mysql.connector.version>5.1.45</mysql.connector.version>
+		<c3po.version>0.9.5.2</c3po.version>
+
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	
+	
+  <dependencies>
+  
+   <!-- Spring -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+		<version>${springframework.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-tx</artifactId>
+		<version>${springframework.version}</version>
+	</dependency>
+		
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-orm</artifactId>
+		<version>${springframework.version}</version>
+	</dependency>
+
+	<!-- Add Jackson for JSON converters -->
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>2.9.5</version>
+	</dependency>
+
+	<!-- Hibernate -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>${hibernate.version}</version>
+	</dependency>
+
+	<!-- MySQL -->
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>${mysql.connector.version}</version>
+	</dependency>
+
+	<!-- C3PO -->
+	<dependency>
+		<groupId>com.mchange</groupId>
+		<artifactId>c3p0</artifactId>
+		<version>${c3po.version}</version>
+	</dependency>
+
+	<!-- Servlet+JSP+JSTL -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
+	</dependency>
+
+	<dependency>
+		<groupId>javax.servlet.jsp</groupId>
+		<artifactId>javax.servlet.jsp-api</artifactId>
+		<version>2.3.1</version>
+	</dependency>
+
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+		<version>1.2</version>
+	</dependency>
+
+
+	<!-- to compensate for java 9 not including jaxb -->
+	<dependency>
+		<groupId>javax.xml.bind</groupId>
+		<artifactId>jaxb-api</artifactId>
+		<version>2.3.0</version>
+	</dependency>
+ 	
+ 	<!--  JUnit dependency -->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>3.8.1</version>
+        <scope>test</scope>
+    </dependency>
+    
+         <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+	<dependency>
+	    <groupId>commons-fileupload</groupId>
+	    <artifactId>commons-fileupload</artifactId>
+	    <version>1.3</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-dbcp2</artifactId>
+	    <version>2.0</version>
+	</dependency> 
+    
+    
+    
+  </dependencies>
+  <build>
+    <finalName>FileUploadExample</finalName>
+  </build>
+</project>Create the configuration classesInstead of XML, we perform annotation-based configuration. So, we create two classes and specify the required configuration in it.DemoAppConfig.javapackage com.javatpoint.FileUploadExample.config;
+
+import java.beans.PropertyVetoException;
+import java.io.IOException;
+import java.util.Properties;
+import javax.sql.DataSource;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
+@Configuration
+@EnableWebMvc
+@EnableTransactionManagement
+@ComponentScan("com.javatpoint.FileUploadExample")
+@PropertySource(value = { "classpath:persistence-mysql.properties" })
+@PropertySource(value = { "classpath:persistence-mysql.properties" })
+@PropertySource(value = { "classpath:application.properties" })
+public class DemoAppConfig implements WebMvcConfigurer {
+	
+	@Autowired
+	private Environment env;
+	
+	@Bean
+	public DataSource myDataSource() {
+		
+		// create connection pool
+		ComboPooledDataSource myDataSource = new ComboPooledDataSource();
+
+		// set the jdbc driver
+		try {
+			myDataSource.setDriverClass("com.mysql.jdbc.Driver");		
+		}
+		catch (PropertyVetoException exc) {
+			throw new RuntimeException(exc);
+		}
+		
+		// set database connection props
+		myDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
+		myDataSource.setUser(env.getProperty("jdbc.user"));
+		myDataSource.setPassword(env.getProperty("jdbc.password"));
+		
+		// set connection pool props
+		myDataSource.setInitialPoolSize(getIntProperty("connection.pool.initialPoolSize"));
+		myDataSource.setMinPoolSize(getIntProperty("connection.pool.minPoolSize"));
+		myDataSource.setMaxPoolSize(getIntProperty("connection.pool.maxPoolSize"));		
+		myDataSource.setMaxIdleTime(getIntProperty("connection.pool.maxIdleTime"));
+
+		return myDataSource;
+	}
+	
+	private Properties getHibernateProperties() {
+
+		// set hibernate properties
+		Properties props = new Properties();
+		props.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
+		props.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+		props.setProperty("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
+		props.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl"));
+		return props;				
+	}
+
+	
+	// need a helper method 
+	// read environment property and convert to int
+	
+	private int getIntProperty(String propName) {
+		
+		String propVal = env.getProperty(propName);
+		
+		// now convert to int
+		int intPropVal = Integer.parseInt(propVal);
+		return intPropVal;
+	}	
+	
+	@Bean
+	public LocalSessionFactoryBean sessionFactory(){
+		
+		// create session factorys
+		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+		
+		// set the properties
+		sessionFactory.setDataSource(myDataSource());
+		sessionFactory.setPackagesToScan(env.getProperty("hibernate.packagesToScan"));
+		sessionFactory.setHibernateProperties(getHibernateProperties());
+		
+		return sessionFactory;
+	}
+	
+	@Bean
+	@Autowired
+	public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+		
+		// setup transaction manager based on session factory
+		HibernateTransactionManager txManager = new HibernateTransactionManager();
+		txManager.setSessionFactory(sessionFactory);
+
+		return txManager;
+	}	
+	
+	@Bean(name="multipartResolver")
+    public CommonsMultipartResolver getResolver() throws IOException{
+        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+         
+        //Set the maximum allowed size (in bytes) for each individual file.
+       // resolver.setMaxUploadSize(5242880);//5MB
+        
+        resolver.setMaxUploadSize(524288);//0.5MB
+        
+        //You may also set other available properties.  
+        return resolver;
+    }
+	
+}MySpringMvcDispatcherServletInitializer.javapackage com.javatpoint.FileUploadExample.config;
+
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+	@Override
+	protected Class<?>[] getRootConfigClasses() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Class<?>[] getServletConfigClasses() {
+		return new Class[] { DemoAppConfig.class };
+	}
+
+	@Override
+	protected String[] getServletMappings() {
+		return new String[] { "/" };
+	}
+
+}Create the entity classHere, we are creating an Entity/POJO (Plain Old Java Object) class.UserDetail.javapackage com.javatpoint.FileUploadExample.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user_detail")
+public class UserDetail {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="user_id")
+	private int userId;
+	
+	@Column(name="email_id")
+	public String emailId;
+	
+	@Column(name="name")
+	public String name;
+	
+	@Column(name="profile_image")
+	public String profileImage;
+	
+	public UserDetail() { }
+
+	public UserDetail(int userId, String emailId, String name, String profileImage) {
+		super();
+		this.userId = userId;
+		this.emailId = emailId;
+		this.name = name;
+		this.profileImage = profileImage;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getProfileImage() {
+		return profileImage;
+	}
+
+	public void setProfileImage(String profileImage) {
+		this.profileImage = profileImage;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDetail [userId=" + userId + ", emailId=" + emailId + ", name=" + name + ", profileImage="
+				+ profileImage + "]";
+	}
+
+	
+}Create the DAO interfaceHere, we are creating a DAO interface to perform database related operations.UserDAO.java package com.javatpoint.FileUploadExample.DAO.interfaces;
+
+import com.javatpoint.FileUploadExample.entity.UserDetail;
+
+public interface UserDAO {
+	
+	public int saveUser(UserDetail userDetail);
+	
+	public UserDetail getUserDetail(int userId);
+	
+	public int updateProfileImage(String profileImage , int userID);
+	
+
+}Create the DAO interface implementation classUserDAOImpl.javapackage com.javatpoint.FileUploadExample.DAO.implementation;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.javatpoint.FileUploadExample.DAO.interfaces.UserDAO;
+import com.javatpoint.FileUploadExample.entity.UserDetail;
+
+@Repository("userDAO")
+public class UserDAOImpl implements UserDAO {
+
+	@Autowired
+	SessionFactory sessionFactory;
+	
+	public int saveUser(UserDetail userDetail) {
+		
+		Session session = null;
+		try
+		{
+			session = sessionFactory.getCurrentSession();
+			int status = (Integer) session.save(userDetail);
+			return status;
+		}
+		catch(Exception exception)
+		{
+			System.out.println("Exception in saving data into the database" + exception);
+			return 0;
+		}
+		finally
+		{
+			session.flush();
+		}
+	}
+
+	public UserDetail getUserDetail(int userId) {
+		Session session = null;
+		try
+		{
+			session = sessionFactory.getCurrentSession();
+			UserDetail userDetail = session.get(UserDetail.class, userId);
+			return userDetail;
+		}
+		catch(Exception exception)
+		{
+			System.out.println("Exception in saving data into the database " + exception);
+			return null;
+		}
+		finally
+		{
+			session.flush();
+		}
+	}
+
+	public int updateProfileImage(String profileImage, int userID) {
+		Session session= sessionFactory.getCurrentSession();
+		int result;
+		
+		try
+		{
+			Query<UserDetail> query = session.createQuery("update UserDetail set profileImage = :profileImage where userId=:userID ");
+			query.setParameter("profileImage", profileImage);
+			query.setParameter("userID", userID);
+			result = query.executeUpdate();
+			if(result > 0)
+			{
+				return result;
+			}
+			else return -5;
+		}
+		catch(Exception exception)
+		{
+			System.out.println("Error while updating profileImage from DAO :: " + exception.getMessage());
+			return -5;
+		}
+		finally
+		{
+			session.flush();
+		}
+		
+		
+	}
+}Create the service layer interfaceHere, we are creating a service layer interface that acts as a bridge between DAO and Entity classes.UserService.javapackage com.javatpoint.FileUploadExample.service.interfaces;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.javatpoint.FileUploadExample.entity.UserDetail;
+
+public interface UserService {
+	
+	public int saveUser(UserDetail userDetail);
+	
+	public UserDetail getUserDetail(int userId);
+	
+	public int store(MultipartFile file, int userID ,  HttpSession session);
+	
+	
+
+}Create the service layer implementation classUserServiceImpl.javapackage com.javatpoint.FileUploadExample.service.implementation;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.javatpoint.FileUploadExample.DAO.interfaces.UserDAO;
+import com.javatpoint.FileUploadExample.entity.UserDetail;
+import com.javatpoint.FileUploadExample.service.interfaces.UserService;
+
+@Service("userService")
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserDAO userDAO;
+	
+	@Transactional
+	public int saveUser(UserDetail userDetail) {
+		return userDAO.saveUser(userDetail);
+	}
+	
+	@Transactional
+	public UserDetail getUserDetail(int userId) {
+		return userDAO.getUserDetail(userId);
+	}
+
+	@Transactional
+	public int store(MultipartFile file, int userID, HttpSession session) {
+		
+		Path rootLocation = Paths.get(session.getServletContext().getRealPath("/resources/images"));
+		
+		System.out.println("rootLocation  ==  " + rootLocation);
+		
+		UserDetail userDetail = this.getUserDetail(userID);
+		 
+		 String nameExtension[] = file.getContentType().split("/");
+
+		 String profileImage = userID + "." + nameExtension[1];
+		 	
+		 System.out.println("ProfileImage  :: " + profileImage);
+		 
+		 if(userDetail.getUserId() > 0 )
+		 {
+			 
+			if(userDetail.getProfileImage() == null || userDetail.getProfileImage() == " " || userDetail.getProfileImage() == "" )
+			{
+				try
+				{
+					Files.copy(file.getInputStream(),rootLocation.resolve(profileImage));
+					int result = userDAO.updateProfileImage(profileImage, userID);	
+					if(result > 0)
+						return result;
+					else
+						return -5;
+				}
+				catch(Exception exception)
+				{
+					System.out.println("error while uploading image catch:: " + exception.getMessage());
+					return -5;
+				}
+			}
+			else
+			{
+				try
+				{
+					//Files.delete(rootLocation.resolve(profileImage));
+					
+					Files.delete(rootLocation.resolve(userDetail.getProfileImage()));
+					
+					Files.copy(file.getInputStream(),rootLocation.resolve(profileImage));
+					int result = userDAO.updateProfileImage(profileImage, userID);	
+					if(result > 0)
+						return result;
+					else
+						return -5;
+				}
+				catch(Exception exception)
+				{
+					System.out.println("Error while uploading image when image is already Exists :: " + exception.getMessage());
+					return -5;
+				}
+			}
+		}
+		else {
+			return 0;
+		}
+	}
+
+	
+
+}Create the controller classUserController.javapackage com.javatpoint.FileUploadExample.restController;
+
+import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.javatpoint.FileUploadExample.entity.UserDetail;
+import com.javatpoint.FileUploadExample.service.interfaces.UserService;
+
+@RestController
+@RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
+public class UserController {
+	
+	@Autowired
+	private UserService userService;
+	
+	@PostMapping("/saveUser")
+	public int saveUser(@RequestBody UserDetail userDetail)
+	{
+		return userService.saveUser(userDetail);
+	}
+	
+	@PostMapping("/uploadImage/{userId}")
+	public int handleFileUpload(@PathVariable int userId , @RequestParam("file") MultipartFile file, HttpSession session) {
+		return userService.store(file, userId, session);		
+	}
+	
+}Create the properties fileHere, we are creating properties file inside the src/main/resources in the project.application.propertiesspring.http.multipart.max-file-size=1024KB
+spring.http.multipart.max-request-size=1024KBpersistence-mysql.properties#
+# JDBC connection properties
+#
+jdbc.driver=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/fileuploadexample?useSSL=false
+jdbc.user=root
+jdbc.password=
+
+#
+# Connection pool properties
+#
+connection.pool.initialPoolSize=5
+connection.pool.minPoolSize=5
+connection.pool.maxPoolSize=20
+connection.pool.maxIdleTime=3000
+
+#
+# Hibernate properties
+#
+
+hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+hibernate.show_sql=true
+hibernate.format_sql=true
+hibernate.hbm2ddl=update
+hibernate.packagesToScan=com.javatpoint.FileUploadExample.entityAngular ModuleLet's see the directory structure of Angular we need to follow:Create an Angular projectLet's create an Angular project by using the following command:ng new FileUploadExampleHere, FileUploadExample is the name of the project.Install Bootstrap CSS frameworkUse the following command to install bootstrap in the project.npm install bootstrap@3.3.7 --save  Now, include the following code in the style.css file.@import "~bootstrap/dist/css/bootstrap.css";Generate ComponentOpen the project in visual studio and then use the following command to generate Angular component:ng g c RegisterLet's also create a service class by using the following command: -ng g s services/UserDetailEdit the app.module.ts fileImport ReactiveFormsModule - Here, we are importing the ReactiveFormsModule for reactive forms and specifying it in imports array.Import HttpModule - Here, we are importing the HttpModule for server requests and specifying it in the imports array.Register Service class - Here, we are mentioning the service class in the provider's array.import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+// import ReactiveFormsModule for reactive form
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { RegisterComponent } from './register/register.component';
+
+import { HttpModule } from '@angular/http';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    RegisterComponent
+  ],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    HttpModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }Edit the app.component.html file<app-register></app-register>Create the UserDetail.ts classLet's create a class by using the following command: -ng g class classes/UserDetailNow, specify the required fields within the UserDetail class.export class UserDetail {
+
+    emailId : string;
+    name : string;
+    profileImage : string;
+
+}The purpose of this class is to map the specified fields with the fields of the Spring entity class.Edit the user-detail.service.ts fileimport { Injectable } from '@angular/core';
+import { UserDetail } from '../classes/user-detail';
+import { Observable } from 'rxjs';
+import { Http, RequestOptions , Headers } from '@angular/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserDetailService {
+
+  // Base URL
+  private  baseUrl = "http://localhost:8080/FileUploadExample/api/";
+
+  constructor(private http: Http) { }
+
+  saveData(userDetail : UserDetail) : Observable
+  {
+      let url = this.baseUrl + "saveUser";
+      return this.http.post(url,userDetail);
+  }
+
+  uploadFile( file: File , id : number ) : Observable
+  {
+    let url = this.baseUrl + "uploadImage/" + id ;
+
+    const formdata: FormData = new FormData();
+  
+    formdata.append('file', file);
+ 
+    return this.http.post(url , formdata);
+  }
+}Edit the register.component.ts fileimport { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserDetail } from '../classes/user-detail';
+import { UserDetailService } from '../services/user-detail.service';
+import { jsonpFactory } from '@angular/http/src/http_module';
+
+@Component({
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
+})
+export class RegisterComponent implements OnInit {
+
+  selectedFiles: FileList;
+  currentFileUpload: File;
+
+  private userDetail = new UserDetail(); 
+  
+  constructor(private userDetailService : UserDetailService) { }
+
+  ngOnInit() {
+  }
+
+  selectFile(event) {
+    const file = event.target.files.item(0);
+ 
+    if (file.type.match('image.*')) {
+      var size = event.target.files[0].size;
+      if(size > 1000000)
+      {
+          alert("size must not exceeds 1 MB");
+          this.form.get('profileImage').setValue("");
+      }
+      else
+      {
+        this.selectedFiles = event.target.files;
+      }
+    } else {
+      alert('invalid format!');
+    }
+
+  }   
+
+  // create the form object.
+  form = new FormGroup({
+    fullName : new FormControl('' , Validators.required),
+    email : new FormControl('' , Validators.required),
+    profileImage : new FormControl()
+  });
+
+  AdminForm(AdminInformation)
+  {
+    this.userDetail.name = this.FullName.value;
+    this.userDetail.emailId = this.Email.value;
+
+    console.log(this.userDetail);
+
+    this.userDetailService.saveData(this.userDetail).subscribe(
+      response => {
+          let result = response.json();
+          console.log(result);
+          if(result > 0 )
+          {
+            if(this.selectedFiles != null)
+            {
+              this.currentFileUpload = this.selectedFiles.item(0);
+              console.log(this.currentFileUpload);
+
+              this.userDetailService.uploadFile(this.currentFileUpload , result).subscribe(
+                  res => {
+
+                    let re = res.json();
+                     if(re > 0)
+                     {
+                        alert("file upload successfully ");
+                        this.form.get('fullName').setValue("");
+                        this.form.get('email').setValue("");
+                        this.form.get('profileImage').setValue("");
+                     }
+                     else{
+                        alert("error while uploading fie details");
+                     }
+                  },
+                  err => {
+                      alert("error while uploading fie details");
+                  }
+              );
+
+            }
+          }
+      },
+      error => {
+        console.log("error while saving data in the DB");
+      }
+    );
+
+  }
+
+    get FullName(){
+      return this.form.get('fullName');
+    }
+
+    get Email(){
+        return this.form.get('email');
+    } 
+
+
+
+     
+}Edit the register.component.html file<h2>Registration form</h2>
+
+<form [formGroup]="form" #AdminInformation (ngSubmit)="AdminForm(AdminInformation)">
+
+  <div class="row">
+    <div class=" col-md-offset-1 col-md-4">
+        <label for="fullName"> Name </label>
+        <input formControlName="fullName" class="form-control" type="text"> 
+    </div>
+  </div>
+
+  <div class="row">
+    <div class=" col-md-offset-1 col-md-4">
+        <label for="email"> Email </label>
+        <input formControlName="email" class="form-control" type="text"> 
+    </div>
+  </div>
+
+  
+  <div class="row">
+    <div class=" col-md-offset-1 col-md-4">
+        
+      <label for="profileImage">Upload Image</label>
+        <input formControlName="profileImage" class="form-control" type="file" (change)="selectFile($event)"> 
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 40px;">
+    <div class="col-md-offset-1 col-md-4">
+        <button class="btn btn-md btn-primary btn-style"  >Save</button>
+    </div>
+  </div>
+
+</form>Once completed, provide the URL http://localhost:4200/ at the web browser. The following web page occurs:Now, we can fill the required information and choose the file need to be uploaded.Download this exampleNext TopicLogin & Logout Example? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

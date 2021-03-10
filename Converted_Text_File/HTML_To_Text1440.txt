@@ -1,0 +1,66 @@
+Computer Graphics Bresenham's Circle Algorithm - javatpoint?HomeComputer FundamentalsComputer GraphicsBiometricsComputer NetworkJavaHTMLCSSSeleniumjQueryProjectsInterview QCommentForumTrainingComputer GraphicsComputer Graphics Tutorial Application of Computer Graphics Interactive and Passive GraphicsGraphic SystemsDisplay Processor Cathode Ray Tube (CRT) Random Scan vs Raster Scan Color CRT Monitors Direct View Storage Tubes Flat Panel DisplayInput-Output DevicesInput Devices Trackball Light Pen Image Scanner Output Devices PlottersScan Conversion a lineScan Conversion Definition Scan Converting a Point Scan Converting a Straight Line DDA Algorithm Bresenham's Line AlgorithmScan Conversion CircleDefining a Circle Defining a Circle using Polynomial Method Defining a Circle using Polar Coordinates Method Bresenham's Circle Algorithm Midpoint Circle AlgorithmScan Converting EllipseScan converting a Ellipse Polynomial Method Trignometric Method Midpoint Ellipse AlgorithmFilled Area PrimitivesBoundary Fill Algorithm Flood Fill Algorithm Scan Line Polygon Fill Algorithm2D TransformationsIntroduction of Transformation Translation Scaling Rotation Reflection Shearing Matrix Representation Homogeneous Coordinates Composite Transformation Pivot Point Rotation2D-ViewingWindow Window to Viewport Co-ordinate Transformation Zooming PanningClipping TechniquesClipping Point Clipping Line Clipping Midpoint Subdivision Algorithm Text Clipping Polygon Sutherland-Hodgeman Polygon Clipping Weiler-Atherton Polygon ClippingPointing & PositioningPointing & Positioning Techniques Elastic or Rubber Band Techniques DraggingShadingIntroduction of Shading Constant Intensity Shading Gouraud shading Phong ShadingAnimationAnimation Application Areas of Animation Animation Functions3D Computer GraphicsThree Dimensional Graphics Three Dimensional Transformations Scaling Rotation Rotation about Arbitrary Axis Inverse Transformations Reflection ShearingHidden SurfacesHidden Surface Removal Back Face Removal Algorithm Z-Buffer Algorithm Painter's Algorithm Scan Line Algorithm Subdivision Algorithm 3D Modelling SystemProjectionProjection Perspective Projection Parallel ProjectionProgramsComputer Graphics Programsnext ? ? prevBresenham's Circle Algorithm:Scan-Converting a circle using Bresenham's algorithm works as follows: Points are generated from 90° to 45°, moves will be made only in the +x & -y directions as shown in fig:The best approximation of the true circle will be described by those pixels in the raster that falls the least distance from the true circle. We want to generate the points from90° to 45°. Assume that the last scan-converted pixel is P1 as shown in fig. Each new point closest to the true circle can be found by taking either of two actions.Move in the x-direction one unit orMove in the x- direction one unit & move in the negative y-direction one unit.Let D (Si) is the distance from the origin to the true circle squared minus the distance to point P3 squared. D (Ti) is the distance from the origin to the true circle squared minus the distance to point P2 squared. Therefore, the following expressions arise.            D (Si)=(xi-1+1)2+ yi-12 -r2            D (Ti)=(xi-1+1)2+(yi-1 -1)2-r2Since D (Si) will always be +ve & D (Ti) will always be -ve, a decision variable d may be defined as follows:di=D (Si )+ D (Ti)Therefore,di=(xi-1+1)2+ yi-12 -r2+(xi-1+1)2+(yi-1 -1)2-r2From this equation, we can drive initial values of di asIf it is assumed that the circle is centered at the origin, then at the first step x = 0 & y = r.Therefore,            di=(0+1)2+r2 -r2+(0+1)2+(r-1)2-r2            =1+1+r2-2r+1-r2            = 3 - 2rThereafter, if d_i0,then only x is incremented.xi+1=xi+1         di+1=di+ 4xi+6& if di?0,then x & y are incrementedxi+1=xi+1         yi+1 =yi+ 1di+1=di+ 4 (xi-yi)+10Bresenham's Circle Algorithm:Step1: Start AlgorithmStep2: Declare p, q, x, y, r, d variables        p, q are coordinates of the center of the circle        r is the radius of the circleStep3: Enter the value of rStep4: Calculate d = 3 - 2rStep5: Initialize       x=0          &nbsy= rStep6: Check if the whole circle is scan converted            If x > = y            StopStep7: Plot eight points by using concepts of eight-way symmetry. The center is at (p, q). Current active pixel is (x, y).                putpixel (x+p, y+q)                putpixel (y+p, x+q)                putpixel (-y+p, x+q)                putpixel (-x+p, y+q)                putpixel (-x+p, -y+q)                putpixel (-y+p, -x+q)                putpixel (y+p, -x+q)                putpixel (x+p, -y-q)Step8: Find location of next pixels to be scanned            If d 0            then d = d + 4x + 6            increment x = x + 1            If d ? 0            then d = d + 4 (x - y) + 10            increment x = x + 1            decrement y = y - 1Step9: Go to step 6Step10: Stop AlgorithmExample: Plot 6 points of circle using Bresenham Algorithm. When radius of circle is 10 units. The circle has centre (50, 50).Solution: Let r = 10 (Given)Step1: Take initial point (0, 10)                d = 3 - 2r                d = 3 - 2 * 10 = -17                d 0 ? d = d + 4x + 6                      = -17 + 4 (0) + 6                      = -11Step2: Plot (1, 10)          d = d + 4x + 6 (? d 0)                = -11 + 4 (1) + 6                = -1Step3: Plot (2, 10)           d = d + 4x + 6 (? d 0)                = -1 + 4 x 2 + 6                = 13Step4: Plot (3, 9) d is > 0 so x = x + 1, y = y - 1                          d = d + 4 (x-y) + 10 (? d > 0)                = 13 + 4 (3-9) + 10                = 13 + 4 (-6) + 10                = 23-24=-1Step5: Plot (4, 9)            d = -1 + 4x + 6                = -1 + 4 (4) + 6                = 21Step6: Plot (5, 8)            d = d + 4 (x-y) + 10 (? d > 0)                = 21 + 4 (5-8) + 10                = 21-12 + 10 = 19So P1 (0,0)?(50,50)            P2 (1,10)?(51,60)            P3 (2,10)?(52,60)            P4 (3,9)?(53,59)            P5 (4,9)?(54,59)            P6 (5,8)?(55,58)Program to draw a circle using Bresenham's circle drawing algorithm:#include 
+#include 
+#include 
+#include 
+#include 
+
+    void	EightWaySymmetricPlot(int xc,int yc,int x,int y)
+   {
+	putpixel(x+xc,y+yc,RED);
+	putpixel(x+xc,-y+yc,YELLOW);
+	putpixel(-x+xc,-y+yc,GREEN);
+	putpixel(-x+xc,y+yc,YELLOW);
+	putpixel(y+xc,x+yc,12);
+	putpixel(y+xc,-x+yc,14);
+	putpixel(-y+xc,-x+yc,15);
+	putpixel(-y+xc,x+yc,6);
+   }
+
+    void BresenhamCircle(int xc,int yc,int r)
+   {
+	int x=0,y=r,d=3-(2*r);
+	EightWaySymmetricPlot(xc,yc,x,y);
+
+	while(x=y)
+     {
+	  if(d=0)
+             {
+	    d=d+(4*x)+6;
+	  }
+	 else
+	  {
+	    d=d+(4*x)-(4*y)+10;
+	    y=y-1;
+	  }
+	   x=x+1;
+	   EightWaySymmetricPlot(xc,yc,x,y);
+      }
+    }
+
+    int  main(void)
+   {
+	/* request auto detection */
+	int xc,yc,r,gdriver = DETECT, gmode, errorcode;
+	/* initialize graphics and local variables */
+	 initgraph(&gdriver, &gmode, "C:\\TURBOC3\\BGI");
+
+	 /* read result of initialization */
+	 errorcode = graphresult();
+
+	  if (errorcode != grOk)  /* an error occurred */
+	 {
+		printf("Graphics error: %s\n", grapherrormsg(errorcode));
+		printf("Press any key to halt:");
+		getch();
+		exit(1); /* terminate with an error code */
+	 }
+	   printf("Enter the values of xc and yc :");
+	   scanf("%d%d",&xc,&yc);
+	   printf("Enter the value of radius  :");
+	   scanf("%d",&r);
+	   BresenhamCircle(xc,yc,r);
+
+	 getch();
+	 closegraph();
+	 return 0;
+    }Output:Next TopicMidpoint Circle Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

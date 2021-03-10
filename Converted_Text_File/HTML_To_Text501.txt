@@ -1,0 +1,35 @@
+Apache POI Styling Shapes - javatpoint?HomeApache POIJMeterJavaCC++C#ServletJSPEJBStruts2MailHibernateSpringAndroidDesign PQuizProjectsInterview QCommentForumTrainingApache POI TutorialPOI Tutorial POI Introduction POI Architecture POI Features POI InstallationExcel DocumentExcel Document Handling POI Creating Workbook POI Creating Cell POI Creating Date Cell POI Aligning Cell POI Cell Border POI Cell Color POI Merging Cells POI Excel Font POI Excel Header POI Hiding Rows POI Cell Properties POI Drawing Border POI Multiple Styles POI Excel Cell Type POI Drawing Shape POI Image POI Newline in Cell POI Outlining POI Page Number POI Reading Cell Content POI Rewriting POI Shift Row POI Styling Shapes POI Comment POI HyperlinkWord DocumentPOI Microsoft Word POI Creating MS Word POI Word Paragraph POI Word Table POI Word Style POI Word Aligning POI Extract Text POI Extract ParagraphPowerpoint DocumentPOI Powerpoint POI Powerpoint Slide POI Slide Layout POI Powerpoint Image POI Reorder Slide POI Page Size POI Powerpoint Hyperlink POI Powerpoint Delete Slidenext ? ? prevApache POI Styling ShapesBy default shapes are little plain. It's possible to apply different styles to the shapes however. The sorts of things that can currently be done are:Change the fill color.Make a shape with no fill color.Change the thickness of the lines.Change the style of the lines. Eg: dashed, dotted.Change the line color.Lets see an example in which shapes outer line are dotted.Apache POI Styling Shapes Examplepackage poiexample;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import org.apache.poi.hssf.usermodel.HSSFClientAnchor;
+import org.apache.poi.hssf.usermodel.HSSFPatriarch;
+import org.apache.poi.hssf.usermodel.HSSFShape;
+import org.apache.poi.hssf.usermodel.HSSFSimpleShape;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+public class ShapeStyleExample {
+	public static void main(String[] args) {
+		try (OutputStream fileOut = new FileOutputStream("Javatpoint.xls")) {
+			Workbook wb = new HSSFWorkbook();
+			Sheet sheet = wb.createSheet("Sheet");
+			Row row = sheet.createRow(4); // Creating a row
+			Cell cell = row.createCell(1); // Creating a cell
+			cell.setCellValue("Hello, Javatpoint!");
+			
+			HSSFPatriarch patriarch = (HSSFPatriarch) sheet.createDrawingPatriarch();
+			HSSFClientAnchor a = new HSSFClientAnchor( 0, 0, 1023, 255, (short) 1, 0, (short) 1, 0 );
+			HSSFSimpleShape s = patriarch.createSimpleShape(a);
+		    s.setShapeType(HSSFSimpleShape.OBJECT_TYPE_OVAL);
+		    s.setLineStyleColor(10,10,10);
+		    //s.setFillColor(90,10,200);
+		    s.setLineWidth(HSSFShape.LINEWIDTH_ONE_PT * 3);
+		    s.setLineStyle(HSSFShape.LINESTYLE_DOTSYS);
+		    wb.write(fileOut);
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+	}
+}Output:Next TopicApache POI Comment? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

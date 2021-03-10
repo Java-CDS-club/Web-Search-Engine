@@ -1,0 +1,56 @@
+ADO.Net Connection - javatpoint?HomeC#ADO.NETASP.NETJavaPHPHTMLCSSJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingADO.NET TutorialADO.NET Tutorial ADO.NET Introduction ADO.NET Data Providers ADO.NET SQL Server ADO.NET Connection ADO.NET Command ADO.NET DataReader ADO.NET DataSet ADO.NET DataAdapter ADO.NET DataTables ADO.NET WF Example ADO.NET MVC ExampleInterview QuestionsADO.NET InterviewC# TutorialC# Tutorial (100+)ASP.NET TutorialASP.NET Tutorial (50+)next ? ? prevADO.NET SqlConnection ClassIt is used to establish an open connection to the SQL Server database. It is a sealed class so that cannot be inherited. SqlConnection class uses SqlDataAdapter and SqlCommand classes together to increase performance when connecting to a Microsoft SQL Server database.Connection does not close explicitly even it goes out of scope. Therefore, you must explicitly close the connection by calling Close() method.SqlConnection Signaturepublic sealed class SqlConnection : System.Data.Common.DbConnection, ICloneable, IDisposableSqlConnection ConstructorsConstructorsDescriptionSqlConnection()It is used to initializes a new instance of the SqlConnection class.SqlConnection(String)0It is used to initialize a new instance of the SqlConnection class and takes connection string as an argument.SqlConnection(String, SqlCredential)It is used to initialize a new instance of the SqlConnection class that takes two parameters. First is connection string and second is sql credentials.SqlConnection MethodsMethodDescriptionBeginTransaction()It is used to start a database transaction.ChangeDatabase(String)It is used to change the current database for an open SqlConnection.ChangePassword(String, String)It changes the SQL Server password for the user indicated in the connection string.Close()It is used to close the connection to the database.CreateCommand()It enlists in the specified transaction as a distributed transaction.GetSchema()It returns schema information for the data source of this SqlConnection.Open()It is used to open a database connection.ResetStatistics()It resets all values if statistics gathering is enabled.SqlConnection ExampleNow, let's create an example that establishes a connection to the SQL Server. We have created a Student database and will use it to connect. Look at the following C# code.using (SqlConnection connection = new SqlConnection(connectionString))  
+{  
+  connection.Open();       
+}Using block is used to close the connection automatically. We don't need to call close () method explicitly, using block do this for ours implicitly when the code exits the block.// Program.csusing System;
+using System.Data.SqlClient;
+namespace AdoNetConsoleApplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            new Program().Connecting();
+        }
+        public void Connecting()
+        {
+            using (
+                     // Creating Connection
+                     SqlConnection con = new SqlConnection("data source=.; database=student; integrated security=SSPI")
+                 )
+            {
+                con.Open();
+                Console.WriteLine("Connection Established Successfully");
+            }
+        }
+    }
+}Output:What, if we don't use using block.If we don't use using block to create connection, we have to close connection explicitly. In the following example, we are using try-block instead of using block.// Program.csusing System;
+using System.Data.SqlClient;
+namespace AdoNetConsoleApplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            new Program().Connecting();
+        }
+        public void Connecting()
+        {
+            SqlConnection con = null;
+            try
+            {
+                // Creating Connection
+                con = new SqlConnection("data source=.; database=student; integrated security=SSPI");
+                con.Open();
+                Console.WriteLine("Connection Established Successfully");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("OOPs, something went wrong.\n"+e);
+            }
+            finally
+            {   // Closing the connection
+                con.Close();
+            }
+        }
+    }
+}Output:Next TopicADO.NET Command? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

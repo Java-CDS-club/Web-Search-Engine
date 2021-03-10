@@ -1,0 +1,73 @@
+C++ virtual function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ virtual functionA C++ virtual function is a member function in the base class that you redefine in a derived class. It is declared using the virtual keyword.It is used to tell the compiler to perform dynamic linkage or late binding on the function.There is a necessity to use the single pointer to refer to all the objects of the different classes. So, we create the pointer to the base class that refers to all the derived objects. But, when base class pointer contains the address of the derived class object, always executes the base class function. This issue can only be resolved by using the 'virtual' function.A 'virtual' is a keyword preceding the normal declaration of a function.When the function is made virtual, C++ determines which function is to be invoked at the runtime based on the type of the object pointed by the base class pointer.Late binding or Dynamic linkageIn late binding function call is resolved during runtime. Therefore compiler determines the type of object at runtime, and then binds the function call.Rules of Virtual FunctionVirtual functions must be members of some class.Virtual functions cannot be static members.They are accessed through object pointers.They can be a friend of another class.A virtual function must be defined in the base class, even though it is not used.The prototypes of a virtual function of the base class and all the derived classes must be identical. If the two functions with the same name but different prototypes, C++ will consider them as the overloaded functions.We cannot have a virtual constructor, but we can have a virtual destructorConsider the situation when we don't use the virtual keyword.#include <iostream>
+using namespace std;
+class A
+{
+   int x=5;
+    public:
+    void display()
+    {
+        std::cout << "Value of x is : " << x<<std::endl;
+    }
+};
+class B: public A
+{
+    int y = 10;
+    public:
+    void display()
+    {
+        std::cout << "Value of y is : " <<y<< std::endl;
+    }
+};
+int main()
+{
+    A *a;
+    B b;
+    a = &b;
+   a->display();
+    return 0;
+}Output:Value of x is : 5In the above example, * a is the base class pointer. The pointer can only access the base class members but not the members of the derived class. Although C++ permits the base pointer to point to any object derived from the base class, it cannot directly access the members of the derived class. Therefore, there is a need for virtual function which allows the base pointer to access the members of the derived class.C++ virtual function ExampleLet's see the simple example of C++ virtual function used to invoked the derived class in a program.#include <iostream>  
+{  
+ public:  
+ virtual void display()  
+ {  
+  cout << "Base class is invoked"<<endl;  
+ }  
+};  
+class B:public A  
+{  
+ public:  
+ void display()  
+ {  
+  cout << "Derived Class is invoked"<<endl;  
+ }  
+};  
+int main()  
+{  
+ A* a;    //pointer of base class  
+ B b;     //object of derived class  
+ a = &b;  
+ a->display();   //Late Binding occurs  
+}  Output:Derived Class is invoked  Pure Virtual FunctionA virtual function is not used for performing any task. It only serves as a placeholder.When the function has no definition, such function is known as "do-nothing" function.The "do-nothing" function is known as a pure virtual function. A pure virtual function is a function declared in the base class that has no definition relative to the base class.A class containing the pure virtual function cannot be used to declare the objects of its own, such classes are known as abstract base classes.The main objective of the base class is to provide the traits to the derived classes and to create the base pointer used for achieving the runtime polymorphism.Pure virtual function can be defined as:virtual void display() = 0; Let's see a simple example:#include <iostream>
+using namespace std;
+class Base
+{
+    public:
+    virtual void show() = 0;
+};
+class Derived : public Base
+{
+    public:
+    void show()
+    {
+        std::cout << "Derived class is derived from the base class." << std::endl;
+    }
+};
+int main()
+{
+    Base *bptr;
+    //Base b;
+    Derived d;
+    bptr = &d;
+    bptr->show();
+    return 0;
+}Output:Derived class is derived from the base class.In the above example, the base class contains the pure virtual function. Therefore, the base class is an abstract base class. We cannot create the object of the base class.Next TopicC++ Interfaces? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

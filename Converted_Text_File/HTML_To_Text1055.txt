@@ -1,0 +1,82 @@
+Bootstrap Badges and Labels - JavaTpoint?HomeCJavaPHPHTMLCSSBootstrapJavaScriptjQueryjQuery UIXMLJSONAjaxQuizProjectsInterview QCommentForumTrainingBootstrap TrainingBootstrap TutorialBootstrap Introduction What is Bootstrap Bootstrap Example Bootstrap ContainerBootstrap ExamplesBootstrap Jumbotron Bootstrap Button Bootstrap Grid Bootstrap Table Bootstrap Form Bootstrap Alert Bootstrap Wells Bootstrap Badge & Label Bootstrap Panels Bootstrap Pagination Bootstrap Pager Bootstrap Image Bootstrap Glyphicon Bootstrap Carousel Bootstrap Progress Bar Bootstrap List Group Bootstrap Dropdown Bootstrap CollapseBootstrap AdvanceBootstrap Tabs/Pills Bootstrap Navbar Bootstrap Input Types Bootstrap Modals Bootstrap Popover Bootstrap ScrollspyBootstrap UtilitiesBootstrap Border Bootstrap Clearfix Bootstrap Close Icons Bootstrap Colors Bootstrap Flexbox Display property Image Replacement Invisible Content Bootstrap Position Responsive helpers Screen readers Bootstrap Sizing Bootstrap Spacing Bootstrap TypographyInterview QuestionsHTML Interview CSS Interview jQuery Interview JavaScript Interview AJAX Interviewnext ? ? prevBootstrap Badges and LabelsBootstrap BadgesBootstrap Badges are numerical indicators used to show that how many items are associated with the specific link. Badges are used to highlight new or unread items.The class .badge within the <span> element is used to create badges.Bootstrap Badge Example 
+  Bootstrap ExampleBadges News 5Comments 10Updates 2 Test it NowBootstrap Badge Example 2You can also use badges inside other elements, such as buttons.Let's take an example to see how to add badges to button. 
+  Bootstrap ExampleBadges on Buttons Primary 7 Success 3 Danger 5 Test it NowBootstrap LabelsBootstrap labels are used to specify the additional information about something like offering counts, tips, or other makeup for pages.The class .label is used to display the labels.Bootstrap Label Example 
+  Bootstrap Label ExampleLabels ExampleUpdate NewUpdateNewUpdate NewUpdateNewUpdateNewUpdateNewTest it NowBootstrap Label Example 2: changing colorsWe can change the label colors by using contextual label classes. 
+  Bootstrap Contextual LabelContextual Label Classes Default Label Primary Label Success Label Info Label Warning Label Danger Label Test it NowBootstrap Label Example 3
+  Bootstrap CaseLabels ExampleUpdate newUpdate newUpdate newUpdate newUpdate newUpdate newTest it NowBootstrap 4 BadgesIn Bootstrap 4, badges can also be used with heading tags (<h1>......<h6>). Use the .badge class together with a contextual class (like .badge-secondary) within <span> elements to create rectangular badges.Example:<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Badges Example</h2>
+  <h1>h1 heading <span class="badge badge-secondary">New</span></h1>
+  <h2>h2 heading <span class="badge badge-secondary">New</span></h2>
+  <h3>h3 heading <span class="badge badge-secondary">New</span></h3>
+  <h4>h4 heading <span class="badge badge-secondary">New</span></h4>
+  <h5>h5 heading <span class="badge badge-secondary">New</span></h5>
+  <h6>h6 heading <span class="badge badge-secondary">New</span></h6>
+</div>
+
+</body>
+</html>Test it NowContextual BadgesYou can use the contextual classes to change the color of a badge.Example:<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Contextual Badges Example</h2>
+  <span class="badge badge-primary">Primary Badge</span>
+  <span class="badge badge-secondary">Secondary Badge</span>
+  <span class="badge badge-success">Success Badge</span>
+  <span class="badge badge-danger">Danger Badge</span>
+  <span class="badge badge-warning">Warning Badge</span>
+  <span class="badge badge-info">Info Badge</span>
+  <span class="badge badge-light">Light Badge</span>
+  <span class="badge badge-dark">Dark Badge</span>
+</div>
+
+</body>
+</html>Test it NowBootstrap 4 Pill BadgesPill badges are used to make the badges more round. Use the class .badge-pill class to add pill badges.Example:<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Pill Badges Example</h2>
+  <span class="badge badge-pill badge-primary">Primary</span>
+  <span class="badge badge-pill badge-secondary">Secondary</span>
+  <span class="badge badge-pill badge-success">Success</span>
+  <span class="badge badge-pill badge-danger">Danger</span>
+  <span class="badge badge-pill badge-warning">Warning</span>
+  <span class="badge badge-pill badge-info">Info</span>
+  <span class="badge badge-pill badge-light">Light</span>
+  <span class="badge badge-pill badge-dark">Dark</span>
+</div>
+
+</body>
+</html>Test it NowNext TopicBootstrap Panels? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

@@ -1,0 +1,93 @@
+C++ multiset crbegin() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ multisetC++ multiset constructor destructor begin() end() operator= rbegin() rend() cbegin() cend() max_size() size() crbegin() crend() empty() insert() clear() emplace() erase() swap() emplace_hint() find() key_comp() value_comp() count() equal_range() lower_bound() upper_bound() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ multiset crbegin()C++ multiset crbegin() function is used to return a constant reverse iterator referring to the last element in the multiset container.A constant reverse iterator of multiset moves in reverse direction and incrementing it until it reaches to the beginning (First element) of the multiset container and points to the constant element.Syntaxconst_reverse_iterator crbegin() const noexcept;  	      //since C++ 11ParameterNoneReturn valueIt returns a constant reverse iterator pointing to the last element of the multiset.ParameterNoneReturn valuecrbegin() function returns a constant reverse iterator pointing to the last element of the multimap.ComplexityConstant.Iterator validityNo changes.Data RacesThe container is accessed.Concurrently accessing the elements of a multiset container is safe.Exception SafetyThis function never throws exceptions.Example 1Let's see the simple example for crbegin() function:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  multiset<int> mymultiset = {40,20,30,10,30,10};
+
+  cout << "mymultiset in reverse order:";
+  for (auto rit=mymultiset.crbegin(); rit != mymultiset.crend(); ++rit)
+    cout << ' ' << *rit;
+
+  cout << '\n';
+
+  return 0;
+}Output:mymultiset in reverse order: 40 30 30 20 10 10In the above example, crbegin() function is used to return a constant reverse iterator pointing to the last element in the mymultiset multiset.Because multisets store the elements in sorted order of keys therefore, iterating over a multiset will result in above order i.e. sorted order of keys.Example 2Let's see a simple example to iterate over the multiset in reverse order using while loop:#include <iostream>
+#include <set>
+#include <string>
+#include <iterator>
+
+using namespace std;
+ 
+int main() {
+ 
+	// Creating & Initializing a multiset of String & Ints
+	multiset<string> multisetEx = {"bbb", "ccc", "aaa", "bbb"};
+
+	// Create a multiset iterator and point to the end of multiset
+	 multiset<string>::const_reverse_iterator it = multisetEx.crbegin();
+ 
+	// Iterate over the multiset using Iterator till beginning.
+	while (it != multisetEx.crend()) {
+		// Accessing KEY from element pointed by it.
+		string word = *it;
+ 
+		cout << word << endl;
+ 
+		// Increment the Iterator to point to next entry
+		it++;
+	}
+	return 0;
+}Output:ccc
+bbb
+bbb
+aaaIn the above example, we are using while loop to const_iterate over the multiset in reverse order and crbegin() function initializing the last element of the multiset.Because multiset stores the elements in sorted order of keys therefore, iterating over a multiset will result in above order i.e. sorted order of keys.Example 3Let's see a simple example to get the first element of the reversed multiset:#include <iostream>
+#include <string>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  multiset<int> s1 = {20,40,10,30, 20};
+          
+    auto ite = s1.crbegin();
+ 
+    cout << "The first element of the reversed multiset s1 is: ";
+    cout << *ite;
+
+  return 0;
+  }  Output:The first element of the reversed multiset s1 is: 40In the above example, crbegin() function returns the first element of the reversed multiset s1 i.e. 40.Example 4Let's see a simple example to sort and calculate the highest marks:#include <iostream>
+#include <string>
+#include <set>
+
+using namespace std;
+
+int main ()
+{
+  multiset<int> marks = {400, 220, 250, 250, 365, 220};
+
+   cout << "Marks" << '\n';
+   cout<<"______________________\n";
+   
+  multiset<int>::const_reverse_iterator rit;
+  for (rit=marks.crbegin(); rit!=marks.crend(); ++rit)
+    cout << *rit<< '\n';
+
+    auto ite = marks.crbegin();
+ 
+    cout << "\nHighest Marks is: "<< *ite<<" \n";
+
+  return 0;
+  }Output:Marks
+______________________
+400
+365
+250
+250
+220
+220
+
+Highest Marks is: 400 In the above example, a multiset 'marks' is implemented where the elements of this multiset are stored as keys. Function crbegin() enables us to take advantage of the auto sorting in multisets and lets us to identify the highest marks.Next TopicC++ multiset? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

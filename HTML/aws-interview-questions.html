@@ -1,0 +1,981 @@
+ 
+<!DOCTYPE html>
+<html lang="en"> 
+
+<!-- Mirrored from www.javatpoint.com/aws-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:25:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head> 
+<meta charset="UTF-8">
+<link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png"/>
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css" />
+<link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/">
+<title>Top 51 AWS Interview Questions - javatpoint</title>
+<meta name="keywords" content="aws, interview, questions, beginners, professionals, basic, frequently, asked"/>
+<meta name="description" content="AWS Interview Questions for beginners and professionals with a list of top frequently asked AWS interview questions and answers with java, .net, php, database, hr, spring, hibernate, android, oracle, sql, asp.net, c#, python, c, c++ etc."/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">						
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="canonical" href="https://www.javatpoint.com/aws-interview-questions" />
+<meta name="theme-color" content="#4CAF50"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta name="twitter:title" property="og:title" content="Top 51 AWS Interview Questions - javatpoint" />
+<meta name="twitter:description" property="og:description" content="AWS Interview Questions for beginners and professionals with a list of top frequently asked AWS interview questions and answers with java, .net, php, database, hr, spring, hibernate, android, oracle, sql, asp.net, c#, python, c, c++ etc." />
+<meta property="og:url" content="https://www.javatpoint.com/aws-interview-questions" />
+<meta property="og:site_name" content="www.javatpoint.com" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@pagejavatpoint"/>
+<meta name="twitter:domain" content="www.javatpoint.com"/>
+<meta name="twitter:creator" content="@pagejavatpoint"/>
+<!--<script  id="feedify_webscript" >
+var feedify = feedify || {};
+window.feedify_options={fedify_url:"https://feedify.net/"};
+(function (window, document){
+	function addScript( script_url ){
+		var s = document.createElement('script');
+		s.type = 'text/javascript';
+		s.src = script_url;
+		document.getElementsByTagName('head')[0].appendChild(s);
+	}
+	addScript('https://tpcf.feedify.net/uploads/settings/2e588c15fa58f6d438b0255693eb0ea3.js?ts='+Math.random());
+	addScript('https://cdn.feedify.net/getjs/feedbackembad-min-2.0.js');
+})(window, document);
+</script> -->
+
+<link href="https://www.javatpoint.com/manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://cdn.adpushup.com/37780/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+</head> 
+<body onload="highlightlink()"> 
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#8679</button>
+
+<div id="page" style="margin:-8px;background-color:#f5f5f4">
+<div id="container" >
+
+ <div  class="header">
+<table style="width:100%;margin-bottom:5px">
+    <tr>
+        <td>
+            <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px">
+                <a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a>
+            </div>
+            <div style="float:left;width:60%;">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+                
+            </div>
+            
+        </td>
+    </tr>
+        <!--<tr>
+        <td>
+            <div id="headerlink" style="padding:0px;margin:0px"><span style="margin-right:20px;width:45px"></span><span style="float:right;margin-right:5px;width:45%"> </span>
+                
+            </div>
+        </td>
+    </tr>-->
+
+</table>
+ </div>
+
+ <div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="https://www.javatpoint.com/images/menuhome64.png" onclick="showmenu()"/></span>
+<span style="float:left"><a href="https://www.javatpoint.com/"><img src="https://www.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<form class="navbar-search-m" method="get" action="https://www.google.com/search" target="_blank"> 
+<input type="text" name="q" class="search-query span2-m" placeholder="Search on javatpoint..."  title="Search on Javatpoint"/>
+<input type="hidden" name="sitesearch" value="www.javatpoint.com"/>
+</form>
+</div>
+</div>
+ 
+<div id="link" style="clear:both">
+ <div  class="ddsmoothmenu">
+<ul>
+<li><a href="https://www.javatpoint.com/">Home</a></li>
+<li><a href="https://www.javatpoint.com/interview-questions-and-answers"  class="selected">Interview Questions</a></li>
+<li><a href="https://www.javatpoint.com/java-tutorial">Java</a></li>
+<li><a href="https://www.javatpoint.com/c-programming-language-tutorial">C</a></li>
+<li><a href="https://www.javatpoint.com/sql-tutorial">SQL</a></li>
+<li><a href="https://www.javatpoint.com/android-tutorial">Android</a></li>
+<li><a href="https://www.javatpoint.com/html-tutorial">HTML</a></li>
+<li><a href="https://www.javatpoint.com/xml-tutorial">XML</a></li>
+<li><a href="https://www.javatpoint.com/javascript-tutorial">JavaScript</a></li>
+<li><a href="https://www.javatpoint.com/ajax-tutorial">Ajax</a></li>
+<li><a href="https://www.javatpoint.com/cloud-computing-tutorial">Cloud</a></li>
+<li><a href="https://www.javatpoint.com/python-tutorial">Python</a></li>
+<li><a href="https://www.javatpoint.com/web-services-tutorial">Web Services</a></li>
+<li><a href="https://www.javatpoint.com/examaccess">Quiz</a></li>
+<li><a href="https://www.javatpoint.com/free-java-projects">Projects</a></li>
+<li><a href="https://www.javatpoint.com/comment.jsp">Comment</a></li>
+<li><a href="https://www.javatpoint.com/forum">Forum</a></li>
+<li><a href="https://www.javatpoint.com/training">Training</a></li>
+
+</ul>
+<br style="clear: left" />
+</div>
+</div>
+<div class="mobilemenu" style="clear:both">
+ <!--<button onclick="showmenu()">Content Menu</button>-->
+<!-- Cm_300x250_Mob_14/9 -->
+
+
+</div>
+
+
+<div id="menu">
+<!--<a target="_blank" href="https://play.google.com/store/apps/details?id=my.example.javatpoint" style="padding-left:10px;color:blue;text-decoration:none"><img src="https://static.javatpoint.com/images/logo/androidhome.png" style="height:20px" alt="Javatpoint interview questions Android App"/> Download Android App</a> -->
+
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">All Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/interview-tips"><span>Interview Tips</span></a>
+<a href="https://www.javatpoint.com/job-interview-questions"><span>JOB/HR Interview</span></a>
+<a href="https://www.javatpoint.com/competency-based-interview-questions"><span>Competency Interview</span></a>
+<a href="https://www.javatpoint.com/business-analyst-interview-questions"><span>Business Analyst</span></a>
+<a href="https://www.javatpoint.com/behavioral-interview-questions"><span>Behavioral Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Company Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/company-interview-questions-and-recruitment-process"><span>Company Interview</span></a>
+<a href="https://www.javatpoint.com/ibm-interview-questions"><span>IBM Interview</span></a>
+<a href="https://www.javatpoint.com/infosys-interview-questions"><span>Infosys Interview</span></a>
+<a href="https://www.javatpoint.com/capgemini-interview-questions"><span>Capgemini Interview</span></a>
+<a href="https://www.javatpoint.com/cognizant-interview-questions"><span>Cognizant Interview</span></a>
+<a href="https://www.javatpoint.com/wipro-interview-questions"><span>Wipro Interview</span></a>
+<a href="https://www.javatpoint.com/accenture-interview-questions"><span>Accenture Interview</span></a>
+<a href="https://www.javatpoint.com/igate-interview-questions"><span>iGate Interview</span></a>
+<a href="https://www.javatpoint.com/tcs-interview-questions"><span>TCS Interview</span></a>
+<a href="https://www.javatpoint.com/hcl-interview-questions"><span>HCL Interview</span></a>
+<a href="https://www.javatpoint.com/adobe-interview-questions">Adobe Interview</a>
+<a href="https://www.javatpoint.com/microsoft-interview-questions">Microsoft Interview</a>
+<a href="https://www.javatpoint.com/dxc-technology-interview-questions">DXC Technology Interview</a>
+<a href="https://www.javatpoint.com/ericsson-interview-questions">Ericsson Interview</a>
+<a href="https://www.javatpoint.com/exl-interview-questions">EXL Service Interview</a>
+<a href="https://www.javatpoint.com/indiamart-interview-questions">IndiaMART Interview</a>
+<a href="https://www.javatpoint.com/intuit-interview-questions">Intuit Interview</a>
+<a href="https://www.javatpoint.com/spacex-interview-questions">SpaceX Interview</a>
+<a href="https://www.javatpoint.com/sapient-interview-questions">Sapient Interview</a>
+
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Technical Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/c-interview-questions"><span>C Interview</span></a>
+<a href="https://www.javatpoint.com/cpp-interview-questions"><span>C++ Interview</span></a>
+<a href="https://www.javatpoint.com/data-structure-interview-questions"><span>Data Structure Interview</span></a>
+<a href="https://www.javatpoint.com/linux-interview-questions"><span>Linux Interview</span></a>
+<a href="https://www.javatpoint.com/unix-interview-questions"><span>Unix Interview</span></a>
+<a href="https://www.javatpoint.com/shell-scripting-interview-questions"><span>Shell Scripting</span></a>
+<a href="https://www.javatpoint.com/networking-interview-questions"><span>Networking Interview</span></a>
+<a href="https://www.javatpoint.com/ccna-interview-questions"><span>CCNA Interview</span></a>
+<a href="https://www.javatpoint.com/android-interview-questions"><span>Android Interview</span></a>
+<a href="https://www.javatpoint.com/cloud-computing-interview-questions"><span>Cloud Computing</span></a>
+<a href="https://www.javatpoint.com/hadoop-interview-questions"><span>Hadoop Interview</span></a>
+<a href="https://www.javatpoint.com/software-testing-interview-questions"><span>Testing/QTP Interview</span></a>
+<a href="https://www.javatpoint.com/selenium-interview-questions"><span>Selenium Interview</span></a>
+<a href="https://www.javatpoint.com/web-services-interview-questions"><span>Web Services Interview</span></a>
+<a href="https://www.javatpoint.com/operating-system-interview-questions"><span>OS Interview</span></a>
+<a href="https://www.javatpoint.com/excel-interview-questions"><span>Excel Interview</span></a>
+<a href="https://www.javatpoint.com/seo-interview-questions"><span>SEO Interview</span></a>
+<a href="https://www.javatpoint.com/digital-marketing-interview-questions-and-answers"><span>Digital Marketing</span></a>
+<a href="https://www.javatpoint.com/python-interview-questions"><span>Python Interview</span></a>
+<a href="https://www.javatpoint.com/django-interview-questions-and-answers"><span>Django Interview</span></a>
+<a href="https://www.javatpoint.com/pascal-interview-questions-and-answers"><span>Pascal Interview</span></a>
+<a href="https://www.javatpoint.com/ruby-interview-questions"><span>Ruby Interview</span></a>
+<a href="https://www.javatpoint.com/ruby-on-rails-interview-questions"><span>Ruby on Rails Interview</span></a>
+<a href="https://www.javatpoint.com/memcached-interview-questions-and-answers"><span>Memcached Interview</span></a>
+<a href="https://www.javatpoint.com/go-programming-interview-questions"><span>Go Interview</span></a>
+<a href="https://www.javatpoint.com/openstack-interview-questions-and-answers"><span>OpenStack Interview</span></a>
+<a href="https://www.javatpoint.com/scala-interview-questions"><span>Scala Interview</span></a>
+<a href="https://www.javatpoint.com/control-systems-interview-questions"><span>Control Systems</span></a>
+<a href="https://www.javatpoint.com/electrical-machines-interview-questions"><span>Electrical Machines</span></a>
+<a href="https://www.javatpoint.com/power-system-interview-questions"><span>Power System</span></a>
+<a href="https://www.javatpoint.com/digital-electronics-interview-questions"><span>Digital Electronics</span></a>
+<a href="https://www.javatpoint.com/robotics-interview-questions">Robotics Interview</a>
+<a href="https://www.javatpoint.com/typescript-interview-questions">TypeScript Interview</a>
+<a href="https://www.javatpoint.com/swift-interview-questions">Swift Interview</a>
+<a href="https://www.javatpoint.com/blockchain-interview-questions">Blockchain Interview</a>
+<a href="https://www.javatpoint.com/bitcoin-interview-questions">Bitcoin Interview</a>
+<a href="https://www.javatpoint.com/aws-interview-questions">AWS Interview</a>
+<a href="https://www.javatpoint.com/informatica-interview-questions">Informatica Interview</a>
+<a href="https://www.javatpoint.com/qa-interview-questions">QA Interview</a>
+<a href="https://www.javatpoint.com/react-interview-questions">React Interview</a>
+<a href="https://www.javatpoint.com/git-interview-questions">GIT Interview</a>
+<a href="https://www.javatpoint.com/j2ee-interview-questions">J2EE Interview</a>
+<a href="https://www.javatpoint.com/deep-learning-interview-questions">Deep Learning</a>
+<a href="https://www.javatpoint.com/salesforce-interview-questions">Salesforce Interview</a>
+<a href="https://www.javatpoint.com/testng-interview-questions">TestNG Interview</a>
+<a href="https://www.javatpoint.com/agile-interview-questions">Agile Interview</a>
+<a href="https://www.javatpoint.com/machine-learning-interview-questions">Machine Learning</a>
+<a href="https://www.javatpoint.com/api-testing-interview-questions">API Testing</a>
+<a href="https://www.javatpoint.com/algorithm-interview-questions">Algorithm</a>
+<a href="https://www.javatpoint.com/java-design-pattern-interview-questions">Java Design Pattern</a>
+<a href="https://www.javatpoint.com/teradata-interview-questions">Teradata</a>
+<a href="https://www.javatpoint.com/tensorflow-interview-questions">TensorFlow</a>
+<a href="https://www.javatpoint.com/linq-interview-questions">LINQ</a>
+<a href="https://www.javatpoint.com/mainframe-interview-questions">Mainframe</a>
+<a href="https://www.javatpoint.com/laravel-interview-questions">Laravel</a>
+<a href="https://www.javatpoint.com/jira-interview-questions">JIRA</a>
+<a href="https://www.javatpoint.com/jcl-interview-questions">JCL</a>
+<a href="https://www.javatpoint.com/pytorch-interview-questions">Pytorch</a>
+<a href="https://www.javatpoint.com/etl-testing-interview-questions">ETL Testing</a>
+<a href="https://www.javatpoint.com/linked-list-interview-questions">Linked List</a>
+<a href="https://www.javatpoint.com/datastage-interview-questions">DataStage</a>
+<a href="https://www.javatpoint.com/tableau-interview-questions">Tableau</a>
+<a href="https://www.javatpoint.com/sap-abap-interview-questions">SAP ABAP</a>
+<a href="https://www.javatpoint.com/daa-interview-questions">DAA</a>
+<a href="https://www.javatpoint.com/computer-graphics-interview-questions">Computer Graphics</a>
+<a href="https://www.javatpoint.com/data-science-interview-questions">Data Science</a>
+<a href="https://www.javatpoint.com/software-engineering-interview-questions">Software Engineering</a>
+<a href="https://www.javatpoint.com/power-bi-interview-questions">Power BI</a>
+<a href="https://www.javatpoint.com/xamarin-interview-questions">Xamarin</a>
+<a href="https://www.javatpoint.com/ansible-interview-questions">Ansible</a>
+<a href="https://www.javatpoint.com/data-warehouse-interview-questions">Data Warehouse</a>
+<a href="https://www.javatpoint.com/ionic-interview-questions">Ionic</a>
+<a href="https://www.javatpoint.com/devops-interview-questions">Devops</a>
+<a href="https://www.javatpoint.com/react-native-interview-questions">React Native</a>
+<a href="https://www.javatpoint.com/python-pandas-interview-questions">Python Pandas</a>
+<a href="https://www.javatpoint.com/http-interview-questions">HTTP Interview</a>
+<a href="https://www.javatpoint.com/kali-linux-interview-questions">Kali Linux Interview</a>
+<a href="https://www.javatpoint.com/powershell-interview-questions">PowerShell Interview</a>
+<a href="https://www.javatpoint.com/sharepoint-interview-questions">SharePoint Interview</a>
+<a href="https://www.javatpoint.com/talend-interview-questions">Talend Interview</a>
+<a href="https://www.javatpoint.com/microsoft-azure-interview-questions">Microsoft Azure Interview</a>
+<a href="https://www.javatpoint.com/r-interview-questions">R Interview</a>
+<a href="https://www.javatpoint.com/flutter-interview-questions">Flutter Interview</a>
+<a href="https://www.javatpoint.com/matlab-interview-questions">MATLAB Interview</a>
+<a href="https://www.javatpoint.com/es6-interview-questions">ES6 Interview Questions</a>
+<a href="https://www.javatpoint.com/rpa-interview-questions">RPA Interview Questions</a>
+
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Web Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/html-interview-questions"><span>HTML Interview</span></a>
+<a href="https://www.javatpoint.com/css-interview-questions"><span>CSS Interview</span></a>
+<a href="https://www.javatpoint.com/javascript-interview-questions"><span>JavaScript Interview</span></a>
+<a href="https://www.javatpoint.com/jquery-interview-questions"><span>jQuery Interview</span></a>
+<a href="https://www.javatpoint.com/angularjs-interview-questions"><span>AngularJS Interview</span></a>
+<a href="https://www.javatpoint.com/angular-interview-questions">Angular Interview</a>
+<a href="https://www.javatpoint.com/angular-7-interview-questions">Angular 7 Interview</a>
+<a href="https://www.javatpoint.com/node-js-interview-questions"><span>Node.js Interview</span></a>
+<a href="https://www.javatpoint.com/ajax-interview-questions"><span>AJAX Interview</span></a>
+<a href="https://www.javatpoint.com/xml-interview-questions"><span>XML Interview</span></a>
+<a href="https://www.javatpoint.com/dojo-interview-questions-and-answers"><span>Dojo Interview</span></a>
+<a href="https://www.javatpoint.com/backbone-js-interview-questions-and-answers"><span>Backbone.js Interview</span></a>
+<a href="https://www.javatpoint.com/ember-js-interview-questions"><span>Ember.js Interview</span></a>
+<a href="https://www.javatpoint.com/xhtml-interview-questions"><span>XHTML Interview</span></a>
+<a href="https://www.javatpoint.com/xslt-interview-questions"><span>XSLT Interview</span></a>
+<a href="https://www.javatpoint.com/xpath-interview-questions"><span>XPath Interview</span></a>
+<a href="https://www.javatpoint.com/xquery-interview-questions"><span>XQuery Interview</span></a>
+<a href="https://www.javatpoint.com/xforms-interview-questions"><span>XForms Interview</span></a>
+<a href="https://www.javatpoint.com/sass-interview-questions-and-answers"><span>SASS Interview</span></a>
+<a href="https://www.javatpoint.com/coffeescript-interview-questions-and-answers"><span>CoffeeScript Interview</span></a>
+<a href="https://www.javatpoint.com/less-interview-questions-and-answers"><span>LESS Interview</span></a>
+<a href="https://www.javatpoint.com/perl-interview-questions"><span>Perl Interview</span></a>
+<a href="https://www.javatpoint.com/pure-css-interview-questions"><span>Pure.CSS Interview</span></a>
+<a href="https://www.javatpoint.com/materialize-css-interview-questions"><span>Materialize Interview</span></a>
+<a href="https://www.javatpoint.com/framework7-interview-questions"><span>Framework7 Interview</span></a>
+<a href="https://www.javatpoint.com/svg-interview-questions"><span>SVG Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/php-interview-questions"><span>PHP Interview</span></a>
+<a href="https://www.javatpoint.com/wordpress-interview-questions"><span>Wordpress Interview</span></a>
+<a href="https://www.javatpoint.com/joomla-interview-questions-and-answers"><span>Joomla Interview</span></a>
+<a href="https://www.javatpoint.com/drupal-interview-questions-and-answers"><span>Drupal Interview</span></a>
+<a href="https://www.javatpoint.com/magento-interview-questions-and-answers"><span>Magento Interview</span></a>
+<a href="https://www.javatpoint.com/codeigniter-interview-questions-and-answers"><span>CodeIgniter Interview</span></a>
+<a href="https://www.javatpoint.com/phalcon-interview-questions"><span>Phalcon Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">.Net Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/dot-net-interview-questions"><span>.Net Interview</span></a>
+<a href="https://www.javatpoint.com/c-sharp-interview-questions"><span>C# Interview</span></a>
+<a href="https://www.javatpoint.com/asp-dot-net-interview-questions"><span>ASP.NET Interview</span></a>
+<a href="https://www.javatpoint.com/ado-dot-net-interview-questions"><span>ADO.NET Interview</span></a>
+<a href="https://www.javatpoint.com/wcf-interview-questions"><span>WCF Interview</span></a>
+<a href="https://www.javatpoint.com/wpf-interview-questions"><span>WPF Interview</span></a>
+<a href="https://www.javatpoint.com/silverlight-interview-questions-and-answers"><span>Silverlight Interview</span></a>
+<a href="https://www.javatpoint.com/fsharp-interview-questions"><span>F# Interview</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/corejava-interview-questions"><span>Java 1 Interview</span></a>
+<a href="https://www.javatpoint.com/corejava-interview-questions-2"><span>Java 2 Interview</span></a>
+<a href="https://www.javatpoint.com/corejava-interview-questions-3"><span>Exception &amp; String</span></a>
+<a href="https://www.javatpoint.com/java-multithreading-interview-questions"><span>Multithreading </span></a>
+<a href="https://www.javatpoint.com/java-collections-interview-questions"><span>Collections Interview</span></a>
+<a href="https://www.javatpoint.com/jdbc-interview-questions"><span>JDBC Interview</span></a>
+<a href="https://www.javatpoint.com/servletinterview"><span>Servlet Interview</span></a>
+<a href="https://www.javatpoint.com/jspinterview"><span>JSP Interview</span></a>
+<a href="https://www.javatpoint.com/ejb-interview-questions"><span>EJB Interview</span></a>
+<a href="https://www.javatpoint.com/struts-interview-questions"><span>Struts Interview</span></a>
+<a href="https://www.javatpoint.com/hibernate-interview-questions"><span>Hibernate Interview</span></a>
+<a href="https://www.javatpoint.com/spring-interview-questions"><span>Spring Interview</span></a>
+<a href="https://www.javatpoint.com/spring-boot-interview-questions"><span>Spring Boot Interview</span></a>
+<a href="https://www.javatpoint.com/spring-mvc-interview-questions"><span>Spring MVC Interview</span></a> 
+<a href="https://www.javatpoint.com/jpa-interview-questions"><span>JPA Interview</span></a>
+<a href="https://www.javatpoint.com/maven-interview-questions"><span>Maven Interview</span></a>
+<a href="https://www.javatpoint.com/junit-interview-questions"><span>JUnit Interview</span></a>
+<a href="https://www.javatpoint.com/jsf-interview-questions"><span>JSF Interview</span></a>
+<a href="https://www.javatpoint.com/primefaces-interview-questions"><span>PrimeFaces Interview</span></a>
+<a href="https://www.javatpoint.com/richfaces-interview-questions"><span>RichFaces Interview</span></a>
+<a href="https://www.javatpoint.com/gwt-interview-questions"><span>GWT Interview</span></a>
+<a href="https://www.javatpoint.com/jdb-interview-questions"><span>JDB Interview</span></a>
+<a href="https://www.javatpoint.com/jogl-interview-questions"><span>JOGL Interview</span></a>
+<a href="https://www.javatpoint.com/jbpm-interview-questions"><span>jBPM Interview</span></a>
+<a href="https://www.javatpoint.com/jenkins-interview-questions"><span>Jenkins Interview</span></a>
+ 
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Database Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/dbms-interview-questions"><span>DBMS Interview</span></a>
+<a href="https://www.javatpoint.com/sql-interview-questions"><span>SQL Interview</span></a>
+<a href="https://www.javatpoint.com/pl-sql-interview-questions"><span>PL/SQL Interview</span></a>
+<a href="https://www.javatpoint.com/oracle-interview-questions"><span>Oracle Interview</span></a>
+<a href="https://www.javatpoint.com/mysql-interview-questions"><span>MySql Interview</span></a>
+<a href="https://www.javatpoint.com/sql-server-interview-questions"><span>SQL Server Interview</span></a>
+<a href="https://www.javatpoint.com/mongodb-interview-questions"><span>MongoDB Interview</span></a>
+<a href="https://www.javatpoint.com/cassandra-interview-questions-and-answers"><span>Cassandra Interview</span></a>
+<a href="https://www.javatpoint.com/db2-interview-questions-and-answers"><span>DB2 Interview</span></a>
+<a href="https://www.javatpoint.com/microsoft-access-interview-questions-and-answers"><span>Access Interview</span></a>
+<a href="https://www.javatpoint.com/sqlite-interview-questions"><span>SQLite Interview</span></a>
+<a href="https://www.javatpoint.com/couchdb-interview-questions"><span>CouchDB Interview</span></a>
+<a href="https://www.javatpoint.com/neo4j-interview-questions-and-answers"><span>Neo4j Interview</span></a>
+<a href="https://www.javatpoint.com/mariadb-interview-questions"><span>MariaDB Interview</span></a>
+<a href="https://www.javatpoint.com/pouchdb-interview-questions"><span>PouchDB Interview</span></a>
+<a href="https://www.javatpoint.com/redis-interview-questions-and-answers"><span>Redis Interview</span></a>
+</div>
+<table  id="leftad">
+<tr><td>
+<img src="https://www.javatpoint.com/images/wh.JPG" alt="space"/>
+</td></tr>
+<tr><td>
+<ins class="adPushupAds" data-adpControl="g8drp" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBqYXZhdHBvaW50bGVmdCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lLWJsb2NrO3dpZHRoOjE2MHB4O2hlaWdodDo2MDBweCIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI0NDc2NDAxMjIyIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+<br><br>
+</td></tr>
+</table>
+</div>
+
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<!-- CM_JTP_Leaderbaord -->
+<ins class="adPushupAds" data-adpControl="nuoc1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDTV9KVFBfTGVhZGVyYmFvcmQgLS0+CjxpbnMgY2xhc3M9ImFkc2J5Z29vZ2xlIgogICAgIHN0eWxlPSJkaXNwbGF5OmJsb2NrIgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjkyMDE5MDE5MTUiCiAgICAgZGF0YS1hZC1mb3JtYXQ9ImF1dG8iCiAgICAgZGF0YS1mdWxsLXdpZHRoLXJlc3BvbnNpdmU9InRydWUiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+
+<div id="city">
+<table>
+<tr><td>
+
+<h1 class="h1">AWS Interview Questions</h1>
+<img src="https://static.javatpoint.com/interview/images/aws-interview-questions.png" alt="AWS Interview Questions" class="imageright"/>
+
+<p>A list of top frequently asked <strong>AWS Interview Questions</strong> and answers are given below.</p>
+
+<h3 class="h3">1) What is AWS?</h3>
+<p>AWS stands for Amazon Web Services. It is a service which is provided by the Amazon that uses distributed IT infrastructure to provide different IT resources on demand. It provides different services such as an infrastructure as a service, platform as a service, and software as a service.</p>
+<hr/>
+
+<h3 class="h3">2) What are the components of AWS?</h3>
+<p>The following are the main components of AWS are:</p>
+<ul class="points">
+<li><strong>Simple Storage Service:</strong> S3 is a service of aws that stores the files. It is object-based storage, i.e., you can store the images, word files, pdf files, etc. The size of the file that can be stored in S3 is from 0 Bytes to 5 TB. It is an unlimited storage medium, i.e., you can store the data as much you want. S3 contains a bucket which stores the files. A bucket is like a folder that stores the files. It is a universal namespace, i.e., name must be unique globally. Each bucket must have a unique name to generate the unique DNS address.</li>
+<li><strong>Elastic Compute Cloud:</strong> Elastic Compute Cloud is a web service that provides resizable compute capacity in the cloud. You can scale the compute capacity up and down as per the computing requirement changes. It changes the economics of computing by allowing you to pay only for the resources that you actually use.</li>
+<li><strong>Elastic Block Store:</strong> It provides a persistent block storage volume for use with EC2 instances in aws cloud. EBS volume is automatically replicated within its availability zone to prevent the component failure. It offers high durability, availability, and low-latency performance required to run your workloads.</li>
+<li><strong>CloudWatch:</strong> It is a service which is used to monitor all the AWS resources and applications that you run in real time. It collects and tracks the metrics that measure your resources and applications. If you want to know about the CloudWatch in detail, then click on the below link: <a href="https://www.javatpoint.com/aws-cloudwatch-ec2">Click here</a></li>
+<li><strong>Identity Access Management:</strong> It is a service of aws used to manage users and their level of access to the aws management console. It is used to set users, permissions, and roles. It allows you to grant permission to the different parts of the aws platform. If you want to know about the IAM, then click the below link: <a href="https://www.javatpoint.com/aws-iam">Click here</a></li>
+<li><strong>Simple Email Service:</strong> Amazon Simple Email Service is a cloud-based email sending service that helps digital marketers and application developers to send marketing, notification, and transactional emails. This service is very reliable and cost-effective for the businesses of all the sizes that want to keep in touch with the customers.</li>
+<li><strong>Route53:</strong> It is a highly available and scalable DNS (Domain Name Service) service. It provides a reliable and cost-effective way for the developers and businesses to route end users to internet applications by translating domain names into numeric IP addresses. If you want to know more about Route53 in detail, then click on the link given below: <a href="https://www.javatpoint.com/aws-dns">Click here</a></li>
+</ul>
+<hr/>
+
+<h3 class="h3">3) What are Key-pairs?</h3>
+<p>An Amazon EC2 uses public key cryptography which is used to encrypt and decrypt the login information. In public key cryptography, the public key is used to encrypt the information while at the receiver's side, a private key is used to decrypt the information. The combination of a public key and the private key is known as key-pairs. Key-pairs allows you to access the instances securely.</p>
+<hr/>
+
+<h3 class="h3">4) What is S3?</h3>
+<p>S3 is a storage service in aws that allows you to store the vast amount of data. To know more about S3, click on the link given below:</p>
+<a href="https://www.javatpoint.com/aws-s3">Click here</a>
+<hr/>
+
+<h3 class="h3">5) What are the pricing models for EC2 instances?</h3>
+<p>There are four pricing models for EC2 instances:</p>
+<ul class="points">
+<li><strong>On-Demand instance</strong>
+<ul class="points">
+<li>On-Demand pricing is also known as pay-as-you-go. Pay-as-you-go is a pricing model that allows you to pay only for those resources that you use. </li>
+<li>You need to pay for the compute capacity by per hour or per second that depends on which instances you run.</li>
+<li>On-Demand instance does not require any upfront payments.</li>
+<li>While using On-Demand instance, you can increase or decrease the compute capacity based on the requirements of your application.</li>
+<li>On-Demand instances are recommended for those applications which are of short term and unpredictable workloads.</li>
+<li>Users that want low cost and flexibility on EC2 instances with no upfront payments.</li>
+<li>On-Demand instances are used for those applications which have been developed or tested on EC2 for the first time.</li>
+</ul></li>
+<li><strong>Reserved instance</strong>
+<ul class="points">
+<li>Reserved instance is the second most important pricing model that reduces the overall cost of your AWS environment by making an upfront payment for those services that you know will be used in the future.</li>
+<li>Reserved instances provide a discount of up to 75% as compared to On-Demand instance.</li>
+<li>Reserved instances are assigned to a specific Availability zone that reserves the compute capacity for you so that you can use whenever you need.</li>
+<li>Reserved instances are mainly recommended for those applications that have steady state and require reserve capacity.</li>
+<li>Customers who want to use the EC2 over 1 to 3 term can use the reserved instance to reduce the overall computing costs.</li>
+</ul></li>
+<li><strong>Spot instance</strong>
+<ul class="points">
+<li>Spot instances consist of unused capacity which is available at a highly discounted rate.</li>
+<li>It offers up to 90% discount as compared to On-Demand instance.</li>
+<li>Spot instances are mainly recommended for those applications which have flexible start and end times.</li>
+<li>It is useful when applications require computing capacity at a very low price. </li>
+<li>It is useful when applications require additional amount of computing capacity at an urgent need.</li>
+</ul></li>
+<li><strong>Dedicated Hosts</strong><br>
+It is a physical EC2 server which is dedicated for your use. It reduces the overall costs by providing you a VPC that comprise of a dedicated hardware.</li>
+</ul>
+<hr/>
+
+<h3 class="h3">6) What is AWS Lambda?</h3>
+<p>AWS Lambda is a compute service that runs your code without managing servers. Lambda function runs your code whenever needed. You need to pay only when your code is running. If you want to know more about the AWS Lambda, then click on the link shown below:</p>
+<a href="https://www.javatpoint.com/aws-lambda">Click Here</a>
+<hr/>
+
+<h3 class="h3">7) How many buckets can be created in S3?</h3>
+<p>By default, you can create up to 100 buckets.</p>
+<hr/>
+
+<h3 class="h3">8) What is Cross Region Replication?</h3>
+<p>Cross Region Replication is a service available in aws that enables to replicate the data from one bucket to another bucket which could be in a same or different region. It provides asynchronous copying of objects, i.e., objects are not copied immediately. If you want to know more about the Cross Region Replication, then click on the link shown below:</p>
+<a href="https://www.javatpoint.com/aws-cross-region-replication">Click Here</a>
+<hr/>
+
+<h3 class="h3">9) What is CloudFront?</h3>
+<p>CloudFront is a computer delivery network which consists of distributed servers that delivers web pages and web content to a user based on the geographic locations of a user. If you want to know more about the CloudFront, then click on the link shown below:</p>
+<a href="https://www.javatpoint.com/aws-cloudfront-cdn">Click Here</a>
+<hr/>
+
+<h3 class="h3">10) What are Regions and Availability Zones in aws?</h3>
+<p><strong>Regions:</strong> A region is a geographical area which consists of 2 or more availability zones. A region is a collection of data centers which are completely isolated from other regions.</p>
+<p><strong>Availability zones:</strong> An Availability zone is a data center that can be somewhere in the country or city. Data center can have multiple servers, switches, firewalls, load balancing. The things through which you can interact with the cloud reside inside the Data center.</p>
+<p>If you want to know more about the Availability zone and region, then click on the link shown below:</p>
+<a href="https://www.javatpoint.com/aws-global-infrastructure">Click Here</a>
+<hr/>
+
+<h3 class="h3">11) What are edge locations in aws?</h3>
+<p>Edge locations are the endpoints in aws used for caching content. If you want to know more about the edge locations, then click on the link shown below:</p>
+<a href="https://www.javatpoint.com/aws-global-infrastructure">Click Here</a>
+<hr/>
+
+<h3 class="h3">12) What is the minimum and maximum size that you can store in S3?</h3>
+<p>The minimum size of an object that you can store in S3 is 0 bytes and the maximum size of an object that you can store in S3 is 5 TB.</p>
+<hr/>
+
+<h3 class="h3">13) What are EBS Volumes?</h3>
+<p>Elastic Block Store is a service that provides a persistent block storage volume for use with EC2 instances in aws cloud. EBS volume is automatically replicated within its availability zone to prevent from the component failure. It offers high durability, availability, and low-latency performance required to run your workloads. . If you want to know more about the EBS Volumes, then click on the link shown below:</p>
+<a href="https://www.javatpoint.com/aws-ebs-volume">Click Here</a>
+<hr/>
+
+<h3 class="h3">14) What is Auto Scaling?</h3>
+<p>Auto Scaling is a feature in aws that automatically scales the capacity to maintain steady and predictable performance. While using auto scaling, you can scale multiple resources across multiple services in minutes. If you are already using Amazon EC2 Auto- scaling, then you can combine Amazon EC2 Auto-Scaling with the Auto-Scaling to scale additional resources for other AWS services.</p>
+<p><strong>Benefits of Auto Scaling</strong></p>
+<ul class="points">
+<li><strong>Setup Scaling Quickly</strong><br>
+It sets the target utilization levels of multiple resources in a single interface. You can see the average utilization level of multiple resources in the same console, i.e., you do not have to move to the different console.</li>
+<li><strong>Make Smart Scaling Decisions</strong><br>
+It makes the scaling plans that automate how different resources respond to the changes. It optimizes the availability and cost. It automatically creates the scaling policies and sets the targets based on your preference. It also monitors your application and automatically adds or removes the capacity based on the requirements.</li>
+<li><strong>Automatically maintain performance</strong><br>
+Auto Scaling automatically optimize the application performance and availability even when the workloads are unpredictable. It continuously monitors your application to maintain the desired performance level. When demand rises, then Auto Scaling automatically scales the resources.</li>
+</ul>
+<hr/>
+
+<h3 class="h3">15) What is AMI?</h3>
+<p>AMI stands for Amazon Machine Image. It is a virtual image used to create a virtual machine within an EC2 instance. If you want to know more about the AMI, then click on the link shown below:</p>
+<a href="https://www.javatpoint.com/aws-ami">Click Here</a>
+<hr/>
+
+<h3 class="h3">16) Can a AMI be shared?</h3>
+<p>Yes, an AMI can be shared.</p>
+<hr/>
+
+<h3 class="h3">17) What is an EIP?</h3>
+<p>EIP (<strong>Elastic IP address</strong>) is a service provided by an EC2 instance. It is basically a static IP address attached to an EC2 instance. This address is associated with your AWS account not with an EC2 instance. You can also disassociate your EIP address from your EC2 instance and map it to another EC2 instance in your AWS account.</p>
+<p><strong>Let's understand the concept of EIP through an example:</strong></p>
+<img src="https://static.javatpoint.com/interview/images/aws-interview-questions2.png" alt="AWS Interview Questions"/>
+<p>Suppose we consider the website <a href="https://www.javatpoint.com/">www.javatpoint.com</a> points to the instance which has a public IP address. When instance is restarted, then AWS takes another public IP address from the pool and the previous public IP address is no longer valid. Due to this reason, the original link is no longer available between the website and EC2 instance. To overcome from such situation, Elastic IP address or static address is used which does not change.</p>
+<hr/>
+
+<h3 class="h3">18) What are the different storage classes in S3?</h3>
+<p>Storage classes are used to assist the concurrent loss of data in one or two facilities. Each object in S3 is associated with some storage class. Amazon S3 contains some storage classes in which you can store your objects. You can choose a storage class based on your requirements and these storage classes offer high durability. To know more about the storage classes and its types, click on the link given below:</p>
+<a href="https://www.javatpoint.com/aws-storage-classes">Click Here</a>
+<hr/>
+
+<h3 class="h3">19) How can you secure the access to your S3 bucket?</h3>
+<p>S3 bucket can be secured in two ways:</p>
+<ul class="points">
+<li><strong>ACL (Access Control List)</strong><br>
+ACL is used to manage the access of resources to buckets and objects. An object of each bucket is associated with ACL. It defines which AWS accounts have granted access and the type of access. When a user sends the request for a resource, then its corresponding ACL will be checked to verify whether the user has granted access to the resource or not.<br>
+When you create a bucket, then Amazon S3 creates a default ACL which provides a full control over the AWS resources.</li>
+<li><strong>Bucket Policies</strong><br>
+Bucket policies are only applied to S3 bucket. Bucket policies define what actions are allowed or denied. Bucket policies are attached to the bucket not to an S3 object but the permissions define in the bucket policy are applied to all the objects in S3 bucket.</li>
+</ul>
+<p><strong>The following are the main elements of Bucket policy:</strong></p>
+<ul class="points">
+<li><strong>Sid</strong><br>
+A Sid determines what the policy will do. For example, if an action that needs to be performed is adding a new user to an Access Control List (ACL), then the Sid would be <strong>AddCannedAcl</strong>. If the policy is defined to evaluate IP addresses, then the Sid would be <strong>IPAllow</strong>.</li>
+<li><strong>Effect:</strong> An effect defines an action after applying the policy. The action could be either to allow an action or to deny an action.</li>
+<li><strong>Principal</strong><br>
+A Principal is a string that determines to whom the policy is applied. If we set the principal string as '*', then the policy is applied to everyone, but it is also possible that you can specify individual AWS account.</li>
+<li><strong>Action</strong><br>
+An Action is what happens when the policy is applied. For example, s3:Getobject is an action that allows to read object data.</li>
+<li><strong>Resource</strong><br>
+The Resource is a S3 bucket to which the statement is applied. You cannot enter a simply bucket name, you need to specify the bucket name in a specific format. For example, the bucket name is javatpoint-bucket, then the resource would be written as "arn:aws:s3""javatpoint-bucket/*".</li>
+</ul>
+<hr/>
+
+<h3 class="h3">20) What are policies and what are the different types of policies?</h3>
+<p>Policy is an object which is associated with a resource that defines the permissions. AWS evaluate these policies when user makes a request. Permissions in the policy determine whether to allow or to deny an action. Policies are stored in the form of a JSON documents. </p>
+<p><strong>AWS supports six types of policies:</strong></p>
+<ul class="points">
+<li>Identity-based policies</li>
+<li>Resource-based policies</li>
+<li>Permissions boundaries</li>
+<li>Organizations SCPs</li>
+<li>Access Control Lists</li>
+<li>Session policies</li>
+</ul>
+<img src="https://static.javatpoint.com/interview/images/aws-interview-questions3.png" alt="AWS Interview Questions"/>
+<ul class="points">
+<li><strong>Identity-based policies</strong><br>
+Identity-based policies are the permissions stored in the form of JSON format. This policy can be attached to an identity user, group of users or role. It determines the actions that the users can perform, on which resources, and under what conditions.<br>
+<strong>Identity-based policies are further classified into two categories:</strong>
+<ul class="points">
+<li><strong>Managed Policies:</strong> Managed Policies are the identity-based policies which can be attached to multiple users, groups or roles. There are two types of managed policies:
+<ul class="points">
+<li><strong>AWS Managed Policies</strong><br>
+AWS Managed Policies are the policies created and managed by AWS. If you are using the policies first time, then we recommend you to use AWS Managed Policies.</li>
+<li><strong>Custom Managed Policies</strong><br>
+Custom Managed Policies are the identity-based policies created by user. It provides more precise control over the policies than AWS Managed Policies.</li>
+</ul></li>
+<li><strong>Inline Policies</strong><br>
+Inline Policies are the policies created and managed by user. These policies are encapsulated directly into a single user, group or a role.</li>
+</ul></li>
+<li><strong>Resource-Based Policies</strong><br>
+Resource-based policies are the policies which are attached to the resource such as S3 bucket. Resource-based policies define the actions that can be performed on the resource and under what condition, these policies can be applied.</li>
+<li><strong>Permissions boundaries</strong><br>
+Permissions boundaries are the maximum permissions that identity-based policy can grant to the entity.</li>
+<li><strong>Service Control Policies (SCPs)</strong><br>
+Service Control Policies are the policies defined in a JSON format that specify the maximum permissions for an organization. If you enable all the features in an Organization, then you can apply Service Control Policies to any or all of your AWS accounts. SCP can limit the permission on entities in member accounts as well as AWS root user account.</li>
+<li><strong>Access Control Lists (ACLs)</strong><br>
+ACL defines the control that which principals in another AWS account can access the resource. ACLs cannot be used to control the access of a principal in a different AWS account. It is the only policy type which does not have the JSON policy document format.</li>
+</ul>
+<hr/>
+
+<h3 class="h3">21) What are different types of instances?</h3>
+<p>Following are the different types of instances:</p>
+<ul class="points">
+<li><strong>General Purpose Instance type</strong><br>
+General purpose instances are the instances mainly used by the companies. There are two types of General Purpose instances: Fixed performance (eg. M3 and M4) and Burstable performance (eg. T2). Some of the sectors use this instance such as Development environments, build servers, code repositories, low traffic websites and web applications, micro-services, etc.
+<br><br>
+<strong>Following are the General Purpose Instances:</strong>
+<ul class="points">
+<li><strong>T2 instances:</strong> T2 instances are the instances that receive CPU credits when they are sitting idle and they use the CPU credits when they are active. These instances do not use the CPU very consistently, but it has the ability to burst to a higher level when required by the workload.</li>
+<li><strong>M4 instances:</strong> M4 instances are the latest version of General purpose instances. These instances are the best choice for managing memory and network resources. They are mainly used for the applications where demand for the micro-servers is high.</li>
+<li><strong>M3 instances:</strong> M3 instance is a prior version of M4. M4 instance is mainly used for data processing tasks which require additional memory, caching fleets, running backend servers for SAP and other enterprise applications.</li>
+</ul></li>
+<li><strong>Compute Optimized Instance type</strong><br>
+Compute Optimized Instance type consists of two instance types: C4 and C3.
+<ul class="points">
+<li><strong>C3 instance:</strong> C3 instances are mainly used for those applications which require very high CPU usage. These instances are mainly recommended for those applications that require high computing power as these instances offer high performing processors.</li>
+<li><strong>C4 instance:</strong> C4 instance is the next version of C3 instance. C4 instance is mainly used for those applications that require high computing power. It consists of Intel E5-2666 v3 processor and use Hardware virtualization. According to the AWS specifications, C4 instances can run at a speed of 2.9 GHz, and can reach to a clock speed of 3.5 GHz.</li>
+</ul></li>
+<li><strong>GPU Instances</strong><br>
+GPU instances consist of G2 instances which are mainly used for gaming applications that require heavy graphics and 3D application data streaming. It consists of a high-performance NVIDIA GPU which is suitable for audio, video, 3D imaging, and graphics streaming kinds of applications. To run the GPU instances, NVIDIA drivers must be installed.</li>
+<li><strong>Memory Optimized Instances</strong><br>
+Memory Optimized Instances consists of R3 instances which are designed for memory- intensive applications. R3 instance consists of latest Intel Xeon lvy Bridge processor. R3 instance can sustain a memory bandwidth of 63000 MB/sec. R3 instance offers a high- performance databases, In memory analytics, and distributed memory caches.</li>
+<li><strong>Storage Optimized Instances</strong><br>
+Storage Optimized Instances consist of two types of instances: I2 and D2 instances. 
+<ul class="points">
+<li><strong>I2 instance:</strong> It provides heavy SSD which is required for the sequential read, and write access to a large data sets. It also provides random I/O operations to your applications. It is best suited for the applications such as high-frequency online transaction processing systems, relational databases, NoSQL databases, Cache for in-memory databases, Data warehousing applications and Low latency Ad- Tech serving applications.</li>
+<li><strong>D2 instance:</strong> D2 instance is a dense storage instance which consists of a high-frequency Intel Xeon E5-2676v3 processors, HDD storage, High disk throughput.</li>
+</ul></li>
+</ul>
+<hr/>
+
+<h3 class="h3">22) What is the default storage class in S3?</h3>
+<p>The default storage class is Standard Frequently Accessed.</p>
+<hr/>
+
+<h3 class="h3">23) What is a snowball?</h3>
+<p>Snowball is a petabyte-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of aws cloud. If you want to know more about the Snowball, click on the link given below:</p>
+<a href="https://www.javatpoint.com/aws-snowball">Click Here</a>
+<hr/>
+
+<h3 class="h3">24) Difference between Stopping and Terminating the instances?</h3>
+<p><strong>Stopping:</strong> You can stop an EC2 instance and stopping an instance means shutting down the instance. Its corresponding EBS volume is still attached to an EC2 instance, so you can restart the instance as well.</p>
+<p><strong>Terminating:</strong> You can also terminate the EC2 instance and terminating an instance means you are removing the instance from your AWS account. When you terminate an instance, then its corresponding EBS is also removed. Due to this reason, you cannot restart the EC2 instance.</p>
+<hr/>
+
+<h3 class="h3">25) How many Elastic IPs can you create?</h3>
+<p>5 elastic IP addresses that you can create per AWS account per region.</p>
+<hr/>
+
+<h3 class="h3">26) What is a Load Balancer?</h3>
+<p>Load Balancer is a virtual machine that balances your web application load that could be Http or Https traffic that you are getting in. It balances a load of multiple servers so that no web server gets overwhelmed. To know more, click on the link given below:</p>
+<a href="https://www.javatpoint.com/aws-load-balancing">Click Here</a>
+<hr/>
+
+<h3 class="h3">27) What is VPC?</h3>
+<p>VPC stands for Virtual Private Cloud. It is an isolated area of the AWS cloud where you can launch AWS resources in a virtual network that you define. It provides a complete control on your virtual networking environment such as selection of an IP address, creation of subnets, configuration of route tables and network gateways. To know more about VPC, click on the link given below:</p>
+<a href="https://www.javatpoint.com/aws-vpc">Click Here</a>
+<hr/>
+
+<h3 class="h3">28) What is VPC peering connection?</h3>
+<ul class="points">
+<li>A VPC peering connection is a networking connection that allows you to connect one VPC with another VPC through a direct network route using private IP addresses. </li>
+<li>By using VPC peering connection, instances in different VPC can communicate with each other as if they were in the same network.</li>
+<li>You can peer VPCs in the same account as well as with the different AWS account</li>
+</ul>
+<p><strong>To know more about, click on the link given below:</strong> <a href="https://www.javatpoint.com/aws-vpc">Click Here</a></p>
+<hr/>
+
+<h3 class="h3">29) What are NAT Gateways?</h3>
+<p>NAT stands for <strong>Network Address Translation</strong>. It is an aws service that enables to connect an EC2 instance in private subnet to the internet or other AWS services. If you want to know more about NAT Gateways, click on the link shown below:</p>
+<a href="https://www.javatpoint.com/aws-nat-gateways">Click Here</a>
+<hr/>
+
+<h3 class="h3">30) How can you control the security to your VPC?</h3>
+<p>You can control the security to your VPC in two ways:</p>
+<ul class="points">
+<li><strong>Security Groups</strong><br>
+It acts as a virtual firewall for associated EC2 instances that control both inbound and outbound traffic at the instance level. To know more about Security Groups, click on the link given below: <a href="https://www.javatpoint.com/aws-security-group">Click Here</a></li>
+<li><strong>Network access control lists (NACL)</strong><br>
+It acts as a firewall for associated subnets that control both inbound and outbound traffic at the subnet level. To know more about NACL, click on the link given below: <a href="https://www.javatpoint.com/aws-nacl">Click Here</a></li>
+</ul>
+<hr/>
+
+<h3 class="h3">31) What are the different database types in RDS?</h3>
+<p>Following are the different database types in RDS:</p>
+<ul class="points">
+<li><strong>Amazon Aurora</strong><br>
+It is a database engine developed in RDS. Aurora database can run only on AWS infrastructure not like MySQL database which can be installed on any local device. It is a MySQL compatible relational database engine that combines the speed and availability of traditional databases with the open source databases. To know more about Amazon Aurora, click on the link given below: <a href="https://www.javatpoint.com/aws-aurora">Click Here</a></li>
+<li><strong>Postgre SQL</strong>
+<ul class="points">
+<li>PostgreSQL is an open source relational database for many developers and startups. </li>
+<li>It is easy to set up, operate, and can also scale PostgreSQL deployments in the cloud.</li>
+<li>You can also scale PostgreSQL deployments in minutes with cost-efficient.</li>
+<li>PostgreSQL database manages time-consuming administrative tasks such as PostgreSQL software installation, storage management, and backups for disaster recovery.</li>
+</ul></li>
+<li><strong>MySQL</strong>
+<ul class="points">
+<li>It is an open source relational database.</li>
+<li>It is easy to set up, operate, and can also scale MySQL deployments in the cloud.</li>
+<li>By using Amazon RDS, you can deploy scalable MySQL servers in minutes with cost-efficient.</li>
+</ul></li>
+<li><strong>MariaDB</strong>
+<ul class="points">
+<li>It is an open source relational database created by the developers of MySQL.</li>
+<li>It is easy to set up, operate, and can also scale MariaDB server deployments in the cloud.</li>
+<li>By using Amazon RDS, you can deploy scalable MariaDB servers in minutes with cost-efficient.</li>
+<li>It frees you from managing administrative tasks such as backups, software patching, monitoring, scaling and replication.</li>
+</ul></li>
+<li><strong>Oracle</strong>
+<ul class="points">
+<li>It is a relational database developed by Oracle.</li>
+<li>It is easy to set up, operate, and can also scale Oracle database deployments in the cloud.</li>
+<li>You can deploy multiple editions of Oracle in minutes with cost-efficient.</li>
+<li>It frees you from managing administrative tasks such as backups, software patching, monitoring, scaling and replication.</li>
+<li>You can run Oracle under two different licensing models: "License Included" and "Bring Your Own License (BYOL)". In <strong>License Included service model</strong>, you do need have to purchase the Oracle license separately as it is already licensed by AWS. In this model, pricing starts at $0.04 per hour. If you already have purchased the Oracle license, then you can use the BYOL model to run Oracle databases in Amazon RDS with pricing starts at $0.025 per hour.</li>
+</ul></li>
+<li><strong>SQL Server</strong>
+<ul class="points">
+<li>SQL Server is a relational database developed by Microsoft.</li>
+<li>It is easy to set up, operate, and can also scale SQL Server deployments in the cloud.</li>
+<li>You can deploy multiple editions of SQL Server in minutes with cost-efficient.</li>
+<li>It frees you from managing administrative tasks such as backups, software patching, monitoring, scaling and replication.</li>
+</ul></li>
+</ul>
+<hr/>
+
+<h3 class="h3">32) What is Redshift?</h3>
+<ul class="points">
+<li>Redshift is a fast, powerful, scalable and fully managed data warehouse service in the cloud.</li>
+<li>It provides ten times faster performance than other data warehouse by using machine learning, massively parallel query execution, and columnar storage on high-performance disk.</li>
+<li>You can run petabytes of data in Redshift datawarehouse and exabytes of data in your data lake built on Amazon S3.</li>
+</ul>
+<p>To know more about Amazon Redshift, click on the link given below: <a href="https://www.javatpoint.com/aws-redshift">Click Here</a></p>
+<hr/>
+
+<h3 class="h3">33) What is SNS?</h3>
+<p>SNS stands for Simple Notification Service. It is a web service that provides highly scalable, cost-effective, and flexible capability to publish messages from an application and sends them to other applications. It is a way of sending messages. If you want to know more about SNS, click on the link given below:</p>
+<a href="https://www.javatpoint.com/aws-sns">Click Here</a>
+<hr/>
+
+<h3 class="h3">34) What are the different types of routing policies in route53?</h3>
+<p>Following are the different types of routing policies in route53:</p>
+<ul class="points">
+<li><strong>Simple Routing Policy</strong>
+<ul class="points">
+<li>Simple Routing Policy is a simple round-robin policy which is applied to a single resource doing the function for the domain, For example, web server is sending the content to a website where web server is a single resource.</li>
+<li>It responds to DNS queries based on the values present in the resource.</li>
+</ul></li>
+<li><strong>Weighted Routing Policy</strong>
+<ul class="points">
+<li>Weighted Routing Policy allows you to route the traffic to different resources in specified proportions. For example, 75% in one server, and 25% in another server.</li>
+<li>Weights can be assigned in the range from 0 to 255.</li>
+<li>Weight Routing policy is applied when there are multiple resources accessing the same function. For example, web servers accessing the same website. Each web server will be given a unique weight number.</li>
+<li>Weighted Routing Policy associates the multiple resources to a single DNS name.</li>
+</ul></li>
+<li><strong>Latency-based Routing Policy</strong>
+<ul class="points">
+<li>Latent-based Routing Policy allows Route53 to respond to the DNS query at which data center gives the lowest latency.</li>
+<li>Latency-based Routing policy is used when there are multiple resources accessing the same domain. Route53 will identify the resource that provides the fastest response with lowest latency.</li>
+</ul></li>
+<li><strong>Failover Routing Policy</strong></li>
+<li><strong>Geolocation Routing Policy</strong></li>
+</ul>
+<hr/>
+
+<h3 class="h3">35) What is the maximum size of messages in SQS?</h3>
+<p>The maximum size of message in SQS IS 256 KB.</p>
+<hr/>
+
+<h3 class="h3">36) Differences between Security group and Network access control list?</h3>
+<table class="alt">
+<tr>
+	<th>Security Group</th>
+	<th>NACL (Network Access Control List)</th>
+</tr>
+<tr>
+	<td>It supports only <strong>allow</strong> rules, and by default, all the rules are denied. You cannot deny the rule for establishing a connection.</td>
+	<td>It supports both <strong>allow</strong> and <strong>deny</strong> rules, and by default, all the rules are denied. You need to add the rule which you can either allow or deny it.</td>
+</tr>
+<tr>
+	<td>It is a <strong>stateful</strong> means that any changes made in the inbound rule will be automatically reflected in the outbound rule. For example, If you are allowing an incoming port 80, then you also have to add the outbound rule explicitly.</td>
+	<td>It is a <strong>stateless</strong> means that any changes made in the inbound rule will not reflect the outbound rule, i.e., you need to add the outbound rule separately. For example, if you add an inbound rule port number 80, then you also have to explicitly add the outbound rule.</td>
+</tr>
+<tr>
+	<td>It is associated with an EC2 instance.</td>
+	<td>It is associated with a subnet.</td>
+</tr>
+<tr>
+	<td>All the rules are evaluated before deciding whether to allow the traffic.</td>
+	<td>Rules are evaluated in order, starting from the lowest number.</td>
+</tr>
+<tr>
+	<td>Security Group is applied to an instance only when you specify a security group while launching an instance.</td>
+	<td>NACL has applied automatically to all the instances which are associated with an instance.</td>
+</tr>
+<tr>
+	<td>It is the first layer of defense.</td>
+	<td>It is the second layer of defense.</td>
+</tr>
+</table>
+<hr/>
+
+<h3 class="h3">37) What are the two types of access that you can provide when you are creating users?</h3>
+<p>There are two types of access:</p>
+<ul class="points">
+<li><strong>Console Access</strong><br>
+If the user wants to use the Console Access, a user needs to create a password to login in an AWS account.</li>
+<li><strong>Programmatic access</strong><br>
+If you use the Programmatic access, an IAM user need to make an API calls. An API call can be made by using the AWS CLI. To use the AWS CLI, you need to create an access key ID and secret access key. </li>
+</ul>
+<hr/>
+
+<h3 class="h3">38) What is subnet?</h3>
+<p>When large section of IP address is divided into smaller units is known as subnet.</p>
+<img src="https://static.javatpoint.com/interview/images/aws-interview-questions4.png" alt="AWS Interview Questions"/>
+<p>A Virtual Private Cloud (VPC) is a virtual network provided to your AWS account. When you create a virtual cloud, you need to specify the IPv4 addresses which is in the form of CIDR block. After creating a VPC, you need to create the subnets in each availability zone. Each subnet has a unique ID. When launching instances in each availability zone, it will protect your applications from the failure of a single location.</p>
+<hr/>
+
+<h3 class="h3">39) Differences between Amazon S3 and EC2?</h3>
+<p><strong>S3</strong></p>
+<ul class="points">
+<li>It is a storage service where it can store any amount of data.</li>
+<li>It consists of a REST interface and uses secure HMAC-SHA1 authentication keys.</li>
+</ul>
+<p><strong>EC2</strong></p>
+<ul class="points">
+<li>It is a web service used for hosting an application.
+<li>It is a virtual machine which can run either Linux or Windows and can also run the applications such as PHP, Python, Apache or other databases.</li>
+</ul>
+<hr/>
+
+<h3 class="h3">40) Can you establish a peering connection to a VPC in a different region?</h3>
+<p>No, it's not possible to establish a peering connection to a VPC in a different region. It's only possible to establish a peering connection to a VPC in the same region.</p>
+<hr/>
+
+<h3 class="h3">41) How many subnets can you have per VPC?</h3>
+<p>You can have 200 subnets per VPC.</p>
+<hr/>
+
+<h3 class="h3">42) When EC2 officially launched?</h3>
+<p>EC2 was officially launched in 2006.</p>
+<hr/>
+
+<h3 class="h3">43) What is Amazon Elasticache?</h3>
+<p>An Amazon Elasticache is a web service allows you to easily deploy, operate, and scale an in-memory cache in the cloud. To know more about the Amazon Elasticache, click on the link given below:</p>
+<a href="https://www.javatpoint.com/aws-elasticache">Click Here</a>
+<hr/>
+
+<h3 class="h3">44) What are the types of AMI provided by AWS?</h3>
+<p>There are two types of AMI provided by AWS:</p>
+<ul class="points">
+<li><strong>Instance store backed</strong>
+<ul class="points">
+<li>An instance-store backed is an EC2 instance whose root device resides on the virtual machine's hard drive.</li>
+<li>When you create an instance, then AMI is copied to the instance.</li>
+<li>Since "<strong>instance store-backed</strong>" instances root device is stored in the virtual machine's hard drive, so you cannot stop the instance. You can only terminate the instance, and if you do so, the instance will be deleted and cannot be recovered.</li>
+<li>If the virtual machine's hard drive fails, then you can lose your data.</li>
+<li>You need to leave this <strong>instance-store</strong> instance in a running state until you are completely done with it.</li>
+<li>You will be charged from the moment when your instance is started until your instance is terminated.</li>
+</ul></li>
+<li><strong>EBS backed</strong>
+<ul class="points">
+<li>An "EBS backed" instance is an EC2 instance that uses EBS volume as a root device </li>
+<li>EBS volumes are not tied to a virtual hardware, but they are restricted to an availability zone. This means that EBS volume is moved from one machine to another machine within the same availability zone.</li>
+<li>If the virtual machine's fails, then the virtual machine can be moved to another virtual machine.</li>
+<li>The main advantage of "EBS backed" over "instance store-backed" instances is that it can be stopped. When an instance is in a stopped state, then EBS volume can be stored for a later use. The virtual machine is used for some other instance. In stopped state, you are not charged for the EBS storage.</li>
+</ul></li>
+</ul>
+<hr/>
+
+<h3 class="h3">45) What is Amazon EMR?</h3>
+<p>An Amazon EMR stands for Amazon Elastic MapReduce. It is a web service used to process the large amounts of data in a cost-effective manner. The central component of an Amazon EMR is a cluster. Each cluster is a collection of EC2 instances and an instance in a cluster is known as node. Each node has a specified role attached to it known as a node type, and an Amazon EMR installs the software components on node type.</p>
+<p><strong>Following are the node types:</strong></p>
+<img src="https://static.javatpoint.com/interview/images/aws-interview-questions5.png" alt="AWS Interview Questions"/>
+<ul class="points">
+<li><strong>Master node</strong><br>
+A master node runs the software components to distribute the tasks among other nodes in a cluster. It tracks the status of all the tasks and monitors the health of a cluster.</li>
+<li><strong>Core node</strong><br>
+A core node runs the software components to process the tasks and stores the data in Hadoop Distributed File System (HDFS). Multi-node clusters will have at least one core node.</li>
+<li><strong>Task node</strong><br>
+A task node with software components processes the task but does not store the data in HDFS. Task nodes are optional.</li>
+</ul>
+<hr/>
+
+<h3 class="h3">46) How to connect EBS volume to multiple instances?</h3>
+<p>You cannot connect the EBS volume to multiple instances. But, you can connect multiple EBS volumes to a single instance.</p>
+<hr/>
+
+<h3 class="h3">47) What is the use of lifecycle hooks in Autoscaling?</h3>
+<p>Lifecycle hooks perform custom actions by pausing instances when Autoscaling group launches or terminates an instance. When instance is paused, an instance moves in a wait state. By default, an instance remains in a wait state for 1 hour. For example, when you launch a new instance, lifecycle hooks pauses an instance. When you pause an instance, you can install a software on it or make sure that an instance is completely ready to receive the traffic.</p>
+<hr/>
+
+<h3 class="h3">48) What is Amazon Kinesis Firehose?</h3>
+<p>An Amazon Kinesis Firehose is a web service used to deliver real-time streaming data to destinations such as Amazon Simple Storage Service, Amazon Redshift, etc. To know more about Amazon Kinesis Firehose, click on the link given below:</p>
+<a href="https://www.javatpoint.com/aws-kinesis">Click Here</a>
+<hr/>
+
+<h3 class="h3">49) What is the use of Amazon Transfer Acceleration Service?</h3>
+<p>An Amazon Transfer Acceleration Service is a service that enables fast and secure transfer of data between your client and S3 bucket. To know more about Amazon Transfer Acceleration Service, click on the link given below:</p>
+<a href="https://www.javatpoint.com/aws-s3-transfer-acceleration">Click Here</a>
+<hr/>
+
+<h3 class="h3">50) How will you access the data on EBS in AWS?</h3>
+<p>EBS stands for Elastic Block Store. It is a virtual disk in a cloud that creates the storage volume and attach it to the EC2 instances. It can run the databases as well as can store the files. All the files that it store can be mounted as a file system which can be accessed directly. To know more about EBS, click on the link given below:</p>
+<a href="https://www.javatpoint.com/aws-ebs-volume">Click Here</a>
+<hr/>
+
+<h3 class="h3">51) Differences between horizontal scaling and vertical scaling?</h3>
+<p>Vertical scaling means scaling the compute power such as CPU, RAM to your existing machine while horizontal scaling means adding more machines to your server or database. Horizontal scaling means increasing the number of nodes, and distributing the tasks among different nodes.</p>
+<hr/>
+
+<br/><br/>
+
+</td></tr>
+</table>
+</div>
+<div style="margin-left:0%">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- AP_37780_300x250(0) -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4699858549023382"
+     data-ad-slot="5022809933"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</div>
+</div>
+
+<div id="right">
+
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+<br/><br/>
+
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+<br/><br/>
+<ins class="adPushupAds" data-adpControl="am3c1" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBuZXdyaWdodCAtLT4KPGlucyBjbGFzcz0iYWRzYnlnb29nbGUiCiAgICAgc3R5bGU9ImRpc3BsYXk6YmxvY2siCiAgICAgZGF0YS1hZC1jbGllbnQ9ImNhLXB1Yi00Njk5ODU4NTQ5MDIzMzgyIgogICAgIGRhdGEtYWQtc2xvdD0iNjAzNDkxMjU0MSIKICAgICBkYXRhLWFkLWZvcm1hdD0iYXV0byIKICAgICBkYXRhLWZ1bGwtd2lkdGgtcmVzcG9uc2l2ZT0idHJ1ZSI+PC9pbnM+CjxzY3JpcHQ+CihhZHNieWdvb2dsZSA9IHdpbmRvdy5hZHNieWdvb2dsZSB8fCBbXSkucHVzaCh7fSk7Cjwvc2NyaXB0Pg=="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:10px;">
+<!-- right1024only -->
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+<br/><br/><br/><br/>
+<!-- right1024only -->
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+
+</div>
+
+<div id="footer" style="clear:both;width:100%">
+<!--<div style="width:100%;float:center;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#90715c,#523b1f);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Summer Training</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers <strong>Summer Internship Training</strong> on Java, PHP, .Net, Hadoop, Data Analytics, R Programming, SAP, Android, Python, Oracle, Seleninum, Linux, C++ and many more technologies in Delhi/NCR, India. For more visit <a style="color:white" href="https://training.javatpoint.com"><img src="https://static.javatpoint.com/images/linkglobe12.png" alt="javatpoint training"/>training.javatpoint.com</a> <br>Course Fee: &#8377; 6000 Only<br>Duration: 6 Week </p></div>--><div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com. <br>Duration: 1 week to 2 week<br></p></div><!--<div class="homebox2"><h2>Our Initiatives</h2><marquee behavior="alternate"><a rel="nofollow noopener" href="https://www.hindi100.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/javatpoint.png" alt="javatpoint"/><p>Hindi100</p></div></a><a rel="nofollow noopener" href="https://www.lyricsia.com"><div class="box2"><img class="box2img" src="https://www.hindi100.com/resources/images/lyrics.png" alt="lyrics"/><p>Lyricsia</p></div></a></div></a></marquee></div>--><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed"/></a> <a target="_blank"  rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts"/></a> <a  rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page"/></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page"/></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube"/></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page"/></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="https://www.javatpoint.com/java-tutorial">Learn Java</a><a href="https://www.javatpoint.com/data-structure-tutorial">Learn Data Structures</a><a href="https://www.javatpoint.com/c-programming-language-tutorial">Learn C Programming</a><a href="https://www.javatpoint.com/cpp-tutorial">Learn C++ Tutorial</a><a href="https://www.javatpoint.com/c-sharp-tutorial">Learn C# Tutorial</a><a href="https://www.javatpoint.com/php-tutorial">Learn PHP Tutorial</a><a href="https://www.javatpoint.com/html-tutorial">Learn HTML Tutorial</a><a href="https://www.javatpoint.com/javascript-tutorial">Learn JavaScript Tutorial</a><a href="https://www.javatpoint.com/jquery-tutorial">Learn jQuery Tutorial</a><a href="https://www.javatpoint.com/spring-tutorial">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="https://www.javatpoint.com/">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="https://www.javatpoint.com/contact-us">Contact Us</a> <a href="https://www.javatpoint.com/subscribe.jsp">Subscribe Us</a> <a href="https://www.javatpoint.com/privacy-policy">Privacy Policy</a><a href="https://www.javatpoint.com/sitemap.xml">Sitemap</a><br><a href="https://www.javatpoint.com/sonoo-jaiswal">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+</div>
+
+</div></div>
+ 
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script>
+<script type="text/javascript"> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+
+</body> 
+
+<!-- Mirrored from www.javatpoint.com/aws-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 06:25:32 GMT -->
+</html>
+    

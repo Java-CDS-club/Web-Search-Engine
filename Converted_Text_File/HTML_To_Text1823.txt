@@ -1,0 +1,105 @@
+C++ multiset operator= function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ multisetC++ multiset constructor destructor begin() end() operator= rbegin() rend() cbegin() cend() max_size() size() crbegin() crend() empty() insert() clear() emplace() erase() swap() emplace_hint() find() key_comp() value_comp() count() equal_range() lower_bound() upper_bound() get_allocator() operator== operator!= operator< operator<= operator> operator>= swap()next ? ? prevC++ multiset operator=There are following three uses of operator= in multiset:operator= is used to assign new content to the multiset container by replacing its old content (or copy the content) and modifies size if necessary.operator= is used to move the content of one multiset container into another and modifies size if necessary.operator= is used to copy the elements from initializer list to multiset container.Syntaxcopy(1)      multiset& operator= (const multiset& x);                                //until C++ 11
+
+copy (1)       multiset& operator= (const multiset& x);		                 //since C++ 11
+
+move (2)        multiset& operator= (multiset&& x);                                   //since C++ 11
+
+initializer list (3)	multiset& operator= (initializer_list il);      //since C++ 11copy (1):- Copies all the elements from x into the multiset container.move (2):- Moves the contents of x into the multiset container.initializer_list (3):- Copies the elements of il into the multiset container.Parameterx: A multiset object with the same type.il: An initializer list object.Return valuethis pointer.ComplexityCopy assignment: Linear in sizes.Move assignment: Linear in current container size.Initializer list assignment: Up to logarithmic in sizes.Iterator validityAll references, iterators and pointers related to this multiset container are invalidated.Data RacesAll copied elements are accessed.The move assignment modifies x.The multiset container and all its elements are modified.Exception SafetyIf an exception is thrown, the container is in a valid state.Example 1Let's see the simple example to copy the content of one multiset to another:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+
+   multiset<int> s1 = {10,20,10,30};
+
+   cout << "Multiset s1 contains following elements" << endl;
+    for (auto it = s1.begin(); it != s1.end(); ++it)
+      cout << *it << endl;
+      
+    multiset<int> s2 = s1;  
+    cout<<"\nAfter copying the elements from s1 to s2... \n";  
+    
+    cout << "\nMultiset s2 contains following elements" << endl;
+    for (auto it = s2.begin(); it != s2.end(); ++it)
+      cout << *it<< endl; 
+
+   return 0;
+}Output:Multiset s1 contains following elements
+10
+10
+20
+30
+
+After copying the elements from s1 to s2... 
+
+Multiset s2 contains following elements
+10
+10
+20
+30In the above example, operator = is used to copy the content of one multiset s1 to another multiset s2.Example 2Let's see a simple example to move the elements of one multiset to another:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   
+   multiset<char> s1 = {'a','e','i','o','u','e','u'};
+
+      cout << "Multiset m1 contains following elements" << endl;
+    for (auto it = s1.begin(); it != s1.end(); ++it)
+      cout << *it << ", ";
+      
+    multiset<char> s2 = move(s1); 
+    cout<<"\n\nAfter moving the elements from s1 to s2... \n";  
+    
+    cout << "\nMultiset s2 contains following elements" << endl;
+    for (auto it = s2.begin(); it != s2.end(); ++it)
+      cout << *it << ", ";
+
+   return 0;
+}Output:Multiset m1 contains following elements
+a, e, e, i, o, u, u, 
+
+After moving the elements from s1 to s2... 
+
+Multiset s2 contains following elements
+a, e, e, i, o, u, u,In the above example, operator = is used to move the content of one multiset s1 to another multiset s2.Example 3Let's see a simple example to copy the content from initializer list to multiset:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main(void) {
+   multiset<int> s;
+
+   s = {100, 200, 300, 100, 300};  //initializer list
+
+   cout << "Multiset contains the following elements" << endl;
+
+   for (auto it = s.begin(); it != s.end(); ++it)
+      cout << *it << endl;
+
+   return 0;
+}Output:Multiset contains the following elements
+100
+100
+200
+300
+300In the above example, operator = is used to copy the content from initializer list to multiset m.Example 4Let's see a simple example:#include <iostream>
+#include <set>
+
+using namespace std;
+
+int  main () 
+{ 
+  int  values []  =  {  5 ,  2 ,  4 ,  1 ,  0 ,  0 ,  9  }; 
+  multiset < int >  c1 ( values ,  values  +  7 ); 
+  multiset < int >  c2 ;
+
+  c2  =  c1 ; 
+  c1  =  multiset < int > ();
+
+  cout<<  "Size Of c1:"  <<  c1 . size ()  << endl ; 
+  cout<< "Size Of c2:"  <<  c2 . size ()  << endl ; 
+}Output:Size Of c1:0
+Size Of c2:7In the above example, there are two multisets c1 and c2. c1 has 7 elements and c2 is empty, but after assigning c1 to c2, size of c1 become 0 and size of c2 become 7.Next TopicC++ multiset? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

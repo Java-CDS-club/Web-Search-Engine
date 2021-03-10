@@ -1,0 +1,61 @@
+C++ Iterators - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ TutorialC++ Tutorial C vs C++ C++ History C++ Features C++ Installation C++ Program C++ cout, cin, endl C++ Variable C++ Data types C++ Keywords C++ Operators C++ Identifiers C++ ExpressionC++ Control StatementC++ if-else C++ switch C++ For Loop C++ While Loop C++ Do-While Loop C++ Break Statement C++ Continue Statement C++ Goto Statement C++ CommentsC++ FunctionsC++ Functions Call by value & reference C++ Recursion C++ Storage ClassesC++ ArraysC++ Arrays C++ Array to Function Multidimensional ArraysC++ PointersC++ Pointers C++ References Reference vs Pointer C++ Memory ManagementC++ Object ClassC++ OOPs Concepts C++ Object Class C++ Constructor C++ Copy Constructor C++ Destructor C++ this Pointer C++ static C++ Structs C++ Enumeration C++ Friend Function C++ Math FunctionsC++ InheritanceC++ Inheritance C++ AggregationC++ PolymorphismC++ Polymorphism C++ Overloading C++ Overriding C++ Virtual FunctionC++ AbstractionC++ Interfaces C++ Data AbstractionC++ NamespacesC++ NamespacesC++ StringsC++ StringsC++ ExceptionsC++ Exception Handling C++ try/catch C++ User-DefinedC++ TemplatesC++ TemplatesSignal HandlingC++ Signal HandlingC++ File & StreamC++ File & Stream C++ getline()C++ MiscC++ vs C# C++ int to stringC++ STL TutorialC++ STL Components C++ Vector C++ Deque C++ List C++ Set C++ Stack C++ Queue C++ Priority Queue C++ Map C++ Multimap C++ Map C++ Bitset C++ AlgorithmC++ IteratorsC++ Iterators C++ Bidirectional Iterator C++ Forward Iterator C++ Input Iterator C++ Output IteratorC++ ProgramsC++Programs Fibonacci Series Prime Number Palindrome Number Factorial Armstrong Number Sum of digits Reverse Number Swap Number Matrix Multiplication Decimal to Binary Number in Characters Alphabet Triangle Number Triangle Fibonacci TriangleInterview QuestionInterview Questionnext ? ? prevC++ IteratorsIterators are just like pointers used to access the container elements.Important Points:Iterators are used to traverse from one element to another element, a process is known as iterating through the container.The main advantage of an iterator is to provide a common interface for all the containers type.Iterators make the algorithm independent of the type of the container used.Iterators provide a generic approach to navigate through the elements of a container.Syntax<ContainerType> :: iterator;
+<ContainerType> :: const_iterator;Operations Performed on the Iterators:Operator (*) : The '*' operator returns the element of the current position pointed by the iterator.Operator (++) : The '++' operator increments the iterator by one. Therefore, an iterator points to the next element of the container.Operator (==) and Operator (!=) : Both these operators determine whether the two iterators point to the same position or not.Operator (=) : The '=' operator assigns the iterator.Difference b/w Iterators & PointersIterators can be smart pointers which allow to iterate over the complex data structures. A Container provides its iterator type. Therefore, we can say that the iterators have the common interface with different container type.The container classes provide two basic member functions that allow to iterate or move through the elements of a container:begin(): The begin() function returns an iterator pointing to the first element of the container.end(): The end() function returns an iterator pointing to the past-the-last element of the container.Let's see a simple example:#include <iostream>
+#include<iterator>
+#include<vector>
+using namespace std;
+int main()
+{
+   std::vector<int> v{1,2,3,4,5};
+   vector<int>::iterator itr;
+   for(itr=v.begin();itr!=v.end();itr++)
+   {
+       std::cout << *itr <<" ";
+   }
+    return 0;
+}Output:1 2 3 4 5Iterator CategoriesAn iterator can be categorized in the following ways:Input IteratorOutput IteratorForward IteratorBidirectional IteratorRandom Access IteratorInput Iterator: An input iterator is an iterator used to access the elements from the container, but it does not modify the value of a container.Operators used for an input iterator are:Increment operator(++)Equal operator(==)Not equal operator(!=)Dereference operator(*)Output Iterator: An output iterator is an iterator used to modify the value of a container, but it does not read the value from a container. Therefore, we can say that an output iterator is a write-only iterator.Operators used for an output iterator are:Increment operator(++)Assignment operator(=)Forward Iterator: A forward iterator is an iterator used to read and write to a container. It is a multi-pass iterator.Operators used for a Forward iterator are:Increment operator(++)Assignment operator(=)Equal operator(=)Not equal operator(!=)Bidirectional iterator: A bidirectional iterator is an iterator supports all the features of a forward iterator plus it adds one more feature, i.e., decrement operator(--). We can move backward by decrementing an iterator.Operators used for a Bidirectional iterator are:Increment operator(++)Assignment operator(=)Equal operator(=)Not equal operator(!=)Decrement operator(--)Random Access Iterator: A Random Access iterator is an iterator provides random access of an element at an arbitrary location. It has all the features of a bidirectional iterator plus it adds one more feature, i.e., pointer addition and pointer subtraction to provide random access to an element.Providers Of IteratorsIterator categoriesProviderInput iteratoristreamOutput iteratorostreamForward iteratorBidirectional iteratorList, set, multiset, map, multimapRandom access iteratorVector, deque, arrayIterators and their CharacteristicsIteratorAccess methodDirection of movementI/O capabilityInputLinearForward onlyRead-onlyOutputLinearForward onlyWrite-onlyForwardLinearForward onlyRead/WriteBidirectionalLinearForward & backwardRead/WriteRandomRandomForward & backwardRead/WriteDisadvantages of iteratorIf we want to move from one data structure to another at the same time, iterators won't work.If we want to update the structure which is being iterated, an iterator won?t allow us to do because of the way it stores the position.If we want to backtrack while processing through a list, the iterator will not work in this case.Advantages of iteratorFollowing are the advantages of an iterator:Ease in programming: It is convenient to use iterators rather than using a subscript operator[] to access the elements of a container. If we use subscript operator[] to access the elements, then we need to keep the track of the number of elements added at the runtime, but this would not happen in the case of an iterator.Let's see a simple example:#include <iostream>
+#include<vector>
+#include<iterator>
+using namespace std;
+int main()
+{
+    vector<int> v{1,2,3,4,5};
+    vector<int>::iterator itr;
+    for(int i=0;i<5;i++)           // Traversal without using an iterator.
+    {
+        cout<<v[i]<<" ";
+    }
+    cout<<'\n';
+    for(itr=v.begin();itr!=v.end();itr++)  // Traversal by using an iterator.
+    {
+        cout<<*itr<<" ";
+    }
+    v.push_back(10);
+    cout<<'\n';
+     for(int i=0;i<6;i++)
+    {
+        cout<<v[i]<<" ";
+    }
+    cout<<'\n';
+     for(itr=v.begin();itr!=v.end();itr++)
+    {
+        cout<<*itr<<" ";
+    }
+     return 0;
+}Output:      1 2 3 4 5                                                                                                          
+      1 2 3 4 5                                                                                                          
+      1 2 3 4 5 10                                                                                                       
+      1 2 3 4 5 10 In the above example, we observe that if we traverse the elements of a vector without using an iterator, then we need to keep track of the number of elements added in the container.Code Reusability: A code can be reused if we use iterators. In the above example, if we replace vector with the list, and then the subscript operator[] would not work to access the elements as the list does not support the random access. However, we use iterators to access the elements, then we can also access the list elements.Dynamic Processing: C++ iterators provide the facility to add or delete the data dynamically.Let's see a simple example:#include <iostream>
+#include<vector>
+#include<iterator>
+using namespace std;
+int main()
+{
+    vector<int> v{1,2,3,4,5};  // vector declaration
+    vector<int>::iterator itr;
+    v.insert(v.begin()+1,10);      
+    for(itr=v.begin();itr!=v.end();itr++)
+    {
+        cout<<*itr<<" ";
+    }
+    return 0;
+}Output:1 10 2 3 4 5In the above example, we insert a new element at the second position by using insert() function and all other elements are shifted by one.Difference b/w Random Access Iterator and Other IteratorsThe most important difference between the Random access iterator and other iterators is that random access iterator requires '1' step to access an element while other iterators require 'n' steps.Next TopicC++ Tutorial? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

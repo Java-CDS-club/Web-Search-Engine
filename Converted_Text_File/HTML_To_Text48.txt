@@ -1,0 +1,47 @@
+ADO.Net Dataadapter - javatpoint?HomeC#ADO.NETASP.NETJavaPHPHTMLCSSJavaScriptjQueryQuizProjectsInterview QCommentForumTrainingADO.NET TutorialADO.NET Tutorial ADO.NET Introduction ADO.NET Data Providers ADO.NET SQL Server ADO.NET Connection ADO.NET Command ADO.NET DataReader ADO.NET DataSet ADO.NET DataAdapter ADO.NET DataTables ADO.NET WF Example ADO.NET MVC ExampleInterview QuestionsADO.NET InterviewC# TutorialC# Tutorial (100+)ASP.NET TutorialASP.NET Tutorial (50+)next ? ? prevADO.NET DataAdapterThe DataAdapter works as a bridge between a DataSet and a data source to retrieve data. DataAdapter is a class that represents a set of SQL commands and a database connection. It can be used to fill the DataSet and update the data source.DataAdapter Class Signaturepublic class DataAdapter : System.ComponentModel.Component, System.Data.IDataAdapterDataAdapter ConstructorsConstructorsDescriptionDataAdapter()It is used to initialize a new instance of a DataAdapter class.DataAdapter(DataAdapter)It is used to initializes a new instance of a DataAdapter class from an existing object of the same type.MethodsMethodDescriptionCloneInternals()It is used to create a copy of this instance of DataAdapter.Dispose(Boolean)It is used to release the unmanaged resources used by the DataAdapter.Fill(DataSet)It is used to add rows in the DataSet to match those in the data source.FillSchema(DataSet, SchemaType, String, IDataReader)It is used to add a DataTable to the specified DataSet.GetFillParameters()It is used to get the parameters set by the user when executing an SQL SELECT statement.ResetFillLoadOption()It is used to reset FillLoadOption to its default state.ShouldSerializeAcceptChangesDuringFill()It determines whether the AcceptChangesDuringFill property should be persisted or not.ShouldSerializeFillLoadOption()It determines whether the FillLoadOption property should be persisted or not.ShouldSerializeTableMappings()It determines whether one or more DataTableMapping objects exist or not.Update(DataSet)It is used to call the respective INSERT, UPDATE, or DELETE statements.Example// DataSetDemo.aspx<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DataSetDemo.aspx.cs" 
+Inherits="DataSetExample.DataSetDemo" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+        </div>
+        <asp:GridView ID="GridView1" runat="server" CellPadding="3" BackColor="#DEBA84" 
+		BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
+            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#FFF1D4" />
+            <SortedAscendingHeaderStyle BackColor="#B95C30" />
+            <SortedDescendingCellStyle BackColor="#F1E5CE" />
+            <SortedDescendingHeaderStyle BackColor="#93451F" />
+        </asp:GridView>
+    </form>
+</body>
+</html>CodeBehindusing System;
+using System.Data.SqlClient;
+using System.Data;
+namespace DataSetExample
+{
+    public partial class DataSetDemo : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection("data source=.; database=student; integrated security=SSPI"))
+            {
+                SqlDataAdapter sde = new SqlDataAdapter("Select * from student", con);
+                DataSet ds = new DataSet();
+                sde.Fill(ds);
+                GridView1.DataSource = ds;
+                GridView1.DataBind();
+            }
+        }
+    }
+}Output:Next TopicADO.NET DataTables? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

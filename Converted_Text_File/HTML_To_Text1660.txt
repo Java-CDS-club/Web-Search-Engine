@@ -1,0 +1,160 @@
+C++ algorithm partition() function - javatpoint?HomeCC++C#JavaPHPHTMLCSSJavaScriptjQueryXMLJSONAjaxNode.jsSQLQuizProjectsInterview QCommentForumTrainingC++ AlgorithmC++ Algorithm adjacent_find() any_of() copy() copy_if() count() count_if() equal() find() find_end() find_first_of() find_if() find_if_not() for_each() move() all_of() copy_backward() copy_n() search() is_permutation() mismatch() move_backward() none_of() search_n() swap() fill() iter_swap() replace_copy_if() replace_copy() replace_if replace() swap_ranges() transform() fill_n() generate_n() generate() remove() is_partitioned() random_shuffle() remove_copy_if() remove_copy() partition_copy() partition_point() partition() remove_if() reverse_copy() reverse() rotate_copy() rotate() shuffle() stable_partition() unique_copy() unique() is_sorted_until() is_sorted() lower_bound() nth_element() partial_sort_copy() partial_sort() sort() stable_sort() binary_search() equal_range() includes() inplace_merge() merge() set_union() upper_bound() is_heap() is_heap_until lexicographical_compare() make_heap() max() max_element() min() min_element() minmax() minmax_element() next_permutation() pop_heap() prev_permutation() set_difference() set_intersection() set_symmetric_difference() sort_heap()next ? ? prevC++ Algorithm partition()C++ Algorithm partition() function is used to make partition the elements on the basis of given predicate (condition) mentioned in its arguments. If the container is partitioned then this function returns true, else returns false.Syntaxtemplate <class BidirectionalIterator, class UnaryPredicate>
+BidirectionalIterator partition (BidirectionalIterator first,
+BidirectionalIterator last, UnaryPredicate pred);	      //until C++ 11
+
+template <class ForwardIterator, class UnaryPredicate>
+ForwardIterator partition (ForwardIterator first,
+ForwardIterator last, UnaryPredicate pred);	     //Since C++ 11Parameterfirst: An bidirectional iterator pointing to the first element in the range to be partitioned.last: An bidirectional iterator pointing to the past last element in the range to be partitioned.pred: A user-defined unary predicate function that defines the condition to be satisfied if an element is to be classified.Return valueThis function returns an iterator to the first element of the range to not satisfy the predicate condition.ComplexityComplexity is linear in the range [first, last): Applies pred to each element, and possibly swaps some of them.Data racesThe object in the range [first, last) are modified.ExceptionsThis function throws an exception if either an element swap or an operation on iterator throws an exception.Please note that invalid parameters cause an undefined behavior.Example 1Let's see the simple example to demonstrate the use of partition():#include <iostream>     // std::cout
+#include <algorithm>    // std::partition
+#include <vector>       // std::vector
+
+using namespace std;
+
+bool IsOdd (int i) { return (i%2)==1; }
+
+int main () {
+  vector<int> myvector;
+
+  // set some values:
+  for (int i=1; i<10; ++i) myvector.push_back(i); // 1 2 3 4 5 6 7 8 9
+
+  vector<int>::iterator bound;
+  bound = partition (myvector.begin(), myvector.end(), IsOdd);
+
+  // print out content:
+  cout << "odd elements:";
+  for (vector<int>::iterator it=myvector.begin(); it!=bound; ++it)
+    cout << ' ' << *it;
+  cout << '\n';
+
+  cout << "even elements:";
+  for (vector<int>::iterator it=bound; it!=myvector.end(); ++it)
+    cout << ' ' << *it;
+  cout << '\n';
+
+  return 0;
+}Output:odd elements: 1 9 3 7 5
+even elements: 6 4 8 2In the above example, elements from 1 to 9 are partitioned into even and odd elements.Example 2Let's see another simple example:#include <vector>  
+#include <algorithm>  
+#include <iostream>  
+  
+bool greater5 ( int value ) {  
+   return value >5;  
+}  
+  
+int main( ) {  
+   using namespace std;  
+   vector <int> v1, v2;  
+   vector <int>::iterator Iter1, Iter2;  
+  
+   int i;  
+   for ( i = 0 ; i <= 10 ; i++ )  
+   {  
+      v1.push_back( i );  
+   }  
+   random_shuffle( v1.begin( ), v1.end( ) );  
+  
+   cout << "Vector v1 is ( " ;  
+   for ( Iter1 = v1.begin( ) ; Iter1 != v1.end( ) ; Iter1++ )  
+      cout << *Iter1 << " ";  
+   cout << ")." << endl;  
+  
+   // Partition the range with predicate greater10  
+   partition ( v1.begin( ), v1.end( ), greater5 );  
+   cout << "The partitioned set of elements in v1 is: ( " ;  
+   for ( Iter1 = v1.begin( ) ; Iter1 != v1.end( ) ; Iter1++ )  
+      cout << *Iter1 << " ";  
+   cout << ")." << endl;  
+   
+   return 0;
+}Output:Vector v1 is ( 4 10 7 8 0 5 2 1 6 9 3 ).
+The partitioned set of elements in v1 is: ( 9 10 7 8 6 5 2 1 0 4 3 ).Example 3Let's see another simple example to quick sort the elements of vector using partition() function:#include <algorithm>
+#include <iostream>
+#include <iterator>
+#include <vector>
+#include <forward_list>
+ 
+template <class ForwardIt>
+ void quicksort(ForwardIt first, ForwardIt last)
+ {
+    if(first == last) return;
+    auto pivot = *std::next(first, std::distance(first,last)/2);
+    ForwardIt middle1 = std::partition(first, last, 
+                         [pivot](const auto& em){ return em < pivot; });
+    ForwardIt middle2 = std::partition(middle1, last, 
+                         [pivot](const auto& em){ return !(pivot < em); });
+    quicksort(first, middle1);
+    quicksort(middle2, last);
+ }
+ 
+int main()
+{
+    std::vector<int> v = {0,1,2,3,4,5,6,7,8,9};
+    std::cout << "Original vector:\n    ";
+    for(int elem : v) std::cout << elem << ' ';
+ 
+    auto it = std::partition(v.begin(), v.end(), [](int i){return i % 2 == 0;});
+ 
+    std::cout << "\nPartitioned vector:\n    ";
+    std::copy(std::begin(v), it, std::ostream_iterator<int>(std::cout, " "));
+    std::cout << " * ";
+    std::copy(it, std::end(v), std::ostream_iterator<int>(std::cout, " "));
+ 
+    std::forward_list<int> fl = {1, 30, -4, 3, 5, -4, 1, 6, -8, 2, -5, 64, 1, 92};
+    std::cout << "\nUnsorted list:\n    ";
+    for(int n : fl) std::cout << n << ' ';
+    std::cout << '\n';  
+ 
+    quicksort(std::begin(fl), std::end(fl));
+    std::cout << "Sorted using quicksort:\n    ";
+    for(int fi : fl) std::cout << fi << ' ';
+    std::cout << '\n';
+    
+    return 0;
+}Output:Original vector:
+    0 1 2 3 4 5 6 7 8 9 
+Partitioned vector:
+    0 8 2 6 4  * 5 3 7 1 9 
+Unsorted list:
+    1 30 -4 3 5 -4 1 6 -8 2 -5 64 1 92 
+Sorted using quicksort:
+    -8 -5 -4 -4 1 1 1 2 3 5 6 30 64 92Example 4Let's see another simple example:#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+  vector<int> v = {1, 2, 3, 4, 5};
+  
+  cout<<"Before Partition: ";
+    for_each(v.begin(), v.end(), [](int v) {
+   cout << v << " ";
+  });
+
+
+  auto pred = [](int x) { return x % 2 == 0; };
+
+  // Divide it into an even group and an odd group 
+  partition(v.begin(), v.end(), pred);
+  cout<<"\nAfter partition: ";
+  for_each(v.begin(), v.end(), [](int x) {
+   cout << x << " ";
+  });
+
+  cout<<"\n\nIs it partitioned?"<<endl;
+  // Is it divided into an even group and an odd group?  
+  if (is_partitioned(v.begin(), v.end(), pred)) {
+    cout << "Yes, it is partitioned" << endl;
+  }
+  else {
+    cout << "No, it is not partitioned" << endl;
+  }
+  
+  return 0;
+}Output:Before Partition: 1 2 3 4 5 
+After partition: 4 2 3 1 5 
+
+Is it partitioned?
+Yes, it is partitionedNext TopicC++ Algorithm? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

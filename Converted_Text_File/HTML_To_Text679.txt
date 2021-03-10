@@ -1,0 +1,126 @@
+Attributes in JSP Custom Tag - javatpoint?HomeCore JavaServletJSPJSTLStruts2Mail APIHibernateSpringAndroidDesign PatternQuizProjectsInterview QCommentForumJSP TutorialJSP IntroductionLife cycle of JSP JSP API JSP in EclipseJSP scripting elementsJSP scriptlet tag JSP expression tag JSP declaration tag9 Implicit ObjectsJSP Request JSP Response JSP Config JSP Application JSP Session JSP PageContext JSP Page JSP ExceptionJSP Directive ElementsJSP page directive JSP include directive JSP taglib directiveJSP ExceptionAction Elementsjsp:forward jsp:include Java Bean class jsp:useBean set & getProperty Displaying applet in JSPExpression LanguageMVC in JSPJSTLJSP Custom tagsExample of Custom Tag Attributes Iteration Custom URIJSP PaginationJSP Pagination ExampleJSP CRUDJSP CRUD ExampleDevelopment in JSPRegistration Form Login Form Uploading File Downloading FileInterview QuestionsJSP Quiznext>> <<prevAttributes in JSP Custom TagAttributes in JSP Custom TagExample to use attribute in JSP Custom TagThere can be defined too many attributes for any custom tag. To define the attribute, you need to perform two tasks:Define the property in the TagHandler class with the attribute name and define the setter methoddefine the attribute element inside the tag element in the TLD fileLet's understand the attribute by the tag given below:<m:cube number="4"></m:cube>Here m is the prefix, cube is the tag name and number is the attribute.Simple example of attribute in JSP Custom TagIn this example, we are going to use the cube tag which return the cube of any given number. Here, we are defining the number attribute for the cube tag. We are using the three file here:index.jspCubeNumber.javamytags.tldindex.jsp<%@ taglib uri="WEB-INF/mytags.tld" prefix="m" %>
+Cube of 4 is: <m:cube number="4"></m:cube>CubeNumber.javapackage com.javatpoint.taghandler;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.tagext.TagSupport;
+
+public class CubeNumber extends TagSupport{
+private int number;
+	
+public void setNumber(int number) {
+	this.number = number;
+}
+
+public int doStartTag() throws JspException {
+	JspWriter out=pageContext.getOut();
+	try{
+		out.print(number*number*number);
+	}catch(Exception e){e.printStackTrace();}
+	
+	return SKIP_BODY;
+}
+}mytags.tld
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+        PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+        "http://java.sun.com/j2ee/dtd/web-jsptaglibrary_1_2.dtd">
+
+<taglib>
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>1.2</jsp-version>
+  <short-name>simple</short-name>
+  <uri>http://tomcat.apache.org/example-taglib</uri>
+  <description>A simple tab library for the examples</description>
+
+  <tag>
+    <name>cube</name>
+    <tag-class>com.javatpoint.taghandler.CubeNumber</tag-class>
+    <attribute>
+    <name>number</name>
+    <required>true</required>
+    </attribute>
+  </tag>
+</taglib>
+
+OutputCube of 4 is: 64download this exampleJSP Custom Tag attribute example with databaseLet's create a custom tag that prints a particular record of table for the given table name and id.So, you have to have two properties in the tag handler class.PrintRecord.javapackage com.javatpoint;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.tagext.TagSupport;
+import java.sql.*;
+
+public class PrintRecord extends TagSupport{
+private String id;
+private String table;
+
+public void setId(String id) {
+	this.id = id;
+}
+public void setTable(String table) {
+	this.table = table;
+}
+
+public int doStartTag()throws JspException{
+	JspWriter out=pageContext.getOut();
+	try{ 
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection(
+                 "jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+		PreparedStatement ps=con.prepareStatement("select * from "+table+" where id=?");
+		ps.setInt(1,Integer.parseInt(id));
+		ResultSet rs=ps.executeQuery();
+		if(rs!=null){
+		ResultSetMetaData rsmd=rs.getMetaData();
+		int totalcols=rsmd.getColumnCount();
+		//column name
+		out.write("<table border='1'>");
+		out.write("<tr>");
+		for(int i=1;i<=totalcols;i++){
+			out.write("<th>"+rsmd.getColumnName(i)+"</th>");
+		}
+		out.write("</tr>");
+		//column value
+		
+		if(rs.next()){
+			out.write("<tr>");
+				for(int i=1;i<=totalcols;i++){
+				out.write("<td>"+rs.getString(i)+"</td>");
+			}
+			out.write("</tr>");
+				
+		}else{
+			out.write("Table or Id doesn't exist");
+		}
+		out.write("</table>");
+		
+		}
+		con.close();
+	}catch(Exception e){System.out.println(e);}
+	return SKIP_BODY;
+}
+}m.tld<?xml version="1.0" encoding="ISO-8859-1" ?>  
+<!DOCTYPE taglib  
+        PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"  
+    "http://java.sun.com/j2ee/dtd/web-jsptaglibrary_1_2.dtd">  
+  
+<taglib>
+
+  <tlib-version>1.2</tlib-version>
+  <jsp-version>2.0</jsp-version>
+  <short-name>c</short-name>
+  <uri>javatpoint</uri>
+
+<tag>
+<name>printRecord</name>
+<tag-class>com.javatpoint.PrintRecord</tag-class>
+<attribute>
+<name>id</name>
+<required>true</required>
+</attribute>
+<attribute>
+<name>table</name>
+<required>true</required>
+</attribute>
+
+</tag>
+</taglib>index.jsp<%@ taglib uri="javatpoint" prefix="j" %>
+<j:printRecord table="user874" id="1"></j:printRecord>Outputdownload this exampleNext TopicIteration Using Jsp Custom Tag<<prev next>>Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

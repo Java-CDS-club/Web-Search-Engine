@@ -1,0 +1,141 @@
+Java Case Keyword - Javatpoint?HomeJavaCC++C#ServletJSPEJBStruts2MailHibernateSpringAndroidDesign PQuizProjectsInterview QCommentForumTrainingJava TrainingJava TutorialWhat is Java History of Java Features of Java C++ vs Java Hello Java Program Program Internal How to set path? JDK, JRE and JVM JVM: Java Virtual Machine Java Variables Java Data Types Unicode System Operators Keywords Control StatementsJava If-else Java Switch Java For Loop Java While Loop Java Do While Loop Java Break Java Continue Java Comments Java Programs Java Object ClassJava OOPs Concepts Naming Convention Object and Class Constructor static keyword this keywordJava InheritanceInheritance(IS-A) Aggregation(HAS-A)Java PolymorphismMethod Overloading Method Overriding Covariant Return Type super keyword Instance Initializer block final keyword Runtime Polymorphism Dynamic Binding instanceof operatorJava AbstractionAbstract class Interface Abstract vs InterfaceJava EncapsulationPackage Access Modifiers EncapsulationJava ArrayJava ArrayJava OOPs MiscObject class Object Cloning Math class Wrapper Class Java Recursion Call By Value strictfp keyword javadoc tool Command Line Arg Object vs Class Overloading vs OverridingJava String Java Regex Exception Handling Java Inner classes Java Multithreading Java I/O Java Networking Java AWT & Events Java Swing JavaFX Java Applet Java Reflection Java Date Java Conversion Java Collection Java JDBC Java Misc Java New Features RMI Internationalization Interview Questions Java MCQnext ? ? prevJava case keywordThe Java case keyword is a conditional label which is used with the switch statement. It contains a block of code which is executed only when the switch value matches with the case.A switch statement can contain multiple case labels. Each case label must hold a different value. The case label can contain the break statement that terminates the flow of the execution.Note - The case does not hold the value of boolean, float and double type.Syntaxswitch(expression){    
+case value1:    
+ //code to be executed;    
+ break;  //optional  
+case value2:    
+ //code to be executed;    
+ break;  //optional  
+default:     
+ code to be executed if all cases are not matched;    
+}   Examples of Java case keywordExample 1: case label holding the string valuepublic class CaseExample1 {
+
+	public static void main(String[] args) {
+		
+		String week="Monday";
+		
+		switch(week)
+		
+		{
+		case "Monday": System.out.println("Monday");
+		
+		}
+	}
+}Test it NowOutput:MondayExample 2: Multiple case labelspublic class CaseExample2 {
+
+	public static void main(String[] args) {
+		
+		String week="Monday";
+		
+		switch(week)
+		
+		{
+		case "Monday": 
+			System.out.println("Monday");
+			break;
+		case "Tuesday":
+			System.out.println("Tuesday");
+			break;
+		case "Wednesday":
+			System.out.println("Wednesday");
+			break;
+		case "Thursday": 
+			System.out.println("Thursday");
+			break;
+		case "Friday":
+			System.out.println("Friday");
+			break;
+		case "Saturday": 
+			System.out.println("Saturday");
+			break;
+		case "Sunday":
+			System.out.println("Sunday");
+			break;
+		default :
+			System.out.println("default");
+		}
+	}
+}Test it NowOutput:MondayExample 3: case label holding an int valuepublic class CaseExample3 {
+
+	public static void main(String[] args) {
+		
+		int num=20;
+		
+		switch(num)
+		
+		{
+		case 10: 
+			System.out.println("The number is 10");
+			break;
+		case 20:
+			System.out.println("The number is 20");
+			break;
+		case 30:
+			System.out.println("The number is 30");
+			break;
+	
+		default :
+			System.out.println("default");
+		}
+	}
+}Test it NowExample 4: case label holding switch statementpublic class CaseExample4 {
+
+	public static void main(String[] args) {
+		
+		String college_name="BIT";
+		int department_id=102;
+		
+		switch(college_name)
+		
+		{
+		case "BIT": 
+			System.out.println("BIT");
+			switch(department_id)
+			{
+			case 101:
+				System.out.println("Mechanical Department");
+				break;
+			case 102:
+				System.out.println("Computer Department");
+				break;
+			case 103:
+				System.out.println("Civil Department");
+				break;
+			}
+			break;
+		case "ITS":
+			System.out.println("ITS");
+			switch(department_id)
+			{
+			case 101:
+				System.out.println("Mechanical Department");
+				break;
+			case 102:
+				System.out.println("Computer Department");
+				break;
+			case 103:
+				System.out.println("Civil Department");
+				break;
+			}
+			break;
+		case "ABS":
+			System.out.println("ABS");
+			switch(department_id)
+			{
+			case 101:
+				System.out.println("Mechanical Department");
+				break;
+			case 102:
+				System.out.println("Computer Department");
+				break;
+			case 103:
+				System.out.println("Civil Department");
+				break;
+			}
+			break;
+	
+		default :
+			System.out.println("default");
+		}
+	}
+}Test it NowOutput:BIT
+Computer DepartmentNext TopicJava Tutorial? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

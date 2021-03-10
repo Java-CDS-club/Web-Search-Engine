@@ -1,0 +1,41 @@
+CodeIgniter Driver - javatpoint?HomeCJavaPHPMySQLWordPressCodeIgniterHTMLCSSBootstrapJavaScriptjQueryjQuery UIXMLAjaxSQLQuizProjectsInterview QCommentForumTrainingCodeIgniter TutorialCodeIgniter Tutorial What is CodeIgniter CodeIgniter License CodeIgniter versions CodeIgniter Feature CodeIgniter Installation CodeIgniter File System CodeIgniter Architecture CodeIgniter MVC Models Views ControllerCodeIgniter ExampleCodeIgniter First Example CodeIgniter URL CodeIgniter Create a site CodeIgniter Methods CodeIgniter Helper CodeIgniter Library CodeIgniter URL Routing CodeIgniter Hooks CI Passing Parameters CodeIgniter DriverCodeIgniter DatabaseCodeIgniter Database CI Database Insert CI Database select CI Login Form CI Database Login FormCodeIgniter SecurityCI Security Class CI CSRFCodeIgniter InterviewCI Interview Questionsnext ? ? prevCodeIgniter DriverDrivers are introduced in CodeIgniter 2.0 and onwards.What are DriversThese are special type of library that has a parent class and many child classes. These child classes have access to the parent class, but not to their siblings. It enables you to make more elegant classes and more elegant syntax inside your controller.Drivers are found in system/libraries folder in CodeIgniter folder.Initializing DriverTo initialize a driver, write the following syntax.$this->load->driver('class_name');Here, class_name is the driver name you want to invoke.For example, to invoke a driver class main_class, do the following.$this->load->driver('main_class');To invoke its method,$this->main_class->a_method();And then child classes can be called directly through the parent class, without initializing them.$this->main_class->first_child->a_method();
+
+	$this->main_class->second_child->a_method();Creating Own DriversThere are three steps to create a driver in CodeIgniter.Making file structureMaking driver listMaking driver(s)Making file structureGo to system/libraries folder of CodeIgniter and make a new folder My_driver. Inside this folder make a file My_driver.php.Now make a new folder inside My_driver folder, name it as drivers. Inside this new folder make a file, My_driver_first_driver.php.The following file structure will be shown./libraries
+		/My_driver
+			My_driver.php
+			/drivers
+My_driver _first_driver.phpIn CodeIgniter, driver library structure is such that subclasses don?t extend and hence they don't inherit the properties or methods of the main driver (in this case it is My_driver).My_driver - it is a class.My_driver.php - Parent driverMy_driver_first_driver.php - Child driverMaking Driver ListIn the file My_driver.php in system/libraries/My_driver folder write the following code,?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+class CI_My_driver extends CI_Driver_Library
+{
+	function __construct()
+	{
+		$this->valid_drivers = array('first_driver');
+	}
+	function index()
+	{
+		echo "This is Parent Driver"; } }In the file My_driver_first_driver.php in system/libraries/My_driver/drivers write the following code,?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+class My_driver_first_driver extends CI_Driver
+{
+	function first()
+	{
+		echo "This is first Child Driver"; } } ?>Make a controller file Mydrive.php in application/controllers with the following code,?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+ 	class Mydrive extends CI_Controller
+ {
+ 	function __construct()
+    {
+    		 parent::__construct();
+ 		 $this->load->driver('my_driver');
+  	  }
+ 	public function invoke1()
+	{
+	   $this->my_driver->index();
+}
+	public function invoke2()
+	{	  
+	   $this->my_driver->first_driver->first();
+	}
+}?>
+ On your browser run the URL, http://localhost/driver/index.php/mydrive/invoke1Look at the above snapshot, the parent driver class in invoked with the function invoke1.Now run the URL, http://localhost/driver/index.php/mydrive/invoke2Look at the above snapshot, the child driver class in invoked with the function invoke2.Next TopicDatabase Configuration? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.

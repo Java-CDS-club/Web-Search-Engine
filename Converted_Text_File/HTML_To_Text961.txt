@@ -1,0 +1,85 @@
+Bash While Loop - Javatpoint?HomeJavaCBashJavaScriptXMLAjaxSQLC++C#HTMLAndroidCloudDesign PatternQuizProjectsInterview QCommentForumBash TutorialBash Tutorial What is Bash History of Bash Features of Bash Bash Scripting Filesystem & File Permission Hello World! Bash Script Relative vs Absolute path Bash Comments Bash Quotes Bash Variables Read User Input Bash Date Format Bash SleepBash OperatorsBash Arithmetic OperatorsConditional StatementsBash If Statement Bash If Else Bash Else If Bash CaseBash LoopsBash For Loop Bash While Loop Bash Until LoopBash StringBash String Bash Find String Bash Split String Bash Substring Bash Concatenate StringBash FunctionBash FunctionsBash ArrayBash ArraysMiscellaneousBash Read File Bash Write File Check if file Exists Check if Variable is Set Bash Alias Git Bash Zsh vs Bash Bash Hash Commandnext ? ? prevBash While LoopIn this topic, we have demonstrated how to use while loop statement in Bash Script.The bash while loop can be defined as a control flow statement which allows executing the given set of commands repeatedly as long as the applied condition evaluates to true. For example, we can either run echo command many times or just read a text file line by line and process the result by using while loop in Bash.Syntax of Bash While LoopBash while loop has the following format:while [ expression ];
+do
+commands;
+multiple commands;
+doneThe above syntax is applicable only if the expression contains a single condition.If there are multiple conditions to include in the expression, then the syntax of the while loop will be as follows:while [ expressions ];
+do
+commands;
+multiple commands;
+doneThe while loop one-liner syntax can be defined as:while [ condition ]; do commands; done
+while control-command; do Commands; doneThere are some key points of 'while loop' statement:The condition is checked before executing the commands.The 'while' loop is also capable of performing all the work as for 'loop' can do.The commands between 'do' and 'done' are repeatedly executed as long as the condition evaluates to true.The arguments for a 'while' loop can be a boolean expression.How it worksThe while loop is a restricted entry loop. It means that the condition is checked before executing the commands of the while loop. If the condition evaluates to true, the set of commands following that condition are executed. Otherwise, the loop is terminated, and the program control is given to the other command following the 'done' statement.Bash While Loop ExamplesFollowing are some examples of bash while loop:While Loop with Single ConditionIn this example, the while loop is used with a single condition in expression. It is the basic example of while loop which will print series of numbers as per user input:Example#!/bin/bash
+#Script to get specified numbers
+
+read -p "Enter starting number: " snum
+read -p "Enter ending number: " enum
+
+while [[ $snum -le $enum ]];
+do
+echo $snum
+((snum++))
+done
+
+echo "This is the sequence that you wanted."OutputWhile Loop with Multiple ConditionsFollowing is an example of while loop with multiple conditions in the expression:Example#!/bin/bash
+#Script to get specified numbers
+
+read -p "Enter starting number: " snum
+read -p "Enter ending number: " enum
+
+while [[ $snum -lt $enum || $snum == $enum ]];
+do
+echo $snum
+((snum++))
+done
+
+echo "This is the sequence that you wanted."OutputInfinite While LoopAn infinite loop is a loop that has no ending or termination. If the condition always evaluates to true, it creates an infinite loop. The loop will execute continuously until it is forcefully stopped using CTRL+C :Example#!/bin/bash
+#An infinite while loop
+
+while :
+do
+echo "Welcome to Javatpoint."
+doneWe can also write the above script in a single line as:#!/bin/bash
+#An infinite while loop
+
+while :; do echo "Welcome to Javatpoint."; doneOutputHere, we have used the built-in command (:) which always return true. We can also use the built-in command true to create an infinite loop just as below:Example#!/bin/bash
+#An infinite while loop
+
+while true
+do
+echo "Welcome to Javatpoint"
+doneThis bash script will also provide the same output as an above infinite script.Note: Infinite loops can be terminated by using CTRL+C or by adding some conditional exit within the script.While Loop with a Break StatementA break statement can be used to stop the loop as per the applied condition. For example:Example#!/bin/bash
+#While Loop Example with a Break Statement
+
+echo "Countdown for Website Launching..."
+i=10
+while [ $i -ge 1 ]
+do
+if [ $i == 2 ]
+then
+	echo "Mission Aborted, Some Technical Error Found."
+	break
+fi
+echo "$i"
+(( i-- ))
+doneOutputAccording to the script, the loop is assigned to iterate for ten times. But there is a condition after eight times of iteration which will break the iteration and terminate the loop. The following output will be shown after executing the script.While Loop with a Continue StatementA continue statement can be used to skip the iteration for a specific condition inside the while loop.Example#!/bin/bash
+#While Loop Example with a Continue Statement
+
+i=0
+while [ $i -le 10 ]
+do
+((i++))
+if [[ "$i" == 5 ]];
+then
+	continue
+fi
+echo "Current Number : $i"
+done
+
+echo "Skipped number 5 using Continue Statement."OutputWhile Loop with C-StyleWe can also write while loop in bash script as similar as a while loop in C programming language.Example#!/bin/bash
+#While loop example in C style
+
+i=1
+while((i = 10))
+do
+echo $i
+let i++
+doneOutputConclusionIn this topic, we discussed how to use while loop statement in Bash to perform specific tasks.Next TopicBash Until Loop? prev next ?Help Others, Please ShareLearn Latest TutorialsOpenpyxlTallyGodotSpring BootGradleUMLANNES6FlutterSelenium PyFirebaseCobolPreparationAptitudeReasoningVerbal A.InterviewCompanyTrending TechnologiesAIAWSSeleniumCloudHadoopReactJSD. ScienceAngular 7BlockchainGitMLDevOpsB.Tech / MCADBMSDSDAAOSC. NetworkCompiler D.COAD. Math.E. HackingC. GraphicsSoftware E.Web Tech.Cyber Sec.AutomataCC++Java.NetPythonProgramsControl S.Data MiningJavatpoint ServicesJavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.Website DesigningWebsite DevelopmentJava DevelopmentPHP DevelopmentWordPressGraphic DesigningLogoDigital MarketingOn Page and Off Page SEOPPCContent DevelopmentCorporate TrainingClassroom and Online TrainingData EntryTraining For College CampusJavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.Duration: 1 week to 2 weekLike/Subscribe us for latest updates or newsletter Learn TutorialsLearn JavaLearn Data StructuresLearn C ProgrammingLearn C++ TutorialLearn C# TutorialLearn PHP TutorialLearn HTML TutorialLearn JavaScript TutorialLearn jQuery TutorialLearn Spring TutorialOur WebsitesJavatpoint.comHindi100.comLyricsia.comQuoteperson.comJobandplacement.comOur ServicesWebsite DevelopmentAndroid DevelopmentWebsite DesigningDigital MarketingSummer TrainingIndustrial TrainingCollege Campus TrainingContactAddress: G-13, 2nd Floor, Sec-3Noida, UP, 201301, IndiaContact No: 0120-4256464, 9990449935Contact Us Subscribe Us Privacy PolicySitemapAbout Me© Copyright 2011-2018 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.
